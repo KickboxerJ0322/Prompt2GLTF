@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Generated binary outputs (large files, regenerated on demand)
+generated/prompt2gltf/model.glb
+generated/prompt2gltf/model.bin
+generated/prompt2gltf/model.gltf
+
+# Claude local settings
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db

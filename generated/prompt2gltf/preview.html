@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Prompt2GLTF Preview</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #0f1115; color: #fff; font-family: sans-serif; overflow: hidden; }
+    #ui {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 20;
+      background: rgba(0,0,0,.58);
+      padding: 12px 14px;
+      border-radius: 12px;
+      min-width: 260px;
+      line-height: 1.5;
+    }
+    #status { font-size: 13px; opacity: .92; }
+    #hint { font-size: 12px; opacity: .75; margin-top: 6px; }
+    #c { width: 100vw; height: 100vh; display: block; }
+    code { color: #bfe1ff; }
+  </style>
+</head>
+<body>
+  <div id="ui">
+    <div><strong>Prompt2GLTF Preview</strong></div>
+    <div id="status">Loading model.glb...</div>
+    <div id="hint">If the model is blank, open via a local server (not <code>file://</code>)</div>
+  </div>
+  <canvas id="c"></canvas>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module">
+    import * as THREE from "three";
+    import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+    import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+
+    const statusEl = document.getElementById("status");
+    const canvas = document.getElementById("c");
+
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x0f1115);
+    // Fog is set dynamically after model loads (see frameObject)
+
+    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 10000);
+    camera.position.set(120, 120, 180);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.target.set(0, 50, 0);
+    controls.update();
+
+    scene.add(new THREE.HemisphereLight(0xffffff, 0x223344, 1.8));
+    const dir1 = new THREE.DirectionalLight(0xffffff, 2.4);
+    dir1.position.set(180, 260, 140);
+    scene.add(dir1);
+    const dir2 = new THREE.DirectionalLight(0x88aaff, 1.1);
+    dir2.position.set(-120, 90, -160);
+    scene.add(dir2);
+
+    scene.add(new THREE.GridHelper(500, 50, 0x4a5666, 0x25303d));
+
+    const ground = new THREE.Mesh(
+      new THREE.PlaneGeometry(600, 600),
+      new THREE.MeshStandardMaterial({ color: 0x161a20, roughness: 0.95, metalness: 0.02 })
+    );
+    ground.rotation.x = -Math.PI / 2;
+    ground.position.y = -0.02;
+    scene.add(ground);
+
+    function resize() {
+      renderer.setSize(window.innerWidth, window.innerHeight, false);
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    function frameObject(object) {
+      const box = new THREE.Box3().setFromObject(object);
+      const size = new THREE.Vector3();
+      const center = new THREE.Vector3();
+      box.getSize(size);
+      box.getCenter(center);
+      object.position.x -= center.x;
+      object.position.y -= box.min.y;
+      object.position.z -= center.z;
+      const maxDim = Math.max(size.x, size.y, size.z);
+      const dist = Math.max(60, maxDim * 1.8);
+      camera.near = Math.max(0.1, maxDim / 500);
+      camera.far = Math.max(1000, maxDim * 20);
+      camera.updateProjectionMatrix();
+      // Set fog proportional to model scale so tall/large models are never obscured
+      scene.fog = new THREE.Fog(0x0f1115, dist * 2.0, dist * 8.0);
+      camera.position.set(dist * 0.72, size.y * 0.62 + dist * 0.22, dist);
+      controls.target.set(0, size.y * 0.42, 0);
+      controls.update();
+    }
+
+    const loader = new GLTFLoader();
+    loader.load(
+      "./model.glb",
+      (gltf) => {
+        try {
+          scene.add(gltf.scene);
+          frameObject(gltf.scene);
+          statusEl.textContent = "model.glb loaded ";
+        } catch (e) {
+          statusEl.textContent = "Display error: " + e.message;
+          console.error(e);
+        }
+      },
+      (evt) => {
+        statusEl.textContent = evt.total
+          ? "Loading... " + Math.round((evt.loaded / evt.total) * 100) + "%"
+          : "Loading... " + Math.round(evt.loaded / 1024) + " KB";
+      },
+      (err) => {
+        console.error(err);
+        statusEl.textContent = "Load failed: " + (err.message || err);
+      }
+    );
+
+    function render() {
+      controls.update();
+      renderer.render(scene, camera);
+      requestAnimationFrame(render);
+    }
+    render();
+  </script>
+</body>
+</html>

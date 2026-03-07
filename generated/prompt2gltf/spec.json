@@ -1,0 +1,955 @@
+{
+  "meta": {
+    "name": "giant_100m_モアイ像",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "Prompt2GLTF",
+    "generatedFrom": "モアイ像",
+    "createdAt": "2026-03-07T13:33:01.693Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "モアイ像",
+    "normalizedSubject": "giant",
+    "targetHeightMeters": 100,
+    "styleTags": [
+      "mythic_colossus"
+    ],
+    "geometryDirective": "Use mixed primitives (box/cylinder/sphere/tri_prism); represent curved real-world forms with rounded geometry.",
+    "summary": "Generated from prompt as a giant with high-density procedural spec.",
+    "designIntent": {
+      "scaleImpression": "extreme_colossal",
+      "mood": "majestic",
+      "originalityPolicy": "generalized_original_design"
+    },
+    "archetype": "moai"
+  },
+  "globalScale": {
+    "height": 8.5,
+    "width": 2.8,
+    "depth": 1.8,
+    "type": "moai_easter_island"
+  },
+  "style": {
+    "silhouette": "moai_monolithic_stone_statue",
+    "mood": "mythic",
+    "genre": "mythic_fantasy",
+    "detailDensity": "ultra_high",
+    "bodyLanguage": "standing_guardian",
+    "shapeLanguage": [
+      "vertical_mass",
+      "heavy_shoulder_blocks",
+      "layered_armor",
+      "spine_details",
+      "crown_like_head_features"
+    ]
+  },
+  "proportions": {
+    "headToBody": 0.1176,
+    "shoulderWidthRatio": 1.62,
+    "armLengthRatio": 1.14,
+    "legLengthRatio": 1.28,
+    "footLengthRatio": 0.115,
+    "handSizeRatio": 0.06
+  },
+  "silhouettePlan": {
+    "headScale": 0.92,
+    "neckThickness": 1.15,
+    "chestDepth": 1.08,
+    "waistTaper": 0.82,
+    "pelvisWidth": 1.06,
+    "thighMass": 1.18,
+    "shinMass": 1.12,
+    "forearmMass": 1.1
+  },
+  "materials": {
+    "stone_main": {
+      "baseColor": "#6A6460",
+      "roughness": 0.94,
+      "metalness": 0.02
+    },
+    "stone_dark": {
+      "baseColor": "#3E3A38",
+      "roughness": 0.96,
+      "metalness": 0.01
+    },
+    "stone_face": {
+      "baseColor": "#7A7470",
+      "roughness": 0.9,
+      "metalness": 0.03
+    },
+    "pukao": {
+      "baseColor": "#7A3028",
+      "roughness": 0.88,
+      "metalness": 0.04
+    },
+    "ahu_stone": {
+      "baseColor": "#4E4A48",
+      "roughness": 0.97,
+      "metalness": 0.01
+    },
+    "lichen": {
+      "baseColor": "#5A6840",
+      "roughness": 0.95,
+      "metalness": 0.01
+    }
+  },
+  "skeletonPlan": {
+    "root": "pelvis",
+    "chains": {
+      "spine": [
+        "pelvis",
+        "abdomen",
+        "lower_chest",
+        "upper_chest",
+        "neck",
+        "head"
+      ],
+      "leftArm": [
+        "left_shoulder",
+        "left_upper_arm",
+        "left_forearm",
+        "left_hand"
+      ],
+      "rightArm": [
+        "right_shoulder",
+        "right_upper_arm",
+        "right_forearm",
+        "right_hand"
+      ],
+      "leftLeg": [
+        "left_thigh",
+        "left_shin",
+        "left_foot"
+      ],
+      "rightLeg": [
+        "right_thigh",
+        "right_shin",
+        "right_foot"
+      ]
+    }
+  },
+  "parts": [
+    {
+      "id": "ahu_base",
+      "kind": "box",
+      "size": [
+        5,
+        0.8,
+        4
+      ],
+      "position": [
+        0,
+        0.4,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "ahu_stone"
+    },
+    {
+      "id": "ahu_step",
+      "kind": "box",
+      "size": [
+        3.8,
+        0.4,
+        3
+      ],
+      "position": [
+        0,
+        1,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "ahu_stone"
+    },
+    {
+      "id": "torso_lower",
+      "kind": "box",
+      "size": [
+        1.8,
+        1.8,
+        1.2
+      ],
+      "position": [
+        0,
+        2.1,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_main"
+    },
+    {
+      "id": "torso_upper",
+      "kind": "box",
+      "size": [
+        2,
+        1.6,
+        1.4
+      ],
+      "position": [
+        0,
+        3.7,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_main"
+    },
+    {
+      "id": "chest_ridge",
+      "kind": "box",
+      "size": [
+        1.6,
+        0.38,
+        0.14
+      ],
+      "position": [
+        0,
+        4.2,
+        0.72
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_face"
+    },
+    {
+      "id": "belly_band",
+      "kind": "box",
+      "size": [
+        2.1,
+        0.28,
+        1.4
+      ],
+      "position": [
+        0,
+        2.7,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_face"
+    },
+    {
+      "id": "arm_L",
+      "kind": "box",
+      "size": [
+        0.42,
+        2,
+        0.55
+      ],
+      "position": [
+        -1.26,
+        2.8,
+        0.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_main"
+    },
+    {
+      "id": "arm_R",
+      "kind": "box",
+      "size": [
+        0.42,
+        2,
+        0.55
+      ],
+      "position": [
+        1.26,
+        2.8,
+        0.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_main"
+    },
+    {
+      "id": "hand_L",
+      "kind": "box",
+      "size": [
+        0.5,
+        0.38,
+        0.72
+      ],
+      "position": [
+        -0.65,
+        1.72,
+        0.52
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_face"
+    },
+    {
+      "id": "hand_R",
+      "kind": "box",
+      "size": [
+        0.5,
+        0.38,
+        0.72
+      ],
+      "position": [
+        0.65,
+        1.72,
+        0.52
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_face"
+    },
+    {
+      "id": "neck",
+      "kind": "box",
+      "size": [
+        1,
+        0.5,
+        0.9
+      ],
+      "position": [
+        0,
+        4.9,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_main"
+    },
+    {
+      "id": "head_main",
+      "kind": "box",
+      "size": [
+        1.8,
+        2.4,
+        1.5
+      ],
+      "position": [
+        0,
+        6.25,
+        -0.1
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_main"
+    },
+    {
+      "id": "head_crown",
+      "kind": "box",
+      "size": [
+        1.6,
+        0.48,
+        1.3
+      ],
+      "position": [
+        0,
+        7.55,
+        -0.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_dark"
+    },
+    {
+      "id": "brow_ridge",
+      "kind": "box",
+      "size": [
+        2,
+        0.44,
+        0.28
+      ],
+      "position": [
+        0,
+        7.04,
+        0.72
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_dark"
+    },
+    {
+      "id": "nose_bridge",
+      "kind": "box",
+      "size": [
+        0.58,
+        1.1,
+        0.42
+      ],
+      "position": [
+        0,
+        6.22,
+        0.82
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_face"
+    },
+    {
+      "id": "nose_base",
+      "kind": "box",
+      "size": [
+        0.8,
+        0.34,
+        0.48
+      ],
+      "position": [
+        0,
+        5.7,
+        0.84
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_face"
+    },
+    {
+      "id": "nose_tip_L",
+      "kind": "box",
+      "size": [
+        0.28,
+        0.22,
+        0.28
+      ],
+      "position": [
+        -0.32,
+        5.6,
+        0.96
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_face"
+    },
+    {
+      "id": "nose_tip_R",
+      "kind": "box",
+      "size": [
+        0.28,
+        0.22,
+        0.28
+      ],
+      "position": [
+        0.32,
+        5.6,
+        0.96
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_face"
+    },
+    {
+      "id": "eye_socket_L",
+      "kind": "box",
+      "size": [
+        0.44,
+        0.3,
+        0.2
+      ],
+      "position": [
+        -0.52,
+        6.92,
+        0.84
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_dark"
+    },
+    {
+      "id": "eye_socket_R",
+      "kind": "box",
+      "size": [
+        0.44,
+        0.3,
+        0.2
+      ],
+      "position": [
+        0.52,
+        6.92,
+        0.84
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_dark"
+    },
+    {
+      "id": "lip_upper",
+      "kind": "box",
+      "size": [
+        0.7,
+        0.18,
+        0.26
+      ],
+      "position": [
+        0,
+        5.46,
+        0.86
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_dark"
+    },
+    {
+      "id": "lip_lower",
+      "kind": "box",
+      "size": [
+        0.7,
+        0.16,
+        0.22
+      ],
+      "position": [
+        0,
+        5.26,
+        0.82
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_main"
+    },
+    {
+      "id": "chin",
+      "kind": "box",
+      "size": [
+        0.85,
+        0.45,
+        0.5
+      ],
+      "position": [
+        0,
+        4.98,
+        0.62
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_main"
+    },
+    {
+      "id": "ear_L",
+      "kind": "box",
+      "size": [
+        0.22,
+        1.2,
+        0.42
+      ],
+      "position": [
+        -0.99,
+        6.2,
+        0.05
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_main"
+    },
+    {
+      "id": "ear_R",
+      "kind": "box",
+      "size": [
+        0.22,
+        1.2,
+        0.42
+      ],
+      "position": [
+        0.99,
+        6.2,
+        0.05
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_main"
+    },
+    {
+      "id": "lobe_L",
+      "kind": "box",
+      "size": [
+        0.3,
+        0.34,
+        0.35
+      ],
+      "position": [
+        -0.98,
+        5.42,
+        0.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_face"
+    },
+    {
+      "id": "lobe_R",
+      "kind": "box",
+      "size": [
+        0.3,
+        0.34,
+        0.35
+      ],
+      "position": [
+        0.98,
+        5.42,
+        0.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_face"
+    },
+    {
+      "id": "pukao",
+      "kind": "cylinder",
+      "size": [
+        1,
+        0.7,
+        1
+      ],
+      "position": [
+        0,
+        8.15,
+        -0.1
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "pukao"
+    },
+    {
+      "id": "back_carving_U",
+      "kind": "box",
+      "size": [
+        1.5,
+        0.1,
+        0.4
+      ],
+      "position": [
+        0,
+        4.52,
+        -0.78
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_dark"
+    },
+    {
+      "id": "back_carving_L",
+      "kind": "box",
+      "size": [
+        1.3,
+        0.1,
+        0.4
+      ],
+      "position": [
+        0,
+        3.42,
+        -0.65
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_dark"
+    },
+    {
+      "id": "lichen_1",
+      "kind": "box",
+      "size": [
+        0.8,
+        0.06,
+        0.6
+      ],
+      "position": [
+        -0.5,
+        5.02,
+        0.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "lichen"
+    },
+    {
+      "id": "lichen_2",
+      "kind": "box",
+      "size": [
+        0.6,
+        0.06,
+        0.5
+      ],
+      "position": [
+        0.3,
+        3.24,
+        -0.68
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "lichen"
+    },
+    {
+      "id": "lichen_3",
+      "kind": "box",
+      "size": [
+        0.4,
+        0.06,
+        0.4
+      ],
+      "position": [
+        -0.6,
+        6.8,
+        -0.76
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "lichen"
+    }
+  ],
+  "surfaceDetails": [
+    {
+      "id": "sd_face",
+      "region": "face",
+      "type": "carved_line",
+      "strength": 0.14,
+      "offset": [
+        -0.01,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "sd_brow_area",
+      "region": "brow_area",
+      "type": "edge_bead",
+      "strength": 0.18,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "sd_stone_texture",
+      "region": "stone_texture",
+      "type": "roughness",
+      "strength": 0.22,
+      "offset": [
+        0.01,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "sd_nose_surface",
+      "region": "nose_surface",
+      "type": "carve_relief",
+      "strength": 0.26,
+      "offset": [
+        -0.01,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "sd_ear_surface",
+      "region": "ear_surface",
+      "type": "carved_line",
+      "strength": 0.3,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "sd_torso_front",
+      "region": "torso_front",
+      "type": "panel_line",
+      "strength": 0.14,
+      "offset": [
+        0.01,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "sd_ahu_surface",
+      "region": "ahu_surface",
+      "type": "roughness",
+      "strength": 0.18,
+      "offset": [
+        -0.01,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "sd_back",
+      "region": "back",
+      "type": "erosion",
+      "strength": 0.22,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "sd_crown_top",
+      "region": "crown_top",
+      "type": "roughness",
+      "strength": 0.26,
+      "offset": [
+        0.01,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "sd_belly",
+      "region": "belly",
+      "type": "carved_line",
+      "strength": 0.3,
+      "offset": [
+        -0.01,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "sd_lichen_area",
+      "region": "lichen_area",
+      "type": "paint_wear",
+      "strength": 0.14,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "sd_eye_hollow",
+      "region": "eye_hollow",
+      "type": "carve_relief",
+      "strength": 0.18,
+      "offset": [
+        0.01,
+        0,
+        0
+      ]
+    }
+  ],
+  "ornaments": [],
+  "pose": {
+    "preset": "idle_guardian",
+    "headPitchDeg": -4,
+    "headYawDeg": 0,
+    "leftArmYawDeg": 4,
+    "rightArmYawDeg": -4,
+    "chestTiltDeg": 1,
+    "leftFootYawDeg": 3,
+    "rightFootYawDeg": -3
+  },
+  "animationHints": {
+    "idleBreathScale": 0.008,
+    "eyeGlowPulse": true,
+    "capeReady": false
+  },
+  "lod": {
+    "high": "full",
+    "medium": "remove_micro_ornaments",
+    "low": "merge_secondary_plates"
+  },
+  "exportOptions": {
+    "formats": [
+      "gltf",
+      "glb"
+    ],
+    "previewHtml": true
+  }
+}
