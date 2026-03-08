@@ -1,0 +1,542 @@
+{
+  "meta": {
+    "name": "structure_48m_大規模データセンター",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "Prompt2GLTF",
+    "generatedFrom": "大規模データセンター",
+    "createdAt": "2026-03-08T13:50:37.700Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "大規模データセンター",
+    "normalizedSubject": "structure",
+    "targetHeightMeters": 48,
+    "styleTags": [
+      "datacenter"
+    ],
+    "geometryDirective": "Use mixed primitives (box/cylinder/sphere/tri_prism); represent curved real-world forms with rounded geometry.",
+    "summary": "Generated from prompt as a structure with high-density procedural spec.",
+    "designIntent": {
+      "scaleImpression": "very_large",
+      "mood": "majestic",
+      "originalityPolicy": "generalized_original_design"
+    },
+    "structureType": "data_center"
+  },
+  "globalScale": {
+    "height": 48,
+    "width": 38.4,
+    "depth": 38.4
+  },
+  "style": {
+    "silhouette": "data_center",
+    "mood": "functional",
+    "genre": "infrastructure",
+    "detailDensity": "high"
+  },
+  "materials": {
+    "trunk": {
+      "baseColor": "#6B3E22",
+      "roughness": 0.9,
+      "metalness": 0.02
+    },
+    "foliage": {
+      "baseColor": "#3E6E3A",
+      "roughness": 0.92,
+      "metalness": 0.01
+    },
+    "steel": {
+      "baseColor": "#6A727A",
+      "roughness": 0.44,
+      "metalness": 0.84
+    },
+    "concrete": {
+      "baseColor": "#A8ACA6",
+      "roughness": 0.92,
+      "metalness": 0.04
+    },
+    "asphalt": {
+      "baseColor": "#2C2E33",
+      "roughness": 0.95,
+      "metalness": 0.02
+    },
+    "signal_red": {
+      "baseColor": "#FF3B2F",
+      "roughness": 0.1,
+      "metalness": 0,
+      "emissive": "#FF3B2F"
+    },
+    "signal_yellow": {
+      "baseColor": "#FFC20A",
+      "roughness": 0.1,
+      "metalness": 0,
+      "emissive": "#FFC20A"
+    },
+    "signal_green": {
+      "baseColor": "#1CCD5E",
+      "roughness": 0.1,
+      "metalness": 0,
+      "emissive": "#1CCD5E"
+    },
+    "accent": {
+      "baseColor": "#6A60A8",
+      "roughness": 0.4,
+      "metalness": 0.5
+    },
+    "glass": {
+      "baseColor": "#6EA0C6",
+      "roughness": 0.15,
+      "metalness": 0.84
+    }
+  },
+  "parts": [
+    {
+      "id": "main_hall",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        43.2,
+        28.8,
+        26.88
+      ],
+      "position": [
+        0,
+        14.4,
+        0
+      ]
+    },
+    {
+      "id": "annex",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        20.16,
+        22.08,
+        20.16
+      ],
+      "position": [
+        24.96,
+        11.04,
+        0
+      ]
+    },
+    {
+      "id": "rack_1",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        3.36,
+        11.52,
+        5.76
+      ],
+      "position": [
+        -11.52,
+        6.72,
+        6.72
+      ]
+    },
+    {
+      "id": "rack_2",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        3.36,
+        11.52,
+        5.76
+      ],
+      "position": [
+        -8.16,
+        6.72,
+        6.72
+      ]
+    },
+    {
+      "id": "rack_3",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        3.36,
+        11.52,
+        5.76
+      ],
+      "position": [
+        -4.8,
+        6.72,
+        6.72
+      ]
+    },
+    {
+      "id": "rack_4",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        3.36,
+        11.52,
+        5.76
+      ],
+      "position": [
+        -1.44,
+        6.72,
+        6.72
+      ]
+    },
+    {
+      "id": "rack_5",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        3.36,
+        11.52,
+        5.76
+      ],
+      "position": [
+        1.92,
+        6.72,
+        6.72
+      ]
+    },
+    {
+      "id": "rack_6",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        3.36,
+        11.52,
+        5.76
+      ],
+      "position": [
+        5.28,
+        6.72,
+        6.72
+      ]
+    },
+    {
+      "id": "rack_7",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        3.36,
+        11.52,
+        5.76
+      ],
+      "position": [
+        8.64,
+        6.72,
+        6.72
+      ]
+    },
+    {
+      "id": "rack_8",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        3.36,
+        11.52,
+        5.76
+      ],
+      "position": [
+        12,
+        6.72,
+        6.72
+      ]
+    },
+    {
+      "id": "cooling_tower",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        7.68,
+        19.2,
+        7.68
+      ],
+      "position": [
+        -23.04,
+        9.6,
+        0
+      ]
+    }
+  ],
+  "surfaceDetails": [
+    {
+      "id": "surface_detail_1",
+      "region": "base",
+      "type": "panel_seam",
+      "strength": 0.12,
+      "offset": [
+        0,
+        0.012,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_2",
+      "region": "base",
+      "type": "bolt_pattern",
+      "strength": 0.18,
+      "offset": [
+        0.0108,
+        0.0105,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_3",
+      "region": "base",
+      "type": "weathering",
+      "strength": 0.24,
+      "offset": [
+        0.015,
+        0.0065,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_4",
+      "region": "base",
+      "type": "utility_mark",
+      "strength": 0.12,
+      "offset": [
+        0.0101,
+        0.0008,
+        0.015
+      ]
+    },
+    {
+      "id": "surface_detail_5",
+      "region": "base",
+      "type": "panel_seam",
+      "strength": 0.18,
+      "offset": [
+        -0.0009,
+        -0.005,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_6",
+      "region": "base",
+      "type": "bolt_pattern",
+      "strength": 0.24,
+      "offset": [
+        -0.0114,
+        -0.0096,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_7",
+      "region": "structure",
+      "type": "panel_seam",
+      "strength": 0.12,
+      "offset": [
+        0,
+        0.012,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_8",
+      "region": "structure",
+      "type": "bolt_pattern",
+      "strength": 0.18,
+      "offset": [
+        0.0108,
+        0.0105,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_9",
+      "region": "structure",
+      "type": "weathering",
+      "strength": 0.24,
+      "offset": [
+        0.015,
+        0.0065,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_10",
+      "region": "structure",
+      "type": "utility_mark",
+      "strength": 0.12,
+      "offset": [
+        0.0101,
+        0.0008,
+        0.015
+      ]
+    },
+    {
+      "id": "surface_detail_11",
+      "region": "structure",
+      "type": "panel_seam",
+      "strength": 0.18,
+      "offset": [
+        -0.0009,
+        -0.005,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_12",
+      "region": "structure",
+      "type": "bolt_pattern",
+      "strength": 0.24,
+      "offset": [
+        -0.0114,
+        -0.0096,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_13",
+      "region": "details",
+      "type": "panel_seam",
+      "strength": 0.12,
+      "offset": [
+        0,
+        0.012,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_14",
+      "region": "details",
+      "type": "bolt_pattern",
+      "strength": 0.18,
+      "offset": [
+        0.0108,
+        0.0105,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_15",
+      "region": "details",
+      "type": "weathering",
+      "strength": 0.24,
+      "offset": [
+        0.015,
+        0.0065,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_16",
+      "region": "details",
+      "type": "utility_mark",
+      "strength": 0.12,
+      "offset": [
+        0.0101,
+        0.0008,
+        0.015
+      ]
+    },
+    {
+      "id": "surface_detail_17",
+      "region": "details",
+      "type": "panel_seam",
+      "strength": 0.18,
+      "offset": [
+        -0.0009,
+        -0.005,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_18",
+      "region": "details",
+      "type": "bolt_pattern",
+      "strength": 0.24,
+      "offset": [
+        -0.0114,
+        -0.0096,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_19",
+      "region": "access",
+      "type": "panel_seam",
+      "strength": 0.12,
+      "offset": [
+        0,
+        0.012,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_20",
+      "region": "access",
+      "type": "bolt_pattern",
+      "strength": 0.18,
+      "offset": [
+        0.0108,
+        0.0105,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_21",
+      "region": "access",
+      "type": "weathering",
+      "strength": 0.24,
+      "offset": [
+        0.015,
+        0.0065,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_22",
+      "region": "access",
+      "type": "utility_mark",
+      "strength": 0.12,
+      "offset": [
+        0.0101,
+        0.0008,
+        0.015
+      ]
+    },
+    {
+      "id": "surface_detail_23",
+      "region": "access",
+      "type": "panel_seam",
+      "strength": 0.18,
+      "offset": [
+        -0.0009,
+        -0.005,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_24",
+      "region": "access",
+      "type": "bolt_pattern",
+      "strength": 0.24,
+      "offset": [
+        -0.0114,
+        -0.0096,
+        -0.005
+      ]
+    }
+  ],
+  "ornaments": [],
+  "pose": {
+    "preset": "static"
+  },
+  "animationHints": {},
+  "lod": {
+    "high": "full",
+    "medium": "reduce_repetition",
+    "low": "merge_parts"
+  },
+  "exportOptions": {
+    "formats": [
+      "gltf",
+      "glb"
+    ],
+    "previewHtml": true
+  }
+}

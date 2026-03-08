@@ -1,0 +1,1820 @@
+{
+  "meta": {
+    "name": "tower_300m_通天閣風タワー",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "Prompt2GLTF",
+    "generatedFrom": "通天閣風タワー",
+    "createdAt": "2026-03-08T13:45:00.682Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "通天閣風タワー",
+    "normalizedSubject": "tower",
+    "targetHeightMeters": 300,
+    "styleTags": [
+      "modern_lattice"
+    ],
+    "geometryDirective": "Use mixed primitives (box/cylinder/sphere/tri_prism); represent curved real-world forms with rounded geometry.",
+    "summary": "Generated from prompt as a tower with high-density procedural spec.",
+    "designIntent": {
+      "scaleImpression": "extreme_colossal",
+      "mood": "majestic",
+      "originalityPolicy": "generalized_original_design"
+    }
+  },
+  "globalScale": {
+    "height": 300,
+    "width": 114,
+    "depth": 114
+  },
+  "style": {
+    "silhouette": "four_leg_lattice_observation_tower",
+    "mood": "festive_civic",
+    "genre": "retro_observation_tower",
+    "detailDensity": "high",
+    "bodyLanguage": "vertical_spire",
+    "shapeLanguage": [
+      "four_leg_base",
+      "cylindrical_deck",
+      "neon_signs",
+      "antenna_spire"
+    ]
+  },
+  "materials": {
+    "body_main": {
+      "baseColor": "#EAE6DA",
+      "roughness": 0.5,
+      "metalness": 0.12
+    },
+    "steel_frame": {
+      "baseColor": "#3C4045",
+      "roughness": 0.38,
+      "metalness": 0.9
+    },
+    "concrete": {
+      "baseColor": "#B8BAB2",
+      "roughness": 0.9,
+      "metalness": 0.04
+    },
+    "glass": {
+      "baseColor": "#7BAED6",
+      "roughness": 0.12,
+      "metalness": 0.88
+    },
+    "spire_tip": {
+      "baseColor": "#D0D8DC",
+      "roughness": 0.22,
+      "metalness": 0.96
+    },
+    "gold_trim": {
+      "baseColor": "#D4A820",
+      "roughness": 0.28,
+      "metalness": 0.9
+    },
+    "neon_red": {
+      "baseColor": "#FF2040",
+      "roughness": 0.08,
+      "metalness": 0,
+      "emissive": "#FF2040"
+    },
+    "neon_blue": {
+      "baseColor": "#2060FF",
+      "roughness": 0.08,
+      "metalness": 0,
+      "emissive": "#2060FF"
+    },
+    "neon_yellow": {
+      "baseColor": "#FFD020",
+      "roughness": 0.08,
+      "metalness": 0,
+      "emissive": "#FFD020"
+    },
+    "neon_green": {
+      "baseColor": "#20E060",
+      "roughness": 0.08,
+      "metalness": 0,
+      "emissive": "#20E060"
+    }
+  },
+  "parts": [
+    {
+      "id": "base_platform",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        120,
+        6,
+        120
+      ],
+      "position": [
+        0,
+        3,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "base_inner",
+      "kind": "cylinder",
+      "material": "body_main",
+      "size": [
+        48,
+        18,
+        48
+      ],
+      "position": [
+        0,
+        15,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "arcade_col_0",
+      "kind": "cylinder",
+      "material": "body_main",
+      "size": [
+        7.5,
+        15,
+        7.5
+      ],
+      "position": [
+        51,
+        12,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "arcade_col_1",
+      "kind": "cylinder",
+      "material": "body_main",
+      "size": [
+        7.5,
+        15,
+        7.5
+      ],
+      "position": [
+        36.0624,
+        12,
+        36.0624
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "arcade_col_2",
+      "kind": "cylinder",
+      "material": "body_main",
+      "size": [
+        7.5,
+        15,
+        7.5
+      ],
+      "position": [
+        0,
+        12,
+        51
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "arcade_col_3",
+      "kind": "cylinder",
+      "material": "body_main",
+      "size": [
+        7.5,
+        15,
+        7.5
+      ],
+      "position": [
+        -36.0624,
+        12,
+        36.0624
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "arcade_col_4",
+      "kind": "cylinder",
+      "material": "body_main",
+      "size": [
+        7.5,
+        15,
+        7.5
+      ],
+      "position": [
+        -51,
+        12,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "arcade_col_5",
+      "kind": "cylinder",
+      "material": "body_main",
+      "size": [
+        7.5,
+        15,
+        7.5
+      ],
+      "position": [
+        -36.0624,
+        12,
+        -36.0624
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "arcade_col_6",
+      "kind": "cylinder",
+      "material": "body_main",
+      "size": [
+        7.5,
+        15,
+        7.5
+      ],
+      "position": [
+        0,
+        12,
+        -51
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "arcade_col_7",
+      "kind": "cylinder",
+      "material": "body_main",
+      "size": [
+        7.5,
+        15,
+        7.5
+      ],
+      "position": [
+        36.0624,
+        12,
+        -36.0624
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "arcade_ring",
+      "kind": "cylinder",
+      "material": "gold_trim",
+      "size": [
+        114,
+        2.4,
+        114
+      ],
+      "position": [
+        0,
+        18,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_1_1",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        5.7,
+        16.605,
+        5.7
+      ],
+      "position": [
+        2.2539,
+        124.3125,
+        2.2539
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_1_2",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        6.3,
+        16.605,
+        6.3
+      ],
+      "position": [
+        6.7617,
+        108.9375,
+        6.7617
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_1_3",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        6.9,
+        16.605,
+        6.9
+      ],
+      "position": [
+        11.2695,
+        93.5625,
+        11.2695
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_1_4",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        7.5,
+        16.605,
+        7.5
+      ],
+      "position": [
+        15.7773,
+        78.1875,
+        15.7773
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_1_5",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        8.1,
+        16.605,
+        8.1
+      ],
+      "position": [
+        20.2851,
+        62.8125,
+        20.2851
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_1_6",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        8.7,
+        16.605,
+        8.7
+      ],
+      "position": [
+        24.7929,
+        47.4375,
+        24.7929
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_1_7",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        9.3,
+        16.605,
+        9.3
+      ],
+      "position": [
+        29.3007,
+        32.0625,
+        29.3007
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_1_8",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        9.9,
+        16.605,
+        9.9
+      ],
+      "position": [
+        33.8085,
+        16.6875,
+        33.8085
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "brace_1_6",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        62.2897,
+        2.1,
+        2.1
+      ],
+      "position": [
+        0,
+        18,
+        31.1448
+      ],
+      "rotation": [
+        0,
+        -180,
+        0
+      ]
+    },
+    {
+      "id": "brace_1_18",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        42.6193,
+        2.1,
+        2.1
+      ],
+      "position": [
+        0,
+        54,
+        21.3096
+      ],
+      "rotation": [
+        0,
+        -180,
+        0
+      ]
+    },
+    {
+      "id": "brace_1_30",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        22.9488,
+        2.1,
+        2.1
+      ],
+      "position": [
+        0,
+        90,
+        11.4744
+      ],
+      "rotation": [
+        0,
+        -180,
+        0
+      ]
+    },
+    {
+      "id": "leg_2_1",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        5.7,
+        16.605,
+        5.7
+      ],
+      "position": [
+        -2.2539,
+        124.3125,
+        2.2539
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_2_2",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        6.3,
+        16.605,
+        6.3
+      ],
+      "position": [
+        -6.7617,
+        108.9375,
+        6.7617
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_2_3",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        6.9,
+        16.605,
+        6.9
+      ],
+      "position": [
+        -11.2695,
+        93.5625,
+        11.2695
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_2_4",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        7.5,
+        16.605,
+        7.5
+      ],
+      "position": [
+        -15.7773,
+        78.1875,
+        15.7773
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_2_5",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        8.1,
+        16.605,
+        8.1
+      ],
+      "position": [
+        -20.2851,
+        62.8125,
+        20.2851
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_2_6",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        8.7,
+        16.605,
+        8.7
+      ],
+      "position": [
+        -24.7929,
+        47.4375,
+        24.7929
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_2_7",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        9.3,
+        16.605,
+        9.3
+      ],
+      "position": [
+        -29.3007,
+        32.0625,
+        29.3007
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_2_8",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        9.9,
+        16.605,
+        9.9
+      ],
+      "position": [
+        -33.8085,
+        16.6875,
+        33.8085
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "brace_2_6",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        62.2897,
+        2.1,
+        2.1
+      ],
+      "position": [
+        -31.1448,
+        18,
+        0
+      ],
+      "rotation": [
+        0,
+        90,
+        0
+      ]
+    },
+    {
+      "id": "brace_2_18",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        42.6193,
+        2.1,
+        2.1
+      ],
+      "position": [
+        -21.3096,
+        54,
+        0
+      ],
+      "rotation": [
+        0,
+        90,
+        0
+      ]
+    },
+    {
+      "id": "brace_2_30",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        22.9488,
+        2.1,
+        2.1
+      ],
+      "position": [
+        -11.4744,
+        90,
+        0
+      ],
+      "rotation": [
+        0,
+        90,
+        0
+      ]
+    },
+    {
+      "id": "leg_3_1",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        5.7,
+        16.605,
+        5.7
+      ],
+      "position": [
+        -2.2539,
+        124.3125,
+        -2.2539
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_3_2",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        6.3,
+        16.605,
+        6.3
+      ],
+      "position": [
+        -6.7617,
+        108.9375,
+        -6.7617
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_3_3",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        6.9,
+        16.605,
+        6.9
+      ],
+      "position": [
+        -11.2695,
+        93.5625,
+        -11.2695
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_3_4",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        7.5,
+        16.605,
+        7.5
+      ],
+      "position": [
+        -15.7773,
+        78.1875,
+        -15.7773
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_3_5",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        8.1,
+        16.605,
+        8.1
+      ],
+      "position": [
+        -20.2851,
+        62.8125,
+        -20.2851
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_3_6",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        8.7,
+        16.605,
+        8.7
+      ],
+      "position": [
+        -24.7929,
+        47.4375,
+        -24.7929
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_3_7",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        9.3,
+        16.605,
+        9.3
+      ],
+      "position": [
+        -29.3007,
+        32.0625,
+        -29.3007
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_3_8",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        9.9,
+        16.605,
+        9.9
+      ],
+      "position": [
+        -33.8085,
+        16.6875,
+        -33.8085
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "brace_3_6",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        62.2897,
+        2.1,
+        2.1
+      ],
+      "position": [
+        0,
+        18,
+        -31.1448
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "brace_3_18",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        42.6193,
+        2.1,
+        2.1
+      ],
+      "position": [
+        0,
+        54,
+        -21.3096
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "brace_3_30",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        22.9488,
+        2.1,
+        2.1
+      ],
+      "position": [
+        0,
+        90,
+        -11.4744
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_4_1",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        5.7,
+        16.605,
+        5.7
+      ],
+      "position": [
+        2.2539,
+        124.3125,
+        -2.2539
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_4_2",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        6.3,
+        16.605,
+        6.3
+      ],
+      "position": [
+        6.7617,
+        108.9375,
+        -6.7617
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_4_3",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        6.9,
+        16.605,
+        6.9
+      ],
+      "position": [
+        11.2695,
+        93.5625,
+        -11.2695
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_4_4",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        7.5,
+        16.605,
+        7.5
+      ],
+      "position": [
+        15.7773,
+        78.1875,
+        -15.7773
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_4_5",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        8.1,
+        16.605,
+        8.1
+      ],
+      "position": [
+        20.2851,
+        62.8125,
+        -20.2851
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_4_6",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        8.7,
+        16.605,
+        8.7
+      ],
+      "position": [
+        24.7929,
+        47.4375,
+        -24.7929
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_4_7",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        9.3,
+        16.605,
+        9.3
+      ],
+      "position": [
+        29.3007,
+        32.0625,
+        -29.3007
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_4_8",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        9.9,
+        16.605,
+        9.9
+      ],
+      "position": [
+        33.8085,
+        16.6875,
+        -33.8085
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "brace_4_6",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        62.2897,
+        2.1,
+        2.1
+      ],
+      "position": [
+        31.1448,
+        18,
+        0
+      ],
+      "rotation": [
+        0,
+        -90,
+        0
+      ]
+    },
+    {
+      "id": "brace_4_18",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        42.6193,
+        2.1,
+        2.1
+      ],
+      "position": [
+        21.3096,
+        54,
+        0
+      ],
+      "rotation": [
+        0,
+        -90,
+        0
+      ]
+    },
+    {
+      "id": "brace_4_30",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        22.9488,
+        2.1,
+        2.1
+      ],
+      "position": [
+        11.4744,
+        90,
+        0
+      ],
+      "rotation": [
+        0,
+        -90,
+        0
+      ]
+    },
+    {
+      "id": "shaft_lower",
+      "kind": "cylinder",
+      "material": "body_main",
+      "size": [
+        30,
+        30,
+        30
+      ],
+      "position": [
+        0,
+        144,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "mid_deck_body",
+      "kind": "cylinder",
+      "material": "body_main",
+      "size": [
+        72,
+        42,
+        72
+      ],
+      "position": [
+        0,
+        168,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "mid_deck_ring_lo",
+      "kind": "cylinder",
+      "material": "gold_trim",
+      "size": [
+        78,
+        4.8,
+        78
+      ],
+      "position": [
+        0,
+        150,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "mid_deck_ring_hi",
+      "kind": "cylinder",
+      "material": "gold_trim",
+      "size": [
+        78,
+        4.8,
+        78
+      ],
+      "position": [
+        0,
+        189,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "mid_deck_glass",
+      "kind": "cylinder",
+      "material": "glass",
+      "size": [
+        60,
+        24,
+        60
+      ],
+      "position": [
+        0,
+        168,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "neon_sign_1",
+      "kind": "box",
+      "material": "neon_red",
+      "size": [
+        42,
+        18,
+        4.2
+      ],
+      "position": [
+        0,
+        168,
+        39
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "neon_sign_2",
+      "kind": "box",
+      "material": "neon_blue",
+      "size": [
+        42,
+        18,
+        4.2
+      ],
+      "position": [
+        39,
+        168,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "neon_sign_3",
+      "kind": "box",
+      "material": "neon_yellow",
+      "size": [
+        42,
+        18,
+        4.2
+      ],
+      "position": [
+        0,
+        168,
+        -39
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "neon_sign_4",
+      "kind": "box",
+      "material": "neon_green",
+      "size": [
+        42,
+        18,
+        4.2
+      ],
+      "position": [
+        -39,
+        168,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "shaft_upper",
+      "kind": "cylinder",
+      "material": "body_main",
+      "size": [
+        24,
+        24,
+        24
+      ],
+      "position": [
+        0,
+        210,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "upper_obs_body",
+      "kind": "cylinder",
+      "material": "body_main",
+      "size": [
+        54,
+        30,
+        54
+      ],
+      "position": [
+        0,
+        237,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "upper_obs_ring",
+      "kind": "cylinder",
+      "material": "gold_trim",
+      "size": [
+        60,
+        3.6,
+        60
+      ],
+      "position": [
+        0,
+        225,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "upper_obs_top",
+      "kind": "cylinder",
+      "material": "gold_trim",
+      "size": [
+        60,
+        3.6,
+        60
+      ],
+      "position": [
+        0,
+        252,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "upper_obs_glass",
+      "kind": "cylinder",
+      "material": "glass",
+      "size": [
+        42,
+        21,
+        42
+      ],
+      "position": [
+        0,
+        237,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "upper_neon_N",
+      "kind": "box",
+      "material": "neon_red",
+      "size": [
+        24,
+        9,
+        3.6
+      ],
+      "position": [
+        0,
+        240,
+        28.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "upper_neon_S",
+      "kind": "box",
+      "material": "neon_blue",
+      "size": [
+        24,
+        9,
+        3.6
+      ],
+      "position": [
+        0,
+        240,
+        -28.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "spire_base",
+      "kind": "box",
+      "material": "body_main",
+      "size": [
+        18,
+        24,
+        18
+      ],
+      "position": [
+        0,
+        264,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "spire_mid",
+      "kind": "box",
+      "material": "spire_tip",
+      "size": [
+        9,
+        18,
+        9
+      ],
+      "position": [
+        0,
+        279,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "spire_top",
+      "kind": "box",
+      "material": "spire_tip",
+      "size": [
+        4.2,
+        18,
+        4.2
+      ],
+      "position": [
+        0,
+        291,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "surfaceDetails": [
+    {
+      "id": "sd_1",
+      "region": "structure",
+      "type": "panel_seam",
+      "strength": 0.15,
+      "offset": [
+        0,
+        0.014,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_2",
+      "region": "structure",
+      "type": "weathering",
+      "strength": 0.2,
+      "offset": [
+        0.0116,
+        0.0116,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_3",
+      "region": "structure",
+      "type": "trim_line",
+      "strength": 0.25,
+      "offset": [
+        0.0177,
+        0.0051,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_4",
+      "region": "structure",
+      "type": "window_grid",
+      "strength": 0.3,
+      "offset": [
+        0.0155,
+        -0.0032,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_5",
+      "region": "structure",
+      "type": "panel_seam",
+      "strength": 0.35,
+      "offset": [
+        0.006,
+        -0.0103,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_6",
+      "region": "structure",
+      "type": "weathering",
+      "strength": 0.15,
+      "offset": [
+        -0.0063,
+        -0.0139,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_7",
+      "region": "structure",
+      "type": "trim_line",
+      "strength": 0.2,
+      "offset": [
+        -0.0157,
+        -0.0126,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_8",
+      "region": "structure",
+      "type": "window_grid",
+      "strength": 0.25,
+      "offset": [
+        -0.0177,
+        -0.0069,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_9",
+      "region": "deck",
+      "type": "panel_seam",
+      "strength": 0.3,
+      "offset": [
+        -0.0114,
+        0.0012,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_10",
+      "region": "deck",
+      "type": "weathering",
+      "strength": 0.35,
+      "offset": [
+        0.0003,
+        0.0089,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_11",
+      "region": "deck",
+      "type": "trim_line",
+      "strength": 0.15,
+      "offset": [
+        0.0118,
+        0.0134,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_12",
+      "region": "deck",
+      "type": "window_grid",
+      "strength": 0.2,
+      "offset": [
+        0.0178,
+        0.0133,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_13",
+      "region": "deck",
+      "type": "panel_seam",
+      "strength": 0.25,
+      "offset": [
+        0.0154,
+        0.0085,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_14",
+      "region": "deck",
+      "type": "weathering",
+      "strength": 0.3,
+      "offset": [
+        0.0057,
+        0.0008,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_15",
+      "region": "spire",
+      "type": "trim_line",
+      "strength": 0.35,
+      "offset": [
+        -0.0066,
+        -0.0073,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_16",
+      "region": "spire",
+      "type": "window_grid",
+      "strength": 0.15,
+      "offset": [
+        -0.0158,
+        -0.0128,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_17",
+      "region": "spire",
+      "type": "panel_seam",
+      "strength": 0.2,
+      "offset": [
+        -0.0176,
+        -0.0138,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_18",
+      "region": "spire",
+      "type": "weathering",
+      "strength": 0.25,
+      "offset": [
+        -0.0111,
+        -0.01,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_19",
+      "region": "spire",
+      "type": "trim_line",
+      "strength": 0.3,
+      "offset": [
+        0.0006,
+        -0.0027,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_20",
+      "region": "spire",
+      "type": "window_grid",
+      "strength": 0.35,
+      "offset": [
+        0.0121,
+        0.0055,
+        0.015
+      ]
+    }
+  ],
+  "ornaments": [],
+  "pose": {
+    "preset": "static"
+  },
+  "animationHints": {},
+  "lod": {
+    "high": "full",
+    "medium": "remove_neon",
+    "low": "merge_legs"
+  },
+  "exportOptions": {
+    "formats": [
+      "gltf",
+      "glb"
+    ],
+    "previewHtml": true
+  }
+}

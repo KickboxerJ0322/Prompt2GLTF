@@ -9,8 +9,8 @@ import {
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const PROJECT_ROOT = path.resolve(__dirname, "../../..");
-const OUTPUT_DIR = path.join(PROJECT_ROOT, "generated", "prompt2gltf");
+const PLUGIN_ROOT = path.resolve(__dirname, "..");
+const OUTPUT_DIR  = path.join(PLUGIN_ROOT, "generated");
 
 function getArg(name) {
   const idx = process.argv.indexOf(name);
@@ -189,6 +189,13 @@ function inferHeightMeters(prompt, subject) {
     prompt.match(/(\d+)\s*\u30e1\u30fc\u30c8\u30eb/u) ||
     prompt.match(/(\d+)\s*\u7c73/u);
   if (meterM) return Number(meterM[1]);
+
+  // Hospital bed count → approximate floors → height (≈40 beds/floor, 4.5m/floor)
+  const bedM = prompt.match(/(\d+)\s*(?:\u5e8a|\u30d9\u30c3\u30c9|beds?)/iu);
+  if (bedM && subject === "building") {
+    const floors = Math.max(3, Math.min(15, Math.ceil(Number(bedM[1]) / 40)));
+    return Math.round(floors * 4.5);
+  }
 
   const entry = SUBJECT_REGISTRY.find((r) => r.id === subject);
   return entry ? entry.defaultHeight(prompt) : 60;
@@ -823,21 +830,22 @@ function buildGiantSpec(prompt, height, styles) {
         `${hand}_finger_${i + 1}`,
         "box",
         [H * 0.006, H * 0.02, H * 0.006],
-        [sx * H * 0.16 + dx, H * 0.215, H * 0.016],
+        [sx * H * 0.16 + dx, H * 0.23, H * 0.016],
         "armor_secondary"
       );
     }
   }
 
   // Legs
-  pushPart("left_thigh", "box", [H * 0.06, H * 0.19, H * 0.06], [-H * 0.05, H * 0.26, 0], "body_main");
-  pushPart("right_thigh", "box", [H * 0.06, H * 0.19, H * 0.06], [H * 0.05, H * 0.26, 0], "body_main");
-  pushPart("left_knee_guard", "box", [H * 0.07, H * 0.03, H * 0.07], [-H * 0.05, H * 0.15, H * 0.01], "accent");
-  pushPart("right_knee_guard", "box", [H * 0.07, H * 0.03, H * 0.07], [H * 0.05, H * 0.15, H * 0.01], "accent");
-  pushPart("left_shin", "box", [H * 0.055, H * 0.18, H * 0.055], [-H * 0.05, H * 0.07, 0], "armor_main");
-  pushPart("right_shin", "box", [H * 0.055, H * 0.18, H * 0.055], [H * 0.05, H * 0.07, 0], "armor_main");
-  pushPart("left_foot", "box", [H * 0.08, H * 0.03, H * 0.12], [-H * 0.05, H * 0.01, H * 0.02], "armor_secondary");
-  pushPart("right_foot", "box", [H * 0.08, H * 0.03, H * 0.12], [H * 0.05, H * 0.01, H * 0.02], "armor_secondary");
+  // Legs — shin bottom set to Y=0 (ground). shin center=H*0.09, foot center=H*0.025
+  pushPart("left_thigh",      "box", [H * 0.06,  H * 0.19, H * 0.06],  [-H * 0.05, H * 0.26,  0],        "body_main");
+  pushPart("right_thigh",     "box", [H * 0.06,  H * 0.19, H * 0.06],  [ H * 0.05, H * 0.26,  0],        "body_main");
+  pushPart("left_knee_guard", "box", [H * 0.07,  H * 0.03, H * 0.07],  [-H * 0.05, H * 0.175, H * 0.01], "accent");
+  pushPart("right_knee_guard","box", [H * 0.07,  H * 0.03, H * 0.07],  [ H * 0.05, H * 0.175, H * 0.01], "accent");
+  pushPart("left_shin",       "box", [H * 0.055, H * 0.18, H * 0.055], [-H * 0.05, H * 0.09,  0],        "armor_main");
+  pushPart("right_shin",      "box", [H * 0.055, H * 0.18, H * 0.055], [ H * 0.05, H * 0.09,  0],        "armor_main");
+  pushPart("left_foot",       "box", [H * 0.08,  H * 0.03, H * 0.12],  [-H * 0.05, H * 0.025, H * 0.02], "armor_secondary");
+  pushPart("right_foot",      "box", [H * 0.08,  H * 0.03, H * 0.12],  [ H * 0.05, H * 0.025, H * 0.02], "armor_secondary");
 
   // Toes
   for (let foot of ["left", "right"]) {
@@ -847,7 +855,7 @@ function buildGiantSpec(prompt, height, styles) {
         `${foot}_toe_${i + 1}`,
         "box",
         [H * 0.014, H * 0.012, H * 0.03],
-        [sx * H * (0.032 + i * 0.012), H * 0.003, H * 0.075],
+        [sx * H * (0.032 + i * 0.012), H * 0.018, H * 0.075],
         "dark_accent"
       );
     }
@@ -937,7 +945,7 @@ function buildGiantSpec(prompt, height, styles) {
         `${sideName}_shin_band_${i + 1}`,
         "box",
         [H * 0.06, H * 0.003, H * 0.06],
-        [sx * H * 0.05, H * (0.01 + i * 0.0055), 0],
+        [sx * H * 0.05, H * (0.025 + i * 0.0055), 0],
         i % 2 === 0 ? "armor_secondary" : "dark_accent"
       );
     }
@@ -1043,38 +1051,38 @@ function buildGiantSpec(prompt, height, styles) {
   // Grip (handle)
   pushPart("sword_grip", "box",
     [H*0.018, H*0.10, H*0.018],
-    [H*0.16, H*0.16, H*0.025],
+    [H*0.16, H*0.24, H*0.025],
     "dark_accent");
   // Pommel
   pushPart("sword_pommel", "box",
     [H*0.028, H*0.025, H*0.028],
-    [H*0.16, H*0.10, H*0.025],
+    [H*0.16, H*0.19, H*0.025],
     "accent");
   // Cross-guard
   pushPart("sword_guard", "box",
     [H*0.09, H*0.018, H*0.022],
-    [H*0.16, H*0.22, H*0.025],
+    [H*0.16, H*0.30, H*0.025],
     "armor_main");
   // Blade lower
   pushPart("sword_blade_lower", "box",
-    [H*0.024, H*0.18, H*0.008],
-    [H*0.16, H*0.34, H*0.025],
+    [H*0.024, H*0.14, H*0.008],
+    [H*0.16, H*0.38, H*0.025],
     "armor_secondary");
   // Blade upper
   pushPart("sword_blade_upper", "box",
-    [H*0.018, H*0.18, H*0.006],
+    [H*0.016, H*0.12, H*0.006],
     [H*0.16, H*0.51, H*0.025],
     "armor_secondary");
   // Blade tip
   pushPart("sword_blade_tip", "box",
-    [H*0.010, H*0.06, H*0.005],
-    [H*0.16, H*0.63, H*0.025],
+    [H*0.008, H*0.06, H*0.005],
+    [H*0.16, H*0.60, H*0.025],
     "accent");
   // Blade fuller (center ridge)
   pushPart("sword_fuller", "box",
-    [H*0.004, H*0.32, H*0.004],
-    [H*0.16, H*0.42, H*0.025],
-    "emissive_eye");
+    [H*0.004, H*0.26, H*0.004],
+    [H*0.16, H*0.46, H*0.025],
+    "armor_secondary");
 
   // Surface detail metadata
   const regions = [
@@ -1901,6 +1909,13 @@ function buildAirshipSpec(prompt, height, styles) {
 }
 
 function classifyBuildingArchetype(prompt) {
+  // Japanese religious / traditional architecture
+  if (/kinkaku|golden.?pavilion|\u91d1\u95a3|\u91d1\u95a3\u5bfa/iu.test(prompt)) return "temple_kinkaku";
+  if (/ginkaku|\u9280\u95a3|\u9280\u95a3\u5bfa/iu.test(prompt)) return "temple_ginkaku";
+  if (/pagoda|\u4e94\u91cd\u5854|\u4e09\u91cd\u5854/iu.test(prompt)) return "temple_pagoda";
+  if (/shrine|\u795e\u793e|\u9d25\u5c45/iu.test(prompt)) return "shrine_jp";
+  if (/temple|\u5bfa|\u5bfa\u9662|\u4eee\u6bbf|\u91d1\u95a3/iu.test(prompt)) return "temple_jp";
+
   // Facility buildings (check before generic residential to avoid misclassification)
   if (/hospital|clinic|\u75c5\u9662|\u8a3a\u7642\u6240/iu.test(prompt)) return "facility_hospital";
   if (/police.?station|\u8b66\u5bdf\u7f72/iu.test(prompt)) return "facility_police";
@@ -1921,6 +1936,7 @@ function classifyBuildingArchetype(prompt) {
   if (/\u5927\u90b8\u5b85|mansion|estate|villa/u.test(prompt)) return "mansion_estate";
   if (/apartment|\u30a2\u30d1\u30fc\u30c8/u.test(prompt)) return "apartment_mid";
   if (/campus|university|college|\u5927\u5b66|\u30ad\u30e3\u30f3\u30d1\u30b9|\u6821\u820e/iu.test(prompt)) return "campus";
+  if (/roppongi.?hills|\u516d\u672c\u6728\u30d2\u30eb\u30ba|skyscraper|supertall|high.?rise|\u8d85\u9ad8\u5c64\u30d3\u30eb|\u30bf\u30ef\u30fc\u30d3\u30eb|\u8d85\u9ad8\u5c64/iu.test(prompt)) return "skyscraper";
   return "building_generic";
 }
 
@@ -1970,6 +1986,13 @@ function buildBuildingSpec(prompt, height, styles) {
     mansion_estate:{ w: 1.10, d: 0.72, body: 0.72, roof: 0.22 },
     building_generic:  { w: 0.48, d: 0.40, body: 0.80, roof: 0.14 },
     campus:            { w: 5.60, d: 4.40, body: 0.78, roof: 0.04 },
+    skyscraper:        { w: 0.28, d: 0.24, body: 0.90, roof: 0.04 },
+    // Japanese traditional
+    temple_kinkaku:    { w: 0.55, d: 0.42, body: 0.72, roof: 0.18 },
+    temple_ginkaku:    { w: 0.45, d: 0.38, body: 0.68, roof: 0.22 },
+    temple_pagoda:     { w: 0.28, d: 0.28, body: 0.80, roof: 0.14 },
+    temple_jp:         { w: 0.90, d: 0.60, body: 0.68, roof: 0.26 },
+    shrine_jp:         { w: 0.80, d: 0.55, body: 0.65, roof: 0.28 },
     // Facility buildings
     facility_hospital: { w: 1.20, d: 0.80, body: 0.82, roof: 0.06 },
     facility_police:   { w: 0.90, d: 0.60, body: 0.80, roof: 0.08 },
@@ -2132,6 +2155,240 @@ function buildBuildingSpec(prompt, height, styles) {
     return spec;
   }
 
+  // ── Japanese temple / shrine archetypes ────────────────────────────────────
+  if (archetype === "temple_kinkaku" || archetype === "temple_ginkaku" || archetype === "temple_pagoda" || archetype === "temple_jp" || archetype === "shrine_jp") {
+    const isKinkaku = archetype === "temple_kinkaku";
+    const isGinkaku = archetype === "temple_ginkaku";
+    const isPagoda  = archetype === "temple_pagoda";
+    const isShrine  = archetype === "shrine_jp";
+
+    // Materials
+    const goldColor  = "#D4A820";
+    const silverColor= "#C0C8C0";
+    spec.materials = {
+      wall_main:    { baseColor: isKinkaku ? goldColor : isGinkaku ? silverColor : "#C8C0A8", roughness: isKinkaku ? 0.25 : 0.55, metalness: isKinkaku ? 0.88 : isGinkaku ? 0.60 : 0.04 },
+      wall_dark:    { baseColor: "#3A2410", roughness: 0.90, metalness: 0.02 },
+      lacquer_red:  { baseColor: "#8B1A0A", roughness: 0.62, metalness: 0.08 },
+      lacquer_dark: { baseColor: "#3A0E08", roughness: 0.70, metalness: 0.06 },
+      roof_tile:    { baseColor: isKinkaku ? "#1E2820" : "#3A3840", roughness: 0.80, metalness: 0.12 },
+      roof_copper:  { baseColor: "#4A8060", roughness: 0.55, metalness: 0.60 },
+      gold:         { baseColor: goldColor, roughness: 0.22, metalness: 0.92 },
+      silver:       { baseColor: silverColor, roughness: 0.28, metalness: 0.86 },
+      wood_main:    { baseColor: "#6B3E22", roughness: 0.88, metalness: 0.03 },
+      wood_dark:    { baseColor: "#3A2010", roughness: 0.92, metalness: 0.02 },
+      stone_base:   { baseColor: "#8A8680", roughness: 0.94, metalness: 0.03 },
+      pond_water:   { baseColor: "#2A5070", roughness: 0.08, metalness: 0.80 },
+      sand_gravel:  { baseColor: "#C8C0A0", roughness: 0.96, metalness: 0.01 },
+      pine_green:   { baseColor: "#2A4820", roughness: 0.92, metalness: 0.01 },
+      torii_orange: { baseColor: "#CC4010", roughness: 0.60, metalness: 0.08 }
+    };
+
+    // ── Kinkaku-ji (Golden Pavilion) ─────────────────────────────────────────
+    if (isKinkaku) {
+      // Ground layout: building entrance faces +z direction
+      // Kyoko-chi (mirror pond) sits in front (+z), stone path connects entrance to pond
+      const pondZ = depth * 2.8;
+      box("pond",          "pond_water",  width*3.60, H*0.010, depth*3.20, 0, -H*0.005, pondZ);
+      box("pond_rim",      "stone_base",  width*3.68, H*0.016, depth*3.28, 0,  H*0.008, pondZ);
+      box("stone_path",    "sand_gravel", width*0.36, H*0.012, depth*1.40, 0,  H*0.006, depth*1.10);
+      box("garden_gravel", "sand_gravel", width*2.80, H*0.008, depth*2.20, 0,  0,       -depth*1.60);
+
+      // Stone foundation platform
+      box("foundation_stone", "stone_base", width*1.08, H*0.040, depth*1.08, 0, H*0.020, 0);
+
+      // 1F: Hosui-in (法水院) – shinden-zukuri style, natural wood
+      const f1Y  = H*0.040;
+      const f1H  = bodyHeight * 0.32;
+      box("floor1_body",   "wood_main",  width,       f1H,       depth,       0, f1Y + f1H*0.5,  0);
+      box("floor1_deck",   "wood_dark",  width*1.14,  H*0.016,   depth*1.14,  0, f1Y + f1H,      0);
+      // Veranda pillars (6 front, 6 back)
+      for (let p = -2; p <= 2; p++) {
+        shape(`pillar_f1_front_${p+3}`, "cylinder", "wood_dark", width*0.030, f1H*0.88, width*0.030,
+          p * width*0.22, f1Y + f1H*0.44, depth*0.52);
+        shape(`pillar_f1_back_${p+3}`,  "cylinder", "wood_dark", width*0.030, f1H*0.88, width*0.030,
+          p * width*0.22, f1Y + f1H*0.44, -depth*0.52);
+      }
+      // 1F curved hip-gable roof (入母屋)
+      box("roof1_main",    "roof_tile",  width*1.24,  H*0.050,   depth*1.24,  0, f1Y+f1H+H*0.025, 0);
+      shape("roof1_ridge", "tri_prism",  "roof_tile", width*1.20, H*0.090,    depth*1.18,  0, f1Y+f1H+H*0.042, 0);
+      // Eave tips (copper)
+      box("eave1_F",       "roof_copper",width*1.26, H*0.012, depth*0.06,  0, f1Y+f1H+H*0.010, depth*0.63);
+      box("eave1_B",       "roof_copper",width*1.26, H*0.012, depth*0.06,  0, f1Y+f1H+H*0.010,-depth*0.63);
+
+      // 2F: Choondo (潮音洞) – bukke-zukuri, gold-clad
+      // f2Y = top of roof1_main flat eave (f1Y + f1H + eave height H*0.050)
+      const f2Y  = f1Y + f1H + H*0.050;
+      const f2W  = width * 0.88;
+      const f2D  = depth * 0.88;
+      const f2H  = bodyHeight * 0.30;
+      box("floor2_body",   "wall_main",  f2W,         f2H,       f2D,         0, f2Y + f2H*0.5,  0);
+      box("floor2_deck",   "gold",       f2W*1.10,    H*0.014,   f2D*1.10,    0, f2Y + f2H,      0);
+      // Lattice windows (gold)
+      box("win2_front",    "gold",       f2W*0.72,    f2H*0.48,  f2D*0.04,    0, f2Y + f2H*0.50, f2D*0.48);
+      box("win2_back",     "gold",       f2W*0.72,    f2H*0.48,  f2D*0.04,    0, f2Y + f2H*0.50,-f2D*0.48);
+      for (let p = -1; p <= 1; p++) {
+        shape(`pillar_f2_${p+2}`, "cylinder", "gold", f2W*0.028, f2H*0.90, f2W*0.028,
+          p * f2W*0.28, f2Y + f2H*0.45, f2D*0.48);
+        shape(`pillar_f2b_${p+2}`,"cylinder", "gold", f2W*0.028, f2H*0.90, f2W*0.028,
+          p * f2W*0.28, f2Y + f2H*0.45, -f2D*0.48);
+      }
+      // 2F roof
+      box("roof2_main",    "roof_tile",  f2W*1.20,    H*0.042,   f2D*1.20,    0, f2Y+f2H+H*0.020, 0);
+      shape("roof2_ridge", "tri_prism",  "roof_tile", f2W*1.16,  H*0.082,    f2D*1.14,   0, f2Y+f2H+H*0.036, 0);
+      box("eave2_F",       "roof_copper",f2W*1.22,    H*0.011,   f2D*0.05,   0, f2Y+f2H+H*0.009, f2D*0.61);
+      box("eave2_B",       "roof_copper",f2W*1.22,    H*0.011,   f2D*0.05,   0, f2Y+f2H+H*0.009,-f2D*0.61);
+
+      // 3F: Kukkyocho (究竟頂) – Chinese zen style, full gold, smaller
+      // f3Y = top of roof2_main flat eave (f2Y + f2H + eave height H*0.042)
+      const f3Y  = f2Y + f2H + H*0.042;
+      const f3W  = f2W * 0.74;
+      const f3D  = f2D * 0.74;
+      const f3H  = bodyHeight * 0.24;
+      box("floor3_body",   "wall_main",  f3W,         f3H,       f3D,         0, f3Y + f3H*0.5,  0);
+      // 4-sided shoji screens (gold)
+      box("shoji_front",   "gold",       f3W*0.80,    f3H*0.52,  f3D*0.04,    0, f3Y + f3H*0.50, f3D*0.48);
+      box("shoji_back",    "gold",       f3W*0.80,    f3H*0.52,  f3D*0.04,    0, f3Y + f3H*0.50,-f3D*0.48);
+      box("shoji_L",       "gold",       f3W*0.04,    f3H*0.52,  f3D*0.80,   -f3W*0.48, f3Y + f3H*0.50, 0);
+      box("shoji_R",       "gold",       f3W*0.04,    f3H*0.52,  f3D*0.80,    f3W*0.48, f3Y + f3H*0.50, 0);
+      // Pyramidal roof (宝形造)
+      const r3Y    = f3Y + f3H;
+      const eave3H = H * 0.035;
+      // Flat eave slab: bottom = r3Y, top = r3Y + eave3H
+      box("roof3_base",     "roof_tile",  f3W*1.18, eave3H,  f3D*1.18, 0, r3Y + eave3H*0.5, 0);
+      // Pyramid: base sits on top of flat eave
+      const pyr3H   = H * 0.14;
+      const pyr3BaseY = r3Y + eave3H;
+      shape("roof3_pyramid","tri_prism","roof_tile", f3W*1.10, pyr3H, f3D*1.08, 0, pyr3BaseY + pyr3H*0.5, 0);
+      box("eave3_copper",   "roof_copper", f3W*1.20, H*0.010, f3D*0.05, 0, r3Y + H*0.005, f3D*0.60);
+
+      // Phoenix (鳳凰) directly on pyramid apex – slim finial post only, no sorin rings
+      const phoenixBase = pyr3BaseY + pyr3H;
+      shape("finial_post",   "cylinder","gold", H*0.010, H*0.055, H*0.010, 0, phoenixBase + H*0.028, 0);
+      box("phoenix_body",    "gold", H*0.050, H*0.038, H*0.080, 0, phoenixBase + H*0.066, 0);
+      shape("phoenix_wing_L","sphere","gold", H*0.080, H*0.026, H*0.042, -H*0.052, phoenixBase+H*0.068, 0);
+      shape("phoenix_wing_R","sphere","gold", H*0.080, H*0.026, H*0.042,  H*0.052, phoenixBase+H*0.068, 0);
+      box("phoenix_tail",    "gold", H*0.016, H*0.065, H*0.010, 0, phoenixBase+H*0.038, -H*0.038);
+
+      // Surrounding pine trees — symmetric about x=0, placed around pond and behind
+      const treePositions = [
+        [-width*2.2,  depth*1.0],   // left, near building
+        [ width*2.2,  depth*1.0],   // right, near building
+        [-width*2.4,  depth*4.2],   // far left of pond
+        [ width*2.4,  depth*4.2],   // far right of pond
+        [ 0,         -depth*2.0],   // behind building center
+      ];
+      for (let t = 0; t < treePositions.length; t++) {
+        const [tx, tz] = treePositions[t];
+        shape(`pine_trunk_${t}`, "cylinder", "wood_dark", H*0.04, H*0.20, H*0.04, tx, H*0.10, tz);
+        shape(`pine_canopy_L_${t}`,"sphere","pine_green", H*0.22,H*0.18,H*0.22, tx-H*0.08, H*0.28, tz);
+        shape(`pine_canopy_R_${t}`,"sphere","pine_green", H*0.18,H*0.16,H*0.18, tx+H*0.06, H*0.26, tz);
+      }
+
+      // Reflection on pond (flat gold plane) — centered on pond
+      box("pond_reflection","gold", width*0.52, H*0.002, depth*0.52, 0, -H*0.001, pondZ);
+
+    } else if (isPagoda) {
+      // ── 5-story Pagoda ─────────────────────────────────────────────────────
+      box("pagoda_base",  "stone_base",  width*1.30, H*0.04, depth*1.30, 0, H*0.020, 0);
+      const floors = 5;
+      let py = H*0.040;
+      for (let f = 0; f < floors; f++) {
+        const fw  = width  * (1.0 - f * 0.14);
+        const fd  = depth  * (1.0 - f * 0.14);
+        const fh  = bodyHeight / floors * (1.0 - f * 0.06);
+        box(`pagoda_body_${f}`,  "wall_main",  fw,       fh,       fd,       0, py + fh*0.5, 0);
+        box(`pagoda_eave_${f}`,  "roof_tile",  fw*1.32, H*0.030,  fd*1.32, 0, py + fh,     0);
+        shape(`pagoda_roof_${f}`,"tri_prism",  "roof_tile", fw*1.28, H*0.055, fd*1.26, 0, py+fh+H*0.024, 0);
+        box(`eave_tip_${f}`,     "roof_copper",fw*1.34, H*0.010,  fd*0.04,  0, py+fh+H*0.008, fd*0.67);
+        py += fh + H*0.050;
+      }
+      // Sorin
+      shape("sorin_shaft","cylinder","gold", H*0.016, H*0.30, H*0.016, 0, py + H*0.15, 0);
+      for (let i = 0; i < 9; i++) {
+        shape(`sorin_ring_${i}`,"sphere","gold", H*0.036, H*0.018, H*0.036, 0, py + H*0.04 + i*H*0.028, 0);
+      }
+
+    } else if (isShrine) {
+      // ── Shinto Shrine ──────────────────────────────────────────────────────
+      // Stone torii gate (approach)
+      shape("torii_post_L","cylinder","torii_orange", H*0.060, H*0.58, H*0.060, -width*0.40, H*0.290, depth*1.40);
+      shape("torii_post_R","cylinder","torii_orange", H*0.060, H*0.58, H*0.060,  width*0.40, H*0.290, depth*1.40);
+      box("torii_kasagi",  "torii_orange", width*0.96, H*0.040, H*0.048, 0, H*0.570, depth*1.40);
+      box("torii_nuki",    "torii_orange", width*0.80, H*0.026, H*0.032, 0, H*0.500, depth*1.40);
+      // Stone lanterns (komainu approach)
+      for (const sx of [-width*0.28, width*0.28]) {
+        box(`lantern_post_${sx>0?"R":"L"}`, "stone_base", H*0.040, H*0.22, H*0.040, sx, H*0.11, depth*0.80);
+        box(`lantern_top_${sx>0?"R":"L"}`,  "stone_base", H*0.070, H*0.06, H*0.070, sx, H*0.25, depth*0.80);
+      }
+      // Sandō (参道) approach path
+      box("sando",         "sand_gravel", width*0.36, H*0.008, depth*1.80, 0, H*0.004, depth*1.10);
+      // Main hall (haiden 拝殿)
+      box("foundation",    "stone_base",  width*1.06, H*0.035, depth*1.06, 0, H*0.018, 0);
+      box("haiden_body",   "wall_main",   width,      bodyHeight*0.70, depth, 0, H*0.035+bodyHeight*0.35, 0);
+      // Haiden pillars
+      for (let p = -2; p <= 2; p++) {
+        shape(`haiden_pillar_${p+3}`,"cylinder","lacquer_red", width*0.036, bodyHeight*0.68, width*0.036,
+          p*width*0.22, H*0.035+bodyHeight*0.34, depth*0.48);
+      }
+      shape("haiden_roof","tri_prism","roof_tile", width*1.18, roofHeight*0.80, depth*1.12,
+        0, H*0.035+bodyHeight*0.72+roofHeight*0.38, 0);
+      box("haiden_eave",  "roof_copper", width*1.20, H*0.014, depth*0.05, 0, H*0.035+bodyHeight*0.72+H*0.006, depth*0.58);
+      // Honden (本殿) behind
+      const hondenY = H*0.035;
+      box("honden_body",  "lacquer_red", width*0.56, bodyHeight*0.60, depth*0.50,
+        0, hondenY+bodyHeight*0.30, -depth*0.76);
+      shape("honden_roof","tri_prism","roof_tile", width*0.64, roofHeight*0.60, depth*0.58,
+        0, hondenY+bodyHeight*0.62+roofHeight*0.28, -depth*0.76);
+      // Shimenawa rope (注連縄)
+      box("shimenawa",    "wood_dark",   width*0.72, H*0.022, H*0.022, 0, H*0.035+bodyHeight*0.82, depth*0.50);
+
+    } else {
+      // ── Generic Japanese temple (temple_jp) ────────────────────────────────
+      box("stone_steps",  "stone_base",  width*1.12, H*0.040, depth*0.30, 0, H*0.020, depth*0.62);
+      box("foundation",   "stone_base",  width*1.06, H*0.035, depth*1.06, 0, H*0.018, 0);
+      box("main_body",    "wall_main",   width,      bodyHeight*0.68, depth, 0, H*0.035+bodyHeight*0.34, 0);
+      // Engawa (縁側)
+      box("engawa",       "wood_dark",   width*1.16, H*0.018, depth*1.16, 0, H*0.035+bodyHeight*0.68, 0);
+      // Pillars
+      for (let p = -2; p <= 2; p++) {
+        shape(`pillar_f_${p+3}`, "cylinder","lacquer_red", width*0.040, bodyHeight*0.66, width*0.040,
+          p*width*0.22, H*0.035+bodyHeight*0.33, depth*0.50);
+        shape(`pillar_b_${p+3}`, "cylinder","lacquer_red", width*0.040, bodyHeight*0.66, width*0.040,
+          p*width*0.22, H*0.035+bodyHeight*0.33, -depth*0.50);
+      }
+      // Double-layer roof (重層屋根)
+      box("roof_lower",   "roof_tile",   width*1.22, H*0.040, depth*1.22, 0, H*0.035+bodyHeight*0.70+H*0.018, 0);
+      shape("roof_upper_ridge","tri_prism","roof_tile", width*1.16, roofHeight*0.70, depth*1.12,
+        0, H*0.035+bodyHeight*0.72+roofHeight*0.34, 0);
+      box("ridge_copper", "roof_copper", width*1.18, H*0.012, depth*0.05,
+        0, H*0.035+bodyHeight*0.72+H*0.008, depth*0.60);
+      // Upper smaller hall
+      box("upper_body",   "wall_main",   width*0.56, bodyHeight*0.30, depth*0.52,
+        0, H*0.035+bodyHeight*0.70+roofHeight*0.05+bodyHeight*0.15, 0);
+      shape("upper_roof", "tri_prism",   "roof_tile",width*0.64, roofHeight*0.50, depth*0.60,
+        0, H*0.035+bodyHeight+roofHeight*0.06+bodyHeight*0.32, 0);
+      // Lanterns
+      for (const sx of [-width*0.52, width*0.52]) {
+        shape(`toro_post_${sx>0?"R":"L"}`, "cylinder","stone_base", H*0.038, H*0.30, H*0.038, sx, H*0.15, depth*0.62);
+        box(`toro_top_${sx>0?"R":"L"}`,    "stone_base", H*0.068, H*0.055, H*0.068, sx, H*0.34, depth*0.62);
+      }
+    }
+
+    // Surface details (shared for all temple types)
+    const templeRegions = ["facade", "roof", "pillars", "foundation", "garden"];
+    const templeDetails = ["wood_grain", "tile_pattern", "lacquer_gloss", "stone_texture", "moss_growth"];
+    let sdIdx = 1;
+    for (const rgn of templeRegions) {
+      for (let i = 0; i < 8; i++) {
+        pushSurface(`surface_detail_${sdIdx++}`, rgn, templeDetails[i % templeDetails.length],
+          0.14 + (i%5)*0.06, [Math.sin(i*0.8)*0.016, Math.cos(i*0.7)*0.012, ((i%4)-1.5)*0.010]);
+      }
+    }
+    spec.parts = parts;
+    spec.surfaceDetails = surfaceDetails;
+    return spec;
+  }
+
   // ── Facility building archetypes ────────────────────────────────────────────
   if (archetype.startsWith("facility_")) {
     const facilityMats = {
@@ -2280,6 +2537,109 @@ function buildBuildingSpec(prompt, height, styles) {
           [Math.sin(i*0.8)*0.018, Math.cos(i*0.7)*0.014, ((i%4)-1.5)*0.010]);
       }
     }
+    spec.parts = parts;
+    spec.surfaceDetails = surfaceDetails;
+    return spec;
+  }
+
+  // ── Skyscraper (Roppongi Hills / modern supertall high-rise) ───────────────
+  if (archetype === "skyscraper") {
+    spec.materials = {
+      glass_dark:    { baseColor: "#1E2E3A", roughness: 0.06, metalness: 0.92 },
+      glass_light:   { baseColor: "#5888AA", roughness: 0.10, metalness: 0.86 },
+      concrete_main: { baseColor: "#B8B6B0", roughness: 0.88, metalness: 0.06 },
+      concrete_dark: { baseColor: "#787672", roughness: 0.90, metalness: 0.05 },
+      granite_base:  { baseColor: "#2E2C28", roughness: 0.82, metalness: 0.14 },
+      steel_frame:   { baseColor: "#8090A0", roughness: 0.42, metalness: 0.74 },
+      crown_metal:   { baseColor: "#C8C090", roughness: 0.28, metalness: 0.88 },
+      lobby_glass:   { baseColor: "#A0C0D8", roughness: 0.05, metalness: 0.94 },
+    };
+
+    // ── Podium (wide commercial/retail base) ──────────────────────────────
+    const podH = H * 0.10;
+    const podW = H * 0.54;
+    const podD = H * 0.46;
+    box("podium_body",    "granite_base", podW,        podH,       podD,        0,         podH*0.5,       0);
+    box("podium_glass_f", "lobby_glass",  podW*0.68,   podH*0.60,  podD*0.03,   0,         podH*0.36,      podD*0.50);
+    box("podium_glass_b", "lobby_glass",  podW*0.68,   podH*0.60,  podD*0.03,   0,         podH*0.36,     -podD*0.50);
+    box("podium_glass_l", "lobby_glass",  podW*0.03,   podH*0.60,  podD*0.56,  -podW*0.50, podH*0.36,      0);
+    box("podium_glass_r", "lobby_glass",  podW*0.03,   podH*0.60,  podD*0.56,   podW*0.50, podH*0.36,      0);
+    box("podium_roof",    "concrete_dark",podW*1.02,   H*0.007,    podD*1.02,   0,         podH+H*0.0035,  0);
+
+    // ── Lower Tower (podH → H*0.52) ──────────────────────────────────────
+    const t1Bot = podH;
+    const t1Top = H * 0.52;
+    const t1H   = t1Top - t1Bot;
+    const t1W   = H * 0.26;
+    const t1D   = H * 0.22;
+    box("tower1_body",  "concrete_main", t1W,        t1H,        t1D,         0,          t1Bot+t1H*0.5,  0);
+    box("curtain1_f",   "glass_dark",    t1W*0.88,   t1H*0.96,   t1D*0.03,    0,          t1Bot+t1H*0.5,  t1D*0.50);
+    box("curtain1_b",   "glass_dark",    t1W*0.88,   t1H*0.96,   t1D*0.03,    0,          t1Bot+t1H*0.5, -t1D*0.50);
+    box("curtain1_l",   "glass_dark",    t1W*0.03,   t1H*0.96,   t1D*0.88,   -t1W*0.50,  t1Bot+t1H*0.5,  0);
+    box("curtain1_r",   "glass_dark",    t1W*0.03,   t1H*0.96,   t1D*0.88,    t1W*0.50,  t1Bot+t1H*0.5,  0);
+    const t1Floors = Math.round(t1H / 3.6);
+    for (let f = 0; f < t1Floors; f++) {
+      const fy = t1Bot + (f + 1) * (t1H / t1Floors);
+      box(`t1_band_${f}`, "steel_frame", t1W*1.02, H*0.005, t1D*1.02, 0, fy, 0);
+    }
+    box("setback1_ledge", "concrete_dark", t1W*1.10, H*0.014, t1D*1.10, 0, t1Top+H*0.007, 0);
+
+    // ── Mid Tower (H*0.534 → H*0.76) ─────────────────────────────────────
+    const t2Bot = t1Top + H*0.014;
+    const t2Top = H * 0.76;
+    const t2H   = t2Top - t2Bot;
+    const t2W   = H * 0.185;
+    const t2D   = H * 0.160;
+    box("tower2_body",  "concrete_main", t2W,        t2H,        t2D,         0,          t2Bot+t2H*0.5,  0);
+    box("curtain2_f",   "glass_light",   t2W*0.88,   t2H*0.96,   t2D*0.03,    0,          t2Bot+t2H*0.5,  t2D*0.50);
+    box("curtain2_b",   "glass_light",   t2W*0.88,   t2H*0.96,   t2D*0.03,    0,          t2Bot+t2H*0.5, -t2D*0.50);
+    box("curtain2_l",   "glass_light",   t2W*0.03,   t2H*0.96,   t2D*0.88,   -t2W*0.50,  t2Bot+t2H*0.5,  0);
+    box("curtain2_r",   "glass_light",   t2W*0.03,   t2H*0.96,   t2D*0.88,    t2W*0.50,  t2Bot+t2H*0.5,  0);
+    const t2Floors = Math.round(t2H / 3.6);
+    for (let f = 0; f < t2Floors; f++) {
+      const fy = t2Bot + (f + 1) * (t2H / t2Floors);
+      box(`t2_band_${f}`, "steel_frame", t2W*1.02, H*0.004, t2D*1.02, 0, fy, 0);
+    }
+    box("setback2_ledge", "concrete_dark", t2W*1.10, H*0.012, t2D*1.10, 0, t2Top+H*0.006, 0);
+
+    // ── Upper Tower (H*0.772 → H*0.90) ───────────────────────────────────
+    const t3Bot = t2Top + H*0.012;
+    const t3Top = H * 0.90;
+    const t3H   = t3Top - t3Bot;
+    const t3W   = H * 0.130;
+    const t3D   = H * 0.118;
+    box("tower3_body",  "concrete_main", t3W,        t3H,        t3D,         0,          t3Bot+t3H*0.5,  0);
+    box("curtain3_f",   "glass_dark",    t3W*0.88,   t3H*0.96,   t3D*0.03,    0,          t3Bot+t3H*0.5,  t3D*0.50);
+    box("curtain3_b",   "glass_dark",    t3W*0.88,   t3H*0.96,   t3D*0.03,    0,          t3Bot+t3H*0.5, -t3D*0.50);
+    box("curtain3_l",   "glass_dark",    t3W*0.03,   t3H*0.96,   t3D*0.88,   -t3W*0.50,  t3Bot+t3H*0.5,  0);
+    box("curtain3_r",   "glass_dark",    t3W*0.03,   t3H*0.96,   t3D*0.88,    t3W*0.50,  t3Bot+t3H*0.5,  0);
+    const t3Floors = Math.round(t3H / 3.6);
+    for (let f = 0; f < t3Floors; f++) {
+      const fy = t3Bot + (f + 1) * (t3H / t3Floors);
+      box(`t3_band_${f}`, "steel_frame", t3W*1.02, H*0.004, t3D*1.02, 0, fy, 0);
+    }
+
+    // ── Crown / Observation deck + Spire (H*0.90 → H) ────────────────────
+    const crBot = t3Top;
+    const crH   = H - crBot;
+    const crW   = t3W * 0.88;
+    const crD   = t3D * 0.88;
+    box("crown_body",    "crown_metal",  crW,        crH*0.56,   crD,         0,          crBot+crH*0.28, 0);
+    box("crown_glass_f", "lobby_glass",  crW*0.80,   crH*0.44,   crD*0.03,    0,          crBot+crH*0.28, crD*0.50);
+    box("crown_glass_b", "lobby_glass",  crW*0.80,   crH*0.44,   crD*0.03,    0,          crBot+crH*0.28,-crD*0.50);
+    box("obs_deck",      "steel_frame",  crW*1.06,   H*0.010,    crD*1.06,    0,          crBot+crH*0.56, 0);
+    shape("spire",       "cylinder",     "steel_frame", H*0.010, crH*0.48, H*0.010, 0, crBot+crH*0.80, 0);
+    box("spire_tip",     "crown_metal",  H*0.020,    H*0.008,    H*0.020,     0,          crBot+crH*1.02, 0);
+
+    // Surface details
+    const skyRegions = ["facade", "glass", "curtain", "crown", "podium"];
+    const skyDetails = ["window_grid", "panel_seam", "reflection_streak", "trim_line"];
+    let sdIdx = 1;
+    for (let i = 0; i < 40; i++) {
+      pushSurface(`surface_detail_${sdIdx++}`, skyRegions[i % skyRegions.length], skyDetails[i % skyDetails.length],
+        0.14 + (i % 5) * 0.04, [Math.sin(i*0.6)*0.014, Math.cos(i*0.7)*0.011, ((i%4)-1.5)*0.009]);
+    }
+
     spec.parts = parts;
     spec.surfaceDetails = surfaceDetails;
     return spec;
@@ -2820,12 +3180,70 @@ function buildStructureSpec(prompt, height, styles) {
     box("pier_R", "concrete", H * 0.20, H * 0.60, H * 0.20, H * 0.55, H * 0.18, 0);
     box("arch", "steel", H * 1.0, H * 0.22, H * 0.12, 0, H * 0.60, 0);
   } else if (structureType === "data_center") {
-    box("main_hall", "concrete", H * 0.90, H * 0.60, H * 0.56, 0, H * 0.30, 0);
-    box("annex", "concrete", H * 0.42, H * 0.46, H * 0.42, H * 0.52, H * 0.23, 0);
-    for (let i = 0; i < 8; i++) {
-      box(`rack_${i + 1}`, "steel", H * 0.07, H * 0.24, H * 0.12, (-0.24 + i * 0.07) * H, H * 0.14, H * 0.14);
+    // ── Site ground slab ──────────────────────────────────────────────────────
+    box("site_slab",        "asphalt",   H*3.60, H*0.012, H*2.80,   0,        H*0.006,  0);
+    box("perimeter_fence_N","steel",     H*3.60, H*0.060, H*0.018,  0,        H*0.030,  H*1.38);
+    box("perimeter_fence_S","steel",     H*3.60, H*0.060, H*0.018,  0,        H*0.030, -H*1.38);
+    box("perimeter_fence_W","steel",     H*0.018,H*0.060, H*2.80,  -H*1.78,   H*0.030,  0);
+    box("perimeter_fence_E","steel",     H*0.018,H*0.060, H*2.80,   H*1.78,   H*0.030,  0);
+
+    // ── Hall A – main server hall (left-front) ────────────────────────────────
+    box("hallA_body",       "concrete",  H*0.78, H*0.44, H*0.58,  -H*0.90,   H*0.22,  -H*0.48);
+    box("hallA_roof_lip",   "steel",     H*0.80, H*0.028,H*0.60,  -H*0.90,   H*0.454, -H*0.48);
+    box("hallA_vent_strip", "steel",     H*0.72, H*0.05, H*0.04,  -H*0.90,   H*0.46,  -H*0.22);
+
+    // ── Hall B – secondary server hall (right-front) ──────────────────────────
+    box("hallB_body",       "concrete",  H*0.78, H*0.44, H*0.58,   H*0.90,   H*0.22,  -H*0.48);
+    box("hallB_roof_lip",   "steel",     H*0.80, H*0.028,H*0.60,   H*0.90,   H*0.454, -H*0.48);
+    box("hallB_vent_strip", "steel",     H*0.72, H*0.05, H*0.04,   H*0.90,   H*0.46,  -H*0.22);
+
+    // ── Hall C – network/operations hall (rear-centre) ────────────────────────
+    box("hallC_body",       "concrete",  H*1.10, H*0.52, H*0.72,   0,        H*0.26,   H*0.50);
+    box("hallC_roof_lip",   "steel",     H*1.12, H*0.028,H*0.74,   0,        H*0.534,  H*0.50);
+    box("hallC_glass_band", "glass",     H*1.00, H*0.10, H*0.016,  0,        H*0.20,  -H*0.12); // lobby window strip
+
+    // ── Hall D – storage / tape library (far right rear) ─────────────────────
+    box("hallD_body",       "concrete",  H*0.52, H*0.38, H*0.54,   H*1.30,   H*0.19,   H*0.52);
+    box("hallD_roof_lip",   "steel",     H*0.54, H*0.022,H*0.56,   H*1.30,   H*0.391,  H*0.52);
+
+    // ── Cooling towers block (rear-right) ─────────────────────────────────────
+    for (let i = 0; i < 4; i++) {
+      const cx = H * (0.48 + i * 0.28);
+      box(`cooling_${i+1}`,     "steel",  H*0.20, H*0.36, H*0.20,   cx,       H*0.18,   H*1.10);
+      box(`cooling_cap_${i+1}`, "steel",  H*0.22, H*0.04, H*0.22,   cx,       H*0.38,   H*1.10);
     }
-    box("cooling_tower", "steel", H * 0.16, H * 0.40, H * 0.16, -H * 0.48, H * 0.20, 0);
+
+    // ── Backup generator wing (left rear) ────────────────────────────────────
+    box("gen_hall",         "concrete",  H*0.44, H*0.32, H*0.36,  -H*1.20,   H*0.16,   H*0.88);
+    box("gen_exhaust_1",    "steel",     H*0.06, H*0.26, H*0.06,  -H*1.08,   H*0.30,   H*0.74);
+    box("gen_exhaust_2",    "steel",     H*0.06, H*0.26, H*0.06,  -H*1.22,   H*0.30,   H*0.74);
+    box("gen_exhaust_3",    "steel",     H*0.06, H*0.26, H*0.06,  -H*1.36,   H*0.30,   H*0.74);
+
+    // ── UPS / power substation (front-left) ──────────────────────────────────
+    box("ups_hall",         "concrete",  H*0.30, H*0.28, H*0.24,  -H*1.44,   H*0.14,  -H*0.88);
+    box("transformer_1",    "steel",     H*0.10, H*0.18, H*0.10,  -H*1.28,   H*0.09,  -H*0.90);
+    box("transformer_2",    "steel",     H*0.10, H*0.18, H*0.10,  -H*1.14,   H*0.09,  -H*0.90);
+
+    // ── Internal roads / loading docks ────────────────────────────────────────
+    box("road_main",        "asphalt",   H*3.20, H*0.014, H*0.18,  0,        H*0.007,  H*0.02);
+    box("road_side",        "asphalt",   H*0.18, H*0.014, H*2.40,  -H*1.55,  H*0.007,  0);
+    box("dock_A",           "concrete",  H*0.30, H*0.06,  H*0.10,  -H*0.90,  H*0.03,  -H*0.78);
+    box("dock_B",           "concrete",  H*0.30, H*0.06,  H*0.10,   H*0.90,  H*0.03,  -H*0.78);
+
+    // ── Security / entry gatehouse ────────────────────────────────────────────
+    box("gatehouse",        "concrete",  H*0.14, H*0.20, H*0.12,   0,        H*0.10,  -H*1.28);
+    box("gate_boom_L",      "steel",     H*0.28, H*0.018,H*0.018, -H*0.22,   H*0.18,  -H*1.28);
+    box("gate_boom_R",      "steel",     H*0.28, H*0.018,H*0.018,  H*0.22,   H*0.18,  -H*1.28);
+
+    // ── Antenna / comms mast (roof of Hall C) ────────────────────────────────
+    box("comms_mast",       "steel",     H*0.028,H*0.44, H*0.028,  H*0.30,   H*0.74,   H*0.50);
+    box("comms_dish",       "steel",     H*0.12, H*0.04, H*0.10,   H*0.30,   H*0.96,   H*0.50);
+
+    // ── Status / warning lights ───────────────────────────────────────────────
+    box("light_A",          "signal_green", H*0.03,H*0.03,H*0.03, -H*0.90,   H*0.46,  -H*0.78);
+    box("light_B",          "signal_green", H*0.03,H*0.03,H*0.03,  H*0.90,   H*0.46,  -H*0.78);
+    box("light_C",          "signal_red",   H*0.03,H*0.03,H*0.03,  H*1.30,   H*0.40,   H*0.25);
+    box("light_mast",       "signal_yellow",H*0.03,H*0.12,H*0.03,  0,        H*0.58,   H*0.50);
   } else if (structureType === "theme_park") {
     box("gate", "accent", H * 1.00, H * 0.30, H * 0.18, 0, H * 0.15, H * 0.18);
     box("castle_center", "concrete", H * 0.34, H * 0.50, H * 0.30, 0, H * 0.25, -H * 0.08);
@@ -3695,152 +4113,182 @@ function buildDocumentFromSpec(spec) {
   return doc;
 }
 
-function createPreviewHtml() {
-  return `<!doctype html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Prompt2GLTF Preview</title>
-  <style>
-    html, body { margin: 0; height: 100%; background: #0f1115; color: #fff; font-family: sans-serif; overflow: hidden; }
-    #ui {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      z-index: 20;
-      background: rgba(0,0,0,.58);
-      padding: 12px 14px;
-      border-radius: 12px;
-      min-width: 260px;
-      line-height: 1.5;
-    }
-    #status { font-size: 13px; opacity: .92; }
-    #hint { font-size: 12px; opacity: .75; margin-top: 6px; }
-    #c { width: 100vw; height: 100vh; display: block; }
-    code { color: #bfe1ff; }
-  </style>
-</head>
-<body>
-  <div id="ui">
-    <div><strong>Prompt2GLTF Preview</strong></div>
-    <div id="status">Loading model.glb...</div>
-    <div id="hint">If the model is blank, open via a local server (not <code>file://</code>)</div>
-  </div>
-  <canvas id="c"></canvas>
+function promptToSlug(prompt) {
+  // Subject mappings (first match wins)
+  const subjectMap = [
+    [/\u516d\u672c\u6728\u30d2\u30eb\u30ba/u,                  "roppongi_hills"],
+    [/\u901a\u5929\u95a3/u,                                     "tsutenkaku"],
+    [/\u6771\u4eac\u30bf\u30ef\u30fc/u,                        "tokyo_tower"],
+    [/\u30b9\u30ab\u30a4\u30c4\u30ea\u30fc/u,                  "skytree"],
+    [/\u91d1\u95a3\u5bfa|\u91d1\u95a3/u,                       "kinkakuji"],
+    [/\u9280\u95a3\u5bfa|\u9280\u95a3/u,                       "ginkakuji"],
+    [/\u4e94\u91cd\u5854|\u4e09\u91cd\u5854/u,                 "pagoda"],
+    [/\u795e\u793e/u,                                           "shrine"],
+    [/\u5bfa/u,                                                 "temple"],
+    [/\u30b4\u30b8\u30e9/u,                                     "godzilla"],
+    [/\u8d85\u5927\u578b\u5de8\u4eba/u,                        "colossal_titan"],
+    [/\u5de8\u4eba/u,                                           "titan"],
+    [/\u6021\u7363/u,                                           "kaiju"],
+    [/\u30ed\u30dc\u30c3\u30c8/u,                              "robot"],
+    [/\u6226\u58eb|\u9a0e\u58eb/u,                             "warrior"],
+    [/\u6d88\u9632\u58eb/u,                                     "firefighter"],
+    [/\u8b66\u5bdf\u5b98/u,                                     "police_officer"],
+    [/\u770b\u8b77\u5e2b/u,                                     "nurse"],
+    [/\u533b\u5e2b|\u30c9\u30af\u30bf\u30fc/u,                "doctor"],
+    [/\u5b50\u3069\u3082|\u5c0f\u5b66\u751f/u,                "child"],
+    [/\u8001\u4eba|\u9ad8\u9f62\u8005/u,                       "elderly"],
+    [/\u75c5\u9662|\u30af\u30ea\u30cb\u30c3\u30af/u,          "hospital"],
+    [/\u8b66\u5bdf\u7f72/u,                                     "police_station"],
+    [/\u6d88\u9632\u7f72/u,                                     "fire_station"],
+    [/\u5c0f\u5b66\u6821|\u4e2d\u5b66\u6821|\u9ad8\u6821|\u5b66\u6821/u, "school"],
+    [/\u5e02\u5f79\u6240|\u533a\u5f79\u6240/u,                 "cityhall"],
+    [/\u8001\u4eba\u30db\u30fc\u30e0|\u4ecb\u8b77/u,          "nursing_home"],
+    [/\u5927\u5b66|\u30ad\u30e3\u30f3\u30d1\u30b9/u,          "campus"],
+    [/\u30c7\u30fc\u30bf\u30bb\u30f3\u30bf\u30fc/u,             "datacenter"],
+    [/\u98db\u884c\u8239/u,                                     "airship"],
+    [/\u65b0\u5e79\u7dda/u,                                     "shinkansen"],
+    [/\u5217\u8eca|\u96fb\u8eca/u,                             "train"],
+    [/\u30d1\u30c8\u30ab\u30fc/u,                              "police_car"],
+    [/\u8239/u,                                                  "ship"],
+    [/\u98db\u884c\u6a5f/u,                                     "airplane"],
+    [/\u57ce/u,                                                  "castle"],
+    [/\u30bf\u30ef\u30fc/u,                                     "tower"],
+    [/\u30a2\u30d1\u30fc\u30c8/u,                              "apartment"],
+    [/\u30d3\u30eb|\u30d3\u30eb\u30c7\u30a3\u30f3\u30b0/u,   "building"],
+  ];
 
-  <script type="importmap">
-  {
-    "imports": {
-      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
-    }
+  // Style/modifier suffixes
+  const styleMap = [
+    [/\u30d5\u30a1\u30f3\u30bf\u30b8\u30fc/u, "fantasy"],
+    [/\u8fd1\u672a\u6765|SF|sci.?fi/iu,       "scifi"],
+    [/\u30c0\u30fc\u30af|dark/iu,             "dark"],
+  ];
+
+  let subject = "";
+  for (const [pat, name] of subjectMap) {
+    if (pat.test(prompt)) { subject = name; break; }
   }
-  </script>
-  <script type="module">
-    import * as THREE from "three";
-    import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-    import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+  if (!subject) {
+    // Fallback: keep ASCII chars only, slugify
+    subject = prompt.replace(/[^\x21-\x7e]/g, "_").replace(/[^a-z0-9]+/gi, "_")
+      .replace(/^_+|_+$/g, "").toLowerCase().slice(0, 40) || "model";
+  }
 
-    const statusEl = document.getElementById("status");
-    const canvas = document.getElementById("c");
+  let style = "";
+  for (const [pat, tag] of styleMap) {
+    if (pat.test(prompt)) { style = tag; break; }
+  }
 
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x0f1115);
-    // Fog is set dynamically after model loads (see frameObject)
-
-    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 10000);
-    camera.position.set(120, 120, 180);
-
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controls.target.set(0, 50, 0);
-    controls.update();
-
-    scene.add(new THREE.HemisphereLight(0xffffff, 0x223344, 1.8));
-    const dir1 = new THREE.DirectionalLight(0xffffff, 2.4);
-    dir1.position.set(180, 260, 140);
-    scene.add(dir1);
-    const dir2 = new THREE.DirectionalLight(0x88aaff, 1.1);
-    dir2.position.set(-120, 90, -160);
-    scene.add(dir2);
-
-    scene.add(new THREE.GridHelper(500, 50, 0x4a5666, 0x25303d));
-
-    const ground = new THREE.Mesh(
-      new THREE.PlaneGeometry(600, 600),
-      new THREE.MeshStandardMaterial({ color: 0x161a20, roughness: 0.95, metalness: 0.02 })
-    );
-    ground.rotation.x = -Math.PI / 2;
-    ground.position.y = -0.02;
-    scene.add(ground);
-
-    function resize() {
-      renderer.setSize(window.innerWidth, window.innerHeight, false);
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-    }
-    window.addEventListener("resize", resize);
-    resize();
-
-    function frameObject(object) {
-      const box = new THREE.Box3().setFromObject(object);
-      const size = new THREE.Vector3();
-      const center = new THREE.Vector3();
-      box.getSize(size);
-      box.getCenter(center);
-      object.position.x -= center.x;
-      object.position.y -= box.min.y;
-      object.position.z -= center.z;
-      const maxDim = Math.max(size.x, size.y, size.z);
-      const dist = Math.max(60, maxDim * 1.8);
-      camera.near = Math.max(0.1, maxDim / 500);
-      camera.far = Math.max(1000, maxDim * 20);
-      camera.updateProjectionMatrix();
-      // Set fog proportional to model scale so tall/large models are never obscured
-      scene.fog = new THREE.Fog(0x0f1115, dist * 2.0, dist * 8.0);
-      camera.position.set(dist * 0.72, size.y * 0.62 + dist * 0.22, dist);
-      controls.target.set(0, size.y * 0.42, 0);
-      controls.update();
-    }
-
-    const loader = new GLTFLoader();
-    loader.load(
-      "./model.glb",
-      (gltf) => {
-        try {
-          scene.add(gltf.scene);
-          frameObject(gltf.scene);
-          statusEl.textContent = "model.glb loaded ";
-        } catch (e) {
-          statusEl.textContent = "Display error: " + e.message;
-          console.error(e);
-        }
-      },
-      (evt) => {
-        statusEl.textContent = evt.total
-          ? "Loading... " + Math.round((evt.loaded / evt.total) * 100) + "%"
-          : "Loading... " + Math.round(evt.loaded / 1024) + " KB";
-      },
-      (err) => {
-        console.error(err);
-        statusEl.textContent = "Load failed: " + (err.message || err);
-      }
-    );
-
-    function render() {
-      controls.update();
-      renderer.render(scene, camera);
-      requestAnimationFrame(render);
-    }
-    render();
-  </script>
-</body>
-</html>`;
+  return style ? `${subject}_${style}` : subject;
 }
+
+function createPreviewHtml(currentGlb, allGlbs) {
+  const modelsJson  = JSON.stringify(allGlbs);
+  const currentJson = JSON.stringify(currentGlb);
+  const countStr    = String(allGlbs.length);
+
+  const staticHtml = "<!doctype html>\n<html lang='ja'>\n<head>\n  <meta charset='utf-8' />\n  <meta name='viewport' content='width=device-width,initial-scale=1' />\n  <title>Prompt2GLTF · Gallery</title>\n  <link rel='preconnect' href='https://fonts.googleapis.com'>\n  <link href='https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Noto+Sans+JP:wght@300;400&display=swap' rel='stylesheet'>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }\n    :root {\n      --bg: #0a0a0f; --surface: #12121a; --border: #2a2a3a;\n      --accent: #6ee7f7; --accent2: #a78bfa; --text: #e0e0f0; --muted: #5a5a7a;\n    }\n    body { background: var(--bg); color: var(--text); font-family: 'Noto Sans JP', sans-serif; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }\n    header { padding: 14px 22px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 14px; background: var(--surface); flex-shrink: 0; }\n    .logo { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .2em; color: var(--accent); text-transform: uppercase; }\n    .logo span { color: var(--accent2); }\n    .hint { margin-left: auto; font-size: 11px; color: var(--muted); font-family: 'Space Mono', monospace; letter-spacing: .05em; }\n    .main { flex: 1; display: flex; overflow: hidden; }\n    #sidebar { width: 220px; min-width: 220px; background: var(--surface); border-right: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden; }\n    .sidebar-hd { padding: 14px 14px 8px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; border-bottom: 1px solid var(--border); }\n    .sidebar-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; color: var(--muted); text-transform: uppercase; }\n    .model-count { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--accent2); background: rgba(167,139,250,.12); padding: 2px 7px; border-radius: 10px; }\n    #model-list { overflow-y: auto; flex: 1; padding: 6px 0; }\n    #model-list::-webkit-scrollbar { width: 4px; }\n    #model-list::-webkit-scrollbar-track { background: transparent; }\n    #model-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }\n    .mbtn { display: block; width: 100%; text-align: left; padding: 9px 16px 9px 14px; background: none; border: none; border-left: 2px solid transparent; color: var(--muted); cursor: pointer; font-size: 12px; font-family: 'Space Mono', monospace; letter-spacing: .04em; transition: background .12s, border-color .12s, color .12s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n    .mbtn:hover { background: rgba(110,231,247,.04); color: var(--text); }\n    .mbtn.active { border-left-color: var(--accent); background: rgba(110,231,247,.06); color: var(--accent); }\n    .mbtn .dot { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--accent2); margin-right: 8px; vertical-align: middle; opacity: 0; transition: opacity .15s; }\n    .mbtn.active .dot { opacity: 1; }\n    #viewer { flex: 1; position: relative; overflow: hidden; }\n    canvas { display: block; width: 100% !important; height: 100% !important; }\n    .grid-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 40px 40px; opacity: .18; pointer-events: none; z-index: 0; }\n    #info { position: absolute; top: 14px; left: 14px; font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); z-index: 5; line-height: 1.9; opacity: 0; transition: opacity .3s; background: rgba(10,10,15,.75); padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border); backdrop-filter: blur(6px); }\n    #info.visible { opacity: 1; }\n    .controls-bar { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 5; opacity: 0; transition: opacity .3s; }\n    .controls-bar.visible { opacity: 1; }\n    .ctrl-btn { background: rgba(18,18,26,.90); border: 1px solid var(--border); color: var(--text); font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .06em; padding: 7px 14px; border-radius: 6px; cursor: pointer; backdrop-filter: blur(8px); transition: border-color .15s, color .15s; }\n    .ctrl-btn:hover { border-color: var(--accent); color: var(--accent); }\n    .ctrl-btn.on { border-color: var(--accent2); color: var(--accent2); }\n    #status-bar { position: absolute; bottom: 18px; right: 18px; font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); z-index: 5; background: rgba(10,10,15,.75); padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border); backdrop-filter: blur(6px); letter-spacing: .04em; }\n  </style>\n</head>\n<body>\n  <header>\n    <div class='logo'>PROMPT2GLTF <span>//</span> Gallery</div>\n    <div class='hint'>drag &middot; scroll &middot; pinch to navigate</div>\n  </header>\n  <div class='main'>\n    <div id='sidebar'>\n      <div class='sidebar-hd'>\n        <span class='sidebar-label'>Models</span>\n        <span class='model-count' id='count-badge'>0</span>\n      </div>\n      <div id='model-list'></div>\n    </div>\n    <div id='viewer'>\n      <div class='grid-bg'></div>\n      <canvas id='c'></canvas>\n      <div id='info'></div>\n      <div class='controls-bar' id='controls-bar'>\n        <button class='ctrl-btn' id='btn-reset'>&#x27F3; RESET</button>\n        <button class='ctrl-btn' id='btn-wire'>&#x25FB; WIRE</button>\n        <button class='ctrl-btn on' id='btn-rotate'>&#x27F2; AUTO</button>\n      </div>\n      <div id='status-bar'>Loading...</div>\n    </div>\n  </div>\n  <script type='importmap'>\n  {\"imports\":{\"three\":\"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js\",\"three/addons/\":\"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/\"}}\n  <\\/script>";
+
+  const scriptBlock = [
+    "  <script type='module'>",
+    "    import * as THREE from 'three';",
+    "    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';",
+    "    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';",
+    "    const MODELS  = " + modelsJson + ";",
+    "    const INITIAL = " + currentJson + ";",
+    "    const COUNT   = " + countStr + ";",
+    "    document.getElementById('count-badge').textContent = COUNT;",
+    "    const statusEl  = document.getElementById('status-bar');",
+    "    const infoEl    = document.getElementById('info');",
+    "    const ctrlBar   = document.getElementById('controls-bar');",
+    "    const listEl    = document.getElementById('model-list');",
+    "    const canvas    = document.getElementById('c');",
+    // Three.js setup
+    "    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });",
+    "    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));",
+    "    renderer.toneMapping = THREE.ACESFilmicToneMapping;",
+    "    renderer.toneMappingExposure = 1.1;",
+    "    const scene = new THREE.Scene();",
+    "    scene.background = new THREE.Color(0x0a0a0f);",
+    "    const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 10000);",
+    "    const controls = new OrbitControls(camera, renderer.domElement);",
+    "    controls.enableDamping = true; controls.dampingFactor = 0.08;",
+    // Lights
+    "    const amb = new THREE.AmbientLight(0xffffff, 0.4); scene.add(amb);",
+    "    const dir1 = new THREE.DirectionalLight(0x6ee7f7, 2.2); dir1.position.set(180,260,140); scene.add(dir1);",
+    "    const dir2 = new THREE.DirectionalLight(0xa78bfa, 1.0); dir2.position.set(-120,90,-160); scene.add(dir2);",
+    "    const dir3 = new THREE.DirectionalLight(0xffffff, 0.8); dir3.position.set(0,-100,0); scene.add(dir3);",
+    // Grid
+    "    scene.add(new THREE.GridHelper(600, 60, 0x2a2a3a, 0x1a1a28));",
+    "    const ground = new THREE.Mesh(new THREE.PlaneGeometry(800,800), new THREE.MeshStandardMaterial({color:0x0a0a0f,roughness:0.98}));",
+    "    ground.rotation.x = -Math.PI/2; ground.position.y = -0.02; scene.add(ground);",
+    // Resize
+    "    function resize() { const w=canvas.clientWidth,h=canvas.clientHeight; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); }",
+    "    window.addEventListener('resize', resize); resize();",
+    // frameObject
+    "    function frameObject(obj) {",
+    "      const box=new THREE.Box3().setFromObject(obj), size=new THREE.Vector3(), center=new THREE.Vector3();",
+    "      box.getSize(size); box.getCenter(center);",
+    "      obj.position.x -= center.x; obj.position.y -= box.min.y; obj.position.z -= center.z;",
+    "      const maxDim=Math.max(size.x,size.y,size.z), dist=Math.max(60,maxDim*1.8);",
+    "      camera.near=Math.max(0.1,maxDim/500); camera.far=Math.max(1000,maxDim*20); camera.updateProjectionMatrix();",
+    "      scene.fog=new THREE.Fog(0x0a0a0f,dist*2.5,dist*9);",
+    "      camera.position.set(dist*0.72,size.y*0.62+dist*0.22,dist);",
+    "      controls.target.set(0,size.y*0.42,0); controls.update();",
+    "    }",
+    // Model loader
+    "    const loader=new GLTFLoader();",
+    "    let currentObj=null, wireframe=false, autoRotate=true;",
+    "    function loadModel(filename) {",
+    "      if(currentObj){ scene.remove(currentObj); currentObj=null; }",
+    "      infoEl.classList.remove('visible'); ctrlBar.classList.remove('visible');",
+    "      statusEl.textContent='Loading '+filename+' ...';",
+    "      loader.load('./'+filename,",
+    "        (gltf)=>{",
+    "          currentObj=gltf.scene; scene.add(currentObj);",
+    "          frameObject(currentObj);",
+    "          // apply wireframe state",
+    "          currentObj.traverse(n=>{ if(n.isMesh) n.material.wireframe=wireframe; });",
+    "          // info panel",
+    "          let meshCount=0; currentObj.traverse(n=>{ if(n.isMesh) meshCount++; });",
+    "          const box=new THREE.Box3().setFromObject(currentObj), sz=new THREE.Vector3(); box.getSize(sz);",
+    "          infoEl.innerHTML='FILE: '+filename+'<br>MESHES: '+meshCount+'<br>SIZE: '+sz.x.toFixed(1)+' x '+sz.y.toFixed(1)+' x '+sz.z.toFixed(1)+' m';",
+    "          infoEl.classList.add('visible'); ctrlBar.classList.add('visible');",
+    "          statusEl.textContent=filename+' \u2713';",
+    "        },",
+    "        (evt)=>{ statusEl.textContent=evt.total?'Loading... '+Math.round(evt.loaded/evt.total*100)+'%':'Loading... '+Math.round(evt.loaded/1024)+' KB'; },",
+    "        (err)=>{ statusEl.textContent='Load failed: '+(err.message||err); }",
+    "      );",
+    "    }",
+    // Sidebar
+    "    MODELS.forEach(filename=>{",
+    "      const btn=document.createElement('button');",
+    "      btn.className='mbtn'+(filename===INITIAL?' active':'');",
+    "      btn.title=filename;",
+    "      const label=filename.replace(/\\.glb$/,'').replace(/_/g,' ');",
+    "      const _sp=document.createElement('span'); _sp.className='dot'; btn.textContent=label; btn.prepend(_sp);",
+    "      btn.onclick=()=>{",
+    "        document.querySelectorAll('.mbtn').forEach(b=>b.classList.remove('active'));",
+    "        btn.classList.add('active'); loadModel(filename);",
+    "      };",
+    "      listEl.appendChild(btn);",
+    "    });",
+    // Controls
+    "    document.getElementById('btn-reset').onclick=()=>{ if(currentObj){ frameObject(currentObj); } };",
+    "    document.getElementById('btn-wire').onclick=function(){ wireframe=!wireframe; this.classList.toggle('on',wireframe); if(currentObj) currentObj.traverse(n=>{ if(n.isMesh) n.material.wireframe=wireframe; }); this.textContent=wireframe?'\u25A0 SOLID':'\u25FB WIRE'; };",
+    "    document.getElementById('btn-rotate').onclick=function(){ autoRotate=!autoRotate; this.classList.toggle('on',autoRotate); };",
+    "    controls.addEventListener('start',()=>{ autoRotate=false; document.getElementById('btn-rotate').classList.remove('on'); });",
+    // Render loop
+    "    (function render(){ controls.update(); if(currentObj&&autoRotate) currentObj.rotation.y+=0.003; renderer.render(scene,camera); requestAnimationFrame(render); })();",
+    "    loadModel(INITIAL);",
+    "  <\/script>",
+    "</body>",
+    "</html>",
+  ].join("\n");
+
+  return staticHtml + "\n" + scriptBlock;
+}
+
 
 async function main() {
   const prompt = getArg("--prompt");
@@ -3852,19 +4300,39 @@ async function main() {
   await fs.mkdir(OUTPUT_DIR, { recursive: true });
 
   const spec = buildSpec(prompt);
-  const specPath = path.join(OUTPUT_DIR, "spec.json");
+  const slug = promptToSlug(prompt);
+  const specPath = path.join(OUTPUT_DIR, slug + "_spec.json");
   await fs.writeFile(specPath, JSON.stringify(spec, null, 2), "utf-8");
 
   const doc = buildDocumentFromSpec(spec);
   const io = new NodeIO();
 
-  const glbPath = path.join(OUTPUT_DIR, "model.glb");
-  const gltfPath = path.join(OUTPUT_DIR, "model.gltf");
+  // Derive filenames from slug
+  const glbFilename  = slug + ".glb";
+  const gltfFilename = slug + ".gltf";
+
+  // GLB: self-contained binary (no external files)
+  const glbPath = path.join(OUTPUT_DIR, glbFilename);
   await io.write(glbPath, doc);
-  await io.write(gltfPath, doc);
+
+  // GLTF: embed binary buffer as base64 data URI so no .bin file is needed
+  const gltfPath = path.join(OUTPUT_DIR, gltfFilename);
+  const { json, resources } = await io.writeJSON(doc);
+  for (const [resPath, data] of Object.entries(resources)) {
+    if (resPath.endsWith(".bin")) {
+      const b64 = Buffer.from(data).toString("base64");
+      const bufIdx = json.buffers.findIndex(b => b.uri === resPath || !b.uri);
+      if (bufIdx >= 0) json.buffers[bufIdx].uri = `data:application/octet-stream;base64,${b64}`;
+    }
+  }
+  await fs.writeFile(gltfPath, JSON.stringify(json, null, 2), "utf-8");
+
+  // Collect all .glb files for sidebar
+  const allFiles = await fs.readdir(OUTPUT_DIR);
+  const allGlbs  = allFiles.filter(f => f.endsWith(".glb")).sort();
 
   const previewPath = path.join(OUTPUT_DIR, "preview.html");
-  await fs.writeFile(previewPath, createPreviewHtml(), "utf-8");
+  await fs.writeFile(previewPath, createPreviewHtml(glbFilename, allGlbs), "utf-8");
 
   console.log("Prompt2GLTF generation complete.");
   console.log(`Prompt: ${prompt}`);
