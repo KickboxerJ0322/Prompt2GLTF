@@ -105,7 +105,7 @@ const htmlLines = [
   // ── importmap ──
   "  <script type='importmap'>",
   "  {\"imports\":{\"three\":\"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js\",\"three/addons/\":\"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/\"}}",
-  "  <\\/script>",
+  "  </script>",
   // ── module script (everything concatenated as separate string segments) ──
 ];
 
@@ -209,7 +209,7 @@ const newFn = `function createPreviewHtml(currentGlb, allGlbs) {
     // Render loop
     "    (function render(){ controls.update(); if(currentObj&&autoRotate) currentObj.rotation.y+=0.003; renderer.render(scene,camera); requestAnimationFrame(render); })();",
     "    loadModel(INITIAL);",
-    "  <\\/script>",
+    "  </script>",
     "</body>",
     "</html>",
   ].join("\\n");
