@@ -51,7 +51,7 @@ When invoked:
    - pose
 3. Run the local generator:
 
-   node tools/prompt2gltf/src/index.mjs --prompt "<USER_PROMPT>"
+   node plugins/prompt2gltf/scripts/index.mjs --prompt "<USER_PROMPT>"
 
 4. After generation, summarize:
    - what was inferred
@@ -66,7 +66,14 @@ When invoked:
 - airship
 - kaiju
 - warrior
-- building (generic architecture)
+- building (generic architecture: house / apartment / mansion / campus)
+- building / facility_hospital (病院・診療所)
+- building / facility_police (警察署)
+- building / facility_fire (消防署)
+- building / facility_nursing (老人ホーム・介護施設)
+- building / facility_school (学校)
+- building / facility_cityhall (市役所・区役所)
+- human (人間全般: police_officer / firefighter / nurse / doctor / child / elderly / woman / adult)
 - vehicle (generic transport)
 - structure (tree / signal / bridge / infra)
 

@@ -26,7 +26,7 @@ function slugify(input) {
     .slice(0, 48) || "model";
 }
 
-// 笏笏 MATERIAL PALETTE 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+// -- MATERIAL PALETTE ---------------------------------------------------------
 // Shared PBR material definitions. Reference these when authoring new
 // buildXxxSpec builders so colors stay consistent across subject types.
 const MATERIAL_PALETTE = {
@@ -97,7 +97,7 @@ const MATERIAL_PALETTE = {
   claw_dark:      { baseColor: "#1A1410", roughness: 0.55, metalness: 0.32 },
 };
 
-// 笏笏 SUBJECT REGISTRY 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+// -- SUBJECT REGISTRY ---------------------------------------------------------
 // Central dispatch table. To add a new subject type:
 //   1. Add a row here (id, match, altMatch?, defaultHeight, defaultStyle)
 //   2. Write buildXxxSpec(prompt, height, styles) 竊・spec
@@ -148,9 +148,15 @@ const SUBJECT_REGISTRY = [
   },
   {
     id: "building",
-    match: /building|architecture|skyscraper|house|apartment|office|station|airport|terminal|museum|factory|warehouse|stadium|temple|shrine|church|\u5efa\u7bc9|\u5efa\u7269|\u30d3\u30eb|\u9ad8\u5c64|\u5bb6|\u4f4f\u5b85|\u99c5|\u7a7a\u6e2f|\u7f8e\u8853\u9928|\u5de5\u5834|\u30b9\u30bf\u30b8\u30a2\u30e0|\u5bfa|\u795e\u793e|\u6559\u4f1a/iu,
+    match: /building|architecture|skyscraper|house|apartment|office|station|airport|terminal|museum|factory|warehouse|stadium|temple|shrine|church|hospital|clinic|police.?station|fire.?station|nursing.?home|school|city.?hall|town.?hall|\u5efa\u7bc9|\u5efa\u7269|\u30d3\u30eb|\u9ad8\u5c64|\u5bb6|\u4f4f\u5b85|\u99c5|\u7a7a\u6e2f|\u7f8e\u8853\u9928|\u5de5\u5834|\u30b9\u30bf\u30b8\u30a2\u30e0|\u5bfa|\u795e\u793e|\u6559\u4f1a|\u75c5\u9662|\u8a3a\u7642\u6240|\u8b66\u5bdf\u7f72|\u6d88\u9632\u7f72|\u8001\u4eba\u30db\u30fc\u30e0|\u4ecb\u8b77\u65bd\u8a2d|\u5b66\u6821|\u5c0f\u5b66\u6821|\u4e2d\u5b66\u6821|\u9ad8\u6821|\u5e02\u5f79\u6240|\u533a\u5f79\u6240|\u753a\u5f79\u5834/iu,
     defaultHeight: () => 90,
     defaultStyle: "civic_architecture",
+  },
+  {
+    id: "human",
+    match: /police.?officer|firefighter|nurse|doctor|physician|child|adult|woman|elderly|old.?man|old.?woman|person|human|people|\u8b66\u5bdf\u5b98|\u8b66\u5b98|\u6d88\u9632\u58eb|\u770b\u8b77\u5e2b|\u533b\u5e2b|\u5b50\u3069\u3082|\u5b50\u4f9b|\u5c0f\u5b66\u751f|\u5927\u4eba|\u5973\u6027|\u7537\u6027|\u8001\u4eba|\u9ad8\u9f62\u8005|\u4eba\u9593|\u4eba\u7269/iu,
+    defaultHeight: () => 1.7,
+    defaultStyle: "realistic_human",
   },
   {
     id: "structure",
@@ -225,6 +231,23 @@ function inferStyle(prompt, subject) {
   if (/ship|boat|ferry|yacht|submarine|\u8239|\u6f5c\u6c34\u8266/iu.test(prompt)) tags.push("marine_transport");
   if (/airplane|plane|aircraft|jet|helicopter|\u98db\u884c\u6a5f|\u30d8\u30ea\u30b3\u30d7\u30bf\u30fc/iu.test(prompt)) tags.push("aerial_transport");
   if (/car|bus|truck|van|taxi|motorcycle|bike|bicycle|\u81ea\u52d5\u8eca|\u30d0\u30b9/iu.test(prompt)) tags.push("road_transport");
+
+  // Facility buildings
+  if (/hospital|clinic|\u75c5\u9662|\u8a3a\u7642\u6240/iu.test(prompt)) tags.push("hospital");
+  if (/police.?station|\u8b66\u5bdf\u7f72/iu.test(prompt)) tags.push("police_station");
+  if (/fire.?station|\u6d88\u9632\u7f72/iu.test(prompt)) tags.push("fire_station");
+  if (/nursing.?home|\u8001\u4eba\u30db\u30fc\u30e0|\u4ecb\u8b77\u65bd\u8a2d/iu.test(prompt)) tags.push("nursing_home");
+  if (/school|\u5b66\u6821|\u5c0f\u5b66\u6821|\u4e2d\u5b66\u6821|\u9ad8\u6821/iu.test(prompt)) tags.push("school");
+  if (/city.?hall|town.?hall|\u5e02\u5f79\u6240|\u533a\u5f79\u6240|\u753a\u5f79\u5834/iu.test(prompt)) tags.push("city_hall");
+
+  // Human figure types
+  if (/police.?officer|\u8b66\u5bdf\u5b98|\u8b66\u5b98/iu.test(prompt)) tags.push("police_officer");
+  if (/firefighter|\u6d88\u9632\u58eb/iu.test(prompt)) tags.push("firefighter");
+  if (/nurse|\u770b\u8b77\u5e2b/iu.test(prompt)) tags.push("nurse");
+  if (/doctor|physician|\u533b\u5e2b/iu.test(prompt)) tags.push("doctor");
+  if (/child|\u5b50\u3069\u3082|\u5b50\u4f9b|\u5c0f\u5b66\u751f/iu.test(prompt)) tags.push("child");
+  if (/elderly|old.?man|old.?woman|\u8001\u4eba|\u9ad8\u9f62\u8005/iu.test(prompt)) tags.push("elderly");
+  if (/woman|\u5973\u6027/iu.test(prompt)) tags.push("woman");
 
   if (tags.length === 0) {
     const entry = SUBJECT_REGISTRY.find((r) => r.id === subject);
@@ -391,6 +414,81 @@ function createBaseMaterials(subject, styles) {
       signal_green:   { baseColor: "#1CCD5E", roughness: 0.10, metalness: 0.00, emissive: "#1CCD5E" },
       accent:         { baseColor: "#6A60A8", roughness: 0.40, metalness: 0.50 },
       glass:          { baseColor: "#6EA0C6", roughness: 0.15, metalness: 0.84 }
+    };
+  }
+
+  if (subject === "human") {
+    const isPolice     = styles.includes("police_officer");
+    const isFirefighter= styles.includes("firefighter");
+    const isNurse      = styles.includes("nurse");
+    const isDoctor     = styles.includes("doctor");
+    const isChild      = styles.includes("child");
+    const isElderly    = styles.includes("elderly");
+    const skinTone = { baseColor: "#C8A888", roughness: 0.78, metalness: 0.00 };
+    if (isPolice) return {
+      skin:           skinTone,
+      uniform_main:   { baseColor: "#1A2850", roughness: 0.70, metalness: 0.05 },
+      uniform_dark:   { baseColor: "#0E1830", roughness: 0.72, metalness: 0.04 },
+      cap:            { baseColor: "#1A2850", roughness: 0.68, metalness: 0.06 },
+      badge:          { baseColor: "#D4A820", roughness: 0.28, metalness: 0.90 },
+      belt:           { baseColor: "#1C1C1E", roughness: 0.60, metalness: 0.30 },
+      boot:           { baseColor: "#1A1818", roughness: 0.75, metalness: 0.10 },
+      button:         { baseColor: "#C8C0A0", roughness: 0.30, metalness: 0.85 }
+    };
+    if (isFirefighter) return {
+      skin:           skinTone,
+      uniform_main:   { baseColor: "#C83018", roughness: 0.72, metalness: 0.05 },
+      uniform_dark:   { baseColor: "#901C10", roughness: 0.74, metalness: 0.04 },
+      helmet:         { baseColor: "#C83018", roughness: 0.55, metalness: 0.20 },
+      reflective:     { baseColor: "#F0D820", roughness: 0.50, metalness: 0.30 },
+      glove:          { baseColor: "#2A2420", roughness: 0.80, metalness: 0.06 },
+      boot:           { baseColor: "#1E1C18", roughness: 0.75, metalness: 0.08 },
+      tank:           { baseColor: "#A0A8A4", roughness: 0.40, metalness: 0.80 }
+    };
+    if (isNurse) return {
+      skin:           skinTone,
+      uniform_main:   { baseColor: "#E8F0F8", roughness: 0.80, metalness: 0.02 },
+      uniform_accent: { baseColor: "#4098D0", roughness: 0.70, metalness: 0.04 },
+      cap:            { baseColor: "#F0F4F8", roughness: 0.78, metalness: 0.02 },
+      shoe:           { baseColor: "#F0EEE8", roughness: 0.72, metalness: 0.04 },
+      stethoscope:    { baseColor: "#2C2C2E", roughness: 0.50, metalness: 0.60 },
+      hair:           { baseColor: "#3A2810", roughness: 0.85, metalness: 0.00 }
+    };
+    if (isDoctor) return {
+      skin:           skinTone,
+      coat:           { baseColor: "#F4F2EE", roughness: 0.78, metalness: 0.02 },
+      coat_dark:      { baseColor: "#D8D6D2", roughness: 0.80, metalness: 0.02 },
+      scrubs:         { baseColor: "#4880A8", roughness: 0.72, metalness: 0.03 },
+      shoe:           { baseColor: "#1E1C1A", roughness: 0.75, metalness: 0.05 },
+      stethoscope:    { baseColor: "#2C2C2E", roughness: 0.50, metalness: 0.60 },
+      glasses:        { baseColor: "#2A2A2A", roughness: 0.30, metalness: 0.70 },
+      hair:           { baseColor: "#2A2018", roughness: 0.85, metalness: 0.00 }
+    };
+    if (isChild) return {
+      skin:           skinTone,
+      shirt:          { baseColor: "#F0D840", roughness: 0.80, metalness: 0.01 },
+      pants:          { baseColor: "#3060A8", roughness: 0.78, metalness: 0.02 },
+      shoe:           { baseColor: "#C83020", roughness: 0.72, metalness: 0.04 },
+      hair:           { baseColor: "#2A1808", roughness: 0.88, metalness: 0.00 },
+      backpack:       { baseColor: "#E85020", roughness: 0.75, metalness: 0.03 }
+    };
+    if (isElderly) return {
+      skin:           { baseColor: "#C8A8A0", roughness: 0.82, metalness: 0.00 },
+      clothing_main:  { baseColor: "#8888A0", roughness: 0.82, metalness: 0.02 },
+      clothing_dark:  { baseColor: "#505060", roughness: 0.84, metalness: 0.02 },
+      shoe:           { baseColor: "#3A3028", roughness: 0.80, metalness: 0.04 },
+      hair:           { baseColor: "#D8D4D0", roughness: 0.88, metalness: 0.00 },
+      cane:           { baseColor: "#7A5030", roughness: 0.80, metalness: 0.10 }
+    };
+    // Default adult / woman
+    return {
+      skin:           skinTone,
+      clothing_main:  { baseColor: "#4060A0", roughness: 0.78, metalness: 0.02 },
+      clothing_light: { baseColor: "#E8E4DC", roughness: 0.80, metalness: 0.01 },
+      clothing_dark:  { baseColor: "#282840", roughness: 0.82, metalness: 0.02 },
+      shoe:           { baseColor: "#2A2018", roughness: 0.78, metalness: 0.06 },
+      hair:           { baseColor: "#201808", roughness: 0.86, metalness: 0.00 },
+      accessory:      { baseColor: "#C8A060", roughness: 0.40, metalness: 0.70 }
     };
   }
 
@@ -688,7 +786,7 @@ function buildGiantSpec(prompt, height, styles) {
   pushPart("left_eye", "box", [H * 0.01, H * 0.01, H * 0.01], [-H * 0.015, H * 0.82, H * 0.041], "emissive_eye");
   pushPart("right_eye", "box", [H * 0.01, H * 0.01, H * 0.01], [H * 0.015, H * 0.82, H * 0.041], "emissive_eye");
 
-  // Horns 窶・5-segment curved horns
+  // Horns  - 5-segment curved horns
   const hornSegs = [
     { w: 0.022, h: 0.045, ox: 0.030, oy: 0.880, rot:  0 },
     { w: 0.019, h: 0.040, ox: 0.048, oy: 0.916, rot:  8 },
@@ -865,7 +963,7 @@ function buildGiantSpec(prompt, height, styles) {
     );
   }
 
-  // 笏笏 Shoulder pauldrons (layered plates radiating from shoulder) 笏笏
+  // -- Shoulder pauldrons (layered plates radiating from shoulder) --
   for (const sideName of ["left", "right"]) {
     const sx = sideName === "left" ? -1 : 1;
     // Main pauldron cap
@@ -894,7 +992,7 @@ function buildGiantSpec(prompt, height, styles) {
     }
   }
 
-  // 笏笏 Back spikes (12 spikes protruding from spine, upper to lower) 笏笏
+  // -- Back spikes (12 spikes protruding from spine, upper to lower) --
   for (let i = 0; i < 12; i++) {
     const y  = H * (0.78 - i * 0.032);
     const sz = H * (0.06 + (i < 4 ? 0.04 : i < 8 ? 0.02 : 0));   // longer near top
@@ -918,7 +1016,7 @@ function buildGiantSpec(prompt, height, styles) {
     );
   }
 
-  // 笏笏 Cape (40 overlapping flat panels hanging from upper back) 笏笏
+  // -- Cape (40 overlapping flat panels hanging from upper back) --
   // Cape attachment strip
   pushPart("cape_attach", "box",
     [H*0.15, H*0.012, H*0.008],
@@ -941,7 +1039,7 @@ function buildGiantSpec(prompt, height, styles) {
     }
   }
 
-  // 笏笏 Greatsword (right hand) 笏笏
+  // -- Greatsword (right hand) --
   // Grip (handle)
   pushPart("sword_grip", "box",
     [H*0.018, H*0.10, H*0.018],
@@ -1277,11 +1375,11 @@ function buildTowerSpec(prompt, height, styles) {
     parts.push({ id, kind, size: size.map(rounded), position: position.map(rounded), rotation: rotation.map(rounded), material });
   };
 
-  // 笏笏 Ground base platform 笏笏
+  // -- Ground base platform --
   pushPart("base_platform", "box", [H*0.55, H*0.006, H*0.55], [0, H*0.003, 0], "concrete_main");
   pushPart("base_ring",     "box", [H*0.28, H*0.012, H*0.28], [0, H*0.009, 0], "steel_dark");
 
-  // 笏笏 Tripod base legs (3 legs at 90ﾂｰ, 210ﾂｰ, 330ﾂｰ) 笏笏
+  // -- Tripod base legs (3 legs at 90°, 210°, 330°) --
   // Each leg: 10 segments going from the central shaft junction (~Y=0.40H) down to ground, spreading outward
   const legAngles = [90, 210, 330];
   for (let l = 0; l < 3; l++) {
@@ -1318,7 +1416,7 @@ function buildTowerSpec(prompt, height, styles) {
     }
   }
 
-  // 笏笏 Main shaft (stacked tapering box sections, narrowing upward) 笏笏
+  // -- Main shaft (stacked tapering box sections, narrowing upward) --
   // [yBottom, yTop, width]
   const shaftSections = [
     [0.005, 0.08, 0.082], [0.08,  0.16, 0.074], [0.16,  0.24, 0.066],
@@ -1353,7 +1451,7 @@ function buildTowerSpec(prompt, height, styles) {
       [0, bY, 0], i % 4 === 0 ? "steel_dark" : "steel_main");
   }
 
-  // 笏笏 Observation deck 1 (350m = 0.5520H for 634m) 笏笏
+  // -- Observation deck 1 (350m = 0.5520H for 634m) --
   const obs1Y = 350 / H;
   pushPart("obs1_slab",       "box", [H*0.105, H*0.018, H*0.105], [0, H*(obs1Y+0.000), 0], "concrete_main");
   pushPart("obs1_glass_ring", "box", [H*0.120, H*0.042, H*0.120], [0, H*(obs1Y+0.018), 0], "glass");
@@ -1366,7 +1464,7 @@ function buildTowerSpec(prompt, height, styles) {
       [Math.cos(sAngle)*H*0.060, H*(obs1Y+0.016), Math.sin(sAngle)*H*0.060], "steel_dark");
   }
 
-  // 笏笏 Observation deck 2 (450m = 0.7098H for 634m) 笏笏
+  // -- Observation deck 2 (450m = 0.7098H for 634m) --
   const obs2Y = 450 / H;
   pushPart("obs2_slab",       "box", [H*0.078, H*0.015, H*0.078], [0, H*(obs2Y+0.000), 0], "concrete_main");
   pushPart("obs2_glass_ring", "box", [H*0.090, H*0.036, H*0.090], [0, H*(obs2Y+0.015), 0], "glass");
@@ -1379,7 +1477,7 @@ function buildTowerSpec(prompt, height, styles) {
       [Math.cos(sAngle)*H*0.044, H*(obs2Y+0.012), Math.sin(sAngle)*H*0.044], "steel_dark");
   }
 
-  // 笏笏 Spire (above 0.96H) 笏笏
+  // -- Spire (above 0.96H) --
   const spireSegs = [
     [0.960, 0.970, 0.0090], [0.970, 0.978, 0.0070],
     [0.978, 0.985, 0.0054], [0.985, 0.991, 0.0038],
@@ -1450,7 +1548,7 @@ function buildKaijuSpec(prompt, height, styles) {
     surfaceDetails.push({ id, region, type, strength: rounded(strength), offset: offset.map(rounded) });
   };
 
-  // 笏笏 Core body 笏笏
+  // -- Core body --
   pushPart("pelvis",      "box", [H*0.24, H*0.12, H*0.18], [0, H*0.50, 0],         "hide_main");
   pushPart("belly_lower", "box", [H*0.26, H*0.10, H*0.16], [0, H*0.56, H*0.04],    "hide_belly");
   pushPart("torso_mid",   "box", [H*0.28, H*0.12, H*0.18], [0, H*0.62, 0],         "hide_main");
@@ -1469,7 +1567,7 @@ function buildKaijuSpec(prompt, height, styles) {
     }
   }
 
-  // 笏笏 Neck (3 segments, leaning forward) 笏笏
+  // -- Neck (3 segments, leaning forward) --
   pushPart("neck_base",  "box", [H*0.14, H*0.06, H*0.14], [0, H*0.72, H*0.02], "hide_main");
   pushPart("neck_mid",   "box", [H*0.12, H*0.06, H*0.12], [0, H*0.77, H*0.04], "hide_main");
   pushPart("neck_upper", "box", [H*0.10, H*0.05, H*0.10], [0, H*0.81, H*0.06], "hide_main");
@@ -1483,7 +1581,7 @@ function buildKaijuSpec(prompt, height, styles) {
     }
   }
 
-  // 笏笏 Head 笏笏
+  // -- Head --
   pushPart("cranium",      "box", [H*0.18, H*0.10, H*0.16], [0, H*0.87, H*0.06],           "hide_main");
   pushPart("snout",        "box", [H*0.14, H*0.07, H*0.14], [0, H*0.84, H*0.16],           "hide_main");
   pushPart("brow_ridge",   "box", [H*0.16, H*0.025, H*0.04], [0, H*0.90, H*0.09],          "scale_dark");
@@ -1524,7 +1622,7 @@ function buildKaijuSpec(prompt, height, styles) {
     pushPart(`tooth_lower_${i+1}`, "box", [H*0.008, H*0.020, H*0.010], [tx, H*0.784, H*0.210], "teeth");
   }
 
-  // 笏笏 Arms (shorter, hunched forward) 笏笏
+  // -- Arms (shorter, hunched forward) --
   for (const side of ["left", "right"]) {
     const sx = side === "left" ? -1 : 1;
     pushPart(`${side}_shoulder`,  "box", [H*0.08,  H*0.06, H*0.08],  [sx*H*0.185, H*0.680, H*0.02], "hide_main");
@@ -1538,7 +1636,7 @@ function buildKaijuSpec(prompt, height, styles) {
     }
   }
 
-  // 笏笏 Legs (massive pillars, wide stance) 笏笏
+  // -- Legs (massive pillars, wide stance) --
   for (const side of ["left", "right"]) {
     const sx = side === "left" ? -1 : 1;
     pushPart(`${side}_thigh`,     "box", [H*0.12, H*0.22, H*0.12], [sx*H*0.115, H*0.37,   0],       "hide_main");
@@ -1564,7 +1662,7 @@ function buildKaijuSpec(prompt, height, styles) {
     }
   }
 
-  // 笏笏 Tail (15 tapering segments going backward + slightly down) 笏笏
+  // -- Tail (15 tapering segments going backward + slightly down) --
   for (let i = 0; i < 15; i++) {
     const t = i / 14;
     pushPart(`tail_${i+1}`, "box",
@@ -1573,7 +1671,7 @@ function buildKaijuSpec(prompt, height, styles) {
       i % 3 === 0 ? "scale_dark" : "hide_main");
   }
 
-  // 笏笏 Dorsal spines (12, largest mid-back, tapering toward tail) 笏笏
+  // -- Dorsal spines (12, largest mid-back, tapering toward tail) --
   const spineData = [
     [0.780, -0.065, 0.025, 0.012], [0.740, -0.075, 0.040, 0.016],
     [0.700, -0.082, 0.055, 0.020], [0.660, -0.088, 0.065, 0.022],
@@ -1655,7 +1753,7 @@ function buildAirshipSpec(prompt, height, styles) {
     surfaceDetails.push({ id, region, type, scale, offset });
   }
 
-  // 笏笏 GAS ENVELOPE 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- GAS ENVELOPE ------------------------------------------------
   const envY = H * 0.32;
   box("balloon_main",        "canvas_main",   H*0.26, H*0.20, H*0.72, 0,         envY, 0);
   box("balloon_fore",        "canvas_accent", H*0.20, H*0.16, H*0.10, 0,         envY, H*0.39);
@@ -1679,7 +1777,7 @@ function buildAirshipSpec(prompt, height, styles) {
     box(`balloon_panel_R${i+1}`, col, H*0.006, H*0.16, H*0.18,  H*0.130, envY, rounded(z));
   }
 
-  // 笏笏 HULL / GONDOLA 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- HULL / GONDOLA -----------------------------------------------
   const hullY = H * 0.10;
   box("hull_main",  "wood_main",  H*0.15, H*0.09, H*0.58, 0, hullY, 0);
   box("hull_prow",  "wood_dark",  H*0.09, H*0.07, H*0.12, 0, hullY, H*0.34);
@@ -1705,7 +1803,7 @@ function buildAirshipSpec(prompt, height, styles) {
   box("ballast_L", "brass", H*0.04, H*0.03, H*0.15, -H*0.085, H*0.045, 0);
   box("ballast_R", "brass", H*0.04, H*0.03, H*0.15,  H*0.085, H*0.045, 0);
 
-  // 笏笏 SUSPENSION STRAPS 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- SUSPENSION STRAPS --------------------------------------------
   const deckTop = hullY + H * 0.051;
   const strapH  = envY - deckTop;
   const strapMidY = deckTop + strapH * 0.5;
@@ -1714,7 +1812,7 @@ function buildAirshipSpec(prompt, height, styles) {
   box("strap_aft_L",  "rope", H*0.012, rounded(strapH), H*0.012, -H*0.065, strapMidY, -H*0.22);
   box("strap_aft_R",  "rope", H*0.012, rounded(strapH), H*0.012,  H*0.065, strapMidY, -H*0.22);
 
-  // 笏笏 ENGINE PODS + PROPELLERS 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- ENGINE PODS + PROPELLERS -------------------------------------
   const podZ = -H * 0.28;
   const podY = hullY + H * 0.005;
   box("pod_L", "brass",       H*0.040, H*0.040, H*0.10, -H*0.115, podY, rounded(podZ));
@@ -1730,7 +1828,7 @@ function buildAirshipSpec(prompt, height, styles) {
     box(`blade_R${i+1}`, "wood_dark", H*0.012, H*0.090, H*0.012,  H*0.115 + bx, podY + by, rounded(podZ - H*0.06));
   }
 
-  // 笏笏 MASTS + SAILS 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- MASTS + SAILS ------------------------------------------------
   const mastBaseY = deckTop;
 
   // Fore mast
@@ -1748,7 +1846,7 @@ function buildAirshipSpec(prompt, height, styles) {
   box("sail_aft",    "canvas_sail",H*0.14,  H*0.11,   H*0.006,  0,  mastBaseY + mastAH*0.62, -H*0.10);
   box("flag_aft",    "gilded",     H*0.03,  H*0.020,  H*0.003,  0,  mastBaseY + mastAH + H*0.006, -H*0.10);
 
-  // 笏笏 STERN FINS + RUDDER 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- STERN FINS + RUDDER ------------------------------------------
   box("rudder",      "wood_dark",  H*0.012, H*0.12,   H*0.10,   0,  hullY + H*0.025, -H*0.41);
   box("fin_port",    "canvas_dark",H*0.10,  H*0.08,   H*0.12,  -H*0.12, envY - H*0.08, -H*0.38);
   box("fin_stbd",    "canvas_dark",H*0.10,  H*0.08,   H*0.12,   H*0.12, envY - H*0.08, -H*0.38);
@@ -1758,7 +1856,7 @@ function buildAirshipSpec(prompt, height, styles) {
   box("helm_post",   "wood_dark",  H*0.012, H*0.06,   H*0.012,  0,  deckTop + H*0.040, -H*0.20);
   box("helm_wheel",  "brass",      H*0.06,  H*0.06,   H*0.008,  0,  deckTop + H*0.072, -H*0.20);
 
-  // 笏笏 PROW DETAILS 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- PROW DETAILS -------------------------------------------------
   box("figurehead",  "gilded",     H*0.030, H*0.060,  H*0.04,   0,  hullY + H*0.040, H*0.42);
   box("prow_lantern","gilded",     H*0.020, H*0.025,  H*0.02,   0,  hullY + H*0.058, H*0.39);
   box("railing_bow_L","brass",     H*0.005, H*0.025,  H*0.15,  -H*0.070, deckTop, H*0.28);
@@ -1766,7 +1864,7 @@ function buildAirshipSpec(prompt, height, styles) {
   box("railing_aft_L","brass",     H*0.005, H*0.025,  H*0.10,  -H*0.060, deckTop, -H*0.26);
   box("railing_aft_R","brass",     H*0.005, H*0.025,  H*0.10,   H*0.060, deckTop, -H*0.26);
 
-  // 笏笏 DECK ACCESSORIES 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- DECK ACCESSORIES ---------------------------------------------
   box("rope_coil_1", "rope",       H*0.040, H*0.018,  H*0.040, -H*0.050, deckTop,  H*0.12);
   box("rope_coil_2", "rope",       H*0.040, H*0.018,  H*0.040,  H*0.050, deckTop,  H*0.12);
   box("rope_coil_3", "rope",       H*0.040, H*0.018,  H*0.040, -H*0.050, deckTop, -H*0.05);
@@ -1803,6 +1901,16 @@ function buildAirshipSpec(prompt, height, styles) {
 }
 
 function classifyBuildingArchetype(prompt) {
+  // Facility buildings (check before generic residential to avoid misclassification)
+  if (/hospital|clinic|\u75c5\u9662|\u8a3a\u7642\u6240/iu.test(prompt)) return "facility_hospital";
+  if (/police.?station|\u8b66\u5bdf\u7f72/iu.test(prompt)) return "facility_police";
+  if (/fire.?station|\u6d88\u9632\u7f72/iu.test(prompt)) return "facility_fire";
+  if (/nursing.?home|\u8001\u4eba\u30db\u30fc\u30e0|\u4ecb\u8b77\u65bd\u8a2d/iu.test(prompt)) return "facility_nursing";
+  if (/city.?hall|town.?hall|\u5e02\u5f79\u6240|\u533a\u5f79\u6240|\u753a\u5f79\u5834/iu.test(prompt)) return "facility_cityhall";
+  if (/\b(elementary|junior.?high|high|senior).?school|\u5c0f\u5b66\u6821|\u4e2d\u5b66\u6821|\u9ad8\u6821/iu.test(prompt)) return "facility_school";
+  if (/school|\u5b66\u6821/iu.test(prompt)) return "facility_school";
+
+  // Residential
   if (/(\b1\b|single|one)[-\s]?(story|floor)|\u5e73\u5c4b|\u6238\u5efa/u.test(prompt)) return "house_single";
   if (/2[-\s]?(story|floor)|\u4e8c\u968e\u5efa|\u0032\u968e\u5efa/u.test(prompt) && /apartment|\u30a2\u30d1\u30fc\u30c8/u.test(prompt)) return "apartment_2f";
   if (/2[-\s]?(story|floor)|\u4e8c\u968e\u5efa|\u0032\u968e\u5efa/u.test(prompt)) return "house_2f";
@@ -1860,8 +1968,15 @@ function buildBuildingSpec(prompt, height, styles) {
     apartment_mid: { w: 0.72, d: 0.44, body: 0.82, roof: 0.14 },
     mansion_family:{ w: 0.90, d: 0.50, body: 0.82, roof: 0.14 },
     mansion_estate:{ w: 1.10, d: 0.72, body: 0.72, roof: 0.22 },
-    building_generic:{ w: 0.48, d: 0.40, body: 0.80, roof: 0.14 },
-    campus:          { w: 5.60, d: 4.40, body: 0.78, roof: 0.04 }
+    building_generic:  { w: 0.48, d: 0.40, body: 0.80, roof: 0.14 },
+    campus:            { w: 5.60, d: 4.40, body: 0.78, roof: 0.04 },
+    // Facility buildings
+    facility_hospital: { w: 1.20, d: 0.80, body: 0.82, roof: 0.06 },
+    facility_police:   { w: 0.90, d: 0.60, body: 0.80, roof: 0.08 },
+    facility_fire:     { w: 0.80, d: 0.60, body: 0.78, roof: 0.10 },
+    facility_nursing:  { w: 1.00, d: 0.70, body: 0.80, roof: 0.08 },
+    facility_cityhall: { w: 1.30, d: 0.70, body: 0.78, roof: 0.10 },
+    facility_school:   { w: 1.40, d: 0.60, body: 0.80, roof: 0.08 }
   };
   const d = dimsByType[archetype] || dimsByType.building_generic;
 
@@ -1879,12 +1994,27 @@ function buildBuildingSpec(prompt, height, styles) {
     },
     globalScale: { height: H, width, depth },
     style: {
-      silhouette: archetype === "campus" ? "campus_complex" : archetype.includes("house") ? "residential_mass" : archetype.includes("mansion") ? "grand_residential_mass" : "multi_unit_or_civic_mass",
-      mood: archetype === "campus" ? "academic" : styles.includes("dark") ? "dramatic_urban" : "inhabited",
-      genre: archetype === "campus" ? "academic_campus" : archetype.includes("jp") ? "japanese_residential" : "residential_architecture",
+      silhouette: archetype === "campus" ? "campus_complex"
+        : archetype.startsWith("facility_") ? "civic_public_building"
+        : archetype.includes("house") ? "residential_mass"
+        : archetype.includes("mansion") ? "grand_residential_mass"
+        : "multi_unit_or_civic_mass",
+      mood: archetype === "campus" ? "academic"
+        : archetype.startsWith("facility_") ? "authoritative_public"
+        : styles.includes("dark") ? "dramatic_urban"
+        : "inhabited",
+      genre: archetype === "campus" ? "academic_campus"
+        : archetype === "facility_hospital" ? "medical_facility"
+        : archetype === "facility_police" ? "law_enforcement_facility"
+        : archetype === "facility_fire" ? "emergency_services_facility"
+        : archetype === "facility_nursing" ? "social_welfare_facility"
+        : archetype === "facility_cityhall" ? "governmental_facility"
+        : archetype === "facility_school" ? "educational_facility"
+        : archetype.includes("jp") ? "japanese_residential"
+        : "residential_architecture",
       detailDensity: "high",
       bodyLanguage: "static_structure",
-      shapeLanguage: ["main_volume", "roof_profile", "entrance", "window_rhythm"]
+      shapeLanguage: ["main_volume", "roof_profile", "entrance", "window_rhythm", "signage"]
     },
     materials: createBaseMaterials("building", styles),
     parts: [],
@@ -1995,6 +2125,159 @@ function buildBuildingSpec(prompt, height, styles) {
         pushSurface(`surface_detail_${sdIdx++}`, rgn, detailTypes[i % detailTypes.length],
           0.16 + (i % 5) * 0.05,
           [Math.sin(i*0.7)*0.02, Math.cos(i*0.6)*0.016, ((i%4)-1.5)*0.012]);
+      }
+    }
+    spec.parts = parts;
+    spec.surfaceDetails = surfaceDetails;
+    return spec;
+  }
+
+  // ── Facility building archetypes ────────────────────────────────────────────
+  if (archetype.startsWith("facility_")) {
+    const facilityMats = {
+      facility_hospital: {
+        facade_main:      { baseColor: "#E8EAE4", roughness: 0.88, metalness: 0.04 },
+        facade_secondary: { baseColor: "#B0C8D8", roughness: 0.82, metalness: 0.10 },
+        roof:             { baseColor: "#8AACBC", roughness: 0.80, metalness: 0.12 },
+        glass:            { baseColor: "#7BAED6", roughness: 0.10, metalness: 0.88 },
+        accent:           { baseColor: "#2060A0", roughness: 0.60, metalness: 0.20 },
+        sign_red:         { baseColor: "#CC2020", roughness: 0.40, metalness: 0.10, emissive: "#CC2020" }
+      },
+      facility_police: {
+        facade_main:      { baseColor: "#D8D4C8", roughness: 0.88, metalness: 0.04 },
+        facade_secondary: { baseColor: "#2038A8", roughness: 0.60, metalness: 0.18 },
+        roof:             { baseColor: "#1A2870", roughness: 0.75, metalness: 0.15 },
+        glass:            { baseColor: "#3A5870", roughness: 0.12, metalness: 0.86 },
+        accent:           { baseColor: "#F0D820", roughness: 0.40, metalness: 0.20 },
+        sign_blue:        { baseColor: "#1030CC", roughness: 0.30, metalness: 0.10, emissive: "#2040DD" }
+      },
+      facility_fire: {
+        facade_main:      { baseColor: "#D8CFC4", roughness: 0.88, metalness: 0.04 },
+        facade_secondary: { baseColor: "#C82020", roughness: 0.60, metalness: 0.15 },
+        roof:             { baseColor: "#901818", roughness: 0.75, metalness: 0.18 },
+        glass:            { baseColor: "#3A5870", roughness: 0.12, metalness: 0.86 },
+        accent:           { baseColor: "#F07820", roughness: 0.38, metalness: 0.18 },
+        door_large:       { baseColor: "#CC2010", roughness: 0.55, metalness: 0.30 }
+      },
+      facility_nursing: {
+        facade_main:      { baseColor: "#EEE8DC", roughness: 0.90, metalness: 0.03 },
+        facade_secondary: { baseColor: "#C8B898", roughness: 0.88, metalness: 0.04 },
+        roof:             { baseColor: "#A89070", roughness: 0.82, metalness: 0.06 },
+        glass:            { baseColor: "#7BAED6", roughness: 0.12, metalness: 0.88 },
+        accent:           { baseColor: "#70A870", roughness: 0.60, metalness: 0.10 },
+        garden:           { baseColor: "#5A8A48", roughness: 0.95, metalness: 0.01 }
+      },
+      facility_cityhall: {
+        facade_main:      { baseColor: "#D4C8A8", roughness: 0.90, metalness: 0.04 },
+        facade_secondary: { baseColor: "#8A8070", roughness: 0.92, metalness: 0.03 },
+        roof:             { baseColor: "#4A4838", roughness: 0.80, metalness: 0.12 },
+        glass:            { baseColor: "#7BAED6", roughness: 0.12, metalness: 0.88 },
+        column:           { baseColor: "#C8C4B8", roughness: 0.85, metalness: 0.05 },
+        accent:           { baseColor: "#8A6820", roughness: 0.38, metalness: 0.72 }
+      },
+      facility_school: {
+        facade_main:      { baseColor: "#E0D8C0", roughness: 0.88, metalness: 0.04 },
+        facade_secondary: { baseColor: "#A89870", roughness: 0.90, metalness: 0.03 },
+        roof:             { baseColor: "#607848", roughness: 0.82, metalness: 0.08 },
+        glass:            { baseColor: "#7BAED6", roughness: 0.12, metalness: 0.88 },
+        accent:           { baseColor: "#487840", roughness: 0.65, metalness: 0.08 },
+        yard:             { baseColor: "#A09060", roughness: 0.96, metalness: 0.01 }
+      }
+    };
+    spec.materials = facilityMats[archetype] || facilityMats.facility_hospital;
+    const mat = spec.materials;
+
+    const floorH = bodyHeight / Math.max(2, Math.round(H / 4));
+    const floors = Math.round(bodyHeight / floorH);
+
+    // Foundation / ground slab
+    box("ground_slab", "facade_secondary", width * 1.08, baseHeight, depth * 1.08, 0, baseHeight * 0.5, 0);
+    // Main body
+    box("main_body", "facade_main", width, bodyHeight, depth, 0, baseHeight + bodyHeight * 0.5, 0);
+
+    // Window bands per floor
+    for (let f = 0; f < floors; f++) {
+      const fy = baseHeight + (f + 0.5) * floorH;
+      box(`win_front_f${f}`, "glass", width * 0.78, floorH * 0.42, depth * 0.03, 0, fy, depth * 0.50);
+      box(`win_back_f${f}`,  "glass", width * 0.78, floorH * 0.42, depth * 0.03, 0, fy, -depth * 0.50);
+      box(`floor_band_f${f}`, "facade_secondary", width * 1.01, floorH * 0.06, depth * 1.01, 0, baseHeight + f * floorH, 0);
+    }
+
+    // Flat roof with parapet
+    box("roof_slab",    "roof", width * 1.04, roofHeight * 0.30, depth * 1.04, 0, H - roofHeight * 0.85, 0);
+    box("parapet_N",    "facade_secondary", width * 1.02, roofHeight * 0.55, depth * 0.03, 0, H - roofHeight * 0.38, depth * 0.52);
+    box("parapet_S",    "facade_secondary", width * 1.02, roofHeight * 0.55, depth * 0.03, 0, H - roofHeight * 0.38, -depth * 0.52);
+    box("parapet_W",    "facade_secondary", width * 0.03, roofHeight * 0.55, depth * 1.02, -width * 0.52, H - roofHeight * 0.38, 0);
+    box("parapet_E",    "facade_secondary", width * 0.03, roofHeight * 0.55, depth * 1.02,  width * 0.52, H - roofHeight * 0.38, 0);
+
+    // Facility-specific elements
+    if (archetype === "facility_hospital") {
+      // Cross sign on roof
+      box("cross_h", "sign_red", width * 0.22, roofHeight * 0.40, width * 0.06, 0, H + roofHeight * 0.10, 0);
+      box("cross_v", "sign_red", width * 0.06, roofHeight * 0.40, width * 0.22, 0, H + roofHeight * 0.10, 0);
+      // Emergency entrance canopy
+      box("er_canopy",  "facade_secondary", width * 0.44, H * 0.025, depth * 0.20, 0, baseHeight + H * 0.035, depth * 0.56);
+      box("er_entrance","glass", width * 0.30, baseHeight * 0.65, depth * 0.06, 0, baseHeight * 0.44, depth * 0.52);
+      // Helipad ring outline on roof
+      shape("helipad_ring", "cylinder", "accent", width * 0.38, roofHeight * 0.05, width * 0.38, 0, H + roofHeight * 0.02, 0);
+    } else if (archetype === "facility_police") {
+      // Blue stripe on facade
+      box("stripe_top",   "facade_secondary", width * 1.01, bodyHeight * 0.06, depth * 1.01, 0, baseHeight + bodyHeight * 0.92, 0);
+      box("stripe_mid",   "facade_secondary", width * 1.01, bodyHeight * 0.04, depth * 1.01, 0, baseHeight + bodyHeight * 0.50, 0);
+      // Main entrance
+      box("entrance_frame","accent", width * 0.26, baseHeight * 0.80, depth * 0.06, 0, baseHeight * 0.50, depth * 0.52);
+      box("entrance_door", "glass", width * 0.18, baseHeight * 0.62, depth * 0.04, 0, baseHeight * 0.40, depth * 0.54);
+      // Flag pole
+      shape("flagpole", "cylinder", "accent", H * 0.01, H * 0.30, H * 0.01, -width * 0.46, H * 0.15, depth * 0.54);
+    } else if (archetype === "facility_fire") {
+      // Large vehicle bay doors (3 bays)
+      for (let b = -1; b <= 1; b++) {
+        box(`bay_door_${b+2}`, "door_large", width * 0.26, baseHeight * 0.85, depth * 0.04,
+            b * width * 0.30, baseHeight * 0.50, depth * 0.52);
+      }
+      // Red stripe
+      box("red_stripe", "facade_secondary", width * 1.01, bodyHeight * 0.08, depth * 1.01, 0, baseHeight + bodyHeight * 0.15, 0);
+      // Tower (for drying hoses)
+      box("hose_tower", "facade_main", width * 0.14, H * 0.60, depth * 0.14, -width * 0.42, H * 0.30, 0);
+      box("hose_tower_top", "roof", width * 0.16, H * 0.04, depth * 0.16, -width * 0.42, H * 0.62, 0);
+    } else if (archetype === "facility_nursing") {
+      // Gentle entrance ramp
+      box("entrance_ramp", "facade_secondary", width * 0.32, H * 0.01, depth * 0.24, 0, baseHeight * 0.60, depth * 0.60);
+      box("entrance_canopy","facade_secondary", width * 0.40, H * 0.02, depth * 0.16, 0, baseHeight + H * 0.02, depth * 0.52);
+      // Garden area
+      box("garden_zone",  "garden", width * 0.60, H * 0.01, depth * 0.30, -width * 0.22, 0, -depth * 0.62);
+    } else if (archetype === "facility_cityhall") {
+      // Columned portico
+      for (let c = -2; c <= 2; c++) {
+        shape(`portico_col_${c+3}`, "cylinder", "column",
+          width * 0.05, bodyHeight * 0.55, width * 0.05,
+          c * width * 0.14, baseHeight + bodyHeight * 0.30, depth * 0.50);
+      }
+      box("portico_roof", "facade_secondary", width * 0.72, bodyHeight * 0.04, depth * 0.10, 0, baseHeight + bodyHeight * 0.57, depth * 0.50);
+      shape("pediment", "tri_prism", "facade_main", width * 0.68, bodyHeight * 0.12, depth * 0.08, 0, baseHeight + bodyHeight * 0.62, depth * 0.50);
+      // Flag pole (center roof)
+      shape("flagpole", "cylinder", "accent", H * 0.01, H * 0.28, H * 0.01, 0, H * 1.14, 0);
+    } else if (archetype === "facility_school") {
+      // Long corridor wing
+      box("wing_L", "facade_main", width * 0.30, bodyHeight * 0.80, depth, -width * 0.66, baseHeight + bodyHeight * 0.40, 0);
+      // Gymnasium / gym volume
+      box("gym_block", "facade_secondary", width * 0.44, bodyHeight * 0.70, depth * 0.52, width * 0.56, baseHeight + bodyHeight * 0.38, -depth * 0.26);
+      // School yard
+      box("school_yard", "yard", width * 1.20, H * 0.01, depth * 0.90, 0, 0, -depth * 0.92);
+      // Entrance gate posts
+      shape("gate_L", "cylinder", "accent", H * 0.03, H * 0.12, H * 0.03, -width * 0.22, H * 0.06, -depth * 0.46);
+      shape("gate_R", "cylinder", "accent", H * 0.03, H * 0.12, H * 0.03,  width * 0.22, H * 0.06, -depth * 0.46);
+    }
+
+    // Surface details
+    const facRegions = ["facade", "roof", "entrance", "windows"];
+    const facDetails = ["panel_seam", "window_grid", "weathering", "trim_line", "tile_pattern"];
+    let sdIdx = 1;
+    for (const rgn of facRegions) {
+      for (let i = 0; i < 8; i++) {
+        pushSurface(`surface_detail_${sdIdx++}`, rgn, facDetails[i % facDetails.length],
+          0.14 + (i % 5) * 0.06,
+          [Math.sin(i*0.8)*0.018, Math.cos(i*0.7)*0.014, ((i%4)-1.5)*0.010]);
       }
     }
     spec.parts = parts;
@@ -2579,7 +2862,7 @@ function buildStructureSpec(prompt, height, styles) {
   return spec;
 }
 function buildWarriorSpec(prompt, height, styles) {
-  // H = total standing height (default 2 m 窶・human scale)
+  // H = total standing height (default 2 m  - human scale)
   const H     = height;
   const dark  = styles.includes("dark");
   const regal = styles.includes("regal");
@@ -2620,14 +2903,14 @@ function buildWarriorSpec(prompt, height, styles) {
     surfaceDetails.push({ id, region, type, scale, offset });
   }
 
-  // 笏笏 CORE BODY (chainmail under-layer) 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- CORE BODY (chainmail under-layer) ----------------------------
   box("body_pelvis",         "chainmail",   H*0.100, H*0.065, H*0.080,  0,       H*0.468, 0);
   box("body_abdomen",        "chainmail",   H*0.100, H*0.060, H*0.075,  0,       H*0.532, 0);
   box("body_torso",          "cloth",       H*0.130, H*0.100, H*0.085,  0,       H*0.620, 0);
   box("body_chest",          "chainmail",   H*0.140, H*0.075, H*0.090,  0,       H*0.718, 0);
   box("body_neck",           "chainmail",   H*0.040, H*0.038, H*0.040,  0,       H*0.820, 0);
 
-  // 笏笏 HELMET 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- HELMET -------------------------------------------------------
   box("helm_main",           "plate_main",  H*0.095, H*0.085, H*0.090,  0,       H*0.900, 0);
   box("helm_cheek_L",        "plate_main",  H*0.020, H*0.052, H*0.040, -H*0.048, H*0.888, H*0.018);
   box("helm_cheek_R",        "plate_main",  H*0.020, H*0.052, H*0.040,  H*0.048, H*0.888, H*0.018);
@@ -2646,13 +2929,13 @@ function buildWarriorSpec(prompt, height, styles) {
     box(`helm_plume_${i+1}`, capeColor, H*0.010, ph, H*0.012, 0, py, pz);
   }
 
-  // 笏笏 GORGET (neck guard) 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- GORGET (neck guard) -------------------------------------------
   box("gorget_front",        "plate_main",  H*0.060, H*0.020, H*0.038,  0,       H*0.838, H*0.018);
   box("gorget_back",         "plate_dark",  H*0.055, H*0.018, H*0.028,  0,       H*0.838, -H*0.015);
   box("gorget_L",            "plate_main",  H*0.018, H*0.020, H*0.032, -H*0.032, H*0.838, 0);
   box("gorget_R",            "plate_main",  H*0.018, H*0.020, H*0.032,  H*0.032, H*0.838, 0);
 
-  // 笏笏 BREASTPLATE 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- BREASTPLATE ---------------------------------------------------
   box("breast_upper",        "plate_main",  H*0.130, H*0.048, H*0.040,  0,       H*0.790, H*0.022);
   box("breast_main",         "plate_main",  H*0.135, H*0.098, H*0.042,  0,       H*0.700, H*0.024);
   box("breast_lower",        "plate_dark",  H*0.114, H*0.038, H*0.038,  0,       H*0.628, H*0.020);
@@ -2667,12 +2950,12 @@ function buildWarriorSpec(prompt, height, styles) {
       H*0.110, H*0.010, H*0.034, 0, H*(0.544 + i*0.017), H*0.018);
   }
 
-  // 笏笏 BACKPLATE 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- BACKPLATE -----------------------------------------------------
   box("back_main",           "plate_dark",  H*0.128, H*0.108, H*0.028,  0,       H*0.710, -H*0.020);
   box("back_lower",          "plate_dark",  H*0.110, H*0.048, H*0.024,  0,       H*0.628, -H*0.018);
   box("back_trim",           accentMat,     H*0.125, H*0.007, H*0.007,  0,       H*0.810, -H*0.018);
 
-  // 笏笏 FAULD (waist skirt 窶・10 overlapping plates) 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- FAULD (waist skirt  - 10 overlapping plates) -------------------
   for (let i = 0; i < 10; i++) {
     const angle = ((i - 4.5) / 10) * Math.PI * 0.85;
     const x = Math.sin(angle) * H * 0.054;
@@ -2682,7 +2965,7 @@ function buildWarriorSpec(prompt, height, styles) {
     box(`fauld_${i+1}`, i%2===0 ? "plate_dark" : "plate_main", w, H*0.055, H*0.018, x, y, z);
   }
 
-  // 笏笏 PAULDRONS (shoulder plates) 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- PAULDRONS (shoulder plates) -----------------------------------
   for (const side of ["L", "R"]) {
     const sx = side === "L" ? -1 : 1;
     box(`pauldron_${side}_main`,    "plate_main", H*0.065, H*0.028, H*0.075, sx*H*0.115, H*0.800, 0);
@@ -2699,7 +2982,7 @@ function buildWarriorSpec(prompt, height, styles) {
     }
   }
 
-  // 笏笏 UPPER ARMS 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- UPPER ARMS ---------------------------------------------------
   for (const side of ["L", "R"]) {
     const sx = side === "L" ? -1 : 1;
     box(`uarm_${side}`,            "plate_main", H*0.048, H*0.108, H*0.048, sx*H*0.155, H*0.718, 0);
@@ -2709,14 +2992,14 @@ function buildWarriorSpec(prompt, height, styles) {
     }
   }
 
-  // 笏笏 ELBOW GUARDS 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- ELBOW GUARDS -------------------------------------------------
   for (const side of ["L", "R"]) {
     const sx = side === "L" ? -1 : 1;
     box(`elbow_${side}`,           "plate_main", H*0.058, H*0.024, H*0.058, sx*H*0.155, H*0.604, 0);
     box(`elbow_${side}_spike`,     accentMat,    H*0.012, H*0.034, H*0.012, sx*H*0.155, H*0.598, H*0.030);
   }
 
-  // 笏笏 VAMBRACES (forearm guards) 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- VAMBRACES (forearm guards) ------------------------------------
   // Right arm slightly lowered (sword grip), left natural
   for (const side of ["L", "R"]) {
     const sx  = side === "L" ? -1 : 1;
@@ -2728,7 +3011,7 @@ function buildWarriorSpec(prompt, height, styles) {
     }
   }
 
-  // 笏笏 GAUNTLETS 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- GAUNTLETS -----------------------------------------------------
   for (const side of ["L", "R"]) {
     const sx  = side === "L" ? -1 : 1;
     const yOff = side === "R" ? -H*0.035 : 0;
@@ -2741,7 +3024,7 @@ function buildWarriorSpec(prompt, height, styles) {
     }
   }
 
-  // 笏笏 TASSETS (upper thigh guards hanging from fauld) 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- TASSETS (upper thigh guards hanging from fauld) ---------------
   for (const side of ["L", "R"]) {
     const sx = side === "L" ? -1 : 1;
     for (let i = 0; i < 3; i++) {
@@ -2750,7 +3033,7 @@ function buildWarriorSpec(prompt, height, styles) {
     }
   }
 
-  // 笏笏 THIGHS 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- THIGHS -------------------------------------------------------
   for (const side of ["L", "R"]) {
     const sx = side === "L" ? -1 : 1;
     box(`thigh_${side}`,           "plate_main", H*0.054, H*0.138, H*0.054, sx*H*0.050, H*0.338, 0);
@@ -2760,14 +3043,14 @@ function buildWarriorSpec(prompt, height, styles) {
     }
   }
 
-  // 笏笏 KNEE GUARDS 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- KNEE GUARDS ---------------------------------------------------
   for (const side of ["L", "R"]) {
     const sx = side === "L" ? -1 : 1;
     box(`knee_${side}`,            "plate_main", H*0.064, H*0.028, H*0.058, sx*H*0.050, H*0.216, H*0.008);
     box(`knee_${side}_rim`,        accentMat,    H*0.064, H*0.007, H*0.007, sx*H*0.050, H*0.228, H*0.010);
   }
 
-  // 笏笏 GREAVES (shins) 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- GREAVES (shins) -----------------------------------------------
   for (const side of ["L", "R"]) {
     const sx = side === "L" ? -1 : 1;
     box(`greave_${side}`,          "plate_main", H*0.050, H*0.148, H*0.050, sx*H*0.050, H*0.114, 0);
@@ -2778,7 +3061,7 @@ function buildWarriorSpec(prompt, height, styles) {
     }
   }
 
-  // 笏笏 SABATONS (armored boots) 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- SABATONS (armored boots) --------------------------------------
   for (const side of ["L", "R"]) {
     const sx = side === "L" ? -1 : 1;
     box(`sabaton_${side}`,         "plate_main", H*0.052, H*0.018, H*0.094, sx*H*0.050, H*0.012, H*0.020);
@@ -2789,13 +3072,13 @@ function buildWarriorSpec(prompt, height, styles) {
     }
   }
 
-  // 笏笏 GREATSWORD (held upright in right hand) 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- GREATSWORD (held upright in right hand) -----------------------
   // Sword base at right side; tip extends above warrior's head
   const swX = H * 0.180;
   const swZ = H * 0.026;
   // Pommel
   box("sword_pommel",            "gold_trim",  H*0.030, H*0.028, H*0.030, swX, H*0.295, swZ);
-  // Grip 窶・long two-handed hilt
+  // Grip  - long two-handed hilt
   box("sword_grip_lower",        "leather",    H*0.018, H*0.055, H*0.018, swX, H*0.343, swZ);
   box("sword_grip_mid",          "leather",    H*0.018, H*0.025, H*0.018, swX, H*0.370, swZ);
   for (let i = 0; i < 4; i++) {
@@ -2809,18 +3092,18 @@ function buildWarriorSpec(prompt, height, styles) {
   box("sword_guard_tip_R",       accentMat,    H*0.012, H*0.020, H*0.012, swX + H*0.100, H*0.390, swZ);
   // Ricasso (un-sharpened base above guard)
   box("sword_ricasso",           "plate_dark", H*0.020, H*0.038, H*0.006, swX, H*0.412, swZ);
-  // Blade 窶・4 tapered sections
+  // Blade  - 4 tapered sections
   box("sword_blade_s1",          "sword_blade",H*0.024, H*0.195, H*0.008, swX, H*0.492, swZ);
   box("sword_blade_s2",          "sword_blade",H*0.020, H*0.195, H*0.007, swX, H*0.688, swZ);
   box("sword_blade_s3",          "sword_blade",H*0.016, H*0.175, H*0.006, swX, H*0.878, swZ);
   box("sword_blade_s4",          "sword_blade",H*0.010, H*0.100, H*0.005, swX, H*1.028, swZ);
   // Tip
   box("sword_blade_tip",         accentMat,    H*0.006, H*0.038, H*0.004, swX, H*1.100, swZ);
-  // Fuller (blood groove 窶・center ridge down blade)
+  // Fuller (blood groove  - center ridge down blade)
   box("sword_fuller_low",        "sword_blade",H*0.004, H*0.310, H*0.004, swX, H*0.568, swZ);
   box("sword_fuller_high",       "sword_blade",H*0.003, H*0.260, H*0.003, swX, H*0.848, swZ);
 
-  // 笏笏 BELT + ACCESSORIES 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- BELT + ACCESSORIES --------------------------------------------
   box("belt_main",               "leather",    H*0.120, H*0.017, H*0.060, 0, H*0.494, 0);
   box("belt_buckle",             accentMat,    H*0.020, H*0.020, H*0.012, 0, H*0.494, H*0.030);
   box("pouch_L",                 "leather",    H*0.030, H*0.034, H*0.018, -H*0.056, H*0.470, -H*0.014);
@@ -2829,7 +3112,7 @@ function buildWarriorSpec(prompt, height, styles) {
   box("scabbard_upper",          "leather",    H*0.018, H*0.080, H*0.018, -H*0.076, H*0.418, H*0.015);
   box("scabbard_tip",            accentMat,    H*0.020, H*0.018, H*0.020, -H*0.076, H*0.356, H*0.015);
 
-  // 笏笏 CAPE 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- CAPE ----------------------------------------------------------
   // Collar bar
   box("cape_collar",             "plate_dark", H*0.120, H*0.014, H*0.010, 0, H*0.798, -H*0.022);
   // 7 columns ﾃ・4 rows of cascading panels
@@ -2843,7 +3126,7 @@ function buildWarriorSpec(prompt, height, styles) {
     }
   }
 
-  // 笏笏 SURFACE DETAIL METADATA 笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏笏
+  // -- SURFACE DETAIL METADATA ---------------------------------------
   const regions   = ["helmet", "breastplate", "backplate", "left_arm", "right_arm",
                      "left_leg", "right_leg", "fauld", "sword_blade", "boots"];
   const detailTypes = ["engraving", "plate_seam", "battle_scratch", "rivet_pattern", "heraldic_motif"];
@@ -2863,7 +3146,307 @@ function buildWarriorSpec(prompt, height, styles) {
   return spec;
 }
 
-// Builder dispatch map 窶・add new subject builders here alongside SUBJECT_REGISTRY.
+// =============================== HUMAN SPEC BUILDER ============================
+// Generates a high-density articulated human figure spec.
+// Supports: police_officer, firefighter, nurse, doctor, child, elderly, woman, adult.
+// Height (H) represents the total body height in meters (default ~1.7m for adult).
+function buildHumanSpec(prompt, height, styles) {
+  const H = height;
+  const base = buildHighDensityMeta(prompt, "human", H, styles);
+  styles._prompt = prompt;
+
+  const isPolice      = styles.includes("police_officer");
+  const isFirefighter = styles.includes("firefighter");
+  const isNurse       = styles.includes("nurse");
+  const isDoctor      = styles.includes("doctor");
+  const isChild       = styles.includes("child");
+  const isElderly     = styles.includes("elderly");
+  const isWoman       = styles.includes("woman");
+
+  // Body proportion scaling
+  const scale = isChild ? 0.70 : isElderly ? 0.95 : 1.0;
+  const sH = H * scale;
+
+  // Canonical proportions (fraction of total height)
+  const prop = {
+    headH:   sH * 0.130,  headW:  sH * 0.110,  headD:  sH * 0.100,
+    neckH:   sH * 0.040,  neckR:  sH * 0.030,
+    torsoH:  sH * 0.300,  torsoW: sH * 0.240,  torsoD: sH * 0.140,
+    hipH:    sH * 0.120,  hipW:   sH * 0.220,  hipD:   sH * 0.130,
+    upperAH: sH * 0.160,  upperAW:sH * 0.070,  upperAD:sH * 0.065,
+    lowerAH: sH * 0.150,  lowerAW:sH * 0.055,  lowerAD:sH * 0.050,
+    handH:   sH * 0.060,  handW:  sH * 0.060,  handD:  sH * 0.030,
+    thighH:  sH * 0.240,  thighW: sH * 0.090,  thighD: sH * 0.088,
+    shinH:   sH * 0.220,  shinW:  sH * 0.068,  shinD:  sH * 0.066,
+    footH:   sH * 0.040,  footW:  sH * 0.068,  footD:  sH * 0.150
+  };
+
+  // Y offsets (bottom of feet = 0)
+  const yFoot  = 0;
+  const yShin  = yFoot  + prop.footH;
+  const yThigh = yShin  + prop.shinH;
+  const yHip   = yThigh + prop.thighH;
+  const yTorso = yHip   + prop.hipH;
+  const yNeck  = yTorso + prop.torsoH;
+  const yHead  = yNeck  + prop.neckH;
+
+  const spec = {
+    ...base,
+    promptInterpretation: {
+      ...base.promptInterpretation,
+      humanType: isPolice ? "police_officer"
+        : isFirefighter ? "firefighter"
+        : isNurse ? "nurse"
+        : isDoctor ? "doctor"
+        : isChild ? "child"
+        : isElderly ? "elderly"
+        : isWoman ? "woman"
+        : "adult",
+    },
+    globalScale: { height: sH, width: prop.torsoW, depth: prop.torsoD },
+    style: {
+      silhouette: "standing_human_figure",
+      mood: "neutral_at_ease",
+      genre: "realistic_human",
+      detailDensity: "high",
+      bodyLanguage: "standing_neutral",
+      shapeLanguage: ["anatomical_volumes", "clothing_layers", "accessories", "facial_features"]
+    },
+    proportions: {
+      totalHeightMeters: rounded(sH),
+      headToBodyRatio: rounded(prop.headH / sH),
+      shoulderWidthRatio: rounded(prop.torsoW / sH),
+      legToBodyRatio: rounded((prop.thighH + prop.shinH + prop.footH) / sH)
+    },
+    materials: createBaseMaterials("human", styles),
+    parts: [],
+    surfaceDetails: [],
+    ornaments: [],
+    pose: { preset: "standing_neutral", armAngle: 15, legSpread: 8 },
+    animationHints: { idle: "subtle_breathing", walk: "bipedal_walk" },
+    lod: { high: "full", medium: "merge_hand_fingers", low: "merge_limb_segments" },
+    exportOptions: { formats: ["gltf", "glb"], previewHtml: true }
+  };
+
+  const parts = [];
+  const surfaceDetails = [];
+  const box = (id, mat, sx, sy, sz, px, py, pz) =>
+    parts.push({ id, kind: "box", material: mat, size: [rounded(sx), rounded(sy), rounded(sz)], position: [rounded(px), rounded(py), rounded(pz)] });
+  const shape = (id, kind, mat, sx, sy, sz, px, py, pz) =>
+    parts.push({ id, kind, material: mat, size: [rounded(sx), rounded(sy), rounded(sz)], position: [rounded(px), rounded(py), rounded(pz)] });
+  const pushSurface = (id, region, type, strength, offset) =>
+    surfaceDetails.push({ id, region, type, strength: rounded(strength), offset: offset.map(rounded) });
+
+  // Determine skin/clothing material keys
+  const skinMat    = "skin";
+  const topMat     = isPolice || isFirefighter ? "uniform_main" : isNurse || isDoctor ? (isNurse ? "uniform_main" : "coat") : "clothing_main";
+  const bottomMat  = isPolice || isFirefighter ? "uniform_main" : isDoctor ? "scrubs" : isNurse ? "uniform_main" : "clothing_main";
+  const shoesMat   = "shoe" in (spec.materials) ? "shoe" : "boot" in (spec.materials) ? "boot" : "clothing_dark";
+  const hairMat    = "hair";
+  const headwearMat= isPolice ? "cap" : isFirefighter ? "helmet" : isNurse ? "cap" : null;
+
+  // ── Feet & boots ───────────────────────────────────────────────────────────
+  for (const side of ["L", "R"]) {
+    const sx = side === "L" ? -prop.footW * 0.65 : prop.footW * 0.65;
+    box(`foot_${side}`, shoesMat, prop.footW, prop.footH, prop.footD, sx, yFoot + prop.footH * 0.5, prop.footD * 0.08);
+  }
+
+  // ── Shins ──────────────────────────────────────────────────────────────────
+  for (const side of ["L", "R"]) {
+    const sx = side === "L" ? -prop.thighW * 0.52 : prop.thighW * 0.52;
+    shape(`shin_${side}`, "cylinder", bottomMat, prop.shinW, prop.shinH, prop.shinD, sx, yShin + prop.shinH * 0.5, 0);
+  }
+
+  // ── Thighs ─────────────────────────────────────────────────────────────────
+  for (const side of ["L", "R"]) {
+    const sx = side === "L" ? -prop.thighW * 0.50 : prop.thighW * 0.50;
+    shape(`thigh_${side}`, "cylinder", bottomMat, prop.thighW, prop.thighH, prop.thighD, sx, yThigh + prop.thighH * 0.5, 0);
+  }
+
+  // ── Hips / pelvis ──────────────────────────────────────────────────────────
+  box("hips", bottomMat, prop.hipW, prop.hipH, prop.hipD, 0, yHip + prop.hipH * 0.5, 0);
+
+  // ── Torso ──────────────────────────────────────────────────────────────────
+  const torsoW2 = isWoman ? prop.torsoW * 1.04 : prop.torsoW;
+  box("torso", topMat, torsoW2, prop.torsoH, prop.torsoD, 0, yTorso + prop.torsoH * 0.5, 0);
+
+  // Chest detail (female silhouette)
+  if (isWoman || isNurse) {
+    shape("chest_L", "sphere", topMat, prop.torsoW * 0.18, prop.torsoH * 0.16, prop.torsoD * 0.22,
+      -prop.torsoW * 0.16, yTorso + prop.torsoH * 0.68, prop.torsoD * 0.38);
+    shape("chest_R", "sphere", topMat, prop.torsoW * 0.18, prop.torsoH * 0.16, prop.torsoD * 0.22,
+       prop.torsoW * 0.16, yTorso + prop.torsoH * 0.68, prop.torsoD * 0.38);
+  }
+
+  // Nurse/Doctor chest pocket
+  if (isNurse || isDoctor) {
+    box("chest_pocket", topMat, prop.torsoW * 0.12, prop.torsoH * 0.08, prop.torsoD * 0.04,
+      prop.torsoW * 0.30, yTorso + prop.torsoH * 0.78, prop.torsoD * 0.52);
+  }
+
+  // Firefighter SCBA tank on back
+  if (isFirefighter) {
+    box("scba_tank", "tank", prop.torsoW * 0.28, prop.torsoH * 0.55, prop.torsoD * 0.22,
+      0, yTorso + prop.torsoH * 0.42, -prop.torsoD * 0.52);
+    box("scba_strap_L", "uniform_dark", prop.torsoW * 0.04, prop.torsoH * 0.70, prop.torsoD * 0.04,
+      -prop.torsoW * 0.20, yTorso + prop.torsoH * 0.40, 0);
+    box("scba_strap_R", "uniform_dark", prop.torsoW * 0.04, prop.torsoH * 0.70, prop.torsoD * 0.04,
+       prop.torsoW * 0.20, yTorso + prop.torsoH * 0.40, 0);
+  }
+
+  // Police utility belt
+  if (isPolice) {
+    box("belt", "belt", prop.hipW * 1.04, prop.hipH * 0.18, prop.hipD * 1.04, 0, yHip + prop.hipH * 0.80, 0);
+    box("holster", "uniform_dark", prop.hipW * 0.12, prop.hipH * 0.50, prop.hipD * 0.10,
+      prop.hipW * 0.46, yHip + prop.hipH * 0.48, 0);
+    box("badge_plate", "badge", prop.torsoW * 0.10, prop.torsoH * 0.08, prop.torsoD * 0.02,
+      prop.torsoW * 0.24, yTorso + prop.torsoH * 0.80, prop.torsoD * 0.50);
+  }
+
+  // Doctor stethoscope (over shoulders)
+  if (isDoctor || isNurse) {
+    box("steth_over_neck_L", "stethoscope", prop.torsoW * 0.02, prop.torsoH * 0.28, prop.torsoD * 0.02,
+      -prop.torsoW * 0.16, yTorso + prop.torsoH * 0.72, prop.torsoD * 0.10);
+    box("steth_over_neck_R", "stethoscope", prop.torsoW * 0.02, prop.torsoH * 0.28, prop.torsoD * 0.02,
+       prop.torsoW * 0.16, yTorso + prop.torsoH * 0.72, prop.torsoD * 0.10);
+    box("steth_chest_piece",  "stethoscope", prop.torsoW * 0.06, prop.torsoH * 0.04, prop.torsoD * 0.04,
+      0, yTorso + prop.torsoH * 0.50, prop.torsoD * 0.52);
+  }
+
+  // Child backpack
+  if (isChild) {
+    box("backpack_body", "backpack", prop.torsoW * 0.50, prop.torsoH * 0.55, prop.torsoD * 0.28,
+      0, yTorso + prop.torsoH * 0.42, -prop.torsoD * 0.58);
+    box("backpack_strap_L", "backpack", prop.torsoW * 0.06, prop.torsoH * 0.60, prop.torsoD * 0.04,
+      -prop.torsoW * 0.18, yTorso + prop.torsoH * 0.38, 0);
+    box("backpack_strap_R", "backpack", prop.torsoW * 0.06, prop.torsoH * 0.60, prop.torsoD * 0.04,
+       prop.torsoW * 0.18, yTorso + prop.torsoH * 0.38, 0);
+  }
+
+  // Elderly cane
+  if (isElderly) {
+    shape("cane_shaft", "cylinder", "cane", sH * 0.018, sH * 0.80, sH * 0.018,
+      prop.hipW * 0.56, sH * 0.40, 0);
+    shape("cane_handle", "cylinder", "cane", sH * 0.028, sH * 0.028, sH * 0.080,
+      prop.hipW * 0.56, sH * 0.79, 0);
+  }
+
+  // ── Arms ──────────────────────────────────────────────────────────────────
+  for (const side of ["L", "R"]) {
+    const sx = side === "L" ? -(prop.torsoW * 0.5 + prop.upperAW * 0.6) : (prop.torsoW * 0.5 + prop.upperAW * 0.6);
+    // Upper arm
+    shape(`upper_arm_${side}`, "cylinder", topMat, prop.upperAW, prop.upperAH, prop.upperAD,
+      sx, yTorso + prop.torsoH * 0.84, 0);
+    // Elbow
+    shape(`elbow_${side}`, "sphere", topMat, prop.upperAW * 0.90, prop.upperAW * 0.90, prop.upperAD * 0.90,
+      sx, yTorso + prop.torsoH * 0.84 - prop.upperAH * 0.46, 0);
+    // Lower arm
+    shape(`lower_arm_${side}`, "cylinder", skinMat, prop.lowerAW, prop.lowerAH, prop.lowerAD,
+      sx, yTorso + prop.torsoH * 0.84 - prop.upperAH * 0.50 - prop.lowerAH * 0.50, 0);
+    // Hand
+    box(`hand_${side}`, skinMat, prop.handW, prop.handH, prop.handD,
+      sx, yTorso + prop.torsoH * 0.84 - prop.upperAH * 0.50 - prop.lowerAH - prop.handH * 0.50, 0);
+    // Firefighter gloves override
+    if (isFirefighter) {
+      box(`glove_${side}`, "glove", prop.handW * 1.15, prop.handH * 1.10, prop.handD * 1.15,
+        sx, yTorso + prop.torsoH * 0.84 - prop.upperAH * 0.50 - prop.lowerAH - prop.handH * 0.55, 0);
+    }
+  }
+
+  // Reflective stripes (firefighter)
+  if (isFirefighter) {
+    box("stripe_torso",  "reflective", prop.torsoW * 1.02, prop.torsoH * 0.06, prop.torsoD * 1.02,
+      0, yTorso + prop.torsoH * 0.28, 0);
+    box("stripe_shin_L", "reflective", prop.shinW * 1.10, prop.shinH * 0.06, prop.shinD * 1.10,
+      -prop.thighW * 0.52, yShin + prop.shinH * 0.22, 0);
+    box("stripe_shin_R", "reflective", prop.shinW * 1.10, prop.shinH * 0.06, prop.shinD * 1.10,
+       prop.thighW * 0.52, yShin + prop.shinH * 0.22, 0);
+  }
+
+  // ── Neck ──────────────────────────────────────────────────────────────────
+  shape("neck", "cylinder", skinMat, prop.neckR * 2, prop.neckH, prop.neckR * 2,
+    0, yNeck + prop.neckH * 0.5, 0);
+
+  // ── Head ──────────────────────────────────────────────────────────────────
+  shape("head", "sphere", skinMat, prop.headW, prop.headH, prop.headD,
+    0, yHead + prop.headH * 0.5, 0);
+  // Hair
+  shape("hair_top", "sphere", hairMat, prop.headW * 0.96, prop.headH * 0.60, prop.headD * 0.96,
+    0, yHead + prop.headH * 0.72, 0);
+  if (!isPolice && !isFirefighter) {
+    box("hair_back", hairMat, prop.headW * 0.90, prop.headH * 0.55, prop.headD * 0.20,
+      0, yHead + prop.headH * 0.58, -prop.headD * 0.48);
+  }
+  // Ears
+  shape("ear_L", "sphere", skinMat, prop.headW * 0.10, prop.headH * 0.14, prop.headD * 0.08,
+    -prop.headW * 0.52, yHead + prop.headH * 0.44, 0);
+  shape("ear_R", "sphere", skinMat, prop.headW * 0.10, prop.headH * 0.14, prop.headD * 0.08,
+     prop.headW * 0.52, yHead + prop.headH * 0.44, 0);
+  // Eyes
+  shape("eye_L", "sphere", skinMat, prop.headW * 0.10, prop.headH * 0.09, prop.headD * 0.06,
+    -prop.headW * 0.22, yHead + prop.headH * 0.50, prop.headD * 0.48);
+  shape("eye_R", "sphere", skinMat, prop.headW * 0.10, prop.headH * 0.09, prop.headD * 0.06,
+     prop.headW * 0.22, yHead + prop.headH * 0.50, prop.headD * 0.48);
+  // Nose
+  shape("nose", "sphere", skinMat, prop.headW * 0.10, prop.headH * 0.10, prop.headD * 0.12,
+    0, yHead + prop.headH * 0.36, prop.headD * 0.50);
+
+  // Doctor glasses
+  if (isDoctor) {
+    box("glasses_bridge", "glasses", prop.headW * 0.14, prop.headH * 0.03, prop.headD * 0.02,
+      0, yHead + prop.headH * 0.50, prop.headD * 0.44);
+    for (const sx of [-prop.headW * 0.24, prop.headW * 0.24]) {
+      shape(`lens_${sx > 0 ? "R" : "L"}`, "sphere", "glasses",
+        prop.headW * 0.16, prop.headH * 0.12, prop.headD * 0.06,
+        sx, yHead + prop.headH * 0.50, prop.headD * 0.44);
+    }
+  }
+
+  // Headwear (police cap, firefighter helmet, nurse cap)
+  if (headwearMat) {
+    if (isPolice) {
+      box("cap_brim", headwearMat, prop.headW * 1.20, prop.headH * 0.06, prop.headD * 0.60,
+        0, yHead + prop.headH * 0.80, prop.headD * 0.10);
+      shape("cap_crown", "sphere", headwearMat, prop.headW * 1.06, prop.headH * 0.46, prop.headD * 1.06,
+        0, yHead + prop.headH * 0.82, 0);
+      box("cap_badge", "badge", prop.headW * 0.16, prop.headH * 0.10, prop.headD * 0.02,
+        0, yHead + prop.headH * 0.84, prop.headD * 0.52);
+    } else if (isFirefighter) {
+      shape("helmet_shell", "sphere", headwearMat, prop.headW * 1.24, prop.headH * 0.58, prop.headD * 1.24,
+        0, yHead + prop.headH * 0.78, 0);
+      box("helmet_brim_F", headwearMat, prop.headW * 1.30, prop.headH * 0.05, prop.headD * 0.50,
+        0, yHead + prop.headH * 0.65, prop.headD * 0.22);
+      box("helmet_brim_B", headwearMat, prop.headW * 1.30, prop.headH * 0.05, prop.headD * 0.70,
+        0, yHead + prop.headH * 0.65, -prop.headD * 0.30);
+      box("faceshield",    "reflective", prop.headW * 0.88, prop.headH * 0.28, prop.headD * 0.04,
+        0, yHead + prop.headH * 0.60, prop.headD * 0.46);
+    } else if (isNurse) {
+      box("nurse_cap", headwearMat, prop.headW * 1.04, prop.headH * 0.12, prop.headD * 0.70,
+        0, yHead + prop.headH * 0.92, 0);
+      box("nurse_cap_fold", headwearMat, prop.headW * 0.60, prop.headH * 0.10, prop.headD * 0.20,
+        0, yHead + prop.headH * 0.86, prop.headD * 0.30);
+    }
+  }
+
+  // ── Surface detail metadata ───────────────────────────────────────────────
+  const regions = ["head", "torso", "arms", "legs", "accessories"];
+  const detailTypes = ["skin_pore", "fabric_weave", "seam_stitch", "crease", "button_detail", "buckle_detail"];
+  let sdIndex = 1;
+  for (const region of regions) {
+    for (let i = 0; i < 8; i++) {
+      pushSurface(`surface_detail_${sdIndex++}`, region,
+        detailTypes[i % detailTypes.length],
+        0.10 + (i % 5) * 0.06,
+        [Math.sin(i * 0.9) * 0.012, Math.cos(i * 0.7) * 0.010, ((i % 4) - 1.5) * 0.008]);
+    }
+  }
+
+  spec.parts = parts;
+  spec.surfaceDetails = surfaceDetails;
+  return spec;
+}
+
+// Builder dispatch map  - add new subject builders here alongside SUBJECT_REGISTRY.
 const SUBJECT_BUILDERS = {
   kaiju:   (...a) => buildKaijuSpec(...a),
   tower:   (...a) => buildTowerSpec(...a),
@@ -2875,6 +3458,7 @@ const SUBJECT_BUILDERS = {
   building:(...a) => buildBuildingSpec(...a),
   warrior: (...a) => buildWarriorSpec(...a),
   giant:   (...a) => buildGiantSpec(...a),
+  human:   (...a) => buildHumanSpec(...a),
 };
 
 function buildSpec(prompt) {

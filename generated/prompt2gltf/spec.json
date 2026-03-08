@@ -1,949 +1,1674 @@
 {
   "meta": {
-    "name": "giant_100m_モアイ像",
+    "name": "building_90m_消防署",
     "version": "0.2.0",
     "units": "meters",
     "generator": "Prompt2GLTF",
-    "generatedFrom": "モアイ像",
-    "createdAt": "2026-03-07T13:33:01.693Z"
+    "generatedFrom": "消防署",
+    "createdAt": "2026-03-08T05:07:16.791Z"
   },
   "promptInterpretation": {
-    "originalPrompt": "モアイ像",
-    "normalizedSubject": "giant",
-    "targetHeightMeters": 100,
+    "originalPrompt": "消防署",
+    "normalizedSubject": "building",
+    "targetHeightMeters": 90,
     "styleTags": [
-      "mythic_colossus"
+      "fire_station"
     ],
     "geometryDirective": "Use mixed primitives (box/cylinder/sphere/tri_prism); represent curved real-world forms with rounded geometry.",
-    "summary": "Generated from prompt as a giant with high-density procedural spec.",
+    "summary": "Generated from prompt as a building with high-density procedural spec.",
     "designIntent": {
       "scaleImpression": "extreme_colossal",
       "mood": "majestic",
       "originalityPolicy": "generalized_original_design"
     },
-    "archetype": "moai"
+    "buildingArchetype": "facility_fire"
   },
   "globalScale": {
-    "height": 8.5,
-    "width": 2.8,
-    "depth": 1.8,
-    "type": "moai_easter_island"
+    "height": 90,
+    "width": 72,
+    "depth": 54
   },
   "style": {
-    "silhouette": "moai_monolithic_stone_statue",
-    "mood": "mythic",
-    "genre": "mythic_fantasy",
-    "detailDensity": "ultra_high",
-    "bodyLanguage": "standing_guardian",
+    "silhouette": "civic_public_building",
+    "mood": "authoritative_public",
+    "genre": "emergency_services_facility",
+    "detailDensity": "high",
+    "bodyLanguage": "static_structure",
     "shapeLanguage": [
-      "vertical_mass",
-      "heavy_shoulder_blocks",
-      "layered_armor",
-      "spine_details",
-      "crown_like_head_features"
+      "main_volume",
+      "roof_profile",
+      "entrance",
+      "window_rhythm",
+      "signage"
     ]
   },
-  "proportions": {
-    "headToBody": 0.1176,
-    "shoulderWidthRatio": 1.62,
-    "armLengthRatio": 1.14,
-    "legLengthRatio": 1.28,
-    "footLengthRatio": 0.115,
-    "handSizeRatio": 0.06
-  },
-  "silhouettePlan": {
-    "headScale": 0.92,
-    "neckThickness": 1.15,
-    "chestDepth": 1.08,
-    "waistTaper": 0.82,
-    "pelvisWidth": 1.06,
-    "thighMass": 1.18,
-    "shinMass": 1.12,
-    "forearmMass": 1.1
-  },
   "materials": {
-    "stone_main": {
-      "baseColor": "#6A6460",
-      "roughness": 0.94,
-      "metalness": 0.02
-    },
-    "stone_dark": {
-      "baseColor": "#3E3A38",
-      "roughness": 0.96,
-      "metalness": 0.01
-    },
-    "stone_face": {
-      "baseColor": "#7A7470",
-      "roughness": 0.9,
-      "metalness": 0.03
-    },
-    "pukao": {
-      "baseColor": "#7A3028",
+    "facade_main": {
+      "baseColor": "#D8CFC4",
       "roughness": 0.88,
       "metalness": 0.04
     },
-    "ahu_stone": {
-      "baseColor": "#4E4A48",
-      "roughness": 0.97,
-      "metalness": 0.01
+    "facade_secondary": {
+      "baseColor": "#C82020",
+      "roughness": 0.6,
+      "metalness": 0.15
     },
-    "lichen": {
-      "baseColor": "#5A6840",
-      "roughness": 0.95,
-      "metalness": 0.01
-    }
-  },
-  "skeletonPlan": {
-    "root": "pelvis",
-    "chains": {
-      "spine": [
-        "pelvis",
-        "abdomen",
-        "lower_chest",
-        "upper_chest",
-        "neck",
-        "head"
-      ],
-      "leftArm": [
-        "left_shoulder",
-        "left_upper_arm",
-        "left_forearm",
-        "left_hand"
-      ],
-      "rightArm": [
-        "right_shoulder",
-        "right_upper_arm",
-        "right_forearm",
-        "right_hand"
-      ],
-      "leftLeg": [
-        "left_thigh",
-        "left_shin",
-        "left_foot"
-      ],
-      "rightLeg": [
-        "right_thigh",
-        "right_shin",
-        "right_foot"
-      ]
+    "roof": {
+      "baseColor": "#901818",
+      "roughness": 0.75,
+      "metalness": 0.18
+    },
+    "glass": {
+      "baseColor": "#3A5870",
+      "roughness": 0.12,
+      "metalness": 0.86
+    },
+    "accent": {
+      "baseColor": "#F07820",
+      "roughness": 0.38,
+      "metalness": 0.18
+    },
+    "door_large": {
+      "baseColor": "#CC2010",
+      "roughness": 0.55,
+      "metalness": 0.3
     }
   },
   "parts": [
     {
-      "id": "ahu_base",
+      "id": "ground_slab",
       "kind": "box",
+      "material": "facade_secondary",
       "size": [
-        5,
-        0.8,
-        4
+        77.76,
+        10.8,
+        58.32
       ],
       "position": [
         0,
-        0.4,
+        5.4,
         0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "ahu_stone"
+      ]
     },
     {
-      "id": "ahu_step",
+      "id": "main_body",
       "kind": "box",
+      "material": "facade_main",
       "size": [
-        3.8,
-        0.4,
-        3
+        72,
+        70.2,
+        54
       ],
       "position": [
         0,
-        1,
+        45.9,
         0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "ahu_stone"
+      ]
     },
     {
-      "id": "torso_lower",
+      "id": "win_front_f0",
       "kind": "box",
+      "material": "glass",
       "size": [
-        1.8,
-        1.8,
-        1.2
+        56.16,
+        1.2819,
+        1.62
       ],
       "position": [
         0,
-        2.1,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "stone_main"
+        12.3261,
+        27
+      ]
     },
     {
-      "id": "torso_upper",
+      "id": "win_back_f0",
       "kind": "box",
+      "material": "glass",
       "size": [
-        2,
-        1.6,
-        1.4
+        56.16,
+        1.2819,
+        1.62
       ],
       "position": [
         0,
-        3.7,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "stone_main"
+        12.3261,
+        -27
+      ]
     },
     {
-      "id": "chest_ridge",
+      "id": "floor_band_f0",
       "kind": "box",
+      "material": "facade_secondary",
       "size": [
-        1.6,
-        0.38,
-        0.14
+        72.72,
+        0.1831,
+        54.54
       ],
       "position": [
         0,
-        4.2,
-        0.72
-      ],
-      "rotation": [
-        0,
-        0,
+        10.8,
         0
-      ],
-      "material": "stone_face"
+      ]
     },
     {
-      "id": "belly_band",
+      "id": "win_front_f1",
       "kind": "box",
+      "material": "glass",
       "size": [
-        2.1,
-        0.28,
-        1.4
+        56.16,
+        1.2819,
+        1.62
       ],
       "position": [
         0,
+        15.3783,
+        27
+      ]
+    },
+    {
+      "id": "win_back_f1",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        15.3783,
+        -27
+      ]
+    },
+    {
+      "id": "floor_band_f1",
+      "kind": "box",
+      "material": "facade_secondary",
+      "size": [
+        72.72,
+        0.1831,
+        54.54
+      ],
+      "position": [
+        0,
+        13.8522,
+        0
+      ]
+    },
+    {
+      "id": "win_front_f2",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        18.4304,
+        27
+      ]
+    },
+    {
+      "id": "win_back_f2",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        18.4304,
+        -27
+      ]
+    },
+    {
+      "id": "floor_band_f2",
+      "kind": "box",
+      "material": "facade_secondary",
+      "size": [
+        72.72,
+        0.1831,
+        54.54
+      ],
+      "position": [
+        0,
+        16.9043,
+        0
+      ]
+    },
+    {
+      "id": "win_front_f3",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        21.4826,
+        27
+      ]
+    },
+    {
+      "id": "win_back_f3",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        21.4826,
+        -27
+      ]
+    },
+    {
+      "id": "floor_band_f3",
+      "kind": "box",
+      "material": "facade_secondary",
+      "size": [
+        72.72,
+        0.1831,
+        54.54
+      ],
+      "position": [
+        0,
+        19.9565,
+        0
+      ]
+    },
+    {
+      "id": "win_front_f4",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        24.5348,
+        27
+      ]
+    },
+    {
+      "id": "win_back_f4",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        24.5348,
+        -27
+      ]
+    },
+    {
+      "id": "floor_band_f4",
+      "kind": "box",
+      "material": "facade_secondary",
+      "size": [
+        72.72,
+        0.1831,
+        54.54
+      ],
+      "position": [
+        0,
+        23.0087,
+        0
+      ]
+    },
+    {
+      "id": "win_front_f5",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        27.587,
+        27
+      ]
+    },
+    {
+      "id": "win_back_f5",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        27.587,
+        -27
+      ]
+    },
+    {
+      "id": "floor_band_f5",
+      "kind": "box",
+      "material": "facade_secondary",
+      "size": [
+        72.72,
+        0.1831,
+        54.54
+      ],
+      "position": [
+        0,
+        26.0609,
+        0
+      ]
+    },
+    {
+      "id": "win_front_f6",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        30.6391,
+        27
+      ]
+    },
+    {
+      "id": "win_back_f6",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        30.6391,
+        -27
+      ]
+    },
+    {
+      "id": "floor_band_f6",
+      "kind": "box",
+      "material": "facade_secondary",
+      "size": [
+        72.72,
+        0.1831,
+        54.54
+      ],
+      "position": [
+        0,
+        29.113,
+        0
+      ]
+    },
+    {
+      "id": "win_front_f7",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        33.6913,
+        27
+      ]
+    },
+    {
+      "id": "win_back_f7",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        33.6913,
+        -27
+      ]
+    },
+    {
+      "id": "floor_band_f7",
+      "kind": "box",
+      "material": "facade_secondary",
+      "size": [
+        72.72,
+        0.1831,
+        54.54
+      ],
+      "position": [
+        0,
+        32.1652,
+        0
+      ]
+    },
+    {
+      "id": "win_front_f8",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        36.7435,
+        27
+      ]
+    },
+    {
+      "id": "win_back_f8",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        36.7435,
+        -27
+      ]
+    },
+    {
+      "id": "floor_band_f8",
+      "kind": "box",
+      "material": "facade_secondary",
+      "size": [
+        72.72,
+        0.1831,
+        54.54
+      ],
+      "position": [
+        0,
+        35.2174,
+        0
+      ]
+    },
+    {
+      "id": "win_front_f9",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        39.7957,
+        27
+      ]
+    },
+    {
+      "id": "win_back_f9",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        39.7957,
+        -27
+      ]
+    },
+    {
+      "id": "floor_band_f9",
+      "kind": "box",
+      "material": "facade_secondary",
+      "size": [
+        72.72,
+        0.1831,
+        54.54
+      ],
+      "position": [
+        0,
+        38.2696,
+        0
+      ]
+    },
+    {
+      "id": "win_front_f10",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        42.8478,
+        27
+      ]
+    },
+    {
+      "id": "win_back_f10",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        42.8478,
+        -27
+      ]
+    },
+    {
+      "id": "floor_band_f10",
+      "kind": "box",
+      "material": "facade_secondary",
+      "size": [
+        72.72,
+        0.1831,
+        54.54
+      ],
+      "position": [
+        0,
+        41.3217,
+        0
+      ]
+    },
+    {
+      "id": "win_front_f11",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        45.9,
+        27
+      ]
+    },
+    {
+      "id": "win_back_f11",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        45.9,
+        -27
+      ]
+    },
+    {
+      "id": "floor_band_f11",
+      "kind": "box",
+      "material": "facade_secondary",
+      "size": [
+        72.72,
+        0.1831,
+        54.54
+      ],
+      "position": [
+        0,
+        44.3739,
+        0
+      ]
+    },
+    {
+      "id": "win_front_f12",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        48.9522,
+        27
+      ]
+    },
+    {
+      "id": "win_back_f12",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        48.9522,
+        -27
+      ]
+    },
+    {
+      "id": "floor_band_f12",
+      "kind": "box",
+      "material": "facade_secondary",
+      "size": [
+        72.72,
+        0.1831,
+        54.54
+      ],
+      "position": [
+        0,
+        47.4261,
+        0
+      ]
+    },
+    {
+      "id": "win_front_f13",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        52.0043,
+        27
+      ]
+    },
+    {
+      "id": "win_back_f13",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        52.0043,
+        -27
+      ]
+    },
+    {
+      "id": "floor_band_f13",
+      "kind": "box",
+      "material": "facade_secondary",
+      "size": [
+        72.72,
+        0.1831,
+        54.54
+      ],
+      "position": [
+        0,
+        50.4783,
+        0
+      ]
+    },
+    {
+      "id": "win_front_f14",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        55.0565,
+        27
+      ]
+    },
+    {
+      "id": "win_back_f14",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        55.0565,
+        -27
+      ]
+    },
+    {
+      "id": "floor_band_f14",
+      "kind": "box",
+      "material": "facade_secondary",
+      "size": [
+        72.72,
+        0.1831,
+        54.54
+      ],
+      "position": [
+        0,
+        53.5304,
+        0
+      ]
+    },
+    {
+      "id": "win_front_f15",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        58.1087,
+        27
+      ]
+    },
+    {
+      "id": "win_back_f15",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        58.1087,
+        -27
+      ]
+    },
+    {
+      "id": "floor_band_f15",
+      "kind": "box",
+      "material": "facade_secondary",
+      "size": [
+        72.72,
+        0.1831,
+        54.54
+      ],
+      "position": [
+        0,
+        56.5826,
+        0
+      ]
+    },
+    {
+      "id": "win_front_f16",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        61.1609,
+        27
+      ]
+    },
+    {
+      "id": "win_back_f16",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        61.1609,
+        -27
+      ]
+    },
+    {
+      "id": "floor_band_f16",
+      "kind": "box",
+      "material": "facade_secondary",
+      "size": [
+        72.72,
+        0.1831,
+        54.54
+      ],
+      "position": [
+        0,
+        59.6348,
+        0
+      ]
+    },
+    {
+      "id": "win_front_f17",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        64.213,
+        27
+      ]
+    },
+    {
+      "id": "win_back_f17",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        64.213,
+        -27
+      ]
+    },
+    {
+      "id": "floor_band_f17",
+      "kind": "box",
+      "material": "facade_secondary",
+      "size": [
+        72.72,
+        0.1831,
+        54.54
+      ],
+      "position": [
+        0,
+        62.687,
+        0
+      ]
+    },
+    {
+      "id": "win_front_f18",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        67.2652,
+        27
+      ]
+    },
+    {
+      "id": "win_back_f18",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        67.2652,
+        -27
+      ]
+    },
+    {
+      "id": "floor_band_f18",
+      "kind": "box",
+      "material": "facade_secondary",
+      "size": [
+        72.72,
+        0.1831,
+        54.54
+      ],
+      "position": [
+        0,
+        65.7391,
+        0
+      ]
+    },
+    {
+      "id": "win_front_f19",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        70.3174,
+        27
+      ]
+    },
+    {
+      "id": "win_back_f19",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        70.3174,
+        -27
+      ]
+    },
+    {
+      "id": "floor_band_f19",
+      "kind": "box",
+      "material": "facade_secondary",
+      "size": [
+        72.72,
+        0.1831,
+        54.54
+      ],
+      "position": [
+        0,
+        68.7913,
+        0
+      ]
+    },
+    {
+      "id": "win_front_f20",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        73.3696,
+        27
+      ]
+    },
+    {
+      "id": "win_back_f20",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        73.3696,
+        -27
+      ]
+    },
+    {
+      "id": "floor_band_f20",
+      "kind": "box",
+      "material": "facade_secondary",
+      "size": [
+        72.72,
+        0.1831,
+        54.54
+      ],
+      "position": [
+        0,
+        71.8435,
+        0
+      ]
+    },
+    {
+      "id": "win_front_f21",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        76.4217,
+        27
+      ]
+    },
+    {
+      "id": "win_back_f21",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        76.4217,
+        -27
+      ]
+    },
+    {
+      "id": "floor_band_f21",
+      "kind": "box",
+      "material": "facade_secondary",
+      "size": [
+        72.72,
+        0.1831,
+        54.54
+      ],
+      "position": [
+        0,
+        74.8957,
+        0
+      ]
+    },
+    {
+      "id": "win_front_f22",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        79.4739,
+        27
+      ]
+    },
+    {
+      "id": "win_back_f22",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        56.16,
+        1.2819,
+        1.62
+      ],
+      "position": [
+        0,
+        79.4739,
+        -27
+      ]
+    },
+    {
+      "id": "floor_band_f22",
+      "kind": "box",
+      "material": "facade_secondary",
+      "size": [
+        72.72,
+        0.1831,
+        54.54
+      ],
+      "position": [
+        0,
+        77.9478,
+        0
+      ]
+    },
+    {
+      "id": "roof_slab",
+      "kind": "box",
+      "material": "roof",
+      "size": [
+        74.88,
         2.7,
-        0
+        56.16
       ],
-      "rotation": [
+      "position": [
         0,
-        0,
+        82.35,
         0
-      ],
-      "material": "stone_face"
+      ]
     },
     {
-      "id": "arm_L",
+      "id": "parapet_N",
       "kind": "box",
+      "material": "facade_secondary",
       "size": [
-        0.42,
-        2,
-        0.55
+        73.44,
+        4.95,
+        1.62
       ],
       "position": [
-        -1.26,
-        2.8,
-        0.15
-      ],
-      "rotation": [
         0,
-        0,
-        0
-      ],
-      "material": "stone_main"
+        86.58,
+        28.08
+      ]
     },
     {
-      "id": "arm_R",
+      "id": "parapet_S",
       "kind": "box",
+      "material": "facade_secondary",
       "size": [
-        0.42,
-        2,
-        0.55
+        73.44,
+        4.95,
+        1.62
       ],
       "position": [
-        1.26,
-        2.8,
-        0.15
-      ],
-      "rotation": [
         0,
-        0,
-        0
-      ],
-      "material": "stone_main"
+        86.58,
+        -28.08
+      ]
     },
     {
-      "id": "hand_L",
+      "id": "parapet_W",
       "kind": "box",
+      "material": "facade_secondary",
       "size": [
-        0.5,
-        0.38,
-        0.72
+        2.16,
+        4.95,
+        55.08
       ],
       "position": [
-        -0.65,
-        1.72,
-        0.52
-      ],
-      "rotation": [
-        0,
-        0,
+        -37.44,
+        86.58,
         0
-      ],
-      "material": "stone_face"
+      ]
     },
     {
-      "id": "hand_R",
+      "id": "parapet_E",
       "kind": "box",
+      "material": "facade_secondary",
       "size": [
-        0.5,
-        0.38,
-        0.72
+        2.16,
+        4.95,
+        55.08
       ],
       "position": [
-        0.65,
-        1.72,
-        0.52
-      ],
-      "rotation": [
-        0,
-        0,
+        37.44,
+        86.58,
         0
-      ],
-      "material": "stone_face"
+      ]
     },
     {
-      "id": "neck",
+      "id": "bay_door_1",
       "kind": "box",
+      "material": "door_large",
       "size": [
-        1,
-        0.5,
-        0.9
+        18.72,
+        9.18,
+        2.16
       ],
       "position": [
-        0,
-        4.9,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "stone_main"
+        -21.6,
+        5.4,
+        28.08
+      ]
     },
     {
-      "id": "head_main",
+      "id": "bay_door_2",
       "kind": "box",
+      "material": "door_large",
       "size": [
-        1.8,
-        2.4,
-        1.5
+        18.72,
+        9.18,
+        2.16
       ],
       "position": [
         0,
-        6.25,
-        -0.1
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "stone_main"
+        5.4,
+        28.08
+      ]
     },
     {
-      "id": "head_crown",
+      "id": "bay_door_3",
       "kind": "box",
+      "material": "door_large",
       "size": [
-        1.6,
-        0.48,
-        1.3
+        18.72,
+        9.18,
+        2.16
       ],
       "position": [
-        0,
-        7.55,
-        -0.15
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "stone_dark"
+        21.6,
+        5.4,
+        28.08
+      ]
     },
     {
-      "id": "brow_ridge",
+      "id": "red_stripe",
       "kind": "box",
+      "material": "facade_secondary",
       "size": [
-        2,
-        0.44,
-        0.28
+        72.72,
+        5.616,
+        54.54
       ],
       "position": [
         0,
-        7.04,
-        0.72
-      ],
-      "rotation": [
-        0,
-        0,
+        21.33,
         0
-      ],
-      "material": "stone_dark"
+      ]
     },
     {
-      "id": "nose_bridge",
+      "id": "hose_tower",
       "kind": "box",
+      "material": "facade_main",
       "size": [
-        0.58,
-        1.1,
-        0.42
+        10.08,
+        54,
+        7.56
       ],
       "position": [
-        0,
-        6.22,
-        0.82
-      ],
-      "rotation": [
-        0,
-        0,
+        -30.24,
+        27,
         0
-      ],
-      "material": "stone_face"
+      ]
     },
     {
-      "id": "nose_base",
+      "id": "hose_tower_top",
       "kind": "box",
+      "material": "roof",
       "size": [
-        0.8,
-        0.34,
-        0.48
+        11.52,
+        3.6,
+        8.64
       ],
       "position": [
-        0,
-        5.7,
-        0.84
-      ],
-      "rotation": [
-        0,
-        0,
+        -30.24,
+        55.8,
         0
-      ],
-      "material": "stone_face"
-    },
-    {
-      "id": "nose_tip_L",
-      "kind": "box",
-      "size": [
-        0.28,
-        0.22,
-        0.28
-      ],
-      "position": [
-        -0.32,
-        5.6,
-        0.96
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "stone_face"
-    },
-    {
-      "id": "nose_tip_R",
-      "kind": "box",
-      "size": [
-        0.28,
-        0.22,
-        0.28
-      ],
-      "position": [
-        0.32,
-        5.6,
-        0.96
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "stone_face"
-    },
-    {
-      "id": "eye_socket_L",
-      "kind": "box",
-      "size": [
-        0.44,
-        0.3,
-        0.2
-      ],
-      "position": [
-        -0.52,
-        6.92,
-        0.84
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "stone_dark"
-    },
-    {
-      "id": "eye_socket_R",
-      "kind": "box",
-      "size": [
-        0.44,
-        0.3,
-        0.2
-      ],
-      "position": [
-        0.52,
-        6.92,
-        0.84
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "stone_dark"
-    },
-    {
-      "id": "lip_upper",
-      "kind": "box",
-      "size": [
-        0.7,
-        0.18,
-        0.26
-      ],
-      "position": [
-        0,
-        5.46,
-        0.86
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "stone_dark"
-    },
-    {
-      "id": "lip_lower",
-      "kind": "box",
-      "size": [
-        0.7,
-        0.16,
-        0.22
-      ],
-      "position": [
-        0,
-        5.26,
-        0.82
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "stone_main"
-    },
-    {
-      "id": "chin",
-      "kind": "box",
-      "size": [
-        0.85,
-        0.45,
-        0.5
-      ],
-      "position": [
-        0,
-        4.98,
-        0.62
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "stone_main"
-    },
-    {
-      "id": "ear_L",
-      "kind": "box",
-      "size": [
-        0.22,
-        1.2,
-        0.42
-      ],
-      "position": [
-        -0.99,
-        6.2,
-        0.05
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "stone_main"
-    },
-    {
-      "id": "ear_R",
-      "kind": "box",
-      "size": [
-        0.22,
-        1.2,
-        0.42
-      ],
-      "position": [
-        0.99,
-        6.2,
-        0.05
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "stone_main"
-    },
-    {
-      "id": "lobe_L",
-      "kind": "box",
-      "size": [
-        0.3,
-        0.34,
-        0.35
-      ],
-      "position": [
-        -0.98,
-        5.42,
-        0.15
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "stone_face"
-    },
-    {
-      "id": "lobe_R",
-      "kind": "box",
-      "size": [
-        0.3,
-        0.34,
-        0.35
-      ],
-      "position": [
-        0.98,
-        5.42,
-        0.15
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "stone_face"
-    },
-    {
-      "id": "pukao",
-      "kind": "cylinder",
-      "size": [
-        1,
-        0.7,
-        1
-      ],
-      "position": [
-        0,
-        8.15,
-        -0.1
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "pukao"
-    },
-    {
-      "id": "back_carving_U",
-      "kind": "box",
-      "size": [
-        1.5,
-        0.1,
-        0.4
-      ],
-      "position": [
-        0,
-        4.52,
-        -0.78
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "stone_dark"
-    },
-    {
-      "id": "back_carving_L",
-      "kind": "box",
-      "size": [
-        1.3,
-        0.1,
-        0.4
-      ],
-      "position": [
-        0,
-        3.42,
-        -0.65
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "stone_dark"
-    },
-    {
-      "id": "lichen_1",
-      "kind": "box",
-      "size": [
-        0.8,
-        0.06,
-        0.6
-      ],
-      "position": [
-        -0.5,
-        5.02,
-        0.75
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "lichen"
-    },
-    {
-      "id": "lichen_2",
-      "kind": "box",
-      "size": [
-        0.6,
-        0.06,
-        0.5
-      ],
-      "position": [
-        0.3,
-        3.24,
-        -0.68
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "lichen"
-    },
-    {
-      "id": "lichen_3",
-      "kind": "box",
-      "size": [
-        0.4,
-        0.06,
-        0.4
-      ],
-      "position": [
-        -0.6,
-        6.8,
-        -0.76
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "lichen"
+      ]
     }
   ],
   "surfaceDetails": [
     {
-      "id": "sd_face",
-      "region": "face",
-      "type": "carved_line",
+      "id": "surface_detail_1",
+      "region": "facade",
+      "type": "panel_seam",
       "strength": 0.14,
       "offset": [
-        -0.01,
         0,
-        0
+        0.014,
+        -0.015
       ]
     },
     {
-      "id": "sd_brow_area",
-      "region": "brow_area",
-      "type": "edge_bead",
-      "strength": 0.18,
+      "id": "surface_detail_2",
+      "region": "facade",
+      "type": "window_grid",
+      "strength": 0.2,
       "offset": [
-        0,
-        0,
-        0
+        0.0129,
+        0.0107,
+        -0.005
       ]
     },
     {
-      "id": "sd_stone_texture",
-      "region": "stone_texture",
-      "type": "roughness",
-      "strength": 0.22,
-      "offset": [
-        0.01,
-        0,
-        0
-      ]
-    },
-    {
-      "id": "sd_nose_surface",
-      "region": "nose_surface",
-      "type": "carve_relief",
+      "id": "surface_detail_3",
+      "region": "facade",
+      "type": "weathering",
       "strength": 0.26,
       "offset": [
-        -0.01,
-        0,
-        0
+        0.018,
+        0.0024,
+        0.005
       ]
     },
     {
-      "id": "sd_ear_surface",
-      "region": "ear_surface",
-      "type": "carved_line",
-      "strength": 0.3,
+      "id": "surface_detail_4",
+      "region": "facade",
+      "type": "trim_line",
+      "strength": 0.32,
       "offset": [
-        0,
-        0,
-        0
+        0.0122,
+        -0.0071,
+        0.015
       ]
     },
     {
-      "id": "sd_torso_front",
-      "region": "torso_front",
-      "type": "panel_line",
+      "id": "surface_detail_5",
+      "region": "facade",
+      "type": "tile_pattern",
+      "strength": 0.38,
+      "offset": [
+        -0.0011,
+        -0.0132,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_6",
+      "region": "facade",
+      "type": "panel_seam",
       "strength": 0.14,
       "offset": [
-        0.01,
-        0,
-        0
+        -0.0136,
+        -0.0131,
+        -0.005
       ]
     },
     {
-      "id": "sd_ahu_surface",
-      "region": "ahu_surface",
-      "type": "roughness",
-      "strength": 0.18,
+      "id": "surface_detail_7",
+      "region": "facade",
+      "type": "window_grid",
+      "strength": 0.2,
       "offset": [
-        -0.01,
-        0,
-        0
+        -0.0179,
+        -0.0069,
+        0.005
       ]
     },
     {
-      "id": "sd_back",
-      "region": "back",
-      "type": "erosion",
-      "strength": 0.22,
-      "offset": [
-        0,
-        0,
-        0
-      ]
-    },
-    {
-      "id": "sd_crown_top",
-      "region": "crown_top",
-      "type": "roughness",
+      "id": "surface_detail_8",
+      "region": "facade",
+      "type": "weathering",
       "strength": 0.26,
       "offset": [
-        0.01,
-        0,
-        0
+        -0.0114,
+        0.0026,
+        0.015
       ]
     },
     {
-      "id": "sd_belly",
-      "region": "belly",
-      "type": "carved_line",
-      "strength": 0.3,
-      "offset": [
-        -0.01,
-        0,
-        0
-      ]
-    },
-    {
-      "id": "sd_lichen_area",
-      "region": "lichen_area",
-      "type": "paint_wear",
+      "id": "surface_detail_9",
+      "region": "roof",
+      "type": "panel_seam",
       "strength": 0.14,
       "offset": [
         0,
-        0,
-        0
+        0.014,
+        -0.015
       ]
     },
     {
-      "id": "sd_eye_hollow",
-      "region": "eye_hollow",
-      "type": "carve_relief",
-      "strength": 0.18,
+      "id": "surface_detail_10",
+      "region": "roof",
+      "type": "window_grid",
+      "strength": 0.2,
       "offset": [
-        0.01,
+        0.0129,
+        0.0107,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_11",
+      "region": "roof",
+      "type": "weathering",
+      "strength": 0.26,
+      "offset": [
+        0.018,
+        0.0024,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_12",
+      "region": "roof",
+      "type": "trim_line",
+      "strength": 0.32,
+      "offset": [
+        0.0122,
+        -0.0071,
+        0.015
+      ]
+    },
+    {
+      "id": "surface_detail_13",
+      "region": "roof",
+      "type": "tile_pattern",
+      "strength": 0.38,
+      "offset": [
+        -0.0011,
+        -0.0132,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_14",
+      "region": "roof",
+      "type": "panel_seam",
+      "strength": 0.14,
+      "offset": [
+        -0.0136,
+        -0.0131,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_15",
+      "region": "roof",
+      "type": "window_grid",
+      "strength": 0.2,
+      "offset": [
+        -0.0179,
+        -0.0069,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_16",
+      "region": "roof",
+      "type": "weathering",
+      "strength": 0.26,
+      "offset": [
+        -0.0114,
+        0.0026,
+        0.015
+      ]
+    },
+    {
+      "id": "surface_detail_17",
+      "region": "entrance",
+      "type": "panel_seam",
+      "strength": 0.14,
+      "offset": [
         0,
-        0
+        0.014,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_18",
+      "region": "entrance",
+      "type": "window_grid",
+      "strength": 0.2,
+      "offset": [
+        0.0129,
+        0.0107,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_19",
+      "region": "entrance",
+      "type": "weathering",
+      "strength": 0.26,
+      "offset": [
+        0.018,
+        0.0024,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_20",
+      "region": "entrance",
+      "type": "trim_line",
+      "strength": 0.32,
+      "offset": [
+        0.0122,
+        -0.0071,
+        0.015
+      ]
+    },
+    {
+      "id": "surface_detail_21",
+      "region": "entrance",
+      "type": "tile_pattern",
+      "strength": 0.38,
+      "offset": [
+        -0.0011,
+        -0.0132,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_22",
+      "region": "entrance",
+      "type": "panel_seam",
+      "strength": 0.14,
+      "offset": [
+        -0.0136,
+        -0.0131,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_23",
+      "region": "entrance",
+      "type": "window_grid",
+      "strength": 0.2,
+      "offset": [
+        -0.0179,
+        -0.0069,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_24",
+      "region": "entrance",
+      "type": "weathering",
+      "strength": 0.26,
+      "offset": [
+        -0.0114,
+        0.0026,
+        0.015
+      ]
+    },
+    {
+      "id": "surface_detail_25",
+      "region": "windows",
+      "type": "panel_seam",
+      "strength": 0.14,
+      "offset": [
+        0,
+        0.014,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_26",
+      "region": "windows",
+      "type": "window_grid",
+      "strength": 0.2,
+      "offset": [
+        0.0129,
+        0.0107,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_27",
+      "region": "windows",
+      "type": "weathering",
+      "strength": 0.26,
+      "offset": [
+        0.018,
+        0.0024,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_28",
+      "region": "windows",
+      "type": "trim_line",
+      "strength": 0.32,
+      "offset": [
+        0.0122,
+        -0.0071,
+        0.015
+      ]
+    },
+    {
+      "id": "surface_detail_29",
+      "region": "windows",
+      "type": "tile_pattern",
+      "strength": 0.38,
+      "offset": [
+        -0.0011,
+        -0.0132,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_30",
+      "region": "windows",
+      "type": "panel_seam",
+      "strength": 0.14,
+      "offset": [
+        -0.0136,
+        -0.0131,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_31",
+      "region": "windows",
+      "type": "window_grid",
+      "strength": 0.2,
+      "offset": [
+        -0.0179,
+        -0.0069,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_32",
+      "region": "windows",
+      "type": "weathering",
+      "strength": 0.26,
+      "offset": [
+        -0.0114,
+        0.0026,
+        0.015
       ]
     }
   ],
   "ornaments": [],
   "pose": {
-    "preset": "idle_guardian",
-    "headPitchDeg": -4,
-    "headYawDeg": 0,
-    "leftArmYawDeg": 4,
-    "rightArmYawDeg": -4,
-    "chestTiltDeg": 1,
-    "leftFootYawDeg": 3,
-    "rightFootYawDeg": -3
+    "preset": "static"
   },
-  "animationHints": {
-    "idleBreathScale": 0.008,
-    "eyeGlowPulse": true,
-    "capeReady": false
-  },
+  "animationHints": {},
   "lod": {
     "high": "full",
-    "medium": "remove_micro_ornaments",
-    "low": "merge_secondary_plates"
+    "medium": "reduce_window_bands",
+    "low": "merge_facade_layers"
   },
   "exportOptions": {
     "formats": [

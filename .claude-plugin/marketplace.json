@@ -1,0 +1,21 @@
+{
+  "name": "prompt2gltf-skills",
+  "owner": {
+    "name": "Junpei Shouy",
+    "email": ""
+  },
+  "metadata": {
+    "description": "自然言語のプロンプトから 3D モデル（GLTF/GLB）を生成する Prompt2GLTF plugin。",
+    "version": "0.2.0"
+  },
+  "plugins": [
+    {
+      "name": "prompt2gltf",
+      "source": "./plugins/prompt2gltf",
+      "description": "自然言語のプロンプトから 3D モデル（GLTF/GLB）とプレビュー HTML を生成するスキル。建物・施設・人物・乗り物・怪獣・ロボットなど幅広いカテゴリに対応。",
+      "version": "0.2.0",
+      "category": "3d-generation",
+      "tags": ["3d", "gltf", "glb", "procedural", "generation", "hackathon"]
+    }
+  ]
+}

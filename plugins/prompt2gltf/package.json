@@ -1,10 +1,10 @@
 {
   "name": "prompt2gltf",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node src/index.mjs --prompt \"100m級の巨人を作って\""
+    "generate": "node scripts/index.mjs --prompt \"100m級の巨人を作って\""
   },
   "dependencies": {
     "@gltf-transform/core": "^4.2.1",
