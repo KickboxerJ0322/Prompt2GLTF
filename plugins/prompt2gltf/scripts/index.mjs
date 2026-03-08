@@ -4243,7 +4243,7 @@ function createPreviewHtml(currentGlb, allGlbs) {
     "      if(currentObj){ scene.remove(currentObj); currentObj=null; }",
     "      infoEl.classList.remove('visible'); ctrlBar.classList.remove('visible');",
     "      statusEl.textContent='Loading '+filename+' ...';",
-    "      loader.load('./'+filename,",
+    "      loader.load('generated/'+filename,",
     "        (gltf)=>{",
     "          currentObj=gltf.scene; scene.add(currentObj);",
     "          frameObject(currentObj);",
@@ -4329,9 +4329,9 @@ async function main() {
 
   // Collect all .glb files for sidebar
   const allFiles = await fs.readdir(OUTPUT_DIR);
-  const allGlbs  = allFiles.filter(f => f.endsWith(".glb")).sort();
+  const allGlbs  = allFiles.filter(f => f.endsWith(".glb") && f !== "model.glb").sort();
 
-  const previewPath = path.join(OUTPUT_DIR, "preview.html");
+  const previewPath = path.join(PLUGIN_ROOT, "preview.html");
   await fs.writeFile(previewPath, createPreviewHtml(glbFilename, allGlbs), "utf-8");
 
   console.log("Prompt2GLTF generation complete.");

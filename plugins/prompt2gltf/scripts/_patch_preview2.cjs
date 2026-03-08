@@ -171,7 +171,7 @@ const newFn = `function createPreviewHtml(currentGlb, allGlbs) {
     "      if(currentObj){ scene.remove(currentObj); currentObj=null; }",
     "      infoEl.classList.remove('visible'); ctrlBar.classList.remove('visible');",
     "      statusEl.textContent='Loading '+filename+' ...';",
-    "      loader.load('./'+filename,",
+    "      loader.load('generated/'+filename,",
     "        (gltf)=>{",
     "          currentObj=gltf.scene; scene.add(currentObj);",
     "          frameObject(currentObj);",
