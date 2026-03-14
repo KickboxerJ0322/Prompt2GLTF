@@ -32,7 +32,9 @@ viewer.scene.fog.enabled = true;
 // Google Photorealistic 3D Tiles
 // ------------------------------------
 try {
-  const googleTileset = await Cesium.createGooglePhotorealistic3DTileset();
+  const googleTileset = await Cesium.createGooglePhotorealistic3DTileset({
+    onlyUsingWithGoogleGeocoder: true,
+  });
   viewer.scene.primitives.add(googleTileset);
 } catch (error) {
   console.log("Google Photorealistic 3D Tiles の読み込みに失敗:", error);

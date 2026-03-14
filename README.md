@@ -242,13 +242,18 @@ plugins/prompt2cesiumjs/generated/
 
 ## 出力（サンプル画像）
 
-<img src="01_sample.png" alt="サンプル1" width="180" height="180" style="object-fit: cover;" />
-<img src="02_sample.png" alt="サンプル2" width="180" height="180" style="object-fit: cover;" />
-<img src="03_sample.png" alt="サンプル3" width="180" height="180" style="object-fit: cover;" />
-<img src="04_sample.png" alt="サンプル4" width="180" height="180" style="object-fit: cover;" />
-<img src="05_sample.png" alt="サンプル5" width="180" height="180" style="object-fit: cover;" />
-<img src="06_sample.png" alt="サンプル6" width="180" height="180" style="object-fit: cover;" />
-
+<div style="display: flex; flex-wrap: wrap; gap: 8px;">
+  <img src="01_sample.png" alt="サンプル1" width="160" height="160" style="object-fit: cover;" />
+  <img src="02_sample.png" alt="サンプル2" width="160" height="160" style="object-fit: cover;" />
+  <img src="03_sample.png" alt="サンプル3" width="160" height="160" style="object-fit: cover;" />
+  <img src="04_sample.png" alt="サンプル4" width="160" height="160" style="object-fit: cover;" />
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px;">
+  <img src="05_sample.png" alt="サンプル5" width="160" height="160" style="object-fit: cover;" />
+  <img src="06_sample.png" alt="サンプル6" width="160" height="160" style="object-fit: cover;" />
+  <img src="07_sample.png" alt="サンプル7" width="160" height="160" style="object-fit: cover;" />
+  <img src="08_sample.png" alt="サンプル8" width="160" height="160" style="object-fit: cover;" />
+</div>
 ---
 
 ## 動画
