@@ -149,6 +149,12 @@ const SUBJECT_REGISTRY = [
     defaultStyle: "fortified_stone",
   },
   {
+    id: "ferris_wheel",
+    match: /ferris.?wheel|観覧車|かんらんしゃ|kanransha/iu,
+    defaultHeight: () => 90,
+    defaultStyle: "amusement_attraction",
+  },
+  {
     id: "building",
     match: /building|architecture|skyscraper|house|apartment|office|station|airport|terminal|museum|factory|warehouse|stadium|temple|shrine|church|hospital|clinic|police.?station|fire.?station|nursing.?home|school|city.?hall|town.?hall|\u5efa\u7bc9|\u5efa\u7269|\u30d3\u30eb|\u9ad8\u5c64|\u5bb6|\u4f4f\u5b85|\u99c5|\u7a7a\u6e2f|\u7f8e\u8853\u9928|\u5de5\u5834|\u30b9\u30bf\u30b8\u30a2\u30e0|\u5bfa|\u795e\u793e|\u6559\u4f1a|\u75c5\u9662|\u8a3a\u7642\u6240|\u8b66\u5bdf\u7f72|\u6d88\u9632\u7f72|\u8001\u4eba\u30db\u30fc\u30e0|\u4ecb\u8b77\u65bd\u8a2d|\u5b66\u6821|\u5c0f\u5b66\u6821|\u4e2d\u5b66\u6821|\u9ad8\u6821|\u5e02\u5f79\u6240|\u533a\u5f79\u6240|\u753a\u5f79\u5834/iu,
     defaultHeight: () => 90,
@@ -4664,8 +4670,188 @@ function buildHumanSpec(prompt, height, styles) {
   return spec;
 }
 
+function buildFerrisWheelSpec(prompt, height, styles) {
+  const H    = height;           // total height (ground → top of wheel)
+  const R    = H * 0.43;         // wheel radius  (top at H, bottom clearance H*0.14)
+  const hubY = H - R;            // hub/axle center height
+
+  const base = buildHighDensityMeta(prompt, "ferris_wheel", height, styles);
+  const spec = {
+    ...base,
+    globalScale: { height: H, diameter: rounded(R * 2), depth: rounded(R * 0.55) },
+    style: {
+      silhouette: "ferris_wheel_amusement",
+      mood: "festive",
+      genre: "amusement_attraction",
+      detailDensity: "high",
+      bodyLanguage: "static_structure",
+      shapeLanguage: ["circular_rim", "radial_spokes", "gondolas", "a_frame_support"],
+    },
+    materials: {
+      steel_frame:  { baseColor: "#CC2020", roughness: 0.38, metalness: 0.88 },
+      steel_rim:    { baseColor: "#DD2222", roughness: 0.35, metalness: 0.90 },
+      steel_spoke:  { baseColor: "#BB1A1A", roughness: 0.42, metalness: 0.85 },
+      support_red:  { baseColor: "#CC2020", roughness: 0.40, metalness: 0.82 },
+      hub_gold:     { baseColor: "#D4A820", roughness: 0.26, metalness: 0.92 },
+      gondola_body: { baseColor: "#F5F5F5", roughness: 0.50, metalness: 0.08 },
+      gondola_red:  { baseColor: "#DD2222", roughness: 0.45, metalness: 0.10 },
+      gondola_win:  { baseColor: "#88BBDD", roughness: 0.12, metalness: 0.85 },
+      base_conc:    { baseColor: "#C0C0B8", roughness: 0.92, metalness: 0.03 },
+      accent_gold:  { baseColor: "#D4A820", roughness: 0.28, metalness: 0.92 },
+      light_warm:   { baseColor: "#FFD080", roughness: 0.10, metalness: 0.00, emissive: "#FFB020" },
+    },
+    parts: [],
+    surfaceDetails: [],
+    ornaments: [],
+    pose: { preset: "static" },
+    animationHints: {},
+    lod: { high: "full", medium: "reduce_gondolas", low: "merge_rim_spokes" },
+    exportOptions: { formats: ["gltf", "glb"], previewHtml: true },
+  };
+
+  const parts = [];
+  const surfaceDetails = [];
+
+  function cyl(id, mat, sx, sy, sz, px, py, pz, rx = 0, ry = 0, rz = 0) {
+    parts.push({
+      id, kind: "cylinder", material: mat,
+      size:     [rounded(sx), rounded(sy), rounded(sz)],
+      position: [rounded(px), rounded(py), rounded(pz)],
+      rotation: [rounded(rx), rounded(ry), rounded(rz)],
+    });
+  }
+  function box(id, mat, sx, sy, sz, px, py, pz, rx = 0, ry = 0, rz = 0) {
+    parts.push({
+      id, kind: "box", material: mat,
+      size:     [rounded(sx), rounded(sy), rounded(sz)],
+      position: [rounded(px), rounded(py), rounded(pz)],
+      rotation: [rounded(rx), rounded(ry), rounded(rz)],
+    });
+  }
+
+  // ── GROUND BASE ──────────────────────────────────────────────────────────────
+  box("ground_slab",   "base_conc", R*2.8, R*0.04, R*0.55, 0, R*0.02, 0);
+  box("footing_L",     "base_conc", R*0.5, R*0.10, R*0.50, -R*0.60, R*0.05, 0);
+  box("footing_R",     "base_conc", R*0.5, R*0.10, R*0.50,  R*0.60, R*0.05, 0);
+
+  // ── A-FRAME SUPPORT LEGS ─────────────────────────────────────────────────────
+  // Each leg goes from ground (X=±R*0.58, Y=0) diagonally up to hub (X=0, Y=hubY).
+  // Direction vector (bottom→top): [∓R*0.58, hubY, 0] → rotation around Z.
+  // Rotating Y-axis by rz around Z gives (-sin(rz), cos(rz), 0).
+  // For left leg [+R*0.58, hubY, 0] normalized: rz = -atan2(R*0.58, hubY).
+  const legBeta = Math.atan2(R * 0.58, hubY);
+  const legLen  = Math.sqrt((R * 0.58) ** 2 + hubY ** 2);
+  const legCX   = -R * 0.29;   // midpoint X for left legs
+  const legCY   = hubY * 0.5;  // midpoint Y
+
+  cyl("leg_L_front", "support_red", R*0.07, legLen, R*0.07, legCX, legCY,  R*0.20, 0, 0, -legBeta);
+  cyl("leg_L_rear",  "support_red", R*0.07, legLen, R*0.07, legCX, legCY, -R*0.20, 0, 0, -legBeta);
+  cyl("leg_R_front", "support_red", R*0.07, legLen, R*0.07,-legCX, legCY,  R*0.20, 0, 0,  legBeta);
+  cyl("leg_R_rear",  "support_red", R*0.07, legLen, R*0.07,-legCX, legCY, -R*0.20, 0, 0,  legBeta);
+
+  // Cross-braces connecting left pair and right pair at different heights
+  box("brace_L_lo_F", "support_red", R*0.60, R*0.04, R*0.04, -R*0.30, hubY*0.28,  R*0.20);
+  box("brace_L_md_F", "support_red", R*0.40, R*0.04, R*0.04, -R*0.20, hubY*0.55,  R*0.20);
+  box("brace_L_hi_F", "support_red", R*0.20, R*0.04, R*0.04, -R*0.10, hubY*0.80,  R*0.20);
+  box("brace_R_lo_F", "support_red", R*0.60, R*0.04, R*0.04,  R*0.30, hubY*0.28,  R*0.20);
+  box("brace_R_md_F", "support_red", R*0.40, R*0.04, R*0.04,  R*0.20, hubY*0.55,  R*0.20);
+  box("brace_R_hi_F", "support_red", R*0.20, R*0.04, R*0.04,  R*0.10, hubY*0.80,  R*0.20);
+  box("brace_L_lo_R", "support_red", R*0.60, R*0.04, R*0.04, -R*0.30, hubY*0.28, -R*0.20);
+  box("brace_L_md_R", "support_red", R*0.40, R*0.04, R*0.04, -R*0.20, hubY*0.55, -R*0.20);
+  box("brace_L_hi_R", "support_red", R*0.20, R*0.04, R*0.04, -R*0.10, hubY*0.80, -R*0.20);
+  box("brace_R_lo_R", "support_red", R*0.60, R*0.04, R*0.04,  R*0.30, hubY*0.28, -R*0.20);
+  box("brace_R_md_R", "support_red", R*0.40, R*0.04, R*0.04,  R*0.20, hubY*0.55, -R*0.20);
+  box("brace_R_hi_R", "support_red", R*0.20, R*0.04, R*0.04,  R*0.10, hubY*0.80, -R*0.20);
+  // Z-direction cross links (front↔rear at each height)
+  box("z_link_L_lo", "support_red", R*0.04, R*0.04, R*0.45, -R*0.30, hubY*0.28, 0);
+  box("z_link_L_md", "support_red", R*0.04, R*0.04, R*0.45, -R*0.20, hubY*0.55, 0);
+  box("z_link_R_lo", "support_red", R*0.04, R*0.04, R*0.45,  R*0.30, hubY*0.28, 0);
+  box("z_link_R_md", "support_red", R*0.04, R*0.04, R*0.45,  R*0.20, hubY*0.55, 0);
+
+  // ── HUB / AXLE ───────────────────────────────────────────────────────────────
+  // Axle is a horizontal cylinder along X → rotate Y-axis by -π/2 around Z
+  cyl("axle",      "hub_gold", R*0.05, R*0.52, R*0.05, 0, hubY, 0, 0, 0, -Math.PI/2);
+  cyl("hub_front", "hub_gold", R*0.24, R*0.06, R*0.24, 0, hubY,  R*0.20);
+  cyl("hub_rear",  "hub_gold", R*0.24, R*0.06, R*0.24, 0, hubY, -R*0.20);
+  cyl("hub_cap",   "hub_gold", R*0.14, R*0.10, R*0.14, 0, hubY, 0);
+
+  // ── OUTER RIM  (24 chord segments) ───────────────────────────────────────────
+  // Segment at angle θ (0=top, clockwise): center = [R·sinθ, hubY+R·cosθ, 0]
+  // Chord length = 2·R·sin(π/24).  Rotation around Z: -(θ + π/2)
+  const N_RIM    = 24;
+  const rimChord = 2 * R * Math.sin(Math.PI / N_RIM) * 1.005; // tiny overlap to avoid gaps
+  const rimD     = R * 0.055; // rim cylinder diameter
+  for (let i = 0; i < N_RIM; i++) {
+    const θ  = (i / N_RIM) * Math.PI * 2;
+    const rz = -(θ + Math.PI / 2);
+    cyl(`rim_F_${i}`, "steel_rim", rimD, rimChord, rimD,
+      R * Math.sin(θ), hubY + R * Math.cos(θ),  R*0.18, 0, 0, rz);
+    cyl(`rim_R_${i}`, "steel_rim", rimD, rimChord, rimD,
+      R * Math.sin(θ), hubY + R * Math.cos(θ), -R*0.18, 0, 0, rz);
+  }
+
+  // ── SPOKES (16 radial spokes, each hub→rim) ───────────────────────────────────
+  // Spoke at angle θ: center = [R/2·sinθ, hubY+R/2·cosθ], length=R, rotation_z = -θ
+  const N_SPOKE = 16;
+  const spokeD  = R * 0.028;
+  for (let i = 0; i < N_SPOKE; i++) {
+    const θ = (i / N_SPOKE) * Math.PI * 2;
+    cyl(`spoke_F_${i}`, "steel_spoke", spokeD, R, spokeD,
+      (R / 2) * Math.sin(θ), hubY + (R / 2) * Math.cos(θ),  R*0.18, 0, 0, -θ);
+    cyl(`spoke_R_${i}`, "steel_spoke", spokeD, R, spokeD,
+      (R / 2) * Math.sin(θ), hubY + (R / 2) * Math.cos(θ), -R*0.18, 0, 0, -θ);
+  }
+  // Z-axis tie rods connecting front/rear spokes at the rim end
+  for (let i = 0; i < N_SPOKE; i++) {
+    const θ = (i / N_SPOKE) * Math.PI * 2;
+    box(`rod_rim_${i}`, "steel_frame", spokeD, spokeD, R*0.40,
+      R * Math.sin(θ), hubY + R * Math.cos(θ), 0);
+  }
+
+  // ── GONDOLAS (16, one per spoke tip) ─────────────────────────────────────────
+  // Gondolas hang from rim — placed just outside the rim attachment point.
+  const N_GONDOLA = 16;
+  const gW = R * 0.10, gH = R * 0.12, gD = R * 0.08;
+  for (let i = 0; i < N_GONDOLA; i++) {
+    const θ  = (i / N_GONDOLA) * Math.PI * 2;
+    const gx = R * Math.sin(θ);
+    const gy = hubY + R * Math.cos(θ) - gH * 0.5 - rimD; // hang below rim
+    box(`gondola_${i}`,     "gondola_body", gW,       gH,       gD,      gx, gy, 0);
+    box(`gondola_roof_${i}`, "gondola_red", gW*1.05,  gH*0.12,  gD*1.05, gx, gy + gH*0.5 + gH*0.06, 0);
+    box(`gondola_win_F_${i}`, "gondola_win", gW*0.65,  gH*0.48,  gD*0.08, gx, gy + gH*0.05, gD*0.5);
+    box(`gondola_win_R_${i}`, "gondola_win", gW*0.65,  gH*0.48,  gD*0.08, gx, gy + gH*0.05,-gD*0.5);
+  }
+
+  // ── DECORATIVE LIGHTS on outer rim ───────────────────────────────────────────
+  const N_LIGHT = 16;
+  for (let i = 0; i < N_LIGHT; i++) {
+    const θ = (i / N_LIGHT) * Math.PI * 2;
+    box(`light_${i}`, "light_warm", rimD*0.9, rimD*0.9, rimD*0.9,
+      R * Math.sin(θ), hubY + R * Math.cos(θ), R*0.19);
+  }
+
+  // ── SURFACE DETAILS ───────────────────────────────────────────────────────────
+  const sdRegions = ["rim", "spokes", "gondolas", "support", "hub"];
+  const sdTypes   = ["panel_seam", "bolt_pattern", "paint_wear", "weld_seam", "edge_trim"];
+  let sdIdx = 1;
+  for (const region of sdRegions) {
+    for (let i = 0; i < 5; i++) {
+      surfaceDetails.push({
+        id: `sd_${sdIdx++}`, region, type: sdTypes[i % sdTypes.length],
+        strength: rounded(0.12 + (i % 4) * 0.05),
+        offset: [Math.sin(i * 0.8) * 0.015, Math.cos(i * 0.5) * 0.012, ((i % 4) - 1.5) * 0.01].map(rounded),
+      });
+    }
+  }
+
+  spec.parts = parts;
+  spec.surfaceDetails = surfaceDetails;
+  return spec;
+}
+
 // Builder dispatch map  - add new subject builders here alongside SUBJECT_REGISTRY.
 const SUBJECT_BUILDERS = {
+  ferris_wheel: (...a) => buildFerrisWheelSpec(...a),
   kaiju:   (...a) => buildKaijuSpec(...a),
   tower:   (...a) => buildTowerSpec(...a),
   airship: (...a) => buildAirshipSpec(...a),
@@ -4863,6 +5049,19 @@ function createTriPrismGeometry(width, height, depth) {
   };
 }
 
+function eulerToQuat(rx, ry, rz) {
+  // ZYX Euler angles (radians) → GLTF quaternion [x, y, z, w]
+  const cx = Math.cos(rx / 2), sx = Math.sin(rx / 2);
+  const cy = Math.cos(ry / 2), sy = Math.sin(ry / 2);
+  const cz = Math.cos(rz / 2), sz = Math.sin(rz / 2);
+  return [
+    sx * cy * cz - cx * sy * sz,
+    cx * sy * cz + sx * cy * sz,
+    cx * cy * sz - sx * sy * cz,
+    cx * cy * cz + sx * sy * sz,
+  ];
+}
+
 function buildDocumentFromSpec(spec) {
   const doc = new Document();
   const root = doc.getRoot();
@@ -4906,6 +5105,10 @@ function buildDocumentFromSpec(spec) {
 
     const mesh = doc.createMesh(part.id).addPrimitive(prim);
     const node = doc.createNode(part.id).setMesh(mesh).setTranslation([px, py, pz]);
+    const rot = part.rotation;
+    if (rot && (rot[0] !== 0 || rot[1] !== 0 || rot[2] !== 0)) {
+      node.setRotation(eulerToQuat(rot[0], rot[1], rot[2]));
+    }
 
     scene.addChild(node);
   }

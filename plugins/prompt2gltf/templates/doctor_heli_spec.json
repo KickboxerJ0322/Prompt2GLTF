@@ -1,0 +1,607 @@
+{
+  "meta": {
+    "name": "helicopter_9m_ドクターヘリ風",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "prompt2gltf",
+    "generatedFrom": "ヘリコプター ドクターヘリ風のデザイン",
+    "createdAt": "2026-03-14T02:00:00.000Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "ヘリコプター ドクターヘリ風のデザイン",
+    "normalizedSubject": "vehicle",
+    "targetHeightMeters": 3.5,
+    "styleTags": ["helicopter", "doctor_heli", "HEMS", "medical", "red_cross"],
+    "geometryDirective": "Z+ = nose; Y = up; ground at Y=0; skids touch ground. Rotor blades along X and Z axes. Red body with white cross markings.",
+    "summary": "Doctor helicopter (HEMS) BK117/EC135 style: red fuselage, white cross markings, bubble cockpit, 4-blade main rotor, tail rotor, landing skids.",
+    "designIntent": {
+      "scaleImpression": "normal",
+      "mood": "emergency_professional",
+      "originalityPolicy": "generalized_original_design"
+    },
+    "vehicleClass": "aircraft",
+    "aircraftType": "helicopter_hems"
+  },
+  "globalScale": {
+    "height": 3.5,
+    "width": 11.0,
+    "depth": 9.0
+  },
+  "style": {
+    "silhouette": "helicopter_hems",
+    "mood": "functional_urgent",
+    "genre": "emergency_aircraft",
+    "detailDensity": "high",
+    "orientation": "Z_axis_nose_positive"
+  },
+  "materials": {
+    "body_red": {
+      "baseColor": "#CC1010",
+      "roughness": 0.35,
+      "metalness": 0.55
+    },
+    "body_white": {
+      "baseColor": "#F2F4F2",
+      "roughness": 0.38,
+      "metalness": 0.45
+    },
+    "glass_cockpit": {
+      "baseColor": "#2A4560",
+      "roughness": 0.06,
+      "metalness": 0.88
+    },
+    "rotor_dark": {
+      "baseColor": "#181A1C",
+      "roughness": 0.72,
+      "metalness": 0.12
+    },
+    "skid_metal": {
+      "baseColor": "#8A8E94",
+      "roughness": 0.28,
+      "metalness": 0.88
+    },
+    "engine_grey": {
+      "baseColor": "#C8CCD0",
+      "roughness": 0.42,
+      "metalness": 0.62
+    },
+    "cross_white": {
+      "baseColor": "#F4F6F4",
+      "roughness": 0.55,
+      "metalness": 0.05
+    },
+    "light_yellow": {
+      "baseColor": "#FFE880",
+      "roughness": 0.05,
+      "metalness": 0.0,
+      "emissive": "#FFE880"
+    },
+    "light_red": {
+      "baseColor": "#FF2020",
+      "roughness": 0.05,
+      "metalness": 0.0,
+      "emissive": "#FF3030"
+    },
+    "rubber_black": {
+      "baseColor": "#101214",
+      "roughness": 0.88,
+      "metalness": 0.04
+    }
+  },
+  "parts": [
+    {
+      "id": "fuselage_main",
+      "kind": "box",
+      "material": "body_red",
+      "size": [1.72, 1.48, 3.60],
+      "position": [0, 1.34, 0.45]
+    },
+    {
+      "id": "fuselage_belly",
+      "kind": "box",
+      "material": "body_red",
+      "size": [1.60, 0.12, 3.40],
+      "position": [0, 0.66, 0.45]
+    },
+    {
+      "id": "nose_upper",
+      "kind": "box",
+      "material": "body_red",
+      "size": [1.48, 0.62, 0.58],
+      "position": [0, 1.80, 2.54]
+    },
+    {
+      "id": "nose_lower",
+      "kind": "box",
+      "material": "body_red",
+      "size": [1.38, 0.52, 0.52],
+      "position": [0, 1.00, 2.54]
+    },
+    {
+      "id": "nose_tip",
+      "kind": "box",
+      "material": "body_red",
+      "size": [0.90, 0.72, 0.24],
+      "position": [0, 1.42, 2.83]
+    },
+    {
+      "id": "cockpit_glass_front",
+      "kind": "box",
+      "material": "glass_cockpit",
+      "size": [1.18, 0.68, 0.07],
+      "position": [0, 1.60, 2.79]
+    },
+    {
+      "id": "cockpit_glass_L",
+      "kind": "box",
+      "material": "glass_cockpit",
+      "size": [0.06, 0.58, 0.58],
+      "position": [-0.77, 1.58, 2.50]
+    },
+    {
+      "id": "cockpit_glass_R",
+      "kind": "box",
+      "material": "glass_cockpit",
+      "size": [0.06, 0.58, 0.58],
+      "position": [0.77, 1.58, 2.50]
+    },
+    {
+      "id": "cockpit_glass_top",
+      "kind": "box",
+      "material": "glass_cockpit",
+      "size": [1.08, 0.06, 0.54],
+      "position": [0, 1.94, 2.50]
+    },
+    {
+      "id": "window_cabin_fl",
+      "kind": "box",
+      "material": "glass_cockpit",
+      "size": [0.04, 0.40, 0.64],
+      "position": [-0.87, 1.52, 0.80]
+    },
+    {
+      "id": "window_cabin_fr",
+      "kind": "box",
+      "material": "glass_cockpit",
+      "size": [0.04, 0.40, 0.64],
+      "position": [0.87, 1.52, 0.80]
+    },
+    {
+      "id": "window_cabin_rl",
+      "kind": "box",
+      "material": "glass_cockpit",
+      "size": [0.04, 0.36, 0.54],
+      "position": [-0.87, 1.48, -0.20]
+    },
+    {
+      "id": "window_cabin_rr",
+      "kind": "box",
+      "material": "glass_cockpit",
+      "size": [0.04, 0.36, 0.54],
+      "position": [0.87, 1.48, -0.20]
+    },
+    {
+      "id": "engine_cowl_L",
+      "kind": "box",
+      "material": "engine_grey",
+      "size": [0.52, 0.38, 1.12],
+      "position": [-0.45, 2.22, 0.18]
+    },
+    {
+      "id": "engine_cowl_R",
+      "kind": "box",
+      "material": "engine_grey",
+      "size": [0.52, 0.38, 1.12],
+      "position": [0.45, 2.22, 0.18]
+    },
+    {
+      "id": "engine_intake_L",
+      "kind": "box",
+      "material": "rubber_black",
+      "size": [0.16, 0.24, 0.08],
+      "position": [-0.64, 2.30, 0.72]
+    },
+    {
+      "id": "engine_intake_R",
+      "kind": "box",
+      "material": "rubber_black",
+      "size": [0.16, 0.24, 0.08],
+      "position": [0.64, 2.30, 0.72]
+    },
+    {
+      "id": "exhaust_L",
+      "kind": "cylinder",
+      "material": "engine_grey",
+      "size": [0.10, 0.18, 0.10],
+      "position": [-0.44, 2.42, -0.48]
+    },
+    {
+      "id": "exhaust_R",
+      "kind": "cylinder",
+      "material": "engine_grey",
+      "size": [0.10, 0.18, 0.10],
+      "position": [0.44, 2.42, -0.48]
+    },
+    {
+      "id": "rotor_mast",
+      "kind": "cylinder",
+      "material": "skid_metal",
+      "size": [0.14, 0.30, 0.14],
+      "position": [0, 2.28, -0.10]
+    },
+    {
+      "id": "rotor_hub",
+      "kind": "sphere",
+      "material": "skid_metal",
+      "size": [0.28, 0.22, 0.28],
+      "position": [0, 2.56, -0.10]
+    },
+    {
+      "id": "rotor_head_fairing",
+      "kind": "sphere",
+      "material": "engine_grey",
+      "size": [0.36, 0.16, 0.36],
+      "position": [0, 2.68, -0.10]
+    },
+    {
+      "id": "rotor_blade_X_pos",
+      "kind": "box",
+      "material": "rotor_dark",
+      "size": [5.40, 0.055, 0.34],
+      "position": [2.70, 2.58, -0.10]
+    },
+    {
+      "id": "rotor_blade_X_neg",
+      "kind": "box",
+      "material": "rotor_dark",
+      "size": [5.40, 0.055, 0.34],
+      "position": [-2.70, 2.58, -0.10]
+    },
+    {
+      "id": "rotor_blade_Z_pos",
+      "kind": "box",
+      "material": "rotor_dark",
+      "size": [0.34, 0.055, 5.40],
+      "position": [0, 2.58, 2.60]
+    },
+    {
+      "id": "rotor_blade_Z_neg",
+      "kind": "box",
+      "material": "rotor_dark",
+      "size": [0.34, 0.055, 5.40],
+      "position": [0, 2.58, -2.80]
+    },
+    {
+      "id": "tail_boom_front",
+      "kind": "box",
+      "material": "body_red",
+      "size": [0.70, 0.60, 2.20],
+      "position": [0, 1.46, -2.40]
+    },
+    {
+      "id": "tail_boom_rear",
+      "kind": "box",
+      "material": "body_red",
+      "size": [0.46, 0.44, 2.00],
+      "position": [0, 1.42, -4.30]
+    },
+    {
+      "id": "tail_fin_upper",
+      "kind": "box",
+      "material": "body_red",
+      "size": [0.08, 0.90, 0.58],
+      "position": [0, 2.06, -5.08]
+    },
+    {
+      "id": "tail_fin_lower",
+      "kind": "box",
+      "material": "body_red",
+      "size": [0.08, 0.52, 0.44],
+      "position": [0, 0.98, -5.08]
+    },
+    {
+      "id": "horiz_stab_L",
+      "kind": "box",
+      "material": "body_red",
+      "size": [0.96, 0.08, 0.48],
+      "position": [-0.62, 1.50, -4.88]
+    },
+    {
+      "id": "horiz_stab_R",
+      "kind": "box",
+      "material": "body_red",
+      "size": [0.96, 0.08, 0.48],
+      "position": [0.62, 1.50, -4.88]
+    },
+    {
+      "id": "horiz_stab_tip_L",
+      "kind": "box",
+      "material": "body_white",
+      "size": [0.08, 0.12, 0.46],
+      "position": [-1.10, 1.50, -4.88]
+    },
+    {
+      "id": "horiz_stab_tip_R",
+      "kind": "box",
+      "material": "body_white",
+      "size": [0.08, 0.12, 0.46],
+      "position": [1.10, 1.50, -4.88]
+    },
+    {
+      "id": "tail_rotor_hub",
+      "kind": "sphere",
+      "material": "skid_metal",
+      "size": [0.14, 0.12, 0.14],
+      "position": [0.40, 1.96, -5.10]
+    },
+    {
+      "id": "tail_rotor_blade_1",
+      "kind": "box",
+      "material": "rotor_dark",
+      "size": [0.12, 1.24, 0.055],
+      "position": [0.42, 1.96, -5.10]
+    },
+    {
+      "id": "tail_rotor_blade_2",
+      "kind": "box",
+      "material": "rotor_dark",
+      "size": [0.055, 1.24, 0.12],
+      "position": [0.42, 1.96, -5.10]
+    },
+    {
+      "id": "skid_rail_L",
+      "kind": "box",
+      "material": "skid_metal",
+      "size": [0.055, 0.055, 3.60],
+      "position": [-0.90, 0.04, 0.10]
+    },
+    {
+      "id": "skid_rail_R",
+      "kind": "box",
+      "material": "skid_metal",
+      "size": [0.055, 0.055, 3.60],
+      "position": [0.90, 0.04, 0.10]
+    },
+    {
+      "id": "skid_toe_L",
+      "kind": "box",
+      "material": "skid_metal",
+      "size": [0.055, 0.055, 0.24],
+      "position": [-0.90, 0.08, 1.96]
+    },
+    {
+      "id": "skid_toe_R",
+      "kind": "box",
+      "material": "skid_metal",
+      "size": [0.055, 0.055, 0.24],
+      "position": [0.90, 0.08, 1.96]
+    },
+    {
+      "id": "strut_front_L",
+      "kind": "box",
+      "material": "skid_metal",
+      "size": [0.06, 0.58, 0.06],
+      "position": [-0.90, 0.36, 1.32]
+    },
+    {
+      "id": "strut_front_R",
+      "kind": "box",
+      "material": "skid_metal",
+      "size": [0.06, 0.58, 0.06],
+      "position": [0.90, 0.36, 1.32]
+    },
+    {
+      "id": "strut_rear_L",
+      "kind": "box",
+      "material": "skid_metal",
+      "size": [0.06, 0.58, 0.06],
+      "position": [-0.90, 0.36, -0.92]
+    },
+    {
+      "id": "strut_rear_R",
+      "kind": "box",
+      "material": "skid_metal",
+      "size": [0.06, 0.58, 0.06],
+      "position": [0.90, 0.36, -0.92]
+    },
+    {
+      "id": "cross_horiz_L",
+      "kind": "box",
+      "material": "cross_white",
+      "size": [0.04, 0.22, 0.68],
+      "position": [-0.88, 1.40, -0.05]
+    },
+    {
+      "id": "cross_vert_L",
+      "kind": "box",
+      "material": "cross_white",
+      "size": [0.04, 0.68, 0.22],
+      "position": [-0.88, 1.40, -0.05]
+    },
+    {
+      "id": "cross_horiz_R",
+      "kind": "box",
+      "material": "cross_white",
+      "size": [0.04, 0.22, 0.68],
+      "position": [0.88, 1.40, -0.05]
+    },
+    {
+      "id": "cross_vert_R",
+      "kind": "box",
+      "material": "cross_white",
+      "size": [0.04, 0.68, 0.22],
+      "position": [0.88, 1.40, -0.05]
+    },
+    {
+      "id": "stripe_top",
+      "kind": "box",
+      "material": "body_white",
+      "size": [0.32, 0.06, 3.20],
+      "position": [0, 2.12, 0.50]
+    },
+    {
+      "id": "stripe_nose_L",
+      "kind": "box",
+      "material": "body_white",
+      "size": [0.04, 0.36, 1.10],
+      "position": [-0.55, 1.72, 2.22]
+    },
+    {
+      "id": "stripe_nose_R",
+      "kind": "box",
+      "material": "body_white",
+      "size": [0.04, 0.36, 1.10],
+      "position": [0.55, 1.72, 2.22]
+    },
+    {
+      "id": "searchlight",
+      "kind": "cylinder",
+      "material": "light_yellow",
+      "size": [0.16, 0.12, 0.16],
+      "position": [0, 0.72, 2.68]
+    },
+    {
+      "id": "nav_light_L",
+      "kind": "sphere",
+      "material": "light_red",
+      "size": [0.06, 0.05, 0.06],
+      "position": [-0.88, 1.80, -0.90]
+    },
+    {
+      "id": "nav_light_R",
+      "kind": "sphere",
+      "material": "light_yellow",
+      "size": [0.06, 0.05, 0.06],
+      "position": [0.88, 1.80, -0.90]
+    },
+    {
+      "id": "beacon_top",
+      "kind": "sphere",
+      "material": "light_red",
+      "size": [0.08, 0.06, 0.08],
+      "position": [0, 2.16, 0.50]
+    },
+    {
+      "id": "door_slide_L",
+      "kind": "box",
+      "material": "body_red",
+      "size": [0.04, 0.72, 0.88],
+      "position": [-0.88, 1.35, 0.68]
+    },
+    {
+      "id": "door_slide_R",
+      "kind": "box",
+      "material": "body_red",
+      "size": [0.04, 0.72, 0.88],
+      "position": [0.88, 1.35, 0.68]
+    },
+    {
+      "id": "step_L",
+      "kind": "box",
+      "material": "skid_metal",
+      "size": [0.08, 0.04, 0.24],
+      "position": [-0.88, 0.72, 1.20]
+    },
+    {
+      "id": "step_R",
+      "kind": "box",
+      "material": "skid_metal",
+      "size": [0.08, 0.04, 0.24],
+      "position": [0.88, 0.72, 1.20]
+    },
+    {
+      "id": "antenna_top",
+      "kind": "cylinder",
+      "material": "rubber_black",
+      "size": [0.018, 0.28, 0.018],
+      "position": [0, 2.16, 1.80]
+    },
+    {
+      "id": "antenna_tail",
+      "kind": "cylinder",
+      "material": "rubber_black",
+      "size": [0.014, 0.20, 0.014],
+      "position": [0.10, 1.68, -3.80]
+    },
+    {
+      "id": "pitot_tube",
+      "kind": "box",
+      "material": "skid_metal",
+      "size": [0.018, 0.018, 0.24],
+      "position": [0.44, 1.80, 2.92]
+    },
+    {
+      "id": "hoist_arm",
+      "kind": "box",
+      "material": "engine_grey",
+      "size": [0.20, 0.08, 0.10],
+      "position": [-0.88, 1.95, -0.60]
+    },
+    {
+      "id": "hoist_drum",
+      "kind": "cylinder",
+      "material": "skid_metal",
+      "size": [0.08, 0.14, 0.08],
+      "position": [-0.98, 1.92, -0.60]
+    }
+  ],
+  "surfaceDetails": [
+    {"id": "sd_1",  "region": "fuselage", "type": "panel_line",    "strength": 0.12, "offset": [0,      0.016, -0.013]},
+    {"id": "sd_2",  "region": "fuselage", "type": "rivet_row",     "strength": 0.08, "offset": [0.014,  0.010,  0]},
+    {"id": "sd_3",  "region": "fuselage", "type": "edge_trim",     "strength": 0.14, "offset": [0.018,  0.002,  0.013]},
+    {"id": "sd_4",  "region": "fuselage", "type": "panel_line",    "strength": 0.16, "offset": [-0.015,-0.010,  0]},
+    {"id": "sd_5",  "region": "fuselage", "type": "paint_wear",    "strength": 0.06, "offset": [-0.018,-0.012,  0.013]},
+    {"id": "sd_6",  "region": "fuselage", "type": "panel_line",    "strength": 0.10, "offset": [0.008, -0.016, -0.013]},
+    {"id": "sd_7",  "region": "fuselage", "type": "rivet_row",     "strength": 0.08, "offset": [-0.010, 0.014,  0.010]},
+    {"id": "sd_8",  "region": "fuselage", "type": "edge_trim",     "strength": 0.12, "offset": [0.006,  0.018, -0.010]},
+    {"id": "sd_9",  "region": "nose",     "type": "panel_line",    "strength": 0.12, "offset": [0,      0.014, -0.013]},
+    {"id": "sd_10", "region": "nose",     "type": "rivet_row",     "strength": 0.08, "offset": [0.012,  0.010,  0]},
+    {"id": "sd_11", "region": "nose",     "type": "edge_trim",     "strength": 0.10, "offset": [-0.014, 0.006,  0.013]},
+    {"id": "sd_12", "region": "nose",     "type": "panel_line",    "strength": 0.14, "offset": [0.010, -0.012, -0.013]},
+    {"id": "sd_13", "region": "tail",     "type": "panel_line",    "strength": 0.12, "offset": [0,      0.016, -0.013]},
+    {"id": "sd_14", "region": "tail",     "type": "rivet_row",     "strength": 0.08, "offset": [0.014,  0.010,  0]},
+    {"id": "sd_15", "region": "tail",     "type": "paint_wear",    "strength": 0.06, "offset": [-0.016,-0.008,  0.013]},
+    {"id": "sd_16", "region": "tail",     "type": "edge_trim",     "strength": 0.12, "offset": [0.010, -0.014, -0.013]},
+    {"id": "sd_17", "region": "rotor",    "type": "panel_line",    "strength": 0.10, "offset": [0,      0.010, -0.010]},
+    {"id": "sd_18", "region": "rotor",    "type": "edge_trim",     "strength": 0.14, "offset": [0.012,  0.006,  0.010]},
+    {"id": "sd_19", "region": "rotor",    "type": "paint_wear",    "strength": 0.08, "offset": [-0.014, 0.002, -0.010]},
+    {"id": "sd_20", "region": "rotor",    "type": "rivet_row",     "strength": 0.06, "offset": [0.008,  0.016,  0.010]},
+    {"id": "sd_21", "region": "glass",    "type": "edge_trim",     "strength": 0.05, "offset": [0,      0.008,  0.008]},
+    {"id": "sd_22", "region": "glass",    "type": "panel_line",    "strength": 0.08, "offset": [-0.010, 0.006, -0.008]},
+    {"id": "sd_23", "region": "skid",     "type": "edge_trim",     "strength": 0.18, "offset": [0,      0.012, -0.012]},
+    {"id": "sd_24", "region": "skid",     "type": "paint_wear",    "strength": 0.12, "offset": [0.010,  0.008,  0.012]},
+    {"id": "sd_25", "region": "engine",   "type": "vent",          "strength": 0.20, "offset": [0.012,  0.004, -0.012]},
+    {"id": "sd_26", "region": "engine",   "type": "panel_line",    "strength": 0.14, "offset": [-0.014,-0.008,  0.010]},
+    {"id": "sd_27", "region": "engine",   "type": "rivet_row",     "strength": 0.10, "offset": [0.008,  0.016, -0.010]},
+    {"id": "sd_28", "region": "engine",   "type": "edge_trim",     "strength": 0.16, "offset": [-0.010,-0.010,  0.010]},
+    {"id": "sd_29", "region": "fuselage", "type": "panel_line",    "strength": 0.12, "offset": [0.006,  0.014,  0.013]},
+    {"id": "sd_30", "region": "fuselage", "type": "rivet_row",     "strength": 0.08, "offset": [-0.010,-0.012, -0.010]},
+    {"id": "sd_31", "region": "nose",     "type": "vent",          "strength": 0.12, "offset": [0,     -0.014,  0.013]},
+    {"id": "sd_32", "region": "tail",     "type": "panel_line",    "strength": 0.10, "offset": [0.008,  0.012, -0.010]},
+    {"id": "sd_33", "region": "rotor",    "type": "panel_line",    "strength": 0.10, "offset": [0.016, -0.006,  0.010]},
+    {"id": "sd_34", "region": "glass",    "type": "seam_stitch",   "strength": 0.05, "offset": [-0.008, 0.004,  0.008]},
+    {"id": "sd_35", "region": "skid",     "type": "rivet_row",     "strength": 0.14, "offset": [0.008,  0.004, -0.008]},
+    {"id": "sd_36", "region": "engine",   "type": "paint_wear",    "strength": 0.08, "offset": [0.016, -0.014,  0.010]},
+    {"id": "sd_37", "region": "fuselage", "type": "edge_trim",     "strength": 0.10, "offset": [-0.012, 0.010, -0.010]},
+    {"id": "sd_38", "region": "nose",     "type": "seam_stitch",   "strength": 0.06, "offset": [0.010,  0.004, -0.008]},
+    {"id": "sd_39", "region": "tail",     "type": "rivet_row",     "strength": 0.08, "offset": [-0.014, 0.010,  0.010]},
+    {"id": "sd_40", "region": "rotor",    "type": "edge_trim",     "strength": 0.10, "offset": [0.010,  0.010,  0.010]}
+  ],
+  "ornaments": [],
+  "pose": {
+    "preset": "static_parked"
+  },
+  "animationHints": {
+    "idle": "rotor_spin",
+    "fly": "rotor_spin_fast"
+  },
+  "lod": {
+    "high": "full",
+    "medium": "reduce_rotor_blades",
+    "low": "merge_minor_parts"
+  },
+  "exportOptions": {
+    "formats": ["gltf", "glb"],
+    "previewHtml": false
+  }
+}

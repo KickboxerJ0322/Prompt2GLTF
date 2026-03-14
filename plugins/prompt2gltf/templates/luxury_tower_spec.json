@@ -1,0 +1,587 @@
+{
+  "meta": {
+    "name": "building_100m_麻布台ヒルズ風タワーマンション複合施設",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "prompt2gltf",
+    "generatedFrom": "麻布台ヒルズのような豪華タワーマンション",
+    "createdAt": "2026-03-14T03:00:00.000Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "麻布台ヒルズのような豪華タワーマンション",
+    "normalizedSubject": "building",
+    "targetHeightMeters": 100,
+    "styleTags": ["luxury_tower", "mixed_use", "glass_curtain_wall", "sky_garden", "setback_form"],
+    "geometryDirective": "Y = up; Z+ = south/front. Tapering multi-section tower with setbacks, horizontal balcony bands, corner fins, sky terraces, podium base. Luxury contemporary architecture.",
+    "summary": "Azabudai Hills-style luxury tower complex: main 100m tower with 5 tapering sections, 2 secondary towers, grand podium, sky gardens at setbacks, glass lobby, spire crown.",
+    "designIntent": {
+      "scaleImpression": "very_large",
+      "mood": "luxurious_contemporary",
+      "originalityPolicy": "generalized_original_design"
+    },
+    "buildingClass": "residential_mixed_use",
+    "buildingType": "supertall_tower_complex"
+  },
+  "globalScale": {
+    "height": 100,
+    "width": 150,
+    "depth": 120
+  },
+  "style": {
+    "silhouette": "tapering_setback_tower",
+    "mood": "ultra_luxury_modern",
+    "genre": "contemporary_highrise",
+    "detailDensity": "high",
+    "shapeLanguage": ["curtain_wall", "stepped_setbacks", "horizontal_bands", "vertical_fins", "sky_terraces"]
+  },
+  "materials": {
+    "glass_facade": {
+      "baseColor": "#2E4458",
+      "roughness": 0.05,
+      "metalness": 0.92
+    },
+    "glass_light": {
+      "baseColor": "#5A7A92",
+      "roughness": 0.06,
+      "metalness": 0.88
+    },
+    "glass_lobby": {
+      "baseColor": "#7AAABB",
+      "roughness": 0.04,
+      "metalness": 0.90
+    },
+    "concrete_light": {
+      "baseColor": "#D2CCBC",
+      "roughness": 0.74,
+      "metalness": 0.02
+    },
+    "concrete_dark": {
+      "baseColor": "#3C3830",
+      "roughness": 0.72,
+      "metalness": 0.04
+    },
+    "stone_base": {
+      "baseColor": "#8C8070",
+      "roughness": 0.62,
+      "metalness": 0.06
+    },
+    "metal_trim": {
+      "baseColor": "#C4C8CC",
+      "roughness": 0.10,
+      "metalness": 0.96
+    },
+    "terrace_white": {
+      "baseColor": "#E4E8E2",
+      "roughness": 0.48,
+      "metalness": 0.08
+    },
+    "landscape_green": {
+      "baseColor": "#4A7A38",
+      "roughness": 0.88,
+      "metalness": 0.0
+    },
+    "spire_metal": {
+      "baseColor": "#B4BAC0",
+      "roughness": 0.14,
+      "metalness": 0.92
+    },
+    "roof_dark": {
+      "baseColor": "#242830",
+      "roughness": 0.58,
+      "metalness": 0.18
+    },
+    "water_blue": {
+      "baseColor": "#5888A8",
+      "roughness": 0.08,
+      "metalness": 0.55
+    }
+  },
+  "parts": [
+    {
+      "id": "podium_base",
+      "kind": "box",
+      "material": "stone_base",
+      "size": [148, 6, 118],
+      "position": [0, 3, 0]
+    },
+    {
+      "id": "podium_mid",
+      "kind": "box",
+      "material": "concrete_light",
+      "size": [124, 8, 98],
+      "position": [0, 14, 0]
+    },
+    {
+      "id": "podium_roof_slab",
+      "kind": "box",
+      "material": "terrace_white",
+      "size": [122, 1.2, 96],
+      "position": [0, 18.6, 0]
+    },
+    {
+      "id": "podium_green_roof",
+      "kind": "box",
+      "material": "landscape_green",
+      "size": [110, 0.8, 82],
+      "position": [0, 19.4, 0]
+    },
+    {
+      "id": "tower_main_sec1",
+      "kind": "box",
+      "material": "glass_facade",
+      "size": [30, 28, 27],
+      "position": [-2, 33, -3]
+    },
+    {
+      "id": "tower_main_sec2",
+      "kind": "box",
+      "material": "glass_facade",
+      "size": [27, 26, 24],
+      "position": [-1.5, 59, -2]
+    },
+    {
+      "id": "tower_main_sec3",
+      "kind": "box",
+      "material": "glass_facade",
+      "size": [23, 22, 20],
+      "position": [-1, 83, -1]
+    },
+    {
+      "id": "tower_main_sec4",
+      "kind": "box",
+      "material": "glass_facade",
+      "size": [18, 16, 15],
+      "position": [0, 102, 0]
+    },
+    {
+      "id": "tower_crown_box",
+      "kind": "box",
+      "material": "glass_light",
+      "size": [13, 10, 11],
+      "position": [0, 115, 0]
+    },
+    {
+      "id": "crown_ring",
+      "kind": "box",
+      "material": "metal_trim",
+      "size": [18, 0.9, 16],
+      "position": [0, 109.6, 0]
+    },
+    {
+      "id": "crown_cap",
+      "kind": "box",
+      "material": "spire_metal",
+      "size": [8, 3, 7],
+      "position": [0, 121, 0]
+    },
+    {
+      "id": "spire",
+      "kind": "cylinder",
+      "material": "spire_metal",
+      "size": [1.4, 22, 1.4],
+      "position": [0, 134, 0]
+    },
+    {
+      "id": "setback_plate_1",
+      "kind": "box",
+      "material": "terrace_white",
+      "size": [35, 1.2, 32],
+      "position": [-2, 19.6, -3]
+    },
+    {
+      "id": "setback_plate_2",
+      "kind": "box",
+      "material": "terrace_white",
+      "size": [32, 1.2, 29],
+      "position": [-1.5, 46.6, -2]
+    },
+    {
+      "id": "setback_plate_3",
+      "kind": "box",
+      "material": "terrace_white",
+      "size": [28, 1.2, 25],
+      "position": [-1, 72.6, -1]
+    },
+    {
+      "id": "setback_plate_4",
+      "kind": "box",
+      "material": "terrace_white",
+      "size": [21, 1.2, 18],
+      "position": [0, 94.6, 0]
+    },
+    {
+      "id": "sky_garden_1",
+      "kind": "box",
+      "material": "landscape_green",
+      "size": [26, 0.8, 22],
+      "position": [-1.5, 47.8, -2]
+    },
+    {
+      "id": "sky_garden_2",
+      "kind": "box",
+      "material": "landscape_green",
+      "size": [20, 0.8, 17],
+      "position": [-1, 73.8, -1]
+    },
+    {
+      "id": "sky_pool",
+      "kind": "box",
+      "material": "water_blue",
+      "size": [8, 0.5, 5],
+      "position": [4, 47.5, -2]
+    },
+    {
+      "id": "balcony_band_1",
+      "kind": "box",
+      "material": "metal_trim",
+      "size": [31.6, 0.7, 28.6],
+      "position": [-2, 25, -3]
+    },
+    {
+      "id": "balcony_band_2",
+      "kind": "box",
+      "material": "metal_trim",
+      "size": [31.2, 0.7, 28.2],
+      "position": [-2, 32, -3]
+    },
+    {
+      "id": "balcony_band_3",
+      "kind": "box",
+      "material": "metal_trim",
+      "size": [30.8, 0.7, 27.8],
+      "position": [-2, 39, -3]
+    },
+    {
+      "id": "balcony_band_4",
+      "kind": "box",
+      "material": "metal_trim",
+      "size": [28.2, 0.7, 25.2],
+      "position": [-1.5, 53, -2]
+    },
+    {
+      "id": "balcony_band_5",
+      "kind": "box",
+      "material": "metal_trim",
+      "size": [27.6, 0.7, 24.6],
+      "position": [-1.5, 62, -2]
+    },
+    {
+      "id": "balcony_band_6",
+      "kind": "box",
+      "material": "metal_trim",
+      "size": [24.0, 0.7, 21.0],
+      "position": [-1, 77, -1]
+    },
+    {
+      "id": "balcony_band_7",
+      "kind": "box",
+      "material": "metal_trim",
+      "size": [23.4, 0.7, 20.4],
+      "position": [-1, 86, -1]
+    },
+    {
+      "id": "balcony_band_8",
+      "kind": "box",
+      "material": "metal_trim",
+      "size": [18.6, 0.7, 15.6],
+      "position": [0, 98, 0]
+    },
+    {
+      "id": "corner_fin_FL",
+      "kind": "box",
+      "material": "metal_trim",
+      "size": [1.0, 92, 1.0],
+      "position": [-17, 65, 13.5]
+    },
+    {
+      "id": "corner_fin_FR",
+      "kind": "box",
+      "material": "metal_trim",
+      "size": [1.0, 92, 1.0],
+      "position": [13, 65, 13.5]
+    },
+    {
+      "id": "corner_fin_BL",
+      "kind": "box",
+      "material": "metal_trim",
+      "size": [1.0, 92, 1.0],
+      "position": [-17, 65, -16.5]
+    },
+    {
+      "id": "corner_fin_BR",
+      "kind": "box",
+      "material": "metal_trim",
+      "size": [1.0, 92, 1.0],
+      "position": [13, 65, -16.5]
+    },
+    {
+      "id": "mech_floor_1",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [30.4, 2.2, 27.4],
+      "position": [-2, 44, -3]
+    },
+    {
+      "id": "mech_floor_2",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [23.4, 2.2, 20.4],
+      "position": [-1, 92, -1]
+    },
+    {
+      "id": "lobby_glass_front",
+      "kind": "box",
+      "material": "glass_lobby",
+      "size": [28, 10, 0.6],
+      "position": [-2, 24, 13.8]
+    },
+    {
+      "id": "lobby_glass_L",
+      "kind": "box",
+      "material": "glass_lobby",
+      "size": [0.6, 10, 6],
+      "position": [-16, 24, 10.8]
+    },
+    {
+      "id": "lobby_glass_R",
+      "kind": "box",
+      "material": "glass_lobby",
+      "size": [0.6, 10, 6],
+      "position": [12, 24, 10.8]
+    },
+    {
+      "id": "lobby_canopy",
+      "kind": "box",
+      "material": "terrace_white",
+      "size": [36, 0.8, 12],
+      "position": [-2, 19.4, 18]
+    },
+    {
+      "id": "canopy_support_L",
+      "kind": "cylinder",
+      "material": "metal_trim",
+      "size": [0.4, 4.8, 0.4],
+      "position": [-18, 17, 22]
+    },
+    {
+      "id": "canopy_support_R",
+      "kind": "cylinder",
+      "material": "metal_trim",
+      "size": [0.4, 4.8, 0.4],
+      "position": [14, 17, 22]
+    },
+    {
+      "id": "tower_a_lower",
+      "kind": "box",
+      "material": "glass_facade",
+      "size": [19, 24, 17],
+      "position": [58, 31, -10]
+    },
+    {
+      "id": "tower_a_upper",
+      "kind": "box",
+      "material": "glass_facade",
+      "size": [15, 20, 13],
+      "position": [58, 53, -10]
+    },
+    {
+      "id": "tower_a_crown",
+      "kind": "box",
+      "material": "spire_metal",
+      "size": [12, 4, 10],
+      "position": [58, 65, -10]
+    },
+    {
+      "id": "tower_a_setback",
+      "kind": "box",
+      "material": "terrace_white",
+      "size": [22, 1.0, 20],
+      "position": [58, 43.5, -10]
+    },
+    {
+      "id": "tower_a_green",
+      "kind": "box",
+      "material": "landscape_green",
+      "size": [16, 0.7, 14],
+      "position": [58, 44.2, -10]
+    },
+    {
+      "id": "tower_b_lower",
+      "kind": "box",
+      "material": "glass_light",
+      "size": [16, 16, 14],
+      "position": [-50, 27, 28]
+    },
+    {
+      "id": "tower_b_upper",
+      "kind": "box",
+      "material": "glass_light",
+      "size": [12, 14, 10],
+      "position": [-50, 41, 28]
+    },
+    {
+      "id": "tower_b_crown",
+      "kind": "box",
+      "material": "terrace_white",
+      "size": [10, 3, 8],
+      "position": [-50, 49.5, 28]
+    },
+    {
+      "id": "hotel_wing",
+      "kind": "box",
+      "material": "concrete_light",
+      "size": [26, 18, 22],
+      "position": [60, 9, 20]
+    },
+    {
+      "id": "hotel_glass_strip",
+      "kind": "box",
+      "material": "glass_light",
+      "size": [0.6, 18, 22],
+      "position": [47.3, 9, 20]
+    },
+    {
+      "id": "commercial_low",
+      "kind": "box",
+      "material": "concrete_light",
+      "size": [32, 12, 26],
+      "position": [-58, 6, 18]
+    },
+    {
+      "id": "commercial_glass",
+      "kind": "box",
+      "material": "glass_lobby",
+      "size": [0.6, 12, 26],
+      "position": [-42.3, 6, 18]
+    },
+    {
+      "id": "bridge_main_a",
+      "kind": "box",
+      "material": "glass_lobby",
+      "size": [22, 2.6, 5],
+      "position": [30, 28, -8]
+    },
+    {
+      "id": "plaza_south",
+      "kind": "box",
+      "material": "stone_base",
+      "size": [90, 0.4, 28],
+      "position": [0, 18.2, 46]
+    },
+    {
+      "id": "plaza_green_band",
+      "kind": "box",
+      "material": "landscape_green",
+      "size": [80, 0.6, 10],
+      "position": [0, 18.6, 54]
+    },
+    {
+      "id": "water_feature",
+      "kind": "box",
+      "material": "water_blue",
+      "size": [14, 0.4, 10],
+      "position": [12, 18.5, 42]
+    },
+    {
+      "id": "tree_cluster_L",
+      "kind": "sphere",
+      "material": "landscape_green",
+      "size": [6, 5, 6],
+      "position": [-30, 21, 46]
+    },
+    {
+      "id": "tree_cluster_R",
+      "kind": "sphere",
+      "material": "landscape_green",
+      "size": [5, 4, 5],
+      "position": [34, 21, 48]
+    },
+    {
+      "id": "tree_cluster_roof",
+      "kind": "sphere",
+      "material": "landscape_green",
+      "size": [8, 6, 8],
+      "position": [-20, 23, -10]
+    },
+    {
+      "id": "helipad_ring",
+      "kind": "cylinder",
+      "material": "terrace_white",
+      "size": [7, 0.5, 7],
+      "position": [0, 120.3, 0]
+    },
+    {
+      "id": "helipad_marking_H",
+      "kind": "box",
+      "material": "metal_trim",
+      "size": [2, 0.15, 5],
+      "position": [0, 120.6, 0]
+    },
+    {
+      "id": "beacon_top",
+      "kind": "sphere",
+      "material": "metal_trim",
+      "size": [0.6, 0.5, 0.6],
+      "position": [0, 145.5, 0]
+    }
+  ],
+  "surfaceDetails": [
+    {"id": "sd_1",  "region": "tower",   "type": "panel_line",    "strength": 0.12, "offset": [0,      0.016, -0.013]},
+    {"id": "sd_2",  "region": "tower",   "type": "curtain_wall",  "strength": 0.10, "offset": [0.014,  0.010,  0]},
+    {"id": "sd_3",  "region": "tower",   "type": "edge_trim",     "strength": 0.14, "offset": [0.018,  0.002,  0.013]},
+    {"id": "sd_4",  "region": "tower",   "type": "panel_line",    "strength": 0.16, "offset": [-0.015,-0.010,  0]},
+    {"id": "sd_5",  "region": "tower",   "type": "glass_mullion", "strength": 0.08, "offset": [-0.018,-0.012,  0.013]},
+    {"id": "sd_6",  "region": "tower",   "type": "panel_line",    "strength": 0.10, "offset": [0.008, -0.016, -0.013]},
+    {"id": "sd_7",  "region": "tower",   "type": "curtain_wall",  "strength": 0.12, "offset": [-0.010, 0.014,  0.010]},
+    {"id": "sd_8",  "region": "tower",   "type": "edge_trim",     "strength": 0.14, "offset": [0.006,  0.018, -0.010]},
+    {"id": "sd_9",  "region": "tower",   "type": "glass_mullion", "strength": 0.08, "offset": [0.016,  0.006,  0.013]},
+    {"id": "sd_10", "region": "tower",   "type": "panel_line",    "strength": 0.12, "offset": [-0.012,-0.014, -0.010]},
+    {"id": "sd_11", "region": "podium",  "type": "panel_line",    "strength": 0.14, "offset": [0,      0.016,  0.013]},
+    {"id": "sd_12", "region": "podium",  "type": "edge_trim",     "strength": 0.12, "offset": [0.014,  0.008, -0.013]},
+    {"id": "sd_13", "region": "podium",  "type": "stone_texture", "strength": 0.18, "offset": [-0.016,-0.010,  0]},
+    {"id": "sd_14", "region": "podium",  "type": "panel_line",    "strength": 0.10, "offset": [0.010, -0.014,  0.013]},
+    {"id": "sd_15", "region": "podium",  "type": "curtain_wall",  "strength": 0.08, "offset": [-0.012, 0.012, -0.013]},
+    {"id": "sd_16", "region": "facade",  "type": "glass_mullion", "strength": 0.10, "offset": [0,      0.010,  0.010]},
+    {"id": "sd_17", "region": "facade",  "type": "panel_line",    "strength": 0.12, "offset": [0.012,  0.006, -0.010]},
+    {"id": "sd_18", "region": "facade",  "type": "edge_trim",     "strength": 0.14, "offset": [-0.014, 0.002,  0.010]},
+    {"id": "sd_19", "region": "facade",  "type": "curtain_wall",  "strength": 0.08, "offset": [0.008,  0.016,  0.010]},
+    {"id": "sd_20", "region": "facade",  "type": "glass_mullion", "strength": 0.10, "offset": [-0.010,-0.012, -0.010]},
+    {"id": "sd_21", "region": "roof",    "type": "panel_line",    "strength": 0.10, "offset": [0,      0.012, -0.010]},
+    {"id": "sd_22", "region": "roof",    "type": "edge_trim",     "strength": 0.12, "offset": [0.012,  0.006,  0]},
+    {"id": "sd_23", "region": "roof",    "type": "service_hatch", "strength": 0.18, "offset": [-0.010, 0.002,  0.010]},
+    {"id": "sd_24", "region": "roof",    "type": "panel_line",    "strength": 0.08, "offset": [0.008, -0.010, -0.010]},
+    {"id": "sd_25", "region": "terrace", "type": "panel_line",    "strength": 0.10, "offset": [0,      0.012,  0.010]},
+    {"id": "sd_26", "region": "terrace", "type": "edge_trim",     "strength": 0.14, "offset": [0.014,  0.008, -0.010]},
+    {"id": "sd_27", "region": "terrace", "type": "stone_texture", "strength": 0.16, "offset": [-0.016,-0.010,  0]},
+    {"id": "sd_28", "region": "terrace", "type": "panel_line",    "strength": 0.08, "offset": [0.010, -0.014,  0.010]},
+    {"id": "sd_29", "region": "crown",   "type": "panel_line",    "strength": 0.12, "offset": [0,      0.014, -0.012]},
+    {"id": "sd_30", "region": "crown",   "type": "edge_trim",     "strength": 0.16, "offset": [0.012,  0.010,  0]},
+    {"id": "sd_31", "region": "crown",   "type": "glass_mullion", "strength": 0.08, "offset": [-0.014, 0.006,  0.012]},
+    {"id": "sd_32", "region": "crown",   "type": "panel_line",    "strength": 0.10, "offset": [0.008, -0.012, -0.012]},
+    {"id": "sd_33", "region": "tower",   "type": "glass_mullion", "strength": 0.10, "offset": [0.006,  0.014,  0.013]},
+    {"id": "sd_34", "region": "tower",   "type": "panel_line",    "strength": 0.12, "offset": [-0.010,-0.012, -0.010]},
+    {"id": "sd_35", "region": "facade",  "type": "panel_line",    "strength": 0.10, "offset": [0,     -0.014,  0.013]},
+    {"id": "sd_36", "region": "podium",  "type": "stone_texture", "strength": 0.14, "offset": [0.008,  0.012, -0.010]},
+    {"id": "sd_37", "region": "terrace", "type": "edge_trim",     "strength": 0.10, "offset": [0.016, -0.006,  0.010]},
+    {"id": "sd_38", "region": "roof",    "type": "edge_trim",     "strength": 0.10, "offset": [-0.008, 0.004,  0.008]},
+    {"id": "sd_39", "region": "crown",   "type": "curtain_wall",  "strength": 0.08, "offset": [0.008,  0.004, -0.008]},
+    {"id": "sd_40", "region": "tower",   "type": "panel_line",    "strength": 0.10, "offset": [-0.014, 0.010,  0.010]}
+  ],
+  "ornaments": [],
+  "pose": {
+    "preset": "static"
+  },
+  "animationHints": {
+    "idle": "none",
+    "wind": "none"
+  },
+  "lod": {
+    "high": "full",
+    "medium": "reduce_balcony_bands",
+    "low": "merge_tower_sections"
+  },
+  "exportOptions": {
+    "formats": ["gltf", "glb"],
+    "previewHtml": false
+  }
+}

@@ -1,1422 +1,4439 @@
 {
   "meta": {
-    "name": "building_90m_モダンハウス",
+    "name": "ferris_wheel_90m_遊園地の大きな観覧車_赤を中心とした配色で白と金のアクセント_複数のゴンドラが付いた本格的な観覧",
     "version": "0.2.0",
     "units": "meters",
     "generator": "prompt2gltf",
-    "generatedFrom": "モダンハウス",
-    "createdAt": "2026-03-12T12:42:25.031Z"
+    "generatedFrom": "遊園地の大きな観覧車。赤を中心とした配色で白と金のアクセント。複数のゴンドラが付いた本格的な観覧車。",
+    "createdAt": "2026-03-14T01:53:51.618Z"
   },
   "promptInterpretation": {
-    "originalPrompt": "モダンハウス",
-    "normalizedSubject": "building",
+    "originalPrompt": "遊園地の大きな観覧車。赤を中心とした配色で白と金のアクセント。複数のゴンドラが付いた本格的な観覧車。",
+    "normalizedSubject": "ferris_wheel",
     "targetHeightMeters": 90,
     "styleTags": [
-      "modernist"
+      "amusement_attraction"
     ],
     "geometryDirective": "Use mixed primitives (box/cylinder/sphere/tri_prism); represent curved real-world forms with rounded geometry.",
-    "summary": "Generated from prompt as a building with high-density procedural spec.",
+    "summary": "Generated from prompt as a ferris_wheel with high-density procedural spec.",
     "designIntent": {
       "scaleImpression": "extreme_colossal",
       "mood": "majestic",
       "originalityPolicy": "generalized_original_design"
-    },
-    "buildingArchetype": "house_modern"
+    }
   },
   "globalScale": {
-    "height": 8.5,
-    "width": 13.3518,
-    "depth": 8.3096
+    "height": 90,
+    "diameter": 77.4,
+    "depth": 21.285
   },
   "style": {
-    "silhouette": "residential_mass",
-    "mood": "inhabited",
-    "genre": "residential_architecture",
+    "silhouette": "ferris_wheel_amusement",
+    "mood": "festive",
+    "genre": "amusement_attraction",
     "detailDensity": "high",
     "bodyLanguage": "static_structure",
     "shapeLanguage": [
-      "main_volume",
-      "roof_profile",
-      "entrance",
-      "window_rhythm",
-      "signage"
+      "circular_rim",
+      "radial_spokes",
+      "gondolas",
+      "a_frame_support"
     ]
   },
   "materials": {
-    "concrete": {
-      "baseColor": "#C0C8CA",
-      "roughness": 0.88,
-      "metalness": 0.04
-    },
-    "wall_main": {
-      "baseColor": "#EDEEF0",
-      "roughness": 0.86,
-      "metalness": 0.01
-    },
-    "wall_dark": {
-      "baseColor": "#2E3234",
-      "roughness": 0.9,
-      "metalness": 0.02
-    },
-    "wall_wood": {
-      "baseColor": "#8D6E4A",
-      "roughness": 0.82,
-      "metalness": 0.02
-    },
-    "glass_win": {
-      "baseColor": "#7AB8D8",
-      "roughness": 0.08,
+    "steel_frame": {
+      "baseColor": "#CC2020",
+      "roughness": 0.38,
       "metalness": 0.88
     },
-    "glass_dark": {
-      "baseColor": "#2A4860",
-      "roughness": 0.1,
+    "steel_rim": {
+      "baseColor": "#DD2222",
+      "roughness": 0.35,
       "metalness": 0.9
     },
-    "steel_frame": {
-      "baseColor": "#8A9298",
-      "roughness": 0.38,
-      "metalness": 0.8
-    },
-    "steel_dark": {
-      "baseColor": "#3A4042",
+    "steel_spoke": {
+      "baseColor": "#BB1A1A",
       "roughness": 0.42,
-      "metalness": 0.84
+      "metalness": 0.85
     },
-    "door_main": {
-      "baseColor": "#1E2628",
-      "roughness": 0.55,
-      "metalness": 0.42
-    },
-    "roof_flat": {
-      "baseColor": "#8A9298",
-      "roughness": 0.86,
-      "metalness": 0.06
-    },
-    "parapet": {
-      "baseColor": "#DADEE0",
-      "roughness": 0.86,
-      "metalness": 0.02
-    },
-    "louvre": {
-      "baseColor": "#8A9298",
+    "support_red": {
+      "baseColor": "#CC2020",
       "roughness": 0.4,
-      "metalness": 0.72
+      "metalness": 0.82
     },
-    "paving": {
-      "baseColor": "#A4AEB0",
+    "hub_gold": {
+      "baseColor": "#D4A820",
+      "roughness": 0.26,
+      "metalness": 0.92
+    },
+    "gondola_body": {
+      "baseColor": "#F5F5F5",
+      "roughness": 0.5,
+      "metalness": 0.08
+    },
+    "gondola_red": {
+      "baseColor": "#DD2222",
+      "roughness": 0.45,
+      "metalness": 0.1
+    },
+    "gondola_win": {
+      "baseColor": "#88BBDD",
+      "roughness": 0.12,
+      "metalness": 0.85
+    },
+    "base_conc": {
+      "baseColor": "#C0C0B8",
       "roughness": 0.92,
-      "metalness": 0.02
+      "metalness": 0.03
     },
-    "fence": {
-      "baseColor": "#C4CCCC",
-      "roughness": 0.88,
-      "metalness": 0.04
+    "accent_gold": {
+      "baseColor": "#D4A820",
+      "roughness": 0.28,
+      "metalness": 0.92
+    },
+    "light_warm": {
+      "baseColor": "#FFD080",
+      "roughness": 0.1,
+      "metalness": 0,
+      "emissive": "#FFB020"
     }
   },
   "parts": [
     {
-      "id": "plinth_main",
+      "id": "ground_slab",
       "kind": "box",
-      "material": "concrete",
+      "material": "base_conc",
       "size": [
-        9.35,
-        0.425,
-        7.99
+        108.36,
+        1.548,
+        21.285
       ],
       "position": [
         0,
-        0.2125,
+        0.774,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
         0
       ]
     },
     {
-      "id": "plinth_garage",
+      "id": "footing_L",
       "kind": "box",
-      "material": "concrete",
+      "material": "base_conc",
       "size": [
-        3.91,
-        0.425,
-        7.99
+        19.35,
+        3.87,
+        19.35
       ],
       "position": [
-        -6.545,
-        0.2125,
+        -23.22,
+        1.935,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
         0
       ]
     },
     {
-      "id": "f1_body",
+      "id": "footing_R",
       "kind": "box",
-      "material": "wall_main",
+      "material": "base_conc",
       "size": [
-        9.35,
-        3.1875,
-        7.99
+        19.35,
+        3.87,
+        19.35
+      ],
+      "position": [
+        23.22,
+        1.935,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "leg_L_front",
+      "kind": "cylinder",
+      "material": "support_red",
+      "size": [
+        2.709,
+        55.9957,
+        2.709
+      ],
+      "position": [
+        -11.223,
+        25.65,
+        7.74
+      ],
+      "rotation": [
+        0,
+        0,
+        -0.4124
+      ]
+    },
+    {
+      "id": "leg_L_rear",
+      "kind": "cylinder",
+      "material": "support_red",
+      "size": [
+        2.709,
+        55.9957,
+        2.709
+      ],
+      "position": [
+        -11.223,
+        25.65,
+        -7.74
+      ],
+      "rotation": [
+        0,
+        0,
+        -0.4124
+      ]
+    },
+    {
+      "id": "leg_R_front",
+      "kind": "cylinder",
+      "material": "support_red",
+      "size": [
+        2.709,
+        55.9957,
+        2.709
+      ],
+      "position": [
+        11.223,
+        25.65,
+        7.74
+      ],
+      "rotation": [
+        0,
+        0,
+        0.4124
+      ]
+    },
+    {
+      "id": "leg_R_rear",
+      "kind": "cylinder",
+      "material": "support_red",
+      "size": [
+        2.709,
+        55.9957,
+        2.709
+      ],
+      "position": [
+        11.223,
+        25.65,
+        -7.74
+      ],
+      "rotation": [
+        0,
+        0,
+        0.4124
+      ]
+    },
+    {
+      "id": "brace_L_lo_F",
+      "kind": "box",
+      "material": "support_red",
+      "size": [
+        23.22,
+        1.548,
+        1.548
+      ],
+      "position": [
+        -11.61,
+        14.364,
+        7.74
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "brace_L_md_F",
+      "kind": "box",
+      "material": "support_red",
+      "size": [
+        15.48,
+        1.548,
+        1.548
+      ],
+      "position": [
+        -7.74,
+        28.215,
+        7.74
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "brace_L_hi_F",
+      "kind": "box",
+      "material": "support_red",
+      "size": [
+        7.74,
+        1.548,
+        1.548
+      ],
+      "position": [
+        -3.87,
+        41.04,
+        7.74
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "brace_R_lo_F",
+      "kind": "box",
+      "material": "support_red",
+      "size": [
+        23.22,
+        1.548,
+        1.548
+      ],
+      "position": [
+        11.61,
+        14.364,
+        7.74
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "brace_R_md_F",
+      "kind": "box",
+      "material": "support_red",
+      "size": [
+        15.48,
+        1.548,
+        1.548
+      ],
+      "position": [
+        7.74,
+        28.215,
+        7.74
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "brace_R_hi_F",
+      "kind": "box",
+      "material": "support_red",
+      "size": [
+        7.74,
+        1.548,
+        1.548
+      ],
+      "position": [
+        3.87,
+        41.04,
+        7.74
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "brace_L_lo_R",
+      "kind": "box",
+      "material": "support_red",
+      "size": [
+        23.22,
+        1.548,
+        1.548
+      ],
+      "position": [
+        -11.61,
+        14.364,
+        -7.74
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "brace_L_md_R",
+      "kind": "box",
+      "material": "support_red",
+      "size": [
+        15.48,
+        1.548,
+        1.548
+      ],
+      "position": [
+        -7.74,
+        28.215,
+        -7.74
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "brace_L_hi_R",
+      "kind": "box",
+      "material": "support_red",
+      "size": [
+        7.74,
+        1.548,
+        1.548
+      ],
+      "position": [
+        -3.87,
+        41.04,
+        -7.74
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "brace_R_lo_R",
+      "kind": "box",
+      "material": "support_red",
+      "size": [
+        23.22,
+        1.548,
+        1.548
+      ],
+      "position": [
+        11.61,
+        14.364,
+        -7.74
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "brace_R_md_R",
+      "kind": "box",
+      "material": "support_red",
+      "size": [
+        15.48,
+        1.548,
+        1.548
+      ],
+      "position": [
+        7.74,
+        28.215,
+        -7.74
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "brace_R_hi_R",
+      "kind": "box",
+      "material": "support_red",
+      "size": [
+        7.74,
+        1.548,
+        1.548
+      ],
+      "position": [
+        3.87,
+        41.04,
+        -7.74
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "z_link_L_lo",
+      "kind": "box",
+      "material": "support_red",
+      "size": [
+        1.548,
+        1.548,
+        17.415
+      ],
+      "position": [
+        -11.61,
+        14.364,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "z_link_L_md",
+      "kind": "box",
+      "material": "support_red",
+      "size": [
+        1.548,
+        1.548,
+        17.415
+      ],
+      "position": [
+        -7.74,
+        28.215,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "z_link_R_lo",
+      "kind": "box",
+      "material": "support_red",
+      "size": [
+        1.548,
+        1.548,
+        17.415
+      ],
+      "position": [
+        11.61,
+        14.364,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "z_link_R_md",
+      "kind": "box",
+      "material": "support_red",
+      "size": [
+        1.548,
+        1.548,
+        17.415
+      ],
+      "position": [
+        7.74,
+        28.215,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "axle",
+      "kind": "cylinder",
+      "material": "hub_gold",
+      "size": [
+        1.935,
+        20.124,
+        1.935
       ],
       "position": [
         0,
-        2.0187,
+        51.3,
         0
-      ]
-    },
-    {
-      "id": "garage_body",
-      "kind": "box",
-      "material": "wall_main",
-      "size": [
-        3.74,
-        3.5105,
-        7.99
       ],
-      "position": [
-        -6.545,
-        2.1803,
-        0
+      "rotation": [
+        0,
+        0,
+        -1.5708
       ]
     },
     {
-      "id": "slab_band",
-      "kind": "box",
-      "material": "concrete",
+      "id": "hub_front",
+      "kind": "cylinder",
+      "material": "hub_gold",
       "size": [
-        9.35,
-        0.323,
-        8.0699
+        9.288,
+        2.322,
+        9.288
       ],
       "position": [
         0,
-        3.774,
-        0
-      ]
-    },
-    {
-      "id": "f2_wood_panel",
-      "kind": "box",
-      "material": "wall_wood",
-      "size": [
-        1.4025,
-        2.7625,
-        7.99
+        51.3,
+        7.74
       ],
-      "position": [
-        -3.9738,
-        5.3167,
+      "rotation": [
+        0,
+        0,
         0
       ]
     },
     {
-      "id": "f2_dark_panel",
-      "kind": "box",
-      "material": "wall_dark",
+      "id": "hub_rear",
+      "kind": "cylinder",
+      "material": "hub_gold",
       "size": [
-        2.805,
-        2.7625,
-        7.99
-      ],
-      "position": [
-        -1.87,
-        5.3167,
-        0
-      ]
-    },
-    {
-      "id": "f2_right",
-      "kind": "box",
-      "material": "wall_main",
-      "size": [
-        5.1425,
-        2.7625,
-        7.99
-      ],
-      "position": [
-        2.1038,
-        5.3167,
-        0
-      ]
-    },
-    {
-      "id": "garage_roof",
-      "kind": "box",
-      "material": "roof_flat",
-      "size": [
-        4.08,
-        0.2584,
-        8.33
-      ],
-      "position": [
-        -6.545,
-        3.7417,
-        0
-      ]
-    },
-    {
-      "id": "roof_deck",
-      "kind": "box",
-      "material": "roof_flat",
-      "size": [
-        9.35,
-        0.2261,
-        7.99
+        9.288,
+        2.322,
+        9.288
       ],
       "position": [
         0,
-        6.585,
+        51.3,
+        -7.74
+      ],
+      "rotation": [
+        0,
+        0,
         0
       ]
     },
     {
-      "id": "parapet_front",
-      "kind": "box",
-      "material": "parapet",
+      "id": "hub_cap",
+      "kind": "cylinder",
+      "material": "hub_gold",
       "size": [
-        9.86,
-        0.527,
-        0.255
+        5.418,
+        3.87,
+        5.418
       ],
       "position": [
         0,
-        6.9615,
-        4.1225
+        51.3,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": "parapet_back",
-      "kind": "box",
-      "material": "parapet",
+      "id": "rim_F_0",
+      "kind": "cylinder",
+      "material": "steel_rim",
       "size": [
-        9.86,
-        0.527,
-        0.255
+        2.1285,
+        10.1532,
+        2.1285
       ],
       "position": [
         0,
-        6.9615,
-        -4.1225
-      ]
-    },
-    {
-      "id": "parapet_L",
-      "kind": "box",
-      "material": "parapet",
-      "size": [
-        0.255,
-        0.527,
-        7.99
+        90,
+        6.966
       ],
-      "position": [
-        -4.675,
-        6.9615,
-        0
+      "rotation": [
+        0,
+        0,
+        -1.5708
       ]
     },
     {
-      "id": "parapet_R",
-      "kind": "box",
-      "material": "parapet",
+      "id": "rim_R_0",
+      "kind": "cylinder",
+      "material": "steel_rim",
       "size": [
-        0.255,
-        0.527,
-        7.99
-      ],
-      "position": [
-        4.675,
-        6.9615,
-        0
-      ]
-    },
-    {
-      "id": "cope_front",
-      "kind": "box",
-      "material": "steel_frame",
-      "size": [
-        10.03,
-        0.119,
-        0.425
+        2.1285,
+        10.1532,
+        2.1285
       ],
       "position": [
         0,
-        7.2845,
-        4.1225
+        90,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5708
       ]
     },
     {
-      "id": "cope_back",
-      "kind": "box",
-      "material": "steel_frame",
+      "id": "rim_F_1",
+      "kind": "cylinder",
+      "material": "steel_rim",
       "size": [
-        10.03,
-        0.119,
-        0.425
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        10.0163,
+        88.6813,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.8326
+      ]
+    },
+    {
+      "id": "rim_R_1",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        10.0163,
+        88.6813,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.8326
+      ]
+    },
+    {
+      "id": "rim_F_2",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        19.35,
+        84.8152,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -2.0944
+      ]
+    },
+    {
+      "id": "rim_R_2",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        19.35,
+        84.8152,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -2.0944
+      ]
+    },
+    {
+      "id": "rim_F_3",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        27.365,
+        78.665,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -2.3562
+      ]
+    },
+    {
+      "id": "rim_R_3",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        27.365,
+        78.665,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -2.3562
+      ]
+    },
+    {
+      "id": "rim_F_4",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        33.5152,
+        70.65,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -2.618
+      ]
+    },
+    {
+      "id": "rim_R_4",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        33.5152,
+        70.65,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -2.618
+      ]
+    },
+    {
+      "id": "rim_F_5",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        37.3813,
+        61.3163,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -2.8798
+      ]
+    },
+    {
+      "id": "rim_R_5",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        37.3813,
+        61.3163,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -2.8798
+      ]
+    },
+    {
+      "id": "rim_F_6",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        38.7,
+        51.3,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -3.1416
+      ]
+    },
+    {
+      "id": "rim_R_6",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        38.7,
+        51.3,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -3.1416
+      ]
+    },
+    {
+      "id": "rim_F_7",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        37.3813,
+        41.2837,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -3.4034
+      ]
+    },
+    {
+      "id": "rim_R_7",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        37.3813,
+        41.2837,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -3.4034
+      ]
+    },
+    {
+      "id": "rim_F_8",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        33.5152,
+        31.95,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -3.6652
+      ]
+    },
+    {
+      "id": "rim_R_8",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        33.5152,
+        31.95,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -3.6652
+      ]
+    },
+    {
+      "id": "rim_F_9",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        27.365,
+        23.935,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -3.927
+      ]
+    },
+    {
+      "id": "rim_R_9",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        27.365,
+        23.935,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -3.927
+      ]
+    },
+    {
+      "id": "rim_F_10",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        19.35,
+        17.7848,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -4.1888
+      ]
+    },
+    {
+      "id": "rim_R_10",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        19.35,
+        17.7848,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -4.1888
+      ]
+    },
+    {
+      "id": "rim_F_11",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        10.0163,
+        13.9187,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -4.4506
+      ]
+    },
+    {
+      "id": "rim_R_11",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        10.0163,
+        13.9187,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -4.4506
+      ]
+    },
+    {
+      "id": "rim_F_12",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
       ],
       "position": [
         0,
-        7.2845,
-        -4.1225
+        12.6,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -4.7124
       ]
     },
     {
-      "id": "cope_L",
-      "kind": "box",
-      "material": "steel_frame",
+      "id": "rim_R_12",
+      "kind": "cylinder",
+      "material": "steel_rim",
       "size": [
-        0.425,
-        0.119,
-        8.16
+        2.1285,
+        10.1532,
+        2.1285
       ],
       "position": [
-        -4.675,
-        7.2845,
+        0,
+        12.6,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -4.7124
+      ]
+    },
+    {
+      "id": "rim_F_13",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        -10.0163,
+        13.9187,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -4.9742
+      ]
+    },
+    {
+      "id": "rim_R_13",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        -10.0163,
+        13.9187,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -4.9742
+      ]
+    },
+    {
+      "id": "rim_F_14",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        -19.35,
+        17.7848,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -5.236
+      ]
+    },
+    {
+      "id": "rim_R_14",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        -19.35,
+        17.7848,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -5.236
+      ]
+    },
+    {
+      "id": "rim_F_15",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        -27.365,
+        23.935,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -5.4978
+      ]
+    },
+    {
+      "id": "rim_R_15",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        -27.365,
+        23.935,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -5.4978
+      ]
+    },
+    {
+      "id": "rim_F_16",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        -33.5152,
+        31.95,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -5.7596
+      ]
+    },
+    {
+      "id": "rim_R_16",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        -33.5152,
+        31.95,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -5.7596
+      ]
+    },
+    {
+      "id": "rim_F_17",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        -37.3813,
+        41.2837,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -6.0214
+      ]
+    },
+    {
+      "id": "rim_R_17",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        -37.3813,
+        41.2837,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -6.0214
+      ]
+    },
+    {
+      "id": "rim_F_18",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        -38.7,
+        51.3,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -6.2832
+      ]
+    },
+    {
+      "id": "rim_R_18",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        -38.7,
+        51.3,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -6.2832
+      ]
+    },
+    {
+      "id": "rim_F_19",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        -37.3813,
+        61.3163,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -6.545
+      ]
+    },
+    {
+      "id": "rim_R_19",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        -37.3813,
+        61.3163,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -6.545
+      ]
+    },
+    {
+      "id": "rim_F_20",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        -33.5152,
+        70.65,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -6.8068
+      ]
+    },
+    {
+      "id": "rim_R_20",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        -33.5152,
+        70.65,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -6.8068
+      ]
+    },
+    {
+      "id": "rim_F_21",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        -27.365,
+        78.665,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -7.0686
+      ]
+    },
+    {
+      "id": "rim_R_21",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        -27.365,
+        78.665,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -7.0686
+      ]
+    },
+    {
+      "id": "rim_F_22",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        -19.35,
+        84.8152,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -7.3304
+      ]
+    },
+    {
+      "id": "rim_R_22",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        -19.35,
+        84.8152,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -7.3304
+      ]
+    },
+    {
+      "id": "rim_F_23",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        -10.0163,
+        88.6813,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -7.5922
+      ]
+    },
+    {
+      "id": "rim_R_23",
+      "kind": "cylinder",
+      "material": "steel_rim",
+      "size": [
+        2.1285,
+        10.1532,
+        2.1285
+      ],
+      "position": [
+        -10.0163,
+        88.6813,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -7.5922
+      ]
+    },
+    {
+      "id": "spoke_F_0",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        0,
+        70.65,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
         0
       ]
     },
     {
-      "id": "cope_R",
-      "kind": "box",
-      "material": "steel_frame",
+      "id": "spoke_R_0",
+      "kind": "cylinder",
+      "material": "steel_spoke",
       "size": [
-        0.425,
-        0.119,
-        8.16
+        1.0836,
+        38.7,
+        1.0836
       ],
       "position": [
-        4.675,
-        7.2845,
+        0,
+        70.65,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
         0
       ]
     },
     {
-      "id": "canopy",
-      "kind": "box",
-      "material": "concrete",
+      "id": "spoke_F_1",
+      "kind": "cylinder",
+      "material": "steel_spoke",
       "size": [
-        3.927,
-        0.21,
-        2.55
+        1.0836,
+        38.7,
+        1.0836
       ],
       "position": [
-        1.683,
-        2.8475,
-        5.27
+        7.4049,
+        69.1771,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -0.3927
       ]
     },
     {
-      "id": "canopy_support_L",
-      "kind": "box",
-      "material": "steel_dark",
+      "id": "spoke_R_1",
+      "kind": "cylinder",
+      "material": "steel_spoke",
       "size": [
-        0.153,
-        2.8475,
-        0.153
+        1.0836,
+        38.7,
+        1.0836
       ],
       "position": [
-        0.0337,
-        1.4238,
-        4.505
+        7.4049,
+        69.1771,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -0.3927
       ]
     },
     {
-      "id": "canopy_support_R",
-      "kind": "box",
-      "material": "steel_dark",
+      "id": "spoke_F_2",
+      "kind": "cylinder",
+      "material": "steel_spoke",
       "size": [
-        0.153,
-        2.8475,
-        0.153
+        1.0836,
+        38.7,
+        1.0836
       ],
       "position": [
-        3.3323,
-        1.4238,
-        4.505
+        13.6825,
+        64.9825,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -0.7854
       ]
     },
     {
-      "id": "step_1",
-      "kind": "box",
-      "material": "paving",
+      "id": "spoke_R_2",
+      "kind": "cylinder",
+      "material": "steel_spoke",
       "size": [
-        3.338,
-        0.6375,
-        1.02
+        1.0836,
+        38.7,
+        1.0836
       ],
       "position": [
-        1.683,
-        0.3188,
-        5.695
+        13.6825,
+        64.9825,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -0.7854
       ]
     },
     {
-      "id": "step_2",
-      "kind": "box",
-      "material": "paving",
+      "id": "spoke_F_3",
+      "kind": "cylinder",
+      "material": "steel_spoke",
       "size": [
-        2.9453,
-        0.3825,
-        0.85
+        1.0836,
+        38.7,
+        1.0836
       ],
       "position": [
-        1.683,
-        0.1913,
-        6.715
+        17.8771,
+        58.7049,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.1781
       ]
     },
     {
-      "id": "entry_frame",
+      "id": "spoke_R_3",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        17.8771,
+        58.7049,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.1781
+      ]
+    },
+    {
+      "id": "spoke_F_4",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        19.35,
+        51.3,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5708
+      ]
+    },
+    {
+      "id": "spoke_R_4",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        19.35,
+        51.3,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5708
+      ]
+    },
+    {
+      "id": "spoke_F_5",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        17.8771,
+        43.8951,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.9635
+      ]
+    },
+    {
+      "id": "spoke_R_5",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        17.8771,
+        43.8951,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.9635
+      ]
+    },
+    {
+      "id": "spoke_F_6",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        13.6825,
+        37.6175,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -2.3562
+      ]
+    },
+    {
+      "id": "spoke_R_6",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        13.6825,
+        37.6175,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -2.3562
+      ]
+    },
+    {
+      "id": "spoke_F_7",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        7.4049,
+        33.4229,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -2.7489
+      ]
+    },
+    {
+      "id": "spoke_R_7",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        7.4049,
+        33.4229,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -2.7489
+      ]
+    },
+    {
+      "id": "spoke_F_8",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        0,
+        31.95,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -3.1416
+      ]
+    },
+    {
+      "id": "spoke_R_8",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        0,
+        31.95,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -3.1416
+      ]
+    },
+    {
+      "id": "spoke_F_9",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        -7.4049,
+        33.4229,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -3.5343
+      ]
+    },
+    {
+      "id": "spoke_R_9",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        -7.4049,
+        33.4229,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -3.5343
+      ]
+    },
+    {
+      "id": "spoke_F_10",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        -13.6825,
+        37.6175,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -3.927
+      ]
+    },
+    {
+      "id": "spoke_R_10",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        -13.6825,
+        37.6175,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -3.927
+      ]
+    },
+    {
+      "id": "spoke_F_11",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        -17.8771,
+        43.8951,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -4.3197
+      ]
+    },
+    {
+      "id": "spoke_R_11",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        -17.8771,
+        43.8951,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -4.3197
+      ]
+    },
+    {
+      "id": "spoke_F_12",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        -19.35,
+        51.3,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -4.7124
+      ]
+    },
+    {
+      "id": "spoke_R_12",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        -19.35,
+        51.3,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -4.7124
+      ]
+    },
+    {
+      "id": "spoke_F_13",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        -17.8771,
+        58.7049,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -5.1051
+      ]
+    },
+    {
+      "id": "spoke_R_13",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        -17.8771,
+        58.7049,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -5.1051
+      ]
+    },
+    {
+      "id": "spoke_F_14",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        -13.6825,
+        64.9825,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -5.4978
+      ]
+    },
+    {
+      "id": "spoke_R_14",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        -13.6825,
+        64.9825,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -5.4978
+      ]
+    },
+    {
+      "id": "spoke_F_15",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        -7.4049,
+        69.1771,
+        6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -5.8905
+      ]
+    },
+    {
+      "id": "spoke_R_15",
+      "kind": "cylinder",
+      "material": "steel_spoke",
+      "size": [
+        1.0836,
+        38.7,
+        1.0836
+      ],
+      "position": [
+        -7.4049,
+        69.1771,
+        -6.966
+      ],
+      "rotation": [
+        0,
+        0,
+        -5.8905
+      ]
+    },
+    {
+      "id": "rod_rim_0",
       "kind": "box",
       "material": "steel_frame",
       "size": [
-        1.7,
-        2.4544,
-        0.238
+        1.0836,
+        1.0836,
+        15.48
       ],
       "position": [
-        1.683,
-        1.6681,
-        4.027
+        0,
+        90,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": "entry_door",
-      "kind": "box",
-      "material": "door_main",
-      "size": [
-        1.1475,
-        2.3588,
-        0.255
-      ],
-      "position": [
-        1.683,
-        1.6362,
-        4.0429
-      ]
-    },
-    {
-      "id": "sidelight_L",
-      "kind": "box",
-      "material": "glass_win",
-      "size": [
-        0.442,
-        2.1038,
-        0.255
-      ],
-      "position": [
-        0.765,
-        1.6362,
-        4.0429
-      ]
-    },
-    {
-      "id": "sidelight_R",
-      "kind": "box",
-      "material": "glass_win",
-      "size": [
-        0.442,
-        2.1038,
-        0.255
-      ],
-      "position": [
-        2.601,
-        1.6362,
-        4.0429
-      ]
-    },
-    {
-      "id": "f1_win_L",
-      "kind": "box",
-      "material": "glass_win",
-      "size": [
-        3.553,
-        1.9125,
-        0.255
-      ],
-      "position": [
-        -2.805,
-        1.8913,
-        4.0589
-      ]
-    },
-    {
-      "id": "f1_win_frame_L",
+      "id": "rod_rim_1",
       "kind": "box",
       "material": "steel_frame",
       "size": [
-        3.74,
-        1.9763,
-        0.221
+        1.0836,
+        1.0836,
+        15.48
       ],
       "position": [
-        -2.805,
-        1.8913,
-        4.0429
+        14.8098,
+        87.0541,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": "f1_win_R",
-      "kind": "box",
-      "material": "glass_win",
-      "size": [
-        1.683,
-        1.4025,
-        0.255
-      ],
-      "position": [
-        3.366,
-        1.8275,
-        4.0589
-      ]
-    },
-    {
-      "id": "f1_win_frame_R",
+      "id": "rod_rim_2",
       "kind": "box",
       "material": "steel_frame",
       "size": [
-        1.87,
-        1.4663,
-        0.221
+        1.0836,
+        1.0836,
+        15.48
       ],
       "position": [
-        3.366,
-        1.8275,
-        4.0429
+        27.365,
+        78.665,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": "garage_door",
-      "kind": "box",
-      "material": "steel_dark",
-      "size": [
-        2.992,
-        2.1765,
-        0.221
-      ],
-      "position": [
-        -6.545,
-        1.5133,
-        4.097
-      ]
-    },
-    {
-      "id": "garage_door_seam_1",
+      "id": "rod_rim_3",
       "kind": "box",
       "material": "steel_frame",
       "size": [
-        2.992,
-        0.0878,
-        0.238
+        1.0836,
+        1.0836,
+        15.48
       ],
       "position": [
-        -6.545,
-        0.9691,
-        4.097
+        35.7541,
+        66.1098,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": "garage_door_seam_2",
+      "id": "rod_rim_4",
       "kind": "box",
       "material": "steel_frame",
       "size": [
-        2.992,
-        0.0878,
-        0.238
+        1.0836,
+        1.0836,
+        15.48
       ],
       "position": [
-        -6.545,
-        1.5133,
-        4.097
+        38.7,
+        51.3,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": "garage_door_seam_3",
+      "id": "rod_rim_5",
       "kind": "box",
       "material": "steel_frame",
       "size": [
-        2.992,
-        0.0878,
-        0.238
+        1.0836,
+        1.0836,
+        15.48
       ],
       "position": [
-        -6.545,
-        2.0574,
-        4.097
+        35.7541,
+        36.4902,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": "balcony_slab",
-      "kind": "box",
-      "material": "concrete",
-      "size": [
-        3.74,
-        0.2746,
-        2.38
-      ],
-      "position": [
-        -0.935,
-        4.0744,
-        5.185
-      ]
-    },
-    {
-      "id": "balcony_rail_front",
+      "id": "rod_rim_6",
       "kind": "box",
       "material": "steel_frame",
       "size": [
-        3.74,
-        0.425,
-        0.153
+        1.0836,
+        1.0836,
+        15.48
       ],
       "position": [
-        -0.935,
-        4.7855,
-        6.29
+        27.365,
+        23.935,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": "balcony_rail_L",
+      "id": "rod_rim_7",
       "kind": "box",
       "material": "steel_frame",
       "size": [
-        0.153,
-        0.425,
-        2.38
+        1.0836,
+        1.0836,
+        15.48
       ],
       "position": [
-        -2.805,
-        4.7855,
-        5.185
+        14.8098,
+        15.5459,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": "balcony_rail_R",
+      "id": "rod_rim_8",
       "kind": "box",
       "material": "steel_frame",
       "size": [
-        0.153,
-        0.425,
-        2.38
+        1.0836,
+        1.0836,
+        15.48
       ],
       "position": [
-        0.935,
-        4.7855,
-        5.185
+        0,
+        12.6,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": "f2_win_L",
-      "kind": "box",
-      "material": "glass_win",
-      "size": [
-        2.805,
-        1.547,
-        0.255
-      ],
-      "position": [
-        -2.431,
-        5.151,
-        4.0589
-      ]
-    },
-    {
-      "id": "f2_win_C",
-      "kind": "box",
-      "material": "glass_dark",
-      "size": [
-        1.87,
-        1.547,
-        0.255
-      ],
-      "position": [
-        0.2805,
-        5.151,
-        4.0589
-      ]
-    },
-    {
-      "id": "f2_win_R",
-      "kind": "box",
-      "material": "glass_win",
-      "size": [
-        1.87,
-        1.326,
-        0.255
-      ],
-      "position": [
-        2.992,
-        5.0405,
-        4.0589
-      ]
-    },
-    {
-      "id": "f2_win_frame_L",
+      "id": "rod_rim_9",
       "kind": "box",
       "material": "steel_frame",
       "size": [
-        2.992,
-        1.6022,
-        0.221
+        1.0836,
+        1.0836,
+        15.48
       ],
       "position": [
-        -2.431,
-        5.151,
-        4.0429
+        -14.8098,
+        15.5459,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": "f2_win_frame_C",
+      "id": "rod_rim_10",
       "kind": "box",
       "material": "steel_frame",
       "size": [
-        2.057,
-        1.6022,
-        0.221
+        1.0836,
+        1.0836,
+        15.48
       ],
       "position": [
-        0.2805,
-        5.151,
-        4.0429
+        -27.365,
+        23.935,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": "f2_win_frame_R",
+      "id": "rod_rim_11",
       "kind": "box",
       "material": "steel_frame",
       "size": [
-        2.057,
-        1.3813,
-        0.221
+        1.0836,
+        1.0836,
+        15.48
       ],
       "position": [
-        2.992,
-        5.0405,
-        4.0429
+        -35.7541,
+        36.4902,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": "louvre_1",
+      "id": "rod_rim_12",
       "kind": "box",
-      "material": "louvre",
+      "material": "steel_frame",
       "size": [
-        4.114,
-        0.102,
-        0.85
+        1.0836,
+        1.0836,
+        15.48
       ],
       "position": [
-        -2.805,
-        2.8475,
-        4.4625
+        -38.7,
+        51.3,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": "louvre_2",
+      "id": "rod_rim_13",
       "kind": "box",
-      "material": "louvre",
+      "material": "steel_frame",
       "size": [
-        4.114,
-        0.102,
-        0.85
+        1.0836,
+        1.0836,
+        15.48
       ],
       "position": [
-        -2.805,
-        3.0005,
-        4.4625
+        -35.7541,
+        66.1098,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": "louvre_3",
+      "id": "rod_rim_14",
       "kind": "box",
-      "material": "louvre",
+      "material": "steel_frame",
       "size": [
-        4.114,
-        0.102,
-        0.85
+        1.0836,
+        1.0836,
+        15.48
       ],
       "position": [
-        -2.805,
-        3.1535,
-        4.4625
+        -27.365,
+        78.665,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": "louvre_4",
+      "id": "rod_rim_15",
       "kind": "box",
-      "material": "louvre",
+      "material": "steel_frame",
       "size": [
-        4.114,
-        0.102,
-        0.85
+        1.0836,
+        1.0836,
+        15.48
       ],
       "position": [
-        -2.805,
-        3.3065,
-        4.4625
+        -14.8098,
+        87.0541,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": "louvre_5",
+      "id": "gondola_0",
       "kind": "box",
-      "material": "louvre",
+      "material": "gondola_body",
       "size": [
-        4.114,
-        0.102,
-        0.85
+        3.87,
+        4.644,
+        3.096
       ],
       "position": [
-        -2.805,
-        3.4595,
-        4.4625
+        0,
+        85.5495,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": "ac_unit",
+      "id": "gondola_roof_0",
       "kind": "box",
-      "material": "steel_dark",
+      "material": "gondola_red",
       "size": [
-        1.19,
-        0.595,
-        1.53
+        4.0635,
+        0.5573,
+        3.2508
       ],
       "position": [
-        3.179,
-        6.9955,
-        -2.2372
+        0,
+        88.1501,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": "fence_L",
+      "id": "gondola_win_F_0",
       "kind": "box",
-      "material": "fence",
+      "material": "gondola_win",
       "size": [
-        0.119,
-        0.765,
-        2.8764
+        2.5155,
+        2.2291,
+        0.2477
       ],
       "position": [
-        -7.8914,
-        0.3825,
-        2.5568
+        0,
+        85.7817,
+        1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": "fence_R",
+      "id": "gondola_win_R_0",
       "kind": "box",
-      "material": "fence",
+      "material": "gondola_win",
       "size": [
-        0.119,
-        0.765,
-        1.9176
+        2.5155,
+        2.2291,
+        0.2477
       ],
       "position": [
-        4.675,
-        0.3825,
-        0.9588
+        0,
+        85.7817,
+        -1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": "gate_post_L",
+      "id": "gondola_1",
       "kind": "box",
-      "material": "concrete",
+      "material": "gondola_body",
       "size": [
-        0.374,
-        0.9775,
-        0.374
+        3.87,
+        4.644,
+        3.096
       ],
       "position": [
-        -6.919,
-        0.493,
-        4.845
+        14.8098,
+        82.6036,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": "gate_post_R",
+      "id": "gondola_roof_1",
       "kind": "box",
-      "material": "concrete",
+      "material": "gondola_red",
       "size": [
-        0.374,
-        0.9775,
-        0.374
+        4.0635,
+        0.5573,
+        3.2508
       ],
       "position": [
-        4.114,
-        0.493,
-        4.845
+        14.8098,
+        85.2043,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     },
     {
-      "id": "paving_front",
+      "id": "gondola_win_F_1",
       "kind": "box",
-      "material": "paving",
+      "material": "gondola_win",
       "size": [
-        2.805,
-        0.119,
-        4.42
+        2.5155,
+        2.2291,
+        0.2477
       ],
       "position": [
-        1.683,
-        0.0595,
-        6.205
+        14.8098,
+        82.8358,
+        1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_R_1",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        14.8098,
+        82.8358,
+        -1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_2",
+      "kind": "box",
+      "material": "gondola_body",
+      "size": [
+        3.87,
+        4.644,
+        3.096
+      ],
+      "position": [
+        27.365,
+        74.2145,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_roof_2",
+      "kind": "box",
+      "material": "gondola_red",
+      "size": [
+        4.0635,
+        0.5573,
+        3.2508
+      ],
+      "position": [
+        27.365,
+        76.8152,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_F_2",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        27.365,
+        74.4467,
+        1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_R_2",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        27.365,
+        74.4467,
+        -1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_3",
+      "kind": "box",
+      "material": "gondola_body",
+      "size": [
+        3.87,
+        4.644,
+        3.096
+      ],
+      "position": [
+        35.7541,
+        61.6593,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_roof_3",
+      "kind": "box",
+      "material": "gondola_red",
+      "size": [
+        4.0635,
+        0.5573,
+        3.2508
+      ],
+      "position": [
+        35.7541,
+        64.26,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_F_3",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        35.7541,
+        61.8915,
+        1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_R_3",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        35.7541,
+        61.8915,
+        -1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_4",
+      "kind": "box",
+      "material": "gondola_body",
+      "size": [
+        3.87,
+        4.644,
+        3.096
+      ],
+      "position": [
+        38.7,
+        46.8495,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_roof_4",
+      "kind": "box",
+      "material": "gondola_red",
+      "size": [
+        4.0635,
+        0.5573,
+        3.2508
+      ],
+      "position": [
+        38.7,
+        49.4501,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_F_4",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        38.7,
+        47.0817,
+        1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_R_4",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        38.7,
+        47.0817,
+        -1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_5",
+      "kind": "box",
+      "material": "gondola_body",
+      "size": [
+        3.87,
+        4.644,
+        3.096
+      ],
+      "position": [
+        35.7541,
+        32.0397,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_roof_5",
+      "kind": "box",
+      "material": "gondola_red",
+      "size": [
+        4.0635,
+        0.5573,
+        3.2508
+      ],
+      "position": [
+        35.7541,
+        34.6403,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_F_5",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        35.7541,
+        32.2719,
+        1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_R_5",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        35.7541,
+        32.2719,
+        -1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_6",
+      "kind": "box",
+      "material": "gondola_body",
+      "size": [
+        3.87,
+        4.644,
+        3.096
+      ],
+      "position": [
+        27.365,
+        19.4845,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_roof_6",
+      "kind": "box",
+      "material": "gondola_red",
+      "size": [
+        4.0635,
+        0.5573,
+        3.2508
+      ],
+      "position": [
+        27.365,
+        22.0851,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_F_6",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        27.365,
+        19.7167,
+        1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_R_6",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        27.365,
+        19.7167,
+        -1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_7",
+      "kind": "box",
+      "material": "gondola_body",
+      "size": [
+        3.87,
+        4.644,
+        3.096
+      ],
+      "position": [
+        14.8098,
+        11.0954,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_roof_7",
+      "kind": "box",
+      "material": "gondola_red",
+      "size": [
+        4.0635,
+        0.5573,
+        3.2508
+      ],
+      "position": [
+        14.8098,
+        13.696,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_F_7",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        14.8098,
+        11.3276,
+        1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_R_7",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        14.8098,
+        11.3276,
+        -1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_8",
+      "kind": "box",
+      "material": "gondola_body",
+      "size": [
+        3.87,
+        4.644,
+        3.096
+      ],
+      "position": [
+        0,
+        8.1495,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_roof_8",
+      "kind": "box",
+      "material": "gondola_red",
+      "size": [
+        4.0635,
+        0.5573,
+        3.2508
+      ],
+      "position": [
+        0,
+        10.7501,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_F_8",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        0,
+        8.3817,
+        1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_R_8",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        0,
+        8.3817,
+        -1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_9",
+      "kind": "box",
+      "material": "gondola_body",
+      "size": [
+        3.87,
+        4.644,
+        3.096
+      ],
+      "position": [
+        -14.8098,
+        11.0954,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_roof_9",
+      "kind": "box",
+      "material": "gondola_red",
+      "size": [
+        4.0635,
+        0.5573,
+        3.2508
+      ],
+      "position": [
+        -14.8098,
+        13.696,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_F_9",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        -14.8098,
+        11.3276,
+        1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_R_9",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        -14.8098,
+        11.3276,
+        -1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_10",
+      "kind": "box",
+      "material": "gondola_body",
+      "size": [
+        3.87,
+        4.644,
+        3.096
+      ],
+      "position": [
+        -27.365,
+        19.4845,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_roof_10",
+      "kind": "box",
+      "material": "gondola_red",
+      "size": [
+        4.0635,
+        0.5573,
+        3.2508
+      ],
+      "position": [
+        -27.365,
+        22.0851,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_F_10",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        -27.365,
+        19.7167,
+        1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_R_10",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        -27.365,
+        19.7167,
+        -1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_11",
+      "kind": "box",
+      "material": "gondola_body",
+      "size": [
+        3.87,
+        4.644,
+        3.096
+      ],
+      "position": [
+        -35.7541,
+        32.0397,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_roof_11",
+      "kind": "box",
+      "material": "gondola_red",
+      "size": [
+        4.0635,
+        0.5573,
+        3.2508
+      ],
+      "position": [
+        -35.7541,
+        34.6403,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_F_11",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        -35.7541,
+        32.2719,
+        1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_R_11",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        -35.7541,
+        32.2719,
+        -1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_12",
+      "kind": "box",
+      "material": "gondola_body",
+      "size": [
+        3.87,
+        4.644,
+        3.096
+      ],
+      "position": [
+        -38.7,
+        46.8495,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_roof_12",
+      "kind": "box",
+      "material": "gondola_red",
+      "size": [
+        4.0635,
+        0.5573,
+        3.2508
+      ],
+      "position": [
+        -38.7,
+        49.4501,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_F_12",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        -38.7,
+        47.0817,
+        1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_R_12",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        -38.7,
+        47.0817,
+        -1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_13",
+      "kind": "box",
+      "material": "gondola_body",
+      "size": [
+        3.87,
+        4.644,
+        3.096
+      ],
+      "position": [
+        -35.7541,
+        61.6593,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_roof_13",
+      "kind": "box",
+      "material": "gondola_red",
+      "size": [
+        4.0635,
+        0.5573,
+        3.2508
+      ],
+      "position": [
+        -35.7541,
+        64.26,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_F_13",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        -35.7541,
+        61.8915,
+        1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_R_13",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        -35.7541,
+        61.8915,
+        -1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_14",
+      "kind": "box",
+      "material": "gondola_body",
+      "size": [
+        3.87,
+        4.644,
+        3.096
+      ],
+      "position": [
+        -27.365,
+        74.2145,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_roof_14",
+      "kind": "box",
+      "material": "gondola_red",
+      "size": [
+        4.0635,
+        0.5573,
+        3.2508
+      ],
+      "position": [
+        -27.365,
+        76.8152,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_F_14",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        -27.365,
+        74.4467,
+        1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_R_14",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        -27.365,
+        74.4467,
+        -1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_15",
+      "kind": "box",
+      "material": "gondola_body",
+      "size": [
+        3.87,
+        4.644,
+        3.096
+      ],
+      "position": [
+        -14.8098,
+        82.6036,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_roof_15",
+      "kind": "box",
+      "material": "gondola_red",
+      "size": [
+        4.0635,
+        0.5573,
+        3.2508
+      ],
+      "position": [
+        -14.8098,
+        85.2043,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_F_15",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        -14.8098,
+        82.8358,
+        1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "gondola_win_R_15",
+      "kind": "box",
+      "material": "gondola_win",
+      "size": [
+        2.5155,
+        2.2291,
+        0.2477
+      ],
+      "position": [
+        -14.8098,
+        82.8358,
+        -1.548
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "light_0",
+      "kind": "box",
+      "material": "light_warm",
+      "size": [
+        1.9157,
+        1.9157,
+        1.9157
+      ],
+      "position": [
+        0,
+        90,
+        7.353
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "light_1",
+      "kind": "box",
+      "material": "light_warm",
+      "size": [
+        1.9157,
+        1.9157,
+        1.9157
+      ],
+      "position": [
+        14.8098,
+        87.0541,
+        7.353
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "light_2",
+      "kind": "box",
+      "material": "light_warm",
+      "size": [
+        1.9157,
+        1.9157,
+        1.9157
+      ],
+      "position": [
+        27.365,
+        78.665,
+        7.353
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "light_3",
+      "kind": "box",
+      "material": "light_warm",
+      "size": [
+        1.9157,
+        1.9157,
+        1.9157
+      ],
+      "position": [
+        35.7541,
+        66.1098,
+        7.353
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "light_4",
+      "kind": "box",
+      "material": "light_warm",
+      "size": [
+        1.9157,
+        1.9157,
+        1.9157
+      ],
+      "position": [
+        38.7,
+        51.3,
+        7.353
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "light_5",
+      "kind": "box",
+      "material": "light_warm",
+      "size": [
+        1.9157,
+        1.9157,
+        1.9157
+      ],
+      "position": [
+        35.7541,
+        36.4902,
+        7.353
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "light_6",
+      "kind": "box",
+      "material": "light_warm",
+      "size": [
+        1.9157,
+        1.9157,
+        1.9157
+      ],
+      "position": [
+        27.365,
+        23.935,
+        7.353
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "light_7",
+      "kind": "box",
+      "material": "light_warm",
+      "size": [
+        1.9157,
+        1.9157,
+        1.9157
+      ],
+      "position": [
+        14.8098,
+        15.5459,
+        7.353
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "light_8",
+      "kind": "box",
+      "material": "light_warm",
+      "size": [
+        1.9157,
+        1.9157,
+        1.9157
+      ],
+      "position": [
+        0,
+        12.6,
+        7.353
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "light_9",
+      "kind": "box",
+      "material": "light_warm",
+      "size": [
+        1.9157,
+        1.9157,
+        1.9157
+      ],
+      "position": [
+        -14.8098,
+        15.5459,
+        7.353
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "light_10",
+      "kind": "box",
+      "material": "light_warm",
+      "size": [
+        1.9157,
+        1.9157,
+        1.9157
+      ],
+      "position": [
+        -27.365,
+        23.935,
+        7.353
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "light_11",
+      "kind": "box",
+      "material": "light_warm",
+      "size": [
+        1.9157,
+        1.9157,
+        1.9157
+      ],
+      "position": [
+        -35.7541,
+        36.4902,
+        7.353
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "light_12",
+      "kind": "box",
+      "material": "light_warm",
+      "size": [
+        1.9157,
+        1.9157,
+        1.9157
+      ],
+      "position": [
+        -38.7,
+        51.3,
+        7.353
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "light_13",
+      "kind": "box",
+      "material": "light_warm",
+      "size": [
+        1.9157,
+        1.9157,
+        1.9157
+      ],
+      "position": [
+        -35.7541,
+        66.1098,
+        7.353
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "light_14",
+      "kind": "box",
+      "material": "light_warm",
+      "size": [
+        1.9157,
+        1.9157,
+        1.9157
+      ],
+      "position": [
+        -27.365,
+        78.665,
+        7.353
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "light_15",
+      "kind": "box",
+      "material": "light_warm",
+      "size": [
+        1.9157,
+        1.9157,
+        1.9157
+      ],
+      "position": [
+        -14.8098,
+        87.0541,
+        7.353
+      ],
+      "rotation": [
+        0,
+        0,
+        0
       ]
     }
   ],
   "surfaceDetails": [
     {
       "id": "sd_1",
-      "region": "facade",
+      "region": "rim",
       "type": "panel_seam",
-      "strength": 0.1,
+      "strength": 0.12,
       "offset": [
         0,
-        0.011,
-        -0.0135
+        0.012,
+        -0.015
       ]
     },
     {
       "id": "sd_2",
-      "region": "facade",
-      "type": "concrete_texture",
-      "strength": 0.14,
+      "region": "rim",
+      "type": "bolt_pattern",
+      "strength": 0.17,
       "offset": [
-        0.011,
-        0.0084,
-        -0.0045
+        0.0108,
+        0.0105,
+        -0.005
       ]
     },
     {
       "id": "sd_3",
-      "region": "facade",
-      "type": "metal_panel",
-      "strength": 0.18,
+      "region": "rim",
+      "type": "paint_wear",
+      "strength": 0.22,
       "offset": [
-        0.0136,
-        0.0019,
-        0.0045
+        0.015,
+        0.0065,
+        0.005
       ]
     },
     {
       "id": "sd_4",
-      "region": "facade",
-      "type": "window_grid",
-      "strength": 0.22,
+      "region": "rim",
+      "type": "weld_seam",
+      "strength": 0.27,
       "offset": [
-        0.006,
-        -0.0056,
-        0.0135
+        0.0101,
+        0.0008,
+        0.015
       ]
     },
     {
       "id": "sd_5",
-      "region": "facade",
-      "type": "wood_grain",
-      "strength": 0.26,
+      "region": "rim",
+      "type": "edge_trim",
+      "strength": 0.12,
       "offset": [
-        -0.0062,
-        -0.0104,
-        -0.0135
+        -0.0009,
+        -0.005,
+        -0.015
       ]
     },
     {
       "id": "sd_6",
-      "region": "facade",
-      "type": "weathering",
-      "strength": 0.1,
+      "region": "spokes",
+      "type": "panel_seam",
+      "strength": 0.12,
       "offset": [
-        -0.0137,
-        -0.0103,
-        -0.0045
+        0,
+        0.012,
+        -0.015
       ]
     },
     {
       "id": "sd_7",
-      "region": "facade",
-      "type": "panel_seam",
-      "strength": 0.14,
+      "region": "spokes",
+      "type": "bolt_pattern",
+      "strength": 0.17,
       "offset": [
-        -0.0108,
-        -0.0054,
-        0.0045
+        0.0108,
+        0.0105,
+        -0.005
       ]
     },
     {
       "id": "sd_8",
-      "region": "roof",
-      "type": "panel_seam",
-      "strength": 0.1,
+      "region": "spokes",
+      "type": "paint_wear",
+      "strength": 0.22,
       "offset": [
-        0,
-        0.011,
-        -0.0135
+        0.015,
+        0.0065,
+        0.005
       ]
     },
     {
       "id": "sd_9",
-      "region": "roof",
-      "type": "concrete_texture",
-      "strength": 0.14,
+      "region": "spokes",
+      "type": "weld_seam",
+      "strength": 0.27,
       "offset": [
-        0.011,
-        0.0084,
-        -0.0045
+        0.0101,
+        0.0008,
+        0.015
       ]
     },
     {
       "id": "sd_10",
-      "region": "roof",
-      "type": "metal_panel",
-      "strength": 0.18,
+      "region": "spokes",
+      "type": "edge_trim",
+      "strength": 0.12,
       "offset": [
-        0.0136,
-        0.0019,
-        0.0045
+        -0.0009,
+        -0.005,
+        -0.015
       ]
     },
     {
       "id": "sd_11",
-      "region": "roof",
-      "type": "window_grid",
-      "strength": 0.22,
+      "region": "gondolas",
+      "type": "panel_seam",
+      "strength": 0.12,
       "offset": [
-        0.006,
-        -0.0056,
-        0.0135
+        0,
+        0.012,
+        -0.015
       ]
     },
     {
       "id": "sd_12",
-      "region": "roof",
-      "type": "wood_grain",
-      "strength": 0.26,
+      "region": "gondolas",
+      "type": "bolt_pattern",
+      "strength": 0.17,
       "offset": [
-        -0.0062,
-        -0.0104,
-        -0.0135
+        0.0108,
+        0.0105,
+        -0.005
       ]
     },
     {
       "id": "sd_13",
-      "region": "roof",
-      "type": "weathering",
-      "strength": 0.1,
+      "region": "gondolas",
+      "type": "paint_wear",
+      "strength": 0.22,
       "offset": [
-        -0.0137,
-        -0.0103,
-        -0.0045
+        0.015,
+        0.0065,
+        0.005
       ]
     },
     {
       "id": "sd_14",
-      "region": "roof",
-      "type": "panel_seam",
-      "strength": 0.14,
+      "region": "gondolas",
+      "type": "weld_seam",
+      "strength": 0.27,
       "offset": [
-        -0.0108,
-        -0.0054,
-        0.0045
+        0.0101,
+        0.0008,
+        0.015
       ]
     },
     {
       "id": "sd_15",
-      "region": "garage",
-      "type": "panel_seam",
-      "strength": 0.1,
+      "region": "gondolas",
+      "type": "edge_trim",
+      "strength": 0.12,
       "offset": [
-        0,
-        0.011,
-        -0.0135
+        -0.0009,
+        -0.005,
+        -0.015
       ]
     },
     {
       "id": "sd_16",
-      "region": "garage",
-      "type": "concrete_texture",
-      "strength": 0.14,
+      "region": "support",
+      "type": "panel_seam",
+      "strength": 0.12,
       "offset": [
-        0.011,
-        0.0084,
-        -0.0045
+        0,
+        0.012,
+        -0.015
       ]
     },
     {
       "id": "sd_17",
-      "region": "garage",
-      "type": "metal_panel",
-      "strength": 0.18,
+      "region": "support",
+      "type": "bolt_pattern",
+      "strength": 0.17,
       "offset": [
-        0.0136,
-        0.0019,
-        0.0045
+        0.0108,
+        0.0105,
+        -0.005
       ]
     },
     {
       "id": "sd_18",
-      "region": "garage",
-      "type": "window_grid",
+      "region": "support",
+      "type": "paint_wear",
       "strength": 0.22,
       "offset": [
-        0.006,
-        -0.0056,
-        0.0135
+        0.015,
+        0.0065,
+        0.005
       ]
     },
     {
       "id": "sd_19",
-      "region": "garage",
-      "type": "wood_grain",
-      "strength": 0.26,
+      "region": "support",
+      "type": "weld_seam",
+      "strength": 0.27,
       "offset": [
-        -0.0062,
-        -0.0104,
-        -0.0135
+        0.0101,
+        0.0008,
+        0.015
       ]
     },
     {
       "id": "sd_20",
-      "region": "garage",
-      "type": "weathering",
-      "strength": 0.1,
+      "region": "support",
+      "type": "edge_trim",
+      "strength": 0.12,
       "offset": [
-        -0.0137,
-        -0.0103,
-        -0.0045
+        -0.0009,
+        -0.005,
+        -0.015
       ]
     },
     {
       "id": "sd_21",
-      "region": "garage",
+      "region": "hub",
       "type": "panel_seam",
-      "strength": 0.14,
+      "strength": 0.12,
       "offset": [
-        -0.0108,
-        -0.0054,
-        0.0045
+        0,
+        0.012,
+        -0.015
       ]
     },
     {
       "id": "sd_22",
-      "region": "window",
-      "type": "panel_seam",
-      "strength": 0.1,
+      "region": "hub",
+      "type": "bolt_pattern",
+      "strength": 0.17,
       "offset": [
-        0,
-        0.011,
-        -0.0135
+        0.0108,
+        0.0105,
+        -0.005
       ]
     },
     {
       "id": "sd_23",
-      "region": "window",
-      "type": "concrete_texture",
-      "strength": 0.14,
+      "region": "hub",
+      "type": "paint_wear",
+      "strength": 0.22,
       "offset": [
-        0.011,
-        0.0084,
-        -0.0045
+        0.015,
+        0.0065,
+        0.005
       ]
     },
     {
       "id": "sd_24",
-      "region": "window",
-      "type": "metal_panel",
-      "strength": 0.18,
+      "region": "hub",
+      "type": "weld_seam",
+      "strength": 0.27,
       "offset": [
-        0.0136,
-        0.0019,
-        0.0045
+        0.0101,
+        0.0008,
+        0.015
       ]
     },
     {
       "id": "sd_25",
-      "region": "window",
-      "type": "window_grid",
-      "strength": 0.22,
+      "region": "hub",
+      "type": "edge_trim",
+      "strength": 0.12,
       "offset": [
-        0.006,
-        -0.0056,
-        0.0135
-      ]
-    },
-    {
-      "id": "sd_26",
-      "region": "window",
-      "type": "wood_grain",
-      "strength": 0.26,
-      "offset": [
-        -0.0062,
-        -0.0104,
-        -0.0135
-      ]
-    },
-    {
-      "id": "sd_27",
-      "region": "window",
-      "type": "weathering",
-      "strength": 0.1,
-      "offset": [
-        -0.0137,
-        -0.0103,
-        -0.0045
-      ]
-    },
-    {
-      "id": "sd_28",
-      "region": "window",
-      "type": "panel_seam",
-      "strength": 0.14,
-      "offset": [
-        -0.0108,
-        -0.0054,
-        0.0045
-      ]
-    },
-    {
-      "id": "sd_29",
-      "region": "balcony",
-      "type": "panel_seam",
-      "strength": 0.1,
-      "offset": [
-        0,
-        0.011,
-        -0.0135
-      ]
-    },
-    {
-      "id": "sd_30",
-      "region": "balcony",
-      "type": "concrete_texture",
-      "strength": 0.14,
-      "offset": [
-        0.011,
-        0.0084,
-        -0.0045
-      ]
-    },
-    {
-      "id": "sd_31",
-      "region": "balcony",
-      "type": "metal_panel",
-      "strength": 0.18,
-      "offset": [
-        0.0136,
-        0.0019,
-        0.0045
-      ]
-    },
-    {
-      "id": "sd_32",
-      "region": "balcony",
-      "type": "window_grid",
-      "strength": 0.22,
-      "offset": [
-        0.006,
-        -0.0056,
-        0.0135
-      ]
-    },
-    {
-      "id": "sd_33",
-      "region": "balcony",
-      "type": "wood_grain",
-      "strength": 0.26,
-      "offset": [
-        -0.0062,
-        -0.0104,
-        -0.0135
-      ]
-    },
-    {
-      "id": "sd_34",
-      "region": "balcony",
-      "type": "weathering",
-      "strength": 0.1,
-      "offset": [
-        -0.0137,
-        -0.0103,
-        -0.0045
-      ]
-    },
-    {
-      "id": "sd_35",
-      "region": "balcony",
-      "type": "panel_seam",
-      "strength": 0.14,
-      "offset": [
-        -0.0108,
-        -0.0054,
-        0.0045
-      ]
-    },
-    {
-      "id": "sd_36",
-      "region": "entrance",
-      "type": "panel_seam",
-      "strength": 0.1,
-      "offset": [
-        0,
-        0.011,
-        -0.0135
-      ]
-    },
-    {
-      "id": "sd_37",
-      "region": "entrance",
-      "type": "concrete_texture",
-      "strength": 0.14,
-      "offset": [
-        0.011,
-        0.0084,
-        -0.0045
-      ]
-    },
-    {
-      "id": "sd_38",
-      "region": "entrance",
-      "type": "metal_panel",
-      "strength": 0.18,
-      "offset": [
-        0.0136,
-        0.0019,
-        0.0045
-      ]
-    },
-    {
-      "id": "sd_39",
-      "region": "entrance",
-      "type": "window_grid",
-      "strength": 0.22,
-      "offset": [
-        0.006,
-        -0.0056,
-        0.0135
-      ]
-    },
-    {
-      "id": "sd_40",
-      "region": "entrance",
-      "type": "wood_grain",
-      "strength": 0.26,
-      "offset": [
-        -0.0062,
-        -0.0104,
-        -0.0135
-      ]
-    },
-    {
-      "id": "sd_41",
-      "region": "entrance",
-      "type": "weathering",
-      "strength": 0.1,
-      "offset": [
-        -0.0137,
-        -0.0103,
-        -0.0045
-      ]
-    },
-    {
-      "id": "sd_42",
-      "region": "entrance",
-      "type": "panel_seam",
-      "strength": 0.14,
-      "offset": [
-        -0.0108,
-        -0.0054,
-        0.0045
+        -0.0009,
+        -0.005,
+        -0.015
       ]
     }
   ],
@@ -1427,8 +4444,8 @@
   "animationHints": {},
   "lod": {
     "high": "full",
-    "medium": "reduce_window_bands",
-    "low": "merge_facade_layers"
+    "medium": "reduce_gondolas",
+    "low": "merge_rim_spokes"
   },
   "exportOptions": {
     "formats": [

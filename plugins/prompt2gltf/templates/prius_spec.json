@@ -1,0 +1,624 @@
+{
+  "meta": {
+    "name": "vehicle_4.54m_プリウス風セダンハイブリッド",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "prompt2gltf",
+    "generatedFrom": "自動車、トヨタプリウス風のセダン型ハイブリッドカー、流線型ボディ、4ドア",
+    "createdAt": "2026-03-14T01:00:00.000Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "自動車、トヨタプリウス風のセダン型ハイブリッドカー、流線型ボディ、4ドア",
+    "normalizedSubject": "vehicle",
+    "targetHeightMeters": 1.47,
+    "styleTags": ["sedan", "hybrid", "streamlined", "prius_style"],
+    "geometryDirective": "Use mixed primitives; Z+ = front of car; Y = up; real-world scale 4.54m×1.76m×1.47m.",
+    "summary": "Prius-style hybrid sedan: long low hood, fastback roofline, 4 doors, alloy wheels.",
+    "designIntent": {
+      "scaleImpression": "normal",
+      "mood": "modern_clean",
+      "originalityPolicy": "generalized_original_design"
+    },
+    "vehicleClass": "road",
+    "roadType": "sedan_hybrid"
+  },
+  "globalScale": {
+    "height": 1.47,
+    "width": 1.76,
+    "depth": 4.54,
+    "referenceLength": 4.54
+  },
+  "style": {
+    "silhouette": "fastback_sedan",
+    "mood": "aerodynamic_modern",
+    "genre": "hybrid_car",
+    "detailDensity": "high",
+    "orientation": "Z_axis_front_positive"
+  },
+  "materials": {
+    "body_main": {
+      "baseColor": "#D6DDE2",
+      "roughness": 0.32,
+      "metalness": 0.78
+    },
+    "body_dark": {
+      "baseColor": "#16181C",
+      "roughness": 0.52,
+      "metalness": 0.42
+    },
+    "glass": {
+      "baseColor": "#253645",
+      "roughness": 0.08,
+      "metalness": 0.85
+    },
+    "chrome": {
+      "baseColor": "#D4DCE0",
+      "roughness": 0.10,
+      "metalness": 0.96
+    },
+    "tire": {
+      "baseColor": "#0E1012",
+      "roughness": 0.92,
+      "metalness": 0.02
+    },
+    "rim": {
+      "baseColor": "#8E96A0",
+      "roughness": 0.22,
+      "metalness": 0.90
+    },
+    "headlight": {
+      "baseColor": "#FFF0D0",
+      "roughness": 0.06,
+      "metalness": 0.0,
+      "emissive": "#FFF0D0"
+    },
+    "taillight": {
+      "baseColor": "#C81010",
+      "roughness": 0.10,
+      "metalness": 0.0,
+      "emissive": "#C81010"
+    },
+    "undercarriage": {
+      "baseColor": "#0C0E10",
+      "roughness": 0.86,
+      "metalness": 0.18
+    }
+  },
+  "parts": [
+    {
+      "id": "chassis",
+      "kind": "box",
+      "material": "undercarriage",
+      "size": [1.68, 0.18, 4.20],
+      "position": [0, 0.09, -0.04]
+    },
+    {
+      "id": "body_lower_front",
+      "kind": "box",
+      "material": "body_main",
+      "size": [1.72, 0.50, 1.30],
+      "position": [0, 0.43, 1.52]
+    },
+    {
+      "id": "body_lower_mid",
+      "kind": "box",
+      "material": "body_main",
+      "size": [1.76, 0.62, 2.20],
+      "position": [0, 0.49, -0.30]
+    },
+    {
+      "id": "body_lower_rear",
+      "kind": "box",
+      "material": "body_main",
+      "size": [1.72, 0.44, 0.90],
+      "position": [0, 0.38, -1.84]
+    },
+    {
+      "id": "fender_arch_fl",
+      "kind": "box",
+      "material": "body_main",
+      "size": [0.10, 0.20, 0.70],
+      "position": [-0.88, 0.58, 1.08]
+    },
+    {
+      "id": "fender_arch_fr",
+      "kind": "box",
+      "material": "body_main",
+      "size": [0.10, 0.20, 0.70],
+      "position": [0.88, 0.58, 1.08]
+    },
+    {
+      "id": "fender_arch_rl",
+      "kind": "box",
+      "material": "body_main",
+      "size": [0.10, 0.20, 0.68],
+      "position": [-0.88, 0.56, -1.48]
+    },
+    {
+      "id": "fender_arch_rr",
+      "kind": "box",
+      "material": "body_main",
+      "size": [0.10, 0.20, 0.68],
+      "position": [0.88, 0.56, -1.48]
+    },
+    {
+      "id": "door_sill_L",
+      "kind": "box",
+      "material": "body_dark",
+      "size": [0.06, 0.10, 2.72],
+      "position": [-0.89, 0.35, -0.28]
+    },
+    {
+      "id": "door_sill_R",
+      "kind": "box",
+      "material": "body_dark",
+      "size": [0.06, 0.10, 2.72],
+      "position": [0.89, 0.35, -0.28]
+    },
+    {
+      "id": "hood",
+      "kind": "box",
+      "material": "body_main",
+      "size": [1.62, 0.08, 1.26],
+      "position": [0, 0.93, 1.52]
+    },
+    {
+      "id": "hood_edge_L",
+      "kind": "box",
+      "material": "body_main",
+      "size": [0.04, 0.04, 1.22],
+      "position": [-0.50, 0.95, 1.52]
+    },
+    {
+      "id": "hood_edge_R",
+      "kind": "box",
+      "material": "body_main",
+      "size": [0.04, 0.04, 1.22],
+      "position": [0.50, 0.95, 1.52]
+    },
+    {
+      "id": "windshield_front",
+      "kind": "box",
+      "material": "glass",
+      "size": [1.52, 0.54, 0.07],
+      "position": [0, 1.09, 0.55]
+    },
+    {
+      "id": "a_pillar_L",
+      "kind": "box",
+      "material": "body_dark",
+      "size": [0.07, 0.54, 0.07],
+      "position": [-0.77, 1.09, 0.55]
+    },
+    {
+      "id": "a_pillar_R",
+      "kind": "box",
+      "material": "body_dark",
+      "size": [0.07, 0.54, 0.07],
+      "position": [0.77, 1.09, 0.55]
+    },
+    {
+      "id": "roof",
+      "kind": "box",
+      "material": "body_main",
+      "size": [1.60, 0.10, 1.78],
+      "position": [0, 1.39, -0.42]
+    },
+    {
+      "id": "roof_edge_front",
+      "kind": "box",
+      "material": "body_dark",
+      "size": [1.62, 0.04, 0.06],
+      "position": [0, 1.43, 0.47]
+    },
+    {
+      "id": "cabin_upper_L",
+      "kind": "box",
+      "material": "body_main",
+      "size": [0.08, 0.50, 2.08],
+      "position": [-0.82, 1.11, -0.34]
+    },
+    {
+      "id": "cabin_upper_R",
+      "kind": "box",
+      "material": "body_main",
+      "size": [0.08, 0.50, 2.08],
+      "position": [0.82, 1.11, -0.34]
+    },
+    {
+      "id": "window_front_L",
+      "kind": "box",
+      "material": "glass",
+      "size": [0.04, 0.34, 0.78],
+      "position": [-0.83, 1.04, 0.08]
+    },
+    {
+      "id": "window_front_R",
+      "kind": "box",
+      "material": "glass",
+      "size": [0.04, 0.34, 0.78],
+      "position": [0.83, 1.04, 0.08]
+    },
+    {
+      "id": "window_rear_L",
+      "kind": "box",
+      "material": "glass",
+      "size": [0.04, 0.30, 0.72],
+      "position": [-0.83, 1.01, -0.82]
+    },
+    {
+      "id": "window_rear_R",
+      "kind": "box",
+      "material": "glass",
+      "size": [0.04, 0.30, 0.72],
+      "position": [0.83, 1.01, -0.82]
+    },
+    {
+      "id": "b_pillar_L",
+      "kind": "box",
+      "material": "body_dark",
+      "size": [0.06, 0.44, 0.07],
+      "position": [-0.83, 1.01, -0.32]
+    },
+    {
+      "id": "b_pillar_R",
+      "kind": "box",
+      "material": "body_dark",
+      "size": [0.06, 0.44, 0.07],
+      "position": [0.83, 1.01, -0.32]
+    },
+    {
+      "id": "c_pillar_L",
+      "kind": "box",
+      "material": "body_dark",
+      "size": [0.06, 0.44, 0.07],
+      "position": [-0.83, 1.05, -1.30]
+    },
+    {
+      "id": "c_pillar_R",
+      "kind": "box",
+      "material": "body_dark",
+      "size": [0.06, 0.44, 0.07],
+      "position": [0.83, 1.05, -1.30]
+    },
+    {
+      "id": "windshield_rear",
+      "kind": "box",
+      "material": "glass",
+      "size": [1.44, 0.40, 0.06],
+      "position": [0, 1.10, -1.60]
+    },
+    {
+      "id": "trunk_lid",
+      "kind": "box",
+      "material": "body_main",
+      "size": [1.58, 0.06, 0.88],
+      "position": [0, 1.06, -1.90]
+    },
+    {
+      "id": "rear_spoiler",
+      "kind": "box",
+      "material": "body_main",
+      "size": [1.44, 0.06, 0.12],
+      "position": [0, 1.11, -2.20]
+    },
+    {
+      "id": "front_bumper",
+      "kind": "box",
+      "material": "body_dark",
+      "size": [1.70, 0.22, 0.14],
+      "position": [0, 0.34, 2.21]
+    },
+    {
+      "id": "front_grille_upper",
+      "kind": "box",
+      "material": "body_dark",
+      "size": [0.68, 0.14, 0.08],
+      "position": [0, 0.78, 2.24]
+    },
+    {
+      "id": "front_grille_bar_1",
+      "kind": "box",
+      "material": "chrome",
+      "size": [0.64, 0.014, 0.07],
+      "position": [0, 0.76, 2.24]
+    },
+    {
+      "id": "front_grille_bar_2",
+      "kind": "box",
+      "material": "chrome",
+      "size": [0.64, 0.014, 0.07],
+      "position": [0, 0.79, 2.24]
+    },
+    {
+      "id": "front_grille_lower",
+      "kind": "box",
+      "material": "body_dark",
+      "size": [1.24, 0.12, 0.10],
+      "position": [0, 0.44, 2.22]
+    },
+    {
+      "id": "air_intake",
+      "kind": "box",
+      "material": "body_dark",
+      "size": [1.06, 0.08, 0.08],
+      "position": [0, 0.24, 2.21]
+    },
+    {
+      "id": "front_lip",
+      "kind": "box",
+      "material": "body_dark",
+      "size": [1.62, 0.05, 0.10],
+      "position": [0, 0.10, 2.19]
+    },
+    {
+      "id": "headlight_L",
+      "kind": "box",
+      "material": "headlight",
+      "size": [0.50, 0.13, 0.07],
+      "position": [-0.58, 0.78, 2.22]
+    },
+    {
+      "id": "headlight_R",
+      "kind": "box",
+      "material": "headlight",
+      "size": [0.50, 0.13, 0.07],
+      "position": [0.58, 0.78, 2.22]
+    },
+    {
+      "id": "drl_L",
+      "kind": "box",
+      "material": "headlight",
+      "size": [0.42, 0.04, 0.05],
+      "position": [-0.58, 0.62, 2.22]
+    },
+    {
+      "id": "drl_R",
+      "kind": "box",
+      "material": "headlight",
+      "size": [0.42, 0.04, 0.05],
+      "position": [0.58, 0.62, 2.22]
+    },
+    {
+      "id": "taillight_L",
+      "kind": "box",
+      "material": "taillight",
+      "size": [0.54, 0.15, 0.06],
+      "position": [-0.62, 1.03, -2.22]
+    },
+    {
+      "id": "taillight_R",
+      "kind": "box",
+      "material": "taillight",
+      "size": [0.54, 0.15, 0.06],
+      "position": [0.62, 1.03, -2.22]
+    },
+    {
+      "id": "center_brake",
+      "kind": "box",
+      "material": "taillight",
+      "size": [0.36, 0.05, 0.04],
+      "position": [0, 1.08, -2.22]
+    },
+    {
+      "id": "rear_bumper",
+      "kind": "box",
+      "material": "body_dark",
+      "size": [1.66, 0.20, 0.14],
+      "position": [0, 0.32, -2.21]
+    },
+    {
+      "id": "rear_diffuser",
+      "kind": "box",
+      "material": "body_dark",
+      "size": [1.36, 0.10, 0.12],
+      "position": [0, 0.14, -2.18]
+    },
+    {
+      "id": "exhaust_L",
+      "kind": "cylinder",
+      "material": "chrome",
+      "size": [0.08, 0.12, 0.08],
+      "position": [-0.30, 0.14, -2.22]
+    },
+    {
+      "id": "exhaust_R",
+      "kind": "cylinder",
+      "material": "chrome",
+      "size": [0.08, 0.12, 0.08],
+      "position": [0.30, 0.14, -2.22]
+    },
+    {
+      "id": "mirror_L",
+      "kind": "box",
+      "material": "body_main",
+      "size": [0.06, 0.10, 0.18],
+      "position": [-0.91, 1.10, 0.64]
+    },
+    {
+      "id": "mirror_R",
+      "kind": "box",
+      "material": "body_main",
+      "size": [0.06, 0.10, 0.18],
+      "position": [0.91, 1.10, 0.64]
+    },
+    {
+      "id": "mirror_glass_L",
+      "kind": "box",
+      "material": "glass",
+      "size": [0.02, 0.08, 0.13],
+      "position": [-0.93, 1.09, 0.63]
+    },
+    {
+      "id": "mirror_glass_R",
+      "kind": "box",
+      "material": "glass",
+      "size": [0.02, 0.08, 0.13],
+      "position": [0.93, 1.09, 0.63]
+    },
+    {
+      "id": "door_handle_fl",
+      "kind": "box",
+      "material": "chrome",
+      "size": [0.02, 0.04, 0.12],
+      "position": [-0.90, 0.86, 0.26]
+    },
+    {
+      "id": "door_handle_fr",
+      "kind": "box",
+      "material": "chrome",
+      "size": [0.02, 0.04, 0.12],
+      "position": [0.90, 0.86, 0.26]
+    },
+    {
+      "id": "door_handle_rl",
+      "kind": "box",
+      "material": "chrome",
+      "size": [0.02, 0.04, 0.12],
+      "position": [-0.90, 0.83, -0.62]
+    },
+    {
+      "id": "door_handle_rr",
+      "kind": "box",
+      "material": "chrome",
+      "size": [0.02, 0.04, 0.12],
+      "position": [0.90, 0.83, -0.62]
+    },
+    {
+      "id": "antenna",
+      "kind": "cylinder",
+      "material": "body_dark",
+      "size": [0.016, 0.22, 0.016],
+      "position": [0.42, 1.44, -0.90]
+    },
+    {
+      "id": "wiper_L",
+      "kind": "box",
+      "material": "body_dark",
+      "size": [0.014, 0.014, 0.52],
+      "position": [-0.22, 0.98, 0.58]
+    },
+    {
+      "id": "wiper_R",
+      "kind": "box",
+      "material": "body_dark",
+      "size": [0.014, 0.014, 0.42],
+      "position": [0.20, 0.98, 0.58]
+    },
+    {
+      "id": "tire_FL",
+      "kind": "box",
+      "material": "tire",
+      "size": [0.22, 0.64, 0.64],
+      "position": [-0.76, 0.32, 1.15]
+    },
+    {
+      "id": "rim_FL",
+      "kind": "cylinder",
+      "material": "rim",
+      "size": [0.44, 0.24, 0.44],
+      "position": [-0.76, 0.32, 1.15]
+    },
+    {
+      "id": "tire_FR",
+      "kind": "box",
+      "material": "tire",
+      "size": [0.22, 0.64, 0.64],
+      "position": [0.76, 0.32, 1.15]
+    },
+    {
+      "id": "rim_FR",
+      "kind": "cylinder",
+      "material": "rim",
+      "size": [0.44, 0.24, 0.44],
+      "position": [0.76, 0.32, 1.15]
+    },
+    {
+      "id": "tire_RL",
+      "kind": "box",
+      "material": "tire",
+      "size": [0.22, 0.64, 0.64],
+      "position": [-0.76, 0.32, -1.55]
+    },
+    {
+      "id": "rim_RL",
+      "kind": "cylinder",
+      "material": "rim",
+      "size": [0.44, 0.24, 0.44],
+      "position": [-0.76, 0.32, -1.55]
+    },
+    {
+      "id": "tire_RR",
+      "kind": "box",
+      "material": "tire",
+      "size": [0.22, 0.64, 0.64],
+      "position": [0.76, 0.32, -1.55]
+    },
+    {
+      "id": "rim_RR",
+      "kind": "cylinder",
+      "material": "rim",
+      "size": [0.44, 0.24, 0.44],
+      "position": [0.76, 0.32, -1.55]
+    }
+  ],
+  "surfaceDetails": [
+    {"id": "sd_1",  "region": "body",       "type": "panel_line",    "strength": 0.12, "offset": [0,      0.016, -0.013]},
+    {"id": "sd_2",  "region": "body",       "type": "edge_trim",     "strength": 0.14, "offset": [0.012,  0.008,  0]},
+    {"id": "sd_3",  "region": "body",       "type": "paint_wear",    "strength": 0.08, "offset": [0.018,  0.002,  0.013]},
+    {"id": "sd_4",  "region": "body",       "type": "panel_line",    "strength": 0.16, "offset": [-0.015,-0.010,  0]},
+    {"id": "sd_5",  "region": "body",       "type": "edge_trim",     "strength": 0.12, "offset": [-0.018,-0.012,  0.013]},
+    {"id": "sd_6",  "region": "body",       "type": "panel_line",    "strength": 0.10, "offset": [0.008, -0.016, -0.013]},
+    {"id": "sd_7",  "region": "front",      "type": "panel_line",    "strength": 0.12, "offset": [0,      0.016, -0.013]},
+    {"id": "sd_8",  "region": "front",      "type": "vent",          "strength": 0.18, "offset": [0.014,  0.010,  0]},
+    {"id": "sd_9",  "region": "front",      "type": "edge_trim",     "strength": 0.14, "offset": [-0.016,-0.012,  0.013]},
+    {"id": "sd_10", "region": "front",      "type": "panel_line",    "strength": 0.16, "offset": [-0.012,-0.008, -0.013]},
+    {"id": "sd_11", "region": "rear",       "type": "panel_line",    "strength": 0.12, "offset": [0,      0.016, -0.013]},
+    {"id": "sd_12", "region": "rear",       "type": "edge_trim",     "strength": 0.14, "offset": [0.012,  0.008,  0]},
+    {"id": "sd_13", "region": "rear",       "type": "vent",          "strength": 0.16, "offset": [-0.014,-0.010,  0.013]},
+    {"id": "sd_14", "region": "rear",       "type": "panel_line",    "strength": 0.10, "offset": [0.008, -0.016, -0.013]},
+    {"id": "sd_15", "region": "sides",      "type": "panel_line",    "strength": 0.14, "offset": [0,      0.014,  0.013]},
+    {"id": "sd_16", "region": "sides",      "type": "edge_trim",     "strength": 0.12, "offset": [0.016,  0.008, -0.013]},
+    {"id": "sd_17", "region": "sides",      "type": "paint_wear",    "strength": 0.08, "offset": [-0.018, 0.002,  0]},
+    {"id": "sd_18", "region": "sides",      "type": "panel_line",    "strength": 0.16, "offset": [-0.012,-0.014,  0.013]},
+    {"id": "sd_19", "region": "hood",       "type": "panel_line",    "strength": 0.12, "offset": [0,      0.016, -0.013]},
+    {"id": "sd_20", "region": "hood",       "type": "edge_trim",     "strength": 0.10, "offset": [0.014,  0.008,  0.013]},
+    {"id": "sd_21", "region": "roof",       "type": "panel_line",    "strength": 0.08, "offset": [0,      0.010, -0.010]},
+    {"id": "sd_22", "region": "roof",       "type": "edge_trim",     "strength": 0.10, "offset": [0.012,  0.006,  0]},
+    {"id": "sd_23", "region": "glass",      "type": "edge_trim",     "strength": 0.06, "offset": [0,      0.008,  0.008]},
+    {"id": "sd_24", "region": "glass",      "type": "panel_line",    "strength": 0.10, "offset": [-0.010, 0.006, -0.008]},
+    {"id": "sd_25", "region": "undercarriage","type":"service_hatch", "strength": 0.22, "offset": [0.010, -0.010, -0.010]},
+    {"id": "sd_26", "region": "undercarriage","type":"panel_line",    "strength": 0.14, "offset": [-0.012, 0.016,  0.010]},
+    {"id": "sd_27", "region": "wheels",     "type": "edge_trim",     "strength": 0.20, "offset": [0,      0.012, -0.012]},
+    {"id": "sd_28", "region": "wheels",     "type": "panel_line",    "strength": 0.16, "offset": [0.010,  0.008,  0.012]},
+    {"id": "sd_29", "region": "bumper",     "type": "vent",          "strength": 0.18, "offset": [0.014,  0.004, -0.012]},
+    {"id": "sd_30", "region": "bumper",     "type": "edge_trim",     "strength": 0.14, "offset": [-0.012,-0.008,  0.010]},
+    {"id": "sd_31", "region": "body",       "type": "panel_line",    "strength": 0.12, "offset": [0.006,  0.014,  0.013]},
+    {"id": "sd_32", "region": "body",       "type": "paint_wear",    "strength": 0.07, "offset": [-0.010,-0.012, -0.010]},
+    {"id": "sd_33", "region": "front",      "type": "edge_trim",     "strength": 0.12, "offset": [0,     -0.014,  0.013]},
+    {"id": "sd_34", "region": "rear",       "type": "paint_wear",    "strength": 0.08, "offset": [0.008,  0.012, -0.010]},
+    {"id": "sd_35", "region": "sides",      "type": "vent",          "strength": 0.12, "offset": [0.016, -0.006,  0.010]},
+    {"id": "sd_36", "region": "roof",       "type": "seam_stitch",   "strength": 0.06, "offset": [-0.008, 0.004,  0.008]},
+    {"id": "sd_37", "region": "hood",       "type": "panel_line",    "strength": 0.10, "offset": [-0.012, 0.010, -0.010]},
+    {"id": "sd_38", "region": "glass",      "type": "seam_stitch",   "strength": 0.05, "offset": [0.008,  0.004, -0.008]},
+    {"id": "sd_39", "region": "undercarriage","type":"vent",          "strength": 0.16, "offset": [0.016, -0.014,  0.010]},
+    {"id": "sd_40", "region": "wheels",     "type": "seam_stitch",   "strength": 0.14, "offset": [-0.010, 0.010,  0.010]}
+  ],
+  "ornaments": [],
+  "pose": {
+    "preset": "static"
+  },
+  "animationHints": {
+    "idle": "none",
+    "drive": "wheel_rotation"
+  },
+  "lod": {
+    "high": "full",
+    "medium": "reduce_repeating_panels",
+    "low": "merge_minor_parts"
+  },
+  "exportOptions": {
+    "formats": ["gltf", "glb"],
+    "previewHtml": false
+  }
+}

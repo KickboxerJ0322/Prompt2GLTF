@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Read(//c/Users/shouy/Desktop/潤平勉強/Prompt2GLTF/**)",
-      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"飛空艇をつくって、ファンタジー風\")"
+      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"飛空艇をつくって、ファンタジー風\")",
+      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"働く男性のビジネスマン、スーツ姿、直立ポーズ\" --template templates/woman.json)",
+      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"働く男性のビジネスマン、スーツ姿、直立ポーズ\" --template templates/businessman_spec.json)"
     ]
   }
 }
