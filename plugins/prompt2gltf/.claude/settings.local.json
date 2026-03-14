@@ -4,7 +4,11 @@
       "Read(//c/Users/shouy/Desktop/潤平勉強/Prompt2GLTF/**)",
       "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"飛空艇をつくって、ファンタジー風\")",
       "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"働く男性のビジネスマン、スーツ姿、直立ポーズ\" --template templates/woman.json)",
-      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"働く男性のビジネスマン、スーツ姿、直立ポーズ\" --template templates/businessman_spec.json)"
+      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"働く男性のビジネスマン、スーツ姿、直立ポーズ\" --template templates/businessman_spec.json)",
+      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"濃い緑色の観覧車\")",
+      "Bash(node -e \"const s=JSON.parse\\(require\\(''fs''\\).readFileSync\\(''c:/Users/shouy/Desktop/潤平勉強/prompt2gltf/plugins/prompt2gltf/generated/model_spec.json''\\)\\); console.log\\(JSON.stringify\\(s.materials, null, 2\\)\\)\")",
+      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"青いロボット\")",
+      "Bash(node -e \"const s=JSON.parse\\(require\\(''''fs''''\\).readFileSync\\(''''c:/Users/shouy/Desktop/潤平勉強/prompt2gltf/plugins/prompt2gltf/generated/model_spec.json''''\\)\\); console.log\\(''''body_primary:'''', s.materials.body_primary\\)\")"
     ]
   }
 }

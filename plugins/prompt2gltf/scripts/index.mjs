@@ -138,7 +138,7 @@ const SUBJECT_REGISTRY = [
   },
   {
     id: "robot",
-    match: /robot|mecha|\u30ed\u30dc\u30c3\u30c8|\u30e1\u30ab/iu,
+    match: /robot|mecha|\u30ed\u30dc|\u30e1\u30ab/iu,
     defaultHeight: () => 35,
     defaultStyle: "heroic_mecha",
   },
@@ -272,7 +272,7 @@ function inferStyle(prompt, subject) {
   }
   return tags;
 }
-function createBaseMaterials(subject, styles) {
+function _rawBaseMaterials(subject, styles) {
   if (subject === "airship") {
     const dark = styles.includes("dark");
     return {
@@ -578,6 +578,59 @@ function createBaseMaterials(subject, styles) {
     emissive_eye:    { baseColor: "#FF6633", roughness: 0.20, metalness: 0.00, emissive: "#FF6633" }
   };
 }
+
+// -- USER COLOR PARSING -------------------------------------------------------
+// Maps natural-language color mentions (Japanese + English) to a PBR triple.
+function parseUserColor(prompt) {
+  // dark/deep variants first (more specific)
+  if (/濃い緑|深緑|ダーク.?グリーン|dark.?green|forest.?green/iu.test(prompt)) return { hex: "#1A5A1A", roughness: 0.45, metalness: 0.85 };
+  if (/濃い青|深青|ネイビー|navy|ダーク.?ブルー|dark.?blue/iu.test(prompt))    return { hex: "#1A2A8A", roughness: 0.42, metalness: 0.86 };
+  if (/濃い赤|深紅|ワイン|バーガンディ|burgundy|wine|dark.?red/iu.test(prompt)) return { hex: "#7A1010", roughness: 0.40, metalness: 0.84 };
+  if (/濃い紫|dark.?purple/iu.test(prompt))                                     return { hex: "#4A0E8A", roughness: 0.42, metalness: 0.82 };
+  // standard colors
+  if (/赤|レッド|\bred\b/iu.test(prompt))   return { hex: "#CC2020", roughness: 0.40, metalness: 0.85 };
+  if (/青|ブルー|\bblue\b/iu.test(prompt))  return { hex: "#2050CC", roughness: 0.40, metalness: 0.86 };
+  if (/緑|グリーン|\bgreen\b/iu.test(prompt)) return { hex: "#2A7A2A", roughness: 0.42, metalness: 0.84 };
+  if (/黄|イエロー|\byellow\b/iu.test(prompt)) return { hex: "#C8A010", roughness: 0.38, metalness: 0.82 };
+  if (/白|ホワイト|\bwhite\b/iu.test(prompt)) return { hex: "#E8E8E8", roughness: 0.50, metalness: 0.12 };
+  if (/黒|ブラック|\bblack\b/iu.test(prompt)) return { hex: "#1A1A1C", roughness: 0.38, metalness: 0.88 };
+  if (/オレンジ|\borange\b/iu.test(prompt))  return { hex: "#CC5010", roughness: 0.40, metalness: 0.84 };
+  if (/紫|パープル|\bpurple\b|\bviolet\b/iu.test(prompt)) return { hex: "#6A1ECC", roughness: 0.42, metalness: 0.82 };
+  if (/ピンク|\bpink\b/iu.test(prompt))      return { hex: "#CC2888", roughness: 0.44, metalness: 0.72 };
+  if (/茶|ブラウン|\bbrown\b/iu.test(prompt)) return { hex: "#6B3E22", roughness: 0.70, metalness: 0.20 };
+  if (/灰|グレー|\bgray\b|\bgrey\b/iu.test(prompt)) return { hex: "#8A8A8A", roughness: 0.45, metalness: 0.80 };
+  if (/金色|ゴールド|\bgold\b/iu.test(prompt)) return { hex: "#D4A820", roughness: 0.28, metalness: 0.92 };
+  if (/銀色|シルバー|\bsilver\b/iu.test(prompt)) return { hex: "#C0C8CC", roughness: 0.30, metalness: 0.92 };
+  return null;
+}
+
+// Primary material keys per subject — these receive the user-color override.
+const USER_COLOR_PRIMARY_KEYS = {
+  airship:     ["canvas_main"],
+  tower:       ["concrete_main", "steel_main"],
+  kaiju:       ["hide_main"],
+  robot:       ["body_primary"],
+  castle:      ["stone_main"],
+  building:    ["facade_main"],
+  vehicle:     ["body_main"],
+  structure:   ["steel"],
+  human:       ["clothing_main", "uniform_main"],
+  warrior:     ["plate_main"],
+  giant:       ["body_main", "armor_main"],
+  ferris_wheel: [], // handled inside buildFerrisWheelSpec
+};
+
+function createBaseMaterials(subject, styles) {
+  const mats = _rawBaseMaterials(subject, styles);
+  if (styles.userColor) {
+    const uc = styles.userColor;
+    for (const k of (USER_COLOR_PRIMARY_KEYS[subject] || [])) {
+      if (mats[k]) mats[k] = { ...mats[k], baseColor: uc.hex, roughness: uc.roughness, metalness: uc.metalness };
+    }
+  }
+  return mats;
+}
+
 function rounded(n) {
   return Number(n.toFixed(4));
 }
@@ -1162,29 +1215,100 @@ function buildGiantSpec(prompt, height, styles) {
 
 function buildRobotSpec(prompt, height, styles) {
   const base = buildHighDensityMeta(prompt, "robot", height, styles);
+  const H = height;
+  const r = (v) => Number(v.toFixed(3));
+
+  const parts = [];
+  const box = (id, material, sx, sy, sz, px, py, pz) => {
+    parts.push({ id, kind: "box", size: [r(sx), r(sy), r(sz)], position: [r(px), r(py), r(pz)], rotation: [0, 0, 0], material });
+  };
+  const cyl = (id, material, sx, sy, sz, px, py, pz) => {
+    parts.push({ id, kind: "cylinder", size: [r(sx), r(sy), r(sz)], position: [r(px), r(py), r(pz)], rotation: [0, 0, 0], material });
+  };
+
+  // ── Torso ──
+  box("torso",            "body_primary",   H*0.20, H*0.22, H*0.12,  0,         H*0.55, 0);
+  box("torso_front",      "body_secondary", H*0.14, H*0.10, H*0.03,  0,         H*0.57, H*0.062);
+  box("core",             "emissive_core",  H*0.04, H*0.04, H*0.02,  0,         H*0.57, H*0.075);
+
+  // ── Head & Neck ──
+  cyl("neck",             "body_secondary", H*0.04, H*0.04, H*0.04,  0,         H*0.67, 0);
+  box("head",             "body_secondary", H*0.10, H*0.09, H*0.09,  0,         H*0.73, 0);
+  box("visor",            "emissive_core",  H*0.07, H*0.025,H*0.02,  0,         H*0.74, H*0.046);
+  box("antenna_L",        "accent",         H*0.008,H*0.06, H*0.008, -H*0.035,  H*0.795,0);
+  box("antenna_R",        "accent",         H*0.008,H*0.06, H*0.008,  H*0.035,  H*0.795,0);
+
+  // ── Pelvis ──
+  box("pelvis",           "body_primary",   H*0.16, H*0.07, H*0.10,  0,         H*0.44, 0);
+
+  // ── Shoulders ──
+  for (const side of [-1, 1]) {
+    const s = side < 0 ? "L" : "R";
+    const ox = side * H * 0.145;
+    cyl(`shoulder_${s}`,   "accent",         H*0.06, H*0.06, H*0.06,  ox,        H*0.635,0);
+    box(`upper_arm_${s}`,  "body_primary",   H*0.055,H*0.14, H*0.055, ox,        H*0.545,0);
+    box(`elbow_${s}`,      "body_secondary", H*0.045,H*0.04, H*0.045, ox,        H*0.464,0);
+    box(`forearm_${s}`,    "body_primary",   H*0.045,H*0.12, H*0.045, ox,        H*0.38, 0);
+    box(`hand_${s}`,       "body_secondary", H*0.04, H*0.06, H*0.035, ox,        H*0.30, 0);
+    box(`cannon_${s}`,     "accent",         H*0.025,H*0.07, H*0.025, ox,        H*0.265,0);
+  }
+
+  // ── Legs ──
+  for (const side of [-1, 1]) {
+    const s = side < 0 ? "L" : "R";
+    const ox = side * H * 0.075;
+    box(`hip_${s}`,        "body_primary",   H*0.09, H*0.04, H*0.09,  ox,        H*0.405,0);
+    box(`thigh_${s}`,      "body_primary",   H*0.08, H*0.16, H*0.08,  ox,        H*0.31, 0);
+    box(`knee_${s}`,       "accent",         H*0.065,H*0.045,H*0.065, ox,        H*0.22, 0);
+    box(`shin_${s}`,       "body_primary",   H*0.07, H*0.14, H*0.075, ox,        H*0.135,0);
+    box(`foot_${s}`,       "body_secondary", H*0.09, H*0.04, H*0.13,  ox,        H*0.04, H*0.015);
+    box(`thruster_${s}`,   "body_secondary", H*0.05, H*0.06, H*0.04,  ox,        H*0.15,-H*0.052);
+  }
+
+  // ── Back boosters ──
+  box("backpack",         "body_secondary", H*0.12, H*0.14, H*0.06,  0,         H*0.56,-H*0.09);
+  cyl("booster_L",        "accent",         H*0.04, H*0.10, H*0.04, -H*0.045,   H*0.52,-H*0.12);
+  cyl("booster_R",        "accent",         H*0.04, H*0.10, H*0.04,  H*0.045,   H*0.52,-H*0.12);
+
+  // ── Surface details ──
+  const surfaceDetails = [];
+  const panel = (id, parentId, su, sv, pu, pv) => {
+    surfaceDetails.push({ id, parentId, kind: "panel_line", uvScale: [r(su), r(sv)], uvOffset: [r(pu), r(pv)], material: "body_secondary" });
+  };
+  panel("torso_panel_1",  "torso",       0.6, 0.3, 0.2, 0.35);
+  panel("torso_panel_2",  "torso",       0.6, 0.3, 0.2, 0.55);
+  panel("head_panel_1",   "head",        0.8, 0.4, 0.1, 0.3);
+  panel("thigh_L_panel",  "thigh_L",     0.7, 0.4, 0.15,0.3);
+  panel("thigh_R_panel",  "thigh_R",     0.7, 0.4, 0.15,0.3);
+  panel("shin_L_panel",   "shin_L",      0.7, 0.35,0.15,0.3);
+  panel("shin_R_panel",   "shin_R",      0.7, 0.35,0.15,0.3);
+  panel("forearm_L_panel","forearm_L",   0.6, 0.3, 0.2, 0.35);
+  panel("forearm_R_panel","forearm_R",   0.6, 0.3, 0.2, 0.35);
+
   return {
     ...base,
     globalScale: {
-      height,
-      width: Number((height * 0.22).toFixed(2)),
-      depth: Number((height * 0.12).toFixed(2))
+      height: H,
+      width:  r(H * 0.36),
+      depth:  r(H * 0.14)
     },
     style: {
       silhouette: "heroic_mecha",
       mood: "powerful",
       genre: "sci_fi",
-      detailDensity: "high"
+      detailDensity: "high",
+      bodyLanguage: "humanoid_bipedal",
+      shapeLanguage: ["armored_plates", "thruster_pods", "visor_eyes", "shoulder_cannons", "backpack_boosters"]
     },
     materials: createBaseMaterials("robot", styles),
-    parts: [
-      { id: "torso", kind: "box", size: [height * 0.18, height * 0.22, height * 0.10], position: [0, height * 0.56, 0], rotation: [0, 0, 0], material: "body_primary" },
-      { id: "head", kind: "box", size: [height * 0.08, height * 0.08, height * 0.07], position: [0, height * 0.74, 0], rotation: [0, 0, 0], material: "body_secondary" },
-      { id: "core", kind: "box", size: [height * 0.03, height * 0.03, height * 0.03], position: [0, height * 0.57, height * 0.055], rotation: [0, 0, 0], material: "emissive_core" }
-    ],
-    surfaceDetails: [],
+    parts,
+    surfaceDetails,
     ornaments: [],
     pose: { preset: "idle" },
-    animationHints: {},
+    animationHints: {
+      thrusterGlow: ["booster_L", "booster_R", "thruster_L", "thruster_R"],
+      visorPulse: ["visor", "core"]
+    },
     lod: {},
     exportOptions: {
       formats: ["gltf", "glb"],
@@ -4709,6 +4833,14 @@ function buildFerrisWheelSpec(prompt, height, styles) {
     exportOptions: { formats: ["gltf", "glb"], previewHtml: true },
   };
 
+  // Apply user-specified color to structural materials
+  if (styles.userColor) {
+    const uc = styles.userColor;
+    for (const k of ["steel_frame", "steel_rim", "steel_spoke", "support_red"]) {
+      spec.materials[k] = { ...spec.materials[k], baseColor: uc.hex, roughness: uc.roughness, metalness: uc.metalness };
+    }
+  }
+
   const parts = [];
   const surfaceDetails = [];
 
@@ -4869,6 +5001,7 @@ function buildSpec(prompt) {
   const subject = inferSubject(prompt);
   const height  = inferHeightMeters(prompt, subject);
   const styles  = inferStyle(prompt, subject);
+  styles.userColor = parseUserColor(prompt);
   const builder = SUBJECT_BUILDERS[subject] ?? SUBJECT_BUILDERS.building;
   return builder(prompt, height, styles);
 }
@@ -5132,7 +5265,7 @@ function promptToSlug(prompt) {
     [/\u8d85\u5927\u578b\u5de8\u4eba/u,                        "colossal_titan"],
     [/\u5de8\u4eba/u,                                           "titan"],
     [/\u6021\u7363/u,                                           "kaiju"],
-    [/\u30ed\u30dc\u30c3\u30c8/u,                              "robot"],
+    [/\u30ed\u30dc/u,                                          "robot"],
     [/\u6226\u58eb|\u9a0e\u58eb/u,                             "warrior"],
     [/\u6d88\u9632\u58eb/u,                                     "firefighter"],
     [/\u8b66\u5bdf\u5b98/u,                                     "police_officer"],
