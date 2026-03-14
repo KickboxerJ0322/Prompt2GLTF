@@ -1,12 +1,12 @@
 // ==============================
 // Cesium Sandcastle 用
 // Google Photorealistic 3D Tiles
-// Toranomon Hills to Tokyo Tower walk route
-// Camera follows behind the moving model
+// 東京ヘリポートから東京都庁まで（ヘリコプター飛行ルート）
+// カメラはドローン風の上方追尾
 // ==============================
 
 // ------------------------------------
-// Model orientation fix
+// モデル向き補正
 // ------------------------------------
 const HEADING_FIX_DEG = 0;
 const PITCH_FIX_DEG = 0;
@@ -35,78 +35,59 @@ try {
   const googleTileset = await Cesium.createGooglePhotorealistic3DTileset();
   viewer.scene.primitives.add(googleTileset);
 } catch (error) {
-  console.log("Failed to load Google Photorealistic 3D Tiles", error);
+  console.log("Google Photorealistic 3D Tiles の読み込みに失敗:", error);
   throw error;
 }
 
 // ------------------------------------
-// Character settings
+// キャラクター設定
 // ------------------------------------
 const PERSON = {
-  name: "\u864e\u30ce\u9580\u30d2\u30eb\u30ba\u304b\u3089\u6771\u4eac\u30bf\u30ef\u30fc\u3078",
-  glb: (() => {
-    const modelUrl = "".trim();
-    return !modelUrl
-      ? "https://raw.githubusercontent.com/KickboxerJ0322/Prompt2GLTF/master/glb/car.glb"
-      : modelUrl;
-  })(),
-  scale: 0.3,
-  minimumPixelSize: 64,
-  maximumScale: 20,
-  heightMeters: 40,
-  speedMultiplier: 1,
-  pathWidth: 4,
-  followOffset: new Cesium.Cartesian3(-540.0, -2.0, 300.0),
-  lookOffset: new Cesium.Cartesian3(0.0, 0.0, 2.2),
-  cameraSmooth: 0.1,
+  name: "東京ヘリポートから東京都庁へ",
+  glb: "https://raw.githubusercontent.com/KickboxerJ0322/Prompt2GLTF/master/glb/heli.glb",
+  scale: 4.0,
+  minimumPixelSize: 48,
+  maximumScale: 600,
+  heightMeters: 350,
+  speedMultiplier: 2,
+  pathWidth: 3,
+
+  // ドローン風追尾カメラ
+  followOffset: new Cesium.Cartesian3(-250, 0, 70),
+  lookOffset: new Cesium.Cartesian3(100, 0, 0),
+  cameraSmooth: 0.06,
 };
 
 // ------------------------------------
-// Route
-// [seconds, lon, lat]
+// ルート
+// [秒, 経度, 緯度]
 // ------------------------------------
 const route2D = [
-  [0, 139.74762388610776, 35.66728037489463],
-  [20, 139.74641953951047, 35.66456246414062],
-  [40, 139.74424024558465, 35.66227934759829],
-  [60, 139.74294031605703, 35.65999616581598],
-  [100, 139.74499628926793, 35.655831769448135],
-  [110, 139.74541424160032, 35.65520481286661],
-  [130, 139.74698960042394, 35.65844403546138],
-  [140, 139.7455749925007, 35.65901872252147],
+  [0,   139.82661, 35.64643],
+  [20,  139.8104,  35.6509],
+  [40,  139.7908,  35.6560],
+  [60,  139.7698,  35.6606],
+  [80,  139.7485,  35.6628],
+  [100, 139.7262,  35.6721],
+  [120, 139.7078,  35.6828],
+  [140, 139.6917,  35.6895],
 ];
 
 // ------------------------------------
-// Nearby place labels
+// 周辺地名ラベル
 // ------------------------------------
 const DEFAULT_PLACE_LABELS = [
-  {
-    name: "\u864e\u30ce\u9580\u30d2\u30eb\u30ba",
-    lon: 139.74762388610776,
-    lat: 35.66728037489463,
-    height: 20,
-    color: "CYAN",
-  },
-  {
-    name: "\u829d\u516c\u5712",
-    lon: 139.7459,
-    lat: 35.6556,
-    height: 20,
-    color: "WHITE",
-  },
-  {
-    name: "\u6771\u4eac\u30bf\u30ef\u30fc",
-    lon: 139.7455749925007,
-    lat: 35.65901872252147,
-    height: 20,
-    color: "ORANGE",
-  },
+  { name: "東京ヘリポート",   lon: 139.82661, lat: 35.64643, height: 20, color: "CYAN" },
+  { name: "豊洲",             lon: 139.7908,  lat: 35.6560,  height: 20, color: "WHITE" },
+  { name: "東京タワー",       lon: 139.7454,  lat: 35.6586,  height: 20, color: "ORANGE" },
+  { name: "東京都庁",         lon: 139.6917,  lat: 35.6895,  height: 20, color: "YELLOW" },
+  { name: "レインボーブリッジ", lon: 139.7600, lat: 35.6365,  height: 30, color: "LIME" },
 ];
 
 // ------------------------------------
-// Time settings
+// 時刻設定
 // ------------------------------------
-const startIso = new Date().toISOString();
+const startIso = "2026-03-15T09:00:00Z";
 const start = Cesium.JulianDate.fromIso8601(startIso);
 const stop = Cesium.JulianDate.addSeconds(
   start,
@@ -122,7 +103,7 @@ viewer.clock.multiplier = PERSON.speedMultiplier;
 viewer.clock.shouldAnimate = true;
 
 // ------------------------------------
-// Position samples
+// 位置サンプル
 // ------------------------------------
 const position = new Cesium.SampledPositionProperty();
 
@@ -138,7 +119,7 @@ position.setInterpolationOptions({
 });
 
 // ------------------------------------
-// Orientation
+// 進行方向ベースの向き
 // ------------------------------------
 const velocityOrientation = new Cesium.VelocityOrientationProperty(position);
 
@@ -162,10 +143,10 @@ const modelOrientation = new Cesium.CallbackProperty(function (time, result) {
 }, false);
 
 // ------------------------------------
-// Route line
+// ルート線
 // ------------------------------------
 viewer.entities.add({
-  name: "\u864e\u30ce\u9580\u30d2\u30eb\u30ba \u2192 \u6771\u4eac\u30bf\u30ef\u30fc",
+  name: "東京ヘリポート → 東京都庁",
   polyline: {
     positions: route2D.map(([, lon, lat]) =>
       Cesium.Cartesian3.fromDegrees(lon, lat, PERSON.heightMeters)
@@ -180,7 +161,7 @@ viewer.entities.add({
 });
 
 // ------------------------------------
-// Start marker
+// 始点マーカー
 // ------------------------------------
 viewer.entities.add({
   position: Cesium.Cartesian3.fromDegrees(
@@ -196,7 +177,7 @@ viewer.entities.add({
     disableDepthTestDistance: Number.POSITIVE_INFINITY,
   },
   label: {
-    text: "\u51fa\u767a: \u864e\u30ce\u9580\u30d2\u30eb\u30ba",
+    text: "出発: 東京ヘリポート",
     font: "20px sans-serif",
     fillColor: Cesium.Color.LIME,
     outlineColor: Cesium.Color.BLACK,
@@ -208,7 +189,7 @@ viewer.entities.add({
 });
 
 // ------------------------------------
-// End marker
+// 終点マーカー
 // ------------------------------------
 viewer.entities.add({
   position: Cesium.Cartesian3.fromDegrees(
@@ -224,7 +205,7 @@ viewer.entities.add({
     disableDepthTestDistance: Number.POSITIVE_INFINITY,
   },
   label: {
-    text: "\u5230\u7740: \u6771\u4eac\u30bf\u30ef\u30fc",
+    text: "到着: 東京都庁",
     font: "20px sans-serif",
     fillColor: Cesium.Color.YELLOW,
     outlineColor: Cesium.Color.BLACK,
@@ -236,15 +217,11 @@ viewer.entities.add({
 });
 
 // ------------------------------------
-// Waypoints
+// 経由点マーカー
 // ------------------------------------
 const WAYPOINTS = [
-  {
-    lon: 139.75112,
-    lat: 35.65715,
-    label: "\u829d\u516c\u5712\u4ea4\u5dee\u70b9",
-    color: "ORANGE",
-  },
+  { lon: 139.7908, lat: 35.6560, label: "豊洲上空",         color: "ORANGE" },
+  { lon: 139.7485, lat: 35.6628, label: "東京タワー西側上空", color: "YELLOW" },
 ];
 
 for (const wp of WAYPOINTS) {
@@ -271,7 +248,7 @@ for (const wp of WAYPOINTS) {
 }
 
 // ------------------------------------
-// Nearby labels
+// 周辺地名ラベル表示
 // ------------------------------------
 for (const place of DEFAULT_PLACE_LABELS) {
   viewer.entities.add({
@@ -296,9 +273,9 @@ for (const place of DEFAULT_PLACE_LABELS) {
 }
 
 // ------------------------------------
-// Moving model
+// モデル本体
 // ------------------------------------
-viewer.entities.add({
+const player = viewer.entities.add({
   name: PERSON.name,
   position: position,
   orientation: modelOrientation,
@@ -326,24 +303,24 @@ viewer.entities.add({
 });
 
 // ------------------------------------
-// Initial camera
+// 最初に全体を見せる
 // ------------------------------------
 await viewer.camera.flyTo({
-  destination: Cesium.Cartesian3.fromDegrees(139.7508, 35.6588, 1200),
+  destination: Cesium.Cartesian3.fromDegrees(139.7485, 35.6628, 2200),
   orientation: {
-    heading: Cesium.Math.toRadians(10),
-    pitch: Cesium.Math.toRadians(-40),
+    heading: Cesium.Math.toRadians(-20),
+    pitch: Cesium.Math.toRadians(-35),
     roll: 0,
   },
   duration: 1.5,
 });
 
 // ------------------------------------
-// Follow camera
+// ドローン風の上方追尾カメラ
 // ------------------------------------
 let smoothCamPos;
 
-viewer.scene.preRender.addEventListener(function (scene, time) {
+viewer.scene.preRender.addEventListener(function (_scene, time) {
   const p = position.getValue(time);
   const q = baseOrientation.getValue(time);
 
@@ -426,4 +403,4 @@ viewer.scene.preRender.addEventListener(function (scene, time) {
   });
 });
 
-console.log("Loaded: Toranomon Hills to Tokyo Tower walk route");
+console.log("読み込み完了: 東京ヘリポートから東京都庁まで（ドローン上方追尾）");

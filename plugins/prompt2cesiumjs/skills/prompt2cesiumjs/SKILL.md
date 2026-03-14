@@ -32,6 +32,10 @@ description: 自然文から Cesium Sandcastle 用 JavaScript を生成する。
 - ルートポリライン表示
 - 設置地点マーカー
 
+出力時には次のリンク先を案内すること。
+
+- 次のリンク先のサイトへsandcastle.jsをコピー＆ペーストしてください。https://sandcastle.cesium.com/
+
 ## テンプレートルール
 
 必ず次のテンプレート構造をベースにコードを生成する。
