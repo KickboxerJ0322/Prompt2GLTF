@@ -44,7 +44,12 @@ try {
 // ------------------------------------
 const PERSON = {
   name: "{{NAME}}",
-  glb: "{{MODEL_URL}}",
+  glb: (() => {
+    const modelUrl = "{{MODEL_URL}}".trim();
+    return !modelUrl || modelUrl === "{{MODEL_URL}}"
+      ? "https://raw.githubusercontent.com/KickboxerJ0322/Prompt2GLTF/master/glb/car.glb"
+      : modelUrl;
+  })(),
   scale: 0.3, // 0.3程度
   minimumPixelSize: 64,
   maximumScale: 20,

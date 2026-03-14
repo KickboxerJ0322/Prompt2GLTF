@@ -1,0 +1,1261 @@
+{
+  "meta": {
+    "name": "castle_60m_シンデレラ城に着想を得た_西洋風でファンタジーをイメージした華やかな城_著作権に配慮したオリジナ",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "prompt2gltf",
+    "generatedFrom": "シンデレラ城に着想を得た、西洋風でファンタジーをイメージした華やかな城。著作権に配慮したオリジナルデザイン",
+    "createdAt": "2026-03-14T10:20:20.619Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "シンデレラ城に着想を得た、西洋風でファンタジーをイメージした華やかな城。著作権に配慮したオリジナルデザイン",
+    "normalizedSubject": "castle",
+    "targetHeightMeters": 60,
+    "styleTags": [
+      "western_fantasy",
+      "fairy_tale"
+    ],
+    "geometryDirective": "Use mixed primitives (box/cylinder/sphere/tri_prism); represent curved real-world forms with rounded geometry.",
+    "summary": "Generated from prompt as a castle with high-density procedural spec.",
+    "designIntent": {
+      "scaleImpression": "very_large",
+      "mood": "majestic",
+      "originalityPolicy": "generalized_original_design"
+    },
+    "fantasyArchetype": "cinderella_castle"
+  },
+  "globalScale": {
+    "height": 60,
+    "width": 78,
+    "depth": 63
+  },
+  "style": {
+    "silhouette": "cinderella_castle",
+    "mood": "fairy",
+    "genre": "fantasy_architecture",
+    "detailDensity": "high"
+  },
+  "materials": {
+    "stone_main": {
+      "baseColor": "#C8CCD6",
+      "roughness": 0.92,
+      "metalness": 0.02
+    },
+    "stone_dark": {
+      "baseColor": "#8E95A2",
+      "roughness": 0.96,
+      "metalness": 0.01
+    },
+    "roof_metal": {
+      "baseColor": "#456A9A",
+      "roughness": 0.46,
+      "metalness": 0.56
+    },
+    "roof_dark": {
+      "baseColor": "#2A405F",
+      "roughness": 0.52,
+      "metalness": 0.48
+    },
+    "gold_trim": {
+      "baseColor": "#D4A820",
+      "roughness": 0.24,
+      "metalness": 0.93
+    },
+    "accent_banner": {
+      "baseColor": "#A81E5A",
+      "roughness": 0.72,
+      "metalness": 0.04
+    },
+    "glass_light": {
+      "baseColor": "#9BC8E8",
+      "roughness": 0.1,
+      "metalness": 0.82
+    },
+    "paving": {
+      "baseColor": "#9A9AA2",
+      "roughness": 0.94,
+      "metalness": 0.02
+    },
+    "water": {
+      "baseColor": "#4C86B0",
+      "roughness": 0.08,
+      "metalness": 0.26
+    }
+  },
+  "parts": [
+    {
+      "id": "forecourt",
+      "kind": "box",
+      "size": [
+        85.2,
+        1.2,
+        66
+      ],
+      "position": [
+        0,
+        0.6,
+        4.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "paving"
+    },
+    {
+      "id": "moat",
+      "kind": "box",
+      "size": [
+        75,
+        1.8,
+        60
+      ],
+      "position": [
+        0,
+        1.5,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "water"
+    },
+    {
+      "id": "inner_plaza",
+      "kind": "box",
+      "size": [
+        55.2,
+        1.8,
+        40.8
+      ],
+      "position": [
+        0,
+        3,
+        1.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "paving"
+    },
+    {
+      "id": "bridge",
+      "kind": "box",
+      "size": [
+        13.2,
+        2.4,
+        14.4
+      ],
+      "position": [
+        0,
+        3.6,
+        19.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_main"
+    },
+    {
+      "id": "gatehouse",
+      "kind": "box",
+      "size": [
+        20.4,
+        13.2,
+        12
+      ],
+      "position": [
+        0,
+        9.6,
+        14.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_main"
+    },
+    {
+      "id": "gate_arch",
+      "kind": "box",
+      "size": [
+        7.2,
+        8.4,
+        4.8
+      ],
+      "position": [
+        0,
+        7.2,
+        20.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_dark"
+    },
+    {
+      "id": "gate_roof",
+      "kind": "tri_prism",
+      "size": [
+        24,
+        4.8,
+        14.4
+      ],
+      "position": [
+        0,
+        16.8,
+        14.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "roof_metal"
+    },
+    {
+      "id": "wall_left",
+      "kind": "box",
+      "size": [
+        12,
+        8.4,
+        6
+      ],
+      "position": [
+        -16.2,
+        6.6,
+        10.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_main"
+    },
+    {
+      "id": "wall_right",
+      "kind": "box",
+      "size": [
+        12,
+        8.4,
+        6
+      ],
+      "position": [
+        16.2,
+        6.6,
+        10.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_main"
+    },
+    {
+      "id": "wall_turret_l",
+      "kind": "box",
+      "size": [
+        3.6,
+        14.4,
+        3.6
+      ],
+      "position": [
+        -21.6,
+        9.6,
+        10.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_dark"
+    },
+    {
+      "id": "wall_turret_cap_l",
+      "kind": "cylinder",
+      "size": [
+        2.7,
+        3,
+        2.7
+      ],
+      "position": [
+        -21.6,
+        18.3,
+        10.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "roof_dark"
+    },
+    {
+      "id": "wall_turret_spire_l",
+      "kind": "cylinder",
+      "size": [
+        0.84,
+        5.4,
+        0.84
+      ],
+      "position": [
+        -21.6,
+        22.5,
+        10.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gold_trim"
+    },
+    {
+      "id": "wall_turret_r",
+      "kind": "box",
+      "size": [
+        3.6,
+        14.4,
+        3.6
+      ],
+      "position": [
+        21.6,
+        9.6,
+        10.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_dark"
+    },
+    {
+      "id": "wall_turret_cap_r",
+      "kind": "cylinder",
+      "size": [
+        2.7,
+        3,
+        2.7
+      ],
+      "position": [
+        21.6,
+        18.3,
+        10.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "roof_dark"
+    },
+    {
+      "id": "wall_turret_spire_r",
+      "kind": "cylinder",
+      "size": [
+        0.84,
+        5.4,
+        0.84
+      ],
+      "position": [
+        21.6,
+        22.5,
+        10.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gold_trim"
+    },
+    {
+      "id": "central_keep_lower",
+      "kind": "box",
+      "size": [
+        18,
+        15.6,
+        14.4
+      ],
+      "position": [
+        0,
+        13.8,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_main"
+    },
+    {
+      "id": "central_keep_mid",
+      "kind": "box",
+      "size": [
+        13.8,
+        10.8,
+        11.4
+      ],
+      "position": [
+        0,
+        27,
+        -0.6
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_main"
+    },
+    {
+      "id": "central_keep_upper",
+      "kind": "box",
+      "size": [
+        9.6,
+        9,
+        8.4
+      ],
+      "position": [
+        0,
+        36.6,
+        -0.9
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_main"
+    },
+    {
+      "id": "central_keep_roof_1",
+      "kind": "tri_prism",
+      "size": [
+        21.6,
+        5.4,
+        16.8
+      ],
+      "position": [
+        0,
+        22.2,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "roof_metal"
+    },
+    {
+      "id": "central_keep_roof_2",
+      "kind": "tri_prism",
+      "size": [
+        16.8,
+        4.8,
+        13.2
+      ],
+      "position": [
+        0,
+        32.4,
+        -0.6
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "roof_metal"
+    },
+    {
+      "id": "central_keep_roof_3",
+      "kind": "tri_prism",
+      "size": [
+        12,
+        4.2,
+        9.6
+      ],
+      "position": [
+        0,
+        40.8,
+        -0.9
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "roof_dark"
+    },
+    {
+      "id": "main_spire_base",
+      "kind": "cylinder",
+      "size": [
+        3,
+        4.2,
+        3
+      ],
+      "position": [
+        0,
+        46.2,
+        -0.9
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "roof_dark"
+    },
+    {
+      "id": "main_spire",
+      "kind": "cylinder",
+      "size": [
+        1.2,
+        12,
+        1.2
+      ],
+      "position": [
+        0,
+        54.3,
+        -0.9
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gold_trim"
+    },
+    {
+      "id": "front_tower_l",
+      "kind": "box",
+      "size": [
+        6,
+        26.4,
+        6
+      ],
+      "position": [
+        -14.4,
+        16.8,
+        4.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_main"
+    },
+    {
+      "id": "front_tower_roof_l",
+      "kind": "tri_prism",
+      "size": [
+        8.4,
+        5.4,
+        8.4
+      ],
+      "position": [
+        -14.4,
+        31.8,
+        4.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "roof_metal"
+    },
+    {
+      "id": "front_tower_spire_l",
+      "kind": "cylinder",
+      "size": [
+        0.9,
+        8.4,
+        0.9
+      ],
+      "position": [
+        -14.4,
+        38.7,
+        4.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gold_trim"
+    },
+    {
+      "id": "front_tower_r",
+      "kind": "box",
+      "size": [
+        6,
+        26.4,
+        6
+      ],
+      "position": [
+        14.4,
+        16.8,
+        4.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_main"
+    },
+    {
+      "id": "front_tower_roof_r",
+      "kind": "tri_prism",
+      "size": [
+        8.4,
+        5.4,
+        8.4
+      ],
+      "position": [
+        14.4,
+        31.8,
+        4.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "roof_metal"
+    },
+    {
+      "id": "front_tower_spire_r",
+      "kind": "cylinder",
+      "size": [
+        0.9,
+        8.4,
+        0.9
+      ],
+      "position": [
+        14.4,
+        38.7,
+        4.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gold_trim"
+    },
+    {
+      "id": "rear_tower_l",
+      "kind": "box",
+      "size": [
+        6.6,
+        33.6,
+        6.6
+      ],
+      "position": [
+        -20.4,
+        20.4,
+        -4.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_main"
+    },
+    {
+      "id": "rear_tower_roof_l",
+      "kind": "tri_prism",
+      "size": [
+        9.6,
+        6.6,
+        9.6
+      ],
+      "position": [
+        -20.4,
+        38.4,
+        -4.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "roof_dark"
+    },
+    {
+      "id": "rear_tower_spire_l",
+      "kind": "cylinder",
+      "size": [
+        0.96,
+        9.6,
+        0.96
+      ],
+      "position": [
+        -20.4,
+        46.5,
+        -4.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gold_trim"
+    },
+    {
+      "id": "rear_tower_r",
+      "kind": "box",
+      "size": [
+        6.6,
+        33.6,
+        6.6
+      ],
+      "position": [
+        20.4,
+        20.4,
+        -4.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_main"
+    },
+    {
+      "id": "rear_tower_roof_r",
+      "kind": "tri_prism",
+      "size": [
+        9.6,
+        6.6,
+        9.6
+      ],
+      "position": [
+        20.4,
+        38.4,
+        -4.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "roof_dark"
+    },
+    {
+      "id": "rear_tower_spire_r",
+      "kind": "cylinder",
+      "size": [
+        0.96,
+        9.6,
+        0.96
+      ],
+      "position": [
+        20.4,
+        46.5,
+        -4.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gold_trim"
+    },
+    {
+      "id": "mid_turret_l",
+      "kind": "box",
+      "size": [
+        3.6,
+        13.2,
+        3.6
+      ],
+      "position": [
+        -7.8,
+        31.2,
+        6.6
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_dark"
+    },
+    {
+      "id": "mid_turret_roof_l",
+      "kind": "tri_prism",
+      "size": [
+        6,
+        4.2,
+        6
+      ],
+      "position": [
+        -7.8,
+        39.9,
+        6.6
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "roof_metal"
+    },
+    {
+      "id": "mid_turret_spire_l",
+      "kind": "cylinder",
+      "size": [
+        0.72,
+        6,
+        0.72
+      ],
+      "position": [
+        -7.8,
+        45,
+        6.6
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gold_trim"
+    },
+    {
+      "id": "mid_turret_r",
+      "kind": "box",
+      "size": [
+        3.6,
+        13.2,
+        3.6
+      ],
+      "position": [
+        7.8,
+        31.2,
+        6.6
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_dark"
+    },
+    {
+      "id": "mid_turret_roof_r",
+      "kind": "tri_prism",
+      "size": [
+        6,
+        4.2,
+        6
+      ],
+      "position": [
+        7.8,
+        39.9,
+        6.6
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "roof_metal"
+    },
+    {
+      "id": "mid_turret_spire_r",
+      "kind": "cylinder",
+      "size": [
+        0.72,
+        6,
+        0.72
+      ],
+      "position": [
+        7.8,
+        45,
+        6.6
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gold_trim"
+    },
+    {
+      "id": "gallery_left",
+      "kind": "box",
+      "size": [
+        7.8,
+        7.2,
+        4.8
+      ],
+      "position": [
+        -8.4,
+        18,
+        8.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_main"
+    },
+    {
+      "id": "gallery_right",
+      "kind": "box",
+      "size": [
+        7.8,
+        7.2,
+        4.8
+      ],
+      "position": [
+        8.4,
+        18,
+        8.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_main"
+    },
+    {
+      "id": "gallery_roof_left",
+      "kind": "tri_prism",
+      "size": [
+        9.6,
+        3,
+        6
+      ],
+      "position": [
+        -8.4,
+        23.1,
+        8.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "roof_dark"
+    },
+    {
+      "id": "gallery_roof_right",
+      "kind": "tri_prism",
+      "size": [
+        9.6,
+        3,
+        6
+      ],
+      "position": [
+        8.4,
+        23.1,
+        8.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "roof_dark"
+    },
+    {
+      "id": "window_band_low",
+      "kind": "box",
+      "size": [
+        10.8,
+        3,
+        0.6
+      ],
+      "position": [
+        0,
+        16.2,
+        7.26
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "glass_light"
+    },
+    {
+      "id": "window_band_mid",
+      "kind": "box",
+      "size": [
+        7.2,
+        3,
+        0.6
+      ],
+      "position": [
+        0,
+        28.8,
+        5.76
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "glass_light"
+    },
+    {
+      "id": "window_band_high",
+      "kind": "box",
+      "size": [
+        4.8,
+        2.4,
+        0.6
+      ],
+      "position": [
+        0,
+        37.8,
+        4.26
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "glass_light"
+    },
+    {
+      "id": "crenel_1",
+      "kind": "cylinder",
+      "size": [
+        0.96,
+        1.8,
+        0.96
+      ],
+      "position": [
+        -9,
+        18.9,
+        14.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_dark"
+    },
+    {
+      "id": "crenel_2",
+      "kind": "cylinder",
+      "size": [
+        0.96,
+        1.8,
+        0.96
+      ],
+      "position": [
+        -5.4,
+        18.9,
+        14.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_dark"
+    },
+    {
+      "id": "crenel_3",
+      "kind": "cylinder",
+      "size": [
+        0.96,
+        1.8,
+        0.96
+      ],
+      "position": [
+        -1.8,
+        18.9,
+        14.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_dark"
+    },
+    {
+      "id": "crenel_4",
+      "kind": "cylinder",
+      "size": [
+        0.96,
+        1.8,
+        0.96
+      ],
+      "position": [
+        1.8,
+        18.9,
+        14.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_dark"
+    },
+    {
+      "id": "crenel_5",
+      "kind": "cylinder",
+      "size": [
+        0.96,
+        1.8,
+        0.96
+      ],
+      "position": [
+        5.4,
+        18.9,
+        14.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_dark"
+    },
+    {
+      "id": "crenel_6",
+      "kind": "cylinder",
+      "size": [
+        0.96,
+        1.8,
+        0.96
+      ],
+      "position": [
+        9,
+        18.9,
+        14.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "stone_dark"
+    },
+    {
+      "id": "banner_pole_l",
+      "kind": "box",
+      "size": [
+        0.48,
+        7.2,
+        0.48
+      ],
+      "position": [
+        -5.4,
+        48,
+        1.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gold_trim"
+    },
+    {
+      "id": "banner_l",
+      "kind": "box",
+      "size": [
+        1.68,
+        4.2,
+        0.24
+      ],
+      "position": [
+        -4.68,
+        46.2,
+        1.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "accent_banner"
+    },
+    {
+      "id": "banner_pole_r",
+      "kind": "box",
+      "size": [
+        0.48,
+        7.2,
+        0.48
+      ],
+      "position": [
+        5.4,
+        48,
+        1.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gold_trim"
+    },
+    {
+      "id": "banner_r",
+      "kind": "box",
+      "size": [
+        1.68,
+        4.2,
+        0.24
+      ],
+      "position": [
+        6.12,
+        46.2,
+        1.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "accent_banner"
+    }
+  ],
+  "surfaceDetails": [],
+  "ornaments": [],
+  "pose": {
+    "preset": "static"
+  },
+  "animationHints": {},
+  "lod": {},
+  "exportOptions": {
+    "formats": [
+      "gltf",
+      "glb"
+    ],
+    "previewHtml": true
+  }
+}

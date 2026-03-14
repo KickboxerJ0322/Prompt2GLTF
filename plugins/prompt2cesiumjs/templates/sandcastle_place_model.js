@@ -37,7 +37,12 @@ try {
 // ------------------------------------
 const MODEL = {
   name: "{{MODEL_NAME}}",
-  uri: "{{MODEL_URL}}",
+  uri: (() => {
+    const modelUrl = "{{MODEL_URL}}".trim();
+    return !modelUrl || modelUrl === "{{MODEL_URL}}"
+      ? "https://raw.githubusercontent.com/KickboxerJ0322/Prompt2GLTF/master/glb/tower.glb"
+      : modelUrl;
+  })(),
 
   // 設置座標
   lat: {{LAT}},

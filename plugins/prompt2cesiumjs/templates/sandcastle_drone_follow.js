@@ -45,7 +45,12 @@ try {
 // ------------------------------------
 const PERSON = {
   name: "{{NAME}}",
-  glb: "{{MODEL_URL}}",
+  glb: (() => {
+    const modelUrl = "{{MODEL_URL}}".trim();
+    return !modelUrl || modelUrl === "{{MODEL_URL}}"
+      ? "https://raw.githubusercontent.com/KickboxerJ0322/Prompt2GLTF/master/glb/heli.glb"
+      : modelUrl;
+  })(),
   // Default scale for helicopter-like models: 2
   scale: {{SCALE}},
   minimumPixelSize: 64,

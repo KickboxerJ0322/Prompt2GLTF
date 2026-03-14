@@ -1,0 +1,908 @@
+{
+  "meta": {
+    "name": "human_1.7m_child",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "prompt2gltf",
+    "generatedFrom": "child",
+    "createdAt": "2026-03-14T10:25:59.792Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "child",
+    "normalizedSubject": "human",
+    "targetHeightMeters": 1.7,
+    "styleTags": [
+      "child"
+    ],
+    "geometryDirective": "Use mixed primitives (box/cylinder/sphere/tri_prism); represent curved real-world forms with rounded geometry.",
+    "summary": "Generated from prompt as a human with high-density procedural spec.",
+    "designIntent": {
+      "scaleImpression": "large",
+      "mood": "majestic",
+      "originalityPolicy": "generalized_original_design"
+    },
+    "humanType": "child"
+  },
+  "globalScale": {
+    "height": 1.1560000000000001,
+    "width": 0.26588000000000006,
+    "depth": 0.15028000000000002
+  },
+  "style": {
+    "silhouette": "standing_human_figure",
+    "mood": "neutral_at_ease",
+    "genre": "realistic_human",
+    "detailDensity": "high",
+    "bodyLanguage": "standing_neutral",
+    "shapeLanguage": [
+      "anatomical_volumes",
+      "clothing_layers",
+      "accessories",
+      "facial_features"
+    ]
+  },
+  "proportions": {
+    "totalHeightMeters": 1.156,
+    "headToBodyRatio": 0.175,
+    "shoulderWidthRatio": 0.23,
+    "legToBodyRatio": 0.433
+  },
+  "materials": {
+    "skin": {
+      "baseColor": "#C8A888",
+      "roughness": 0.78,
+      "metalness": 0
+    },
+    "shirt": {
+      "baseColor": "#F0D840",
+      "roughness": 0.8,
+      "metalness": 0.01
+    },
+    "pants": {
+      "baseColor": "#3060A8",
+      "roughness": 0.78,
+      "metalness": 0.02
+    },
+    "shoe": {
+      "baseColor": "#C83020",
+      "roughness": 0.72,
+      "metalness": 0.04
+    },
+    "hair": {
+      "baseColor": "#2A1808",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "backpack": {
+      "baseColor": "#E85020",
+      "roughness": 0.75,
+      "metalness": 0.03
+    }
+  },
+  "parts": [
+    {
+      "id": "foot_L",
+      "kind": "box",
+      "material": "shoe",
+      "size": [
+        0.074,
+        0.0439,
+        0.1503
+      ],
+      "position": [
+        -0.0481,
+        0.022,
+        0.012
+      ]
+    },
+    {
+      "id": "foot_R",
+      "kind": "box",
+      "material": "shoe",
+      "size": [
+        0.074,
+        0.0439,
+        0.1503
+      ],
+      "position": [
+        0.0481,
+        0.022,
+        0.012
+      ]
+    },
+    {
+      "id": "shin_L",
+      "kind": "cylinder",
+      "material": "pants",
+      "size": [
+        0.0763,
+        0.2139,
+        0.0717
+      ],
+      "position": [
+        -0.0529,
+        0.1509,
+        0
+      ]
+    },
+    {
+      "id": "shin_R",
+      "kind": "cylinder",
+      "material": "pants",
+      "size": [
+        0.0763,
+        0.2139,
+        0.0717
+      ],
+      "position": [
+        0.0529,
+        0.1509,
+        0
+      ]
+    },
+    {
+      "id": "thigh_L",
+      "kind": "cylinder",
+      "material": "pants",
+      "size": [
+        0.1017,
+        0.2428,
+        0.0983
+      ],
+      "position": [
+        -0.0509,
+        0.3792,
+        0
+      ]
+    },
+    {
+      "id": "thigh_R",
+      "kind": "cylinder",
+      "material": "pants",
+      "size": [
+        0.1017,
+        0.2428,
+        0.0983
+      ],
+      "position": [
+        0.0509,
+        0.3792,
+        0
+      ]
+    },
+    {
+      "id": "hips",
+      "kind": "box",
+      "material": "pants",
+      "size": [
+        0.2428,
+        0.1272,
+        0.1387
+      ],
+      "position": [
+        0,
+        0.5641,
+        0
+      ]
+    },
+    {
+      "id": "torso",
+      "kind": "box",
+      "material": "shirt",
+      "size": [
+        0.2659,
+        0.341,
+        0.1503
+      ],
+      "position": [
+        0,
+        0.7982,
+        0
+      ]
+    },
+    {
+      "id": "upper_arm_L",
+      "kind": "cylinder",
+      "material": "shirt",
+      "size": [
+        0.0786,
+        0.1618,
+        0.0717
+      ],
+      "position": [
+        -0.1801,
+        0.9142,
+        0
+      ]
+    },
+    {
+      "id": "elbow_L",
+      "kind": "sphere",
+      "material": "shirt",
+      "size": [
+        0.0707,
+        0.0707,
+        0.0645
+      ],
+      "position": [
+        -0.1801,
+        0.8397,
+        0
+      ]
+    },
+    {
+      "id": "lower_arm_L",
+      "kind": "cylinder",
+      "material": "skin",
+      "size": [
+        0.0624,
+        0.1445,
+        0.0555
+      ],
+      "position": [
+        -0.1801,
+        0.761,
+        0
+      ]
+    },
+    {
+      "id": "hand_L",
+      "kind": "box",
+      "material": "skin",
+      "size": [
+        0.0636,
+        0.0601,
+        0.0301
+      ],
+      "position": [
+        -0.1801,
+        0.6587,
+        0
+      ]
+    },
+    {
+      "id": "upper_arm_R",
+      "kind": "cylinder",
+      "material": "shirt",
+      "size": [
+        0.0786,
+        0.1618,
+        0.0717
+      ],
+      "position": [
+        0.1801,
+        0.9142,
+        0
+      ]
+    },
+    {
+      "id": "elbow_R",
+      "kind": "sphere",
+      "material": "shirt",
+      "size": [
+        0.0707,
+        0.0707,
+        0.0645
+      ],
+      "position": [
+        0.1801,
+        0.8397,
+        0
+      ]
+    },
+    {
+      "id": "lower_arm_R",
+      "kind": "cylinder",
+      "material": "skin",
+      "size": [
+        0.0624,
+        0.1445,
+        0.0555
+      ],
+      "position": [
+        0.1801,
+        0.761,
+        0
+      ]
+    },
+    {
+      "id": "hand_R",
+      "kind": "box",
+      "material": "skin",
+      "size": [
+        0.0636,
+        0.0601,
+        0.0301
+      ],
+      "position": [
+        0.1801,
+        0.6587,
+        0
+      ]
+    },
+    {
+      "id": "neck",
+      "kind": "cylinder",
+      "material": "skin",
+      "size": [
+        0.0647,
+        0.037,
+        0.0647
+      ],
+      "position": [
+        0,
+        0.9872,
+        0
+      ]
+    },
+    {
+      "id": "head",
+      "kind": "sphere",
+      "material": "skin",
+      "size": [
+        0.185,
+        0.2023,
+        0.1618
+      ],
+      "position": [
+        0,
+        1.1069,
+        0
+      ]
+    },
+    {
+      "id": "hair_top",
+      "kind": "sphere",
+      "material": "hair",
+      "size": [
+        0.1776,
+        0.1214,
+        0.1554
+      ],
+      "position": [
+        0,
+        1.1514,
+        0
+      ]
+    },
+    {
+      "id": "ear_L",
+      "kind": "sphere",
+      "material": "skin",
+      "size": [
+        0.0185,
+        0.0283,
+        0.0129
+      ],
+      "position": [
+        -0.0962,
+        1.0947,
+        0
+      ]
+    },
+    {
+      "id": "ear_R",
+      "kind": "sphere",
+      "material": "skin",
+      "size": [
+        0.0185,
+        0.0283,
+        0.0129
+      ],
+      "position": [
+        0.0962,
+        1.0947,
+        0
+      ]
+    },
+    {
+      "id": "eye_L",
+      "kind": "sphere",
+      "material": "skin",
+      "size": [
+        0.0185,
+        0.0182,
+        0.0097
+      ],
+      "position": [
+        -0.0407,
+        1.1069,
+        0.0777
+      ]
+    },
+    {
+      "id": "eye_R",
+      "kind": "sphere",
+      "material": "skin",
+      "size": [
+        0.0185,
+        0.0182,
+        0.0097
+      ],
+      "position": [
+        0.0407,
+        1.1069,
+        0.0777
+      ]
+    },
+    {
+      "id": "nose",
+      "kind": "sphere",
+      "material": "skin",
+      "size": [
+        0.0185,
+        0.0202,
+        0.0194
+      ],
+      "position": [
+        0,
+        1.0785,
+        0.0809
+      ]
+    }
+  ],
+  "surfaceDetails": [
+    {
+      "id": "surface_detail_1",
+      "region": "head",
+      "type": "skin_pore",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "surface_detail_2",
+      "region": "head",
+      "type": "fabric_weave",
+      "strength": 0.16,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "surface_detail_3",
+      "region": "head",
+      "type": "seam_stitch",
+      "strength": 0.22,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "surface_detail_4",
+      "region": "head",
+      "type": "crease",
+      "strength": 0.28,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "surface_detail_5",
+      "region": "head",
+      "type": "button_detail",
+      "strength": 0.34,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "surface_detail_6",
+      "region": "head",
+      "type": "buckle_detail",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "surface_detail_7",
+      "region": "head",
+      "type": "skin_pore",
+      "strength": 0.16,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "surface_detail_8",
+      "region": "head",
+      "type": "fabric_weave",
+      "strength": 0.22,
+      "offset": [
+        0.0002,
+        0.0019,
+        0.012
+      ]
+    },
+    {
+      "id": "surface_detail_9",
+      "region": "torso",
+      "type": "skin_pore",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "surface_detail_10",
+      "region": "torso",
+      "type": "fabric_weave",
+      "strength": 0.16,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "surface_detail_11",
+      "region": "torso",
+      "type": "seam_stitch",
+      "strength": 0.22,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "surface_detail_12",
+      "region": "torso",
+      "type": "crease",
+      "strength": 0.28,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "surface_detail_13",
+      "region": "torso",
+      "type": "button_detail",
+      "strength": 0.34,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "surface_detail_14",
+      "region": "torso",
+      "type": "buckle_detail",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "surface_detail_15",
+      "region": "torso",
+      "type": "skin_pore",
+      "strength": 0.16,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "surface_detail_16",
+      "region": "torso",
+      "type": "fabric_weave",
+      "strength": 0.22,
+      "offset": [
+        0.0002,
+        0.0019,
+        0.012
+      ]
+    },
+    {
+      "id": "surface_detail_17",
+      "region": "arms",
+      "type": "skin_pore",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "surface_detail_18",
+      "region": "arms",
+      "type": "fabric_weave",
+      "strength": 0.16,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "surface_detail_19",
+      "region": "arms",
+      "type": "seam_stitch",
+      "strength": 0.22,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "surface_detail_20",
+      "region": "arms",
+      "type": "crease",
+      "strength": 0.28,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "surface_detail_21",
+      "region": "arms",
+      "type": "button_detail",
+      "strength": 0.34,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "surface_detail_22",
+      "region": "arms",
+      "type": "buckle_detail",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "surface_detail_23",
+      "region": "arms",
+      "type": "skin_pore",
+      "strength": 0.16,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "surface_detail_24",
+      "region": "arms",
+      "type": "fabric_weave",
+      "strength": 0.22,
+      "offset": [
+        0.0002,
+        0.0019,
+        0.012
+      ]
+    },
+    {
+      "id": "surface_detail_25",
+      "region": "legs",
+      "type": "skin_pore",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "surface_detail_26",
+      "region": "legs",
+      "type": "fabric_weave",
+      "strength": 0.16,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "surface_detail_27",
+      "region": "legs",
+      "type": "seam_stitch",
+      "strength": 0.22,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "surface_detail_28",
+      "region": "legs",
+      "type": "crease",
+      "strength": 0.28,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "surface_detail_29",
+      "region": "legs",
+      "type": "button_detail",
+      "strength": 0.34,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "surface_detail_30",
+      "region": "legs",
+      "type": "buckle_detail",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "surface_detail_31",
+      "region": "legs",
+      "type": "skin_pore",
+      "strength": 0.16,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "surface_detail_32",
+      "region": "legs",
+      "type": "fabric_weave",
+      "strength": 0.22,
+      "offset": [
+        0.0002,
+        0.0019,
+        0.012
+      ]
+    },
+    {
+      "id": "surface_detail_33",
+      "region": "accessories",
+      "type": "skin_pore",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "surface_detail_34",
+      "region": "accessories",
+      "type": "fabric_weave",
+      "strength": 0.16,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "surface_detail_35",
+      "region": "accessories",
+      "type": "seam_stitch",
+      "strength": 0.22,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "surface_detail_36",
+      "region": "accessories",
+      "type": "crease",
+      "strength": 0.28,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "surface_detail_37",
+      "region": "accessories",
+      "type": "button_detail",
+      "strength": 0.34,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "surface_detail_38",
+      "region": "accessories",
+      "type": "buckle_detail",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "surface_detail_39",
+      "region": "accessories",
+      "type": "skin_pore",
+      "strength": 0.16,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "surface_detail_40",
+      "region": "accessories",
+      "type": "fabric_weave",
+      "strength": 0.22,
+      "offset": [
+        0.0002,
+        0.0019,
+        0.012
+      ]
+    }
+  ],
+  "ornaments": [],
+  "pose": {
+    "preset": "standing_neutral",
+    "armAngle": 15,
+    "legSpread": 8
+  },
+  "animationHints": {
+    "idle": "subtle_breathing",
+    "walk": "bipedal_walk"
+  },
+  "lod": {
+    "high": "full",
+    "medium": "merge_hand_fingers",
+    "low": "merge_limb_segments"
+  },
+  "exportOptions": {
+    "formats": [
+      "gltf",
+      "glb"
+    ],
+    "previewHtml": true
+  }
+}

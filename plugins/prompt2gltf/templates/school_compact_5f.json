@@ -1,0 +1,3183 @@
+{
+  "meta": {
+    "name": "building_18m_敷地面積をややコンパクトに抑えた小学校_中学校_5階建ての校舎_体育館_プール_校庭を完備した現",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "prompt2gltf",
+    "generatedFrom": "敷地面積をややコンパクトに抑えた小学校・中学校。5階建ての校舎、体育館、プール、校庭を完備した現代的な学校施設",
+    "createdAt": "2026-03-14T10:59:35.217Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "敷地面積をややコンパクトに抑えた小学校・中学校。5階建ての校舎、体育館、プール、校庭を完備した現代的な学校施設",
+    "normalizedSubject": "building",
+    "targetHeightMeters": 18,
+    "styleTags": [
+      "school"
+    ],
+    "geometryDirective": "Use mixed primitives (box/cylinder/sphere/tri_prism); represent curved real-world forms with rounded geometry.",
+    "summary": "Generated from prompt as a building with high-density procedural spec.",
+    "designIntent": {
+      "scaleImpression": "large",
+      "mood": "majestic",
+      "originalityPolicy": "generalized_original_design"
+    },
+    "buildingArchetype": "facility_school"
+  },
+  "globalScale": {
+    "height": 11.3,
+    "width": 126,
+    "depth": 155
+  },
+  "style": {
+    "silhouette": "civic_public_building",
+    "mood": "authoritative_public",
+    "genre": "educational_facility",
+    "detailDensity": "high",
+    "bodyLanguage": "static_structure",
+    "shapeLanguage": [
+      "main_volume",
+      "roof_profile",
+      "entrance",
+      "window_rhythm",
+      "signage"
+    ]
+  },
+  "materials": {
+    "wall_main": {
+      "baseColor": "#E8E0CC",
+      "roughness": 0.88,
+      "metalness": 0.02
+    },
+    "wall_accent": {
+      "baseColor": "#4878B8",
+      "roughness": 0.7,
+      "metalness": 0.12
+    },
+    "wall_gym": {
+      "baseColor": "#D8D0BC",
+      "roughness": 0.88,
+      "metalness": 0.02
+    },
+    "concrete": {
+      "baseColor": "#C4C0B8",
+      "roughness": 0.92,
+      "metalness": 0.02
+    },
+    "glass_win": {
+      "baseColor": "#7AB0D0",
+      "roughness": 0.1,
+      "metalness": 0.86
+    },
+    "glass_entry": {
+      "baseColor": "#9AC8E0",
+      "roughness": 0.06,
+      "metalness": 0.86
+    },
+    "glass_gym": {
+      "baseColor": "#88A8C0",
+      "roughness": 0.12,
+      "metalness": 0.84
+    },
+    "canopy": {
+      "baseColor": "#D0D8E0",
+      "roughness": 0.84,
+      "metalness": 0.08
+    },
+    "steel_frame": {
+      "baseColor": "#909898",
+      "roughness": 0.52,
+      "metalness": 0.62
+    },
+    "roof_flat": {
+      "baseColor": "#9A9C98",
+      "roughness": 0.9,
+      "metalness": 0.04
+    },
+    "roof_gym": {
+      "baseColor": "#6A7C8A",
+      "roughness": 0.85,
+      "metalness": 0.08
+    },
+    "paving_main": {
+      "baseColor": "#B8B4AC",
+      "roughness": 0.95,
+      "metalness": 0.01
+    },
+    "paving_walk": {
+      "baseColor": "#C8C4BC",
+      "roughness": 0.94,
+      "metalness": 0.01
+    },
+    "schoolyard": {
+      "baseColor": "#C8A878",
+      "roughness": 0.98,
+      "metalness": 0
+    },
+    "yard_line": {
+      "baseColor": "#E8E4D8",
+      "roughness": 0.7,
+      "metalness": 0.02
+    },
+    "gate_pillar": {
+      "baseColor": "#484440",
+      "roughness": 0.88,
+      "metalness": 0.08
+    },
+    "gate_fence": {
+      "baseColor": "#3A3830",
+      "roughness": 0.85,
+      "metalness": 0.2
+    },
+    "sign_navy": {
+      "baseColor": "#1A2A60",
+      "roughness": 0.4,
+      "metalness": 0.1
+    },
+    "sign_white": {
+      "baseColor": "#F0F0EC",
+      "roughness": 0.55,
+      "metalness": 0.04
+    },
+    "flagpole": {
+      "baseColor": "#C0C4C0",
+      "roughness": 0.42,
+      "metalness": 0.78
+    },
+    "pool_water": {
+      "baseColor": "#3898C0",
+      "roughness": 0.08,
+      "metalness": 0.8
+    },
+    "pool_wall": {
+      "baseColor": "#C8E0EC",
+      "roughness": 0.82,
+      "metalness": 0.05
+    }
+  },
+  "parts": [
+    {
+      "id": "site_pave",
+      "kind": "box",
+      "material": "paving_main",
+      "size": [
+        126,
+        0.2,
+        155
+      ],
+      "position": [
+        -28,
+        0.1,
+        21.5
+      ]
+    },
+    {
+      "id": "schoolyard",
+      "kind": "box",
+      "material": "schoolyard",
+      "size": [
+        100,
+        0.22,
+        72
+      ],
+      "position": [
+        -23,
+        0.11,
+        50
+      ]
+    },
+    {
+      "id": "yard_ln_f",
+      "kind": "box",
+      "material": "yard_line",
+      "size": [
+        88,
+        0.08,
+        0.18
+      ],
+      "position": [
+        -23,
+        0.26,
+        81.68
+      ]
+    },
+    {
+      "id": "yard_ln_b",
+      "kind": "box",
+      "material": "yard_line",
+      "size": [
+        88,
+        0.08,
+        0.18
+      ],
+      "position": [
+        -23,
+        0.26,
+        18.32
+      ]
+    },
+    {
+      "id": "yard_ln_L",
+      "kind": "box",
+      "material": "yard_line",
+      "size": [
+        0.18,
+        0.08,
+        59.04
+      ],
+      "position": [
+        -65,
+        0.26,
+        50
+      ]
+    },
+    {
+      "id": "yard_ln_R",
+      "kind": "box",
+      "material": "yard_line",
+      "size": [
+        0.18,
+        0.08,
+        59.04
+      ],
+      "position": [
+        19,
+        0.26,
+        50
+      ]
+    },
+    {
+      "id": "basket_pole_L",
+      "kind": "cylinder",
+      "material": "steel_frame",
+      "size": [
+        0.18,
+        3.2,
+        0.18
+      ],
+      "position": [
+        -45,
+        1.6,
+        24.08
+      ]
+    },
+    {
+      "id": "basket_board_L",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        1.8,
+        1.2,
+        0.12
+      ],
+      "position": [
+        -45,
+        3.6,
+        24.08
+      ]
+    },
+    {
+      "id": "basket_pole_R",
+      "kind": "cylinder",
+      "material": "steel_frame",
+      "size": [
+        0.18,
+        3.2,
+        0.18
+      ],
+      "position": [
+        -1,
+        1.6,
+        75.92
+      ]
+    },
+    {
+      "id": "basket_board_R",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        1.8,
+        1.2,
+        0.12
+      ],
+      "position": [
+        -1,
+        3.6,
+        75.92
+      ]
+    },
+    {
+      "id": "flag_pole",
+      "kind": "cylinder",
+      "material": "flagpole",
+      "size": [
+        0.14,
+        8,
+        0.14
+      ],
+      "position": [
+        -61,
+        4,
+        81.68
+      ]
+    },
+    {
+      "id": "flag",
+      "kind": "box",
+      "material": "wall_accent",
+      "size": [
+        1.8,
+        0.9,
+        0.08
+      ],
+      "position": [
+        -60.1,
+        7.6,
+        81.68
+      ]
+    },
+    {
+      "id": "m_found",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        60.4,
+        0.5,
+        12.4
+      ],
+      "position": [
+        0,
+        0.25,
+        0
+      ]
+    },
+    {
+      "id": "m_wall_f1",
+      "kind": "box",
+      "material": "wall_main",
+      "size": [
+        60,
+        3.46,
+        12
+      ],
+      "position": [
+        0,
+        2.23,
+        0
+      ]
+    },
+    {
+      "id": "m_band_f1",
+      "kind": "box",
+      "material": "wall_accent",
+      "size": [
+        60.1,
+        0.14,
+        12.1
+      ],
+      "position": [
+        0,
+        0.5,
+        0
+      ]
+    },
+    {
+      "id": "m_winF_f1_1",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        -24.48,
+        2.66,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f1_2",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        -16.32,
+        2.66,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f1_3",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        -8.16,
+        2.66,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f1_4",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        0,
+        2.66,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f1_5",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        8.16,
+        2.66,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f1_6",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        16.32,
+        2.66,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f1_7",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        24.48,
+        2.66,
+        6
+      ]
+    },
+    {
+      "id": "m_winB_f1",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        46.8,
+        1.368,
+        0.16
+      ],
+      "position": [
+        0,
+        2.516,
+        -6
+      ]
+    },
+    {
+      "id": "m_wall_f2",
+      "kind": "box",
+      "material": "wall_main",
+      "size": [
+        60,
+        3.46,
+        12
+      ],
+      "position": [
+        0,
+        5.83,
+        0
+      ]
+    },
+    {
+      "id": "m_band_f2",
+      "kind": "box",
+      "material": "wall_accent",
+      "size": [
+        60.1,
+        0.14,
+        12.1
+      ],
+      "position": [
+        0,
+        4.1,
+        0
+      ]
+    },
+    {
+      "id": "m_winF_f2_1",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        -24.48,
+        6.26,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f2_2",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        -16.32,
+        6.26,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f2_3",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        -8.16,
+        6.26,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f2_4",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        0,
+        6.26,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f2_5",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        8.16,
+        6.26,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f2_6",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        16.32,
+        6.26,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f2_7",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        24.48,
+        6.26,
+        6
+      ]
+    },
+    {
+      "id": "m_winB_f2",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        46.8,
+        1.368,
+        0.16
+      ],
+      "position": [
+        0,
+        6.116,
+        -6
+      ]
+    },
+    {
+      "id": "m_wall_f3",
+      "kind": "box",
+      "material": "wall_main",
+      "size": [
+        60,
+        3.46,
+        12
+      ],
+      "position": [
+        0,
+        9.43,
+        0
+      ]
+    },
+    {
+      "id": "m_band_f3",
+      "kind": "box",
+      "material": "wall_accent",
+      "size": [
+        60.1,
+        0.14,
+        12.1
+      ],
+      "position": [
+        0,
+        7.7,
+        0
+      ]
+    },
+    {
+      "id": "m_winF_f3_1",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        -24.48,
+        9.86,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f3_2",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        -16.32,
+        9.86,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f3_3",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        -8.16,
+        9.86,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f3_4",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        0,
+        9.86,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f3_5",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        8.16,
+        9.86,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f3_6",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        16.32,
+        9.86,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f3_7",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        24.48,
+        9.86,
+        6
+      ]
+    },
+    {
+      "id": "m_winB_f3",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        46.8,
+        1.368,
+        0.16
+      ],
+      "position": [
+        0,
+        9.716,
+        -6
+      ]
+    },
+    {
+      "id": "m_wall_f4",
+      "kind": "box",
+      "material": "wall_main",
+      "size": [
+        60,
+        3.46,
+        12
+      ],
+      "position": [
+        0,
+        13.03,
+        0
+      ]
+    },
+    {
+      "id": "m_band_f4",
+      "kind": "box",
+      "material": "wall_accent",
+      "size": [
+        60.1,
+        0.14,
+        12.1
+      ],
+      "position": [
+        0,
+        11.3,
+        0
+      ]
+    },
+    {
+      "id": "m_winF_f4_1",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        -24.48,
+        13.46,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f4_2",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        -16.32,
+        13.46,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f4_3",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        -8.16,
+        13.46,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f4_4",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        0,
+        13.46,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f4_5",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        8.16,
+        13.46,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f4_6",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        16.32,
+        13.46,
+        6
+      ]
+    },
+    {
+      "id": "m_winF_f4_7",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        5.7,
+        2.16,
+        0.18
+      ],
+      "position": [
+        24.48,
+        13.46,
+        6
+      ]
+    },
+    {
+      "id": "m_winB_f4",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        46.8,
+        1.368,
+        0.16
+      ],
+      "position": [
+        0,
+        13.316,
+        -6
+      ]
+    },
+    {
+      "id": "m_par_f",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        60.56,
+        0.8,
+        0.28
+      ],
+      "position": [
+        0,
+        15.3,
+        6.14
+      ]
+    },
+    {
+      "id": "m_par_b",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        60.56,
+        0.8,
+        0.28
+      ],
+      "position": [
+        0,
+        15.3,
+        -6.14
+      ]
+    },
+    {
+      "id": "m_par_L",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        0.28,
+        0.8,
+        12
+      ],
+      "position": [
+        -30.14,
+        15.3,
+        0
+      ]
+    },
+    {
+      "id": "m_par_R",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        0.28,
+        0.8,
+        12
+      ],
+      "position": [
+        30.14,
+        15.3,
+        0
+      ]
+    },
+    {
+      "id": "m_roof",
+      "kind": "box",
+      "material": "roof_flat",
+      "size": [
+        60.56,
+        0.2,
+        12.56
+      ],
+      "position": [
+        0,
+        15.8,
+        0
+      ]
+    },
+    {
+      "id": "ent_can",
+      "kind": "box",
+      "material": "canopy",
+      "size": [
+        17.8,
+        0.24,
+        5
+      ],
+      "position": [
+        0,
+        3.524,
+        8.5
+      ]
+    },
+    {
+      "id": "ent_col_L",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        0.22,
+        3.524,
+        0.22
+      ],
+      "position": [
+        -7.056,
+        1.762,
+        10.5
+      ]
+    },
+    {
+      "id": "ent_col_R",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        0.22,
+        3.524,
+        0.22
+      ],
+      "position": [
+        7.056,
+        1.762,
+        10.5
+      ]
+    },
+    {
+      "id": "ent_door",
+      "kind": "box",
+      "material": "glass_entry",
+      "size": [
+        10.416,
+        2.952,
+        0.22
+      ],
+      "position": [
+        0,
+        2.084,
+        6
+      ]
+    },
+    {
+      "id": "ent_sign",
+      "kind": "box",
+      "material": "sign_navy",
+      "size": [
+        13.44,
+        0.792,
+        0.14
+      ],
+      "position": [
+        0,
+        13.112,
+        6.01
+      ]
+    },
+    {
+      "id": "ent_sign_t",
+      "kind": "box",
+      "material": "sign_white",
+      "size": [
+        11.088,
+        0.432,
+        0.15
+      ],
+      "position": [
+        0,
+        13.112,
+        6.02
+      ]
+    },
+    {
+      "id": "approach",
+      "kind": "box",
+      "material": "paving_walk",
+      "size": [
+        20.8,
+        0.22,
+        44
+      ],
+      "position": [
+        0,
+        0.11,
+        48.5
+      ]
+    },
+    {
+      "id": "e_found",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        12.3,
+        0.5,
+        36.3
+      ],
+      "position": [
+        24,
+        0.25,
+        -24
+      ]
+    },
+    {
+      "id": "e_wall_f1",
+      "kind": "box",
+      "material": "wall_main",
+      "size": [
+        12,
+        3.46,
+        36
+      ],
+      "position": [
+        24,
+        2.23,
+        -24
+      ]
+    },
+    {
+      "id": "e_band_f1",
+      "kind": "box",
+      "material": "wall_accent",
+      "size": [
+        12.1,
+        0.14,
+        36.1
+      ],
+      "position": [
+        24,
+        0.5,
+        -24
+      ]
+    },
+    {
+      "id": "e_winE_f1_1",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        30,
+        2.66,
+        -36.96
+      ]
+    },
+    {
+      "id": "e_winE_f1_2",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        30,
+        2.66,
+        -30.48
+      ]
+    },
+    {
+      "id": "e_winE_f1_3",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        30,
+        2.66,
+        -24
+      ]
+    },
+    {
+      "id": "e_winE_f1_4",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        30,
+        2.66,
+        -17.52
+      ]
+    },
+    {
+      "id": "e_winE_f1_5",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        30,
+        2.66,
+        -11.04
+      ]
+    },
+    {
+      "id": "e_winW_f1",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.16,
+        1.368,
+        28.08
+      ],
+      "position": [
+        18,
+        2.48,
+        -24
+      ]
+    },
+    {
+      "id": "e_wall_f2",
+      "kind": "box",
+      "material": "wall_main",
+      "size": [
+        12,
+        3.46,
+        36
+      ],
+      "position": [
+        24,
+        5.83,
+        -24
+      ]
+    },
+    {
+      "id": "e_band_f2",
+      "kind": "box",
+      "material": "wall_accent",
+      "size": [
+        12.1,
+        0.14,
+        36.1
+      ],
+      "position": [
+        24,
+        4.1,
+        -24
+      ]
+    },
+    {
+      "id": "e_winE_f2_1",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        30,
+        6.26,
+        -36.96
+      ]
+    },
+    {
+      "id": "e_winE_f2_2",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        30,
+        6.26,
+        -30.48
+      ]
+    },
+    {
+      "id": "e_winE_f2_3",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        30,
+        6.26,
+        -24
+      ]
+    },
+    {
+      "id": "e_winE_f2_4",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        30,
+        6.26,
+        -17.52
+      ]
+    },
+    {
+      "id": "e_winE_f2_5",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        30,
+        6.26,
+        -11.04
+      ]
+    },
+    {
+      "id": "e_winW_f2",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.16,
+        1.368,
+        28.08
+      ],
+      "position": [
+        18,
+        6.08,
+        -24
+      ]
+    },
+    {
+      "id": "e_wall_f3",
+      "kind": "box",
+      "material": "wall_main",
+      "size": [
+        12,
+        3.46,
+        36
+      ],
+      "position": [
+        24,
+        9.43,
+        -24
+      ]
+    },
+    {
+      "id": "e_band_f3",
+      "kind": "box",
+      "material": "wall_accent",
+      "size": [
+        12.1,
+        0.14,
+        36.1
+      ],
+      "position": [
+        24,
+        7.7,
+        -24
+      ]
+    },
+    {
+      "id": "e_winE_f3_1",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        30,
+        9.86,
+        -36.96
+      ]
+    },
+    {
+      "id": "e_winE_f3_2",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        30,
+        9.86,
+        -30.48
+      ]
+    },
+    {
+      "id": "e_winE_f3_3",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        30,
+        9.86,
+        -24
+      ]
+    },
+    {
+      "id": "e_winE_f3_4",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        30,
+        9.86,
+        -17.52
+      ]
+    },
+    {
+      "id": "e_winE_f3_5",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        30,
+        9.86,
+        -11.04
+      ]
+    },
+    {
+      "id": "e_winW_f3",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.16,
+        1.368,
+        28.08
+      ],
+      "position": [
+        18,
+        9.68,
+        -24
+      ]
+    },
+    {
+      "id": "e_wall_f4",
+      "kind": "box",
+      "material": "wall_main",
+      "size": [
+        12,
+        3.46,
+        36
+      ],
+      "position": [
+        24,
+        13.03,
+        -24
+      ]
+    },
+    {
+      "id": "e_band_f4",
+      "kind": "box",
+      "material": "wall_accent",
+      "size": [
+        12.1,
+        0.14,
+        36.1
+      ],
+      "position": [
+        24,
+        11.3,
+        -24
+      ]
+    },
+    {
+      "id": "e_winE_f4_1",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        30,
+        13.46,
+        -36.96
+      ]
+    },
+    {
+      "id": "e_winE_f4_2",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        30,
+        13.46,
+        -30.48
+      ]
+    },
+    {
+      "id": "e_winE_f4_3",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        30,
+        13.46,
+        -24
+      ]
+    },
+    {
+      "id": "e_winE_f4_4",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        30,
+        13.46,
+        -17.52
+      ]
+    },
+    {
+      "id": "e_winE_f4_5",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        30,
+        13.46,
+        -11.04
+      ]
+    },
+    {
+      "id": "e_winW_f4",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.16,
+        1.368,
+        28.08
+      ],
+      "position": [
+        18,
+        13.28,
+        -24
+      ]
+    },
+    {
+      "id": "e_par_f",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        12.56,
+        0.8,
+        0.28
+      ],
+      "position": [
+        24,
+        15.3,
+        -5.86
+      ]
+    },
+    {
+      "id": "e_par_b",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        12.56,
+        0.8,
+        0.28
+      ],
+      "position": [
+        24,
+        15.3,
+        -42.14
+      ]
+    },
+    {
+      "id": "e_par_E",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        0.28,
+        0.8,
+        36
+      ],
+      "position": [
+        30.14,
+        15.3,
+        -24
+      ]
+    },
+    {
+      "id": "e_par_W",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        0.28,
+        0.8,
+        36
+      ],
+      "position": [
+        17.86,
+        15.3,
+        -24
+      ]
+    },
+    {
+      "id": "e_roof",
+      "kind": "box",
+      "material": "roof_flat",
+      "size": [
+        12.56,
+        0.2,
+        36.56
+      ],
+      "position": [
+        24,
+        15.8,
+        -24
+      ]
+    },
+    {
+      "id": "w_found",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        12.3,
+        0.5,
+        28.3
+      ],
+      "position": [
+        -24,
+        0.25,
+        -20
+      ]
+    },
+    {
+      "id": "w_wall_f1",
+      "kind": "box",
+      "material": "wall_main",
+      "size": [
+        12,
+        3.46,
+        28
+      ],
+      "position": [
+        -24,
+        2.23,
+        -20
+      ]
+    },
+    {
+      "id": "w_band_f1",
+      "kind": "box",
+      "material": "wall_accent",
+      "size": [
+        12.1,
+        0.14,
+        28.1
+      ],
+      "position": [
+        -24,
+        0.5,
+        -20
+      ]
+    },
+    {
+      "id": "w_winW_f1_1",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        -30,
+        2.66,
+        -27.84
+      ]
+    },
+    {
+      "id": "w_winW_f1_2",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        -30,
+        2.66,
+        -20
+      ]
+    },
+    {
+      "id": "w_winW_f1_3",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        -30,
+        2.66,
+        -12.16
+      ]
+    },
+    {
+      "id": "w_winE_f1",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.16,
+        1.368,
+        21.84
+      ],
+      "position": [
+        -18,
+        2.48,
+        -20
+      ]
+    },
+    {
+      "id": "w_wall_f2",
+      "kind": "box",
+      "material": "wall_main",
+      "size": [
+        12,
+        3.46,
+        28
+      ],
+      "position": [
+        -24,
+        5.83,
+        -20
+      ]
+    },
+    {
+      "id": "w_band_f2",
+      "kind": "box",
+      "material": "wall_accent",
+      "size": [
+        12.1,
+        0.14,
+        28.1
+      ],
+      "position": [
+        -24,
+        4.1,
+        -20
+      ]
+    },
+    {
+      "id": "w_winW_f2_1",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        -30,
+        6.26,
+        -27.84
+      ]
+    },
+    {
+      "id": "w_winW_f2_2",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        -30,
+        6.26,
+        -20
+      ]
+    },
+    {
+      "id": "w_winW_f2_3",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        -30,
+        6.26,
+        -12.16
+      ]
+    },
+    {
+      "id": "w_winE_f2",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.16,
+        1.368,
+        21.84
+      ],
+      "position": [
+        -18,
+        6.08,
+        -20
+      ]
+    },
+    {
+      "id": "w_wall_f3",
+      "kind": "box",
+      "material": "wall_main",
+      "size": [
+        12,
+        3.46,
+        28
+      ],
+      "position": [
+        -24,
+        9.43,
+        -20
+      ]
+    },
+    {
+      "id": "w_band_f3",
+      "kind": "box",
+      "material": "wall_accent",
+      "size": [
+        12.1,
+        0.14,
+        28.1
+      ],
+      "position": [
+        -24,
+        7.7,
+        -20
+      ]
+    },
+    {
+      "id": "w_winW_f3_1",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        -30,
+        9.86,
+        -27.84
+      ]
+    },
+    {
+      "id": "w_winW_f3_2",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        -30,
+        9.86,
+        -20
+      ]
+    },
+    {
+      "id": "w_winW_f3_3",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        -30,
+        9.86,
+        -12.16
+      ]
+    },
+    {
+      "id": "w_winE_f3",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.16,
+        1.368,
+        21.84
+      ],
+      "position": [
+        -18,
+        9.68,
+        -20
+      ]
+    },
+    {
+      "id": "w_wall_f4",
+      "kind": "box",
+      "material": "wall_main",
+      "size": [
+        12,
+        3.46,
+        28
+      ],
+      "position": [
+        -24,
+        13.03,
+        -20
+      ]
+    },
+    {
+      "id": "w_band_f4",
+      "kind": "box",
+      "material": "wall_accent",
+      "size": [
+        12.1,
+        0.14,
+        28.1
+      ],
+      "position": [
+        -24,
+        11.3,
+        -20
+      ]
+    },
+    {
+      "id": "w_winW_f4_1",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        -30,
+        13.46,
+        -27.84
+      ]
+    },
+    {
+      "id": "w_winW_f4_2",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        -30,
+        13.46,
+        -20
+      ]
+    },
+    {
+      "id": "w_winW_f4_3",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.18,
+        2.16,
+        5.04
+      ],
+      "position": [
+        -30,
+        13.46,
+        -12.16
+      ]
+    },
+    {
+      "id": "w_winE_f4",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.16,
+        1.368,
+        21.84
+      ],
+      "position": [
+        -18,
+        13.28,
+        -20
+      ]
+    },
+    {
+      "id": "w_par_f",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        12.56,
+        0.8,
+        0.28
+      ],
+      "position": [
+        -24,
+        15.3,
+        -5.86
+      ]
+    },
+    {
+      "id": "w_par_b",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        12.56,
+        0.8,
+        0.28
+      ],
+      "position": [
+        -24,
+        15.3,
+        -34.14
+      ]
+    },
+    {
+      "id": "w_par_E",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        0.28,
+        0.8,
+        28
+      ],
+      "position": [
+        -17.86,
+        15.3,
+        -20
+      ]
+    },
+    {
+      "id": "w_par_W",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        0.28,
+        0.8,
+        28
+      ],
+      "position": [
+        -30.14,
+        15.3,
+        -20
+      ]
+    },
+    {
+      "id": "w_roof",
+      "kind": "box",
+      "material": "roof_flat",
+      "size": [
+        12.56,
+        0.2,
+        28.56
+      ],
+      "position": [
+        -24,
+        15.8,
+        -20
+      ]
+    },
+    {
+      "id": "gym_found",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        26.4,
+        0.5,
+        42.4
+      ],
+      "position": [
+        -46,
+        0.25,
+        -15
+      ]
+    },
+    {
+      "id": "gym_wall",
+      "kind": "box",
+      "material": "wall_gym",
+      "size": [
+        26,
+        9.5,
+        42
+      ],
+      "position": [
+        -46,
+        5.25,
+        -15
+      ]
+    },
+    {
+      "id": "gym_band_b",
+      "kind": "box",
+      "material": "wall_accent",
+      "size": [
+        26.1,
+        0.5,
+        42.1
+      ],
+      "position": [
+        -46,
+        1.5,
+        -15
+      ]
+    },
+    {
+      "id": "gym_winS_1",
+      "kind": "box",
+      "material": "glass_gym",
+      "size": [
+        2.6,
+        2.66,
+        0.18
+      ],
+      "position": [
+        -55.36,
+        7.72,
+        6
+      ]
+    },
+    {
+      "id": "gym_winN_1",
+      "kind": "box",
+      "material": "glass_gym",
+      "size": [
+        2.6,
+        2.66,
+        0.18
+      ],
+      "position": [
+        -55.36,
+        7.72,
+        -36
+      ]
+    },
+    {
+      "id": "gym_winS_2",
+      "kind": "box",
+      "material": "glass_gym",
+      "size": [
+        2.6,
+        2.66,
+        0.18
+      ],
+      "position": [
+        -50.68,
+        7.72,
+        6
+      ]
+    },
+    {
+      "id": "gym_winN_2",
+      "kind": "box",
+      "material": "glass_gym",
+      "size": [
+        2.6,
+        2.66,
+        0.18
+      ],
+      "position": [
+        -50.68,
+        7.72,
+        -36
+      ]
+    },
+    {
+      "id": "gym_winS_3",
+      "kind": "box",
+      "material": "glass_gym",
+      "size": [
+        2.6,
+        2.66,
+        0.18
+      ],
+      "position": [
+        -46,
+        7.72,
+        6
+      ]
+    },
+    {
+      "id": "gym_winN_3",
+      "kind": "box",
+      "material": "glass_gym",
+      "size": [
+        2.6,
+        2.66,
+        0.18
+      ],
+      "position": [
+        -46,
+        7.72,
+        -36
+      ]
+    },
+    {
+      "id": "gym_winS_4",
+      "kind": "box",
+      "material": "glass_gym",
+      "size": [
+        2.6,
+        2.66,
+        0.18
+      ],
+      "position": [
+        -41.32,
+        7.72,
+        6
+      ]
+    },
+    {
+      "id": "gym_winN_4",
+      "kind": "box",
+      "material": "glass_gym",
+      "size": [
+        2.6,
+        2.66,
+        0.18
+      ],
+      "position": [
+        -41.32,
+        7.72,
+        -36
+      ]
+    },
+    {
+      "id": "gym_winS_5",
+      "kind": "box",
+      "material": "glass_gym",
+      "size": [
+        2.6,
+        2.66,
+        0.18
+      ],
+      "position": [
+        -36.64,
+        7.72,
+        6
+      ]
+    },
+    {
+      "id": "gym_winN_5",
+      "kind": "box",
+      "material": "glass_gym",
+      "size": [
+        2.6,
+        2.66,
+        0.18
+      ],
+      "position": [
+        -36.64,
+        7.72,
+        -36
+      ]
+    },
+    {
+      "id": "gym_roof_main",
+      "kind": "box",
+      "material": "roof_gym",
+      "size": [
+        26.4,
+        0.6,
+        42.4
+      ],
+      "position": [
+        -46,
+        10.3,
+        -15
+      ]
+    },
+    {
+      "id": "gym_roof_ridge",
+      "kind": "box",
+      "material": "roof_gym",
+      "size": [
+        10.4,
+        0.5,
+        40.32
+      ],
+      "position": [
+        -46,
+        10.8,
+        -15
+      ]
+    },
+    {
+      "id": "gym_entry",
+      "kind": "box",
+      "material": "glass_entry",
+      "size": [
+        7.8,
+        6.46,
+        0.22
+      ],
+      "position": [
+        -46,
+        4.015,
+        6
+      ]
+    },
+    {
+      "id": "gym_ent_can",
+      "kind": "box",
+      "material": "canopy",
+      "size": [
+        10.4,
+        0.22,
+        3.5
+      ],
+      "position": [
+        -46,
+        7.34,
+        7.75
+      ]
+    },
+    {
+      "id": "pool_deck",
+      "kind": "box",
+      "material": "pool_wall",
+      "size": [
+        27,
+        0.55,
+        15
+      ],
+      "position": [
+        -73.5,
+        0.28,
+        -44.5
+      ]
+    },
+    {
+      "id": "pool_water",
+      "kind": "box",
+      "material": "pool_water",
+      "size": [
+        25,
+        0.4,
+        13
+      ],
+      "position": [
+        -73.5,
+        0.4,
+        -44.5
+      ]
+    },
+    {
+      "id": "pool_wall_f",
+      "kind": "box",
+      "material": "pool_wall",
+      "size": [
+        27,
+        0.55,
+        0.3
+      ],
+      "position": [
+        -73.5,
+        0.28,
+        -37.85
+      ]
+    },
+    {
+      "id": "pool_wall_b",
+      "kind": "box",
+      "material": "pool_wall",
+      "size": [
+        27,
+        0.55,
+        0.3
+      ],
+      "position": [
+        -73.5,
+        0.28,
+        -51.15
+      ]
+    },
+    {
+      "id": "pool_wall_L",
+      "kind": "box",
+      "material": "pool_wall",
+      "size": [
+        0.3,
+        0.55,
+        15
+      ],
+      "position": [
+        -86.15,
+        0.28,
+        -44.5
+      ]
+    },
+    {
+      "id": "pool_wall_R",
+      "kind": "box",
+      "material": "pool_wall",
+      "size": [
+        0.3,
+        0.55,
+        15
+      ],
+      "position": [
+        -60.85,
+        0.28,
+        -44.5
+      ]
+    },
+    {
+      "id": "pool_lane_1",
+      "kind": "box",
+      "material": "sign_white",
+      "size": [
+        0.1,
+        0.06,
+        11.44
+      ],
+      "position": [
+        -82.4286,
+        0.46,
+        -44.5
+      ]
+    },
+    {
+      "id": "pool_lane_2",
+      "kind": "box",
+      "material": "sign_white",
+      "size": [
+        0.1,
+        0.06,
+        11.44
+      ],
+      "position": [
+        -78.8571,
+        0.46,
+        -44.5
+      ]
+    },
+    {
+      "id": "pool_lane_3",
+      "kind": "box",
+      "material": "sign_white",
+      "size": [
+        0.1,
+        0.06,
+        11.44
+      ],
+      "position": [
+        -75.2857,
+        0.46,
+        -44.5
+      ]
+    },
+    {
+      "id": "pool_lane_4",
+      "kind": "box",
+      "material": "sign_white",
+      "size": [
+        0.1,
+        0.06,
+        11.44
+      ],
+      "position": [
+        -71.7143,
+        0.46,
+        -44.5
+      ]
+    },
+    {
+      "id": "pool_lane_5",
+      "kind": "box",
+      "material": "sign_white",
+      "size": [
+        0.1,
+        0.06,
+        11.44
+      ],
+      "position": [
+        -68.1429,
+        0.46,
+        -44.5
+      ]
+    },
+    {
+      "id": "pool_lane_6",
+      "kind": "box",
+      "material": "sign_white",
+      "size": [
+        0.1,
+        0.06,
+        11.44
+      ],
+      "position": [
+        -64.5714,
+        0.46,
+        -44.5
+      ]
+    },
+    {
+      "id": "gate_post_L",
+      "kind": "box",
+      "material": "gate_pillar",
+      "size": [
+        1.2,
+        3.6,
+        1.2
+      ],
+      "position": [
+        -4.6,
+        1.8,
+        91
+      ]
+    },
+    {
+      "id": "gate_post_R",
+      "kind": "box",
+      "material": "gate_pillar",
+      "size": [
+        1.2,
+        3.6,
+        1.2
+      ],
+      "position": [
+        4.6,
+        1.8,
+        91
+      ]
+    },
+    {
+      "id": "gate_door_L",
+      "kind": "box",
+      "material": "gate_fence",
+      "size": [
+        3.52,
+        2.624,
+        0.12
+      ],
+      "position": [
+        -1.76,
+        1.408,
+        91
+      ]
+    },
+    {
+      "id": "gate_door_R",
+      "kind": "box",
+      "material": "gate_fence",
+      "size": [
+        3.52,
+        2.624,
+        0.12
+      ],
+      "position": [
+        1.76,
+        1.408,
+        91
+      ]
+    },
+    {
+      "id": "gate_top",
+      "kind": "box",
+      "material": "gate_pillar",
+      "size": [
+        9.5,
+        0.3,
+        0.3
+      ],
+      "position": [
+        0,
+        3.75,
+        91
+      ]
+    },
+    {
+      "id": "fence_L",
+      "kind": "box",
+      "material": "gate_fence",
+      "size": [
+        28.3,
+        2.496,
+        0.12
+      ],
+      "position": [
+        -19.55,
+        1.344,
+        91
+      ]
+    },
+    {
+      "id": "fence_R",
+      "kind": "box",
+      "material": "gate_fence",
+      "size": [
+        28.3,
+        2.496,
+        0.12
+      ],
+      "position": [
+        19.55,
+        1.344,
+        91
+      ]
+    },
+    {
+      "id": "school_sign",
+      "kind": "box",
+      "material": "gate_pillar",
+      "size": [
+        0.3,
+        1.8,
+        0.8
+      ],
+      "position": [
+        5.5,
+        0.9,
+        90
+      ]
+    },
+    {
+      "id": "school_sign_txt",
+      "kind": "box",
+      "material": "sign_white",
+      "size": [
+        0.08,
+        1.4,
+        0.58
+      ],
+      "position": [
+        5.36,
+        0.9,
+        90
+      ]
+    }
+  ],
+  "surfaceDetails": [
+    {
+      "id": "sd_1",
+      "region": "facade",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.011,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_2",
+      "region": "facade",
+      "type": "window_grid",
+      "strength": 0.14,
+      "offset": [
+        0.0102,
+        0.0084,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_3",
+      "region": "facade",
+      "type": "concrete_texture",
+      "strength": 0.18,
+      "offset": [
+        0.0127,
+        0.0019,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_4",
+      "region": "facade",
+      "type": "weathering",
+      "strength": 0.22,
+      "offset": [
+        0.0056,
+        -0.0056,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_5",
+      "region": "facade",
+      "type": "trim_line",
+      "strength": 0.26,
+      "offset": [
+        -0.0058,
+        -0.0104,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_6",
+      "region": "facade",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0127,
+        -0.0103,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_7",
+      "region": "facade",
+      "type": "window_grid",
+      "strength": 0.14,
+      "offset": [
+        -0.01,
+        -0.0054,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_8",
+      "region": "facade",
+      "type": "concrete_texture",
+      "strength": 0.18,
+      "offset": [
+        0.0002,
+        0.0021,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_9",
+      "region": "gym",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.011,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_10",
+      "region": "gym",
+      "type": "window_grid",
+      "strength": 0.14,
+      "offset": [
+        0.0102,
+        0.0084,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_11",
+      "region": "gym",
+      "type": "concrete_texture",
+      "strength": 0.18,
+      "offset": [
+        0.0127,
+        0.0019,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_12",
+      "region": "gym",
+      "type": "weathering",
+      "strength": 0.22,
+      "offset": [
+        0.0056,
+        -0.0056,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_13",
+      "region": "gym",
+      "type": "trim_line",
+      "strength": 0.26,
+      "offset": [
+        -0.0058,
+        -0.0104,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_14",
+      "region": "gym",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0127,
+        -0.0103,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_15",
+      "region": "gym",
+      "type": "window_grid",
+      "strength": 0.14,
+      "offset": [
+        -0.01,
+        -0.0054,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_16",
+      "region": "gym",
+      "type": "concrete_texture",
+      "strength": 0.18,
+      "offset": [
+        0.0002,
+        0.0021,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_17",
+      "region": "schoolyard",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.011,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_18",
+      "region": "schoolyard",
+      "type": "window_grid",
+      "strength": 0.14,
+      "offset": [
+        0.0102,
+        0.0084,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_19",
+      "region": "schoolyard",
+      "type": "concrete_texture",
+      "strength": 0.18,
+      "offset": [
+        0.0127,
+        0.0019,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_20",
+      "region": "schoolyard",
+      "type": "weathering",
+      "strength": 0.22,
+      "offset": [
+        0.0056,
+        -0.0056,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_21",
+      "region": "schoolyard",
+      "type": "trim_line",
+      "strength": 0.26,
+      "offset": [
+        -0.0058,
+        -0.0104,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_22",
+      "region": "schoolyard",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0127,
+        -0.0103,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_23",
+      "region": "schoolyard",
+      "type": "window_grid",
+      "strength": 0.14,
+      "offset": [
+        -0.01,
+        -0.0054,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_24",
+      "region": "schoolyard",
+      "type": "concrete_texture",
+      "strength": 0.18,
+      "offset": [
+        0.0002,
+        0.0021,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_25",
+      "region": "window",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.011,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_26",
+      "region": "window",
+      "type": "window_grid",
+      "strength": 0.14,
+      "offset": [
+        0.0102,
+        0.0084,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_27",
+      "region": "window",
+      "type": "concrete_texture",
+      "strength": 0.18,
+      "offset": [
+        0.0127,
+        0.0019,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_28",
+      "region": "window",
+      "type": "weathering",
+      "strength": 0.22,
+      "offset": [
+        0.0056,
+        -0.0056,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_29",
+      "region": "window",
+      "type": "trim_line",
+      "strength": 0.26,
+      "offset": [
+        -0.0058,
+        -0.0104,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_30",
+      "region": "window",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0127,
+        -0.0103,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_31",
+      "region": "window",
+      "type": "window_grid",
+      "strength": 0.14,
+      "offset": [
+        -0.01,
+        -0.0054,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_32",
+      "region": "window",
+      "type": "concrete_texture",
+      "strength": 0.18,
+      "offset": [
+        0.0002,
+        0.0021,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_33",
+      "region": "entrance",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.011,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_34",
+      "region": "entrance",
+      "type": "window_grid",
+      "strength": 0.14,
+      "offset": [
+        0.0102,
+        0.0084,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_35",
+      "region": "entrance",
+      "type": "concrete_texture",
+      "strength": 0.18,
+      "offset": [
+        0.0127,
+        0.0019,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_36",
+      "region": "entrance",
+      "type": "weathering",
+      "strength": 0.22,
+      "offset": [
+        0.0056,
+        -0.0056,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_37",
+      "region": "entrance",
+      "type": "trim_line",
+      "strength": 0.26,
+      "offset": [
+        -0.0058,
+        -0.0104,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_38",
+      "region": "entrance",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0127,
+        -0.0103,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_39",
+      "region": "entrance",
+      "type": "window_grid",
+      "strength": 0.14,
+      "offset": [
+        -0.01,
+        -0.0054,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_40",
+      "region": "entrance",
+      "type": "concrete_texture",
+      "strength": 0.18,
+      "offset": [
+        0.0002,
+        0.0021,
+        0.0135
+      ]
+    }
+  ],
+  "ornaments": [],
+  "pose": {
+    "preset": "static"
+  },
+  "animationHints": {},
+  "lod": {
+    "high": "full",
+    "medium": "reduce_window_bands",
+    "low": "merge_facade_layers"
+  },
+  "exportOptions": {
+    "formats": [
+      "gltf",
+      "glb"
+    ],
+    "previewHtml": true
+  }
+}

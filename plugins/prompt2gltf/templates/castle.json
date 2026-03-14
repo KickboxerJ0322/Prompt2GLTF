@@ -1,0 +1,4220 @@
+{
+  "meta": {
+    "name": "castle_60m_日本の城_大阪城をイメージした_豪華かつ厳格なイメージの和風の城",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "prompt2gltf",
+    "generatedFrom": "日本の城。大阪城をイメージした、豪華かつ厳格なイメージの和風の城",
+    "createdAt": "2026-03-14T10:23:24.626Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "日本の城。大阪城をイメージした、豪華かつ厳格なイメージの和風の城",
+    "normalizedSubject": "castle",
+    "targetHeightMeters": 60,
+    "styleTags": [
+      "japanese_traditional"
+    ],
+    "geometryDirective": "Use mixed primitives (box/cylinder/sphere/tri_prism); represent curved real-world forms with rounded geometry.",
+    "summary": "Generated from prompt as a castle with high-density procedural spec.",
+    "designIntent": {
+      "scaleImpression": "very_large",
+      "mood": "majestic",
+      "originalityPolicy": "generalized_original_design"
+    },
+    "fantasyArchetype": "japanese_castle"
+  },
+  "globalScale": {
+    "height": 60,
+    "width": 87,
+    "depth": 66
+  },
+  "style": {
+    "silhouette": "japanese_castle",
+    "mood": "majestic",
+    "genre": "fantasy_architecture",
+    "detailDensity": "high"
+  },
+  "materials": {
+    "ishigaki": {
+      "baseColor": "#5A5040",
+      "roughness": 0.96,
+      "metalness": 0.02
+    },
+    "ishigaki_dark": {
+      "baseColor": "#38302A",
+      "roughness": 0.97,
+      "metalness": 0.01
+    },
+    "shirokabe": {
+      "baseColor": "#F0EDE0",
+      "roughness": 0.86,
+      "metalness": 0.02
+    },
+    "kawara": {
+      "baseColor": "#2A4838",
+      "roughness": 0.88,
+      "metalness": 0.04
+    },
+    "kawara_dark": {
+      "baseColor": "#1C3028",
+      "roughness": 0.9,
+      "metalness": 0.04
+    },
+    "kintogi": {
+      "baseColor": "#D4A820",
+      "roughness": 0.24,
+      "metalness": 0.93
+    },
+    "mokuzai": {
+      "baseColor": "#180E06",
+      "roughness": 0.74,
+      "metalness": 0.06
+    },
+    "moat_water": {
+      "baseColor": "#2C4858",
+      "roughness": 0.06,
+      "metalness": 0.22
+    },
+    "paving_stone": {
+      "baseColor": "#8C7E6C",
+      "roughness": 0.94,
+      "metalness": 0.02
+    },
+    "hafu_white": {
+      "baseColor": "#EAE8DC",
+      "roughness": 0.84,
+      "metalness": 0.02
+    },
+    "banner_red": {
+      "baseColor": "#C81818",
+      "roughness": 0.72,
+      "metalness": 0.04
+    },
+    "tobi_ishi": {
+      "baseColor": "#6A6050",
+      "roughness": 0.96,
+      "metalness": 0.02
+    },
+    "fence_stone": {
+      "baseColor": "#4A4438",
+      "roughness": 0.94,
+      "metalness": 0.02
+    }
+  },
+  "parts": [
+    {
+      "id": "outer_ground",
+      "kind": "box",
+      "size": [
+        111,
+        0.96,
+        93
+      ],
+      "position": [
+        0,
+        0.48,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "paving_stone"
+    },
+    {
+      "id": "moat_water",
+      "kind": "box",
+      "size": [
+        79.2,
+        1.08,
+        66
+      ],
+      "position": [
+        0,
+        1.5,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "moat_water"
+    },
+    {
+      "id": "inner_ground",
+      "kind": "box",
+      "size": [
+        54,
+        1.08,
+        45.6
+      ],
+      "position": [
+        0,
+        2.4,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "paving_stone"
+    },
+    {
+      "id": "wall_n",
+      "kind": "box",
+      "size": [
+        52.8,
+        2.88,
+        1.2
+      ],
+      "position": [
+        0,
+        3.84,
+        -25.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "ishigaki"
+    },
+    {
+      "id": "wall_s",
+      "kind": "box",
+      "size": [
+        52.8,
+        2.88,
+        1.2
+      ],
+      "position": [
+        0,
+        3.84,
+        25.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "ishigaki"
+    },
+    {
+      "id": "wall_e",
+      "kind": "box",
+      "size": [
+        1.2,
+        2.88,
+        51.6
+      ],
+      "position": [
+        26.4,
+        3.84,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "ishigaki"
+    },
+    {
+      "id": "wall_w",
+      "kind": "box",
+      "size": [
+        1.2,
+        2.88,
+        51.6
+      ],
+      "position": [
+        -26.4,
+        3.84,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "ishigaki"
+    },
+    {
+      "id": "otemon_l",
+      "kind": "box",
+      "size": [
+        8.4,
+        5.1,
+        3.6
+      ],
+      "position": [
+        -5.1,
+        4.98,
+        25.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "ishigaki"
+    },
+    {
+      "id": "otemon_r",
+      "kind": "box",
+      "size": [
+        8.4,
+        5.1,
+        3.6
+      ],
+      "position": [
+        5.1,
+        4.98,
+        25.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "ishigaki"
+    },
+    {
+      "id": "otemon_roof",
+      "kind": "box",
+      "size": [
+        19.2,
+        2.16,
+        5.28
+      ],
+      "position": [
+        0,
+        9,
+        25.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "otemon_gf",
+      "kind": "tri_prism",
+      "size": [
+        17.4,
+        3,
+        1.08
+      ],
+      "position": [
+        0,
+        9.66,
+        28.44
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "otemon_gb",
+      "kind": "tri_prism",
+      "size": [
+        17.4,
+        3,
+        1.08
+      ],
+      "position": [
+        0,
+        9.66,
+        23.16
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "otemon_pass",
+      "kind": "box",
+      "size": [
+        4.8,
+        3.9,
+        1.44
+      ],
+      "position": [
+        0,
+        4.98,
+        25.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "ishi_t1",
+      "kind": "box",
+      "size": [
+        49.2,
+        6,
+        42
+      ],
+      "position": [
+        0,
+        5.4,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "ishigaki"
+    },
+    {
+      "id": "ishi_t2",
+      "kind": "box",
+      "size": [
+        38.4,
+        4.5,
+        32.7
+      ],
+      "position": [
+        0,
+        10.65,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "ishigaki"
+    },
+    {
+      "id": "ishi_t3",
+      "kind": "box",
+      "size": [
+        29.4,
+        3.3,
+        24.9
+      ],
+      "position": [
+        0,
+        14.55,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "ishigaki"
+    },
+    {
+      "id": "ishi_t1_face",
+      "kind": "box",
+      "size": [
+        48.216,
+        5.76,
+        0.72
+      ],
+      "position": [
+        0,
+        5.4,
+        21.36
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "ishigaki_dark"
+    },
+    {
+      "id": "ishi_t2_face",
+      "kind": "box",
+      "size": [
+        37.632,
+        4.32,
+        0.72
+      ],
+      "position": [
+        0,
+        10.65,
+        16.71
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "ishigaki_dark"
+    },
+    {
+      "id": "ishi_t3_face",
+      "kind": "box",
+      "size": [
+        28.812,
+        3.168,
+        0.72
+      ],
+      "position": [
+        0,
+        14.55,
+        12.81
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "ishigaki_dark"
+    },
+    {
+      "id": "courtyard_t3",
+      "kind": "box",
+      "size": [
+        28.812,
+        0.6,
+        24.402
+      ],
+      "position": [
+        0,
+        16.5,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "paving_stone"
+    },
+    {
+      "id": "floor_1",
+      "kind": "box",
+      "size": [
+        17.1,
+        5.64,
+        14.16
+      ],
+      "position": [
+        0,
+        19.02,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "shirokabe"
+    },
+    {
+      "id": "col_fl_1",
+      "kind": "box",
+      "size": [
+        0.66,
+        5.64,
+        0.66
+      ],
+      "position": [
+        -8.55,
+        19.02,
+        7.08
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "col_fr_1",
+      "kind": "box",
+      "size": [
+        0.66,
+        5.64,
+        0.66
+      ],
+      "position": [
+        8.55,
+        19.02,
+        7.08
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "col_bl_1",
+      "kind": "box",
+      "size": [
+        0.66,
+        5.64,
+        0.66
+      ],
+      "position": [
+        -8.55,
+        19.02,
+        -7.08
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "col_br_1",
+      "kind": "box",
+      "size": [
+        0.66,
+        5.64,
+        0.66
+      ],
+      "position": [
+        8.55,
+        19.02,
+        -7.08
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "win_f_1",
+      "kind": "box",
+      "size": [
+        12.312,
+        1.974,
+        0.66
+      ],
+      "position": [
+        0,
+        19.02,
+        7.08
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "win_b_1",
+      "kind": "box",
+      "size": [
+        12.312,
+        1.974,
+        0.66
+      ],
+      "position": [
+        0,
+        19.02,
+        -7.08
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "win_l_1",
+      "kind": "box",
+      "size": [
+        0.66,
+        1.974,
+        9.6288
+      ],
+      "position": [
+        -8.55,
+        19.02,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "win_r_1",
+      "kind": "box",
+      "size": [
+        0.66,
+        1.974,
+        9.6288
+      ],
+      "position": [
+        8.55,
+        19.02,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "gold_band_1",
+      "kind": "box",
+      "size": [
+        17.34,
+        0.42,
+        14.4
+      ],
+      "position": [
+        0,
+        16.41,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "roof_hip_1",
+      "kind": "box",
+      "size": [
+        19.74,
+        1.2,
+        16.8
+      ],
+      "position": [
+        0,
+        22.44,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "roof_gf_1",
+      "kind": "tri_prism",
+      "size": [
+        11.115,
+        1.344,
+        0.96
+      ],
+      "position": [
+        0,
+        22.512,
+        8.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "roof_gb_1",
+      "kind": "tri_prism",
+      "size": [
+        11.115,
+        1.344,
+        0.96
+      ],
+      "position": [
+        0,
+        22.512,
+        -8.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "hafu_f_1",
+      "kind": "tri_prism",
+      "size": [
+        9.918,
+        1.104,
+        0.48
+      ],
+      "position": [
+        0,
+        22.44,
+        7.806
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "hafu_white"
+    },
+    {
+      "id": "hafu_b_1",
+      "kind": "tri_prism",
+      "size": [
+        9.918,
+        1.104,
+        0.48
+      ],
+      "position": [
+        0,
+        22.44,
+        -7.806
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "hafu_white"
+    },
+    {
+      "id": "ridge_1",
+      "kind": "box",
+      "size": [
+        9.576,
+        1.02,
+        1.2
+      ],
+      "position": [
+        0,
+        23.7,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara_dark"
+    },
+    {
+      "id": "ridge_gold_1",
+      "kind": "box",
+      "size": [
+        4.788,
+        0.66,
+        0.78
+      ],
+      "position": [
+        0,
+        24.36,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "hafu_kaz_f_1",
+      "kind": "box",
+      "size": [
+        3.078,
+        0.84,
+        0.48
+      ],
+      "position": [
+        0,
+        23.616,
+        8.136
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "hafu_kaz_b_1",
+      "kind": "box",
+      "size": [
+        3.078,
+        0.84,
+        0.48
+      ],
+      "position": [
+        0,
+        23.616,
+        -8.136
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "floor_2",
+      "kind": "box",
+      "size": [
+        14.64,
+        5.04,
+        12.12
+      ],
+      "position": [
+        0,
+        26.76,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "shirokabe"
+    },
+    {
+      "id": "col_fl_2",
+      "kind": "box",
+      "size": [
+        0.66,
+        5.04,
+        0.66
+      ],
+      "position": [
+        -7.32,
+        26.76,
+        6.06
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "col_fr_2",
+      "kind": "box",
+      "size": [
+        0.66,
+        5.04,
+        0.66
+      ],
+      "position": [
+        7.32,
+        26.76,
+        6.06
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "col_bl_2",
+      "kind": "box",
+      "size": [
+        0.66,
+        5.04,
+        0.66
+      ],
+      "position": [
+        -7.32,
+        26.76,
+        -6.06
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "col_br_2",
+      "kind": "box",
+      "size": [
+        0.66,
+        5.04,
+        0.66
+      ],
+      "position": [
+        7.32,
+        26.76,
+        -6.06
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "win_f_2",
+      "kind": "box",
+      "size": [
+        10.5408,
+        1.764,
+        0.66
+      ],
+      "position": [
+        0,
+        26.76,
+        6.06
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "win_b_2",
+      "kind": "box",
+      "size": [
+        10.5408,
+        1.764,
+        0.66
+      ],
+      "position": [
+        0,
+        26.76,
+        -6.06
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "win_l_2",
+      "kind": "box",
+      "size": [
+        0.66,
+        1.764,
+        8.2416
+      ],
+      "position": [
+        -7.32,
+        26.76,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "win_r_2",
+      "kind": "box",
+      "size": [
+        0.66,
+        1.764,
+        8.2416
+      ],
+      "position": [
+        7.32,
+        26.76,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "gold_band_2",
+      "kind": "box",
+      "size": [
+        14.88,
+        0.42,
+        12.36
+      ],
+      "position": [
+        0,
+        24.45,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "roof_hip_2",
+      "kind": "box",
+      "size": [
+        17.28,
+        1.05,
+        14.76
+      ],
+      "position": [
+        0,
+        29.805,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "roof_gf_2",
+      "kind": "tri_prism",
+      "size": [
+        9.516,
+        1.176,
+        0.96
+      ],
+      "position": [
+        0,
+        29.868,
+        7.38
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "roof_gb_2",
+      "kind": "tri_prism",
+      "size": [
+        9.516,
+        1.176,
+        0.96
+      ],
+      "position": [
+        0,
+        29.868,
+        -7.38
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "hafu_f_2",
+      "kind": "tri_prism",
+      "size": [
+        8.4912,
+        0.966,
+        0.48
+      ],
+      "position": [
+        0,
+        29.805,
+        6.786
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "hafu_white"
+    },
+    {
+      "id": "hafu_b_2",
+      "kind": "tri_prism",
+      "size": [
+        8.4912,
+        0.966,
+        0.48
+      ],
+      "position": [
+        0,
+        29.805,
+        -6.786
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "hafu_white"
+    },
+    {
+      "id": "ridge_2",
+      "kind": "box",
+      "size": [
+        8.1984,
+        1.02,
+        1.2
+      ],
+      "position": [
+        0,
+        30.84,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara_dark"
+    },
+    {
+      "id": "ridge_gold_2",
+      "kind": "box",
+      "size": [
+        4.0992,
+        0.66,
+        0.78
+      ],
+      "position": [
+        0,
+        31.5,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "hafu_kaz_f_2",
+      "kind": "box",
+      "size": [
+        2.6352,
+        0.84,
+        0.48
+      ],
+      "position": [
+        0,
+        30.834,
+        7.116
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "hafu_kaz_b_2",
+      "kind": "box",
+      "size": [
+        2.6352,
+        0.84,
+        0.48
+      ],
+      "position": [
+        0,
+        30.834,
+        -7.116
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "floor_3",
+      "kind": "box",
+      "size": [
+        12.3,
+        4.68,
+        10.2
+      ],
+      "position": [
+        0,
+        33.72,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "shirokabe"
+    },
+    {
+      "id": "col_fl_3",
+      "kind": "box",
+      "size": [
+        0.66,
+        4.68,
+        0.66
+      ],
+      "position": [
+        -6.15,
+        33.72,
+        5.1
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "col_fr_3",
+      "kind": "box",
+      "size": [
+        0.66,
+        4.68,
+        0.66
+      ],
+      "position": [
+        6.15,
+        33.72,
+        5.1
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "col_bl_3",
+      "kind": "box",
+      "size": [
+        0.66,
+        4.68,
+        0.66
+      ],
+      "position": [
+        -6.15,
+        33.72,
+        -5.1
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "col_br_3",
+      "kind": "box",
+      "size": [
+        0.66,
+        4.68,
+        0.66
+      ],
+      "position": [
+        6.15,
+        33.72,
+        -5.1
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "win_f_3",
+      "kind": "box",
+      "size": [
+        8.856,
+        1.638,
+        0.66
+      ],
+      "position": [
+        0,
+        33.72,
+        5.1
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "win_b_3",
+      "kind": "box",
+      "size": [
+        8.856,
+        1.638,
+        0.66
+      ],
+      "position": [
+        0,
+        33.72,
+        -5.1
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "win_l_3",
+      "kind": "box",
+      "size": [
+        0.66,
+        1.638,
+        6.936
+      ],
+      "position": [
+        -6.15,
+        33.72,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "win_r_3",
+      "kind": "box",
+      "size": [
+        0.66,
+        1.638,
+        6.936
+      ],
+      "position": [
+        6.15,
+        33.72,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "gold_band_3",
+      "kind": "box",
+      "size": [
+        12.54,
+        0.42,
+        10.44
+      ],
+      "position": [
+        0,
+        31.59,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "roof_hip_3",
+      "kind": "box",
+      "size": [
+        14.94,
+        0.9,
+        12.84
+      ],
+      "position": [
+        0,
+        36.51,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "roof_gf_3",
+      "kind": "tri_prism",
+      "size": [
+        7.995,
+        1.008,
+        0.96
+      ],
+      "position": [
+        0,
+        36.564,
+        6.42
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "roof_gb_3",
+      "kind": "tri_prism",
+      "size": [
+        7.995,
+        1.008,
+        0.96
+      ],
+      "position": [
+        0,
+        36.564,
+        -6.42
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "hafu_f_3",
+      "kind": "tri_prism",
+      "size": [
+        7.134,
+        0.828,
+        0.48
+      ],
+      "position": [
+        0,
+        36.51,
+        5.826
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "hafu_white"
+    },
+    {
+      "id": "hafu_b_3",
+      "kind": "tri_prism",
+      "size": [
+        7.134,
+        0.828,
+        0.48
+      ],
+      "position": [
+        0,
+        36.51,
+        -5.826
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "hafu_white"
+    },
+    {
+      "id": "ridge_3",
+      "kind": "box",
+      "size": [
+        6.888,
+        1.02,
+        1.2
+      ],
+      "position": [
+        0,
+        37.32,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara_dark"
+    },
+    {
+      "id": "ridge_gold_3",
+      "kind": "box",
+      "size": [
+        3.444,
+        0.66,
+        0.78
+      ],
+      "position": [
+        0,
+        37.98,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "hafu_kaz_f_3",
+      "kind": "box",
+      "size": [
+        2.214,
+        0.84,
+        0.48
+      ],
+      "position": [
+        0,
+        37.392,
+        6.156
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "hafu_kaz_b_3",
+      "kind": "box",
+      "size": [
+        2.214,
+        0.84,
+        0.48
+      ],
+      "position": [
+        0,
+        37.392,
+        -6.156
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "floor_4",
+      "kind": "box",
+      "size": [
+        10.2,
+        4.38,
+        8.4
+      ],
+      "position": [
+        0,
+        40.05,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "shirokabe"
+    },
+    {
+      "id": "col_fl_4",
+      "kind": "box",
+      "size": [
+        0.66,
+        4.38,
+        0.66
+      ],
+      "position": [
+        -5.1,
+        40.05,
+        4.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "col_fr_4",
+      "kind": "box",
+      "size": [
+        0.66,
+        4.38,
+        0.66
+      ],
+      "position": [
+        5.1,
+        40.05,
+        4.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "col_bl_4",
+      "kind": "box",
+      "size": [
+        0.66,
+        4.38,
+        0.66
+      ],
+      "position": [
+        -5.1,
+        40.05,
+        -4.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "col_br_4",
+      "kind": "box",
+      "size": [
+        0.66,
+        4.38,
+        0.66
+      ],
+      "position": [
+        5.1,
+        40.05,
+        -4.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "win_f_4",
+      "kind": "box",
+      "size": [
+        7.344,
+        1.533,
+        0.66
+      ],
+      "position": [
+        0,
+        40.05,
+        4.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "win_b_4",
+      "kind": "box",
+      "size": [
+        7.344,
+        1.533,
+        0.66
+      ],
+      "position": [
+        0,
+        40.05,
+        -4.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "win_l_4",
+      "kind": "box",
+      "size": [
+        0.66,
+        1.533,
+        5.712
+      ],
+      "position": [
+        -5.1,
+        40.05,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "win_r_4",
+      "kind": "box",
+      "size": [
+        0.66,
+        1.533,
+        5.712
+      ],
+      "position": [
+        5.1,
+        40.05,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "gold_band_4",
+      "kind": "box",
+      "size": [
+        10.44,
+        0.42,
+        8.64
+      ],
+      "position": [
+        0,
+        38.07,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "roof_hip_4",
+      "kind": "box",
+      "size": [
+        12.84,
+        0.81,
+        11.04
+      ],
+      "position": [
+        0,
+        42.645,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "roof_gf_4",
+      "kind": "tri_prism",
+      "size": [
+        6.63,
+        0.9072,
+        0.96
+      ],
+      "position": [
+        0,
+        42.6936,
+        5.52
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "roof_gb_4",
+      "kind": "tri_prism",
+      "size": [
+        6.63,
+        0.9072,
+        0.96
+      ],
+      "position": [
+        0,
+        42.6936,
+        -5.52
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "hafu_f_4",
+      "kind": "tri_prism",
+      "size": [
+        5.916,
+        0.7452,
+        0.48
+      ],
+      "position": [
+        0,
+        42.645,
+        4.926
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "hafu_white"
+    },
+    {
+      "id": "hafu_b_4",
+      "kind": "tri_prism",
+      "size": [
+        5.916,
+        0.7452,
+        0.48
+      ],
+      "position": [
+        0,
+        42.645,
+        -4.926
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "hafu_white"
+    },
+    {
+      "id": "ridge_4",
+      "kind": "box",
+      "size": [
+        5.712,
+        1.02,
+        1.2
+      ],
+      "position": [
+        0,
+        43.32,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara_dark"
+    },
+    {
+      "id": "ridge_gold_4",
+      "kind": "box",
+      "size": [
+        2.856,
+        0.66,
+        0.78
+      ],
+      "position": [
+        0,
+        43.98,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "hafu_kaz_f_4",
+      "kind": "box",
+      "size": [
+        1.836,
+        0.84,
+        0.48
+      ],
+      "position": [
+        0,
+        43.4388,
+        5.256
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "hafu_kaz_b_4",
+      "kind": "box",
+      "size": [
+        1.836,
+        0.84,
+        0.48
+      ],
+      "position": [
+        0,
+        43.4388,
+        -5.256
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "floor_5",
+      "kind": "box",
+      "size": [
+        8.28,
+        4.08,
+        6.84
+      ],
+      "position": [
+        0,
+        45.9,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "shirokabe"
+    },
+    {
+      "id": "col_fl_5",
+      "kind": "box",
+      "size": [
+        0.66,
+        4.08,
+        0.66
+      ],
+      "position": [
+        -4.14,
+        45.9,
+        3.42
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "col_fr_5",
+      "kind": "box",
+      "size": [
+        0.66,
+        4.08,
+        0.66
+      ],
+      "position": [
+        4.14,
+        45.9,
+        3.42
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "col_bl_5",
+      "kind": "box",
+      "size": [
+        0.66,
+        4.08,
+        0.66
+      ],
+      "position": [
+        -4.14,
+        45.9,
+        -3.42
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "col_br_5",
+      "kind": "box",
+      "size": [
+        0.66,
+        4.08,
+        0.66
+      ],
+      "position": [
+        4.14,
+        45.9,
+        -3.42
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "win_f_5",
+      "kind": "box",
+      "size": [
+        5.9616,
+        1.428,
+        0.66
+      ],
+      "position": [
+        0,
+        45.9,
+        3.42
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "win_b_5",
+      "kind": "box",
+      "size": [
+        5.9616,
+        1.428,
+        0.66
+      ],
+      "position": [
+        0,
+        45.9,
+        -3.42
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "win_l_5",
+      "kind": "box",
+      "size": [
+        0.66,
+        1.428,
+        4.6512
+      ],
+      "position": [
+        -4.14,
+        45.9,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "win_r_5",
+      "kind": "box",
+      "size": [
+        0.66,
+        1.428,
+        4.6512
+      ],
+      "position": [
+        4.14,
+        45.9,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "gold_band_5",
+      "kind": "box",
+      "size": [
+        8.52,
+        0.42,
+        7.08
+      ],
+      "position": [
+        0,
+        44.07,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "roof_hip_5",
+      "kind": "box",
+      "size": [
+        10.92,
+        0.84,
+        9.48
+      ],
+      "position": [
+        0,
+        48.36,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "roof_gf_5",
+      "kind": "tri_prism",
+      "size": [
+        5.382,
+        0.9408,
+        0.96
+      ],
+      "position": [
+        0,
+        48.4104,
+        4.74
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "roof_gb_5",
+      "kind": "tri_prism",
+      "size": [
+        5.382,
+        0.9408,
+        0.96
+      ],
+      "position": [
+        0,
+        48.4104,
+        -4.74
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "hafu_f_5",
+      "kind": "tri_prism",
+      "size": [
+        4.8024,
+        0.7728,
+        0.48
+      ],
+      "position": [
+        0,
+        48.36,
+        4.146
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "hafu_white"
+    },
+    {
+      "id": "hafu_b_5",
+      "kind": "tri_prism",
+      "size": [
+        4.8024,
+        0.7728,
+        0.48
+      ],
+      "position": [
+        0,
+        48.36,
+        -4.146
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "hafu_white"
+    },
+    {
+      "id": "ridge_5",
+      "kind": "box",
+      "size": [
+        4.6368,
+        1.02,
+        1.2
+      ],
+      "position": [
+        0,
+        49.08,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara_dark"
+    },
+    {
+      "id": "ridge_gold_5",
+      "kind": "box",
+      "size": [
+        2.3184,
+        0.66,
+        0.78
+      ],
+      "position": [
+        0,
+        49.74,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "hafu_kaz_f_5",
+      "kind": "box",
+      "size": [
+        1.4904,
+        0.84,
+        0.48
+      ],
+      "position": [
+        0,
+        49.1832,
+        4.476
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "hafu_kaz_b_5",
+      "kind": "box",
+      "size": [
+        1.4904,
+        0.84,
+        0.48
+      ],
+      "position": [
+        0,
+        49.1832,
+        -4.476
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "shachi_body_L",
+      "kind": "sphere",
+      "size": [
+        1.2,
+        1.98,
+        0.9
+      ],
+      "position": [
+        -1.9872,
+        51.06,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "shachi_tail_L",
+      "kind": "tri_prism",
+      "size": [
+        0.72,
+        1.68,
+        0.6
+      ],
+      "position": [
+        -1.9872,
+        51.66,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "shachi_fin_L",
+      "kind": "box",
+      "size": [
+        0.3,
+        1.32,
+        0.48
+      ],
+      "position": [
+        -1.9872,
+        51.42,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "shachi_body_R",
+      "kind": "sphere",
+      "size": [
+        1.2,
+        1.98,
+        0.9
+      ],
+      "position": [
+        1.9872,
+        51.06,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "shachi_tail_R",
+      "kind": "tri_prism",
+      "size": [
+        0.72,
+        1.68,
+        0.6
+      ],
+      "position": [
+        1.9872,
+        51.66,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "shachi_fin_R",
+      "kind": "box",
+      "size": [
+        0.3,
+        1.32,
+        0.48
+      ],
+      "position": [
+        1.9872,
+        51.42,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "spire_base",
+      "kind": "box",
+      "size": [
+        1.68,
+        0.84,
+        1.68
+      ],
+      "position": [
+        0,
+        50.04,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "spire_shaft",
+      "kind": "cylinder",
+      "size": [
+        0.96,
+        7.4736,
+        0.96
+      ],
+      "position": [
+        0,
+        54.1968,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "spire_ball",
+      "kind": "sphere",
+      "size": [
+        1.56,
+        1.56,
+        1.56
+      ],
+      "position": [
+        0,
+        58.5564,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "spire_tip",
+      "kind": "tri_prism",
+      "size": [
+        0.72,
+        2.076,
+        0.72
+      ],
+      "position": [
+        0,
+        59.802,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "yagura_fl",
+      "kind": "box",
+      "size": [
+        7.2,
+        8.28,
+        6
+      ],
+      "position": [
+        -11.46,
+        20.34,
+        -9.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "shirokabe"
+    },
+    {
+      "id": "yag_col_fl_fl",
+      "kind": "box",
+      "size": [
+        0.54,
+        8.28,
+        0.54
+      ],
+      "position": [
+        -15.06,
+        20.34,
+        -6.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "yag_col_fr_fl",
+      "kind": "box",
+      "size": [
+        0.54,
+        8.28,
+        0.54
+      ],
+      "position": [
+        -7.86,
+        20.34,
+        -6.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "yag_col_bl_fl",
+      "kind": "box",
+      "size": [
+        0.54,
+        8.28,
+        0.54
+      ],
+      "position": [
+        -15.06,
+        20.34,
+        -12.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "yag_col_br_fl",
+      "kind": "box",
+      "size": [
+        0.54,
+        8.28,
+        0.54
+      ],
+      "position": [
+        -7.86,
+        20.34,
+        -12.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "yag_roof_fl",
+      "kind": "box",
+      "size": [
+        7.92,
+        1.0368,
+        6.72
+      ],
+      "position": [
+        -11.46,
+        25.56,
+        -9.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "yag_gf_fl",
+      "kind": "tri_prism",
+      "size": [
+        4.32,
+        1.188,
+        0.6
+      ],
+      "position": [
+        -11.46,
+        25.0848,
+        -6.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "yag_gb_fl",
+      "kind": "tri_prism",
+      "size": [
+        4.32,
+        1.188,
+        0.6
+      ],
+      "position": [
+        -11.46,
+        25.0848,
+        -13.35
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "yag_rdg_fl",
+      "kind": "box",
+      "size": [
+        3.6,
+        0.6,
+        0.72
+      ],
+      "position": [
+        -11.46,
+        26.4672,
+        -9.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara_dark"
+    },
+    {
+      "id": "yag_goldrdg_fl",
+      "kind": "box",
+      "size": [
+        1.584,
+        0.42,
+        0.48
+      ],
+      "position": [
+        -11.46,
+        26.88,
+        -9.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "yagura_fr",
+      "kind": "box",
+      "size": [
+        7.2,
+        8.28,
+        6
+      ],
+      "position": [
+        11.46,
+        20.34,
+        -9.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "shirokabe"
+    },
+    {
+      "id": "yag_col_fl_fr",
+      "kind": "box",
+      "size": [
+        0.54,
+        8.28,
+        0.54
+      ],
+      "position": [
+        7.86,
+        20.34,
+        -6.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "yag_col_fr_fr",
+      "kind": "box",
+      "size": [
+        0.54,
+        8.28,
+        0.54
+      ],
+      "position": [
+        15.06,
+        20.34,
+        -6.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "yag_col_bl_fr",
+      "kind": "box",
+      "size": [
+        0.54,
+        8.28,
+        0.54
+      ],
+      "position": [
+        7.86,
+        20.34,
+        -12.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "yag_col_br_fr",
+      "kind": "box",
+      "size": [
+        0.54,
+        8.28,
+        0.54
+      ],
+      "position": [
+        15.06,
+        20.34,
+        -12.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "yag_roof_fr",
+      "kind": "box",
+      "size": [
+        7.92,
+        1.0368,
+        6.72
+      ],
+      "position": [
+        11.46,
+        25.56,
+        -9.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "yag_gf_fr",
+      "kind": "tri_prism",
+      "size": [
+        4.32,
+        1.188,
+        0.6
+      ],
+      "position": [
+        11.46,
+        25.0848,
+        -6.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "yag_gb_fr",
+      "kind": "tri_prism",
+      "size": [
+        4.32,
+        1.188,
+        0.6
+      ],
+      "position": [
+        11.46,
+        25.0848,
+        -13.35
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "yag_rdg_fr",
+      "kind": "box",
+      "size": [
+        3.6,
+        0.6,
+        0.72
+      ],
+      "position": [
+        11.46,
+        26.4672,
+        -9.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara_dark"
+    },
+    {
+      "id": "yag_goldrdg_fr",
+      "kind": "box",
+      "size": [
+        1.584,
+        0.42,
+        0.48
+      ],
+      "position": [
+        11.46,
+        26.88,
+        -9.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "yagura_bl",
+      "kind": "box",
+      "size": [
+        7.2,
+        8.28,
+        6
+      ],
+      "position": [
+        -11.46,
+        20.34,
+        9.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "shirokabe"
+    },
+    {
+      "id": "yag_col_fl_bl",
+      "kind": "box",
+      "size": [
+        0.54,
+        8.28,
+        0.54
+      ],
+      "position": [
+        -15.06,
+        20.34,
+        12.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "yag_col_fr_bl",
+      "kind": "box",
+      "size": [
+        0.54,
+        8.28,
+        0.54
+      ],
+      "position": [
+        -7.86,
+        20.34,
+        12.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "yag_col_bl_bl",
+      "kind": "box",
+      "size": [
+        0.54,
+        8.28,
+        0.54
+      ],
+      "position": [
+        -15.06,
+        20.34,
+        6.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "yag_col_br_bl",
+      "kind": "box",
+      "size": [
+        0.54,
+        8.28,
+        0.54
+      ],
+      "position": [
+        -7.86,
+        20.34,
+        6.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "yag_roof_bl",
+      "kind": "box",
+      "size": [
+        7.92,
+        1.0368,
+        6.72
+      ],
+      "position": [
+        -11.46,
+        25.56,
+        9.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "yag_gf_bl",
+      "kind": "tri_prism",
+      "size": [
+        4.32,
+        1.188,
+        0.6
+      ],
+      "position": [
+        -11.46,
+        25.0848,
+        13.35
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "yag_gb_bl",
+      "kind": "tri_prism",
+      "size": [
+        4.32,
+        1.188,
+        0.6
+      ],
+      "position": [
+        -11.46,
+        25.0848,
+        6.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "yag_rdg_bl",
+      "kind": "box",
+      "size": [
+        3.6,
+        0.6,
+        0.72
+      ],
+      "position": [
+        -11.46,
+        26.4672,
+        9.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara_dark"
+    },
+    {
+      "id": "yag_goldrdg_bl",
+      "kind": "box",
+      "size": [
+        1.584,
+        0.42,
+        0.48
+      ],
+      "position": [
+        -11.46,
+        26.88,
+        9.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "yagura_br",
+      "kind": "box",
+      "size": [
+        7.2,
+        8.28,
+        6
+      ],
+      "position": [
+        11.46,
+        20.34,
+        9.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "shirokabe"
+    },
+    {
+      "id": "yag_col_fl_br",
+      "kind": "box",
+      "size": [
+        0.54,
+        8.28,
+        0.54
+      ],
+      "position": [
+        7.86,
+        20.34,
+        12.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "yag_col_fr_br",
+      "kind": "box",
+      "size": [
+        0.54,
+        8.28,
+        0.54
+      ],
+      "position": [
+        15.06,
+        20.34,
+        12.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "yag_col_bl_br",
+      "kind": "box",
+      "size": [
+        0.54,
+        8.28,
+        0.54
+      ],
+      "position": [
+        7.86,
+        20.34,
+        6.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "yag_col_br_br",
+      "kind": "box",
+      "size": [
+        0.54,
+        8.28,
+        0.54
+      ],
+      "position": [
+        15.06,
+        20.34,
+        6.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "yag_roof_br",
+      "kind": "box",
+      "size": [
+        7.92,
+        1.0368,
+        6.72
+      ],
+      "position": [
+        11.46,
+        25.56,
+        9.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "yag_gf_br",
+      "kind": "tri_prism",
+      "size": [
+        4.32,
+        1.188,
+        0.6
+      ],
+      "position": [
+        11.46,
+        25.0848,
+        13.35
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "yag_gb_br",
+      "kind": "tri_prism",
+      "size": [
+        4.32,
+        1.188,
+        0.6
+      ],
+      "position": [
+        11.46,
+        25.0848,
+        6.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "yag_rdg_br",
+      "kind": "box",
+      "size": [
+        3.6,
+        0.6,
+        0.72
+      ],
+      "position": [
+        11.46,
+        26.4672,
+        9.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara_dark"
+    },
+    {
+      "id": "yag_goldrdg_br",
+      "kind": "box",
+      "size": [
+        1.584,
+        0.42,
+        0.48
+      ],
+      "position": [
+        11.46,
+        26.88,
+        9.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kintogi"
+    },
+    {
+      "id": "watari_n",
+      "kind": "box",
+      "size": [
+        19.992,
+        6,
+        2.4
+      ],
+      "position": [
+        0,
+        19.2,
+        -9.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "shirokabe"
+    },
+    {
+      "id": "watari_s",
+      "kind": "box",
+      "size": [
+        19.992,
+        6,
+        2.4
+      ],
+      "position": [
+        0,
+        19.2,
+        9.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "shirokabe"
+    },
+    {
+      "id": "watari_e",
+      "kind": "box",
+      "size": [
+        2.4,
+        6,
+        16.932
+      ],
+      "position": [
+        11.46,
+        19.2,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "shirokabe"
+    },
+    {
+      "id": "watari_w",
+      "kind": "box",
+      "size": [
+        2.4,
+        6,
+        16.932
+      ],
+      "position": [
+        -11.46,
+        19.2,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "shirokabe"
+    },
+    {
+      "id": "watr_roof_n",
+      "kind": "box",
+      "size": [
+        20.286,
+        0.7176,
+        3
+      ],
+      "position": [
+        0,
+        22.98,
+        -9.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "watr_roof_s",
+      "kind": "box",
+      "size": [
+        20.286,
+        0.7176,
+        3
+      ],
+      "position": [
+        0,
+        22.98,
+        9.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "watr_roof_e",
+      "kind": "box",
+      "size": [
+        3,
+        0.7176,
+        17.181
+      ],
+      "position": [
+        11.46,
+        22.98,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "watr_roof_w",
+      "kind": "box",
+      "size": [
+        3,
+        0.7176,
+        17.181
+      ],
+      "position": [
+        -11.46,
+        22.98,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "inner_gate_l",
+      "kind": "box",
+      "size": [
+        2.64,
+        4.56,
+        3
+      ],
+      "position": [
+        -2.31,
+        18.48,
+        12.45
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "ishigaki"
+    },
+    {
+      "id": "inner_gate_r",
+      "kind": "box",
+      "size": [
+        2.64,
+        4.56,
+        3
+      ],
+      "position": [
+        2.31,
+        18.48,
+        12.45
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "ishigaki"
+    },
+    {
+      "id": "inner_gate_roof",
+      "kind": "box",
+      "size": [
+        6.336,
+        0.828,
+        3.6
+      ],
+      "position": [
+        0,
+        21.174,
+        12.45
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "inner_gate_gf",
+      "kind": "tri_prism",
+      "size": [
+        5.28,
+        0.99,
+        0.6
+      ],
+      "position": [
+        0,
+        21.264,
+        13.95
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "outer_tower_nw",
+      "kind": "box",
+      "size": [
+        5.4,
+        7.2,
+        5.4
+      ],
+      "position": [
+        -26.4,
+        6,
+        -25.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "ishigaki"
+    },
+    {
+      "id": "outer_tower_roof_nw",
+      "kind": "box",
+      "size": [
+        6,
+        0.7392,
+        6
+      ],
+      "position": [
+        -26.4,
+        10.44,
+        -25.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "outer_tower_gf_nw",
+      "kind": "tri_prism",
+      "size": [
+        2.97,
+        0.84,
+        0.48
+      ],
+      "position": [
+        -26.4,
+        10.02,
+        -22.62
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "outer_tower_ne",
+      "kind": "box",
+      "size": [
+        5.4,
+        7.2,
+        5.4
+      ],
+      "position": [
+        26.4,
+        6,
+        -25.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "ishigaki"
+    },
+    {
+      "id": "outer_tower_roof_ne",
+      "kind": "box",
+      "size": [
+        6,
+        0.7392,
+        6
+      ],
+      "position": [
+        26.4,
+        10.44,
+        -25.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "outer_tower_gf_ne",
+      "kind": "tri_prism",
+      "size": [
+        2.97,
+        0.84,
+        0.48
+      ],
+      "position": [
+        26.4,
+        10.02,
+        -22.62
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "outer_tower_sw",
+      "kind": "box",
+      "size": [
+        5.4,
+        7.2,
+        5.4
+      ],
+      "position": [
+        -26.4,
+        6,
+        25.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "ishigaki"
+    },
+    {
+      "id": "outer_tower_roof_sw",
+      "kind": "box",
+      "size": [
+        6,
+        0.7392,
+        6
+      ],
+      "position": [
+        -26.4,
+        10.44,
+        25.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "outer_tower_gf_sw",
+      "kind": "tri_prism",
+      "size": [
+        2.97,
+        0.84,
+        0.48
+      ],
+      "position": [
+        -26.4,
+        10.02,
+        28.98
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "outer_tower_se",
+      "kind": "box",
+      "size": [
+        5.4,
+        7.2,
+        5.4
+      ],
+      "position": [
+        26.4,
+        6,
+        25.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "ishigaki"
+    },
+    {
+      "id": "outer_tower_roof_se",
+      "kind": "box",
+      "size": [
+        6,
+        0.7392,
+        6
+      ],
+      "position": [
+        26.4,
+        10.44,
+        25.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "outer_tower_gf_se",
+      "kind": "tri_prism",
+      "size": [
+        2.97,
+        0.84,
+        0.48
+      ],
+      "position": [
+        26.4,
+        10.02,
+        28.98
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "kawara"
+    },
+    {
+      "id": "flagpole_l",
+      "kind": "cylinder",
+      "size": [
+        0.48,
+        7.2,
+        0.48
+      ],
+      "position": [
+        -5.13,
+        19.8,
+        7.08
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "flagpole_r",
+      "kind": "cylinder",
+      "size": [
+        0.48,
+        7.2,
+        0.48
+      ],
+      "position": [
+        5.13,
+        19.8,
+        7.08
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "mokuzai"
+    },
+    {
+      "id": "banner_l",
+      "kind": "box",
+      "size": [
+        1.32,
+        3.6,
+        0.24
+      ],
+      "position": [
+        -4.23,
+        21.48,
+        7.08
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "banner_red"
+    },
+    {
+      "id": "banner_r",
+      "kind": "box",
+      "size": [
+        1.32,
+        3.6,
+        0.24
+      ],
+      "position": [
+        6.03,
+        21.48,
+        7.08
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "banner_red"
+    },
+    {
+      "id": "step_t1_0",
+      "kind": "box",
+      "size": [
+        11.808,
+        1.2,
+        2.4
+      ],
+      "position": [
+        0,
+        3,
+        22.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "tobi_ishi"
+    },
+    {
+      "id": "step_t1_1",
+      "kind": "box",
+      "size": [
+        11.808,
+        1.2,
+        2.4
+      ],
+      "position": [
+        0,
+        4.2,
+        24.6
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "tobi_ishi"
+    },
+    {
+      "id": "step_t1_2",
+      "kind": "box",
+      "size": [
+        11.808,
+        1.2,
+        2.4
+      ],
+      "position": [
+        0,
+        5.4,
+        27
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "tobi_ishi"
+    },
+    {
+      "id": "step_t1_3",
+      "kind": "box",
+      "size": [
+        11.808,
+        1.2,
+        2.4
+      ],
+      "position": [
+        0,
+        6.6,
+        29.4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "tobi_ishi"
+    },
+    {
+      "id": "step_t1_4",
+      "kind": "box",
+      "size": [
+        11.808,
+        1.2,
+        2.4
+      ],
+      "position": [
+        0,
+        7.8,
+        31.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "tobi_ishi"
+    },
+    {
+      "id": "step_t2_0",
+      "kind": "box",
+      "size": [
+        9.4464,
+        1.08,
+        2.16
+      ],
+      "position": [
+        0,
+        8.94,
+        17.43
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "tobi_ishi"
+    },
+    {
+      "id": "step_t2_1",
+      "kind": "box",
+      "size": [
+        9.4464,
+        1.08,
+        2.16
+      ],
+      "position": [
+        0,
+        10.02,
+        19.59
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "tobi_ishi"
+    },
+    {
+      "id": "step_t2_2",
+      "kind": "box",
+      "size": [
+        9.4464,
+        1.08,
+        2.16
+      ],
+      "position": [
+        0,
+        11.1,
+        21.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "tobi_ishi"
+    },
+    {
+      "id": "step_t2_3",
+      "kind": "box",
+      "size": [
+        9.4464,
+        1.08,
+        2.16
+      ],
+      "position": [
+        0,
+        12.18,
+        23.91
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "tobi_ishi"
+    },
+    {
+      "id": "step_t3_0",
+      "kind": "box",
+      "size": [
+        7.6752,
+        1.08,
+        1.92
+      ],
+      "position": [
+        0,
+        13.44,
+        13.41
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "tobi_ishi"
+    },
+    {
+      "id": "step_t3_1",
+      "kind": "box",
+      "size": [
+        7.6752,
+        1.08,
+        1.92
+      ],
+      "position": [
+        0,
+        14.52,
+        15.33
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "tobi_ishi"
+    },
+    {
+      "id": "step_t3_2",
+      "kind": "box",
+      "size": [
+        7.6752,
+        1.08,
+        1.92
+      ],
+      "position": [
+        0,
+        15.6,
+        17.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "tobi_ishi"
+    }
+  ],
+  "surfaceDetails": [],
+  "ornaments": [],
+  "pose": {
+    "preset": "static"
+  },
+  "animationHints": {},
+  "lod": {},
+  "exportOptions": {
+    "formats": [
+      "gltf",
+      "glb"
+    ],
+    "previewHtml": true
+  }
+}

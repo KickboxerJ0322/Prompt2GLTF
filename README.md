@@ -81,10 +81,7 @@ node plugins/prompt2gltf/scripts/index.mjs --prompt "ここにプロンプト"
 例:
 
 ```bash
-node plugins/prompt2gltf/scripts/index.mjs --prompt "警察署"
-node plugins/prompt2gltf/scripts/index.mjs --prompt "消防士"
-node plugins/prompt2gltf/scripts/index.mjs --prompt "看護師"
-node plugins/prompt2gltf/scripts/index.mjs --prompt "3階建て学校"
+node plugins/prompt2gltf/scripts/index.mjs --prompt "戸建て住宅"
 node plugins/prompt2gltf/scripts/index.mjs --prompt "市役所"
 node plugins/prompt2gltf/scripts/index.mjs --prompt "2階建てアパート"
 ```
@@ -133,14 +130,13 @@ plugins/prompt2gltf/generated/
 | カテゴリ | 例 |
 |---|---|
 | `vehicle` | 鉄道、自動車、パトカー、航空機、船 |
-| `castle` | 魔王城、シンデレラ城、日本の城 |
-| `structure` | 木、信号、歩道橋、橋、データセンター |
-| `giant` | 巨人、モアイ |
-| `robot` | ロボット、メカ |
-| `tower` | タワー、スカイツリー |
+| `castle` | 日本の城 |
+| `structure` | 木、歩道橋、橋 |
+| `giant` | 巨人 |
+| `robot` | ロボット |
+| `tower` | タワー |
 | `airship` | 飛行船 |
 | `kaiju` | 怪獣 |
-| `warrior` | 戦士、騎士 |
 
 ---
 

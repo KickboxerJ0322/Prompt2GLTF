@@ -1369,17 +1369,294 @@ function buildCastleSpec(prompt, height, styles) {
     box("gate", "roof_metal", H*0.30, H*0.20, H*0.16, 0, H*0.10, H*0.20);
     box("throne_spire", "accent_banner", H*0.08, H*0.22, H*0.08, 0, H*0.78, 0);
   } else if (archetype === "japanese_castle") {
-    box("stone_base", "stone_main", H*0.52, H*0.32, H*0.42, 0, H*0.16, 0);
-    box("main_keep", "stone_main", H*0.34, H*0.40, H*0.28, 0, H*0.46, 0);
-    box("roof_tier_1", "roof_metal", H*0.46, H*0.12, H*0.36, 0, H*0.66, 0);
-    box("roof_tier_2", "roof_metal", H*0.32, H*0.10, H*0.26, 0, H*0.78, 0);
-    box("roof_tier_3", "roof_metal", H*0.20, H*0.08, H*0.18, 0, H*0.88, 0);
+    // ── Osaka-style Japanese Castle (大阪城風 天守閣) ──────────────────────────
+    // Custom materials
+    spec.materials = {
+      ishigaki:      { baseColor: "#5A5040", roughness: 0.96, metalness: 0.02 },
+      ishigaki_dark: { baseColor: "#38302A", roughness: 0.97, metalness: 0.01 },
+      shirokabe:     { baseColor: "#F0EDE0", roughness: 0.86, metalness: 0.02 },
+      kawara:        { baseColor: "#2A4838", roughness: 0.88, metalness: 0.04 },
+      kawara_dark:   { baseColor: "#1C3028", roughness: 0.90, metalness: 0.04 },
+      kintogi:       { baseColor: "#D4A820", roughness: 0.24, metalness: 0.93 },
+      mokuzai:       { baseColor: "#180E06", roughness: 0.74, metalness: 0.06 },
+      moat_water:    { baseColor: "#2C4858", roughness: 0.06, metalness: 0.22 },
+      paving_stone:  { baseColor: "#8C7E6C", roughness: 0.94, metalness: 0.02 },
+      hafu_white:    { baseColor: "#EAE8DC", roughness: 0.84, metalness: 0.02 },
+      banner_red:    { baseColor: "#C81818", roughness: 0.72, metalness: 0.04 },
+      tobi_ishi:     { baseColor: "#6A6050", roughness: 0.96, metalness: 0.02 },
+      fence_stone:   { baseColor: "#4A4438", roughness: 0.94, metalness: 0.02 },
+    };
+
+    // ── Ground layers (water-moat-inner illusion) ──────────────────────────────
+    box("outer_ground",  "paving_stone", H*1.85, H*0.016, H*1.55,  0, H*0.008,  0);
+    box("moat_water",    "moat_water",   H*1.32, H*0.018, H*1.10,  0, H*0.025,  0);
+    box("inner_ground",  "paving_stone", H*0.90, H*0.018, H*0.76,  0, H*0.040,  0);
+
+    // ── Outer castle walls + gates ─────────────────────────────────────────────
+    // Outer perimeter walls (外塀) at moat inner edge
+    box("wall_n",  "ishigaki", H*0.88, H*0.048, H*0.020,  0,          H*0.064, -H*0.43);
+    box("wall_s",  "ishigaki", H*0.88, H*0.048, H*0.020,  0,          H*0.064,  H*0.43);
+    box("wall_e",  "ishigaki", H*0.020,H*0.048, H*0.86,   H*0.44,     H*0.064,  0);
+    box("wall_w",  "ishigaki", H*0.020,H*0.048, H*0.86,  -H*0.44,     H*0.064,  0);
+
+    // Main gate (大手門) - south
+    box("otemon_l",    "ishigaki",  H*0.140, H*0.085, H*0.060, -H*0.085, H*0.083, H*0.43);
+    box("otemon_r",    "ishigaki",  H*0.140, H*0.085, H*0.060,  H*0.085, H*0.083, H*0.43);
+    box("otemon_roof", "kawara",    H*0.320, H*0.036, H*0.088,  0,        H*0.150, H*0.43);
+    shape("otemon_gf", "tri_prism", "kawara", H*0.290, H*0.050, H*0.018,  0, H*0.161, H*0.474);
+    shape("otemon_gb", "tri_prism", "kawara", H*0.290, H*0.050, H*0.018,  0, H*0.161, H*0.386);
+    box("otemon_pass", "mokuzai",   H*0.080, H*0.065, H*0.024,  0,        H*0.083, H*0.43);
+
+    // ── Ishigaki tiers (石垣) ──────────────────────────────────────────────────
+    const it1H = H*0.100, it1W = H*0.820, it1D = H*0.700;
+    const it2H = H*0.075, it2W = H*0.640, it2D = H*0.545;
+    const it3H = H*0.055, it3W = H*0.490, it3D = H*0.415;
+    const t1Bot = H*0.040;
+    const t1Y = t1Bot + it1H*0.5;
+    const t2Y = t1Bot + it1H + it2H*0.5;
+    const t3Y = t1Bot + it1H + it2H + it3H*0.5;
+    const t3Top = t1Bot + it1H + it2H + it3H; // ≈ H*0.270
+
+    box("ishi_t1",      "ishigaki",      it1W,        it1H,        it1D,        0, t1Y,  0);
+    box("ishi_t2",      "ishigaki",      it2W,        it2H,        it2D,        0, t2Y,  0);
+    box("ishi_t3",      "ishigaki",      it3W,        it3H,        it3D,        0, t3Y,  0);
+    // Beveled front faces (dark facing strip)
+    box("ishi_t1_face", "ishigaki_dark", it1W*0.98,   it1H*0.96,   H*0.012,     0, t1Y,  it1D*0.50+H*0.006);
+    box("ishi_t2_face", "ishigaki_dark", it2W*0.98,   it2H*0.96,   H*0.012,     0, t2Y,  it2D*0.50+H*0.006);
+    box("ishi_t3_face", "ishigaki_dark", it3W*0.98,   it3H*0.96,   H*0.012,     0, t3Y,  it3D*0.50+H*0.006);
+    // Inner courtyard on t3
+    box("courtyard_t3", "paving_stone",  it3W*0.98,   H*0.010,     it3D*0.98,   0, t3Top+H*0.005, 0);
+
+    // ── 5-story main tower (天守閣) ────────────────────────────────────────────
+    // Floor widths/depths/heights and roof heights
+    const fW = [H*0.285, H*0.244, H*0.205, H*0.170, H*0.138];
+    const fD = [H*0.236, H*0.202, H*0.170, H*0.140, H*0.114];
+    const fH = [H*0.094, H*0.084, H*0.078, H*0.073, H*0.068];
+    const rH = [H*0.040, H*0.035, H*0.030, H*0.027, H*0.028];
+    const rOv = H*0.022; // roof overhang
+
+    // Compute Y bottoms for each floor + roof
+    const fBot = [t3Top];
+    for (let i = 1; i < 5; i++) fBot.push(fBot[i-1] + fH[i-1] + rH[i-1]);
+    const rBot = fBot.map((b, i) => b + fH[i]);
+    const rTop = rBot.map((b, i) => b + rH[i]);
+    const towerTop = rTop[4]; // ≈ H*0.820
+
+    for (let i = 0; i < 5; i++) {
+      const fn = i + 1;
+      const fMid = fBot[i] + fH[i] * 0.5;
+      const rMid = rBot[i] + rH[i] * 0.5;
+
+      // Floor body (white plaster)
+      box(`floor_${fn}`,    "shirokabe", fW[i],          fH[i],         fD[i],          0, fMid, 0);
+      // Black lacquer column corners
+      box(`col_fl_${fn}`,   "mokuzai",   H*0.011, fH[i], H*0.011, -fW[i]*0.50, fMid,  fD[i]*0.50);
+      box(`col_fr_${fn}`,   "mokuzai",   H*0.011, fH[i], H*0.011,  fW[i]*0.50, fMid,  fD[i]*0.50);
+      box(`col_bl_${fn}`,   "mokuzai",   H*0.011, fH[i], H*0.011, -fW[i]*0.50, fMid, -fD[i]*0.50);
+      box(`col_br_${fn}`,   "mokuzai",   H*0.011, fH[i], H*0.011,  fW[i]*0.50, fMid, -fD[i]*0.50);
+      // Black window grid (front + back + sides)
+      box(`win_f_${fn}`,    "mokuzai",   fW[i]*0.72, fH[i]*0.35, H*0.011,  0, fMid,  fD[i]*0.50);
+      box(`win_b_${fn}`,    "mokuzai",   fW[i]*0.72, fH[i]*0.35, H*0.011,  0, fMid, -fD[i]*0.50);
+      box(`win_l_${fn}`,    "mokuzai",   H*0.011, fH[i]*0.35, fD[i]*0.68, -fW[i]*0.50, fMid, 0);
+      box(`win_r_${fn}`,    "mokuzai",   H*0.011, fH[i]*0.35, fD[i]*0.68,  fW[i]*0.50, fMid, 0);
+      // Gold horizontal trim band at floor base
+      box(`gold_band_${fn}`,"kintogi",   fW[i]+H*0.004, H*0.007, fD[i]+H*0.004, 0, fBot[i]+H*0.0035, 0);
+
+      // Roof: main hip box + gable tri_prism ends (入母屋造り)
+      box(`roof_hip_${fn}`,  "kawara",     fW[i]+rOv*2, rH[i]*0.50, fD[i]+rOv*2, 0, rBot[i]+rH[i]*0.25, 0);
+      shape(`roof_gf_${fn}`, "tri_prism",  "kawara",    fW[i]*0.65, rH[i]*0.56, H*0.016, 0, rBot[i]+rH[i]*0.28,  fD[i]*0.50+rOv);
+      shape(`roof_gb_${fn}`, "tri_prism",  "kawara",    fW[i]*0.65, rH[i]*0.56, H*0.016, 0, rBot[i]+rH[i]*0.28, -fD[i]*0.50-rOv);
+      // White hafu-ita (gable bargeboard)
+      shape(`hafu_f_${fn}`,  "tri_prism",  "hafu_white",fW[i]*0.58, rH[i]*0.46, H*0.008, 0, rBot[i]+rH[i]*0.25,  fD[i]*0.50+rOv*0.55);
+      shape(`hafu_b_${fn}`,  "tri_prism",  "hafu_white",fW[i]*0.58, rH[i]*0.46, H*0.008, 0, rBot[i]+rH[i]*0.25, -fD[i]*0.50-rOv*0.55);
+      // Ridge (棟) + gold ridge cap
+      box(`ridge_${fn}`,     "kawara_dark",fW[i]*0.56, H*0.017, H*0.020, 0, rTop[i]-H*0.009, 0);
+      box(`ridge_gold_${fn}`,"kintogi",    fW[i]*0.28, H*0.011, H*0.013, 0, rTop[i]+H*0.002, 0);
+      // Gold hafu bracket ornament
+      box(`hafu_kaz_f_${fn}`,"kintogi",    fW[i]*0.18, H*0.014, H*0.008, 0, rBot[i]+rH[i]*0.74, fD[i]*0.50+rOv*0.80);
+      box(`hafu_kaz_b_${fn}`,"kintogi",    fW[i]*0.18, H*0.014, H*0.008, 0, rBot[i]+rH[i]*0.74, -fD[i]*0.50-rOv*0.80);
+    }
+
+    // ── Gold Shachihoko (金鯱) on top of 5F ridge ─────────────────────────────
+    for (const [sx, tag] of [[-fW[4]*0.24, "L"], [fW[4]*0.24, "R"]]) {
+      shape(`shachi_body_${tag}`, "sphere",    "kintogi", H*0.020, H*0.033, H*0.015, sx, rTop[4]+H*0.024, 0);
+      shape(`shachi_tail_${tag}`, "tri_prism", "kintogi", H*0.012, H*0.028, H*0.010, sx, rTop[4]+H*0.034, 0);
+      box(`shachi_fin_${tag}`,    "kintogi",   H*0.005, H*0.022, H*0.008, sx, rTop[4]+H*0.030, 0);
+    }
+
+    // ── Spire / pinnacle (相輪) ───────────────────────────────────────────────
+    const spireH = H - towerTop;
+    box("spire_base",   "kintogi",   H*0.028, H*0.014, H*0.028, 0, towerTop+H*0.007, 0);
+    shape("spire_shaft","cylinder",  "kintogi", H*0.016, spireH*0.72, H*0.016, 0, towerTop+H*0.014+spireH*0.36, 0);
+    shape("spire_ball", "sphere",    "kintogi", H*0.026, H*0.026, H*0.026, 0, towerTop+H*0.014+spireH*0.78, 0);
+    shape("spire_tip",  "tri_prism", "kintogi", H*0.012, spireH*0.20, H*0.012, 0, towerTop+H*0.014+spireH*0.80+spireH*0.10, 0);
+
+    // ── Corner Yagura (隅櫓 - 4 corner turrets on t3 ishigaki) ───────────────
+    {
+      const cyW = H*0.120, cyD = H*0.100, cyBH = H*0.138, cyRH = H*0.036;
+      const cyX  = it3W*0.50 - cyW*0.45;
+      const cyZ  = it3D*0.50 - cyD*0.45;
+      const cyBot = t3Top;
+      for (const [signX, signZ, tag] of [[-1,-1,"fl"],[1,-1,"fr"],[-1,1,"bl"],[1,1,"br"]]) {
+        const cx = signX * cyX, cz = signZ * cyZ;
+        const cyMid = cyBot + cyBH * 0.5;
+        const cyRMid = cyBot + cyBH + cyRH * 0.5;
+        box(`yagura_${tag}`,     "shirokabe", cyW, cyBH, cyD,        cx, cyMid, cz);
+        box(`yag_col_fl_${tag}`, "mokuzai",   H*0.009, cyBH, H*0.009, cx-cyW*0.50, cyMid, cz+cyD*0.50);
+        box(`yag_col_fr_${tag}`, "mokuzai",   H*0.009, cyBH, H*0.009, cx+cyW*0.50, cyMid, cz+cyD*0.50);
+        box(`yag_col_bl_${tag}`, "mokuzai",   H*0.009, cyBH, H*0.009, cx-cyW*0.50, cyMid, cz-cyD*0.50);
+        box(`yag_col_br_${tag}`, "mokuzai",   H*0.009, cyBH, H*0.009, cx+cyW*0.50, cyMid, cz-cyD*0.50);
+        box(`yag_roof_${tag}`,   "kawara",    cyW+H*0.012, cyRH*0.48, cyD+H*0.012, cx, cyRMid, cz);
+        shape(`yag_gf_${tag}`,   "tri_prism", "kawara", cyW*0.60, cyRH*0.55, H*0.010, cx, cyBot+cyBH+cyRH*0.28, cz+cyD*0.50+H*0.010);
+        shape(`yag_gb_${tag}`,   "tri_prism", "kawara", cyW*0.60, cyRH*0.55, H*0.010, cx, cyBot+cyBH+cyRH*0.28, cz-cyD*0.50-H*0.010);
+        box(`yag_rdg_${tag}`,    "kawara_dark", cyW*0.50, H*0.010, H*0.012, cx, cyBot+cyBH+cyRH*0.92, cz);
+        box(`yag_goldrdg_${tag}`,"kintogi",   cyW*0.22, H*0.007, H*0.008, cx, cyBot+cyBH+cyRH+H*0.004, cz);
+      }
+    }
+
+    // ── Watari-yagura (渡り櫓 - connecting walls between corner turrets) ───────
+    {
+      const wyH = H*0.100, wyThk = H*0.040;
+      const wyBot = t3Top, wyMid = wyBot + wyH * 0.5;
+      const wyRH = H*0.026;
+      const wyRMid = wyBot + wyH + wyRH * 0.5;
+      const ex = it3W*0.50 - H*0.120*0.45;
+      const ez = it3D*0.50 - H*0.100*0.45;
+      // North/South walls
+      box("watari_n", "shirokabe", it3W*0.680, wyH, wyThk,  0, wyMid, -ez);
+      box("watari_s", "shirokabe", it3W*0.680, wyH, wyThk,  0, wyMid,  ez);
+      // East/West walls
+      box("watari_e", "shirokabe", wyThk, wyH, it3D*0.680,  ex, wyMid, 0);
+      box("watari_w", "shirokabe", wyThk, wyH, it3D*0.680, -ex, wyMid, 0);
+      // Watari roofs
+      box("watr_roof_n","kawara",  it3W*0.690, wyRH*0.46, wyThk+H*0.010,  0, wyRMid, -ez);
+      box("watr_roof_s","kawara",  it3W*0.690, wyRH*0.46, wyThk+H*0.010,  0, wyRMid,  ez);
+      box("watr_roof_e","kawara",  wyThk+H*0.010, wyRH*0.46, it3D*0.690,  ex, wyRMid, 0);
+      box("watr_roof_w","kawara",  wyThk+H*0.010, wyRH*0.46, it3D*0.690, -ex, wyRMid, 0);
+    }
+
+    // ── Inner secondary gate (桝形虎口 - masugata koruchi) ────────────────────
+    {
+      const igW = H*0.110, igH = H*0.076, igD = H*0.050;
+      const igBot = t3Top, igRH = H*0.030;
+      box("inner_gate_l", "ishigaki",  igW*0.40, igH, igD, -igW*0.35, igBot+igH*0.5,  it3D*0.50);
+      box("inner_gate_r", "ishigaki",  igW*0.40, igH, igD,  igW*0.35, igBot+igH*0.5,  it3D*0.50);
+      box("inner_gate_roof","kawara",  igW*0.96, igRH*0.46, igD+H*0.010, 0, igBot+igH+igRH*0.23, it3D*0.50);
+      shape("inner_gate_gf","tri_prism","kawara", igW*0.80, igRH*0.55, H*0.010, 0, igBot+igH+igRH*0.28, it3D*0.50+igD*0.50);
+    }
+
+    // ── Outer defensive towers at moat corners ────────────────────────────────
+    {
+      const otW = H*0.090, otH = H*0.120, otD = H*0.090, otRH = H*0.028;
+      const otX = H*0.44, otZ = H*0.43;
+      for (const [sx, sz, tag] of [[-otX,-otZ,"nw"],[otX,-otZ,"ne"],[-otX,otZ,"sw"],[otX,otZ,"se"]]) {
+        const otMid = H*0.040 + otH*0.5;
+        const otRMid = H*0.040 + otH + otRH*0.5;
+        box(`outer_tower_${tag}`,      "ishigaki",  otW, otH, otD, sx, otMid, sz);
+        box(`outer_tower_roof_${tag}`, "kawara",    otW+H*0.010, otRH*0.44, otD+H*0.010, sx, otRMid, sz);
+        shape(`outer_tower_gf_${tag}`, "tri_prism", "kawara", otW*0.55, otRH*0.50, H*0.008, sx, H*0.040+otH+otRH*0.25, sz+otD*0.50+H*0.008);
+      }
+    }
+
+    // ── Flagpoles + red banners ───────────────────────────────────────────────
+    shape("flagpole_l", "cylinder", "mokuzai", H*0.008, H*0.120, H*0.008, -fW[0]*0.30, t3Top+H*0.120*0.5, fD[0]*0.50);
+    shape("flagpole_r", "cylinder", "mokuzai", H*0.008, H*0.120, H*0.008,  fW[0]*0.30, t3Top+H*0.120*0.5, fD[0]*0.50);
+    box("banner_l",     "banner_red", H*0.022, H*0.060, H*0.004, -fW[0]*0.30+H*0.015, t3Top+H*0.088, fD[0]*0.50);
+    box("banner_r",     "banner_red", H*0.022, H*0.060, H*0.004,  fW[0]*0.30+H*0.015, t3Top+H*0.088, fD[0]*0.50);
+
+    // ── Stone steps (階段) from outer ground up to ishigaki tiers ─────────────
+    const stepW = it1W * 0.24;
+    for (let s = 0; s < 5; s++) {
+      box(`step_t1_${s}`, "tobi_ishi", stepW, H*0.020, H*0.040, 0, t1Bot+H*0.020*s+H*0.010, it1D*0.50+H*0.040*s+H*0.020);
+    }
+    for (let s = 0; s < 4; s++) {
+      box(`step_t2_${s}`, "tobi_ishi", stepW*0.80, H*0.018, H*0.036, 0, t1Bot+it1H+H*0.018*s+H*0.009, it2D*0.50+H*0.036*s+H*0.018);
+    }
+    for (let s = 0; s < 3; s++) {
+      box(`step_t3_${s}`, "tobi_ishi", stepW*0.65, H*0.018, H*0.032, 0, t1Bot+it1H+it2H+H*0.018*s+H*0.009, it3D*0.50+H*0.032*s+H*0.016);
+    }
+
   } else if (archetype === "cinderella_castle") {
-    box("central_keep", "stone_main", H*0.30, H*0.62, H*0.26, 0, H*0.31, 0);
-    box("left_tower", "stone_main", H*0.13, H*0.72, H*0.13, -H*0.24, H*0.36, H*0.06);
-    box("right_tower", "stone_main", H*0.13, H*0.72, H*0.13, H*0.24, H*0.36, H*0.06);
-    box("spire_main", "accent_banner", H*0.07, H*0.22, H*0.07, 0, H*0.72, 0);
-    box("gatehouse", "stone_main", H*0.26, H*0.22, H*0.20, 0, H*0.11, H*0.18);
+    spec.materials = {
+      stone_main:    { baseColor: "#C8CCD6", roughness: 0.92, metalness: 0.02 },
+      stone_dark:    { baseColor: "#8E95A2", roughness: 0.96, metalness: 0.01 },
+      roof_metal:    { baseColor: "#456A9A", roughness: 0.46, metalness: 0.56 },
+      roof_dark:     { baseColor: "#2A405F", roughness: 0.52, metalness: 0.48 },
+      gold_trim:     { baseColor: "#D4A820", roughness: 0.24, metalness: 0.93 },
+      accent_banner: { baseColor: "#A81E5A", roughness: 0.72, metalness: 0.04 },
+      glass_light:   { baseColor: "#9BC8E8", roughness: 0.10, metalness: 0.82 },
+      paving:        { baseColor: "#9A9AA2", roughness: 0.94, metalness: 0.02 },
+      water:         { baseColor: "#4C86B0", roughness: 0.08, metalness: 0.26 }
+    };
+
+    const moatW = H * 1.25;
+    const moatD = H * 1.00;
+    box("forecourt", "paving", H*1.42, H*0.02, H*1.10, 0, H*0.01, H*0.08);
+    box("moat", "water", moatW, H*0.03, moatD, 0, H*0.025, 0);
+    box("inner_plaza", "paving", H*0.92, H*0.03, H*0.68, 0, H*0.05, H*0.02);
+    box("bridge", "stone_main", H*0.22, H*0.04, H*0.24, 0, H*0.06, H*0.32);
+
+    box("gatehouse", "stone_main", H*0.34, H*0.22, H*0.20, 0, H*0.16, H*0.24);
+    box("gate_arch", "stone_dark", H*0.12, H*0.14, H*0.08, 0, H*0.12, H*0.34);
+    shape("gate_roof", "tri_prism", "roof_metal", H*0.40, H*0.08, H*0.24, 0, H*0.28, H*0.24);
+
+    const wallZ = H * 0.17;
+    box("wall_left", "stone_main", H*0.20, H*0.14, H*0.10, -H*0.27, H*0.11, wallZ);
+    box("wall_right", "stone_main", H*0.20, H*0.14, H*0.10, H*0.27, H*0.11, wallZ);
+    for (const side of [-1, 1]) {
+      box(`wall_turret_${side < 0 ? "l" : "r"}`, "stone_dark", H*0.06, H*0.24, H*0.06, side*H*0.36, H*0.16, wallZ);
+      shape(`wall_turret_cap_${side < 0 ? "l" : "r"}`, "cylinder", "roof_dark", H*0.045, H*0.05, H*0.045, side*H*0.36, H*0.305, wallZ);
+      shape(`wall_turret_spire_${side < 0 ? "l" : "r"}`, "cylinder", "gold_trim", H*0.014, H*0.09, H*0.014, side*H*0.36, H*0.375, wallZ);
+    }
+
+    box("central_keep_lower", "stone_main", H*0.30, H*0.26, H*0.24, 0, H*0.23, 0);
+    box("central_keep_mid", "stone_main", H*0.23, H*0.18, H*0.19, 0, H*0.45, -H*0.01);
+    box("central_keep_upper", "stone_main", H*0.16, H*0.15, H*0.14, 0, H*0.61, -H*0.015);
+    shape("central_keep_roof_1", "tri_prism", "roof_metal", H*0.36, H*0.09, H*0.28, 0, H*0.37, 0);
+    shape("central_keep_roof_2", "tri_prism", "roof_metal", H*0.28, H*0.08, H*0.22, 0, H*0.54, -H*0.01);
+    shape("central_keep_roof_3", "tri_prism", "roof_dark", H*0.20, H*0.07, H*0.16, 0, H*0.68, -H*0.015);
+    shape("main_spire_base", "cylinder", "roof_dark", H*0.05, H*0.07, H*0.05, 0, H*0.77, -H*0.015);
+    shape("main_spire", "cylinder", "gold_trim", H*0.02, H*0.20, H*0.02, 0, H*0.905, -H*0.015);
+
+    for (const side of [-1, 1]) {
+      const x = side * H * 0.24;
+      box(`front_tower_${side < 0 ? "l" : "r"}`, "stone_main", H*0.10, H*0.44, H*0.10, x, H*0.28, H*0.08);
+      shape(`front_tower_roof_${side < 0 ? "l" : "r"}`, "tri_prism", "roof_metal", H*0.14, H*0.09, H*0.14, x, H*0.53, H*0.08);
+      shape(`front_tower_spire_${side < 0 ? "l" : "r"}`, "cylinder", "gold_trim", H*0.015, H*0.14, H*0.015, x, H*0.645, H*0.08);
+    }
+
+    for (const side of [-1, 1]) {
+      const x = side * H * 0.34;
+      box(`rear_tower_${side < 0 ? "l" : "r"}`, "stone_main", H*0.11, H*0.56, H*0.11, x, H*0.34, -H*0.08);
+      shape(`rear_tower_roof_${side < 0 ? "l" : "r"}`, "tri_prism", "roof_dark", H*0.16, H*0.11, H*0.16, x, H*0.64, -H*0.08);
+      shape(`rear_tower_spire_${side < 0 ? "l" : "r"}`, "cylinder", "gold_trim", H*0.016, H*0.16, H*0.016, x, H*0.775, -H*0.08);
+    }
+
+    for (const side of [-1, 1]) {
+      const x = side * H * 0.13;
+      box(`mid_turret_${side < 0 ? "l" : "r"}`, "stone_dark", H*0.06, H*0.22, H*0.06, x, H*0.52, H*0.11);
+      shape(`mid_turret_roof_${side < 0 ? "l" : "r"}`, "tri_prism", "roof_metal", H*0.10, H*0.07, H*0.10, x, H*0.665, H*0.11);
+      shape(`mid_turret_spire_${side < 0 ? "l" : "r"}`, "cylinder", "gold_trim", H*0.012, H*0.10, H*0.012, x, H*0.75, H*0.11);
+    }
+
+    box("gallery_left", "stone_main", H*0.13, H*0.12, H*0.08, -H*0.14, H*0.30, H*0.14);
+    box("gallery_right", "stone_main", H*0.13, H*0.12, H*0.08, H*0.14, H*0.30, H*0.14);
+    shape("gallery_roof_left", "tri_prism", "roof_dark", H*0.16, H*0.05, H*0.10, -H*0.14, H*0.385, H*0.14);
+    shape("gallery_roof_right", "tri_prism", "roof_dark", H*0.16, H*0.05, H*0.10, H*0.14, H*0.385, H*0.14);
+
+    box("window_band_low", "glass_light", H*0.18, H*0.05, H*0.01, 0, H*0.27, H*0.121);
+    box("window_band_mid", "glass_light", H*0.12, H*0.05, H*0.01, 0, H*0.48, H*0.096);
+    box("window_band_high", "glass_light", H*0.08, H*0.04, H*0.01, 0, H*0.63, H*0.071);
+
+    for (let i = 0; i < 6; i++) {
+      const x = -H*0.15 + i * H*0.06;
+      shape(`crenel_${i+1}`, "cylinder", "stone_dark", H*0.016, H*0.03, H*0.016, x, H*0.315, H*0.24);
+    }
+
+    for (const side of [-1, 1]) {
+      box(`banner_pole_${side < 0 ? "l" : "r"}`, "gold_trim", H*0.008, H*0.12, H*0.008, side*H*0.09, H*0.80, H*0.02);
+      box(`banner_${side < 0 ? "l" : "r"}`, "accent_banner", H*0.028, H*0.07, H*0.004, side*H*0.09 + H*0.012, H*0.77, H*0.02);
+    }
   } else {
     box("keep", "stone_main", H * 0.35, H * 0.55, H * 0.28, 0, H * 0.275, 0);
     box("left_tower", "stone_dark", H * 0.18, H * 0.75, H * 0.18, -H * 0.32, H * 0.375, 0);
@@ -2794,9 +3071,6 @@ function buildBuildingSpec(prompt, height, styles) {
     box("op_entry_col_R","steel_frame", 0.30, foundH+fH*0.88, 0.30,  opEntryW*0.40, (foundH+fH*0.88)*0.5, opZ+opD*0.5+opEntryD);
     box("op_entry_door", "glass_entry", opEntryW*0.60, fH*0.82, 0.25,  0, foundH+fH*0.44, opZ+opD*0.5);
     // 外来サイン
-    box("op_sign_h",    "sign_red",  4.0, 0.50, 0.15,   opW*0.20, foundH+bodyH*0.88, opZ+opD*0.505);
-    box("op_sign_v",    "sign_red",  0.50, 4.0, 0.15,   opW*0.20, foundH+bodyH*0.66, opZ+opD*0.505);
-
     // ── 救急棟 ────────────────────────────────────────────────────────────────
     box("er_found",     "concrete",  erW+0.3, foundH, erD+0.3,  erX, foundH*0.5, erZ);
     for (let f = 0; f < floors; f++) {
@@ -2814,8 +3088,11 @@ function buildBuildingSpec(prompt, height, styles) {
     // 救急入口ドア (南面)
     box("er_door",      "glass_entry", erW*0.55, fH*0.78, 0.25,  erX, foundH+fH*0.42, erZ+erD*0.5);
     // 救急サイン
-    box("er_sign_h",    "sign_red",  3.2, 0.45, 0.15,  erX, foundH+fH*0.92, erZ+erD*0.505);
-    box("er_sign_v",    "sign_red",  0.45, 3.2, 0.15,  erX, foundH+fH*0.74, erZ+erD*0.505);
+    const erCrossX = erX;
+    const erCrossY = foundH + fH * 1.45;
+    const erCrossZ = erZ + erD * 0.505;
+    box("er_sign_h",    "sign_red",  3.2, 0.45, 0.15,  erCrossX, erCrossY, erCrossZ);
+    box("er_sign_v",    "sign_red",  0.45, 3.2, 0.15,  erCrossX, erCrossY, erCrossZ);
 
     // 救急ポーチ (ambulance porte-cochère)
     const pchY = pchH;
@@ -2866,7 +3143,7 @@ function buildBuildingSpec(prompt, height, styles) {
     // ヘリポート (helipad on outpatient roof)
     const hpY = foundH + bodyH + parH + roofSlabH;
     shape("helipad_circle","cylinder","helipad_mark",10.0, 0.08, 10.0, 0, hpY+0.04, opZ);
-    box("helipad_H_h",  "sign_red",  5.0, 0.10, 1.2,   0, hpY+0.09, opZ);
+    box("helipad_H_h",  "sign_red",  4.2, 0.10, 1.2,   0, hpY+0.09, opZ);
     box("helipad_H_v1", "sign_red",  1.2, 0.10, 3.8, -1.5, hpY+0.09, opZ);
     box("helipad_H_v2", "sign_red",  1.2, 0.10, 3.8,  1.5, hpY+0.09, opZ);
     // 屋上設備 (rooftop equipment — AC units etc)
@@ -5057,6 +5334,123 @@ function buildBuildingSpec(prompt, height, styles) {
     return spec;
   }
   // ── END mansion_estate override ──────────────────────────────────────────────
+
+  // ── Family high-rise mansion: flat-roof 10F apartment block ─────────────────
+  if (archetype === "mansion_family") {
+    const floors = 10;
+    const unitsPerFloor = 10;
+    const floorH = 3.1;
+    const slabH = 0.24;
+    const baseH = 0.7;
+    const parapetH = 0.9;
+    const buildingW = 42.0;
+    const buildingD = 15.5;
+    const totalBodyH = floors * floorH + (floors - 1) * slabH;
+    const totalH = baseH + totalBodyH + parapetH;
+    const bayW = buildingW / unitsPerFloor;
+
+    spec.materials = {
+      podium:        { baseColor: "#8C9096", roughness: 0.92, metalness: 0.03 },
+      facade_main:   { baseColor: "#E5E3DD", roughness: 0.88, metalness: 0.02 },
+      facade_accent: { baseColor: "#A7ADB4", roughness: 0.90, metalness: 0.03 },
+      frame_dark:    { baseColor: "#444A50", roughness: 0.48, metalness: 0.52 },
+      glass_main:    { baseColor: "#7FB1CC", roughness: 0.10, metalness: 0.86 },
+      glass_dark:    { baseColor: "#4E6C86", roughness: 0.14, metalness: 0.82 },
+      balcony:       { baseColor: "#BCC2C8", roughness: 0.86, metalness: 0.06 },
+      rail:          { baseColor: "#8E969C", roughness: 0.34, metalness: 0.84 },
+      roof_flat:     { baseColor: "#7B838A", roughness: 0.84, metalness: 0.08 },
+      paving:        { baseColor: "#A8AFB2", roughness: 0.94, metalness: 0.02 },
+      planter:       { baseColor: "#6E7A5C", roughness: 0.94, metalness: 0.01 }
+    };
+
+    spec.style = {
+      silhouette: "large_family_condominium_block",
+      mood: "inhabited",
+      genre: "residential_architecture",
+      detailDensity: "high",
+      bodyLanguage: "static_structure",
+      shapeLanguage: ["flat_roof", "repetitive_balconies", "unit_grid", "shared_entrance", "family_scale_mass"]
+    };
+    spec.globalScale = { height: rounded(totalH), width: rounded(buildingW + 4.0), depth: rounded(buildingD + 4.0) };
+
+    box("site_plaza", "paving", buildingW + 8.0, 0.24, buildingD + 9.0, 0, 0.12, 0.8);
+    box("podium", "podium", buildingW + 1.2, baseH, buildingD + 1.0, 0, baseH * 0.5, 0);
+    box("main_mass", "facade_main", buildingW, totalBodyH, buildingD, 0, baseH + totalBodyH * 0.5, 0);
+    box("accent_core", "facade_accent", bayW * 1.25, totalBodyH, buildingD * 1.01, 0, baseH + totalBodyH * 0.5, 0);
+
+    for (let f = 0; f < floors - 1; f++) {
+      const y = baseH + (f + 1) * floorH + f * slabH + slabH * 0.5;
+      box(`slab_band_${f+1}`, "facade_accent", buildingW + 0.5, slabH, buildingD + 0.2, 0, y, 0);
+    }
+
+    box("roof_deck", "roof_flat", buildingW, 0.24, buildingD, 0, baseH + totalBodyH - 0.12, 0);
+    box("parapet_front", "facade_accent", buildingW + 0.4, parapetH, 0.3, 0, totalH - parapetH * 0.5, buildingD * 0.5 + 0.15);
+    box("parapet_back", "facade_accent", buildingW + 0.4, parapetH, 0.3, 0, totalH - parapetH * 0.5, -buildingD * 0.5 - 0.15);
+    box("parapet_left", "facade_accent", 0.3, parapetH, buildingD, -buildingW * 0.5 - 0.15, totalH - parapetH * 0.5, 0);
+    box("parapet_right", "facade_accent", 0.3, parapetH, buildingD, buildingW * 0.5 + 0.15, totalH - parapetH * 0.5, 0);
+
+    const entryW = bayW * 1.6;
+    const entryH = 4.6;
+    const entryZ = buildingD * 0.5 + 0.06;
+    box("entry_frame", "frame_dark", entryW + 0.5, entryH + 0.4, 0.25, 0, baseH + entryH * 0.5, entryZ);
+    box("entry_glass", "glass_main", entryW, entryH, 0.22, 0, baseH + entryH * 0.5, entryZ + 0.02);
+    box("entry_canopy", "balcony", entryW + 2.0, 0.20, 2.6, 0, baseH + entryH + 0.4, buildingD * 0.5 + 1.25);
+    box("entry_step_1", "paving", entryW + 1.8, 0.18, 1.0, 0, 0.09, buildingD * 0.5 + 1.4);
+    box("entry_step_2", "paving", entryW + 1.2, 0.14, 0.8, 0, 0.07, buildingD * 0.5 + 2.2);
+    box("mail_corner", "frame_dark", bayW * 0.7, 1.8, 0.22, bayW * 1.25, baseH + 1.2, entryZ + 0.02);
+
+    for (let f = 0; f < floors; f++) {
+      const floorBase = baseH + f * (floorH + slabH);
+      const winY = floorBase + floorH * 0.56;
+      const railY = floorBase + 1.15;
+      const slabY = floorBase + 0.18;
+      box(`balcony_slab_f${f+1}`, "balcony", buildingW * 0.95, 0.20, 1.55, 0, slabY, buildingD * 0.5 + 0.78);
+      box(`balcony_rail_f${f+1}`, "rail", buildingW * 0.95, 0.95, 0.08, 0, railY, buildingD * 0.5 + 1.50);
+
+      for (let u = 0; u < unitsPerFloor; u++) {
+        const x = -buildingW * 0.5 + bayW * (u + 0.5);
+        const windowW = bayW * 0.58;
+        const dividerW = 0.08;
+        box(`win_f${f+1}_u${u+1}`, "glass_main", windowW, floorH * 0.48, 0.18, x, winY, buildingD * 0.5 + 0.02);
+        box(`frame_f${f+1}_u${u+1}`, "frame_dark", windowW + 0.14, floorH * 0.52, 0.12, x, winY, buildingD * 0.5 - 0.02);
+        if (u < unitsPerFloor - 1) {
+          box(`divider_f${f+1}_u${u+1}`, "facade_accent", dividerW, floorH * 0.76, 1.30, x + bayW * 0.5, floorBase + floorH * 0.42, buildingD * 0.5 + 0.70);
+        }
+      }
+    }
+
+    for (let f = 0; f < floors; f++) {
+      const floorBase = baseH + f * (floorH + slabH);
+      const corrY = floorBase + floorH * 0.50;
+      for (let u = 0; u < unitsPerFloor; u++) {
+        const x = -buildingW * 0.5 + bayW * (u + 0.5);
+        box(`rear_win_f${f+1}_u${u+1}`, "glass_dark", bayW * 0.52, floorH * 0.40, 0.16, x, corrY, -buildingD * 0.5 - 0.01);
+      }
+      box(`rear_corridor_f${f+1}`, "balcony", buildingW * 0.92, 0.16, 1.35, 0, floorBase + 0.16, -buildingD * 0.5 - 0.68);
+      box(`rear_rail_f${f+1}`, "rail", buildingW * 0.92, 0.88, 0.08, 0, floorBase + 1.08, -buildingD * 0.5 - 1.28);
+    }
+
+    box("roof_plant_1", "frame_dark", 4.0, 2.2, 2.6, -8.0, totalH - 1.4, -3.2);
+    box("roof_plant_2", "frame_dark", 3.2, 1.8, 2.2, 8.5, totalH - 1.2, -2.8);
+    box("planter_left", "planter", 5.0, 0.55, 1.6, -buildingW * 0.34, 0.28, buildingD * 0.5 + 2.8);
+    box("planter_right", "planter", 5.0, 0.55, 1.6, buildingW * 0.34, 0.28, buildingD * 0.5 + 2.8);
+
+    const famRegions = ["facade", "balcony", "entrance", "corridor", "roof", "base"];
+    const famDetails = ["panel_seam", "concrete_texture", "window_grid", "metal_panel", "weathering", "trim_line"];
+    let famIdx = 1;
+    for (const region of famRegions) {
+      for (let i = 0; i < 8; i++) {
+        pushSurface(`sd_${famIdx++}`, region, famDetails[i % famDetails.length],
+          0.10 + (i % 5) * 0.04,
+          [Math.sin(i * 0.8) * 0.014, Math.cos(i * 0.7) * 0.011, ((i % 4) - 1.5) * 0.009]);
+      }
+    }
+
+    spec.parts = parts;
+    spec.surfaceDetails = surfaceDetails;
+    return spec;
+  }
+  // ── END mansion_family override ──────────────────────────────────────────────
 
   // ── Modern apartment archetype ───────────────────────────────────────────────
   if (archetype === "apartment_mid" || archetype === "apartment_2f") {
@@ -7520,9 +7914,3 @@ main().catch((err) => {
   console.error(err);
   process.exit(1);
 });
-
-
-
-
-
-

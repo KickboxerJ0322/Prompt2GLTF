@@ -1,16 +1,16 @@
 // ==============================
 // Cesium Sandcastle 用
 // Google Photorealistic 3D Tiles
-// ヘリ：お台場 → レインボーブリッジ → 東京タワー
-// ドローン風上方追尾カメラ
+// Toranomon Hills to Tokyo Tower walk route
+// Camera follows behind the moving model
 // ==============================
 
 // ------------------------------------
-// モデル向き補正
+// Model orientation fix
 // ------------------------------------
 const HEADING_FIX_DEG = 0;
-const PITCH_FIX_DEG   = 0;
-const ROLL_FIX_DEG    = 0;
+const PITCH_FIX_DEG = 0;
+const ROLL_FIX_DEG = 0;
 
 // ------------------------------------
 // Viewer
@@ -35,62 +35,76 @@ try {
   const googleTileset = await Cesium.createGooglePhotorealistic3DTileset();
   viewer.scene.primitives.add(googleTileset);
 } catch (error) {
-  console.log("Google Photorealistic 3D Tiles の読み込みに失敗:", error);
+  console.log("Failed to load Google Photorealistic 3D Tiles", error);
   throw error;
 }
 
 // ------------------------------------
-// キャラクター設定
+// Character settings
 // ------------------------------------
 const PERSON = {
-  name: "ヘリコプター",
-  glb: "https://raw.githubusercontent.com/KickboxerJ0322/Prompt2GLTF/master/glb/heli.glb",
-  scale: 4.0,
-  minimumPixelSize: 48,
-  maximumScale: 600,
-  heightMeters: 350,
-  speedMultiplier: 2,
-  pathWidth: 3,
-
-  // ドローン風追尾カメラ
-  followOffset: new Cesium.Cartesian3(-250, 0, 70),
-  lookOffset:   new Cesium.Cartesian3( 100, 0,  0),
-  cameraSmooth: 0.06,
+  name: "\u864e\u30ce\u9580\u30d2\u30eb\u30ba\u304b\u3089\u6771\u4eac\u30bf\u30ef\u30fc\u3078",
+  glb: (() => {
+    const modelUrl = "".trim();
+    return !modelUrl
+      ? "https://raw.githubusercontent.com/KickboxerJ0322/Prompt2GLTF/master/glb/car.glb"
+      : modelUrl;
+  })(),
+  scale: 0.3,
+  minimumPixelSize: 64,
+  maximumScale: 20,
+  heightMeters: 40,
+  speedMultiplier: 1,
+  pathWidth: 4,
+  followOffset: new Cesium.Cartesian3(-540.0, -2.0, 300.0),
+  lookOffset: new Cesium.Cartesian3(0.0, 0.0, 2.2),
+  cameraSmooth: 0.1,
 };
 
 // ------------------------------------
-// ルート：お台場 → レインボーブリッジ → 東京タワー
-// [秒, 経度, 緯度]
+// Route
+// [seconds, lon, lat]
 // ------------------------------------
 const route2D = [
-  [  0, 139.7757, 35.6270], // お台場海浜公園（出発）
-  [ 12, 139.7680, 35.6298], // レインボーブリッジ東側
-  [ 24, 139.7620, 35.6322], // レインボーブリッジ中央
-  [ 36, 139.7545, 35.6355], // レインボーブリッジ西側（芝浦）
-  [ 48, 139.7515, 35.6420], // 芝浦ふ頭上空
-  [ 60, 139.7495, 35.6480], // 港南・田町上空
-  [ 72, 139.7470, 35.6535], // 芝・浜松町上空
-  [ 88, 139.7454, 35.6586], // 東京タワー（到着）
+  [0, 139.74762388610776, 35.66728037489463],
+  [20, 139.74641953951047, 35.66456246414062],
+  [40, 139.74424024558465, 35.66227934759829],
+  [60, 139.74294031605703, 35.65999616581598],
+  [100, 139.74499628926793, 35.655831769448135],
+  [110, 139.74541424160032, 35.65520481286661],
+  [130, 139.74698960042394, 35.65844403546138],
+  [140, 139.7455749925007, 35.65901872252147],
 ];
 
 // ------------------------------------
-// 周辺地名ラベル（お台場〜東京タワーエリア）
+// Nearby place labels
 // ------------------------------------
 const DEFAULT_PLACE_LABELS = [
-  { name: "お台場海浜公園",     lon: 139.7757, lat: 35.6270, height: 20, color: "CYAN"   },
-  { name: "レインボーブリッジ", lon: 139.7620, lat: 35.6330, height: 20, color: "YELLOW" },
-  { name: "芝浦ふ頭",           lon: 139.7515, lat: 35.6420, height: 20, color: "WHITE"  },
-  { name: "東京タワー",         lon: 139.7454, lat: 35.6586, height: 20, color: "ORANGE" },
-  { name: "フジテレビ",         lon: 139.7797, lat: 35.6279, height: 20, color: "WHITE"  },
-  { name: "有明ガーデン",       lon: 139.7919, lat: 35.6359, height: 20, color: "WHITE"  },
-  { name: "汐留",               lon: 139.7582, lat: 35.6608, height: 20, color: "WHITE"  },
-  { name: "浜松町",             lon: 139.7565, lat: 35.6554, height: 20, color: "WHITE"  },
-  { name: "品川",               lon: 139.7388, lat: 35.6284, height: 20, color: "WHITE"  },
-  { name: "増上寺",             lon: 139.7490, lat: 35.6558, height: 20, color: "LIME"   },
+  {
+    name: "\u864e\u30ce\u9580\u30d2\u30eb\u30ba",
+    lon: 139.74762388610776,
+    lat: 35.66728037489463,
+    height: 20,
+    color: "CYAN",
+  },
+  {
+    name: "\u829d\u516c\u5712",
+    lon: 139.7459,
+    lat: 35.6556,
+    height: 20,
+    color: "WHITE",
+  },
+  {
+    name: "\u6771\u4eac\u30bf\u30ef\u30fc",
+    lon: 139.7455749925007,
+    lat: 35.65901872252147,
+    height: 20,
+    color: "ORANGE",
+  },
 ];
 
 // ------------------------------------
-// 時刻設定
+// Time settings
 // ------------------------------------
 const startIso = new Date().toISOString();
 const start = Cesium.JulianDate.fromIso8601(startIso);
@@ -103,12 +117,12 @@ const stop = Cesium.JulianDate.addSeconds(
 viewer.clock.startTime = start.clone();
 viewer.clock.stopTime = stop.clone();
 viewer.clock.currentTime = start.clone();
-viewer.clock.clockRange = Cesium.ClockRange.CLAMPED;
+viewer.clock.clockRange = Cesium.ClockRange.LOOP_STOP;
 viewer.clock.multiplier = PERSON.speedMultiplier;
 viewer.clock.shouldAnimate = true;
 
 // ------------------------------------
-// 位置サンプル
+// Position samples
 // ------------------------------------
 const position = new Cesium.SampledPositionProperty();
 
@@ -119,12 +133,12 @@ for (const [sec, lon, lat] of route2D) {
 }
 
 position.setInterpolationOptions({
-  interpolationDegree: 3,
-  interpolationAlgorithm: Cesium.HermitePolynomialApproximation,
+  interpolationDegree: 1,
+  interpolationAlgorithm: Cesium.LinearApproximation,
 });
 
 // ------------------------------------
-// 進行方向ベースの向き
+// Orientation
 // ------------------------------------
 const velocityOrientation = new Cesium.VelocityOrientationProperty(position);
 
@@ -148,10 +162,10 @@ const modelOrientation = new Cesium.CallbackProperty(function (time, result) {
 }, false);
 
 // ------------------------------------
-// ルート線
+// Route line
 // ------------------------------------
 viewer.entities.add({
-  name: "飛行ルート",
+  name: "\u864e\u30ce\u9580\u30d2\u30eb\u30ba \u2192 \u6771\u4eac\u30bf\u30ef\u30fc",
   polyline: {
     positions: route2D.map(([, lon, lat]) =>
       Cesium.Cartesian3.fromDegrees(lon, lat, PERSON.heightMeters)
@@ -166,7 +180,7 @@ viewer.entities.add({
 });
 
 // ------------------------------------
-// 始点マーカー（お台場）
+// Start marker
 // ------------------------------------
 viewer.entities.add({
   position: Cesium.Cartesian3.fromDegrees(
@@ -182,7 +196,7 @@ viewer.entities.add({
     disableDepthTestDistance: Number.POSITIVE_INFINITY,
   },
   label: {
-    text: "出発：お台場",
+    text: "\u51fa\u767a: \u864e\u30ce\u9580\u30d2\u30eb\u30ba",
     font: "20px sans-serif",
     fillColor: Cesium.Color.LIME,
     outlineColor: Cesium.Color.BLACK,
@@ -194,7 +208,7 @@ viewer.entities.add({
 });
 
 // ------------------------------------
-// 終点マーカー（東京タワー）
+// End marker
 // ------------------------------------
 viewer.entities.add({
   position: Cesium.Cartesian3.fromDegrees(
@@ -210,7 +224,7 @@ viewer.entities.add({
     disableDepthTestDistance: Number.POSITIVE_INFINITY,
   },
   label: {
-    text: "到着：東京タワー",
+    text: "\u5230\u7740: \u6771\u4eac\u30bf\u30ef\u30fc",
     font: "20px sans-serif",
     fillColor: Cesium.Color.YELLOW,
     outlineColor: Cesium.Color.BLACK,
@@ -222,12 +236,15 @@ viewer.entities.add({
 });
 
 // ------------------------------------
-// 経由地点マーカー
+// Waypoints
 // ------------------------------------
 const WAYPOINTS = [
-  { lon: 139.7620, lat: 35.6322, color: "YELLOW", label: "レインボーブリッジ中央" },
-  { lon: 139.7545, lat: 35.6355, color: "WHITE",  label: "芝浦上空"               },
-  { lon: 139.7515, lat: 35.6420, color: "CYAN",   label: "芝浦ふ頭上空"           },
+  {
+    lon: 139.75112,
+    lat: 35.65715,
+    label: "\u829d\u516c\u5712\u4ea4\u5dee\u70b9",
+    color: "ORANGE",
+  },
 ];
 
 for (const wp of WAYPOINTS) {
@@ -254,7 +271,7 @@ for (const wp of WAYPOINTS) {
 }
 
 // ------------------------------------
-// 周辺地名ラベル表示
+// Nearby labels
 // ------------------------------------
 for (const place of DEFAULT_PLACE_LABELS) {
   viewer.entities.add({
@@ -279,9 +296,9 @@ for (const place of DEFAULT_PLACE_LABELS) {
 }
 
 // ------------------------------------
-// モデル本体
+// Moving model
 // ------------------------------------
-const player = viewer.entities.add({
+viewer.entities.add({
   name: PERSON.name,
   position: position,
   orientation: modelOrientation,
@@ -309,24 +326,24 @@ const player = viewer.entities.add({
 });
 
 // ------------------------------------
-// 最初に全体を俯瞰
+// Initial camera
 // ------------------------------------
 await viewer.camera.flyTo({
-  destination: Cesium.Cartesian3.fromDegrees(139.7600, 35.6430, 18000),
+  destination: Cesium.Cartesian3.fromDegrees(139.7508, 35.6588, 1200),
   orientation: {
-    heading: Cesium.Math.toRadians(0),
-    pitch: Cesium.Math.toRadians(-50),
+    heading: Cesium.Math.toRadians(10),
+    pitch: Cesium.Math.toRadians(-40),
     roll: 0,
   },
   duration: 1.5,
 });
 
 // ------------------------------------
-// ドローン風の上方追尾カメラ
+// Follow camera
 // ------------------------------------
 let smoothCamPos;
 
-viewer.scene.preRender.addEventListener(function (_scene, time) {
+viewer.scene.preRender.addEventListener(function (scene, time) {
   const p = position.getValue(time);
   const q = baseOrientation.getValue(time);
 
@@ -409,4 +426,4 @@ viewer.scene.preRender.addEventListener(function (_scene, time) {
   });
 });
 
-console.log("読み込み完了: ヘリ お台場 → レインボーブリッジ → 東京タワー（ドローン追尾カメラ・2倍速・88秒）");
+console.log("Loaded: Toranomon Hills to Tokyo Tower walk route");

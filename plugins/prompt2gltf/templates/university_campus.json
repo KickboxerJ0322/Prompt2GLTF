@@ -1,0 +1,7683 @@
+{
+  "meta": {
+    "name": "building_14m_小学校_中学校_高校をイメージした大規模な学校施設_校舎は4階建て2棟_体育館_プール_運動施設",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "prompt2gltf",
+    "generatedFrom": "小学校、中学校、高校をイメージした大規模な学校施設。校舎は4階建て2棟、体育館、プール、運動施設、校庭を備えた現代的な教育キャンパス",
+    "createdAt": "2026-03-14T10:57:15.671Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "小学校、中学校、高校をイメージした大規模な学校施設。校舎は4階建て2棟、体育館、プール、運動施設、校庭を備えた現代的な教育キャンパス",
+    "normalizedSubject": "building",
+    "targetHeightMeters": 14,
+    "styleTags": [
+      "school"
+    ],
+    "geometryDirective": "Use mixed primitives (box/cylinder/sphere/tri_prism); represent curved real-world forms with rounded geometry.",
+    "summary": "Generated from prompt as a building with high-density procedural spec.",
+    "designIntent": {
+      "scaleImpression": "large",
+      "mood": "majestic",
+      "originalityPolicy": "generalized_original_design"
+    },
+    "buildingArchetype": "facility_university"
+  },
+  "globalScale": {
+    "height": 14,
+    "width": 21,
+    "depth": 11.2
+  },
+  "style": {
+    "silhouette": "civic_public_building",
+    "mood": "authoritative_public",
+    "genre": "educational_campus",
+    "detailDensity": "high",
+    "bodyLanguage": "static_structure",
+    "shapeLanguage": [
+      "main_volume",
+      "roof_profile",
+      "entrance",
+      "window_rhythm",
+      "signage"
+    ]
+  },
+  "materials": {
+    "concrete_main": {
+      "baseColor": "#C8C4B8",
+      "roughness": 0.88,
+      "metalness": 0.04
+    },
+    "concrete_dark": {
+      "baseColor": "#8A8880",
+      "roughness": 0.86,
+      "metalness": 0.04
+    },
+    "brick_warm": {
+      "baseColor": "#B87050",
+      "roughness": 0.9,
+      "metalness": 0.02
+    },
+    "glass_blue": {
+      "baseColor": "#5890C8",
+      "roughness": 0.08,
+      "metalness": 0.85
+    },
+    "glass_green": {
+      "baseColor": "#60B890",
+      "roughness": 0.08,
+      "metalness": 0.85
+    },
+    "roof_flat": {
+      "baseColor": "#6A6860",
+      "roughness": 0.88,
+      "metalness": 0.06
+    },
+    "roof_tile": {
+      "baseColor": "#3A5A3A",
+      "roughness": 0.88,
+      "metalness": 0.04
+    },
+    "road_asphalt": {
+      "baseColor": "#3C3C3C",
+      "roughness": 0.96,
+      "metalness": 0.02
+    },
+    "road_line": {
+      "baseColor": "#E8E8E0",
+      "roughness": 0.8,
+      "metalness": 0.02
+    },
+    "paving_main": {
+      "baseColor": "#B8B4A8",
+      "roughness": 0.88,
+      "metalness": 0.02
+    },
+    "paving_path": {
+      "baseColor": "#C8C0A0",
+      "roughness": 0.9,
+      "metalness": 0.02
+    },
+    "grass_green": {
+      "baseColor": "#4A7A30",
+      "roughness": 0.98,
+      "metalness": 0
+    },
+    "tree_foliage": {
+      "baseColor": "#2A6020",
+      "roughness": 0.98,
+      "metalness": 0
+    },
+    "tree_trunk": {
+      "baseColor": "#6A4820",
+      "roughness": 0.96,
+      "metalness": 0
+    },
+    "fence_metal": {
+      "baseColor": "#404848",
+      "roughness": 0.6,
+      "metalness": 0.6
+    },
+    "sign_white": {
+      "baseColor": "#F0F0F0",
+      "roughness": 0.6,
+      "metalness": 0.1
+    },
+    "sign_blue": {
+      "baseColor": "#1A4080",
+      "roughness": 0.5,
+      "metalness": 0.15,
+      "emissive": "#0A2040"
+    },
+    "steel_gray": {
+      "baseColor": "#808888",
+      "roughness": 0.5,
+      "metalness": 0.7
+    },
+    "water_fountain": {
+      "baseColor": "#4080B0",
+      "roughness": 0.1,
+      "metalness": 0.2
+    },
+    "gym_wall": {
+      "baseColor": "#D0C8A8",
+      "roughness": 0.9,
+      "metalness": 0.02
+    },
+    "track_red": {
+      "baseColor": "#CC3A20",
+      "roughness": 0.9,
+      "metalness": 0.02
+    },
+    "field_green": {
+      "baseColor": "#3A8028",
+      "roughness": 0.98,
+      "metalness": 0
+    },
+    "parking_asphalt": {
+      "baseColor": "#484848",
+      "roughness": 0.94,
+      "metalness": 0.02
+    }
+  },
+  "parts": [
+    {
+      "id": "site_pave",
+      "kind": "box",
+      "material": "paving_main",
+      "size": [
+        326,
+        0.2,
+        256
+      ],
+      "position": [
+        0,
+        0.1,
+        -3.5
+      ]
+    },
+    {
+      "id": "fence_s_l",
+      "kind": "box",
+      "material": "fence_metal",
+      "size": [
+        153,
+        2,
+        0.4
+      ],
+      "position": [
+        -83.5,
+        1,
+        120
+      ]
+    },
+    {
+      "id": "fence_s_r",
+      "kind": "box",
+      "material": "fence_metal",
+      "size": [
+        153,
+        2,
+        0.4
+      ],
+      "position": [
+        83.5,
+        1,
+        120
+      ]
+    },
+    {
+      "id": "fence_n",
+      "kind": "box",
+      "material": "fence_metal",
+      "size": [
+        320,
+        2,
+        0.4
+      ],
+      "position": [
+        0,
+        1,
+        -120
+      ]
+    },
+    {
+      "id": "fence_e",
+      "kind": "box",
+      "material": "fence_metal",
+      "size": [
+        0.4,
+        2,
+        240
+      ],
+      "position": [
+        160,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "fence_w",
+      "kind": "box",
+      "material": "fence_metal",
+      "size": [
+        0.4,
+        2,
+        240
+      ],
+      "position": [
+        -160,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "gate_pillar_l",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        3.5,
+        5,
+        3.5
+      ],
+      "position": [
+        -10,
+        2.5,
+        120
+      ]
+    },
+    {
+      "id": "gate_pillar_r",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        3.5,
+        5,
+        3.5
+      ],
+      "position": [
+        10,
+        2.5,
+        120
+      ]
+    },
+    {
+      "id": "gate_arch",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        20,
+        1,
+        1.2
+      ],
+      "position": [
+        0,
+        5.5,
+        120
+      ]
+    },
+    {
+      "id": "gate_sign",
+      "kind": "box",
+      "material": "sign_blue",
+      "size": [
+        16,
+        1.5,
+        0.3
+      ],
+      "position": [
+        0,
+        6.5,
+        119.8
+      ]
+    },
+    {
+      "id": "guard_booth",
+      "kind": "box",
+      "material": "concrete_main",
+      "size": [
+        4,
+        3,
+        4
+      ],
+      "position": [
+        16,
+        1.5,
+        118
+      ]
+    },
+    {
+      "id": "guard_roof",
+      "kind": "box",
+      "material": "roof_flat",
+      "size": [
+        4.4,
+        0.3,
+        4.4
+      ],
+      "position": [
+        16,
+        3.15,
+        118
+      ]
+    },
+    {
+      "id": "plaza_pave",
+      "kind": "box",
+      "material": "paving_path",
+      "size": [
+        90,
+        0.25,
+        30
+      ],
+      "position": [
+        0,
+        0.125,
+        105
+      ]
+    },
+    {
+      "id": "fountain_basin",
+      "kind": "cylinder",
+      "material": "water_fountain",
+      "size": [
+        10,
+        0.8,
+        10
+      ],
+      "position": [
+        0,
+        0.4,
+        105
+      ]
+    },
+    {
+      "id": "fountain_pillar",
+      "kind": "cylinder",
+      "material": "concrete_dark",
+      "size": [
+        0.8,
+        2,
+        0.8
+      ],
+      "position": [
+        0,
+        1,
+        105
+      ]
+    },
+    {
+      "id": "fountain_top",
+      "kind": "cylinder",
+      "material": "water_fountain",
+      "size": [
+        3,
+        0.3,
+        3
+      ],
+      "position": [
+        0,
+        2.2,
+        105
+      ]
+    },
+    {
+      "id": "tree_approach_l_0",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.8,
+        3,
+        0.8
+      ],
+      "position": [
+        -18,
+        1.5,
+        118
+      ]
+    },
+    {
+      "id": "tree_approach_r_0",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.8,
+        3,
+        0.8
+      ],
+      "position": [
+        18,
+        1.5,
+        118
+      ]
+    },
+    {
+      "id": "tree_foliage_l_0",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        -18,
+        4.5,
+        118
+      ]
+    },
+    {
+      "id": "tree_foliage_r_0",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        18,
+        4.5,
+        118
+      ]
+    },
+    {
+      "id": "tree_approach_l_1",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.8,
+        3,
+        0.8
+      ],
+      "position": [
+        -18,
+        1.5,
+        112.5
+      ]
+    },
+    {
+      "id": "tree_approach_r_1",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.8,
+        3,
+        0.8
+      ],
+      "position": [
+        18,
+        1.5,
+        112.5
+      ]
+    },
+    {
+      "id": "tree_foliage_l_1",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        -18,
+        4.5,
+        112.5
+      ]
+    },
+    {
+      "id": "tree_foliage_r_1",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        18,
+        4.5,
+        112.5
+      ]
+    },
+    {
+      "id": "tree_approach_l_2",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.8,
+        3,
+        0.8
+      ],
+      "position": [
+        -18,
+        1.5,
+        107
+      ]
+    },
+    {
+      "id": "tree_approach_r_2",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.8,
+        3,
+        0.8
+      ],
+      "position": [
+        18,
+        1.5,
+        107
+      ]
+    },
+    {
+      "id": "tree_foliage_l_2",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        -18,
+        4.5,
+        107
+      ]
+    },
+    {
+      "id": "tree_foliage_r_2",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        18,
+        4.5,
+        107
+      ]
+    },
+    {
+      "id": "tree_approach_l_3",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.8,
+        3,
+        0.8
+      ],
+      "position": [
+        -18,
+        1.5,
+        101.5
+      ]
+    },
+    {
+      "id": "tree_approach_r_3",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.8,
+        3,
+        0.8
+      ],
+      "position": [
+        18,
+        1.5,
+        101.5
+      ]
+    },
+    {
+      "id": "tree_foliage_l_3",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        -18,
+        4.5,
+        101.5
+      ]
+    },
+    {
+      "id": "tree_foliage_r_3",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        18,
+        4.5,
+        101.5
+      ]
+    },
+    {
+      "id": "tree_approach_l_4",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.8,
+        3,
+        0.8
+      ],
+      "position": [
+        -18,
+        1.5,
+        96
+      ]
+    },
+    {
+      "id": "tree_approach_r_4",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.8,
+        3,
+        0.8
+      ],
+      "position": [
+        18,
+        1.5,
+        96
+      ]
+    },
+    {
+      "id": "tree_foliage_l_4",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        -18,
+        4.5,
+        96
+      ]
+    },
+    {
+      "id": "tree_foliage_r_4",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        18,
+        4.5,
+        96
+      ]
+    },
+    {
+      "id": "tree_approach_l_5",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.8,
+        3,
+        0.8
+      ],
+      "position": [
+        -18,
+        1.5,
+        90.5
+      ]
+    },
+    {
+      "id": "tree_approach_r_5",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.8,
+        3,
+        0.8
+      ],
+      "position": [
+        18,
+        1.5,
+        90.5
+      ]
+    },
+    {
+      "id": "tree_foliage_l_5",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        -18,
+        4.5,
+        90.5
+      ]
+    },
+    {
+      "id": "tree_foliage_r_5",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        18,
+        4.5,
+        90.5
+      ]
+    },
+    {
+      "id": "flag_pole_l",
+      "kind": "cylinder",
+      "material": "steel_gray",
+      "size": [
+        0.3,
+        12,
+        0.3
+      ],
+      "position": [
+        -8,
+        6,
+        95
+      ]
+    },
+    {
+      "id": "flag_pole_c",
+      "kind": "cylinder",
+      "material": "steel_gray",
+      "size": [
+        0.3,
+        12,
+        0.3
+      ],
+      "position": [
+        0,
+        6,
+        95
+      ]
+    },
+    {
+      "id": "flag_pole_r",
+      "kind": "cylinder",
+      "material": "steel_gray",
+      "size": [
+        0.3,
+        12,
+        0.3
+      ],
+      "position": [
+        8,
+        6,
+        95
+      ]
+    },
+    {
+      "id": "flag_l",
+      "kind": "box",
+      "material": "sign_blue",
+      "size": [
+        2.8,
+        1.6,
+        0.05
+      ],
+      "position": [
+        -6.6,
+        11.2,
+        95
+      ]
+    },
+    {
+      "id": "flag_c",
+      "kind": "box",
+      "material": "sign_blue",
+      "size": [
+        2.8,
+        1.6,
+        0.05
+      ],
+      "position": [
+        1.4,
+        11.2,
+        95
+      ]
+    },
+    {
+      "id": "flag_r",
+      "kind": "box",
+      "material": "sign_white",
+      "size": [
+        2.8,
+        1.6,
+        0.05
+      ],
+      "position": [
+        9.4,
+        11.2,
+        95
+      ]
+    },
+    {
+      "id": "mall_lawn_l",
+      "kind": "box",
+      "material": "grass_green",
+      "size": [
+        30,
+        0.2,
+        40
+      ],
+      "position": [
+        -35,
+        0.1,
+        70
+      ]
+    },
+    {
+      "id": "mall_lawn_r",
+      "kind": "box",
+      "material": "grass_green",
+      "size": [
+        30,
+        0.2,
+        40
+      ],
+      "position": [
+        35,
+        0.1,
+        70
+      ]
+    },
+    {
+      "id": "mall_path",
+      "kind": "box",
+      "material": "paving_path",
+      "size": [
+        14,
+        0.22,
+        40
+      ],
+      "position": [
+        0,
+        0.11,
+        70
+      ]
+    },
+    {
+      "id": "bench_l_0",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        2.5,
+        0.6,
+        0.8
+      ],
+      "position": [
+        -8,
+        0.3,
+        85
+      ]
+    },
+    {
+      "id": "bench_r_0",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        2.5,
+        0.6,
+        0.8
+      ],
+      "position": [
+        8,
+        0.3,
+        85
+      ]
+    },
+    {
+      "id": "bench_l_1",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        2.5,
+        0.6,
+        0.8
+      ],
+      "position": [
+        -8,
+        0.3,
+        76
+      ]
+    },
+    {
+      "id": "bench_r_1",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        2.5,
+        0.6,
+        0.8
+      ],
+      "position": [
+        8,
+        0.3,
+        76
+      ]
+    },
+    {
+      "id": "bench_l_2",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        2.5,
+        0.6,
+        0.8
+      ],
+      "position": [
+        -8,
+        0.3,
+        67
+      ]
+    },
+    {
+      "id": "bench_r_2",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        2.5,
+        0.6,
+        0.8
+      ],
+      "position": [
+        8,
+        0.3,
+        67
+      ]
+    },
+    {
+      "id": "bench_l_3",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        2.5,
+        0.6,
+        0.8
+      ],
+      "position": [
+        -8,
+        0.3,
+        58
+      ]
+    },
+    {
+      "id": "bench_r_3",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        2.5,
+        0.6,
+        0.8
+      ],
+      "position": [
+        8,
+        0.3,
+        58
+      ]
+    },
+    {
+      "id": "mall_tree_ll_0",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.5,
+        0.7
+      ],
+      "position": [
+        -26,
+        1.25,
+        87
+      ]
+    },
+    {
+      "id": "mall_tree_rl_0",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.5,
+        0.7
+      ],
+      "position": [
+        26,
+        1.25,
+        87
+      ]
+    },
+    {
+      "id": "mall_foliage_ll_0",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4,
+        3,
+        4
+      ],
+      "position": [
+        -26,
+        3.75,
+        87
+      ]
+    },
+    {
+      "id": "mall_foliage_rl_0",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4,
+        3,
+        4
+      ],
+      "position": [
+        26,
+        3.75,
+        87
+      ]
+    },
+    {
+      "id": "mall_tree_ll_1",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.5,
+        0.7
+      ],
+      "position": [
+        -26,
+        1.25,
+        79
+      ]
+    },
+    {
+      "id": "mall_tree_rl_1",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.5,
+        0.7
+      ],
+      "position": [
+        26,
+        1.25,
+        79
+      ]
+    },
+    {
+      "id": "mall_foliage_ll_1",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4,
+        3,
+        4
+      ],
+      "position": [
+        -26,
+        3.75,
+        79
+      ]
+    },
+    {
+      "id": "mall_foliage_rl_1",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4,
+        3,
+        4
+      ],
+      "position": [
+        26,
+        3.75,
+        79
+      ]
+    },
+    {
+      "id": "mall_tree_ll_2",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.5,
+        0.7
+      ],
+      "position": [
+        -26,
+        1.25,
+        71
+      ]
+    },
+    {
+      "id": "mall_tree_rl_2",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.5,
+        0.7
+      ],
+      "position": [
+        26,
+        1.25,
+        71
+      ]
+    },
+    {
+      "id": "mall_foliage_ll_2",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4,
+        3,
+        4
+      ],
+      "position": [
+        -26,
+        3.75,
+        71
+      ]
+    },
+    {
+      "id": "mall_foliage_rl_2",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4,
+        3,
+        4
+      ],
+      "position": [
+        26,
+        3.75,
+        71
+      ]
+    },
+    {
+      "id": "mall_tree_ll_3",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.5,
+        0.7
+      ],
+      "position": [
+        -26,
+        1.25,
+        63
+      ]
+    },
+    {
+      "id": "mall_tree_rl_3",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.5,
+        0.7
+      ],
+      "position": [
+        26,
+        1.25,
+        63
+      ]
+    },
+    {
+      "id": "mall_foliage_ll_3",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4,
+        3,
+        4
+      ],
+      "position": [
+        -26,
+        3.75,
+        63
+      ]
+    },
+    {
+      "id": "mall_foliage_rl_3",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4,
+        3,
+        4
+      ],
+      "position": [
+        26,
+        3.75,
+        63
+      ]
+    },
+    {
+      "id": "mall_tree_ll_4",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.5,
+        0.7
+      ],
+      "position": [
+        -26,
+        1.25,
+        55
+      ]
+    },
+    {
+      "id": "mall_tree_rl_4",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.5,
+        0.7
+      ],
+      "position": [
+        26,
+        1.25,
+        55
+      ]
+    },
+    {
+      "id": "mall_foliage_ll_4",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4,
+        3,
+        4
+      ],
+      "position": [
+        -26,
+        3.75,
+        55
+      ]
+    },
+    {
+      "id": "mall_foliage_rl_4",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4,
+        3,
+        4
+      ],
+      "position": [
+        26,
+        3.75,
+        55
+      ]
+    },
+    {
+      "id": "lec_a1_body",
+      "kind": "box",
+      "material": "brick_warm",
+      "size": [
+        36,
+        15.2,
+        18
+      ],
+      "position": [
+        -55,
+        7.6,
+        32
+      ]
+    },
+    {
+      "id": "lec_a1_roof",
+      "kind": "box",
+      "material": "roof_flat",
+      "size": [
+        36.4,
+        0.4,
+        18.4
+      ],
+      "position": [
+        -55,
+        15.4,
+        32
+      ]
+    },
+    {
+      "id": "lec_a1_glass_f",
+      "kind": "box",
+      "material": "glass_blue",
+      "size": [
+        28.8,
+        13.376,
+        0.25
+      ],
+      "position": [
+        -55,
+        7.8,
+        41
+      ]
+    },
+    {
+      "id": "lec_a1_canopy",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        12.6,
+        0.3,
+        3
+      ],
+      "position": [
+        -55,
+        5.7,
+        42.5
+      ]
+    },
+    {
+      "id": "lec_a1_band_1",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        -55,
+        3.8,
+        32
+      ]
+    },
+    {
+      "id": "lec_a1_band_2",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        -55,
+        7.6,
+        32
+      ]
+    },
+    {
+      "id": "lec_a1_band_3",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        -55,
+        11.4,
+        32
+      ]
+    },
+    {
+      "id": "lec_a1_win_b_0_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -67.6,
+        2.09,
+        23
+      ]
+    },
+    {
+      "id": "lec_a1_win_b_0_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -59.2,
+        2.09,
+        23
+      ]
+    },
+    {
+      "id": "lec_a1_win_b_0_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -50.8,
+        2.09,
+        23
+      ]
+    },
+    {
+      "id": "lec_a1_win_b_0_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -42.4,
+        2.09,
+        23
+      ]
+    },
+    {
+      "id": "lec_a1_win_b_1_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -67.6,
+        5.89,
+        23
+      ]
+    },
+    {
+      "id": "lec_a1_win_b_1_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -59.2,
+        5.89,
+        23
+      ]
+    },
+    {
+      "id": "lec_a1_win_b_1_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -50.8,
+        5.89,
+        23
+      ]
+    },
+    {
+      "id": "lec_a1_win_b_1_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -42.4,
+        5.89,
+        23
+      ]
+    },
+    {
+      "id": "lec_a1_win_b_2_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -67.6,
+        9.69,
+        23
+      ]
+    },
+    {
+      "id": "lec_a1_win_b_2_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -59.2,
+        9.69,
+        23
+      ]
+    },
+    {
+      "id": "lec_a1_win_b_2_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -50.8,
+        9.69,
+        23
+      ]
+    },
+    {
+      "id": "lec_a1_win_b_2_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -42.4,
+        9.69,
+        23
+      ]
+    },
+    {
+      "id": "lec_a1_win_b_3_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -67.6,
+        13.49,
+        23
+      ]
+    },
+    {
+      "id": "lec_a1_win_b_3_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -59.2,
+        13.49,
+        23
+      ]
+    },
+    {
+      "id": "lec_a1_win_b_3_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -50.8,
+        13.49,
+        23
+      ]
+    },
+    {
+      "id": "lec_a1_win_b_3_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -42.4,
+        13.49,
+        23
+      ]
+    },
+    {
+      "id": "lec_a1_step1",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        10.8,
+        0.18,
+        1
+      ],
+      "position": [
+        -55,
+        0.18,
+        43.8
+      ]
+    },
+    {
+      "id": "lec_a1_step2",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        10.8,
+        0.36,
+        0.7
+      ],
+      "position": [
+        -55,
+        0.36,
+        43
+      ]
+    },
+    {
+      "id": "lec_a2_body",
+      "kind": "box",
+      "material": "brick_warm",
+      "size": [
+        36,
+        15.2,
+        18
+      ],
+      "position": [
+        -55,
+        7.6,
+        6
+      ]
+    },
+    {
+      "id": "lec_a2_roof",
+      "kind": "box",
+      "material": "roof_flat",
+      "size": [
+        36.4,
+        0.4,
+        18.4
+      ],
+      "position": [
+        -55,
+        15.4,
+        6
+      ]
+    },
+    {
+      "id": "lec_a2_glass_f",
+      "kind": "box",
+      "material": "glass_blue",
+      "size": [
+        28.8,
+        13.376,
+        0.25
+      ],
+      "position": [
+        -55,
+        7.8,
+        15
+      ]
+    },
+    {
+      "id": "lec_a2_canopy",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        12.6,
+        0.3,
+        3
+      ],
+      "position": [
+        -55,
+        5.7,
+        16.5
+      ]
+    },
+    {
+      "id": "lec_a2_band_1",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        -55,
+        3.8,
+        6
+      ]
+    },
+    {
+      "id": "lec_a2_band_2",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        -55,
+        7.6,
+        6
+      ]
+    },
+    {
+      "id": "lec_a2_band_3",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        -55,
+        11.4,
+        6
+      ]
+    },
+    {
+      "id": "lec_a2_win_b_0_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -67.6,
+        2.09,
+        -3
+      ]
+    },
+    {
+      "id": "lec_a2_win_b_0_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -59.2,
+        2.09,
+        -3
+      ]
+    },
+    {
+      "id": "lec_a2_win_b_0_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -50.8,
+        2.09,
+        -3
+      ]
+    },
+    {
+      "id": "lec_a2_win_b_0_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -42.4,
+        2.09,
+        -3
+      ]
+    },
+    {
+      "id": "lec_a2_win_b_1_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -67.6,
+        5.89,
+        -3
+      ]
+    },
+    {
+      "id": "lec_a2_win_b_1_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -59.2,
+        5.89,
+        -3
+      ]
+    },
+    {
+      "id": "lec_a2_win_b_1_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -50.8,
+        5.89,
+        -3
+      ]
+    },
+    {
+      "id": "lec_a2_win_b_1_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -42.4,
+        5.89,
+        -3
+      ]
+    },
+    {
+      "id": "lec_a2_win_b_2_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -67.6,
+        9.69,
+        -3
+      ]
+    },
+    {
+      "id": "lec_a2_win_b_2_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -59.2,
+        9.69,
+        -3
+      ]
+    },
+    {
+      "id": "lec_a2_win_b_2_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -50.8,
+        9.69,
+        -3
+      ]
+    },
+    {
+      "id": "lec_a2_win_b_2_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -42.4,
+        9.69,
+        -3
+      ]
+    },
+    {
+      "id": "lec_a2_win_b_3_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -67.6,
+        13.49,
+        -3
+      ]
+    },
+    {
+      "id": "lec_a2_win_b_3_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -59.2,
+        13.49,
+        -3
+      ]
+    },
+    {
+      "id": "lec_a2_win_b_3_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -50.8,
+        13.49,
+        -3
+      ]
+    },
+    {
+      "id": "lec_a2_win_b_3_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -42.4,
+        13.49,
+        -3
+      ]
+    },
+    {
+      "id": "lec_a2_step1",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        10.8,
+        0.18,
+        1
+      ],
+      "position": [
+        -55,
+        0.18,
+        17.8
+      ]
+    },
+    {
+      "id": "lec_a2_step2",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        10.8,
+        0.36,
+        0.7
+      ],
+      "position": [
+        -55,
+        0.36,
+        17
+      ]
+    },
+    {
+      "id": "lec_a3_body",
+      "kind": "box",
+      "material": "brick_warm",
+      "size": [
+        36,
+        15.2,
+        18
+      ],
+      "position": [
+        -55,
+        7.6,
+        -20
+      ]
+    },
+    {
+      "id": "lec_a3_roof",
+      "kind": "box",
+      "material": "roof_flat",
+      "size": [
+        36.4,
+        0.4,
+        18.4
+      ],
+      "position": [
+        -55,
+        15.4,
+        -20
+      ]
+    },
+    {
+      "id": "lec_a3_glass_f",
+      "kind": "box",
+      "material": "glass_blue",
+      "size": [
+        28.8,
+        13.376,
+        0.25
+      ],
+      "position": [
+        -55,
+        7.8,
+        -11
+      ]
+    },
+    {
+      "id": "lec_a3_canopy",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        12.6,
+        0.3,
+        3
+      ],
+      "position": [
+        -55,
+        5.7,
+        -9.5
+      ]
+    },
+    {
+      "id": "lec_a3_band_1",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        -55,
+        3.8,
+        -20
+      ]
+    },
+    {
+      "id": "lec_a3_band_2",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        -55,
+        7.6,
+        -20
+      ]
+    },
+    {
+      "id": "lec_a3_band_3",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        -55,
+        11.4,
+        -20
+      ]
+    },
+    {
+      "id": "lec_a3_win_b_0_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -67.6,
+        2.09,
+        -29
+      ]
+    },
+    {
+      "id": "lec_a3_win_b_0_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -59.2,
+        2.09,
+        -29
+      ]
+    },
+    {
+      "id": "lec_a3_win_b_0_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -50.8,
+        2.09,
+        -29
+      ]
+    },
+    {
+      "id": "lec_a3_win_b_0_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -42.4,
+        2.09,
+        -29
+      ]
+    },
+    {
+      "id": "lec_a3_win_b_1_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -67.6,
+        5.89,
+        -29
+      ]
+    },
+    {
+      "id": "lec_a3_win_b_1_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -59.2,
+        5.89,
+        -29
+      ]
+    },
+    {
+      "id": "lec_a3_win_b_1_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -50.8,
+        5.89,
+        -29
+      ]
+    },
+    {
+      "id": "lec_a3_win_b_1_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -42.4,
+        5.89,
+        -29
+      ]
+    },
+    {
+      "id": "lec_a3_win_b_2_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -67.6,
+        9.69,
+        -29
+      ]
+    },
+    {
+      "id": "lec_a3_win_b_2_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -59.2,
+        9.69,
+        -29
+      ]
+    },
+    {
+      "id": "lec_a3_win_b_2_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -50.8,
+        9.69,
+        -29
+      ]
+    },
+    {
+      "id": "lec_a3_win_b_2_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -42.4,
+        9.69,
+        -29
+      ]
+    },
+    {
+      "id": "lec_a3_win_b_3_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -67.6,
+        13.49,
+        -29
+      ]
+    },
+    {
+      "id": "lec_a3_win_b_3_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -59.2,
+        13.49,
+        -29
+      ]
+    },
+    {
+      "id": "lec_a3_win_b_3_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -50.8,
+        13.49,
+        -29
+      ]
+    },
+    {
+      "id": "lec_a3_win_b_3_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -42.4,
+        13.49,
+        -29
+      ]
+    },
+    {
+      "id": "lec_a3_step1",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        10.8,
+        0.18,
+        1
+      ],
+      "position": [
+        -55,
+        0.18,
+        -8.2
+      ]
+    },
+    {
+      "id": "lec_a3_step2",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        10.8,
+        0.36,
+        0.7
+      ],
+      "position": [
+        -55,
+        0.36,
+        -9
+      ]
+    },
+    {
+      "id": "lec_a4_body",
+      "kind": "box",
+      "material": "brick_warm",
+      "size": [
+        36,
+        15.2,
+        18
+      ],
+      "position": [
+        -55,
+        7.6,
+        -46
+      ]
+    },
+    {
+      "id": "lec_a4_roof",
+      "kind": "box",
+      "material": "roof_flat",
+      "size": [
+        36.4,
+        0.4,
+        18.4
+      ],
+      "position": [
+        -55,
+        15.4,
+        -46
+      ]
+    },
+    {
+      "id": "lec_a4_glass_f",
+      "kind": "box",
+      "material": "glass_blue",
+      "size": [
+        28.8,
+        13.376,
+        0.25
+      ],
+      "position": [
+        -55,
+        7.8,
+        -37
+      ]
+    },
+    {
+      "id": "lec_a4_canopy",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        12.6,
+        0.3,
+        3
+      ],
+      "position": [
+        -55,
+        5.7,
+        -35.5
+      ]
+    },
+    {
+      "id": "lec_a4_band_1",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        -55,
+        3.8,
+        -46
+      ]
+    },
+    {
+      "id": "lec_a4_band_2",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        -55,
+        7.6,
+        -46
+      ]
+    },
+    {
+      "id": "lec_a4_band_3",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        -55,
+        11.4,
+        -46
+      ]
+    },
+    {
+      "id": "lec_a4_win_b_0_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -67.6,
+        2.09,
+        -55
+      ]
+    },
+    {
+      "id": "lec_a4_win_b_0_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -59.2,
+        2.09,
+        -55
+      ]
+    },
+    {
+      "id": "lec_a4_win_b_0_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -50.8,
+        2.09,
+        -55
+      ]
+    },
+    {
+      "id": "lec_a4_win_b_0_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -42.4,
+        2.09,
+        -55
+      ]
+    },
+    {
+      "id": "lec_a4_win_b_1_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -67.6,
+        5.89,
+        -55
+      ]
+    },
+    {
+      "id": "lec_a4_win_b_1_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -59.2,
+        5.89,
+        -55
+      ]
+    },
+    {
+      "id": "lec_a4_win_b_1_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -50.8,
+        5.89,
+        -55
+      ]
+    },
+    {
+      "id": "lec_a4_win_b_1_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -42.4,
+        5.89,
+        -55
+      ]
+    },
+    {
+      "id": "lec_a4_win_b_2_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -67.6,
+        9.69,
+        -55
+      ]
+    },
+    {
+      "id": "lec_a4_win_b_2_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -59.2,
+        9.69,
+        -55
+      ]
+    },
+    {
+      "id": "lec_a4_win_b_2_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -50.8,
+        9.69,
+        -55
+      ]
+    },
+    {
+      "id": "lec_a4_win_b_2_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -42.4,
+        9.69,
+        -55
+      ]
+    },
+    {
+      "id": "lec_a4_win_b_3_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -67.6,
+        13.49,
+        -55
+      ]
+    },
+    {
+      "id": "lec_a4_win_b_3_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -59.2,
+        13.49,
+        -55
+      ]
+    },
+    {
+      "id": "lec_a4_win_b_3_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -50.8,
+        13.49,
+        -55
+      ]
+    },
+    {
+      "id": "lec_a4_win_b_3_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -42.4,
+        13.49,
+        -55
+      ]
+    },
+    {
+      "id": "lec_a4_step1",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        10.8,
+        0.18,
+        1
+      ],
+      "position": [
+        -55,
+        0.18,
+        -34.2
+      ]
+    },
+    {
+      "id": "lec_a4_step2",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        10.8,
+        0.36,
+        0.7
+      ],
+      "position": [
+        -55,
+        0.36,
+        -35
+      ]
+    },
+    {
+      "id": "lec_b1_body",
+      "kind": "box",
+      "material": "brick_warm",
+      "size": [
+        36,
+        15.2,
+        18
+      ],
+      "position": [
+        55,
+        7.6,
+        32
+      ]
+    },
+    {
+      "id": "lec_b1_roof",
+      "kind": "box",
+      "material": "roof_flat",
+      "size": [
+        36.4,
+        0.4,
+        18.4
+      ],
+      "position": [
+        55,
+        15.4,
+        32
+      ]
+    },
+    {
+      "id": "lec_b1_glass_f",
+      "kind": "box",
+      "material": "glass_blue",
+      "size": [
+        28.8,
+        13.376,
+        0.25
+      ],
+      "position": [
+        55,
+        7.8,
+        41
+      ]
+    },
+    {
+      "id": "lec_b1_canopy",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        12.6,
+        0.3,
+        3
+      ],
+      "position": [
+        55,
+        5.7,
+        42.5
+      ]
+    },
+    {
+      "id": "lec_b1_band_1",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        55,
+        3.8,
+        32
+      ]
+    },
+    {
+      "id": "lec_b1_band_2",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        55,
+        7.6,
+        32
+      ]
+    },
+    {
+      "id": "lec_b1_band_3",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        55,
+        11.4,
+        32
+      ]
+    },
+    {
+      "id": "lec_b1_win_b_0_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        42.4,
+        2.09,
+        23
+      ]
+    },
+    {
+      "id": "lec_b1_win_b_0_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        50.8,
+        2.09,
+        23
+      ]
+    },
+    {
+      "id": "lec_b1_win_b_0_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        59.2,
+        2.09,
+        23
+      ]
+    },
+    {
+      "id": "lec_b1_win_b_0_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        67.6,
+        2.09,
+        23
+      ]
+    },
+    {
+      "id": "lec_b1_win_b_1_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        42.4,
+        5.89,
+        23
+      ]
+    },
+    {
+      "id": "lec_b1_win_b_1_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        50.8,
+        5.89,
+        23
+      ]
+    },
+    {
+      "id": "lec_b1_win_b_1_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        59.2,
+        5.89,
+        23
+      ]
+    },
+    {
+      "id": "lec_b1_win_b_1_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        67.6,
+        5.89,
+        23
+      ]
+    },
+    {
+      "id": "lec_b1_win_b_2_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        42.4,
+        9.69,
+        23
+      ]
+    },
+    {
+      "id": "lec_b1_win_b_2_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        50.8,
+        9.69,
+        23
+      ]
+    },
+    {
+      "id": "lec_b1_win_b_2_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        59.2,
+        9.69,
+        23
+      ]
+    },
+    {
+      "id": "lec_b1_win_b_2_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        67.6,
+        9.69,
+        23
+      ]
+    },
+    {
+      "id": "lec_b1_win_b_3_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        42.4,
+        13.49,
+        23
+      ]
+    },
+    {
+      "id": "lec_b1_win_b_3_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        50.8,
+        13.49,
+        23
+      ]
+    },
+    {
+      "id": "lec_b1_win_b_3_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        59.2,
+        13.49,
+        23
+      ]
+    },
+    {
+      "id": "lec_b1_win_b_3_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        67.6,
+        13.49,
+        23
+      ]
+    },
+    {
+      "id": "lec_b1_step1",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        10.8,
+        0.18,
+        1
+      ],
+      "position": [
+        55,
+        0.18,
+        43.8
+      ]
+    },
+    {
+      "id": "lec_b1_step2",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        10.8,
+        0.36,
+        0.7
+      ],
+      "position": [
+        55,
+        0.36,
+        43
+      ]
+    },
+    {
+      "id": "lec_b2_body",
+      "kind": "box",
+      "material": "brick_warm",
+      "size": [
+        36,
+        15.2,
+        18
+      ],
+      "position": [
+        55,
+        7.6,
+        6
+      ]
+    },
+    {
+      "id": "lec_b2_roof",
+      "kind": "box",
+      "material": "roof_flat",
+      "size": [
+        36.4,
+        0.4,
+        18.4
+      ],
+      "position": [
+        55,
+        15.4,
+        6
+      ]
+    },
+    {
+      "id": "lec_b2_glass_f",
+      "kind": "box",
+      "material": "glass_blue",
+      "size": [
+        28.8,
+        13.376,
+        0.25
+      ],
+      "position": [
+        55,
+        7.8,
+        15
+      ]
+    },
+    {
+      "id": "lec_b2_canopy",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        12.6,
+        0.3,
+        3
+      ],
+      "position": [
+        55,
+        5.7,
+        16.5
+      ]
+    },
+    {
+      "id": "lec_b2_band_1",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        55,
+        3.8,
+        6
+      ]
+    },
+    {
+      "id": "lec_b2_band_2",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        55,
+        7.6,
+        6
+      ]
+    },
+    {
+      "id": "lec_b2_band_3",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        55,
+        11.4,
+        6
+      ]
+    },
+    {
+      "id": "lec_b2_win_b_0_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        42.4,
+        2.09,
+        -3
+      ]
+    },
+    {
+      "id": "lec_b2_win_b_0_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        50.8,
+        2.09,
+        -3
+      ]
+    },
+    {
+      "id": "lec_b2_win_b_0_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        59.2,
+        2.09,
+        -3
+      ]
+    },
+    {
+      "id": "lec_b2_win_b_0_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        67.6,
+        2.09,
+        -3
+      ]
+    },
+    {
+      "id": "lec_b2_win_b_1_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        42.4,
+        5.89,
+        -3
+      ]
+    },
+    {
+      "id": "lec_b2_win_b_1_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        50.8,
+        5.89,
+        -3
+      ]
+    },
+    {
+      "id": "lec_b2_win_b_1_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        59.2,
+        5.89,
+        -3
+      ]
+    },
+    {
+      "id": "lec_b2_win_b_1_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        67.6,
+        5.89,
+        -3
+      ]
+    },
+    {
+      "id": "lec_b2_win_b_2_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        42.4,
+        9.69,
+        -3
+      ]
+    },
+    {
+      "id": "lec_b2_win_b_2_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        50.8,
+        9.69,
+        -3
+      ]
+    },
+    {
+      "id": "lec_b2_win_b_2_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        59.2,
+        9.69,
+        -3
+      ]
+    },
+    {
+      "id": "lec_b2_win_b_2_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        67.6,
+        9.69,
+        -3
+      ]
+    },
+    {
+      "id": "lec_b2_win_b_3_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        42.4,
+        13.49,
+        -3
+      ]
+    },
+    {
+      "id": "lec_b2_win_b_3_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        50.8,
+        13.49,
+        -3
+      ]
+    },
+    {
+      "id": "lec_b2_win_b_3_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        59.2,
+        13.49,
+        -3
+      ]
+    },
+    {
+      "id": "lec_b2_win_b_3_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        67.6,
+        13.49,
+        -3
+      ]
+    },
+    {
+      "id": "lec_b2_step1",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        10.8,
+        0.18,
+        1
+      ],
+      "position": [
+        55,
+        0.18,
+        17.8
+      ]
+    },
+    {
+      "id": "lec_b2_step2",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        10.8,
+        0.36,
+        0.7
+      ],
+      "position": [
+        55,
+        0.36,
+        17
+      ]
+    },
+    {
+      "id": "lec_b3_body",
+      "kind": "box",
+      "material": "brick_warm",
+      "size": [
+        36,
+        15.2,
+        18
+      ],
+      "position": [
+        55,
+        7.6,
+        -20
+      ]
+    },
+    {
+      "id": "lec_b3_roof",
+      "kind": "box",
+      "material": "roof_flat",
+      "size": [
+        36.4,
+        0.4,
+        18.4
+      ],
+      "position": [
+        55,
+        15.4,
+        -20
+      ]
+    },
+    {
+      "id": "lec_b3_glass_f",
+      "kind": "box",
+      "material": "glass_blue",
+      "size": [
+        28.8,
+        13.376,
+        0.25
+      ],
+      "position": [
+        55,
+        7.8,
+        -11
+      ]
+    },
+    {
+      "id": "lec_b3_canopy",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        12.6,
+        0.3,
+        3
+      ],
+      "position": [
+        55,
+        5.7,
+        -9.5
+      ]
+    },
+    {
+      "id": "lec_b3_band_1",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        55,
+        3.8,
+        -20
+      ]
+    },
+    {
+      "id": "lec_b3_band_2",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        55,
+        7.6,
+        -20
+      ]
+    },
+    {
+      "id": "lec_b3_band_3",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        55,
+        11.4,
+        -20
+      ]
+    },
+    {
+      "id": "lec_b3_win_b_0_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        42.4,
+        2.09,
+        -29
+      ]
+    },
+    {
+      "id": "lec_b3_win_b_0_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        50.8,
+        2.09,
+        -29
+      ]
+    },
+    {
+      "id": "lec_b3_win_b_0_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        59.2,
+        2.09,
+        -29
+      ]
+    },
+    {
+      "id": "lec_b3_win_b_0_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        67.6,
+        2.09,
+        -29
+      ]
+    },
+    {
+      "id": "lec_b3_win_b_1_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        42.4,
+        5.89,
+        -29
+      ]
+    },
+    {
+      "id": "lec_b3_win_b_1_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        50.8,
+        5.89,
+        -29
+      ]
+    },
+    {
+      "id": "lec_b3_win_b_1_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        59.2,
+        5.89,
+        -29
+      ]
+    },
+    {
+      "id": "lec_b3_win_b_1_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        67.6,
+        5.89,
+        -29
+      ]
+    },
+    {
+      "id": "lec_b3_win_b_2_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        42.4,
+        9.69,
+        -29
+      ]
+    },
+    {
+      "id": "lec_b3_win_b_2_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        50.8,
+        9.69,
+        -29
+      ]
+    },
+    {
+      "id": "lec_b3_win_b_2_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        59.2,
+        9.69,
+        -29
+      ]
+    },
+    {
+      "id": "lec_b3_win_b_2_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        67.6,
+        9.69,
+        -29
+      ]
+    },
+    {
+      "id": "lec_b3_win_b_3_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        42.4,
+        13.49,
+        -29
+      ]
+    },
+    {
+      "id": "lec_b3_win_b_3_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        50.8,
+        13.49,
+        -29
+      ]
+    },
+    {
+      "id": "lec_b3_win_b_3_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        59.2,
+        13.49,
+        -29
+      ]
+    },
+    {
+      "id": "lec_b3_win_b_3_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        67.6,
+        13.49,
+        -29
+      ]
+    },
+    {
+      "id": "lec_b3_step1",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        10.8,
+        0.18,
+        1
+      ],
+      "position": [
+        55,
+        0.18,
+        -8.2
+      ]
+    },
+    {
+      "id": "lec_b3_step2",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        10.8,
+        0.36,
+        0.7
+      ],
+      "position": [
+        55,
+        0.36,
+        -9
+      ]
+    },
+    {
+      "id": "lec_b4_body",
+      "kind": "box",
+      "material": "brick_warm",
+      "size": [
+        36,
+        15.2,
+        18
+      ],
+      "position": [
+        55,
+        7.6,
+        -46
+      ]
+    },
+    {
+      "id": "lec_b4_roof",
+      "kind": "box",
+      "material": "roof_flat",
+      "size": [
+        36.4,
+        0.4,
+        18.4
+      ],
+      "position": [
+        55,
+        15.4,
+        -46
+      ]
+    },
+    {
+      "id": "lec_b4_glass_f",
+      "kind": "box",
+      "material": "glass_blue",
+      "size": [
+        28.8,
+        13.376,
+        0.25
+      ],
+      "position": [
+        55,
+        7.8,
+        -37
+      ]
+    },
+    {
+      "id": "lec_b4_canopy",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        12.6,
+        0.3,
+        3
+      ],
+      "position": [
+        55,
+        5.7,
+        -35.5
+      ]
+    },
+    {
+      "id": "lec_b4_band_1",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        55,
+        3.8,
+        -46
+      ]
+    },
+    {
+      "id": "lec_b4_band_2",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        55,
+        7.6,
+        -46
+      ]
+    },
+    {
+      "id": "lec_b4_band_3",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        36.1,
+        0.18,
+        18.1
+      ],
+      "position": [
+        55,
+        11.4,
+        -46
+      ]
+    },
+    {
+      "id": "lec_b4_win_b_0_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        42.4,
+        2.09,
+        -55
+      ]
+    },
+    {
+      "id": "lec_b4_win_b_0_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        50.8,
+        2.09,
+        -55
+      ]
+    },
+    {
+      "id": "lec_b4_win_b_0_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        59.2,
+        2.09,
+        -55
+      ]
+    },
+    {
+      "id": "lec_b4_win_b_0_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        67.6,
+        2.09,
+        -55
+      ]
+    },
+    {
+      "id": "lec_b4_win_b_1_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        42.4,
+        5.89,
+        -55
+      ]
+    },
+    {
+      "id": "lec_b4_win_b_1_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        50.8,
+        5.89,
+        -55
+      ]
+    },
+    {
+      "id": "lec_b4_win_b_1_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        59.2,
+        5.89,
+        -55
+      ]
+    },
+    {
+      "id": "lec_b4_win_b_1_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        67.6,
+        5.89,
+        -55
+      ]
+    },
+    {
+      "id": "lec_b4_win_b_2_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        42.4,
+        9.69,
+        -55
+      ]
+    },
+    {
+      "id": "lec_b4_win_b_2_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        50.8,
+        9.69,
+        -55
+      ]
+    },
+    {
+      "id": "lec_b4_win_b_2_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        59.2,
+        9.69,
+        -55
+      ]
+    },
+    {
+      "id": "lec_b4_win_b_2_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        67.6,
+        9.69,
+        -55
+      ]
+    },
+    {
+      "id": "lec_b4_win_b_3_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        42.4,
+        13.49,
+        -55
+      ]
+    },
+    {
+      "id": "lec_b4_win_b_3_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        50.8,
+        13.49,
+        -55
+      ]
+    },
+    {
+      "id": "lec_b4_win_b_3_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        59.2,
+        13.49,
+        -55
+      ]
+    },
+    {
+      "id": "lec_b4_win_b_3_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        4.68,
+        1.9,
+        0.15
+      ],
+      "position": [
+        67.6,
+        13.49,
+        -55
+      ]
+    },
+    {
+      "id": "lec_b4_step1",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        10.8,
+        0.18,
+        1
+      ],
+      "position": [
+        55,
+        0.18,
+        -34.2
+      ]
+    },
+    {
+      "id": "lec_b4_step2",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        10.8,
+        0.36,
+        0.7
+      ],
+      "position": [
+        55,
+        0.36,
+        -35
+      ]
+    },
+    {
+      "id": "inner_path_0",
+      "kind": "box",
+      "material": "paving_path",
+      "size": [
+        86,
+        0.22,
+        5
+      ],
+      "position": [
+        0,
+        0.11,
+        44
+      ]
+    },
+    {
+      "id": "inner_path_1",
+      "kind": "box",
+      "material": "paving_path",
+      "size": [
+        86,
+        0.22,
+        5
+      ],
+      "position": [
+        0,
+        0.11,
+        18
+      ]
+    },
+    {
+      "id": "inner_path_2",
+      "kind": "box",
+      "material": "paving_path",
+      "size": [
+        86,
+        0.22,
+        5
+      ],
+      "position": [
+        0,
+        0.11,
+        -8
+      ]
+    },
+    {
+      "id": "inner_path_3",
+      "kind": "box",
+      "material": "paving_path",
+      "size": [
+        86,
+        0.22,
+        5
+      ],
+      "position": [
+        0,
+        0.11,
+        -34
+      ]
+    },
+    {
+      "id": "inner_path_4",
+      "kind": "box",
+      "material": "paving_path",
+      "size": [
+        86,
+        0.22,
+        5
+      ],
+      "position": [
+        0,
+        0.11,
+        -60
+      ]
+    },
+    {
+      "id": "library_body",
+      "kind": "box",
+      "material": "concrete_main",
+      "size": [
+        50,
+        22.8,
+        20
+      ],
+      "position": [
+        -28,
+        11.4,
+        -70
+      ]
+    },
+    {
+      "id": "library_roof",
+      "kind": "box",
+      "material": "roof_flat",
+      "size": [
+        50.4,
+        0.4,
+        20.4
+      ],
+      "position": [
+        -28,
+        23,
+        -70
+      ]
+    },
+    {
+      "id": "library_glass_f",
+      "kind": "box",
+      "material": "glass_blue",
+      "size": [
+        37.5,
+        20.52,
+        0.25
+      ],
+      "position": [
+        -28,
+        11.7,
+        -60
+      ]
+    },
+    {
+      "id": "lib_portico",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        20,
+        3.6,
+        2.5
+      ],
+      "position": [
+        -28,
+        5.6,
+        -58.75
+      ]
+    },
+    {
+      "id": "lib_col_0",
+      "kind": "cylinder",
+      "material": "concrete_dark",
+      "size": [
+        0.7,
+        3.6,
+        0.7
+      ],
+      "position": [
+        -35.5,
+        1.8,
+        -58.75
+      ]
+    },
+    {
+      "id": "lib_col_1",
+      "kind": "cylinder",
+      "material": "concrete_dark",
+      "size": [
+        0.7,
+        3.6,
+        0.7
+      ],
+      "position": [
+        -30.5,
+        1.8,
+        -58.75
+      ]
+    },
+    {
+      "id": "lib_col_2",
+      "kind": "cylinder",
+      "material": "concrete_dark",
+      "size": [
+        0.7,
+        3.6,
+        0.7
+      ],
+      "position": [
+        -25.5,
+        1.8,
+        -58.75
+      ]
+    },
+    {
+      "id": "lib_col_3",
+      "kind": "cylinder",
+      "material": "concrete_dark",
+      "size": [
+        0.7,
+        3.6,
+        0.7
+      ],
+      "position": [
+        -20.5,
+        1.8,
+        -58.75
+      ]
+    },
+    {
+      "id": "lib_sign",
+      "kind": "box",
+      "material": "sign_blue",
+      "size": [
+        12,
+        1.4,
+        0.3
+      ],
+      "position": [
+        -28,
+        23.9,
+        -60
+      ]
+    },
+    {
+      "id": "lib_win_0_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -45,
+        2.09,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_0_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -36.5,
+        2.09,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_0_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -28,
+        2.09,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_0_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -19.5,
+        2.09,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_0_4",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -11,
+        2.09,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_1_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -45,
+        5.89,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_1_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -36.5,
+        5.89,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_1_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -28,
+        5.89,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_1_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -19.5,
+        5.89,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_1_4",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -11,
+        5.89,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_2_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -45,
+        9.69,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_2_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -36.5,
+        9.69,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_2_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -28,
+        9.69,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_2_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -19.5,
+        9.69,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_2_4",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -11,
+        9.69,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_3_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -45,
+        13.49,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_3_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -36.5,
+        13.49,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_3_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -28,
+        13.49,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_3_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -19.5,
+        13.49,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_3_4",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -11,
+        13.49,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_4_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -45,
+        17.29,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_4_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -36.5,
+        17.29,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_4_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -28,
+        17.29,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_4_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -19.5,
+        17.29,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_4_4",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -11,
+        17.29,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_5_0",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -45,
+        21.09,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_5_1",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -36.5,
+        21.09,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_5_2",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -28,
+        21.09,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_5_3",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -19.5,
+        21.09,
+        -80
+      ]
+    },
+    {
+      "id": "lib_win_5_4",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        5,
+        1.9,
+        0.15
+      ],
+      "position": [
+        -11,
+        21.09,
+        -80
+      ]
+    },
+    {
+      "id": "admin_body",
+      "kind": "box",
+      "material": "concrete_main",
+      "size": [
+        24,
+        22.8,
+        16
+      ],
+      "position": [
+        28,
+        11.4,
+        -70
+      ]
+    },
+    {
+      "id": "admin_roof",
+      "kind": "box",
+      "material": "roof_flat",
+      "size": [
+        24.4,
+        0.4,
+        16.4
+      ],
+      "position": [
+        28,
+        23,
+        -70
+      ]
+    },
+    {
+      "id": "admin_glass_f",
+      "kind": "box",
+      "material": "glass_blue",
+      "size": [
+        18,
+        20.52,
+        0.25
+      ],
+      "position": [
+        28,
+        11.7,
+        -62
+      ]
+    },
+    {
+      "id": "admin_sign",
+      "kind": "box",
+      "material": "sign_blue",
+      "size": [
+        10,
+        1.2,
+        0.3
+      ],
+      "position": [
+        28,
+        23.8,
+        -62
+      ]
+    },
+    {
+      "id": "cafe_body",
+      "kind": "box",
+      "material": "brick_warm",
+      "size": [
+        40,
+        7.6,
+        14
+      ],
+      "position": [
+        0,
+        3.8,
+        -58
+      ]
+    },
+    {
+      "id": "cafe_roof",
+      "kind": "box",
+      "material": "roof_flat",
+      "size": [
+        40.4,
+        0.35,
+        14.4
+      ],
+      "position": [
+        0,
+        7.78,
+        -58
+      ]
+    },
+    {
+      "id": "cafe_glass_f",
+      "kind": "box",
+      "material": "glass_blue",
+      "size": [
+        28,
+        6.46,
+        0.25
+      ],
+      "position": [
+        0,
+        4,
+        -51
+      ]
+    },
+    {
+      "id": "cafe_terrace",
+      "kind": "box",
+      "material": "paving_path",
+      "size": [
+        24,
+        0.22,
+        4
+      ],
+      "position": [
+        0,
+        7.71,
+        -49
+      ]
+    },
+    {
+      "id": "cafe_rail_f",
+      "kind": "box",
+      "material": "steel_gray",
+      "size": [
+        24,
+        0.9,
+        0.08
+      ],
+      "position": [
+        0,
+        8.26,
+        -47
+      ]
+    },
+    {
+      "id": "gym_body",
+      "kind": "box",
+      "material": "gym_wall",
+      "size": [
+        60,
+        10,
+        30
+      ],
+      "position": [
+        -25,
+        5,
+        -100
+      ]
+    },
+    {
+      "id": "gym_roof_ridge",
+      "kind": "box",
+      "material": "roof_flat",
+      "size": [
+        60.6,
+        0.5,
+        30.6
+      ],
+      "position": [
+        -25,
+        10.25,
+        -100
+      ]
+    },
+    {
+      "id": "gym_glass_f",
+      "kind": "box",
+      "material": "glass_green",
+      "size": [
+        36,
+        5.5,
+        0.25
+      ],
+      "position": [
+        -25,
+        5,
+        -85
+      ]
+    },
+    {
+      "id": "gym_clerestory",
+      "kind": "box",
+      "material": "glass_blue",
+      "size": [
+        48,
+        1.8,
+        0.2
+      ],
+      "position": [
+        -25,
+        8.5,
+        -85
+      ]
+    },
+    {
+      "id": "gym_entry",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        10,
+        0.3,
+        3.5
+      ],
+      "position": [
+        -25,
+        4,
+        -83.25
+      ]
+    },
+    {
+      "id": "track_outer",
+      "kind": "box",
+      "material": "track_red",
+      "size": [
+        90,
+        0.22,
+        60
+      ],
+      "position": [
+        50,
+        0.11,
+        -98
+      ]
+    },
+    {
+      "id": "field_inner",
+      "kind": "box",
+      "material": "field_green",
+      "size": [
+        74,
+        0.25,
+        44
+      ],
+      "position": [
+        50,
+        0.13,
+        -98
+      ]
+    },
+    {
+      "id": "track_line_l_0",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.15,
+        0.26,
+        60
+      ],
+      "position": [
+        19,
+        0.14,
+        -98
+      ]
+    },
+    {
+      "id": "track_line_r_0",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.15,
+        0.26,
+        60
+      ],
+      "position": [
+        81,
+        0.14,
+        -98
+      ]
+    },
+    {
+      "id": "track_line_l_1",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.15,
+        0.26,
+        60
+      ],
+      "position": [
+        21.5,
+        0.14,
+        -98
+      ]
+    },
+    {
+      "id": "track_line_r_1",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.15,
+        0.26,
+        60
+      ],
+      "position": [
+        78.5,
+        0.14,
+        -98
+      ]
+    },
+    {
+      "id": "track_line_l_2",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.15,
+        0.26,
+        60
+      ],
+      "position": [
+        24,
+        0.14,
+        -98
+      ]
+    },
+    {
+      "id": "track_line_r_2",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.15,
+        0.26,
+        60
+      ],
+      "position": [
+        76,
+        0.14,
+        -98
+      ]
+    },
+    {
+      "id": "track_line_l_3",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.15,
+        0.26,
+        60
+      ],
+      "position": [
+        26.5,
+        0.14,
+        -98
+      ]
+    },
+    {
+      "id": "track_line_r_3",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.15,
+        0.26,
+        60
+      ],
+      "position": [
+        73.5,
+        0.14,
+        -98
+      ]
+    },
+    {
+      "id": "scoreboard_post_l",
+      "kind": "box",
+      "material": "steel_gray",
+      "size": [
+        0.6,
+        8,
+        0.6
+      ],
+      "position": [
+        42,
+        4,
+        -128.5
+      ]
+    },
+    {
+      "id": "scoreboard_post_r",
+      "kind": "box",
+      "material": "steel_gray",
+      "size": [
+        0.6,
+        8,
+        0.6
+      ],
+      "position": [
+        58,
+        4,
+        -128.5
+      ]
+    },
+    {
+      "id": "scoreboard_panel",
+      "kind": "box",
+      "material": "sign_blue",
+      "size": [
+        18,
+        5,
+        0.4
+      ],
+      "position": [
+        50,
+        9.5,
+        -128.5
+      ]
+    },
+    {
+      "id": "parking_a_pave",
+      "kind": "box",
+      "material": "parking_asphalt",
+      "size": [
+        55,
+        0.22,
+        80
+      ],
+      "position": [
+        127.5,
+        0.11,
+        -20
+      ]
+    },
+    {
+      "id": "parking_a_lane",
+      "kind": "box",
+      "material": "road_asphalt",
+      "size": [
+        6.5,
+        0.24,
+        80
+      ],
+      "position": [
+        103.25,
+        0.12,
+        -20
+      ]
+    },
+    {
+      "id": "pa_line_l_0",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        105.5,
+        0.13,
+        -56
+      ]
+    },
+    {
+      "id": "pa_line_r_0",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        135.5,
+        0.13,
+        -56
+      ]
+    },
+    {
+      "id": "pa_line_l_1",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        105.5,
+        0.13,
+        -52
+      ]
+    },
+    {
+      "id": "pa_line_r_1",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        135.5,
+        0.13,
+        -52
+      ]
+    },
+    {
+      "id": "pa_line_l_2",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        105.5,
+        0.13,
+        -48
+      ]
+    },
+    {
+      "id": "pa_line_r_2",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        135.5,
+        0.13,
+        -48
+      ]
+    },
+    {
+      "id": "pa_line_l_3",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        105.5,
+        0.13,
+        -44
+      ]
+    },
+    {
+      "id": "pa_line_r_3",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        135.5,
+        0.13,
+        -44
+      ]
+    },
+    {
+      "id": "pa_line_l_4",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        105.5,
+        0.13,
+        -40
+      ]
+    },
+    {
+      "id": "pa_line_r_4",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        135.5,
+        0.13,
+        -40
+      ]
+    },
+    {
+      "id": "pa_line_l_5",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        105.5,
+        0.13,
+        -36
+      ]
+    },
+    {
+      "id": "pa_line_r_5",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        135.5,
+        0.13,
+        -36
+      ]
+    },
+    {
+      "id": "pa_line_l_6",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        105.5,
+        0.13,
+        -32
+      ]
+    },
+    {
+      "id": "pa_line_r_6",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        135.5,
+        0.13,
+        -32
+      ]
+    },
+    {
+      "id": "pa_line_l_7",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        105.5,
+        0.13,
+        -28
+      ]
+    },
+    {
+      "id": "pa_line_r_7",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        135.5,
+        0.13,
+        -28
+      ]
+    },
+    {
+      "id": "pa_line_l_8",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        105.5,
+        0.13,
+        -24
+      ]
+    },
+    {
+      "id": "pa_line_r_8",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        135.5,
+        0.13,
+        -24
+      ]
+    },
+    {
+      "id": "pa_line_l_9",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        105.5,
+        0.13,
+        -20
+      ]
+    },
+    {
+      "id": "pa_line_r_9",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        135.5,
+        0.13,
+        -20
+      ]
+    },
+    {
+      "id": "pa_line_l_10",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        105.5,
+        0.13,
+        -16
+      ]
+    },
+    {
+      "id": "pa_line_r_10",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        135.5,
+        0.13,
+        -16
+      ]
+    },
+    {
+      "id": "pa_line_l_11",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        105.5,
+        0.13,
+        -12
+      ]
+    },
+    {
+      "id": "pa_line_r_11",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        135.5,
+        0.13,
+        -12
+      ]
+    },
+    {
+      "id": "pa_line_l_12",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        105.5,
+        0.13,
+        -8
+      ]
+    },
+    {
+      "id": "pa_line_r_12",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        135.5,
+        0.13,
+        -8
+      ]
+    },
+    {
+      "id": "pa_line_l_13",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        105.5,
+        0.13,
+        -4
+      ]
+    },
+    {
+      "id": "pa_line_r_13",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        135.5,
+        0.13,
+        -4
+      ]
+    },
+    {
+      "id": "pa_line_l_14",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        105.5,
+        0.13,
+        0
+      ]
+    },
+    {
+      "id": "pa_line_r_14",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        135.5,
+        0.13,
+        0
+      ]
+    },
+    {
+      "id": "pa_line_l_15",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        105.5,
+        0.13,
+        4
+      ]
+    },
+    {
+      "id": "pa_line_r_15",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        135.5,
+        0.13,
+        4
+      ]
+    },
+    {
+      "id": "pa_line_l_16",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        105.5,
+        0.13,
+        8
+      ]
+    },
+    {
+      "id": "pa_line_r_16",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        135.5,
+        0.13,
+        8
+      ]
+    },
+    {
+      "id": "pa_line_l_17",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        105.5,
+        0.13,
+        12
+      ]
+    },
+    {
+      "id": "pa_line_r_17",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        135.5,
+        0.13,
+        12
+      ]
+    },
+    {
+      "id": "pa_line_l_18",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        105.5,
+        0.13,
+        16
+      ]
+    },
+    {
+      "id": "pa_line_r_18",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        135.5,
+        0.13,
+        16
+      ]
+    },
+    {
+      "id": "pa_line_l_19",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        105.5,
+        0.13,
+        20
+      ]
+    },
+    {
+      "id": "pa_line_r_19",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        135.5,
+        0.13,
+        20
+      ]
+    },
+    {
+      "id": "pa_stop_bar",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        6.5,
+        0.25,
+        0.25
+      ],
+      "position": [
+        103.25,
+        0.13,
+        20
+      ]
+    },
+    {
+      "id": "parking_b_pave",
+      "kind": "box",
+      "material": "parking_asphalt",
+      "size": [
+        55,
+        0.22,
+        80
+      ],
+      "position": [
+        -127.5,
+        0.11,
+        -20
+      ]
+    },
+    {
+      "id": "parking_b_lane",
+      "kind": "box",
+      "material": "road_asphalt",
+      "size": [
+        6.5,
+        0.24,
+        80
+      ],
+      "position": [
+        -103.25,
+        0.12,
+        -20
+      ]
+    },
+    {
+      "id": "pb_line_l_0",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -135.5,
+        0.13,
+        -56
+      ]
+    },
+    {
+      "id": "pb_line_r_0",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -105.5,
+        0.13,
+        -56
+      ]
+    },
+    {
+      "id": "pb_line_l_1",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -135.5,
+        0.13,
+        -52
+      ]
+    },
+    {
+      "id": "pb_line_r_1",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -105.5,
+        0.13,
+        -52
+      ]
+    },
+    {
+      "id": "pb_line_l_2",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -135.5,
+        0.13,
+        -48
+      ]
+    },
+    {
+      "id": "pb_line_r_2",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -105.5,
+        0.13,
+        -48
+      ]
+    },
+    {
+      "id": "pb_line_l_3",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -135.5,
+        0.13,
+        -44
+      ]
+    },
+    {
+      "id": "pb_line_r_3",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -105.5,
+        0.13,
+        -44
+      ]
+    },
+    {
+      "id": "pb_line_l_4",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -135.5,
+        0.13,
+        -40
+      ]
+    },
+    {
+      "id": "pb_line_r_4",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -105.5,
+        0.13,
+        -40
+      ]
+    },
+    {
+      "id": "pb_line_l_5",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -135.5,
+        0.13,
+        -36
+      ]
+    },
+    {
+      "id": "pb_line_r_5",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -105.5,
+        0.13,
+        -36
+      ]
+    },
+    {
+      "id": "pb_line_l_6",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -135.5,
+        0.13,
+        -32
+      ]
+    },
+    {
+      "id": "pb_line_r_6",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -105.5,
+        0.13,
+        -32
+      ]
+    },
+    {
+      "id": "pb_line_l_7",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -135.5,
+        0.13,
+        -28
+      ]
+    },
+    {
+      "id": "pb_line_r_7",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -105.5,
+        0.13,
+        -28
+      ]
+    },
+    {
+      "id": "pb_line_l_8",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -135.5,
+        0.13,
+        -24
+      ]
+    },
+    {
+      "id": "pb_line_r_8",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -105.5,
+        0.13,
+        -24
+      ]
+    },
+    {
+      "id": "pb_line_l_9",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -135.5,
+        0.13,
+        -20
+      ]
+    },
+    {
+      "id": "pb_line_r_9",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -105.5,
+        0.13,
+        -20
+      ]
+    },
+    {
+      "id": "pb_line_l_10",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -135.5,
+        0.13,
+        -16
+      ]
+    },
+    {
+      "id": "pb_line_r_10",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -105.5,
+        0.13,
+        -16
+      ]
+    },
+    {
+      "id": "pb_line_l_11",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -135.5,
+        0.13,
+        -12
+      ]
+    },
+    {
+      "id": "pb_line_r_11",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -105.5,
+        0.13,
+        -12
+      ]
+    },
+    {
+      "id": "pb_line_l_12",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -135.5,
+        0.13,
+        -8
+      ]
+    },
+    {
+      "id": "pb_line_r_12",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -105.5,
+        0.13,
+        -8
+      ]
+    },
+    {
+      "id": "pb_line_l_13",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -135.5,
+        0.13,
+        -4
+      ]
+    },
+    {
+      "id": "pb_line_r_13",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -105.5,
+        0.13,
+        -4
+      ]
+    },
+    {
+      "id": "pb_line_l_14",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -135.5,
+        0.13,
+        0
+      ]
+    },
+    {
+      "id": "pb_line_r_14",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -105.5,
+        0.13,
+        0
+      ]
+    },
+    {
+      "id": "pb_line_l_15",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -135.5,
+        0.13,
+        4
+      ]
+    },
+    {
+      "id": "pb_line_r_15",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -105.5,
+        0.13,
+        4
+      ]
+    },
+    {
+      "id": "pb_line_l_16",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -135.5,
+        0.13,
+        8
+      ]
+    },
+    {
+      "id": "pb_line_r_16",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -105.5,
+        0.13,
+        8
+      ]
+    },
+    {
+      "id": "pb_line_l_17",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -135.5,
+        0.13,
+        12
+      ]
+    },
+    {
+      "id": "pb_line_r_17",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -105.5,
+        0.13,
+        12
+      ]
+    },
+    {
+      "id": "pb_line_l_18",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -135.5,
+        0.13,
+        16
+      ]
+    },
+    {
+      "id": "pb_line_r_18",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -105.5,
+        0.13,
+        16
+      ]
+    },
+    {
+      "id": "pb_line_l_19",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -135.5,
+        0.13,
+        20
+      ]
+    },
+    {
+      "id": "pb_line_r_19",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.12,
+        0.25,
+        2.4
+      ],
+      "position": [
+        -105.5,
+        0.13,
+        20
+      ]
+    },
+    {
+      "id": "pb_stop_bar",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        6.5,
+        0.25,
+        0.25
+      ],
+      "position": [
+        -103.25,
+        0.13,
+        20
+      ]
+    },
+    {
+      "id": "bike_park_floor",
+      "kind": "box",
+      "material": "paving_path",
+      "size": [
+        20,
+        0.22,
+        8
+      ],
+      "position": [
+        130,
+        0.11,
+        108
+      ]
+    },
+    {
+      "id": "bike_park_roof",
+      "kind": "box",
+      "material": "roof_flat",
+      "size": [
+        20.6,
+        0.3,
+        8.6
+      ],
+      "position": [
+        130,
+        3.2,
+        108
+      ]
+    },
+    {
+      "id": "bike_park_col_l",
+      "kind": "box",
+      "material": "steel_gray",
+      "size": [
+        0.2,
+        3,
+        0.2
+      ],
+      "position": [
+        120.5,
+        1.5,
+        112
+      ]
+    },
+    {
+      "id": "bike_park_col_r",
+      "kind": "box",
+      "material": "steel_gray",
+      "size": [
+        0.2,
+        3,
+        0.2
+      ],
+      "position": [
+        139.5,
+        1.5,
+        112
+      ]
+    },
+    {
+      "id": "park_lawn",
+      "kind": "box",
+      "material": "grass_green",
+      "size": [
+        80,
+        0.22,
+        30
+      ],
+      "position": [
+        45,
+        0.11,
+        45
+      ]
+    },
+    {
+      "id": "park_path_main",
+      "kind": "box",
+      "material": "paving_path",
+      "size": [
+        4,
+        0.24,
+        30
+      ],
+      "position": [
+        45,
+        0.12,
+        45
+      ]
+    },
+    {
+      "id": "pond_water",
+      "kind": "cylinder",
+      "material": "water_fountain",
+      "size": [
+        14,
+        0.5,
+        14
+      ],
+      "position": [
+        70,
+        0.25,
+        40
+      ]
+    },
+    {
+      "id": "pond_edge",
+      "kind": "cylinder",
+      "material": "concrete_dark",
+      "size": [
+        14.8,
+        0.6,
+        14.8
+      ],
+      "position": [
+        70,
+        0.3,
+        40
+      ]
+    },
+    {
+      "id": "park_bench_0",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        2,
+        0.6,
+        0.6
+      ],
+      "position": [
+        30,
+        0.3,
+        50
+      ]
+    },
+    {
+      "id": "park_bench_1",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        2,
+        0.6,
+        0.6
+      ],
+      "position": [
+        40,
+        0.3,
+        50
+      ]
+    },
+    {
+      "id": "park_bench_2",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        2,
+        0.6,
+        0.6
+      ],
+      "position": [
+        50,
+        0.3,
+        50
+      ]
+    },
+    {
+      "id": "park_bench_3",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        2,
+        0.6,
+        0.6
+      ],
+      "position": [
+        60,
+        0.3,
+        50
+      ]
+    },
+    {
+      "id": "park_bench_4",
+      "kind": "box",
+      "material": "concrete_dark",
+      "size": [
+        2,
+        0.6,
+        0.6
+      ],
+      "position": [
+        70,
+        0.3,
+        50
+      ]
+    },
+    {
+      "id": "park_trunk_0",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.8,
+        0.7
+      ],
+      "position": [
+        32,
+        1.4,
+        38
+      ]
+    },
+    {
+      "id": "park_foliage_0",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        32,
+        4.5,
+        38
+      ]
+    },
+    {
+      "id": "park_trunk_1",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.8,
+        0.7
+      ],
+      "position": [
+        38,
+        1.4,
+        55
+      ]
+    },
+    {
+      "id": "park_foliage_1",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        38,
+        4.5,
+        55
+      ]
+    },
+    {
+      "id": "park_trunk_2",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.8,
+        0.7
+      ],
+      "position": [
+        48,
+        1.4,
+        44
+      ]
+    },
+    {
+      "id": "park_foliage_2",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        48,
+        4.5,
+        44
+      ]
+    },
+    {
+      "id": "park_trunk_3",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.8,
+        0.7
+      ],
+      "position": [
+        58,
+        1.4,
+        50
+      ]
+    },
+    {
+      "id": "park_foliage_3",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        58,
+        4.5,
+        50
+      ]
+    },
+    {
+      "id": "park_trunk_4",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.8,
+        0.7
+      ],
+      "position": [
+        68,
+        1.4,
+        38
+      ]
+    },
+    {
+      "id": "park_foliage_4",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        68,
+        4.5,
+        38
+      ]
+    },
+    {
+      "id": "park_trunk_5",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.8,
+        0.7
+      ],
+      "position": [
+        72,
+        1.4,
+        54
+      ]
+    },
+    {
+      "id": "park_foliage_5",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        72,
+        4.5,
+        54
+      ]
+    },
+    {
+      "id": "park_trunk_6",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.8,
+        0.7
+      ],
+      "position": [
+        35,
+        1.4,
+        48
+      ]
+    },
+    {
+      "id": "park_foliage_6",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        35,
+        4.5,
+        48
+      ]
+    },
+    {
+      "id": "park_trunk_7",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.8,
+        0.7
+      ],
+      "position": [
+        62,
+        1.4,
+        42
+      ]
+    },
+    {
+      "id": "park_foliage_7",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        62,
+        4.5,
+        42
+      ]
+    },
+    {
+      "id": "rd_trunk_0",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.8,
+        0.7
+      ],
+      "position": [
+        -15,
+        1.4,
+        20
+      ]
+    },
+    {
+      "id": "rd_foliage_0",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        -15,
+        4.5,
+        20
+      ]
+    },
+    {
+      "id": "rd_trunk_1",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.8,
+        0.7
+      ],
+      "position": [
+        -15,
+        1.4,
+        -5
+      ]
+    },
+    {
+      "id": "rd_foliage_1",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        -15,
+        4.5,
+        -5
+      ]
+    },
+    {
+      "id": "rd_trunk_2",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.8,
+        0.7
+      ],
+      "position": [
+        -15,
+        1.4,
+        -30
+      ]
+    },
+    {
+      "id": "rd_foliage_2",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        -15,
+        4.5,
+        -30
+      ]
+    },
+    {
+      "id": "rd_trunk_3",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.8,
+        0.7
+      ],
+      "position": [
+        -15,
+        1.4,
+        -55
+      ]
+    },
+    {
+      "id": "rd_foliage_3",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        -15,
+        4.5,
+        -55
+      ]
+    },
+    {
+      "id": "rd_trunk_4",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.8,
+        0.7
+      ],
+      "position": [
+        15,
+        1.4,
+        20
+      ]
+    },
+    {
+      "id": "rd_foliage_4",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        15,
+        4.5,
+        20
+      ]
+    },
+    {
+      "id": "rd_trunk_5",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.8,
+        0.7
+      ],
+      "position": [
+        15,
+        1.4,
+        -5
+      ]
+    },
+    {
+      "id": "rd_foliage_5",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        15,
+        4.5,
+        -5
+      ]
+    },
+    {
+      "id": "rd_trunk_6",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.8,
+        0.7
+      ],
+      "position": [
+        15,
+        1.4,
+        -30
+      ]
+    },
+    {
+      "id": "rd_foliage_6",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        15,
+        4.5,
+        -30
+      ]
+    },
+    {
+      "id": "rd_trunk_7",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.8,
+        0.7
+      ],
+      "position": [
+        15,
+        1.4,
+        -55
+      ]
+    },
+    {
+      "id": "rd_foliage_7",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        15,
+        4.5,
+        -55
+      ]
+    },
+    {
+      "id": "rd_trunk_8",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.8,
+        0.7
+      ],
+      "position": [
+        -90,
+        1.4,
+        5
+      ]
+    },
+    {
+      "id": "rd_foliage_8",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        -90,
+        4.5,
+        5
+      ]
+    },
+    {
+      "id": "rd_trunk_9",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.8,
+        0.7
+      ],
+      "position": [
+        -90,
+        1.4,
+        -20
+      ]
+    },
+    {
+      "id": "rd_foliage_9",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        -90,
+        4.5,
+        -20
+      ]
+    },
+    {
+      "id": "rd_trunk_10",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.8,
+        0.7
+      ],
+      "position": [
+        -90,
+        1.4,
+        -45
+      ]
+    },
+    {
+      "id": "rd_foliage_10",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        -90,
+        4.5,
+        -45
+      ]
+    },
+    {
+      "id": "rd_trunk_11",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.8,
+        0.7
+      ],
+      "position": [
+        90,
+        1.4,
+        5
+      ]
+    },
+    {
+      "id": "rd_foliage_11",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        90,
+        4.5,
+        5
+      ]
+    },
+    {
+      "id": "rd_trunk_12",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.8,
+        0.7
+      ],
+      "position": [
+        90,
+        1.4,
+        -20
+      ]
+    },
+    {
+      "id": "rd_foliage_12",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        90,
+        4.5,
+        -20
+      ]
+    },
+    {
+      "id": "rd_trunk_13",
+      "kind": "cylinder",
+      "material": "tree_trunk",
+      "size": [
+        0.7,
+        2.8,
+        0.7
+      ],
+      "position": [
+        90,
+        1.4,
+        -45
+      ]
+    },
+    {
+      "id": "rd_foliage_13",
+      "kind": "cylinder",
+      "material": "tree_foliage",
+      "size": [
+        4.4,
+        3.5,
+        4.4
+      ],
+      "position": [
+        90,
+        4.5,
+        -45
+      ]
+    },
+    {
+      "id": "road_ns_main",
+      "kind": "box",
+      "material": "road_asphalt",
+      "size": [
+        7,
+        0.23,
+        210
+      ],
+      "position": [
+        0,
+        0.12,
+        -15
+      ]
+    },
+    {
+      "id": "road_e_service",
+      "kind": "box",
+      "material": "road_asphalt",
+      "size": [
+        5,
+        0.23,
+        180
+      ],
+      "position": [
+        95,
+        0.12,
+        -10
+      ]
+    },
+    {
+      "id": "road_w_service",
+      "kind": "box",
+      "material": "road_asphalt",
+      "size": [
+        5,
+        0.23,
+        180
+      ],
+      "position": [
+        -95,
+        0.12,
+        -10
+      ]
+    },
+    {
+      "id": "road_ew_mid",
+      "kind": "box",
+      "material": "road_asphalt",
+      "size": [
+        190,
+        0.23,
+        5
+      ],
+      "position": [
+        -5,
+        0.12,
+        0
+      ]
+    },
+    {
+      "id": "road_approach",
+      "kind": "box",
+      "material": "road_asphalt",
+      "size": [
+        10,
+        0.23,
+        32
+      ],
+      "position": [
+        0,
+        0.12,
+        104
+      ]
+    },
+    {
+      "id": "cross_mark_n",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        10,
+        0.24,
+        0.25
+      ],
+      "position": [
+        0,
+        0.12,
+        50
+      ]
+    },
+    {
+      "id": "cross_mark_s",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        10,
+        0.24,
+        0.25
+      ],
+      "position": [
+        0,
+        0.12,
+        -50
+      ]
+    },
+    {
+      "id": "cross_mark_e",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.25,
+        0.24,
+        10
+      ],
+      "position": [
+        95,
+        0.12,
+        0
+      ]
+    },
+    {
+      "id": "cross_mark_w",
+      "kind": "box",
+      "material": "road_line",
+      "size": [
+        0.25,
+        0.24,
+        10
+      ],
+      "position": [
+        -95,
+        0.12,
+        0
+      ]
+    }
+  ],
+  "surfaceDetails": [],
+  "ornaments": [],
+  "pose": {
+    "preset": "static"
+  },
+  "animationHints": {},
+  "lod": {
+    "high": "full",
+    "medium": "reduce_window_bands",
+    "low": "merge_facade_layers"
+  },
+  "exportOptions": {
+    "formats": [
+      "gltf",
+      "glb"
+    ],
+    "previewHtml": true
+  }
+}

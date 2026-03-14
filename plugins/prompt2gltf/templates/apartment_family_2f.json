@@ -1,0 +1,1475 @@
+{
+  "meta": {
+    "name": "building_7m_ファミリー向けの2階建てアパート",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "prompt2gltf",
+    "generatedFrom": "ファミリー向けの2階建てアパート",
+    "createdAt": "2026-03-14T10:35:21.738Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "ファミリー向けの2階建てアパート",
+    "normalizedSubject": "building",
+    "targetHeightMeters": 7,
+    "styleTags": [
+      "apartment"
+    ],
+    "geometryDirective": "Use mixed primitives (box/cylinder/sphere/tri_prism); represent curved real-world forms with rounded geometry.",
+    "summary": "Generated from prompt as a building with high-density procedural spec.",
+    "designIntent": {
+      "scaleImpression": "large",
+      "mood": "majestic",
+      "originalityPolicy": "generalized_original_design"
+    },
+    "buildingArchetype": "apartment_2f"
+  },
+  "globalScale": {
+    "height": 7,
+    "width": 11.648,
+    "depth": 3.7856
+  },
+  "style": {
+    "silhouette": "multi_unit_or_civic_mass",
+    "mood": "inhabited",
+    "genre": "residential_architecture",
+    "detailDensity": "high",
+    "bodyLanguage": "static_structure",
+    "shapeLanguage": [
+      "main_volume",
+      "roof_profile",
+      "entrance",
+      "window_rhythm",
+      "signage"
+    ]
+  },
+  "materials": {
+    "concrete": {
+      "baseColor": "#C4C8CA",
+      "roughness": 0.88,
+      "metalness": 0.04
+    },
+    "wall_main": {
+      "baseColor": "#EAECEE",
+      "roughness": 0.86,
+      "metalness": 0.01
+    },
+    "wall_accent": {
+      "baseColor": "#2C3034",
+      "roughness": 0.9,
+      "metalness": 0.02
+    },
+    "slab_band": {
+      "baseColor": "#B0B8BA",
+      "roughness": 0.9,
+      "metalness": 0.03
+    },
+    "glass_win": {
+      "baseColor": "#7ABCD8",
+      "roughness": 0.08,
+      "metalness": 0.88
+    },
+    "glass_lobby": {
+      "baseColor": "#5AA0C0",
+      "roughness": 0.06,
+      "metalness": 0.92
+    },
+    "steel_frame": {
+      "baseColor": "#8A9298",
+      "roughness": 0.38,
+      "metalness": 0.8
+    },
+    "steel_dark": {
+      "baseColor": "#3A4042",
+      "roughness": 0.42,
+      "metalness": 0.84
+    },
+    "balk_slab": {
+      "baseColor": "#B8BCBE",
+      "roughness": 0.88,
+      "metalness": 0.04
+    },
+    "rail_steel": {
+      "baseColor": "#90989C",
+      "roughness": 0.36,
+      "metalness": 0.82
+    },
+    "roof_flat": {
+      "baseColor": "#8A9298",
+      "roughness": 0.86,
+      "metalness": 0.06
+    },
+    "parapet": {
+      "baseColor": "#D8DCDE",
+      "roughness": 0.86,
+      "metalness": 0.02
+    },
+    "door_auto": {
+      "baseColor": "#1E2426",
+      "roughness": 0.52,
+      "metalness": 0.44
+    },
+    "mailbox": {
+      "baseColor": "#5A6268",
+      "roughness": 0.5,
+      "metalness": 0.6
+    },
+    "paving": {
+      "baseColor": "#A4AEB0",
+      "roughness": 0.92,
+      "metalness": 0.02
+    }
+  },
+  "parts": [
+    {
+      "id": "plinth",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        11.48,
+        0.196,
+        3.92
+      ],
+      "position": [
+        0,
+        0.098,
+        0
+      ]
+    },
+    {
+      "id": "accent_L",
+      "kind": "box",
+      "material": "wall_accent",
+      "size": [
+        0.294,
+        6.44,
+        3.64
+      ],
+      "position": [
+        -5.453,
+        3.416,
+        0
+      ]
+    },
+    {
+      "id": "accent_R",
+      "kind": "box",
+      "material": "wall_accent",
+      "size": [
+        0.294,
+        6.44,
+        3.64
+      ],
+      "position": [
+        5.453,
+        3.416,
+        0
+      ]
+    },
+    {
+      "id": "body_main",
+      "kind": "box",
+      "material": "wall_main",
+      "size": [
+        10.612,
+        6.44,
+        3.64
+      ],
+      "position": [
+        0,
+        3.416,
+        0
+      ]
+    },
+    {
+      "id": "slab_1",
+      "kind": "box",
+      "material": "slab_band",
+      "size": [
+        11.34,
+        0.14,
+        3.78
+      ],
+      "position": [
+        0,
+        1.771,
+        0
+      ]
+    },
+    {
+      "id": "slab_2",
+      "kind": "box",
+      "material": "slab_band",
+      "size": [
+        11.34,
+        0.14,
+        3.78
+      ],
+      "position": [
+        0,
+        3.416,
+        0
+      ]
+    },
+    {
+      "id": "slab_3",
+      "kind": "box",
+      "material": "slab_band",
+      "size": [
+        11.34,
+        0.14,
+        3.78
+      ],
+      "position": [
+        0,
+        5.061,
+        0
+      ]
+    },
+    {
+      "id": "parapet_front",
+      "kind": "box",
+      "material": "parapet",
+      "size": [
+        11.564,
+        0.231,
+        0.182
+      ],
+      "position": [
+        0,
+        6.7515,
+        1.911
+      ]
+    },
+    {
+      "id": "parapet_back",
+      "kind": "box",
+      "material": "parapet",
+      "size": [
+        11.564,
+        0.231,
+        0.182
+      ],
+      "position": [
+        0,
+        6.7515,
+        -1.911
+      ]
+    },
+    {
+      "id": "parapet_L",
+      "kind": "box",
+      "material": "parapet",
+      "size": [
+        0.182,
+        0.231,
+        3.64
+      ],
+      "position": [
+        -5.6,
+        6.7515,
+        0
+      ]
+    },
+    {
+      "id": "parapet_R",
+      "kind": "box",
+      "material": "parapet",
+      "size": [
+        0.182,
+        0.231,
+        3.64
+      ],
+      "position": [
+        5.6,
+        6.7515,
+        0
+      ]
+    },
+    {
+      "id": "cope_front",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        11.634,
+        0.063,
+        0.252
+      ],
+      "position": [
+        0,
+        6.8985,
+        1.911
+      ]
+    },
+    {
+      "id": "roof_deck",
+      "kind": "box",
+      "material": "roof_flat",
+      "size": [
+        11.2,
+        0.084,
+        3.64
+      ],
+      "position": [
+        0,
+        6.594,
+        0
+      ]
+    },
+    {
+      "id": "lobby_frame",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [
+        2.898,
+        1.2698,
+        0.196
+      ],
+      "position": [
+        0,
+        0.7679,
+        1.8346
+      ]
+    },
+    {
+      "id": "lobby_glass",
+      "kind": "box",
+      "material": "glass_lobby",
+      "size": [
+        2.688,
+        1.1438,
+        0.21
+      ],
+      "position": [
+        0,
+        0.7679,
+        1.8491
+      ]
+    },
+    {
+      "id": "lobby_canopy",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        3.4347,
+        0.084,
+        1.96
+      ],
+      "position": [
+        0,
+        1.4301,
+        2.8
+      ]
+    },
+    {
+      "id": "canopy_sup_L",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [
+        0.112,
+        1.4301,
+        0.112
+      ],
+      "position": [
+        -1.5307,
+        0.715,
+        2.24
+      ]
+    },
+    {
+      "id": "canopy_sup_R",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [
+        0.112,
+        1.4301,
+        0.112
+      ],
+      "position": [
+        1.5307,
+        0.715,
+        2.24
+      ]
+    },
+    {
+      "id": "step_1",
+      "kind": "box",
+      "material": "paving",
+      "size": [
+        2.9568,
+        0.3136,
+        0.7
+      ],
+      "position": [
+        0,
+        0.1568,
+        3.08
+      ]
+    },
+    {
+      "id": "step_2",
+      "kind": "box",
+      "material": "paving",
+      "size": [
+        2.4192,
+        0.1764,
+        0.56
+      ],
+      "position": [
+        0,
+        0.0882,
+        3.78
+      ]
+    },
+    {
+      "id": "mailbox_unit",
+      "kind": "box",
+      "material": "mailbox",
+      "size": [
+        1.4187,
+        0.7525,
+        0.21
+      ],
+      "position": [
+        2.0907,
+        0.7228,
+        1.8491
+      ]
+    },
+    {
+      "id": "f1_win_L",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        1.9413,
+        0.7525,
+        0.21
+      ],
+      "position": [
+        -3.7333,
+        0.8733,
+        1.8491
+      ]
+    },
+    {
+      "id": "f1_win_frame_L",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        2.0533,
+        0.7826,
+        0.182
+      ],
+      "position": [
+        -3.7333,
+        0.8733,
+        1.8418
+      ]
+    },
+    {
+      "id": "f1_win_R",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        1.9413,
+        0.7525,
+        0.21
+      ],
+      "position": [
+        3.7333,
+        0.8733,
+        1.8491
+      ]
+    },
+    {
+      "id": "f1_win_frame_R",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        2.0533,
+        0.7826,
+        0.182
+      ],
+      "position": [
+        3.7333,
+        0.8733,
+        1.8418
+      ]
+    },
+    {
+      "id": "f2_win_L",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        1.9413,
+        0.7224,
+        0.21
+      ],
+      "position": [
+        -3.7333,
+        2.5032,
+        1.8491
+      ]
+    },
+    {
+      "id": "f2_win_frame_L",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        2.0533,
+        0.7525,
+        0.182
+      ],
+      "position": [
+        -3.7333,
+        2.5032,
+        1.8418
+      ]
+    },
+    {
+      "id": "f2_win_C",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        1.9413,
+        0.7224,
+        0.21
+      ],
+      "position": [
+        0,
+        2.5032,
+        1.8491
+      ]
+    },
+    {
+      "id": "f2_win_frame_C",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        2.0533,
+        0.7525,
+        0.182
+      ],
+      "position": [
+        0,
+        2.5032,
+        1.8418
+      ]
+    },
+    {
+      "id": "f2_win_R",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        1.9413,
+        0.7224,
+        0.21
+      ],
+      "position": [
+        3.7333,
+        2.5032,
+        1.8491
+      ]
+    },
+    {
+      "id": "f2_win_frame_R",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        2.0533,
+        0.7525,
+        0.182
+      ],
+      "position": [
+        3.7333,
+        2.5032,
+        1.8418
+      ]
+    },
+    {
+      "id": "f3_win_L",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        1.9413,
+        0.7224,
+        0.21
+      ],
+      "position": [
+        -3.7333,
+        4.1482,
+        1.8491
+      ]
+    },
+    {
+      "id": "f3_win_frame_L",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        2.0533,
+        0.7525,
+        0.182
+      ],
+      "position": [
+        -3.7333,
+        4.1482,
+        1.8418
+      ]
+    },
+    {
+      "id": "f3_win_C",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        1.9413,
+        0.7224,
+        0.21
+      ],
+      "position": [
+        0,
+        4.1482,
+        1.8491
+      ]
+    },
+    {
+      "id": "f3_win_frame_C",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        2.0533,
+        0.7525,
+        0.182
+      ],
+      "position": [
+        0,
+        4.1482,
+        1.8418
+      ]
+    },
+    {
+      "id": "f3_win_R",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        1.9413,
+        0.7224,
+        0.21
+      ],
+      "position": [
+        3.7333,
+        4.1482,
+        1.8491
+      ]
+    },
+    {
+      "id": "f3_win_frame_R",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        2.0533,
+        0.7525,
+        0.182
+      ],
+      "position": [
+        3.7333,
+        4.1482,
+        1.8418
+      ]
+    },
+    {
+      "id": "f4_win_L",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        1.9413,
+        0.7224,
+        0.21
+      ],
+      "position": [
+        -3.7333,
+        5.7932,
+        1.8491
+      ]
+    },
+    {
+      "id": "f4_win_frame_L",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        2.0533,
+        0.7525,
+        0.182
+      ],
+      "position": [
+        -3.7333,
+        5.7932,
+        1.8418
+      ]
+    },
+    {
+      "id": "f4_win_C",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        1.9413,
+        0.7224,
+        0.21
+      ],
+      "position": [
+        0,
+        5.7932,
+        1.8491
+      ]
+    },
+    {
+      "id": "f4_win_frame_C",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        2.0533,
+        0.7525,
+        0.182
+      ],
+      "position": [
+        0,
+        5.7932,
+        1.8418
+      ]
+    },
+    {
+      "id": "f4_win_R",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        1.9413,
+        0.7224,
+        0.21
+      ],
+      "position": [
+        3.7333,
+        5.7932,
+        1.8491
+      ]
+    },
+    {
+      "id": "f4_win_frame_R",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        2.0533,
+        0.7525,
+        0.182
+      ],
+      "position": [
+        3.7333,
+        5.7932,
+        1.8418
+      ]
+    },
+    {
+      "id": "balk_slab_f2",
+      "kind": "box",
+      "material": "balk_slab",
+      "size": [
+        10.304,
+        0.112,
+        1.05
+      ],
+      "position": [
+        0,
+        1.883,
+        2.345
+      ]
+    },
+    {
+      "id": "balk_rail_f2",
+      "kind": "box",
+      "material": "rail_steel",
+      "size": [
+        10.304,
+        0.308,
+        0.098
+      ],
+      "position": [
+        0,
+        2.443,
+        2.87
+      ]
+    },
+    {
+      "id": "balk_div_L_f2",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        0.098,
+        0.616,
+        1.05
+      ],
+      "position": [
+        -5.04,
+        2.135,
+        2.345
+      ]
+    },
+    {
+      "id": "balk_div_R_f2",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        0.098,
+        0.616,
+        1.05
+      ],
+      "position": [
+        5.04,
+        2.135,
+        2.345
+      ]
+    },
+    {
+      "id": "balk_slab_f3",
+      "kind": "box",
+      "material": "balk_slab",
+      "size": [
+        10.304,
+        0.112,
+        1.05
+      ],
+      "position": [
+        0,
+        3.528,
+        2.345
+      ]
+    },
+    {
+      "id": "balk_rail_f3",
+      "kind": "box",
+      "material": "rail_steel",
+      "size": [
+        10.304,
+        0.308,
+        0.098
+      ],
+      "position": [
+        0,
+        4.088,
+        2.87
+      ]
+    },
+    {
+      "id": "balk_div_L_f3",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        0.098,
+        0.616,
+        1.05
+      ],
+      "position": [
+        -5.04,
+        3.78,
+        2.345
+      ]
+    },
+    {
+      "id": "balk_div_R_f3",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        0.098,
+        0.616,
+        1.05
+      ],
+      "position": [
+        5.04,
+        3.78,
+        2.345
+      ]
+    },
+    {
+      "id": "balk_slab_f4",
+      "kind": "box",
+      "material": "balk_slab",
+      "size": [
+        10.304,
+        0.112,
+        1.05
+      ],
+      "position": [
+        0,
+        5.173,
+        2.345
+      ]
+    },
+    {
+      "id": "balk_rail_f4",
+      "kind": "box",
+      "material": "rail_steel",
+      "size": [
+        10.304,
+        0.308,
+        0.098
+      ],
+      "position": [
+        0,
+        5.733,
+        2.87
+      ]
+    },
+    {
+      "id": "balk_div_L_f4",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        0.098,
+        0.616,
+        1.05
+      ],
+      "position": [
+        -5.04,
+        5.425,
+        2.345
+      ]
+    },
+    {
+      "id": "balk_div_R_f4",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        0.098,
+        0.616,
+        1.05
+      ],
+      "position": [
+        5.04,
+        5.425,
+        2.345
+      ]
+    },
+    {
+      "id": "ac_unit_1",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [
+        0.98,
+        0.455,
+        1.26
+      ],
+      "position": [
+        -2.8,
+        6.867,
+        -0.8008
+      ]
+    },
+    {
+      "id": "ac_unit_2",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [
+        0.98,
+        0.455,
+        1.26
+      ],
+      "position": [
+        2.24,
+        6.867,
+        -0.8008
+      ]
+    },
+    {
+      "id": "utility_pipe",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [
+        0.112,
+        6.44,
+        0.112
+      ],
+      "position": [
+        5.145,
+        3.416,
+        -1.092
+      ]
+    }
+  ],
+  "surfaceDetails": [
+    {
+      "id": "sd_1",
+      "region": "facade",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.011,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_2",
+      "region": "facade",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        0.011,
+        0.0084,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_3",
+      "region": "facade",
+      "type": "glass_reflection",
+      "strength": 0.18,
+      "offset": [
+        0.0136,
+        0.0019,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_4",
+      "region": "facade",
+      "type": "window_grid",
+      "strength": 0.22,
+      "offset": [
+        0.006,
+        -0.0056,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_5",
+      "region": "facade",
+      "type": "metal_panel",
+      "strength": 0.26,
+      "offset": [
+        -0.0062,
+        -0.0104,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_6",
+      "region": "facade",
+      "type": "weathering",
+      "strength": 0.1,
+      "offset": [
+        -0.0137,
+        -0.0103,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_7",
+      "region": "facade",
+      "type": "panel_seam",
+      "strength": 0.14,
+      "offset": [
+        -0.0108,
+        -0.0054,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_8",
+      "region": "balcony",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.011,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_9",
+      "region": "balcony",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        0.011,
+        0.0084,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_10",
+      "region": "balcony",
+      "type": "glass_reflection",
+      "strength": 0.18,
+      "offset": [
+        0.0136,
+        0.0019,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_11",
+      "region": "balcony",
+      "type": "window_grid",
+      "strength": 0.22,
+      "offset": [
+        0.006,
+        -0.0056,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_12",
+      "region": "balcony",
+      "type": "metal_panel",
+      "strength": 0.26,
+      "offset": [
+        -0.0062,
+        -0.0104,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_13",
+      "region": "balcony",
+      "type": "weathering",
+      "strength": 0.1,
+      "offset": [
+        -0.0137,
+        -0.0103,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_14",
+      "region": "balcony",
+      "type": "panel_seam",
+      "strength": 0.14,
+      "offset": [
+        -0.0108,
+        -0.0054,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_15",
+      "region": "lobby",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.011,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_16",
+      "region": "lobby",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        0.011,
+        0.0084,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_17",
+      "region": "lobby",
+      "type": "glass_reflection",
+      "strength": 0.18,
+      "offset": [
+        0.0136,
+        0.0019,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_18",
+      "region": "lobby",
+      "type": "window_grid",
+      "strength": 0.22,
+      "offset": [
+        0.006,
+        -0.0056,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_19",
+      "region": "lobby",
+      "type": "metal_panel",
+      "strength": 0.26,
+      "offset": [
+        -0.0062,
+        -0.0104,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_20",
+      "region": "lobby",
+      "type": "weathering",
+      "strength": 0.1,
+      "offset": [
+        -0.0137,
+        -0.0103,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_21",
+      "region": "lobby",
+      "type": "panel_seam",
+      "strength": 0.14,
+      "offset": [
+        -0.0108,
+        -0.0054,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_22",
+      "region": "window",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.011,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_23",
+      "region": "window",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        0.011,
+        0.0084,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_24",
+      "region": "window",
+      "type": "glass_reflection",
+      "strength": 0.18,
+      "offset": [
+        0.0136,
+        0.0019,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_25",
+      "region": "window",
+      "type": "window_grid",
+      "strength": 0.22,
+      "offset": [
+        0.006,
+        -0.0056,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_26",
+      "region": "window",
+      "type": "metal_panel",
+      "strength": 0.26,
+      "offset": [
+        -0.0062,
+        -0.0104,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_27",
+      "region": "window",
+      "type": "weathering",
+      "strength": 0.1,
+      "offset": [
+        -0.0137,
+        -0.0103,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_28",
+      "region": "window",
+      "type": "panel_seam",
+      "strength": 0.14,
+      "offset": [
+        -0.0108,
+        -0.0054,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_29",
+      "region": "roof",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.011,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_30",
+      "region": "roof",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        0.011,
+        0.0084,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_31",
+      "region": "roof",
+      "type": "glass_reflection",
+      "strength": 0.18,
+      "offset": [
+        0.0136,
+        0.0019,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_32",
+      "region": "roof",
+      "type": "window_grid",
+      "strength": 0.22,
+      "offset": [
+        0.006,
+        -0.0056,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_33",
+      "region": "roof",
+      "type": "metal_panel",
+      "strength": 0.26,
+      "offset": [
+        -0.0062,
+        -0.0104,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_34",
+      "region": "roof",
+      "type": "weathering",
+      "strength": 0.1,
+      "offset": [
+        -0.0137,
+        -0.0103,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_35",
+      "region": "roof",
+      "type": "panel_seam",
+      "strength": 0.14,
+      "offset": [
+        -0.0108,
+        -0.0054,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_36",
+      "region": "base",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.011,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_37",
+      "region": "base",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        0.011,
+        0.0084,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_38",
+      "region": "base",
+      "type": "glass_reflection",
+      "strength": 0.18,
+      "offset": [
+        0.0136,
+        0.0019,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_39",
+      "region": "base",
+      "type": "window_grid",
+      "strength": 0.22,
+      "offset": [
+        0.006,
+        -0.0056,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_40",
+      "region": "base",
+      "type": "metal_panel",
+      "strength": 0.26,
+      "offset": [
+        -0.0062,
+        -0.0104,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_41",
+      "region": "base",
+      "type": "weathering",
+      "strength": 0.1,
+      "offset": [
+        -0.0137,
+        -0.0103,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_42",
+      "region": "base",
+      "type": "panel_seam",
+      "strength": 0.14,
+      "offset": [
+        -0.0108,
+        -0.0054,
+        0.0045
+      ]
+    }
+  ],
+  "ornaments": [],
+  "pose": {
+    "preset": "static"
+  },
+  "animationHints": {},
+  "lod": {
+    "high": "full",
+    "medium": "reduce_window_bands",
+    "low": "merge_facade_layers"
+  },
+  "exportOptions": {
+    "formats": [
+      "gltf",
+      "glb"
+    ],
+    "previewHtml": true
+  }
+}

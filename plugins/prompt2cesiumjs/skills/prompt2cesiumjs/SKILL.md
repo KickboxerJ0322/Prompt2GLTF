@@ -131,7 +131,7 @@ description: 自然文から Cesium Sandcastle 用 JavaScript を生成する。
 
     const PERSON = {
       name: "...",
-      glb: "...",
+      glb: "https://raw.githubusercontent.com/KickboxerJ0322/Prompt2GLTF/master/glb/car.glb",
       scale: 2,
       minimumPixelSize: 64,
       maximumScale: 20,
@@ -143,11 +143,13 @@ description: 自然文から Cesium Sandcastle 用 JavaScript を生成する。
       cameraSmooth: 0.10
     };
 
+`MODEL_URL` が未指定のときは `https://raw.githubusercontent.com/KickboxerJ0322/Prompt2GLTF/master/glb/car.glb` を使う。
+
 ### drone_follow のデフォルト値
 
     const PERSON = {
       name: "...",
-      glb: "...",
+      glb: "https://raw.githubusercontent.com/KickboxerJ0322/Prompt2GLTF/master/glb/heli.glb",
       scale: 4.0,
       minimumPixelSize: 48,
       maximumScale: 600,
@@ -158,6 +160,8 @@ description: 自然文から Cesium Sandcastle 用 JavaScript を生成する。
       lookOffset: new Cesium.Cartesian3(100, 0, 0),
       cameraSmooth: 0.06
     };
+
+`MODEL_URL` が未指定のときは `https://raw.githubusercontent.com/KickboxerJ0322/Prompt2GLTF/master/glb/heli.glb` を使う。
 
 ## 移動モードのモデルスケール基準
 
@@ -208,6 +212,8 @@ Skill はユーザー入力を元にこれらを埋める。
 ## 固定配置モードのデフォルト値
 
 ユーザーが指定しない場合は次を使う。
+
+`MODEL_URL` が未指定のときは `https://raw.githubusercontent.com/KickboxerJ0322/Prompt2GLTF/master/glb/tower.glb` を使う。
 
     HEIGHT = 40
     HEADING_DEG = 0

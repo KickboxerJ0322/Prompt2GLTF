@@ -1,0 +1,7522 @@
+{
+  "meta": {
+    "name": "building_35m_屋根の三角形は不要な_フラット屋根の10階建てファミリー向け大規模マンション_各フロアに10戸程",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "prompt2gltf",
+    "generatedFrom": "屋根の三角形は不要な、フラット屋根の10階建てファミリー向け大規模マンション。各フロアに10戸程度の個人宅が並ぶ集合住宅で、連続するバルコニーと共用廊下を持つ現代的な大型レジデンス",
+    "createdAt": "2026-03-14T10:40:35.687Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "屋根の三角形は不要な、フラット屋根の10階建てファミリー向け大規模マンション。各フロアに10戸程度の個人宅が並ぶ集合住宅で、連続するバルコニーと共用廊下を持つ現代的な大型レジデンス",
+    "normalizedSubject": "building",
+    "targetHeightMeters": 35,
+    "styleTags": [
+      "residential",
+      "mansion"
+    ],
+    "geometryDirective": "Use mixed primitives (box/cylinder/sphere/tri_prism); represent curved real-world forms with rounded geometry.",
+    "summary": "Generated from prompt as a building with high-density procedural spec.",
+    "designIntent": {
+      "scaleImpression": "very_large",
+      "mood": "majestic",
+      "originalityPolicy": "generalized_original_design"
+    },
+    "buildingArchetype": "mansion_family"
+  },
+  "globalScale": {
+    "height": 34.76,
+    "width": 46,
+    "depth": 19.5
+  },
+  "style": {
+    "silhouette": "large_family_condominium_block",
+    "mood": "inhabited",
+    "genre": "residential_architecture",
+    "detailDensity": "high",
+    "bodyLanguage": "static_structure",
+    "shapeLanguage": [
+      "flat_roof",
+      "repetitive_balconies",
+      "unit_grid",
+      "shared_entrance",
+      "family_scale_mass"
+    ]
+  },
+  "materials": {
+    "podium": {
+      "baseColor": "#8C9096",
+      "roughness": 0.92,
+      "metalness": 0.03
+    },
+    "facade_main": {
+      "baseColor": "#E5E3DD",
+      "roughness": 0.88,
+      "metalness": 0.02
+    },
+    "facade_accent": {
+      "baseColor": "#A7ADB4",
+      "roughness": 0.9,
+      "metalness": 0.03
+    },
+    "frame_dark": {
+      "baseColor": "#444A50",
+      "roughness": 0.48,
+      "metalness": 0.52
+    },
+    "glass_main": {
+      "baseColor": "#7FB1CC",
+      "roughness": 0.1,
+      "metalness": 0.86
+    },
+    "glass_dark": {
+      "baseColor": "#4E6C86",
+      "roughness": 0.14,
+      "metalness": 0.82
+    },
+    "balcony": {
+      "baseColor": "#BCC2C8",
+      "roughness": 0.86,
+      "metalness": 0.06
+    },
+    "rail": {
+      "baseColor": "#8E969C",
+      "roughness": 0.34,
+      "metalness": 0.84
+    },
+    "roof_flat": {
+      "baseColor": "#7B838A",
+      "roughness": 0.84,
+      "metalness": 0.08
+    },
+    "paving": {
+      "baseColor": "#A8AFB2",
+      "roughness": 0.94,
+      "metalness": 0.02
+    },
+    "planter": {
+      "baseColor": "#6E7A5C",
+      "roughness": 0.94,
+      "metalness": 0.01
+    }
+  },
+  "parts": [
+    {
+      "id": "site_plaza",
+      "kind": "box",
+      "material": "paving",
+      "size": [
+        50,
+        0.24,
+        24.5
+      ],
+      "position": [
+        0,
+        0.12,
+        0.8
+      ]
+    },
+    {
+      "id": "podium",
+      "kind": "box",
+      "material": "podium",
+      "size": [
+        43.2,
+        0.7,
+        16.5
+      ],
+      "position": [
+        0,
+        0.35,
+        0
+      ]
+    },
+    {
+      "id": "main_mass",
+      "kind": "box",
+      "material": "facade_main",
+      "size": [
+        42,
+        33.16,
+        15.5
+      ],
+      "position": [
+        0,
+        17.28,
+        0
+      ]
+    },
+    {
+      "id": "accent_core",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        5.25,
+        33.16,
+        15.655
+      ],
+      "position": [
+        0,
+        17.28,
+        0
+      ]
+    },
+    {
+      "id": "slab_band_1",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        42.5,
+        0.24,
+        15.7
+      ],
+      "position": [
+        0,
+        3.92,
+        0
+      ]
+    },
+    {
+      "id": "slab_band_2",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        42.5,
+        0.24,
+        15.7
+      ],
+      "position": [
+        0,
+        7.26,
+        0
+      ]
+    },
+    {
+      "id": "slab_band_3",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        42.5,
+        0.24,
+        15.7
+      ],
+      "position": [
+        0,
+        10.6,
+        0
+      ]
+    },
+    {
+      "id": "slab_band_4",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        42.5,
+        0.24,
+        15.7
+      ],
+      "position": [
+        0,
+        13.94,
+        0
+      ]
+    },
+    {
+      "id": "slab_band_5",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        42.5,
+        0.24,
+        15.7
+      ],
+      "position": [
+        0,
+        17.28,
+        0
+      ]
+    },
+    {
+      "id": "slab_band_6",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        42.5,
+        0.24,
+        15.7
+      ],
+      "position": [
+        0,
+        20.62,
+        0
+      ]
+    },
+    {
+      "id": "slab_band_7",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        42.5,
+        0.24,
+        15.7
+      ],
+      "position": [
+        0,
+        23.96,
+        0
+      ]
+    },
+    {
+      "id": "slab_band_8",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        42.5,
+        0.24,
+        15.7
+      ],
+      "position": [
+        0,
+        27.3,
+        0
+      ]
+    },
+    {
+      "id": "slab_band_9",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        42.5,
+        0.24,
+        15.7
+      ],
+      "position": [
+        0,
+        30.64,
+        0
+      ]
+    },
+    {
+      "id": "roof_deck",
+      "kind": "box",
+      "material": "roof_flat",
+      "size": [
+        42,
+        0.24,
+        15.5
+      ],
+      "position": [
+        0,
+        33.74,
+        0
+      ]
+    },
+    {
+      "id": "parapet_front",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        42.4,
+        0.9,
+        0.3
+      ],
+      "position": [
+        0,
+        34.31,
+        7.9
+      ]
+    },
+    {
+      "id": "parapet_back",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        42.4,
+        0.9,
+        0.3
+      ],
+      "position": [
+        0,
+        34.31,
+        -7.9
+      ]
+    },
+    {
+      "id": "parapet_left",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.3,
+        0.9,
+        15.5
+      ],
+      "position": [
+        -21.15,
+        34.31,
+        0
+      ]
+    },
+    {
+      "id": "parapet_right",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.3,
+        0.9,
+        15.5
+      ],
+      "position": [
+        21.15,
+        34.31,
+        0
+      ]
+    },
+    {
+      "id": "entry_frame",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        7.22,
+        5,
+        0.25
+      ],
+      "position": [
+        0,
+        3,
+        7.81
+      ]
+    },
+    {
+      "id": "entry_glass",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        6.72,
+        4.6,
+        0.22
+      ],
+      "position": [
+        0,
+        3,
+        7.83
+      ]
+    },
+    {
+      "id": "entry_canopy",
+      "kind": "box",
+      "material": "balcony",
+      "size": [
+        8.72,
+        0.2,
+        2.6
+      ],
+      "position": [
+        0,
+        5.7,
+        9
+      ]
+    },
+    {
+      "id": "entry_step_1",
+      "kind": "box",
+      "material": "paving",
+      "size": [
+        8.52,
+        0.18,
+        1
+      ],
+      "position": [
+        0,
+        0.09,
+        9.15
+      ]
+    },
+    {
+      "id": "entry_step_2",
+      "kind": "box",
+      "material": "paving",
+      "size": [
+        7.92,
+        0.14,
+        0.8
+      ],
+      "position": [
+        0,
+        0.07,
+        9.95
+      ]
+    },
+    {
+      "id": "mail_corner",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.94,
+        1.8,
+        0.22
+      ],
+      "position": [
+        5.25,
+        1.9,
+        7.83
+      ]
+    },
+    {
+      "id": "balcony_slab_f1",
+      "kind": "box",
+      "material": "balcony",
+      "size": [
+        39.9,
+        0.2,
+        1.55
+      ],
+      "position": [
+        0,
+        0.88,
+        8.53
+      ]
+    },
+    {
+      "id": "balcony_rail_f1",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        39.9,
+        0.95,
+        0.08
+      ],
+      "position": [
+        0,
+        1.85,
+        9.25
+      ]
+    },
+    {
+      "id": "win_f1_u1",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -18.9,
+        2.436,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f1_u1",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -18.9,
+        2.436,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f1_u1",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -16.8,
+        2.002,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f1_u2",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -14.7,
+        2.436,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f1_u2",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -14.7,
+        2.436,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f1_u2",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -12.6,
+        2.002,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f1_u3",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -10.5,
+        2.436,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f1_u3",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -10.5,
+        2.436,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f1_u3",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -8.4,
+        2.002,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f1_u4",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -6.3,
+        2.436,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f1_u4",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -6.3,
+        2.436,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f1_u4",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -4.2,
+        2.002,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f1_u5",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -2.1,
+        2.436,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f1_u5",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -2.1,
+        2.436,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f1_u5",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        0,
+        2.002,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f1_u6",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        2.1,
+        2.436,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f1_u6",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        2.1,
+        2.436,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f1_u6",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        4.2,
+        2.002,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f1_u7",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        6.3,
+        2.436,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f1_u7",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        6.3,
+        2.436,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f1_u7",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        8.4,
+        2.002,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f1_u8",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        10.5,
+        2.436,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f1_u8",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        10.5,
+        2.436,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f1_u8",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        12.6,
+        2.002,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f1_u9",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        14.7,
+        2.436,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f1_u9",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        14.7,
+        2.436,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f1_u9",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        16.8,
+        2.002,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f1_u10",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        18.9,
+        2.436,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f1_u10",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        18.9,
+        2.436,
+        7.73
+      ]
+    },
+    {
+      "id": "balcony_slab_f2",
+      "kind": "box",
+      "material": "balcony",
+      "size": [
+        39.9,
+        0.2,
+        1.55
+      ],
+      "position": [
+        0,
+        4.22,
+        8.53
+      ]
+    },
+    {
+      "id": "balcony_rail_f2",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        39.9,
+        0.95,
+        0.08
+      ],
+      "position": [
+        0,
+        5.19,
+        9.25
+      ]
+    },
+    {
+      "id": "win_f2_u1",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -18.9,
+        5.776,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f2_u1",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -18.9,
+        5.776,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f2_u1",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -16.8,
+        5.342,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f2_u2",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -14.7,
+        5.776,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f2_u2",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -14.7,
+        5.776,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f2_u2",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -12.6,
+        5.342,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f2_u3",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -10.5,
+        5.776,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f2_u3",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -10.5,
+        5.776,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f2_u3",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -8.4,
+        5.342,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f2_u4",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -6.3,
+        5.776,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f2_u4",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -6.3,
+        5.776,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f2_u4",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -4.2,
+        5.342,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f2_u5",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -2.1,
+        5.776,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f2_u5",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -2.1,
+        5.776,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f2_u5",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        0,
+        5.342,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f2_u6",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        2.1,
+        5.776,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f2_u6",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        2.1,
+        5.776,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f2_u6",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        4.2,
+        5.342,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f2_u7",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        6.3,
+        5.776,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f2_u7",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        6.3,
+        5.776,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f2_u7",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        8.4,
+        5.342,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f2_u8",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        10.5,
+        5.776,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f2_u8",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        10.5,
+        5.776,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f2_u8",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        12.6,
+        5.342,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f2_u9",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        14.7,
+        5.776,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f2_u9",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        14.7,
+        5.776,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f2_u9",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        16.8,
+        5.342,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f2_u10",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        18.9,
+        5.776,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f2_u10",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        18.9,
+        5.776,
+        7.73
+      ]
+    },
+    {
+      "id": "balcony_slab_f3",
+      "kind": "box",
+      "material": "balcony",
+      "size": [
+        39.9,
+        0.2,
+        1.55
+      ],
+      "position": [
+        0,
+        7.56,
+        8.53
+      ]
+    },
+    {
+      "id": "balcony_rail_f3",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        39.9,
+        0.95,
+        0.08
+      ],
+      "position": [
+        0,
+        8.53,
+        9.25
+      ]
+    },
+    {
+      "id": "win_f3_u1",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -18.9,
+        9.116,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f3_u1",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -18.9,
+        9.116,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f3_u1",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -16.8,
+        8.682,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f3_u2",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -14.7,
+        9.116,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f3_u2",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -14.7,
+        9.116,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f3_u2",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -12.6,
+        8.682,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f3_u3",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -10.5,
+        9.116,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f3_u3",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -10.5,
+        9.116,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f3_u3",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -8.4,
+        8.682,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f3_u4",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -6.3,
+        9.116,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f3_u4",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -6.3,
+        9.116,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f3_u4",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -4.2,
+        8.682,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f3_u5",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -2.1,
+        9.116,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f3_u5",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -2.1,
+        9.116,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f3_u5",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        0,
+        8.682,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f3_u6",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        2.1,
+        9.116,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f3_u6",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        2.1,
+        9.116,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f3_u6",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        4.2,
+        8.682,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f3_u7",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        6.3,
+        9.116,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f3_u7",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        6.3,
+        9.116,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f3_u7",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        8.4,
+        8.682,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f3_u8",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        10.5,
+        9.116,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f3_u8",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        10.5,
+        9.116,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f3_u8",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        12.6,
+        8.682,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f3_u9",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        14.7,
+        9.116,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f3_u9",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        14.7,
+        9.116,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f3_u9",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        16.8,
+        8.682,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f3_u10",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        18.9,
+        9.116,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f3_u10",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        18.9,
+        9.116,
+        7.73
+      ]
+    },
+    {
+      "id": "balcony_slab_f4",
+      "kind": "box",
+      "material": "balcony",
+      "size": [
+        39.9,
+        0.2,
+        1.55
+      ],
+      "position": [
+        0,
+        10.9,
+        8.53
+      ]
+    },
+    {
+      "id": "balcony_rail_f4",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        39.9,
+        0.95,
+        0.08
+      ],
+      "position": [
+        0,
+        11.87,
+        9.25
+      ]
+    },
+    {
+      "id": "win_f4_u1",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -18.9,
+        12.456,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f4_u1",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -18.9,
+        12.456,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f4_u1",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -16.8,
+        12.022,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f4_u2",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -14.7,
+        12.456,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f4_u2",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -14.7,
+        12.456,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f4_u2",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -12.6,
+        12.022,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f4_u3",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -10.5,
+        12.456,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f4_u3",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -10.5,
+        12.456,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f4_u3",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -8.4,
+        12.022,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f4_u4",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -6.3,
+        12.456,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f4_u4",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -6.3,
+        12.456,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f4_u4",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -4.2,
+        12.022,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f4_u5",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -2.1,
+        12.456,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f4_u5",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -2.1,
+        12.456,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f4_u5",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        0,
+        12.022,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f4_u6",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        2.1,
+        12.456,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f4_u6",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        2.1,
+        12.456,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f4_u6",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        4.2,
+        12.022,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f4_u7",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        6.3,
+        12.456,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f4_u7",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        6.3,
+        12.456,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f4_u7",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        8.4,
+        12.022,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f4_u8",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        10.5,
+        12.456,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f4_u8",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        10.5,
+        12.456,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f4_u8",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        12.6,
+        12.022,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f4_u9",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        14.7,
+        12.456,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f4_u9",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        14.7,
+        12.456,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f4_u9",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        16.8,
+        12.022,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f4_u10",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        18.9,
+        12.456,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f4_u10",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        18.9,
+        12.456,
+        7.73
+      ]
+    },
+    {
+      "id": "balcony_slab_f5",
+      "kind": "box",
+      "material": "balcony",
+      "size": [
+        39.9,
+        0.2,
+        1.55
+      ],
+      "position": [
+        0,
+        14.24,
+        8.53
+      ]
+    },
+    {
+      "id": "balcony_rail_f5",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        39.9,
+        0.95,
+        0.08
+      ],
+      "position": [
+        0,
+        15.21,
+        9.25
+      ]
+    },
+    {
+      "id": "win_f5_u1",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -18.9,
+        15.796,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f5_u1",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -18.9,
+        15.796,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f5_u1",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -16.8,
+        15.362,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f5_u2",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -14.7,
+        15.796,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f5_u2",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -14.7,
+        15.796,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f5_u2",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -12.6,
+        15.362,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f5_u3",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -10.5,
+        15.796,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f5_u3",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -10.5,
+        15.796,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f5_u3",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -8.4,
+        15.362,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f5_u4",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -6.3,
+        15.796,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f5_u4",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -6.3,
+        15.796,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f5_u4",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -4.2,
+        15.362,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f5_u5",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -2.1,
+        15.796,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f5_u5",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -2.1,
+        15.796,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f5_u5",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        0,
+        15.362,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f5_u6",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        2.1,
+        15.796,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f5_u6",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        2.1,
+        15.796,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f5_u6",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        4.2,
+        15.362,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f5_u7",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        6.3,
+        15.796,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f5_u7",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        6.3,
+        15.796,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f5_u7",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        8.4,
+        15.362,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f5_u8",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        10.5,
+        15.796,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f5_u8",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        10.5,
+        15.796,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f5_u8",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        12.6,
+        15.362,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f5_u9",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        14.7,
+        15.796,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f5_u9",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        14.7,
+        15.796,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f5_u9",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        16.8,
+        15.362,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f5_u10",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        18.9,
+        15.796,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f5_u10",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        18.9,
+        15.796,
+        7.73
+      ]
+    },
+    {
+      "id": "balcony_slab_f6",
+      "kind": "box",
+      "material": "balcony",
+      "size": [
+        39.9,
+        0.2,
+        1.55
+      ],
+      "position": [
+        0,
+        17.58,
+        8.53
+      ]
+    },
+    {
+      "id": "balcony_rail_f6",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        39.9,
+        0.95,
+        0.08
+      ],
+      "position": [
+        0,
+        18.55,
+        9.25
+      ]
+    },
+    {
+      "id": "win_f6_u1",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -18.9,
+        19.136,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f6_u1",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -18.9,
+        19.136,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f6_u1",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -16.8,
+        18.702,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f6_u2",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -14.7,
+        19.136,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f6_u2",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -14.7,
+        19.136,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f6_u2",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -12.6,
+        18.702,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f6_u3",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -10.5,
+        19.136,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f6_u3",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -10.5,
+        19.136,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f6_u3",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -8.4,
+        18.702,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f6_u4",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -6.3,
+        19.136,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f6_u4",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -6.3,
+        19.136,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f6_u4",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -4.2,
+        18.702,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f6_u5",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -2.1,
+        19.136,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f6_u5",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -2.1,
+        19.136,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f6_u5",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        0,
+        18.702,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f6_u6",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        2.1,
+        19.136,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f6_u6",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        2.1,
+        19.136,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f6_u6",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        4.2,
+        18.702,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f6_u7",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        6.3,
+        19.136,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f6_u7",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        6.3,
+        19.136,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f6_u7",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        8.4,
+        18.702,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f6_u8",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        10.5,
+        19.136,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f6_u8",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        10.5,
+        19.136,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f6_u8",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        12.6,
+        18.702,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f6_u9",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        14.7,
+        19.136,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f6_u9",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        14.7,
+        19.136,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f6_u9",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        16.8,
+        18.702,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f6_u10",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        18.9,
+        19.136,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f6_u10",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        18.9,
+        19.136,
+        7.73
+      ]
+    },
+    {
+      "id": "balcony_slab_f7",
+      "kind": "box",
+      "material": "balcony",
+      "size": [
+        39.9,
+        0.2,
+        1.55
+      ],
+      "position": [
+        0,
+        20.92,
+        8.53
+      ]
+    },
+    {
+      "id": "balcony_rail_f7",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        39.9,
+        0.95,
+        0.08
+      ],
+      "position": [
+        0,
+        21.89,
+        9.25
+      ]
+    },
+    {
+      "id": "win_f7_u1",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -18.9,
+        22.476,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f7_u1",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -18.9,
+        22.476,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f7_u1",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -16.8,
+        22.042,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f7_u2",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -14.7,
+        22.476,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f7_u2",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -14.7,
+        22.476,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f7_u2",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -12.6,
+        22.042,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f7_u3",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -10.5,
+        22.476,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f7_u3",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -10.5,
+        22.476,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f7_u3",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -8.4,
+        22.042,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f7_u4",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -6.3,
+        22.476,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f7_u4",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -6.3,
+        22.476,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f7_u4",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -4.2,
+        22.042,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f7_u5",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -2.1,
+        22.476,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f7_u5",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -2.1,
+        22.476,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f7_u5",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        0,
+        22.042,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f7_u6",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        2.1,
+        22.476,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f7_u6",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        2.1,
+        22.476,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f7_u6",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        4.2,
+        22.042,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f7_u7",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        6.3,
+        22.476,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f7_u7",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        6.3,
+        22.476,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f7_u7",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        8.4,
+        22.042,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f7_u8",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        10.5,
+        22.476,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f7_u8",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        10.5,
+        22.476,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f7_u8",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        12.6,
+        22.042,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f7_u9",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        14.7,
+        22.476,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f7_u9",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        14.7,
+        22.476,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f7_u9",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        16.8,
+        22.042,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f7_u10",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        18.9,
+        22.476,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f7_u10",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        18.9,
+        22.476,
+        7.73
+      ]
+    },
+    {
+      "id": "balcony_slab_f8",
+      "kind": "box",
+      "material": "balcony",
+      "size": [
+        39.9,
+        0.2,
+        1.55
+      ],
+      "position": [
+        0,
+        24.26,
+        8.53
+      ]
+    },
+    {
+      "id": "balcony_rail_f8",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        39.9,
+        0.95,
+        0.08
+      ],
+      "position": [
+        0,
+        25.23,
+        9.25
+      ]
+    },
+    {
+      "id": "win_f8_u1",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -18.9,
+        25.816,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f8_u1",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -18.9,
+        25.816,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f8_u1",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -16.8,
+        25.382,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f8_u2",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -14.7,
+        25.816,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f8_u2",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -14.7,
+        25.816,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f8_u2",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -12.6,
+        25.382,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f8_u3",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -10.5,
+        25.816,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f8_u3",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -10.5,
+        25.816,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f8_u3",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -8.4,
+        25.382,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f8_u4",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -6.3,
+        25.816,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f8_u4",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -6.3,
+        25.816,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f8_u4",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -4.2,
+        25.382,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f8_u5",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -2.1,
+        25.816,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f8_u5",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -2.1,
+        25.816,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f8_u5",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        0,
+        25.382,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f8_u6",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        2.1,
+        25.816,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f8_u6",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        2.1,
+        25.816,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f8_u6",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        4.2,
+        25.382,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f8_u7",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        6.3,
+        25.816,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f8_u7",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        6.3,
+        25.816,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f8_u7",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        8.4,
+        25.382,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f8_u8",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        10.5,
+        25.816,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f8_u8",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        10.5,
+        25.816,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f8_u8",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        12.6,
+        25.382,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f8_u9",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        14.7,
+        25.816,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f8_u9",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        14.7,
+        25.816,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f8_u9",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        16.8,
+        25.382,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f8_u10",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        18.9,
+        25.816,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f8_u10",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        18.9,
+        25.816,
+        7.73
+      ]
+    },
+    {
+      "id": "balcony_slab_f9",
+      "kind": "box",
+      "material": "balcony",
+      "size": [
+        39.9,
+        0.2,
+        1.55
+      ],
+      "position": [
+        0,
+        27.6,
+        8.53
+      ]
+    },
+    {
+      "id": "balcony_rail_f9",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        39.9,
+        0.95,
+        0.08
+      ],
+      "position": [
+        0,
+        28.57,
+        9.25
+      ]
+    },
+    {
+      "id": "win_f9_u1",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -18.9,
+        29.156,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f9_u1",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -18.9,
+        29.156,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f9_u1",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -16.8,
+        28.722,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f9_u2",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -14.7,
+        29.156,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f9_u2",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -14.7,
+        29.156,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f9_u2",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -12.6,
+        28.722,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f9_u3",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -10.5,
+        29.156,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f9_u3",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -10.5,
+        29.156,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f9_u3",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -8.4,
+        28.722,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f9_u4",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -6.3,
+        29.156,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f9_u4",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -6.3,
+        29.156,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f9_u4",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -4.2,
+        28.722,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f9_u5",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -2.1,
+        29.156,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f9_u5",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -2.1,
+        29.156,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f9_u5",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        0,
+        28.722,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f9_u6",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        2.1,
+        29.156,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f9_u6",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        2.1,
+        29.156,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f9_u6",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        4.2,
+        28.722,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f9_u7",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        6.3,
+        29.156,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f9_u7",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        6.3,
+        29.156,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f9_u7",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        8.4,
+        28.722,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f9_u8",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        10.5,
+        29.156,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f9_u8",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        10.5,
+        29.156,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f9_u8",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        12.6,
+        28.722,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f9_u9",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        14.7,
+        29.156,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f9_u9",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        14.7,
+        29.156,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f9_u9",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        16.8,
+        28.722,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f9_u10",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        18.9,
+        29.156,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f9_u10",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        18.9,
+        29.156,
+        7.73
+      ]
+    },
+    {
+      "id": "balcony_slab_f10",
+      "kind": "box",
+      "material": "balcony",
+      "size": [
+        39.9,
+        0.2,
+        1.55
+      ],
+      "position": [
+        0,
+        30.94,
+        8.53
+      ]
+    },
+    {
+      "id": "balcony_rail_f10",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        39.9,
+        0.95,
+        0.08
+      ],
+      "position": [
+        0,
+        31.91,
+        9.25
+      ]
+    },
+    {
+      "id": "win_f10_u1",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -18.9,
+        32.496,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f10_u1",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -18.9,
+        32.496,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f10_u1",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -16.8,
+        32.062,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f10_u2",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -14.7,
+        32.496,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f10_u2",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -14.7,
+        32.496,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f10_u2",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -12.6,
+        32.062,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f10_u3",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -10.5,
+        32.496,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f10_u3",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -10.5,
+        32.496,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f10_u3",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -8.4,
+        32.062,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f10_u4",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -6.3,
+        32.496,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f10_u4",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -6.3,
+        32.496,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f10_u4",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        -4.2,
+        32.062,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f10_u5",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        -2.1,
+        32.496,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f10_u5",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        -2.1,
+        32.496,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f10_u5",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        0,
+        32.062,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f10_u6",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        2.1,
+        32.496,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f10_u6",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        2.1,
+        32.496,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f10_u6",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        4.2,
+        32.062,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f10_u7",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        6.3,
+        32.496,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f10_u7",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        6.3,
+        32.496,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f10_u7",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        8.4,
+        32.062,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f10_u8",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        10.5,
+        32.496,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f10_u8",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        10.5,
+        32.496,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f10_u8",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        12.6,
+        32.062,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f10_u9",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        14.7,
+        32.496,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f10_u9",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        14.7,
+        32.496,
+        7.73
+      ]
+    },
+    {
+      "id": "divider_f10_u9",
+      "kind": "box",
+      "material": "facade_accent",
+      "size": [
+        0.08,
+        2.356,
+        1.3
+      ],
+      "position": [
+        16.8,
+        32.062,
+        8.45
+      ]
+    },
+    {
+      "id": "win_f10_u10",
+      "kind": "box",
+      "material": "glass_main",
+      "size": [
+        2.436,
+        1.488,
+        0.18
+      ],
+      "position": [
+        18.9,
+        32.496,
+        7.77
+      ]
+    },
+    {
+      "id": "frame_f10_u10",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        2.576,
+        1.612,
+        0.12
+      ],
+      "position": [
+        18.9,
+        32.496,
+        7.73
+      ]
+    },
+    {
+      "id": "rear_win_f1_u1",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -18.9,
+        2.25,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f1_u2",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -14.7,
+        2.25,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f1_u3",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -10.5,
+        2.25,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f1_u4",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -6.3,
+        2.25,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f1_u5",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -2.1,
+        2.25,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f1_u6",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        2.1,
+        2.25,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f1_u7",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        6.3,
+        2.25,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f1_u8",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        10.5,
+        2.25,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f1_u9",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        14.7,
+        2.25,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f1_u10",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        18.9,
+        2.25,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_corridor_f1",
+      "kind": "box",
+      "material": "balcony",
+      "size": [
+        38.64,
+        0.16,
+        1.35
+      ],
+      "position": [
+        0,
+        0.86,
+        -8.43
+      ]
+    },
+    {
+      "id": "rear_rail_f1",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        38.64,
+        0.88,
+        0.08
+      ],
+      "position": [
+        0,
+        1.78,
+        -9.03
+      ]
+    },
+    {
+      "id": "rear_win_f2_u1",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -18.9,
+        5.59,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f2_u2",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -14.7,
+        5.59,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f2_u3",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -10.5,
+        5.59,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f2_u4",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -6.3,
+        5.59,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f2_u5",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -2.1,
+        5.59,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f2_u6",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        2.1,
+        5.59,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f2_u7",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        6.3,
+        5.59,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f2_u8",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        10.5,
+        5.59,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f2_u9",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        14.7,
+        5.59,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f2_u10",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        18.9,
+        5.59,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_corridor_f2",
+      "kind": "box",
+      "material": "balcony",
+      "size": [
+        38.64,
+        0.16,
+        1.35
+      ],
+      "position": [
+        0,
+        4.2,
+        -8.43
+      ]
+    },
+    {
+      "id": "rear_rail_f2",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        38.64,
+        0.88,
+        0.08
+      ],
+      "position": [
+        0,
+        5.12,
+        -9.03
+      ]
+    },
+    {
+      "id": "rear_win_f3_u1",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -18.9,
+        8.93,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f3_u2",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -14.7,
+        8.93,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f3_u3",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -10.5,
+        8.93,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f3_u4",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -6.3,
+        8.93,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f3_u5",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -2.1,
+        8.93,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f3_u6",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        2.1,
+        8.93,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f3_u7",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        6.3,
+        8.93,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f3_u8",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        10.5,
+        8.93,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f3_u9",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        14.7,
+        8.93,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f3_u10",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        18.9,
+        8.93,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_corridor_f3",
+      "kind": "box",
+      "material": "balcony",
+      "size": [
+        38.64,
+        0.16,
+        1.35
+      ],
+      "position": [
+        0,
+        7.54,
+        -8.43
+      ]
+    },
+    {
+      "id": "rear_rail_f3",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        38.64,
+        0.88,
+        0.08
+      ],
+      "position": [
+        0,
+        8.46,
+        -9.03
+      ]
+    },
+    {
+      "id": "rear_win_f4_u1",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -18.9,
+        12.27,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f4_u2",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -14.7,
+        12.27,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f4_u3",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -10.5,
+        12.27,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f4_u4",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -6.3,
+        12.27,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f4_u5",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -2.1,
+        12.27,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f4_u6",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        2.1,
+        12.27,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f4_u7",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        6.3,
+        12.27,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f4_u8",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        10.5,
+        12.27,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f4_u9",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        14.7,
+        12.27,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f4_u10",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        18.9,
+        12.27,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_corridor_f4",
+      "kind": "box",
+      "material": "balcony",
+      "size": [
+        38.64,
+        0.16,
+        1.35
+      ],
+      "position": [
+        0,
+        10.88,
+        -8.43
+      ]
+    },
+    {
+      "id": "rear_rail_f4",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        38.64,
+        0.88,
+        0.08
+      ],
+      "position": [
+        0,
+        11.8,
+        -9.03
+      ]
+    },
+    {
+      "id": "rear_win_f5_u1",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -18.9,
+        15.61,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f5_u2",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -14.7,
+        15.61,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f5_u3",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -10.5,
+        15.61,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f5_u4",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -6.3,
+        15.61,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f5_u5",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -2.1,
+        15.61,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f5_u6",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        2.1,
+        15.61,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f5_u7",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        6.3,
+        15.61,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f5_u8",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        10.5,
+        15.61,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f5_u9",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        14.7,
+        15.61,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f5_u10",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        18.9,
+        15.61,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_corridor_f5",
+      "kind": "box",
+      "material": "balcony",
+      "size": [
+        38.64,
+        0.16,
+        1.35
+      ],
+      "position": [
+        0,
+        14.22,
+        -8.43
+      ]
+    },
+    {
+      "id": "rear_rail_f5",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        38.64,
+        0.88,
+        0.08
+      ],
+      "position": [
+        0,
+        15.14,
+        -9.03
+      ]
+    },
+    {
+      "id": "rear_win_f6_u1",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -18.9,
+        18.95,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f6_u2",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -14.7,
+        18.95,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f6_u3",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -10.5,
+        18.95,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f6_u4",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -6.3,
+        18.95,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f6_u5",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -2.1,
+        18.95,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f6_u6",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        2.1,
+        18.95,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f6_u7",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        6.3,
+        18.95,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f6_u8",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        10.5,
+        18.95,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f6_u9",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        14.7,
+        18.95,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f6_u10",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        18.9,
+        18.95,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_corridor_f6",
+      "kind": "box",
+      "material": "balcony",
+      "size": [
+        38.64,
+        0.16,
+        1.35
+      ],
+      "position": [
+        0,
+        17.56,
+        -8.43
+      ]
+    },
+    {
+      "id": "rear_rail_f6",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        38.64,
+        0.88,
+        0.08
+      ],
+      "position": [
+        0,
+        18.48,
+        -9.03
+      ]
+    },
+    {
+      "id": "rear_win_f7_u1",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -18.9,
+        22.29,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f7_u2",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -14.7,
+        22.29,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f7_u3",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -10.5,
+        22.29,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f7_u4",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -6.3,
+        22.29,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f7_u5",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -2.1,
+        22.29,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f7_u6",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        2.1,
+        22.29,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f7_u7",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        6.3,
+        22.29,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f7_u8",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        10.5,
+        22.29,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f7_u9",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        14.7,
+        22.29,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f7_u10",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        18.9,
+        22.29,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_corridor_f7",
+      "kind": "box",
+      "material": "balcony",
+      "size": [
+        38.64,
+        0.16,
+        1.35
+      ],
+      "position": [
+        0,
+        20.9,
+        -8.43
+      ]
+    },
+    {
+      "id": "rear_rail_f7",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        38.64,
+        0.88,
+        0.08
+      ],
+      "position": [
+        0,
+        21.82,
+        -9.03
+      ]
+    },
+    {
+      "id": "rear_win_f8_u1",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -18.9,
+        25.63,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f8_u2",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -14.7,
+        25.63,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f8_u3",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -10.5,
+        25.63,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f8_u4",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -6.3,
+        25.63,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f8_u5",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -2.1,
+        25.63,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f8_u6",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        2.1,
+        25.63,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f8_u7",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        6.3,
+        25.63,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f8_u8",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        10.5,
+        25.63,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f8_u9",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        14.7,
+        25.63,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f8_u10",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        18.9,
+        25.63,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_corridor_f8",
+      "kind": "box",
+      "material": "balcony",
+      "size": [
+        38.64,
+        0.16,
+        1.35
+      ],
+      "position": [
+        0,
+        24.24,
+        -8.43
+      ]
+    },
+    {
+      "id": "rear_rail_f8",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        38.64,
+        0.88,
+        0.08
+      ],
+      "position": [
+        0,
+        25.16,
+        -9.03
+      ]
+    },
+    {
+      "id": "rear_win_f9_u1",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -18.9,
+        28.97,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f9_u2",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -14.7,
+        28.97,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f9_u3",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -10.5,
+        28.97,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f9_u4",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -6.3,
+        28.97,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f9_u5",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -2.1,
+        28.97,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f9_u6",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        2.1,
+        28.97,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f9_u7",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        6.3,
+        28.97,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f9_u8",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        10.5,
+        28.97,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f9_u9",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        14.7,
+        28.97,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f9_u10",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        18.9,
+        28.97,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_corridor_f9",
+      "kind": "box",
+      "material": "balcony",
+      "size": [
+        38.64,
+        0.16,
+        1.35
+      ],
+      "position": [
+        0,
+        27.58,
+        -8.43
+      ]
+    },
+    {
+      "id": "rear_rail_f9",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        38.64,
+        0.88,
+        0.08
+      ],
+      "position": [
+        0,
+        28.5,
+        -9.03
+      ]
+    },
+    {
+      "id": "rear_win_f10_u1",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -18.9,
+        32.31,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f10_u2",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -14.7,
+        32.31,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f10_u3",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -10.5,
+        32.31,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f10_u4",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -6.3,
+        32.31,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f10_u5",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        -2.1,
+        32.31,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f10_u6",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        2.1,
+        32.31,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f10_u7",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        6.3,
+        32.31,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f10_u8",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        10.5,
+        32.31,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f10_u9",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        14.7,
+        32.31,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_win_f10_u10",
+      "kind": "box",
+      "material": "glass_dark",
+      "size": [
+        2.184,
+        1.24,
+        0.16
+      ],
+      "position": [
+        18.9,
+        32.31,
+        -7.76
+      ]
+    },
+    {
+      "id": "rear_corridor_f10",
+      "kind": "box",
+      "material": "balcony",
+      "size": [
+        38.64,
+        0.16,
+        1.35
+      ],
+      "position": [
+        0,
+        30.92,
+        -8.43
+      ]
+    },
+    {
+      "id": "rear_rail_f10",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        38.64,
+        0.88,
+        0.08
+      ],
+      "position": [
+        0,
+        31.84,
+        -9.03
+      ]
+    },
+    {
+      "id": "roof_plant_1",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        4,
+        2.2,
+        2.6
+      ],
+      "position": [
+        -8,
+        33.36,
+        -3.2
+      ]
+    },
+    {
+      "id": "roof_plant_2",
+      "kind": "box",
+      "material": "frame_dark",
+      "size": [
+        3.2,
+        1.8,
+        2.2
+      ],
+      "position": [
+        8.5,
+        33.56,
+        -2.8
+      ]
+    },
+    {
+      "id": "planter_left",
+      "kind": "box",
+      "material": "planter",
+      "size": [
+        5,
+        0.55,
+        1.6
+      ],
+      "position": [
+        -14.28,
+        0.28,
+        10.55
+      ]
+    },
+    {
+      "id": "planter_right",
+      "kind": "box",
+      "material": "planter",
+      "size": [
+        5,
+        0.55,
+        1.6
+      ],
+      "position": [
+        14.28,
+        0.28,
+        10.55
+      ]
+    }
+  ],
+  "surfaceDetails": [
+    {
+      "id": "sd_1",
+      "region": "facade",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.011,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_2",
+      "region": "facade",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        0.01,
+        0.0084,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_3",
+      "region": "facade",
+      "type": "window_grid",
+      "strength": 0.18,
+      "offset": [
+        0.014,
+        0.0019,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_4",
+      "region": "facade",
+      "type": "metal_panel",
+      "strength": 0.22,
+      "offset": [
+        0.0095,
+        -0.0056,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_5",
+      "region": "facade",
+      "type": "weathering",
+      "strength": 0.26,
+      "offset": [
+        -0.0008,
+        -0.0104,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_6",
+      "region": "facade",
+      "type": "trim_line",
+      "strength": 0.1,
+      "offset": [
+        -0.0106,
+        -0.0103,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_7",
+      "region": "facade",
+      "type": "panel_seam",
+      "strength": 0.14,
+      "offset": [
+        -0.0139,
+        -0.0054,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_8",
+      "region": "facade",
+      "type": "concrete_texture",
+      "strength": 0.18,
+      "offset": [
+        -0.0088,
+        0.0021,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_9",
+      "region": "balcony",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.011,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_10",
+      "region": "balcony",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        0.01,
+        0.0084,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_11",
+      "region": "balcony",
+      "type": "window_grid",
+      "strength": 0.18,
+      "offset": [
+        0.014,
+        0.0019,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_12",
+      "region": "balcony",
+      "type": "metal_panel",
+      "strength": 0.22,
+      "offset": [
+        0.0095,
+        -0.0056,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_13",
+      "region": "balcony",
+      "type": "weathering",
+      "strength": 0.26,
+      "offset": [
+        -0.0008,
+        -0.0104,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_14",
+      "region": "balcony",
+      "type": "trim_line",
+      "strength": 0.1,
+      "offset": [
+        -0.0106,
+        -0.0103,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_15",
+      "region": "balcony",
+      "type": "panel_seam",
+      "strength": 0.14,
+      "offset": [
+        -0.0139,
+        -0.0054,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_16",
+      "region": "balcony",
+      "type": "concrete_texture",
+      "strength": 0.18,
+      "offset": [
+        -0.0088,
+        0.0021,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_17",
+      "region": "entrance",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.011,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_18",
+      "region": "entrance",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        0.01,
+        0.0084,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_19",
+      "region": "entrance",
+      "type": "window_grid",
+      "strength": 0.18,
+      "offset": [
+        0.014,
+        0.0019,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_20",
+      "region": "entrance",
+      "type": "metal_panel",
+      "strength": 0.22,
+      "offset": [
+        0.0095,
+        -0.0056,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_21",
+      "region": "entrance",
+      "type": "weathering",
+      "strength": 0.26,
+      "offset": [
+        -0.0008,
+        -0.0104,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_22",
+      "region": "entrance",
+      "type": "trim_line",
+      "strength": 0.1,
+      "offset": [
+        -0.0106,
+        -0.0103,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_23",
+      "region": "entrance",
+      "type": "panel_seam",
+      "strength": 0.14,
+      "offset": [
+        -0.0139,
+        -0.0054,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_24",
+      "region": "entrance",
+      "type": "concrete_texture",
+      "strength": 0.18,
+      "offset": [
+        -0.0088,
+        0.0021,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_25",
+      "region": "corridor",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.011,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_26",
+      "region": "corridor",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        0.01,
+        0.0084,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_27",
+      "region": "corridor",
+      "type": "window_grid",
+      "strength": 0.18,
+      "offset": [
+        0.014,
+        0.0019,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_28",
+      "region": "corridor",
+      "type": "metal_panel",
+      "strength": 0.22,
+      "offset": [
+        0.0095,
+        -0.0056,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_29",
+      "region": "corridor",
+      "type": "weathering",
+      "strength": 0.26,
+      "offset": [
+        -0.0008,
+        -0.0104,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_30",
+      "region": "corridor",
+      "type": "trim_line",
+      "strength": 0.1,
+      "offset": [
+        -0.0106,
+        -0.0103,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_31",
+      "region": "corridor",
+      "type": "panel_seam",
+      "strength": 0.14,
+      "offset": [
+        -0.0139,
+        -0.0054,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_32",
+      "region": "corridor",
+      "type": "concrete_texture",
+      "strength": 0.18,
+      "offset": [
+        -0.0088,
+        0.0021,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_33",
+      "region": "roof",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.011,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_34",
+      "region": "roof",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        0.01,
+        0.0084,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_35",
+      "region": "roof",
+      "type": "window_grid",
+      "strength": 0.18,
+      "offset": [
+        0.014,
+        0.0019,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_36",
+      "region": "roof",
+      "type": "metal_panel",
+      "strength": 0.22,
+      "offset": [
+        0.0095,
+        -0.0056,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_37",
+      "region": "roof",
+      "type": "weathering",
+      "strength": 0.26,
+      "offset": [
+        -0.0008,
+        -0.0104,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_38",
+      "region": "roof",
+      "type": "trim_line",
+      "strength": 0.1,
+      "offset": [
+        -0.0106,
+        -0.0103,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_39",
+      "region": "roof",
+      "type": "panel_seam",
+      "strength": 0.14,
+      "offset": [
+        -0.0139,
+        -0.0054,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_40",
+      "region": "roof",
+      "type": "concrete_texture",
+      "strength": 0.18,
+      "offset": [
+        -0.0088,
+        0.0021,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_41",
+      "region": "base",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.011,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_42",
+      "region": "base",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        0.01,
+        0.0084,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_43",
+      "region": "base",
+      "type": "window_grid",
+      "strength": 0.18,
+      "offset": [
+        0.014,
+        0.0019,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_44",
+      "region": "base",
+      "type": "metal_panel",
+      "strength": 0.22,
+      "offset": [
+        0.0095,
+        -0.0056,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_45",
+      "region": "base",
+      "type": "weathering",
+      "strength": 0.26,
+      "offset": [
+        -0.0008,
+        -0.0104,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_46",
+      "region": "base",
+      "type": "trim_line",
+      "strength": 0.1,
+      "offset": [
+        -0.0106,
+        -0.0103,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_47",
+      "region": "base",
+      "type": "panel_seam",
+      "strength": 0.14,
+      "offset": [
+        -0.0139,
+        -0.0054,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_48",
+      "region": "base",
+      "type": "concrete_texture",
+      "strength": 0.18,
+      "offset": [
+        -0.0088,
+        0.0021,
+        0.0135
+      ]
+    }
+  ],
+  "ornaments": [],
+  "pose": {
+    "preset": "static"
+  },
+  "animationHints": {},
+  "lod": {
+    "high": "full",
+    "medium": "reduce_window_bands",
+    "low": "merge_facade_layers"
+  },
+  "exportOptions": {
+    "formats": [
+      "gltf",
+      "glb"
+    ],
+    "previewHtml": true
+  }
+}
