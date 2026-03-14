@@ -8,6 +8,7 @@
 // ------------------------------------
 // モデル向き補正
 // ------------------------------------
+// Default for helicopter-like models: 0 / 0 / 0
 const HEADING_FIX_DEG = {{HEADING_FIX_DEG}};
 const PITCH_FIX_DEG = {{PITCH_FIX_DEG}};
 const ROLL_FIX_DEG = {{ROLL_FIX_DEG}};
@@ -45,6 +46,7 @@ try {
 const PERSON = {
   name: "{{NAME}}",
   glb: "{{MODEL_URL}}",
+  // Default scale for helicopter-like models: 2
   scale: {{SCALE}},
   minimumPixelSize: 64,
   maximumScale: 20,

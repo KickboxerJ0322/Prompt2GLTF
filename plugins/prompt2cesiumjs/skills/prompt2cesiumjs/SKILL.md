@@ -130,7 +130,7 @@ description: 自然文から Cesium Sandcastle 用 JavaScript を生成する。
     const PERSON = {
       name: "...",
       glb: "...",
-      scale: 0.2,
+      scale: 2,
       minimumPixelSize: 64,
       maximumScale: 20,
       heightMeters: 40,
@@ -196,7 +196,7 @@ Skill はユーザー入力を元にこれらを埋める。
     PITCH_DEG = 0
     ROLL_DEG = 0
 
-    SCALE = 1.0
+    SCALE = 2.0
     MINIMUM_PIXEL_SIZE = 96
     MAXIMUM_SCALE = 300
 

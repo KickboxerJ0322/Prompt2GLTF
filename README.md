@@ -197,10 +197,9 @@ plugins/prompt2gltf/generated/
 #### Claude Code スキルから呼び出す（推奨）
 
 ```
-/prompt2cesiumjs 虎ノ門ヒルズから東京タワーまで歩くコード、https://github.com/KickboxerJ0322/polyarch/blob/main/public/gltf/suit_woman.gltf
-/prompt2cesiumjs 渋谷駅から原宿駅まで少し上から追尾
-/prompt2cesiumjs 豊洲ぐるり公園に japanese_house.gltf を置く Sandcastle コード
-/prompt2cesiumjs 指定座標に general_hospital.gltf を固定配置
+/prompt2cesiumjs 虎ノ門ヒルズから東京タワーまで歩くコード、https://github.com/KickboxerJ0322/Prompt2GLTF/blob/master/glb/businessman.glb
+/prompt2cesiumjs 渋谷駅から原宿駅まで少し上から追尾、https://github.com/KickboxerJ0322/Prompt2GLTF/blob/master/glb/heli.glb
+/prompt2cesiumjs 豊洲ぐるり公園に 家を置く Sandcastle コード、https://github.com/KickboxerJ0322/Prompt2GLTF/blob/master/glb/house.glb
 ```
 
 スキルがモードを自動判定し、テンプレートをベースにコードを生成します。
@@ -253,19 +252,12 @@ plugins/prompt2cesiumjs/generated/
 
 ## 出力結果（サマリー）
 
-> 以下は出力サンプルの画像です（準備中）。
-
-<!-- 画像サンプル1 -->
-<!--![サンプル1](docs/01_sample1.png)-->
-
-<!-- 画像サンプル2 -->
-<!--![サンプル2](docs/02_sample2.png)-->
-
-<!-- 画像サンプル3 -->
-<!--![サンプル3](docs/03_sample3.png)-->
-
-<!-- 画像サンプル4 -->
-<!--![サンプル4](docs/04_sample4.png)-->
+![サンプル1](02_sample.png)
+![サンプル1](03_sample.png)
+![サンプル1](04_sample.png)
+![サンプル1](06_sample.png)
+![サンプル1](07_sample.png)
+![サンプル1](08_sample.png)
 
 ---
 

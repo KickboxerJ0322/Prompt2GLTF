@@ -1,12 +1,12 @@
 // ==============================
-// Cesium Sandcastle 用
+// Cesium Sandcastle
 // Google Photorealistic 3D Tiles
-// スフィンクス ホルムズ海峡横断
-// カメラは真後ろから追尾
+// Helicopter moving from Yamashita Park toward Tokyo
 // ==============================
 
 // ------------------------------------
-// モデル向き補正
+// Model orientation adjustment
+// Tune these if heli.glb points sideways/backward.
 // ------------------------------------
 const HEADING_FIX_DEG = 0;
 const PITCH_FIX_DEG = 0;
@@ -35,62 +35,58 @@ try {
   const googleTileset = await Cesium.createGooglePhotorealistic3DTileset();
   viewer.scene.primitives.add(googleTileset);
 } catch (error) {
-  console.log("Google Photorealistic 3D Tiles の読み込みに失敗:", error);
+  console.log("Failed to load Google Photorealistic 3D Tiles", error);
   throw error;
 }
 
 // ------------------------------------
-// キャラクター設定
+// Helicopter setup
 // ------------------------------------
 const PERSON = {
-  name: "スフィンクス",
-  glb: "https://raw.githubusercontent.com/KickboxerJ0322/polyarch/main/public/gltf/sphinx_realish.gltf",
-  scale: 0.2,
-  minimumPixelSize: 64,
-  maximumScale: 20,
-  heightMeters: 40,        // デフォルト歩行高度
+  name: "Helicopter",
+  glb: "https://raw.githubusercontent.com/KickboxerJ0322/Prompt2GLTF/master/glb/heli.glb",
+  scale: 2,
+  minimumPixelSize: 96,
+  maximumScale: 400,
+  heightMeters: 180,
   speedMultiplier: 1.0,
-  pathWidth: 4,
-
-  // 真後ろ追尾カメラ
-  followOffset: new Cesium.Cartesian3(-540.0, -2.0, 300.0),
-  lookOffset: new Cesium.Cartesian3(0.0, 0.0, 2.2),
-  cameraSmooth: 0.10,
+  pathWidth: 5,
+  followOffset: new Cesium.Cartesian3(-260.0, 0.0, 120.0),
+  lookOffset: new Cesium.Cartesian3(90.0, 0.0, 20.0),
+  cameraSmooth: 0.08,
 };
 
-// ------------------------------------
-// ルート（ホルムズ海峡 イラン→オマーン 南下）
-// [秒, 経度, 緯度]
-// ------------------------------------
+// [seconds, lon, lat]
+// Yamashita Park -> Yokohama Bay -> toward Tokyo
 const route2D = [
-  [0,   56.2700, 27.1800],  // バンダルアッバース沿岸（イラン・スタート）
-  [40,  56.3100, 27.0300],  // 海峡北部
-  [80,  56.3800, 26.8800],  // ホルムズ島付近
-  [120, 56.4200, 26.7200],  // 海峡最狭部（約54km幅）
-  [160, 56.4500, 26.5400],  // 海峡中央部
-  [200, 56.4600, 26.3800],  // 海峡南部
-  [240, 56.4400, 26.2200],  // ムサンダム半島沖
-  [270, 56.4100, 26.0800],  // ムサンダム半島（オマーン・ゴール）
+  [0, 139.65085, 35.44352],
+  [20, 139.65540, 35.44605],
+  [40, 139.66260, 35.45075],
+  [60, 139.67250, 35.45710],
+  [80, 139.68520, 35.46520],
+  [100, 139.70050, 35.47540],
+  [120, 139.71780, 35.48690],
+  [140, 139.73600, 35.49960],
 ];
 
-// ------------------------------------
-// 周辺地名ラベル
-// ------------------------------------
 const DEFAULT_PLACE_LABELS = [
-  { name: "バンダルアッバース（イラン）", lon: 56.2808, lat: 27.1832, height: 40, color: "CYAN" },
-  { name: "ホルムズ島",                   lon: 56.4614, lat: 27.0667, height: 40, color: "YELLOW" },
-  { name: "ムサンダム半島（オマーン）",   lon: 56.4000, lat: 26.1000, height: 40, color: "CYAN" },
-  { name: "ペルシャ湾",                   lon: 55.5000, lat: 27.8000, height: 40, color: "WHITE" },
-  { name: "オマーン湾",                   lon: 57.5000, lat: 24.5000, height: 40, color: "WHITE" },
-  { name: "アラブ首長国連邦",             lon: 55.2708, lat: 25.2048, height: 40, color: "ORANGE" },
-  { name: "イラン",                       lon: 56.0000, lat: 28.0000, height: 40, color: "ORANGE" },
-  { name: "オマーン",                     lon: 57.0000, lat: 23.0000, height: 40, color: "LIME" },
+  { name: "Yamashita Park", lon: 139.65085, lat: 35.44352, height: 30, color: "LIME" },
+  { name: "Yokohama Marine Tower", lon: 139.65158, lat: 35.44398, height: 60, color: "CYAN" },
+  { name: "Osanbashi", lon: 139.65120, lat: 35.45147, height: 30, color: "WHITE" },
+  { name: "Minato Mirai", lon: 139.63547, lat: 35.45596, height: 40, color: "WHITE" },
+  { name: "Yokohama Bay Bridge", lon: 139.68391, lat: 35.45955, height: 80, color: "ORANGE" },
+  { name: "Toward Tokyo", lon: 139.73600, lat: 35.49960, height: 40, color: "YELLOW" },
+];
+
+const WAYPOINTS = [
+  { lon: 139.68391, lat: 35.45955, label: "Bay Bridge", color: "ORANGE" },
+  { lon: 139.71780, lat: 35.48690, label: "Tokyo Direction", color: "YELLOW" },
 ];
 
 // ------------------------------------
-// 時刻設定
+// Time setup
 // ------------------------------------
-const startIso = "2025-01-01T09:00:00Z";
+const startIso = "2026-03-14T09:00:00Z";
 const start = Cesium.JulianDate.fromIso8601(startIso);
 const stop = Cesium.JulianDate.addSeconds(
   start,
@@ -106,7 +102,7 @@ viewer.clock.multiplier = PERSON.speedMultiplier;
 viewer.clock.shouldAnimate = true;
 
 // ------------------------------------
-// 位置サンプル
+// Flight path samples
 // ------------------------------------
 const position = new Cesium.SampledPositionProperty();
 
@@ -122,7 +118,7 @@ position.setInterpolationOptions({
 });
 
 // ------------------------------------
-// 進行方向ベースの向き
+// Orientation
 // ------------------------------------
 const velocityOrientation = new Cesium.VelocityOrientationProperty(position);
 
@@ -146,10 +142,10 @@ const modelOrientation = new Cesium.CallbackProperty(function (time, result) {
 }, false);
 
 // ------------------------------------
-// ルート線
+// Route line
 // ------------------------------------
 viewer.entities.add({
-  name: "ホルムズ海峡横断ルート",
+  name: "Yamashita Park to Tokyo route",
   polyline: {
     positions: route2D.map(([, lon, lat]) =>
       Cesium.Cartesian3.fromDegrees(lon, lat, PERSON.heightMeters)
@@ -163,9 +159,6 @@ viewer.entities.add({
   },
 });
 
-// ------------------------------------
-// 始点マーカー
-// ------------------------------------
 viewer.entities.add({
   position: Cesium.Cartesian3.fromDegrees(
     route2D[0][1],
@@ -180,7 +173,7 @@ viewer.entities.add({
     disableDepthTestDistance: Number.POSITIVE_INFINITY,
   },
   label: {
-    text: "バンダルアッバース（出発）",
+    text: "Start: Yamashita Park",
     font: "20px sans-serif",
     fillColor: Cesium.Color.LIME,
     outlineColor: Cesium.Color.BLACK,
@@ -191,9 +184,6 @@ viewer.entities.add({
   },
 });
 
-// ------------------------------------
-// 終点マーカー
-// ------------------------------------
 viewer.entities.add({
   position: Cesium.Cartesian3.fromDegrees(
     route2D[route2D.length - 1][1],
@@ -208,7 +198,7 @@ viewer.entities.add({
     disableDepthTestDistance: Number.POSITIVE_INFINITY,
   },
   label: {
-    text: "ムサンダム半島（到着）",
+    text: "Goal: Toward Tokyo",
     font: "20px sans-serif",
     fillColor: Cesium.Color.YELLOW,
     outlineColor: Cesium.Color.BLACK,
@@ -218,15 +208,6 @@ viewer.entities.add({
     disableDepthTestDistance: Number.POSITIVE_INFINITY,
   },
 });
-
-// ------------------------------------
-// 経由点マーカー
-// ------------------------------------
-const WAYPOINTS = [
-  { lon: 56.4614, lat: 27.0667, label: "ホルムズ島",     color: "ORANGE" },
-  { lon: 56.4200, lat: 26.7200, label: "海峡最狭部",     color: "ORANGE" },
-  { lon: 56.4600, lat: 26.3800, label: "海峡南部",       color: "ORANGE" },
-];
 
 for (const wp of WAYPOINTS) {
   viewer.entities.add({
@@ -251,9 +232,6 @@ for (const wp of WAYPOINTS) {
   });
 }
 
-// ------------------------------------
-// 周辺地名ラベル表示
-// ------------------------------------
 for (const place of DEFAULT_PLACE_LABELS) {
   viewer.entities.add({
     position: Cesium.Cartesian3.fromDegrees(
@@ -277,10 +255,9 @@ for (const place of DEFAULT_PLACE_LABELS) {
 }
 
 // ------------------------------------
-// モデル本体
-// モデル名称ラベルは表示しない
+// Helicopter entity
 // ------------------------------------
-const player = viewer.entities.add({
+viewer.entities.add({
   name: PERSON.name,
   position: position,
   orientation: modelOrientation,
@@ -308,28 +285,24 @@ const player = viewer.entities.add({
 });
 
 // ------------------------------------
-// 最初にホルムズ海峡全体を俯瞰
+// Initial camera
 // ------------------------------------
 await viewer.camera.flyTo({
-  destination: Cesium.Cartesian3.fromDegrees(
-    56.3500,
-    26.6500,
-    200000
-  ),
+  destination: Cesium.Cartesian3.fromDegrees(139.668, 35.456, 2200),
   orientation: {
-    heading: Cesium.Math.toRadians(0),
-    pitch: Cesium.Math.toRadians(-50),
+    heading: Cesium.Math.toRadians(42),
+    pitch: Cesium.Math.toRadians(-32),
     roll: 0,
   },
   duration: 1.5,
 });
 
 // ------------------------------------
-// 真後ろから追尾カメラ
+// Follow camera
 // ------------------------------------
 let smoothCamPos;
 
-viewer.scene.preRender.addEventListener(function (_scene, time) {
+viewer.scene.preRender.addEventListener(function (scene, time) {
   const p = position.getValue(time);
   const q = baseOrientation.getValue(time);
 
@@ -386,11 +359,7 @@ viewer.scene.preRender.addEventListener(function (_scene, time) {
     new Cesium.Cartesian3()
   );
 
-  let right = Cesium.Cartesian3.cross(
-    dir,
-    localUp,
-    new Cesium.Cartesian3()
-  );
+  let right = Cesium.Cartesian3.cross(dir, localUp, new Cesium.Cartesian3());
 
   if (Cesium.Cartesian3.magnitude(right) < 1e-6) {
     right = Cesium.Cartesian3.clone(Cesium.Cartesian3.UNIT_X);
@@ -412,4 +381,4 @@ viewer.scene.preRender.addEventListener(function (_scene, time) {
   });
 });
 
-console.log("読み込み完了: スフィンクス ホルムズ海峡横断");
+console.log("Loaded helicopter route from Yamashita Park toward Tokyo");

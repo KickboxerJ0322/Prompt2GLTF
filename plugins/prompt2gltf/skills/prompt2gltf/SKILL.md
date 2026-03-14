@@ -1,6 +1,6 @@
 ---
 name: prompt2gltf
-description: Generate a high-density 3D specification JSON from a user's prompt, then build GLTF/GLB. Best for requests like "100m級の巨人を作って", "巨大ロボを作って", or "城を作って".
+description: Generate a high-density 3D specification JSON from a user's prompt, then build GLTF/GLB. Best for requests like "戸建て住宅を作って", "タワーを作って", "100m級の巨人を作って", "巨大ロボを作って", or "城を作って".
 ---
 
 # prompt2gltf
