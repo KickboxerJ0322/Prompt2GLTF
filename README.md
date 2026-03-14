@@ -263,4 +263,4 @@ plugins/prompt2cesiumjs/generated/
 
 ## 動画
 
-[![prompt2gltf 解説動画](https://img.youtube.com/vi/Irw6JqgXudk/maxresdefault.jpg)](https://www.youtube.com/watch?v=Irw6JqgXudk)
+[![prompt2gltf 解説動画](https://img.youtube.com/vi/Irw6JqgXudk/0.jpg)](https://www.youtube.com/watch?v=Irw6JqgXudk)
