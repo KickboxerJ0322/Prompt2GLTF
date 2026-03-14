@@ -126,13 +126,7 @@ plugins/prompt2gltf/generated/
 
 | カテゴリ | 例 |
 |---|---|
-| `human` (人間全般) | 大人、女性、男性 |
-| `police_officer` (警察官) | 警察官、警官 |
-| `firefighter` (消防士) | 消防士 |
-| `nurse` (看護師) | 看護師 |
-| `doctor` (医師) | 医師、ドクター |
-| `child` (子ども) | 子ども、子供、小学生 |
-| `elderly` (老人) | 老人、高齢者 |
+| `human` (人間全般) | 男性、女性、こども |
 
 #### その他
 
@@ -180,7 +174,7 @@ plugins/prompt2gltf/generated/
 - ユーザーの自然文指示から Cesium Sandcastle 用 JavaScript を生成
 - 生成したコードは [Cesium Sandcastle](https://sandcastle.cesium.com/) にそのまま貼り付けて実行可能
 - Google Photorealistic 3D Tiles を使用したリアルな 3D マップ上でモデルを表示
-- 対象とする`gltf/glb`はgithub等のurlが取得できる場所へ事前に保存することが必要
+- 対象とする`gltf/glb`はgithub等のurlが取得できる場所へ事前に保存することが必要(実際には`glb`の使用を推奨)
 
 生成できるコードの種類:
 

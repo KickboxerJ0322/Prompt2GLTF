@@ -127,6 +127,8 @@ description: 自然文から Cesium Sandcastle 用 JavaScript を生成する。
 
 移動コードには必ず次の PERSON 設定を含める。
 
+### walk_follow のデフォルト値
+
     const PERSON = {
       name: "...",
       glb: "...",
@@ -134,11 +136,27 @@ description: 自然文から Cesium Sandcastle 用 JavaScript を生成する。
       minimumPixelSize: 64,
       maximumScale: 20,
       heightMeters: 40,
-      speedMultiplier: 1.0,
+      speedMultiplier: 2,
       pathWidth: 4,
       followOffset: new Cesium.Cartesian3(-540.0, -2.0, 300.0),
       lookOffset: new Cesium.Cartesian3(0.0, 0.0, 2.2),
       cameraSmooth: 0.10
+    };
+
+### drone_follow のデフォルト値
+
+    const PERSON = {
+      name: "...",
+      glb: "...",
+      scale: 4.0,
+      minimumPixelSize: 48,
+      maximumScale: 600,
+      heightMeters: 350,
+      speedMultiplier: 2,
+      pathWidth: 3,
+      followOffset: new Cesium.Cartesian3(-250, 0, 70),
+      lookOffset: new Cesium.Cartesian3(100, 0, 0),
+      cameraSmooth: 0.06
     };
 
 ## 移動モードのモデルスケール基準
@@ -191,7 +209,7 @@ Skill はユーザー入力を元にこれらを埋める。
 
 ユーザーが指定しない場合は次を使う。
 
-    HEIGHT = 2.0
+    HEIGHT = 40
     HEADING_DEG = 0
     PITCH_DEG = 0
     ROLL_DEG = 0

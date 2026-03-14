@@ -8,7 +8,14 @@
       "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"濃い緑色の観覧車\")",
       "Bash(node -e \"const s=JSON.parse\\(require\\(''fs''\\).readFileSync\\(''c:/Users/shouy/Desktop/潤平勉強/prompt2gltf/plugins/prompt2gltf/generated/model_spec.json''\\)\\); console.log\\(JSON.stringify\\(s.materials, null, 2\\)\\)\")",
       "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"青いロボット\")",
-      "Bash(node -e \"const s=JSON.parse\\(require\\(''''fs''''\\).readFileSync\\(''''c:/Users/shouy/Desktop/潤平勉強/prompt2gltf/plugins/prompt2gltf/generated/model_spec.json''''\\)\\); console.log\\(''''body_primary:'''', s.materials.body_primary\\)\")"
+      "Bash(node -e \"const s=JSON.parse\\(require\\(''''fs''''\\).readFileSync\\(''''c:/Users/shouy/Desktop/潤平勉強/prompt2gltf/plugins/prompt2gltf/generated/model_spec.json''''\\)\\); console.log\\(''''body_primary:'''', s.materials.body_primary\\)\")",
+      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"戸建て住宅\" --template templates/house.json)",
+      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"マンション\")",
+      "Bash(node -e \":*)",
+      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"病院\")",
+      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"診療所\")",
+      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"警察署\")",
+      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"市役所\")"
     ]
   }
 }

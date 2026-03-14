@@ -1,936 +1,903 @@
 {
   "meta": {
-    "name": "robot_35m_ロボット",
+    "name": "human_1.7m_子ども",
     "version": "0.2.0",
     "units": "meters",
     "generator": "prompt2gltf",
-    "generatedFrom": "ロボット",
-    "createdAt": "2026-03-14T03:26:04.400Z"
+    "generatedFrom": "子ども",
+    "createdAt": "2026-03-14T10:01:38.269Z"
   },
   "promptInterpretation": {
-    "originalPrompt": "ロボット",
-    "normalizedSubject": "robot",
-    "targetHeightMeters": 35,
+    "originalPrompt": "子ども",
+    "normalizedSubject": "human",
+    "targetHeightMeters": 1.7,
     "styleTags": [
-      "heroic_mecha"
+      "child"
     ],
     "geometryDirective": "Use mixed primitives (box/cylinder/sphere/tri_prism); represent curved real-world forms with rounded geometry.",
-    "summary": "Generated from prompt as a robot with high-density procedural spec.",
+    "summary": "Generated from prompt as a human with high-density procedural spec.",
     "designIntent": {
-      "scaleImpression": "very_large",
+      "scaleImpression": "large",
       "mood": "majestic",
       "originalityPolicy": "generalized_original_design"
-    }
+    },
+    "humanType": "child"
   },
   "globalScale": {
-    "height": 35,
-    "width": 12.6,
-    "depth": 4.9
+    "height": 1.1560000000000001,
+    "width": 0.26588000000000006,
+    "depth": 0.15028000000000002
   },
   "style": {
-    "silhouette": "heroic_mecha",
-    "mood": "powerful",
-    "genre": "sci_fi",
+    "silhouette": "standing_human_figure",
+    "mood": "neutral_at_ease",
+    "genre": "realistic_human",
     "detailDensity": "high",
-    "bodyLanguage": "humanoid_bipedal",
+    "bodyLanguage": "standing_neutral",
     "shapeLanguage": [
-      "armored_plates",
-      "thruster_pods",
-      "visor_eyes",
-      "shoulder_cannons",
-      "backpack_boosters"
+      "anatomical_volumes",
+      "clothing_layers",
+      "accessories",
+      "facial_features"
     ]
   },
+  "proportions": {
+    "totalHeightMeters": 1.156,
+    "headToBodyRatio": 0.175,
+    "shoulderWidthRatio": 0.23,
+    "legToBodyRatio": 0.433
+  },
   "materials": {
-    "body_primary": {
-      "baseColor": "#C9CDD3",
-      "roughness": 0.45,
-      "metalness": 0.92
+    "skin": {
+      "baseColor": "#C8A888",
+      "roughness": 0.78,
+      "metalness": 0
     },
-    "body_secondary": {
-      "baseColor": "#2F3A4A",
-      "roughness": 0.62,
-      "metalness": 0.84
+    "shirt": {
+      "baseColor": "#F0D840",
+      "roughness": 0.8,
+      "metalness": 0.01
     },
-    "accent": {
-      "baseColor": "#D64949",
-      "roughness": 0.35,
-      "metalness": 0.9
+    "pants": {
+      "baseColor": "#3060A8",
+      "roughness": 0.78,
+      "metalness": 0.02
     },
-    "emissive_core": {
-      "baseColor": "#66CCFF",
-      "roughness": 0.15,
-      "metalness": 0,
-      "emissive": "#66CCFF"
+    "shoe": {
+      "baseColor": "#C83020",
+      "roughness": 0.72,
+      "metalness": 0.04
+    },
+    "hair": {
+      "baseColor": "#2A1808",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "backpack": {
+      "baseColor": "#E85020",
+      "roughness": 0.75,
+      "metalness": 0.03
     }
   },
   "parts": [
     {
-      "id": "torso",
-      "kind": "box",
-      "size": [
-        7,
-        7.7,
-        4.2
-      ],
-      "position": [
-        0,
-        19.25,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_primary"
-    },
-    {
-      "id": "torso_front",
-      "kind": "box",
-      "size": [
-        4.9,
-        3.5,
-        1.05
-      ],
-      "position": [
-        0,
-        19.95,
-        2.17
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_secondary"
-    },
-    {
-      "id": "core",
-      "kind": "box",
-      "size": [
-        1.4,
-        1.4,
-        0.7
-      ],
-      "position": [
-        0,
-        19.95,
-        2.625
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "emissive_core"
-    },
-    {
-      "id": "neck",
-      "kind": "cylinder",
-      "size": [
-        1.4,
-        1.4,
-        1.4
-      ],
-      "position": [
-        0,
-        23.45,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_secondary"
-    },
-    {
-      "id": "head",
-      "kind": "box",
-      "size": [
-        3.5,
-        3.15,
-        3.15
-      ],
-      "position": [
-        0,
-        25.55,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_secondary"
-    },
-    {
-      "id": "visor",
-      "kind": "box",
-      "size": [
-        2.45,
-        0.875,
-        0.7
-      ],
-      "position": [
-        0,
-        25.9,
-        1.61
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "emissive_core"
-    },
-    {
-      "id": "antenna_L",
-      "kind": "box",
-      "size": [
-        0.28,
-        2.1,
-        0.28
-      ],
-      "position": [
-        -1.225,
-        27.825,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "accent"
-    },
-    {
-      "id": "antenna_R",
-      "kind": "box",
-      "size": [
-        0.28,
-        2.1,
-        0.28
-      ],
-      "position": [
-        1.225,
-        27.825,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "accent"
-    },
-    {
-      "id": "pelvis",
-      "kind": "box",
-      "size": [
-        5.6,
-        2.45,
-        3.5
-      ],
-      "position": [
-        0,
-        15.4,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_primary"
-    },
-    {
-      "id": "shoulder_L",
-      "kind": "cylinder",
-      "size": [
-        2.1,
-        2.1,
-        2.1
-      ],
-      "position": [
-        -5.075,
-        22.225,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "accent"
-    },
-    {
-      "id": "upper_arm_L",
-      "kind": "box",
-      "size": [
-        1.925,
-        4.9,
-        1.925
-      ],
-      "position": [
-        -5.075,
-        19.075,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_primary"
-    },
-    {
-      "id": "elbow_L",
-      "kind": "box",
-      "size": [
-        1.575,
-        1.4,
-        1.575
-      ],
-      "position": [
-        -5.075,
-        16.24,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_secondary"
-    },
-    {
-      "id": "forearm_L",
-      "kind": "box",
-      "size": [
-        1.575,
-        4.2,
-        1.575
-      ],
-      "position": [
-        -5.075,
-        13.3,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_primary"
-    },
-    {
-      "id": "hand_L",
-      "kind": "box",
-      "size": [
-        1.4,
-        2.1,
-        1.225
-      ],
-      "position": [
-        -5.075,
-        10.5,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_secondary"
-    },
-    {
-      "id": "cannon_L",
-      "kind": "box",
-      "size": [
-        0.875,
-        2.45,
-        0.875
-      ],
-      "position": [
-        -5.075,
-        9.275,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "accent"
-    },
-    {
-      "id": "shoulder_R",
-      "kind": "cylinder",
-      "size": [
-        2.1,
-        2.1,
-        2.1
-      ],
-      "position": [
-        5.075,
-        22.225,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "accent"
-    },
-    {
-      "id": "upper_arm_R",
-      "kind": "box",
-      "size": [
-        1.925,
-        4.9,
-        1.925
-      ],
-      "position": [
-        5.075,
-        19.075,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_primary"
-    },
-    {
-      "id": "elbow_R",
-      "kind": "box",
-      "size": [
-        1.575,
-        1.4,
-        1.575
-      ],
-      "position": [
-        5.075,
-        16.24,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_secondary"
-    },
-    {
-      "id": "forearm_R",
-      "kind": "box",
-      "size": [
-        1.575,
-        4.2,
-        1.575
-      ],
-      "position": [
-        5.075,
-        13.3,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_primary"
-    },
-    {
-      "id": "hand_R",
-      "kind": "box",
-      "size": [
-        1.4,
-        2.1,
-        1.225
-      ],
-      "position": [
-        5.075,
-        10.5,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_secondary"
-    },
-    {
-      "id": "cannon_R",
-      "kind": "box",
-      "size": [
-        0.875,
-        2.45,
-        0.875
-      ],
-      "position": [
-        5.075,
-        9.275,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "accent"
-    },
-    {
-      "id": "hip_L",
-      "kind": "box",
-      "size": [
-        3.15,
-        1.4,
-        3.15
-      ],
-      "position": [
-        -2.625,
-        14.175,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_primary"
-    },
-    {
-      "id": "thigh_L",
-      "kind": "box",
-      "size": [
-        2.8,
-        5.6,
-        2.8
-      ],
-      "position": [
-        -2.625,
-        10.85,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_primary"
-    },
-    {
-      "id": "knee_L",
-      "kind": "box",
-      "size": [
-        2.275,
-        1.575,
-        2.275
-      ],
-      "position": [
-        -2.625,
-        7.7,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "accent"
-    },
-    {
-      "id": "shin_L",
-      "kind": "box",
-      "size": [
-        2.45,
-        4.9,
-        2.625
-      ],
-      "position": [
-        -2.625,
-        4.725,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_primary"
-    },
-    {
       "id": "foot_L",
       "kind": "box",
+      "material": "shoe",
       "size": [
-        3.15,
-        1.4,
-        4.55
+        0.074,
+        0.0439,
+        0.1503
       ],
       "position": [
-        -2.625,
-        1.4,
-        0.525
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_secondary"
-    },
-    {
-      "id": "thruster_L",
-      "kind": "box",
-      "size": [
-        1.75,
-        2.1,
-        1.4
-      ],
-      "position": [
-        -2.625,
-        5.25,
-        -1.82
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_secondary"
-    },
-    {
-      "id": "hip_R",
-      "kind": "box",
-      "size": [
-        3.15,
-        1.4,
-        3.15
-      ],
-      "position": [
-        2.625,
-        14.175,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_primary"
-    },
-    {
-      "id": "thigh_R",
-      "kind": "box",
-      "size": [
-        2.8,
-        5.6,
-        2.8
-      ],
-      "position": [
-        2.625,
-        10.85,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_primary"
-    },
-    {
-      "id": "knee_R",
-      "kind": "box",
-      "size": [
-        2.275,
-        1.575,
-        2.275
-      ],
-      "position": [
-        2.625,
-        7.7,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "accent"
-    },
-    {
-      "id": "shin_R",
-      "kind": "box",
-      "size": [
-        2.45,
-        4.9,
-        2.625
-      ],
-      "position": [
-        2.625,
-        4.725,
-        0
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_primary"
+        -0.0481,
+        0.022,
+        0.012
+      ]
     },
     {
       "id": "foot_R",
       "kind": "box",
+      "material": "shoe",
       "size": [
-        3.15,
-        1.4,
-        4.55
+        0.074,
+        0.0439,
+        0.1503
       ],
       "position": [
-        2.625,
-        1.4,
-        0.525
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_secondary"
+        0.0481,
+        0.022,
+        0.012
+      ]
     },
     {
-      "id": "thruster_R",
-      "kind": "box",
-      "size": [
-        1.75,
-        2.1,
-        1.4
-      ],
-      "position": [
-        2.625,
-        5.25,
-        -1.82
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_secondary"
-    },
-    {
-      "id": "backpack",
-      "kind": "box",
-      "size": [
-        4.2,
-        4.9,
-        2.1
-      ],
-      "position": [
-        0,
-        19.6,
-        -3.15
-      ],
-      "rotation": [
-        0,
-        0,
-        0
-      ],
-      "material": "body_secondary"
-    },
-    {
-      "id": "booster_L",
+      "id": "shin_L",
       "kind": "cylinder",
+      "material": "pants",
       "size": [
-        1.4,
-        3.5,
-        1.4
+        0.0763,
+        0.2139,
+        0.0717
       ],
       "position": [
-        -1.575,
-        18.2,
-        -4.2
-      ],
-      "rotation": [
-        0,
-        0,
+        -0.0529,
+        0.1509,
         0
-      ],
-      "material": "accent"
+      ]
     },
     {
-      "id": "booster_R",
+      "id": "shin_R",
       "kind": "cylinder",
+      "material": "pants",
       "size": [
-        1.4,
-        3.5,
-        1.4
+        0.0763,
+        0.2139,
+        0.0717
       ],
       "position": [
-        1.575,
-        18.2,
-        -4.2
-      ],
-      "rotation": [
-        0,
-        0,
+        0.0529,
+        0.1509,
         0
+      ]
+    },
+    {
+      "id": "thigh_L",
+      "kind": "cylinder",
+      "material": "pants",
+      "size": [
+        0.1017,
+        0.2428,
+        0.0983
       ],
-      "material": "accent"
+      "position": [
+        -0.0509,
+        0.3792,
+        0
+      ]
+    },
+    {
+      "id": "thigh_R",
+      "kind": "cylinder",
+      "material": "pants",
+      "size": [
+        0.1017,
+        0.2428,
+        0.0983
+      ],
+      "position": [
+        0.0509,
+        0.3792,
+        0
+      ]
+    },
+    {
+      "id": "hips",
+      "kind": "box",
+      "material": "pants",
+      "size": [
+        0.2428,
+        0.1272,
+        0.1387
+      ],
+      "position": [
+        0,
+        0.5641,
+        0
+      ]
+    },
+    {
+      "id": "torso",
+      "kind": "box",
+      "material": "shirt",
+      "size": [
+        0.2659,
+        0.341,
+        0.1503
+      ],
+      "position": [
+        0,
+        0.7982,
+        0
+      ]
+    },
+    {
+      "id": "upper_arm_L",
+      "kind": "cylinder",
+      "material": "shirt",
+      "size": [
+        0.0786,
+        0.1618,
+        0.0717
+      ],
+      "position": [
+        -0.1801,
+        0.9142,
+        0
+      ]
+    },
+    {
+      "id": "elbow_L",
+      "kind": "sphere",
+      "material": "shirt",
+      "size": [
+        0.0707,
+        0.0707,
+        0.0645
+      ],
+      "position": [
+        -0.1801,
+        0.8397,
+        0
+      ]
+    },
+    {
+      "id": "lower_arm_L",
+      "kind": "cylinder",
+      "material": "skin",
+      "size": [
+        0.0624,
+        0.1445,
+        0.0555
+      ],
+      "position": [
+        -0.1801,
+        0.761,
+        0
+      ]
+    },
+    {
+      "id": "hand_L",
+      "kind": "box",
+      "material": "skin",
+      "size": [
+        0.0636,
+        0.0601,
+        0.0301
+      ],
+      "position": [
+        -0.1801,
+        0.6587,
+        0
+      ]
+    },
+    {
+      "id": "upper_arm_R",
+      "kind": "cylinder",
+      "material": "shirt",
+      "size": [
+        0.0786,
+        0.1618,
+        0.0717
+      ],
+      "position": [
+        0.1801,
+        0.9142,
+        0
+      ]
+    },
+    {
+      "id": "elbow_R",
+      "kind": "sphere",
+      "material": "shirt",
+      "size": [
+        0.0707,
+        0.0707,
+        0.0645
+      ],
+      "position": [
+        0.1801,
+        0.8397,
+        0
+      ]
+    },
+    {
+      "id": "lower_arm_R",
+      "kind": "cylinder",
+      "material": "skin",
+      "size": [
+        0.0624,
+        0.1445,
+        0.0555
+      ],
+      "position": [
+        0.1801,
+        0.761,
+        0
+      ]
+    },
+    {
+      "id": "hand_R",
+      "kind": "box",
+      "material": "skin",
+      "size": [
+        0.0636,
+        0.0601,
+        0.0301
+      ],
+      "position": [
+        0.1801,
+        0.6587,
+        0
+      ]
+    },
+    {
+      "id": "neck",
+      "kind": "cylinder",
+      "material": "skin",
+      "size": [
+        0.0647,
+        0.037,
+        0.0647
+      ],
+      "position": [
+        0,
+        0.9872,
+        0
+      ]
+    },
+    {
+      "id": "head",
+      "kind": "sphere",
+      "material": "skin",
+      "size": [
+        0.185,
+        0.2023,
+        0.1618
+      ],
+      "position": [
+        0,
+        1.1069,
+        0
+      ]
+    },
+    {
+      "id": "hair_top",
+      "kind": "sphere",
+      "material": "hair",
+      "size": [
+        0.1776,
+        0.1214,
+        0.1554
+      ],
+      "position": [
+        0,
+        1.1514,
+        0
+      ]
+    },
+    {
+      "id": "ear_L",
+      "kind": "sphere",
+      "material": "skin",
+      "size": [
+        0.0185,
+        0.0283,
+        0.0129
+      ],
+      "position": [
+        -0.0962,
+        1.0947,
+        0
+      ]
+    },
+    {
+      "id": "ear_R",
+      "kind": "sphere",
+      "material": "skin",
+      "size": [
+        0.0185,
+        0.0283,
+        0.0129
+      ],
+      "position": [
+        0.0962,
+        1.0947,
+        0
+      ]
+    },
+    {
+      "id": "eye_L",
+      "kind": "sphere",
+      "material": "skin",
+      "size": [
+        0.0185,
+        0.0182,
+        0.0097
+      ],
+      "position": [
+        -0.0407,
+        1.1069,
+        0.0777
+      ]
+    },
+    {
+      "id": "eye_R",
+      "kind": "sphere",
+      "material": "skin",
+      "size": [
+        0.0185,
+        0.0182,
+        0.0097
+      ],
+      "position": [
+        0.0407,
+        1.1069,
+        0.0777
+      ]
+    },
+    {
+      "id": "nose",
+      "kind": "sphere",
+      "material": "skin",
+      "size": [
+        0.0185,
+        0.0202,
+        0.0194
+      ],
+      "position": [
+        0,
+        1.0785,
+        0.0809
+      ]
     }
   ],
   "surfaceDetails": [
     {
-      "id": "torso_panel_1",
-      "parentId": "torso",
-      "kind": "panel_line",
-      "uvScale": [
-        0.6,
-        0.3
-      ],
-      "uvOffset": [
-        0.2,
-        0.35
-      ],
-      "material": "body_secondary"
+      "id": "surface_detail_1",
+      "region": "head",
+      "type": "skin_pore",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
     },
     {
-      "id": "torso_panel_2",
-      "parentId": "torso",
-      "kind": "panel_line",
-      "uvScale": [
-        0.6,
-        0.3
-      ],
-      "uvOffset": [
-        0.2,
-        0.55
-      ],
-      "material": "body_secondary"
+      "id": "surface_detail_2",
+      "region": "head",
+      "type": "fabric_weave",
+      "strength": 0.16,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
     },
     {
-      "id": "head_panel_1",
-      "parentId": "head",
-      "kind": "panel_line",
-      "uvScale": [
-        0.8,
-        0.4
-      ],
-      "uvOffset": [
-        0.1,
-        0.3
-      ],
-      "material": "body_secondary"
+      "id": "surface_detail_3",
+      "region": "head",
+      "type": "seam_stitch",
+      "strength": 0.22,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
     },
     {
-      "id": "thigh_L_panel",
-      "parentId": "thigh_L",
-      "kind": "panel_line",
-      "uvScale": [
-        0.7,
-        0.4
-      ],
-      "uvOffset": [
-        0.15,
-        0.3
-      ],
-      "material": "body_secondary"
+      "id": "surface_detail_4",
+      "region": "head",
+      "type": "crease",
+      "strength": 0.28,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
     },
     {
-      "id": "thigh_R_panel",
-      "parentId": "thigh_R",
-      "kind": "panel_line",
-      "uvScale": [
-        0.7,
-        0.4
-      ],
-      "uvOffset": [
-        0.15,
-        0.3
-      ],
-      "material": "body_secondary"
+      "id": "surface_detail_5",
+      "region": "head",
+      "type": "button_detail",
+      "strength": 0.34,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
     },
     {
-      "id": "shin_L_panel",
-      "parentId": "shin_L",
-      "kind": "panel_line",
-      "uvScale": [
-        0.7,
-        0.35
-      ],
-      "uvOffset": [
-        0.15,
-        0.3
-      ],
-      "material": "body_secondary"
+      "id": "surface_detail_6",
+      "region": "head",
+      "type": "buckle_detail",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
     },
     {
-      "id": "shin_R_panel",
-      "parentId": "shin_R",
-      "kind": "panel_line",
-      "uvScale": [
-        0.7,
-        0.35
-      ],
-      "uvOffset": [
-        0.15,
-        0.3
-      ],
-      "material": "body_secondary"
+      "id": "surface_detail_7",
+      "region": "head",
+      "type": "skin_pore",
+      "strength": 0.16,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
     },
     {
-      "id": "forearm_L_panel",
-      "parentId": "forearm_L",
-      "kind": "panel_line",
-      "uvScale": [
-        0.6,
-        0.3
-      ],
-      "uvOffset": [
-        0.2,
-        0.35
-      ],
-      "material": "body_secondary"
+      "id": "surface_detail_8",
+      "region": "head",
+      "type": "fabric_weave",
+      "strength": 0.22,
+      "offset": [
+        0.0002,
+        0.0019,
+        0.012
+      ]
     },
     {
-      "id": "forearm_R_panel",
-      "parentId": "forearm_R",
-      "kind": "panel_line",
-      "uvScale": [
-        0.6,
-        0.3
-      ],
-      "uvOffset": [
-        0.2,
-        0.35
-      ],
-      "material": "body_secondary"
+      "id": "surface_detail_9",
+      "region": "torso",
+      "type": "skin_pore",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "surface_detail_10",
+      "region": "torso",
+      "type": "fabric_weave",
+      "strength": 0.16,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "surface_detail_11",
+      "region": "torso",
+      "type": "seam_stitch",
+      "strength": 0.22,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "surface_detail_12",
+      "region": "torso",
+      "type": "crease",
+      "strength": 0.28,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "surface_detail_13",
+      "region": "torso",
+      "type": "button_detail",
+      "strength": 0.34,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "surface_detail_14",
+      "region": "torso",
+      "type": "buckle_detail",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "surface_detail_15",
+      "region": "torso",
+      "type": "skin_pore",
+      "strength": 0.16,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "surface_detail_16",
+      "region": "torso",
+      "type": "fabric_weave",
+      "strength": 0.22,
+      "offset": [
+        0.0002,
+        0.0019,
+        0.012
+      ]
+    },
+    {
+      "id": "surface_detail_17",
+      "region": "arms",
+      "type": "skin_pore",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "surface_detail_18",
+      "region": "arms",
+      "type": "fabric_weave",
+      "strength": 0.16,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "surface_detail_19",
+      "region": "arms",
+      "type": "seam_stitch",
+      "strength": 0.22,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "surface_detail_20",
+      "region": "arms",
+      "type": "crease",
+      "strength": 0.28,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "surface_detail_21",
+      "region": "arms",
+      "type": "button_detail",
+      "strength": 0.34,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "surface_detail_22",
+      "region": "arms",
+      "type": "buckle_detail",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "surface_detail_23",
+      "region": "arms",
+      "type": "skin_pore",
+      "strength": 0.16,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "surface_detail_24",
+      "region": "arms",
+      "type": "fabric_weave",
+      "strength": 0.22,
+      "offset": [
+        0.0002,
+        0.0019,
+        0.012
+      ]
+    },
+    {
+      "id": "surface_detail_25",
+      "region": "legs",
+      "type": "skin_pore",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "surface_detail_26",
+      "region": "legs",
+      "type": "fabric_weave",
+      "strength": 0.16,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "surface_detail_27",
+      "region": "legs",
+      "type": "seam_stitch",
+      "strength": 0.22,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "surface_detail_28",
+      "region": "legs",
+      "type": "crease",
+      "strength": 0.28,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "surface_detail_29",
+      "region": "legs",
+      "type": "button_detail",
+      "strength": 0.34,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "surface_detail_30",
+      "region": "legs",
+      "type": "buckle_detail",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "surface_detail_31",
+      "region": "legs",
+      "type": "skin_pore",
+      "strength": 0.16,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "surface_detail_32",
+      "region": "legs",
+      "type": "fabric_weave",
+      "strength": 0.22,
+      "offset": [
+        0.0002,
+        0.0019,
+        0.012
+      ]
+    },
+    {
+      "id": "surface_detail_33",
+      "region": "accessories",
+      "type": "skin_pore",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "surface_detail_34",
+      "region": "accessories",
+      "type": "fabric_weave",
+      "strength": 0.16,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "surface_detail_35",
+      "region": "accessories",
+      "type": "seam_stitch",
+      "strength": 0.22,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "surface_detail_36",
+      "region": "accessories",
+      "type": "crease",
+      "strength": 0.28,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "surface_detail_37",
+      "region": "accessories",
+      "type": "button_detail",
+      "strength": 0.34,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "surface_detail_38",
+      "region": "accessories",
+      "type": "buckle_detail",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "surface_detail_39",
+      "region": "accessories",
+      "type": "skin_pore",
+      "strength": 0.16,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "surface_detail_40",
+      "region": "accessories",
+      "type": "fabric_weave",
+      "strength": 0.22,
+      "offset": [
+        0.0002,
+        0.0019,
+        0.012
+      ]
     }
   ],
   "ornaments": [],
   "pose": {
-    "preset": "idle"
+    "preset": "standing_neutral",
+    "armAngle": 15,
+    "legSpread": 8
   },
   "animationHints": {
-    "thrusterGlow": [
-      "booster_L",
-      "booster_R",
-      "thruster_L",
-      "thruster_R"
-    ],
-    "visorPulse": [
-      "visor",
-      "core"
-    ]
+    "idle": "subtle_breathing",
+    "walk": "bipedal_walk"
   },
-  "lod": {},
+  "lod": {
+    "high": "full",
+    "medium": "merge_hand_fingers",
+    "low": "merge_limb_segments"
+  },
   "exportOptions": {
     "formats": [
       "gltf",

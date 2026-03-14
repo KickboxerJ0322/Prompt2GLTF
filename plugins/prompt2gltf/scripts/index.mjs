@@ -2079,11 +2079,13 @@ function classifyBuildingArchetype(prompt) {
   if (/temple|\u5bfa|\u5bfa\u9662|\u4eee\u6bbf|\u91d1\u95a3/iu.test(prompt)) return "temple_jp";
 
   // Facility buildings (check before generic residential to avoid misclassification)
-  if (/hospital|clinic|\u75c5\u9662|\u8a3a\u7642\u6240/iu.test(prompt)) return "facility_hospital";
+  if (/clinic|\u30af\u30ea\u30cb\u30c3\u30af|\u8a3a\u7642\u6240|\u5185\u79d1|\u7686\u79d1|\u6b6f\u79d1|\u5916\u79d1|\u5c0f\u5150\u79d1|\u76ae\u819a\u79d1|\u7adf\u7cbe\u795e\u79d1/iu.test(prompt)) return "facility_clinic";
+  if (/hospital|\u75c5\u9662/iu.test(prompt)) return "facility_hospital";
   if (/police.?station|\u8b66\u5bdf\u7f72/iu.test(prompt)) return "facility_police";
   if (/fire.?station|\u6d88\u9632\u7f72/iu.test(prompt)) return "facility_fire";
   if (/nursing.?home|\u8001\u4eba\u30db\u30fc\u30e0|\u4ecb\u8b77\u65bd\u8a2d/iu.test(prompt)) return "facility_nursing";
   if (/city.?hall|town.?hall|\u5e02\u5f79\u6240|\u533a\u5f79\u6240|\u753a\u5f79\u5834/iu.test(prompt)) return "facility_cityhall";
+  if (/university|campus|\u5927\u5b66|\u30ad\u30e3\u30f3\u30d1\u30b9|\u5927\u5b66\u9662/iu.test(prompt)) return "facility_university";
   if (/\b(elementary|junior.?high|high|senior).?school|\u5c0f\u5b66\u6821|\u4e2d\u5b66\u6821|\u9ad8\u6821/iu.test(prompt)) return "facility_school";
   if (/school|\u5b66\u6821/iu.test(prompt)) return "facility_school";
 
@@ -2097,7 +2099,7 @@ function classifyBuildingArchetype(prompt) {
   if (/western|\u6d0b\u98a8/u.test(prompt) && /house|\u4f4f\u5b85|\u6238\u5efa/u.test(prompt)) return "house_western";
   if (/family.*mansion|family.*condo|\u30d5\u30a1\u30df\u30ea\u30fc.*\u30de\u30f3\u30b7\u30e7\u30f3/u.test(prompt)) return "mansion_family";
   if (/\u5927\u90b8\u5b85|mansion|estate|villa/u.test(prompt)) return "mansion_estate";
-  if (/apartment|\u30a2\u30d1\u30fc\u30c8/u.test(prompt)) return "apartment_mid";
+  if (/apartment|\u30a2\u30d1\u30fc\u30c8|\u30de\u30f3\u30b7\u30e7\u30f3/u.test(prompt)) return "apartment_mid";
   if (/campus|university|college|\u5927\u5b66|\u30ad\u30e3\u30f3\u30d1\u30b9|\u6821\u820e/iu.test(prompt)) return "campus";
   if (/roppongi.?hills|\u516d\u672c\u6728\u30d2\u30eb\u30ba|skyscraper|supertall|high.?rise|\u8d85\u9ad8\u5c64\u30d3\u30eb|\u30bf\u30ef\u30fc\u30d3\u30eb|\u8d85\u9ad8\u5c64/iu.test(prompt)) return "skyscraper";
   return "building_generic";
@@ -2158,12 +2160,14 @@ function buildBuildingSpec(prompt, height, styles) {
     temple_jp:         { w: 0.90, d: 0.60, body: 0.68, roof: 0.26 },
     shrine_jp:         { w: 0.80, d: 0.55, body: 0.65, roof: 0.28 },
     // Facility buildings
+    facility_clinic:   { w: 0.22, d: 0.14, body: 0.80, roof: 0.08 },
     facility_hospital: { w: 1.20, d: 0.80, body: 0.82, roof: 0.06 },
     facility_police:   { w: 0.90, d: 0.60, body: 0.80, roof: 0.08 },
     facility_fire:     { w: 0.80, d: 0.60, body: 0.78, roof: 0.10 },
     facility_nursing:  { w: 1.00, d: 0.70, body: 0.80, roof: 0.08 },
-    facility_cityhall: { w: 1.30, d: 0.70, body: 0.78, roof: 0.10 },
-    facility_school:   { w: 1.40, d: 0.60, body: 0.80, roof: 0.08 }
+    facility_cityhall:    { w: 1.30, d: 0.70, body: 0.78, roof: 0.10 },
+    facility_school:      { w: 1.40, d: 0.60, body: 0.80, roof: 0.08 },
+    facility_university:  { w: 1.50, d: 0.80, body: 0.82, roof: 0.06 }
   };
   const d = dimsByType[archetype] || dimsByType.building_generic;
 
@@ -2196,6 +2200,7 @@ function buildBuildingSpec(prompt, height, styles) {
         : archetype === "facility_fire" ? "emergency_services_facility"
         : archetype === "facility_nursing" ? "social_welfare_facility"
         : archetype === "facility_cityhall" ? "governmental_facility"
+        : archetype === "facility_university" ? "educational_campus"
         : archetype === "facility_school" ? "educational_facility"
         : archetype.includes("jp") ? "japanese_residential"
         : "residential_architecture",
@@ -2552,6 +2557,1803 @@ function buildBuildingSpec(prompt, height, styles) {
     spec.surfaceDetails = surfaceDetails;
     return spec;
   }
+
+  // ── 診療所・クリニック: 小型医療施設 + 駐車場 ──────────────────────────────
+  if (archetype === "facility_clinic") {
+    spec.materials = {
+      wall_main:    { baseColor: "#F0F2EE", roughness: 0.88, metalness: 0.03 },
+      wall_accent:  { baseColor: "#C4DCE8", roughness: 0.82, metalness: 0.08 },
+      concrete:     { baseColor: "#C8CCC8", roughness: 0.92, metalness: 0.02 },
+      glass_win:    { baseColor: "#88C4E0", roughness: 0.08, metalness: 0.90 },
+      glass_entry:  { baseColor: "#B0D8EE", roughness: 0.06, metalness: 0.88 },
+      canopy:       { baseColor: "#D4DCE8", roughness: 0.84, metalness: 0.10 },
+      sign_red:     { baseColor: "#CC2020", roughness: 0.40, metalness: 0.10 },
+      steel_frame:  { baseColor: "#909898", roughness: 0.55, metalness: 0.60 },
+      pavement:     { baseColor: "#B4B8B4", roughness: 0.96, metalness: 0.01 },
+      parking_line: { baseColor: "#E8E820", roughness: 0.60, metalness: 0.05 },
+      roof_flat:    { baseColor: "#A8B0A8", roughness: 0.90, metalness: 0.05 },
+      ramp:         { baseColor: "#C8C4BC", roughness: 0.94, metalness: 0.01 },
+    };
+
+    // ── 寸法: 2階建て診療所 ──────────────────────────────────────────────────
+    const fH      = 3.6;   // 1フロア高さ
+    const floors  = 2;
+    const foundH  = 0.4;
+    const parH    = 0.9;
+    const parT    = 0.28;
+    const roofSlabH = 0.20;
+    const bodyH   = fH * floors;      // 7.2m
+
+    // 建物本体
+    const bW = 18.0;   // 建物幅
+    const bD = 12.0;   // 建物奥行き
+    const bX =  0.0;
+    const bZ = -4.0;   // 敷地後方よりに配置（前面に駐車場スペース確保）
+
+    // 駐車場: 建物右側〜前面
+    const parkW     = 16.0;  // 駐車場幅 (6台分: 2.5m×6+余裕)
+    const spaceD    = 5.0;   // 駐車スペース奥行き
+    const aisleD    = 6.0;   // 通路幅
+    const parkD     = spaceD + aisleD;  // 11m
+    const parkX     = bX + bW * 0.5 + parkW * 0.5 + 0.5;
+    const parkZ     = bZ + bD * 0.5 - parkD * 0.5;  // 建物前面に揃える
+    const nSpaces   = 6;
+    const spaceW    = 2.5;
+
+    // 敷地バウンディング (建物・駐車場・アプローチを全て包む)
+    const margin   = 3.5;
+    const _siteMinX = bX - bW * 0.5 - margin;
+    const _siteMaxX = parkX + parkW * 0.5 + margin;
+    const _siteMinZ = Math.min(bZ - bD * 0.5, parkZ - parkD * 0.5) - margin;
+    const _siteMaxZ = bZ + bD * 0.5 + 7.0 + margin;  // 入口前アプローチ含む
+    const _siteCX   = (_siteMinX + _siteMaxX) * 0.5;
+    const _siteCZ   = (_siteMinZ + _siteMaxZ) * 0.5;
+    const _siteW    = _siteMaxX - _siteMinX;
+    const _siteD    = _siteMaxZ - _siteMinZ;
+
+    // ── 敷地・アプローチ ─────────────────────────────────────────────────────
+    box("site_pave",     "pavement",   _siteW, 0.20, _siteD,  _siteCX, 0.10, _siteCZ);
+
+    // ── 建物本体 ─────────────────────────────────────────────────────────────
+    box("found",         "concrete",   bW+0.3, foundH, bD+0.3,  bX, foundH*0.5, bZ);
+
+    for (let f = 0; f < floors; f++) {
+      const fy0 = foundH + f * fH;
+      box(`wall_f${f+1}`,    "wall_main",   bW,     fH-0.12, bD,     bX, fy0+(fH-0.12)*0.5, bZ);
+      box(`band_f${f+1}`,    "wall_accent", bW+0.1, 0.12,    bD+0.1, bX, fy0, bZ);
+      // 前面窓
+      box(`win_f_f${f+1}`,   "glass_win",   bW*0.60, fH*0.50, 0.18,   bX, fy0+fH*0.55, bZ+bD*0.5);
+      // 背面窓
+      box(`win_b_f${f+1}`,   "glass_win",   bW*0.48, fH*0.44, 0.18,   bX, fy0+fH*0.54, bZ-bD*0.5);
+      // 側面窓（右）
+      box(`win_R_f${f+1}`,   "glass_win",   0.18, fH*0.44, bD*0.50,  bX+bW*0.5, fy0+fH*0.52, bZ);
+    }
+
+    // パラペット
+    const pY = foundH + bodyH;
+    box("par_f",   "concrete", bW+parT*2, parH, parT,   bX,         pY+parH*0.5, bZ+bD*0.5+parT*0.5);
+    box("par_b",   "concrete", bW+parT*2, parH, parT,   bX,         pY+parH*0.5, bZ-bD*0.5-parT*0.5);
+    box("par_L",   "concrete", parT, parH, bD,          bX-bW*0.5-parT*0.5, pY+parH*0.5, bZ);
+    box("par_R",   "concrete", parT, parH, bD,          bX+bW*0.5+parT*0.5, pY+parH*0.5, bZ);
+    box("roof",    "roof_flat",bW+parT*2, roofSlabH, bD+parT*2,  bX, pY+parH+roofSlabH*0.5, bZ);
+
+    // ── 正面入口 ────────────────────────────────────────────────────────────
+    const entW   = bW * 0.38;
+    const entD   = 3.8;
+    const entCZ  = bZ + bD * 0.5;
+    const canopyY = foundH + fH * 0.84;
+    box("canopy",        "canopy",     entW+0.6, 0.22, entD,    bX, canopyY, entCZ+entD*0.5);
+    box("col_L",         "steel_frame",0.24, canopyY, 0.24,     bX-entW*0.44, canopyY*0.5, entCZ+entD*0.88);
+    box("col_R",         "steel_frame",0.24, canopyY, 0.24,     bX+entW*0.44, canopyY*0.5, entCZ+entD*0.88);
+    box("entry_door",    "glass_entry",entW*0.65, fH*0.80, 0.22, bX, foundH+fH*0.43, entCZ);
+    // スロープ (バリアフリー)
+    box("ramp",          "ramp",       entW*0.55, foundH, entD*0.55, bX-entW*0.25, foundH*0.5, entCZ+entD*0.55);
+
+    // クリニックサイン (医療十字)
+    box("sign_h",        "sign_red",   2.4, 0.40, 0.14,  bX+bW*0.26, foundH+fH*0.86, bZ+bD*0.502);
+    box("sign_v",        "sign_red",   0.40, 2.4, 0.14,  bX+bW*0.26, foundH+fH*0.72, bZ+bD*0.502);
+    // 看板プレート
+    box("signboard",     "wall_accent",bW*0.50, fH*0.18, 0.12, bX-bW*0.08, foundH+bodyH+parH*0.40, bZ+bD*0.502);
+
+    // ── 駐車場 ───────────────────────────────────────────────────────────────
+    box("parking_base",  "pavement",   parkW, 0.20, parkD,  parkX, 0.10, parkZ);
+    // 駐車スペースライン (6台)
+    for (let i = 0; i < nSpaces; i++) {
+      const sx = parkX - parkW*0.5 + spaceW*(i+0.5) + 0.5;
+      box(`pk_line_${i}`, "parking_line", 0.10, 0.06, spaceD, sx, 0.22, parkZ);
+    }
+    // 駐車場前面境界ライン
+    box("pk_front_line", "parking_line", parkW, 0.06, 0.10, parkX, 0.22, parkZ+parkD*0.5);
+    // 車止め (6台分)
+    for (let i = 0; i < nSpaces; i++) {
+      const sx = parkX - parkW*0.5 + spaceW*(i+0.5) + 0.5;
+      box(`pk_stop_${i}`, "concrete",  spaceW*0.60, 0.15, 0.22, sx, 0.28, parkZ-parkD*0.5+0.5);
+    }
+
+    // 屋上設備
+    box("ac_unit",       "concrete",  2.0, 1.2, 1.4,  bX+bW*0.28, pY+parH+roofSlabH+0.6, bZ-bD*0.22);
+
+    // ── Surface details ───────────────────────────────────────────────────────
+    const regions = ["facade", "window", "roof", "entrance", "parking"];
+    const types   = ["panel_seam", "window_grid", "weathering", "trim_line", "concrete_texture"];
+    let sdIdx = 1;
+    for (const region of regions) {
+      for (let i = 0; i < 8; i++) {
+        pushSurface(`sd_${sdIdx++}`, region, types[i % types.length],
+          0.10 + (i % 5) * 0.04,
+          [Math.sin(i*0.9)*0.014, Math.cos(i*0.7)*0.011, ((i%4)-1.5)*0.009]);
+      }
+    }
+
+    const totalH = foundH + bodyH + parH + roofSlabH;
+    spec.globalScale = { height: rounded(totalH), width: rounded(_siteW), depth: rounded(_siteD) };
+    spec.parts = parts;
+    spec.surfaceDetails = surfaceDetails;
+    return spec;
+  }
+  // ── END facility_clinic override ─────────────────────────────────────────────
+
+  // ── 200床病院: 外来棟 + 病棟2翼 + 救急入口 ─────────────────────────────────
+  if (archetype === "facility_hospital") {
+    // Materials
+    spec.materials = {
+      wall_main:    { baseColor: "#EDF0EC", roughness: 0.88, metalness: 0.03 },
+      wall_accent:  { baseColor: "#B8D0E0", roughness: 0.82, metalness: 0.08 },
+      concrete:     { baseColor: "#C8CCC8", roughness: 0.92, metalness: 0.02 },
+      glass_win:    { baseColor: "#7ABCD8", roughness: 0.08, metalness: 0.90 },
+      glass_entry:  { baseColor: "#A8D0E8", roughness: 0.06, metalness: 0.88 },
+      canopy:       { baseColor: "#D0D8D4", roughness: 0.85, metalness: 0.10 },
+      sign_red:     { baseColor: "#CC2020", roughness: 0.40, metalness: 0.10 },
+      sign_green:   { baseColor: "#208040", roughness: 0.40, metalness: 0.10 },
+      steel_frame:  { baseColor: "#909898", roughness: 0.55, metalness: 0.60 },
+      pavement:     { baseColor: "#B0B4B0", roughness: 0.96, metalness: 0.01 },
+      roof_flat:    { baseColor: "#A8B0A8", roughness: 0.90, metalness: 0.05 },
+      helipad_mark: { baseColor: "#E8E020", roughness: 0.50, metalness: 0.05 },
+    };
+
+    // ── 寸法設計 ─────────────────────────────────────────────────────────────
+    // 200床規模 3階建て: 階高4.0m × 3F = 12.0m + 基礎0.5m + パラペット1.2m
+    const fH      = 4.0;          // 1フロア高さ
+    const floors  = 3;
+    const foundH  = 0.5;          // 基礎立上り
+    const parH    = 1.2;          // パラペット高さ
+    const parT    = 0.35;         // パラペット厚
+    const roofSlabH = 0.3;        // 屋根スラブ厚
+    const bodyH   = fH * floors;  // 12.0m
+    const totalH  = foundH + bodyH + parH + roofSlabH;
+
+    // 外来棟 (main outpatient / admin block) — 前面
+    const opW = 42.0;  // 外来棟 幅
+    const opD = 18.0;  // 外来棟 奥行き
+    const opZ =  0.0;  // 外来棟 Z中心
+
+    // 病棟A (Ward A) — 右翼
+    const wdW = 18.0;  // 病棟 幅
+    const wdD = 34.0;  // 病棟 奥行き (3F×100床/2棟=50床/翼/F)
+    const wdAX =  opW * 0.5 - wdW * 0.5;              //  右寄せ
+    const wdBX = -opW * 0.5 + wdW * 0.5;              //  左寄せ
+    const wdZ  = -(opD * 0.5 + wdD * 0.5);            //  外来棟後方に接続
+
+    // 渡り廊下 (link corridor)
+    const lkW  = opW - wdW * 2;   // 病棟間距離
+    const lkD  = 5.0;
+    const lkH  = fH * 1.2;
+    const lkZ  = wdZ + wdD * 0.5 - lkD * 0.5 - wdD * 0.4;
+
+    // 救急棟/ポーチ (ER wing — left side of main)
+    const erW  = 16.0;
+    const erD  = 12.0;
+    const erX  = -(opW * 0.5 + erW * 0.5);
+    const erZ  =  opD * 0.1;
+
+    // 救急ポーチ (ambulance canopy)
+    const pchW = erW + 4.0;
+    const pchD = 10.0;
+    const pchH = foundH + fH * 0.75;
+
+    // ── 敷地 ─────────────────────────────────────────────────────────────────
+    // 全建物フットプリントを包む敷地を厳密に計算
+    const _siteMargin = 4.0;
+    const _siteMinX = erX - erW * 0.5 - _siteMargin;        // ER左端
+    const _siteMaxX = opW * 0.5      + _siteMargin;          // 外来棟右端
+    const _siteMinZ = wdZ - wdD * 0.5 - _siteMargin;         // 病棟後端
+    const _siteMaxZ = Math.max(opZ + opD * 0.5 + 5.5, erZ + erD * 0.5 + pchD + 2) + _siteMargin; // 外来入口 or 救急ポーチ前端の広い方
+    const _siteCX   = (_siteMinX + _siteMaxX) * 0.5;
+    const _siteCZ   = (_siteMinZ + _siteMaxZ) * 0.5;
+    const siteW     = _siteMaxX - _siteMinX;
+    const siteD     = _siteMaxZ - _siteMinZ;
+    box("site_pave",    "pavement",  siteW, 0.20, siteD,  _siteCX, 0.10, _siteCZ);
+
+    // ── 外来棟 ────────────────────────────────────────────────────────────────
+    // 基礎
+    box("op_found",     "concrete",  opW+0.4, foundH, opD+0.4,     0, foundH*0.5, opZ);
+    // 1F–3F ウォール (3フロア分)
+    for (let f = 0; f < floors; f++) {
+      const fy0 = foundH + f * fH;
+      box(`op_wall_f${f+1}`, "wall_main", opW, fH - 0.15, opD,     0, fy0 + (fH-0.15)*0.5, opZ);
+      // 水平帯 (floor band)
+      box(`op_band_f${f+1}`, "wall_accent", opW+0.1, 0.15, opD+0.1, 0, fy0, opZ);
+      // 窓: 前面
+      box(`op_win_f_f${f+1}`, "glass_win", opW*0.68, fH*0.52, 0.20,  0, fy0+fH*0.54, opZ + opD*0.5);
+      // 窓: 後面
+      box(`op_win_b_f${f+1}`, "glass_win", opW*0.55, fH*0.46, 0.20,  0, fy0+fH*0.52, opZ - opD*0.5);
+    }
+    // パラペット
+    box("op_par_f",     "concrete",  opW+parT*2, parH, parT,   0, foundH+bodyH+parH*0.5,  opZ+opD*0.5+parT*0.5);
+    box("op_par_b",     "concrete",  opW+parT*2, parH, parT,   0, foundH+bodyH+parH*0.5,  opZ-opD*0.5-parT*0.5);
+    box("op_par_L",     "concrete",  parT, parH, opD,         -opW*0.5-parT*0.5, foundH+bodyH+parH*0.5, opZ);
+    box("op_par_R",     "concrete",  parT, parH, opD,          opW*0.5+parT*0.5, foundH+bodyH+parH*0.5, opZ);
+    // 屋根スラブ
+    box("op_roof",      "roof_flat", opW+parT*2, roofSlabH, opD+parT*2, 0, foundH+bodyH+parH+roofSlabH*0.5, opZ);
+
+    // 外来入口 (外来正面ポーチ)
+    const opEntryW = opW * 0.44;
+    const opEntryD = 5.5;
+    box("op_entry_canopy","canopy",  opEntryW, 0.28, opEntryD,    0, foundH+fH*0.88, opZ+opD*0.5+opEntryD*0.5);
+    box("op_entry_col_L","steel_frame", 0.30, foundH+fH*0.88, 0.30, -opEntryW*0.40, (foundH+fH*0.88)*0.5, opZ+opD*0.5+opEntryD);
+    box("op_entry_col_R","steel_frame", 0.30, foundH+fH*0.88, 0.30,  opEntryW*0.40, (foundH+fH*0.88)*0.5, opZ+opD*0.5+opEntryD);
+    box("op_entry_door", "glass_entry", opEntryW*0.60, fH*0.82, 0.25,  0, foundH+fH*0.44, opZ+opD*0.5);
+    // 外来サイン
+    box("op_sign_h",    "sign_red",  4.0, 0.50, 0.15,   opW*0.20, foundH+bodyH*0.88, opZ+opD*0.505);
+    box("op_sign_v",    "sign_red",  0.50, 4.0, 0.15,   opW*0.20, foundH+bodyH*0.66, opZ+opD*0.505);
+
+    // ── 救急棟 ────────────────────────────────────────────────────────────────
+    box("er_found",     "concrete",  erW+0.3, foundH, erD+0.3,  erX, foundH*0.5, erZ);
+    for (let f = 0; f < floors; f++) {
+      const fy0 = foundH + f * fH;
+      box(`er_wall_f${f+1}`, "wall_main", erW, fH-0.15, erD,   erX, fy0+(fH-0.15)*0.5, erZ);
+      box(`er_band_f${f+1}`, "wall_accent", erW+0.1, 0.15, erD+0.1, erX, fy0, erZ);
+      box(`er_win_f${f+1}`,  "glass_win", erW*0.55, fH*0.46, 0.20,  erX, fy0+fH*0.52, erZ+erD*0.5);
+    }
+    box("er_par_f",     "concrete",  erW+parT*2, parH, parT,   erX, foundH+bodyH+parH*0.5, erZ+erD*0.5+parT*0.5);
+    box("er_par_b",     "concrete",  erW+parT*2, parH, parT,   erX, foundH+bodyH+parH*0.5, erZ-erD*0.5-parT*0.5);
+    box("er_par_L",     "concrete",  parT, parH, erD,          erX-erW*0.5-parT*0.5, foundH+bodyH+parH*0.5, erZ);
+    box("er_par_R",     "concrete",  parT, parH, erD,          erX+erW*0.5+parT*0.5, foundH+bodyH+parH*0.5, erZ);
+    box("er_roof",      "roof_flat", erW+parT*2, roofSlabH, erD+parT*2, erX, foundH+bodyH+parH+roofSlabH*0.5, erZ);
+
+    // 救急入口ドア (南面)
+    box("er_door",      "glass_entry", erW*0.55, fH*0.78, 0.25,  erX, foundH+fH*0.42, erZ+erD*0.5);
+    // 救急サイン
+    box("er_sign_h",    "sign_red",  3.2, 0.45, 0.15,  erX, foundH+fH*0.92, erZ+erD*0.505);
+    box("er_sign_v",    "sign_red",  0.45, 3.2, 0.15,  erX, foundH+fH*0.74, erZ+erD*0.505);
+
+    // 救急ポーチ (ambulance porte-cochère)
+    const pchY = pchH;
+    box("pch_roof",     "canopy",    pchW, 0.30, pchD,          erX-1.0, pchY, erZ+erD*0.5+pchD*0.5);
+    box("pch_col_LL",   "steel_frame", 0.28, pchH, 0.28,        erX-1.0-pchW*0.38, pchH*0.5, erZ+erD*0.5+pchD*0.88);
+    box("pch_col_LR",   "steel_frame", 0.28, pchH, 0.28,        erX-1.0+pchW*0.38, pchH*0.5, erZ+erD*0.5+pchD*0.88);
+    // 救急車路 (ambulance driveway — ground marking)
+    box("er_driveway",  "pavement",  pchW+2, 0.22, pchD+6,      erX-1.0, 0.11, erZ+erD*0.5+pchD*0.5+2);
+
+    // ── 病棟A (右翼) ─────────────────────────────────────────────────────────
+    box("wdA_found",    "concrete",  wdW+0.3, foundH, wdD+0.3,  wdAX, foundH*0.5, wdZ);
+    for (let f = 0; f < floors; f++) {
+      const fy0 = foundH + f * fH;
+      box(`wdA_wall_f${f+1}`, "wall_main",  wdW, fH-0.15, wdD,  wdAX, fy0+(fH-0.15)*0.5, wdZ);
+      box(`wdA_band_f${f+1}`, "wall_accent",wdW+0.1, 0.15, wdD+0.1, wdAX, fy0, wdZ);
+      // 窓: 東面 (外側)
+      box(`wdA_winE_f${f+1}`,"glass_win",0.20,fH*0.52,wdD*0.72, wdAX+wdW*0.5, fy0+fH*0.54, wdZ);
+      // 窓: 西面 (廊下側)
+      box(`wdA_winW_f${f+1}`,"glass_win",0.20,fH*0.40,wdD*0.55, wdAX-wdW*0.5, fy0+fH*0.52, wdZ);
+    }
+    box("wdA_par_f",    "concrete",  wdW+parT*2, parH, parT,    wdAX, foundH+bodyH+parH*0.5, wdZ+wdD*0.5+parT*0.5);
+    box("wdA_par_b",    "concrete",  wdW+parT*2, parH, parT,    wdAX, foundH+bodyH+parH*0.5, wdZ-wdD*0.5-parT*0.5);
+    box("wdA_par_E",    "concrete",  parT, parH, wdD,           wdAX+wdW*0.5+parT*0.5, foundH+bodyH+parH*0.5, wdZ);
+    box("wdA_par_W",    "concrete",  parT, parH, wdD,           wdAX-wdW*0.5-parT*0.5, foundH+bodyH+parH*0.5, wdZ);
+    box("wdA_roof",     "roof_flat", wdW+parT*2, roofSlabH, wdD+parT*2, wdAX, foundH+bodyH+parH+roofSlabH*0.5, wdZ);
+
+    // ── 病棟B (左翼) ─────────────────────────────────────────────────────────
+    box("wdB_found",    "concrete",  wdW+0.3, foundH, wdD+0.3,  wdBX, foundH*0.5, wdZ);
+    for (let f = 0; f < floors; f++) {
+      const fy0 = foundH + f * fH;
+      box(`wdB_wall_f${f+1}`, "wall_main",  wdW, fH-0.15, wdD,  wdBX, fy0+(fH-0.15)*0.5, wdZ);
+      box(`wdB_band_f${f+1}`, "wall_accent",wdW+0.1, 0.15, wdD+0.1, wdBX, fy0, wdZ);
+      box(`wdB_winW_f${f+1}`,"glass_win",0.20,fH*0.52,wdD*0.72, wdBX-wdW*0.5, fy0+fH*0.54, wdZ);
+      box(`wdB_winE_f${f+1}`,"glass_win",0.20,fH*0.40,wdD*0.55, wdBX+wdW*0.5, fy0+fH*0.52, wdZ);
+    }
+    box("wdB_par_f",    "concrete",  wdW+parT*2, parH, parT,    wdBX, foundH+bodyH+parH*0.5, wdZ+wdD*0.5+parT*0.5);
+    box("wdB_par_b",    "concrete",  wdW+parT*2, parH, parT,    wdBX, foundH+bodyH+parH*0.5, wdZ-wdD*0.5-parT*0.5);
+    box("wdB_par_E",    "concrete",  parT, parH, wdD,           wdBX+wdW*0.5+parT*0.5, foundH+bodyH+parH*0.5, wdZ);
+    box("wdB_par_W",    "concrete",  parT, parH, wdD,           wdBX-wdW*0.5-parT*0.5, foundH+bodyH+parH*0.5, wdZ);
+    box("wdB_roof",     "roof_flat", wdW+parT*2, roofSlabH, wdD+parT*2, wdBX, foundH+bodyH+parH+roofSlabH*0.5, wdZ);
+
+    // ── 渡り廊下 (link corridor between wards) ───────────────────────────────
+    box("link_wall",    "wall_main",  lkW, lkH, lkD,           0, foundH+lkH*0.5, lkZ);
+    box("link_win_f",   "glass_win",  lkW*0.80, lkH*0.55, 0.18, 0, foundH+lkH*0.58, lkZ+lkD*0.5);
+    box("link_win_b",   "glass_win",  lkW*0.80, lkH*0.55, 0.18, 0, foundH+lkH*0.58, lkZ-lkD*0.5);
+
+    // ── 屋上 (rooftop) ────────────────────────────────────────────────────────
+    // ヘリポート (helipad on outpatient roof)
+    const hpY = foundH + bodyH + parH + roofSlabH;
+    shape("helipad_circle","cylinder","helipad_mark",10.0, 0.08, 10.0, 0, hpY+0.04, opZ);
+    box("helipad_H_h",  "sign_red",  5.0, 0.10, 1.2,   0, hpY+0.09, opZ);
+    box("helipad_H_v1", "sign_red",  1.2, 0.10, 3.8, -1.5, hpY+0.09, opZ);
+    box("helipad_H_v2", "sign_red",  1.2, 0.10, 3.8,  1.5, hpY+0.09, opZ);
+    // 屋上設備 (rooftop equipment — AC units etc)
+    box("ac_unit_1",    "concrete",  3.0, 1.8, 2.0,   opW*0.30, hpY+0.9, opZ-opD*0.28);
+    box("ac_unit_2",    "concrete",  3.0, 1.8, 2.0,  -opW*0.30, hpY+0.9, opZ-opD*0.28);
+
+    // ── Surface details ───────────────────────────────────────────────────────
+    const hosp_regions  = ["facade", "window", "roof", "entrance", "ward"];
+    const hosp_types    = ["panel_seam", "window_grid", "weathering", "trim_line", "concrete_texture"];
+    let sdIdx = 1;
+    for (const region of hosp_regions) {
+      for (let i = 0; i < 8; i++) {
+        pushSurface(`sd_${sdIdx++}`, region, hosp_types[i % hosp_types.length],
+          0.10 + (i % 5) * 0.04,
+          [Math.sin(i*0.9)*0.014, Math.cos(i*0.7)*0.011, ((i%4)-1.5)*0.009]);
+      }
+    }
+
+    spec.globalScale = { height: rounded(totalH), width: rounded(opW + erW), depth: rounded(opD + wdD) };
+    spec.parts = parts;
+    spec.surfaceDetails = surfaceDetails;
+    return spec;
+  }
+  // ── END facility_hospital override ───────────────────────────────────────────
+
+  // ── 警察署: 厳格・威圧的な公安施設 ──────────────────────────────────────────
+  if (archetype === "facility_police") {
+    spec.materials = {
+      wall_main:    { baseColor: "#484C52", roughness: 0.90, metalness: 0.05 },
+      wall_dark:    { baseColor: "#2E3238", roughness: 0.92, metalness: 0.04 },
+      wall_trim:    { baseColor: "#1A1E24", roughness: 0.88, metalness: 0.08 },
+      concrete_hvy: { baseColor: "#5A5E64", roughness: 0.94, metalness: 0.03 },
+      glass_win:    { baseColor: "#3A4858", roughness: 0.12, metalness: 0.86 },
+      glass_entry:  { baseColor: "#4A6070", roughness: 0.08, metalness: 0.88 },
+      sign_navy:    { baseColor: "#1030A0", roughness: 0.38, metalness: 0.15 },
+      sign_white:   { baseColor: "#E8EEF0", roughness: 0.55, metalness: 0.05 },
+      flagpole:     { baseColor: "#B0B4B8", roughness: 0.40, metalness: 0.80 },
+      flag_navy:    { baseColor: "#0A2070", roughness: 0.65, metalness: 0.05 },
+      fence:        { baseColor: "#282C30", roughness: 0.85, metalness: 0.25 },
+      fence_top:    { baseColor: "#1A1E22", roughness: 0.72, metalness: 0.45 },
+      paving_main:  { baseColor: "#9A9C98", roughness: 0.95, metalness: 0.02 },
+      paving_entry: { baseColor: "#B0B4AC", roughness: 0.94, metalness: 0.02 },
+      step_stone:   { baseColor: "#4A4E52", roughness: 0.90, metalness: 0.04 },
+      parking_line: { baseColor: "#DCDCDC", roughness: 0.60, metalness: 0.05 },
+      roof_flat:    { baseColor: "#3C4044", roughness: 0.92, metalness: 0.06 },
+    };
+
+    // ── 寸法: 5階建て・威圧的プロポーション ─────────────────────────────────
+    const fH      = 4.0;
+    const floors  = 5;
+    const foundH  = 1.0;   // 高い台座
+    const parH    = 1.0;
+    const parT    = 0.40;
+    const roofSlabH = 0.25;
+    const bodyH   = fH * floors;  // 20m
+    const bW      = 32.0;
+    const bD      = 20.0;
+    const bX      = 0.0;
+    const bZ      = 0.0;
+    const stepsZ  = bZ + bD * 0.5;
+    const stepsD  = 6.0;
+    const colH    = foundH + bodyH * 0.38;
+
+    // パトカーガレージ (右側)
+    const gbW = 16.0, gbD = 9.0, gbH = fH * 1.25;
+    const gbX = bW * 0.5 + gbW * 0.5 + 0.6;
+    const gbZ = bZ + bD * 0.5 - gbD * 0.5;
+
+    // フェンス基準
+    const fenceH     = 2.4;
+    const fenceT     = 0.15;
+    const gateW      = 7.0;
+    const fenceZ_front = stepsZ + stepsD + 2.5;
+    const fenceZ_back  = bZ - bD * 0.5 - 3.5;
+    const fenceX_left  = -bW * 0.5 - 2.5;
+    const fenceX_right =  gbX + gbW * 0.5 + 2.0;
+    const fenceSpan    =  fenceX_right - fenceX_left;
+
+    // 敷地バウンディング
+    const margin = 3.5;
+    const _siteMinX = fenceX_left  - margin;
+    const _siteMaxX = fenceX_right + margin;
+    const _siteMinZ = fenceZ_back  - margin;
+    const _siteMaxZ = fenceZ_front + margin;
+    const _siteCX   = (_siteMinX + _siteMaxX) * 0.5;
+    const _siteCZ   = (_siteMinZ + _siteMaxZ) * 0.5;
+    const _siteW    = _siteMaxX - _siteMinX;
+    const _siteD    = _siteMaxZ - _siteMinZ;
+
+    // ── 敷地 ─────────────────────────────────────────────────────────────
+    box("site_pave",    "paving_main",  _siteW, 0.20, _siteD, _siteCX, 0.10, _siteCZ);
+
+    // ── 本館 ─────────────────────────────────────────────────────────────
+    box("plinth",       "concrete_hvy", bW+1.0, foundH, bD+1.0,  bX, foundH*0.5, bZ);
+    for (let f = 0; f < floors; f++) {
+      const fy0 = foundH + f * fH;
+      box(`wall_f${f+1}`,  "wall_main",  bW,     fH-0.18, bD,     bX, fy0+(fH-0.18)*0.5, bZ);
+      box(`trim_f${f+1}`,  "wall_trim",  bW+0.1, 0.18,    bD+0.1, bX, fy0, bZ);
+      // 前面窓 (小窓×5スパン — セキュリティ感)
+      for (let w = -2; w <= 2; w++) {
+        box(`win_f_f${f+1}_${w+3}`, "glass_win", bW*0.088, fH*0.46, 0.20,
+          bX + w * bW * 0.17, fy0+fH*0.55, bZ+bD*0.5);
+      }
+      // 後面窓 (さらに小さく)
+      for (let w = -1; w <= 1; w++) {
+        box(`win_b_f${f+1}_${w+2}`, "glass_win", bW*0.07, fH*0.34, 0.20,
+          bX + w * bW * 0.22, fy0+fH*0.52, bZ-bD*0.5);
+      }
+    }
+    // パラペット
+    const pY = foundH + bodyH;
+    box("par_f",  "wall_dark", bW+parT*2, parH, parT, bX,              pY+parH*0.5, bZ+bD*0.5+parT*0.5);
+    box("par_b",  "wall_dark", bW+parT*2, parH, parT, bX,              pY+parH*0.5, bZ-bD*0.5-parT*0.5);
+    box("par_L",  "wall_dark", parT, parH, bD,         bX-bW*0.5-parT*0.5, pY+parH*0.5, bZ);
+    box("par_R",  "wall_dark", parT, parH, bD,         bX+bW*0.5+parT*0.5, pY+parH*0.5, bZ);
+    box("roof",   "roof_flat", bW+parT*2, roofSlabH, bD+parT*2, bX, pY+parH+roofSlabH*0.5, bZ);
+    // 屋上突出部 (階段室)
+    box("penthouse", "wall_dark", bW*0.16, fH*0.65, bD*0.16,  bX+bW*0.26, pY+parH+roofSlabH+fH*0.33, bZ-bD*0.20);
+
+    // ── 入口柱廊 (重厚なポルティコ) ──────────────────────────────────────
+    const entW = bW * 0.46;
+    // 重厚な庇/エンタブレチャー
+    box("lintel",     "concrete_hvy", entW+2.4, 0.90, 1.2,  bX, foundH+fH*1.12, stepsZ+0.6);
+    // 角柱 6本
+    for (let c = -2; c <= 2; c++) {
+      box(`col_${c+3}`, "concrete_hvy", 0.80, colH, 0.80,
+        bX + c * entW * 0.22, foundH + colH*0.5, stepsZ);
+    }
+    // 入口ドア (重厚な引き戸)
+    box("entry_door", "glass_entry", entW*0.36, fH*0.80, 0.22,  bX, foundH+fH*0.43, stepsZ);
+    // 庁舎サイン
+    box("sign_board", "sign_navy",  entW*0.58, fH*0.17, 0.14,  bX, foundH+fH*1.35, stepsZ+0.02);
+    box("sign_text",  "sign_white", entW*0.46, fH*0.09, 0.15,  bX, foundH+fH*1.35, stepsZ+0.03);
+
+    // ── 入口階段 (4段) ────────────────────────────────────────────────────
+    for (let s = 0; s < 4; s++) {
+      box(`step_${s}`, "step_stone", bW*0.60, foundH*0.23, 1.5,
+        bX, foundH*(0.11 + s*0.23), stepsZ + 1.5 + s*1.5);
+    }
+    box("approach",   "paving_entry", bW*0.62, 0.20, stepsD,  bX, 0.10, stepsZ+stepsD*0.5);
+
+    // ── 国旗ポール (2本) ──────────────────────────────────────────────────
+    for (const side of [-1, 1]) {
+      shape(`flagpole_${side<0?"L":"R"}`, "cylinder", "flagpole",
+        0.15, foundH+bodyH*0.58, 0.15,
+        side * bW * 0.32, (foundH+bodyH*0.58)*0.5, stepsZ+stepsD*0.28);
+      box(`flag_${side<0?"L":"R"}`, "flag_navy", 1.8, 0.85, 0.08,
+        side * bW * 0.32 + 0.9, foundH+bodyH*0.56, stepsZ+stepsD*0.28);
+    }
+
+    // ── パトカーガレージ (右翼) ──────────────────────────────────────────
+    box("gb_found",   "concrete_hvy", gbW+0.3, foundH, gbD+0.3, gbX, foundH*0.5, gbZ);
+    box("gb_body",    "wall_dark",    gbW,      gbH,    gbD,     gbX, foundH+gbH*0.5, gbZ);
+    for (let b = -1; b <= 1; b++) {
+      box(`bay_${b+2}`, "wall_trim", gbW*0.24, gbH*0.80, 0.22,
+        gbX + b*gbW*0.30, foundH+gbH*0.43, gbZ+gbD*0.5);
+    }
+    box("gb_roof",    "roof_flat",   gbW+0.2, roofSlabH, gbD+0.2, gbX, foundH+gbH+roofSlabH*0.5, gbZ);
+
+    // ── セキュリティフェンス ──────────────────────────────────────────────
+    const fSeg = (fenceSpan - gateW) * 0.5;
+    const fCx  = (fenceX_left + fenceX_right) * 0.5;
+    // 前面 左右セグメント
+    box("fence_f_L",   "fence",  fSeg, fenceH, fenceT,  fenceX_left+fSeg*0.5,  fenceH*0.5, fenceZ_front);
+    box("fence_f_R",   "fence",  fSeg, fenceH, fenceT,  fenceX_right-fSeg*0.5, fenceH*0.5, fenceZ_front);
+    // 後面・左右
+    box("fence_b",     "fence",  fenceSpan, fenceH, fenceT,  fCx, fenceH*0.5, fenceZ_back);
+    box("fence_side_L","fence",  fenceT, fenceH, fenceZ_front-fenceZ_back, fenceX_left,  fenceH*0.5, (fenceZ_front+fenceZ_back)*0.5);
+    box("fence_side_R","fence",  fenceT, fenceH, fenceZ_front-fenceZ_back, fenceX_right, fenceH*0.5, (fenceZ_front+fenceZ_back)*0.5);
+    // 天端セキュリティレール
+    box("fence_rail_L","fence_top", fSeg, 0.20, fenceT+0.12, fenceX_left+fSeg*0.5,  fenceH+0.10, fenceZ_front);
+    box("fence_rail_R","fence_top", fSeg, 0.20, fenceT+0.12, fenceX_right-fSeg*0.5, fenceH+0.10, fenceZ_front);
+    // ゲートポスト
+    box("gate_post_L", "wall_dark", 0.65, fenceH+0.6, 0.65, -gateW*0.5+0.33, (fenceH+0.6)*0.5, fenceZ_front);
+    box("gate_post_R", "wall_dark", 0.65, fenceH+0.6, 0.65,  gateW*0.5-0.33, (fenceH+0.6)*0.5, fenceZ_front);
+
+    // ── 駐車場 (建物左側) ───────────────────────────────────────────────
+    const pkW = 14.0, pkD = 16.0;
+    const pkX = fenceX_left + pkW*0.5 + 0.5;
+    const pkZ = bZ + bD*0.5 - pkD*0.5 - 1.0;
+    box("pk_base",    "paving_main", pkW, 0.20, pkD, pkX, 0.10, pkZ);
+    for (let i = 1; i < 5; i++) {
+      box(`pk_ln_${i}`, "parking_line", 0.10, 0.06, 5.0, pkX-pkW*0.5+i*2.8, 0.22, pkZ);
+    }
+    box("pk_front_ln","parking_line", pkW, 0.06, 0.10, pkX, 0.22, pkZ+pkD*0.5);
+
+    // ── Surface details ───────────────────────────────────────────────────
+    const polRegions = ["facade", "column", "fence", "entrance", "roof"];
+    const polTypes   = ["concrete_texture", "panel_seam", "weathering", "trim_line", "window_grid"];
+    let sdIdx = 1;
+    for (const region of polRegions) {
+      for (let i = 0; i < 8; i++) {
+        pushSurface(`sd_${sdIdx++}`, region, polTypes[i % polTypes.length],
+          0.12 + (i%5)*0.04,
+          [Math.sin(i*0.9)*0.012, Math.cos(i*0.7)*0.010, ((i%4)-1.5)*0.008]);
+      }
+    }
+
+    const totalH = foundH + bodyH + parH + roofSlabH;
+    spec.globalScale = { height: rounded(totalH), width: rounded(_siteW), depth: rounded(_siteD) };
+    spec.parts = parts;
+    spec.surfaceDetails = surfaceDetails;
+    return spec;
+  }
+  // ── END facility_police override ─────────────────────────────────────────────
+
+  // ── 消防署: 車両出入り対応・大型シャッター付き ───────────────────────────────
+  if (archetype === "facility_fire") {
+    spec.materials = {
+      wall_main:    { baseColor: "#D8D0C4", roughness: 0.88, metalness: 0.03 },
+      wall_red:     { baseColor: "#B82020", roughness: 0.72, metalness: 0.10 },
+      wall_dark:    { baseColor: "#3A3030", roughness: 0.90, metalness: 0.05 },
+      concrete:     { baseColor: "#C0BCB4", roughness: 0.92, metalness: 0.02 },
+      glass_win:    { baseColor: "#6090B0", roughness: 0.10, metalness: 0.88 },
+      glass_entry:  { baseColor: "#80B0C8", roughness: 0.06, metalness: 0.88 },
+      shutter:      { baseColor: "#B0B4B8", roughness: 0.60, metalness: 0.50 },
+      shutter_red:  { baseColor: "#CC2010", roughness: 0.55, metalness: 0.45 },
+      sign_red:     { baseColor: "#CC1010", roughness: 0.38, metalness: 0.12 },
+      sign_white:   { baseColor: "#F0F0F0", roughness: 0.55, metalness: 0.05 },
+      steel_frame:  { baseColor: "#909898", roughness: 0.55, metalness: 0.62 },
+      flagpole:     { baseColor: "#B8BCBC", roughness: 0.40, metalness: 0.82 },
+      flag_red:     { baseColor: "#CC1010", roughness: 0.65, metalness: 0.05 },
+      paving_main:  { baseColor: "#B0B4AC", roughness: 0.95, metalness: 0.01 },
+      paving_apron: { baseColor: "#C8C4BC", roughness: 0.94, metalness: 0.01 },
+      apron_line:   { baseColor: "#E8E020", roughness: 0.58, metalness: 0.05 },
+      roof_flat:    { baseColor: "#8A8C88", roughness: 0.90, metalness: 0.05 },
+      hose_tower:   { baseColor: "#D0281C", roughness: 0.75, metalness: 0.08 },
+    };
+
+    // ── 寸法設計 ─────────────────────────────────────────────────────────────
+    // 車庫棟: 消防車3台 + 救急車2台 = 5バイ
+    // 消防車バイ: 幅4.5m × 奥行12m × 高さ5.5m
+    // 救急車バイ: 幅3.2m × 奥行9m  × 高さ4.0m
+    const nFire   = 3;    // 消防車バイ数
+    const nAmbu   = 2;    // 救急車バイ数
+    const fireBW  = 4.5;  // 消防車1バイ幅
+    const ambuBW  = 3.2;  // 救急車1バイ幅
+    const fireGH  = 5.5;  // 消防車ガレージ高さ (大型対応)
+    const ambuGH  = 4.0;  // 救急車ガレージ高さ
+    const fireGD  = 12.0; // 消防車ガレージ奥行き
+    const ambuGD  = 9.0;  // 救急車ガレージ奥行き
+    const foundH  = 0.4;
+
+    // 車庫棟幅 = 消防車ゾーン + 救急車ゾーン
+    const fireZoneW = nFire * fireBW;   // 13.5m
+    const ambuZoneW = nAmbu * ambuBW;   //  6.4m
+    const garageW   = fireZoneW + ambuZoneW + 0.6;  // 20.5m
+    const garageX   = 0.0;
+    const garageZ   = 0.0;  // 車庫中心
+    const garageD   = Math.max(fireGD, ambuGD);  // 12m（奥行き最大値で揃える）
+
+    // 管理棟 (右翼: 事務・宿直・訓練室)
+    const adW   = 16.0;
+    const adD   = 14.0;
+    const adH   = 3.6;   // フロア高
+    const adFloors = 3;
+    const adBodyH  = adH * adFloors;
+    const adX   = garageW * 0.5 + adW * 0.5 + 0.4;
+    const adZ   = garageZ + garageD * 0.5 - adD * 0.5;  // 前面揃え
+
+    // ホースタワー (乾燥用) — 管理棟屋上
+    const towerH = adBodyH + 8.0;
+    const towerX = adX + adW * 0.3;
+    const towerZ = adZ;
+
+    // 前面アプローチ (出動路)
+    const apronD = 14.0;   // 出動路奥行き (前面余裕)
+    const apronZ = garageZ + garageD * 0.5 + apronD * 0.5;
+
+    // 敷地バウンディング (fire_side_L が garage 外に張り出すため厳密に計算)
+    const margin   = 4.0;
+    const _siteMinX = garageX - ambuZoneW*0.5 - fireZoneW - 1.5 - margin;  // fire_side_L 左端 (fireZoneX-fireZoneW/2-1.2)
+    const _siteMaxX = adX + adW * 0.5 + margin;
+    const _siteMinZ = garageZ - garageD * 0.5 - margin;
+    const _siteMaxZ = apronZ + apronD * 0.5 + margin;
+    const _siteCX   = (_siteMinX + _siteMaxX) * 0.5;
+    const _siteCZ   = (_siteMinZ + _siteMaxZ) * 0.5;
+    const _siteW    = _siteMaxX - _siteMinX;
+    const _siteD    = _siteMaxZ - _siteMinZ;
+
+    // ── 敷地 ─────────────────────────────────────────────────────────────────
+    box("site_pave",    "paving_main",  _siteW, 0.20, _siteD, _siteCX, 0.10, _siteCZ);
+
+    // ── 出動アプローチ (前面エプロン) ────────────────────────────────────────
+    box("apron",        "paving_apron", garageW + adW + 1.0, 0.22, apronD,
+      (garageX + adX) * 0.5, 0.11, apronZ);
+    // 出動ライン (黄色)
+    for (let b = 0; b < nFire + nAmbu; b++) {
+      const lx = garageX - garageW*0.5 + (b + 0.5) * garageW / (nFire + nAmbu);
+      box(`apron_line_${b}`, "apron_line", 0.12, 0.08, apronD * 0.85,
+        lx, 0.25, apronZ);
+    }
+
+    // ── 消防車ガレージ棟 ─────────────────────────────────────────────────────
+    // 消防車ゾーン (左側: 3バイ)
+    const fireZoneX = garageX - ambuZoneW * 0.5 - fireZoneW * 0.5 - 0.3;
+    box("fire_found",   "concrete",    fireZoneW + 0.3, foundH, fireGD + 0.3,
+      fireZoneX, foundH*0.5, garageZ - (fireGD - garageD)*0.5);
+    box("fire_back",    "wall_red",    fireZoneW, fireGH, 2.0,
+      fireZoneX, foundH + fireGH*0.5, garageZ - garageD*0.5 + 1.0);
+    box("fire_side_L",  "wall_main",   1.2, fireGH, fireGD,
+      fireZoneX - fireZoneW*0.5 - 0.6, foundH + fireGH*0.5, garageZ);
+    box("fire_roof",    "roof_flat",   fireZoneW + 1.2, 0.25, fireGD + 0.25,
+      fireZoneX - 0.3, foundH + fireGH + 0.125, garageZ);
+    // 消防車シャッター (3枚・赤)
+    for (let b = 0; b < nFire; b++) {
+      const bx = fireZoneX - fireZoneW*0.5 + fireBW*(b+0.5);
+      box(`shutter_f_${b}`, "shutter_red", fireBW - 0.2, fireGH*0.90, 0.25,
+        bx, foundH + fireGH*0.46, garageZ + garageD*0.5);
+      // シャッター枠
+      box(`frame_f_${b}`,   "wall_dark",   fireBW - 0.1, 0.25, 0.30,
+        bx, foundH + fireGH, garageZ + garageD*0.5);
+    }
+
+    // 救急車ゾーン (右側: 2バイ)
+    const ambuZoneX = garageX + fireZoneW * 0.5 + ambuZoneW * 0.5 + 0.3;
+    box("ambu_found",   "concrete",    ambuZoneW + 0.3, foundH, ambuGD + 0.3,
+      ambuZoneX, foundH*0.5, garageZ + (garageD - ambuGD)*0.5);
+    box("ambu_back",    "wall_main",   ambuZoneW, ambuGH, 2.0,
+      ambuZoneX, foundH + ambuGH*0.5, garageZ - garageD*0.5 + (garageD - ambuGD) + 1.0);
+    box("ambu_side_R",  "wall_main",   1.0, ambuGH, ambuGD,
+      ambuZoneX + ambuZoneW*0.5 + 0.5, foundH + ambuGH*0.5,
+      garageZ + (garageD - ambuGD)*0.5);
+    box("ambu_roof",    "roof_flat",   ambuZoneW + 1.0, 0.22, ambuGD + 0.22,
+      ambuZoneX + 0.25, foundH + ambuGH + 0.11, garageZ + (garageD - ambuGD)*0.5);
+    // 救急車シャッター (2枚・グレー)
+    for (let b = 0; b < nAmbu; b++) {
+      const bx = ambuZoneX - ambuZoneW*0.5 + ambuBW*(b+0.5);
+      box(`shutter_a_${b}`, "shutter",   ambuBW - 0.2, ambuGH*0.88, 0.22,
+        bx, foundH + ambuGH*0.45, garageZ + garageD*0.5);
+      box(`frame_a_${b}`,   "wall_dark", ambuBW - 0.1, 0.22, 0.28,
+        bx, foundH + ambuGH, garageZ + garageD*0.5);
+    }
+    // ガレージ前面 赤ライン帯
+    box("red_stripe",   "wall_red",    garageW + 0.6, 0.60, 0.20,
+      garageX, foundH + fireGH + 0.35, garageZ + garageD*0.5);
+
+    // ── 管理棟 (右翼) ─────────────────────────────────────────────────────────
+    box("ad_found",     "concrete",    adW+0.3, foundH, adD+0.3, adX, foundH*0.5, adZ);
+    for (let f = 0; f < adFloors; f++) {
+      const fy0 = foundH + f * adH;
+      box(`ad_wall_f${f+1}`, "wall_main",  adW, adH-0.14, adD, adX, fy0+(adH-0.14)*0.5, adZ);
+      box(`ad_band_f${f+1}`, "wall_red",   adW+0.1, 0.14, adD+0.1, adX, fy0, adZ);
+      box(`ad_win_f${f+1}`,  "glass_win",  adW*0.58, adH*0.50, 0.18, adX, fy0+adH*0.55, adZ+adD*0.5);
+      box(`ad_win_b${f+1}`,  "glass_win",  adW*0.46, adH*0.44, 0.18, adX, fy0+adH*0.52, adZ-adD*0.5);
+    }
+    const adPY = foundH + adBodyH;
+    box("ad_par_f",     "concrete",    adW+0.3*2, 0.8, 0.28, adX, adPY+0.4, adZ+adD*0.5+0.14);
+    box("ad_par_b",     "concrete",    adW+0.3*2, 0.8, 0.28, adX, adPY+0.4, adZ-adD*0.5-0.14);
+    box("ad_par_L",     "concrete",    0.28, 0.8, adD, adX-adW*0.5-0.14, adPY+0.4, adZ);
+    box("ad_par_R",     "concrete",    0.28, 0.8, adD, adX+adW*0.5+0.14, adPY+0.4, adZ);
+    box("ad_roof",      "roof_flat",   adW+0.6, 0.22, adD+0.6, adX, adPY+0.8+0.11, adZ);
+
+    // 管理棟入口
+    const adEntZ = adZ + adD * 0.5;
+    box("ad_entry_can", "wall_main",   adW*0.45, 0.22, 3.5,  adX, foundH+adH*0.82, adEntZ+1.75);
+    box("ad_entry_col_L","steel_frame",0.22, foundH+adH*0.82, 0.22, adX-adW*0.18, (foundH+adH*0.82)*0.5, adEntZ+3.3);
+    box("ad_entry_col_R","steel_frame",0.22, foundH+adH*0.82, 0.22, adX+adW*0.18, (foundH+adH*0.82)*0.5, adEntZ+3.3);
+    box("ad_door",      "glass_entry", adW*0.28, adH*0.78, 0.20, adX, foundH+adH*0.42, adEntZ);
+    // 消防署サイン
+    box("sign_h",       "sign_red",    2.8, 0.40, 0.14, adX+adW*0.22, foundH+adBodyH*0.88, adEntZ+0.01);
+    box("sign_v",       "sign_red",    0.40, 2.8, 0.14, adX+adW*0.22, foundH+adBodyH*0.72, adEntZ+0.01);
+
+    // ── ホースタワー (乾燥用高塔) ────────────────────────────────────────────
+    box("tower_body",   "hose_tower",  2.2, towerH, 2.2, towerX, towerH*0.5, towerZ);
+    box("tower_top",    "wall_dark",   2.6, 0.60, 2.6,  towerX, towerH+0.30, towerZ);
+    // タワー窓 (細長い)
+    for (let f = 1; f <= 5; f++) {
+      box(`tower_win_${f}`, "glass_win", 0.50, 1.20, 0.18,
+        towerX, towerH * (f / 6.5), towerZ + 1.1);
+    }
+
+    // ── 国旗ポール ────────────────────────────────────────────────────────────
+    shape("flagpole", "cylinder", "flagpole", 0.14, adBodyH*0.55, 0.14,
+      adX - adW*0.30, adBodyH*0.275, adEntZ + 3.0);
+    box("flag",       "flag_red", 1.6, 0.80, 0.08,
+      adX - adW*0.30 + 0.8, adBodyH*0.52, adEntZ + 3.0);
+
+    // ── Surface details ───────────────────────────────────────────────────────
+    const fireRegions = ["facade", "garage", "tower", "entrance", "roof"];
+    const fireTypes   = ["panel_seam", "concrete_texture", "weathering", "trim_line", "window_grid"];
+    let sdIdx = 1;
+    for (const region of fireRegions) {
+      for (let i = 0; i < 8; i++) {
+        pushSurface(`sd_${sdIdx++}`, region, fireTypes[i % fireTypes.length],
+          0.10 + (i%5)*0.04,
+          [Math.sin(i*0.9)*0.013, Math.cos(i*0.7)*0.011, ((i%4)-1.5)*0.009]);
+      }
+    }
+
+    const totalH = towerH + 0.6;  // ホースタワーが最高点
+    spec.globalScale = { height: rounded(totalH), width: rounded(_siteW), depth: rounded(_siteD) };
+    spec.parts = parts;
+    spec.surfaceDetails = surfaceDetails;
+    return spec;
+  }
+  // ── END facility_fire override ────────────────────────────────────────────────
+
+  // ── 老人ホーム・介護施設: 100名規模・3階・デイサービス入口・駐車場 ─────────────
+  if (archetype === "facility_nursing") {
+    spec.materials = {
+      wall_main:    { baseColor: "#EEE8DC", roughness: 0.88, metalness: 0.02 },
+      wall_warm:    { baseColor: "#DDD0B8", roughness: 0.90, metalness: 0.02 },
+      wall_accent:  { baseColor: "#A8C88C", roughness: 0.82, metalness: 0.04 },  // やわらかい緑
+      wall_day:     { baseColor: "#C8E0D0", roughness: 0.84, metalness: 0.03 },  // デイサービス棟
+      concrete:     { baseColor: "#C8C4BC", roughness: 0.92, metalness: 0.02 },
+      glass_win:    { baseColor: "#90C8B0", roughness: 0.10, metalness: 0.86 },
+      glass_entry:  { baseColor: "#B0D8C8", roughness: 0.06, metalness: 0.86 },
+      canopy:       { baseColor: "#D8E4DC", roughness: 0.84, metalness: 0.08 },
+      handrail:     { baseColor: "#A0A8A0", roughness: 0.50, metalness: 0.55 },
+      steel_frame:  { baseColor: "#9AA09A", roughness: 0.52, metalness: 0.60 },
+      sign_green:   { baseColor: "#309050", roughness: 0.40, metalness: 0.08 },
+      sign_white:   { baseColor: "#F0F4F0", roughness: 0.55, metalness: 0.04 },
+      paving_main:  { baseColor: "#C0BEB8", roughness: 0.95, metalness: 0.01 },
+      paving_walk:  { baseColor: "#D0CEC8", roughness: 0.94, metalness: 0.01 },
+      parking_line: { baseColor: "#E0E0D8", roughness: 0.60, metalness: 0.04 },
+      garden:       { baseColor: "#6A9A58", roughness: 0.96, metalness: 0.00 },
+      roof_flat:    { baseColor: "#B0B8B0", roughness: 0.90, metalness: 0.04 },
+      ramp:         { baseColor: "#C8C4BC", roughness: 0.94, metalness: 0.01 },
+    };
+
+    // ── 寸法設計 ─────────────────────────────────────────────────────────────
+    // 100名規模 3階建て: 各フロア約34名 × 3F
+    // 居室ゾーン (東西2翼) + 共用棟 (中央) + デイサービス棟 (独立翼)
+    const fH      = 3.4;    // フロア高 (福祉施設: やや低め)
+    const floors  = 3;
+    const foundH  = 0.5;
+    const parH    = 0.8;
+    const parT    = 0.28;
+    const roofSlabH = 0.20;
+    const bodyH   = fH * floors;   // 10.2m
+
+    // ── 共用棟 (中央: エントランス・食堂・スタッフ) ──────────────────────────
+    const cW = 22.0;   // 共用棟 幅
+    const cD = 14.0;   // 共用棟 奥行き
+    const cX = 0.0;
+    const cZ = 0.0;
+
+    // ── 居室A棟 (東翼) ────────────────────────────────────────────────────────
+    const wW = 14.0;   // 翼棟 幅
+    const wD = 32.0;   // 翼棟 奥行き (各フロア16〜17室想定)
+    const wAX =  cW * 0.5 + wW * 0.5;
+    const wBX = -cW * 0.5 - wW * 0.5;
+    const wZ  = cZ - cD * 0.5 - wD * 0.5 + 2.0;  // 共用棟後方に接続
+
+    // ── 渡り廊下 ──────────────────────────────────────────────────────────────
+    const lkW = cW - 2.0;
+    const lkD = 4.5;
+    const lkZ = wZ + wD * 0.5 - lkD * 0.5 - wD * 0.38;
+
+    // ── デイサービス棟 (前面左翼: 1〜2階) ────────────────────────────────────
+    const dsW = 18.0;
+    const dsD = 12.0;
+    const dsH = fH * 2;   // 2階分
+    const dsX = -(cW * 0.5 + dsW * 0.5 + 0.4);
+    const dsZ =  cZ + cD * 0.5 - dsD * 0.5;   // 共用棟前面に揃える
+
+    // ── 駐車場 (前面右側) ────────────────────────────────────────────────────
+    const pkW     = 22.0;
+    const spaceW  = 2.5;
+    const spaceD  = 5.0;
+    const aisleD  = 6.0;
+    const pkD     = spaceD + aisleD;   // 11m
+    const pkNSpaces = 8;
+    const pkX     = cW * 0.5 + wW + pkW * 0.5 - wW * 0.5 + 0.5;
+    const pkZ     = cZ + cD * 0.5 - pkD * 0.5;
+
+    // ── 敷地バウンディング ────────────────────────────────────────────────────
+    const margin   = 4.0;
+    const _siteMinX = Math.min(dsX - dsW*0.5, wBX - wW*0.5) - margin;
+    const _siteMaxX = Math.max(pkX + pkW*0.5, wAX + wW*0.5) + margin;
+    const _siteMinZ = Math.min(wZ - wD*0.5 - 8.5, cZ - cD*0.5) - margin;  // 庭（wZ-wD/2-4.5 中心、深さ8m）まで含む
+    const _siteMaxZ = cZ + cD*0.5 + 8.0 + margin;  // 正面アプローチ
+    const _siteCX   = (_siteMinX + _siteMaxX) * 0.5;
+    const _siteCZ   = (_siteMinZ + _siteMaxZ) * 0.5;
+    const _siteW    = _siteMaxX - _siteMinX;
+    const _siteD    = _siteMaxZ - _siteMinZ;
+
+    // ── 敷地・アプローチ ─────────────────────────────────────────────────────
+    box("site_pave",   "paving_main",  _siteW, 0.20, _siteD, _siteCX, 0.10, _siteCZ);
+    // 歩道 (メインアプローチ)
+    box("walkway",     "paving_walk",  cW*0.55, 0.22, 7.5,   cX, 0.11, cZ+cD*0.5+3.75);
+    // 庭・緑地 (建物後方)
+    box("garden",      "garden",       wW*1.2, 0.20, 8.0,    cX, 0.10, wZ-wD*0.5-4.5);
+
+    // ── 共用棟 ───────────────────────────────────────────────────────────────
+    box("c_found",     "concrete",     cW+0.3, foundH, cD+0.3,  cX, foundH*0.5, cZ);
+    for (let f = 0; f < floors; f++) {
+      const fy0 = foundH + f * fH;
+      box(`c_wall_f${f+1}`, "wall_main",  cW, fH-0.13, cD,  cX, fy0+(fH-0.13)*0.5, cZ);
+      box(`c_band_f${f+1}`, "wall_accent",cW+0.1, 0.13, cD+0.1, cX, fy0, cZ);
+      // 前面 大窓 (食堂・交流スペース)
+      box(`c_winF_f${f+1}`, "glass_win", cW*0.70, fH*0.56, 0.18, cX, fy0+fH*0.57, cZ+cD*0.5);
+      // 後面窓
+      box(`c_winB_f${f+1}`, "glass_win", cW*0.55, fH*0.48, 0.18, cX, fy0+fH*0.54, cZ-cD*0.5);
+    }
+    const cPY = foundH + bodyH;
+    box("c_par_f",  "concrete", cW+parT*2, parH, parT, cX, cPY+parH*0.5, cZ+cD*0.5+parT*0.5);
+    box("c_par_b",  "concrete", cW+parT*2, parH, parT, cX, cPY+parH*0.5, cZ-cD*0.5-parT*0.5);
+    box("c_par_L",  "concrete", parT, parH, cD,        cX-cW*0.5-parT*0.5, cPY+parH*0.5, cZ);
+    box("c_par_R",  "concrete", parT, parH, cD,        cX+cW*0.5+parT*0.5, cPY+parH*0.5, cZ);
+    box("c_roof",   "roof_flat",cW+parT*2, roofSlabH, cD+parT*2, cX, cPY+parH+roofSlabH*0.5, cZ);
+
+    // メイン入口 (バリアフリー: 広いアプローチ + スロープ + キャノピー)
+    const entW = cW * 0.50;
+    const entZ = cZ + cD * 0.5;
+    box("entry_can",   "canopy",     entW+1.0, 0.24, 5.0,   cX, foundH+fH*0.82, entZ+2.5);
+    box("entry_col_L", "steel_frame",0.20, foundH+fH*0.82, 0.20, cX-entW*0.42, (foundH+fH*0.82)*0.5, entZ+4.8);
+    box("entry_col_R", "steel_frame",0.20, foundH+fH*0.82, 0.20, cX+entW*0.42, (foundH+fH*0.82)*0.5, entZ+4.8);
+    box("entry_door",  "glass_entry",entW*0.60, fH*0.84, 0.20,   cX, foundH+fH*0.44, entZ);
+    // スロープ (バリアフリー: 緩やかな傾斜)
+    box("ramp_main",   "ramp",       entW*0.55, foundH, 4.5,  cX+entW*0.22, foundH*0.5, entZ+2.25);
+    // 手すり
+    box("handrail_L",  "handrail",   0.08, 0.90, 4.5,  cX-entW*0.16, foundH+0.45, entZ+2.25);
+    box("handrail_R",  "handrail",   0.08, 0.90, 4.5,  cX+entW*0.48, foundH+0.45, entZ+2.25);
+    // 施設サイン
+    box("sign_board",  "wall_accent",entW*0.70, fH*0.20, 0.14, cX, foundH+bodyH*0.88, entZ+0.01);
+    box("sign_text",   "sign_white", entW*0.55, fH*0.12, 0.15, cX, foundH+bodyH*0.88, entZ+0.02);
+
+    // ── 居室A棟 (東翼) ────────────────────────────────────────────────────────
+    box("wA_found",    "concrete",   wW+0.3, foundH, wD+0.3,  wAX, foundH*0.5, wZ);
+    for (let f = 0; f < floors; f++) {
+      const fy0 = foundH + f * fH;
+      box(`wA_wall_f${f+1}`, "wall_warm", wW, fH-0.13, wD,  wAX, fy0+(fH-0.13)*0.5, wZ);
+      box(`wA_band_f${f+1}`, "wall_accent",wW+0.1, 0.13, wD+0.1, wAX, fy0, wZ);
+      // 東面 各居室窓 (居室: 1室約5m間隔)
+      for (let r = -2; r <= 2; r++) {
+        box(`wA_winE_f${f+1}_r${r+3}`, "glass_win", 1.6, fH*0.52, 0.18,
+          wAX + wW*0.5, fy0+fH*0.57, wZ + r * wD*0.18);
+      }
+      // 廊下側窓 (西面: 小窓)
+      box(`wA_winW_f${f+1}`, "glass_win", 0.18, fH*0.44, wD*0.68, wAX-wW*0.5, fy0+fH*0.54, wZ);
+    }
+    const wAPY = foundH + bodyH;
+    box("wA_par_f",  "concrete", wW+parT*2, parH, parT,  wAX, wAPY+parH*0.5, wZ+wD*0.5+parT*0.5);
+    box("wA_par_b",  "concrete", wW+parT*2, parH, parT,  wAX, wAPY+parH*0.5, wZ-wD*0.5-parT*0.5);
+    box("wA_par_E",  "concrete", parT, parH, wD,          wAX+wW*0.5+parT*0.5, wAPY+parH*0.5, wZ);
+    box("wA_par_W",  "concrete", parT, parH, wD,          wAX-wW*0.5-parT*0.5, wAPY+parH*0.5, wZ);
+    box("wA_roof",   "roof_flat",wW+parT*2, roofSlabH, wD+parT*2, wAX, wAPY+parH+roofSlabH*0.5, wZ);
+
+    // ── 居室B棟 (西翼) ────────────────────────────────────────────────────────
+    box("wB_found",    "concrete",   wW+0.3, foundH, wD+0.3,  wBX, foundH*0.5, wZ);
+    for (let f = 0; f < floors; f++) {
+      const fy0 = foundH + f * fH;
+      box(`wB_wall_f${f+1}`, "wall_warm", wW, fH-0.13, wD,  wBX, fy0+(fH-0.13)*0.5, wZ);
+      box(`wB_band_f${f+1}`, "wall_accent",wW+0.1, 0.13, wD+0.1, wBX, fy0, wZ);
+      for (let r = -2; r <= 2; r++) {
+        box(`wB_winW_f${f+1}_r${r+3}`, "glass_win", 1.6, fH*0.52, 0.18,
+          wBX - wW*0.5, fy0+fH*0.57, wZ + r * wD*0.18);
+      }
+      box(`wB_winE_f${f+1}`, "glass_win", 0.18, fH*0.44, wD*0.68, wBX+wW*0.5, fy0+fH*0.54, wZ);
+    }
+    const wBPY = foundH + bodyH;
+    box("wB_par_f",  "concrete", wW+parT*2, parH, parT,  wBX, wBPY+parH*0.5, wZ+wD*0.5+parT*0.5);
+    box("wB_par_b",  "concrete", wW+parT*2, parH, parT,  wBX, wBPY+parH*0.5, wZ-wD*0.5-parT*0.5);
+    box("wB_par_E",  "concrete", parT, parH, wD,          wBX+wW*0.5+parT*0.5, wBPY+parH*0.5, wZ);
+    box("wB_par_W",  "concrete", parT, parH, wD,          wBX-wW*0.5-parT*0.5, wBPY+parH*0.5, wZ);
+    box("wB_roof",   "roof_flat",wW+parT*2, roofSlabH, wD+parT*2, wBX, wBPY+parH+roofSlabH*0.5, wZ);
+
+    // ── 渡り廊下 ─────────────────────────────────────────────────────────────
+    box("link_wall",   "wall_main",  lkW, fH*1.1, lkD,   cX, foundH+fH*0.55, lkZ);
+    box("link_winF",   "glass_win",  lkW*0.78, fH*0.52, 0.16, cX, foundH+fH*0.58, lkZ+lkD*0.5);
+    box("link_winB",   "glass_win",  lkW*0.78, fH*0.52, 0.16, cX, foundH+fH*0.58, lkZ-lkD*0.5);
+
+    // ── デイサービス棟 ────────────────────────────────────────────────────────
+    box("ds_found",    "concrete",   dsW+0.3, foundH, dsD+0.3,  dsX, foundH*0.5, dsZ);
+    for (let f = 0; f < 2; f++) {
+      const fy0 = foundH + f * fH;
+      box(`ds_wall_f${f+1}`, "wall_day",  dsW, fH-0.13, dsD,  dsX, fy0+(fH-0.13)*0.5, dsZ);
+      box(`ds_band_f${f+1}`, "wall_accent",dsW+0.1, 0.13, dsD+0.1, dsX, fy0, dsZ);
+      box(`ds_winF_f${f+1}`, "glass_win", dsW*0.65, fH*0.54, 0.18,  dsX, fy0+fH*0.57, dsZ+dsD*0.5);
+      box(`ds_winB_f${f+1}`, "glass_win", dsW*0.50, fH*0.46, 0.18,  dsX, fy0+fH*0.53, dsZ-dsD*0.5);
+    }
+    const dsPY = foundH + dsH;
+    box("ds_par_f",  "concrete", dsW+parT*2, parH, parT, dsX, dsPY+parH*0.5, dsZ+dsD*0.5+parT*0.5);
+    box("ds_par_b",  "concrete", dsW+parT*2, parH, parT, dsX, dsPY+parH*0.5, dsZ-dsD*0.5-parT*0.5);
+    box("ds_par_L",  "concrete", parT, parH, dsD,         dsX-dsW*0.5-parT*0.5, dsPY+parH*0.5, dsZ);
+    box("ds_par_R",  "concrete", parT, parH, dsD,         dsX+dsW*0.5+parT*0.5, dsPY+parH*0.5, dsZ);
+    box("ds_roof",   "roof_flat",dsW+parT*2, roofSlabH, dsD+parT*2, dsX, dsPY+parH+roofSlabH*0.5, dsZ);
+
+    // デイサービス専用入口 (前面・バス横付け対応)
+    const dsEntZ = dsZ + dsD * 0.5;
+    box("ds_can",      "canopy",     dsW*0.62, 0.22, 5.5,   dsX, foundH+fH*0.80, dsEntZ+2.75);
+    box("ds_col_L",    "steel_frame",0.20, foundH+fH*0.80, 0.20, dsX-dsW*0.25, (foundH+fH*0.80)*0.5, dsEntZ+5.3);
+    box("ds_col_R",    "steel_frame",0.20, foundH+fH*0.80, 0.20, dsX+dsW*0.25, (foundH+fH*0.80)*0.5, dsEntZ+5.3);
+    box("ds_door",     "glass_entry",dsW*0.48, fH*0.82, 0.20,   dsX, foundH+fH*0.43, dsEntZ);
+    // デイサービス スロープ
+    box("ds_ramp",     "ramp",       dsW*0.40, foundH, 4.0,  dsX, foundH*0.5, dsEntZ+2.0);
+    box("ds_rail_L",   "handrail",   0.08, 0.88, 4.0, dsX-dsW*0.18, foundH+0.44, dsEntZ+2.0);
+    box("ds_rail_R",   "handrail",   0.08, 0.88, 4.0, dsX+dsW*0.18, foundH+0.44, dsEntZ+2.0);
+    // デイサービスサイン
+    box("ds_sign",     "wall_day",   dsW*0.55, fH*0.19, 0.14, dsX, dsPY*0.88, dsEntZ+0.01);
+    box("ds_sign_txt", "sign_white", dsW*0.44, fH*0.10, 0.15, dsX, dsPY*0.88, dsEntZ+0.02);
+    // バス乗降スペース表示
+    box("ds_bus_zone", "paving_walk",dsW*0.80, 0.22, 6.0,   dsX, 0.11, dsEntZ+3.0);
+
+    // ── 駐車場 (前面右側) ────────────────────────────────────────────────────
+    box("pk_base",     "paving_main",pkW, 0.20, pkD,  pkX, 0.10, pkZ);
+    for (let i = 0; i <= pkNSpaces; i++) {
+      box(`pk_ln_${i}`, "parking_line", 0.10, 0.06, spaceD,
+        pkX - pkW*0.5 + i*spaceW + (pkW - pkNSpaces*spaceW)*0.5, 0.22, pkZ - aisleD*0.5 + spaceD*0.5);
+    }
+    box("pk_aisle_ln", "parking_line", pkW, 0.06, 0.10, pkX, 0.22, pkZ-aisleD*0.5);
+    // 車止め
+    for (let i = 0; i < pkNSpaces; i++) {
+      const sx = pkX - pkW*0.5 + (i+0.5)*spaceW + (pkW - pkNSpaces*spaceW)*0.5;
+      box(`pk_stop_${i}`, "concrete", spaceW*0.58, 0.14, 0.20, sx, 0.27, pkZ-pkD*0.5+0.5);
+    }
+    // 福祉車両スペースサイン (ICFマーク的)
+    box("pk_welfare_sign","wall_accent", 2.5, 0.22, 0.10,
+      pkX - pkW*0.5 + spaceW*0.5 + (pkW - pkNSpaces*spaceW)*0.5, 0.33, pkZ - pkD*0.5);
+
+    // ── Surface details ───────────────────────────────────────────────────────
+    const nsRegions = ["facade", "window", "garden", "entrance", "dayservice"];
+    const nsTypes   = ["panel_seam", "window_grid", "weathering", "trim_line", "concrete_texture"];
+    let sdIdx = 1;
+    for (const region of nsRegions) {
+      for (let i = 0; i < 8; i++) {
+        pushSurface(`sd_${sdIdx++}`, region, nsTypes[i % nsTypes.length],
+          0.10 + (i%5)*0.04,
+          [Math.sin(i*0.9)*0.013, Math.cos(i*0.7)*0.011, ((i%4)-1.5)*0.009]);
+      }
+    }
+
+    const totalH = foundH + bodyH + parH + roofSlabH;
+    spec.globalScale = { height: rounded(totalH), width: rounded(_siteW), depth: rounded(_siteD) };
+    spec.parts = parts;
+    spec.surfaceDetails = surfaceDetails;
+    return spec;
+  }
+  // ── END facility_nursing override ─────────────────────────────────────────────
+
+  // ── 学校: 校舎・体育館・校庭・正門 ──────────────────────────────────────────
+  if (archetype === "facility_school") {
+    spec.materials = {
+      wall_main:    { baseColor: "#E8E0CC", roughness: 0.88, metalness: 0.02 },
+      wall_accent:  { baseColor: "#4878B8", roughness: 0.70, metalness: 0.12 },  // 青帯
+      wall_gym:     { baseColor: "#D8D0BC", roughness: 0.88, metalness: 0.02 },
+      concrete:     { baseColor: "#C4C0B8", roughness: 0.92, metalness: 0.02 },
+      glass_win:    { baseColor: "#7AB0D0", roughness: 0.10, metalness: 0.86 },
+      glass_entry:  { baseColor: "#9AC8E0", roughness: 0.06, metalness: 0.86 },
+      glass_gym:    { baseColor: "#88A8C0", roughness: 0.12, metalness: 0.84 },
+      canopy:       { baseColor: "#D0D8E0", roughness: 0.84, metalness: 0.08 },
+      steel_frame:  { baseColor: "#909898", roughness: 0.52, metalness: 0.62 },
+      roof_flat:    { baseColor: "#9A9C98", roughness: 0.90, metalness: 0.04 },
+      roof_gym:     { baseColor: "#6A7C8A", roughness: 0.85, metalness: 0.08 },
+      paving_main:  { baseColor: "#B8B4AC", roughness: 0.95, metalness: 0.01 },
+      paving_walk:  { baseColor: "#C8C4BC", roughness: 0.94, metalness: 0.01 },
+      schoolyard:   { baseColor: "#C8A878", roughness: 0.98, metalness: 0.00 },  // 砂校庭
+      yard_line:    { baseColor: "#E8E4D8", roughness: 0.70, metalness: 0.02 },
+      gate_pillar:  { baseColor: "#484440", roughness: 0.88, metalness: 0.08 },
+      gate_fence:   { baseColor: "#3A3830", roughness: 0.85, metalness: 0.20 },
+      sign_navy:    { baseColor: "#1A2A60", roughness: 0.40, metalness: 0.10 },
+      sign_white:   { baseColor: "#F0F0EC", roughness: 0.55, metalness: 0.04 },
+      flagpole:     { baseColor: "#C0C4C0", roughness: 0.42, metalness: 0.78 },
+      pool_water:   { baseColor: "#3898C0", roughness: 0.08, metalness: 0.80 },
+      pool_wall:    { baseColor: "#C8E0EC", roughness: 0.82, metalness: 0.05 },
+    };
+
+    // ── 寸法設計 ─────────────────────────────────────────────────────────────
+    // 校舎: 4階建て・L字またはコの字型 = 主棟 + 東翼
+    // 体育館: 独立棟（大型・高い）
+    // 校庭: 100m × 70m
+    const fH      = 3.6;    // フロア高
+    const floors  = 4;      // 4階建て
+    const foundH  = 0.5;
+    const parH    = 0.8;
+    const parT    = 0.28;
+    const roofSlabH = 0.20;
+    const bodyH   = fH * floors;   // 14.4m
+
+    // ── 主棟 (メイン校舎: 横長) ──────────────────────────────────────────────
+    const mW = 60.0;   // 主棟 幅
+    const mD = 12.0;   // 主棟 奥行き (片廊下型)
+    const mX = 0.0;
+    const mZ = 0.0;
+    const mFront = mZ + mD * 0.5;  // 主棟前面 Z
+
+    // ── 東翼棟 (クラス棟: 縦長) ──────────────────────────────────────────────
+    const eW = 12.0;
+    const eD = 36.0;
+    const eX = mW * 0.5 - eW * 0.5;
+    const eZ = mZ - mD * 0.5 - eD * 0.5;  // 主棟後方に接続
+
+    // ── 西翼棟 ────────────────────────────────────────────────────────────────
+    const wWg = 12.0;
+    const wDg = 28.0;
+    const wX = -mW * 0.5 + wWg * 0.5;
+    const wZg = mZ - mD * 0.5 - wDg * 0.5;
+
+    // ── 体育館 ────────────────────────────────────────────────────────────────
+    const gymW = 26.0;
+    const gymD = 42.0;
+    const gymH = 9.5;   // 高い天井
+    const gymX = -(mW * 0.5 + gymW * 0.5 + 3.0);
+    const gymZ = mZ - mD * 0.5 - gymD * 0.5 + mD;
+
+    // ── 校庭 ─────────────────────────────────────────────────────────────────
+    const yardW = 100.0;
+    const yardD = 72.0;
+    const yardX = gymX * 0.5;   // 体育館と校舎の間でやや右寄り
+    const yardZ = mFront + 8.0 + yardD * 0.5;
+
+    // ── プール ────────────────────────────────────────────────────────────────
+    const poolW = 25.0;
+    const poolD = 13.0;
+    const poolX = gymX - gymW * 0.5 - poolW * 0.5 - 2.0;
+    const poolZ = gymZ - gymD * 0.5 - poolD * 0.5 - 2.0;
+
+    // ── 正門・アプローチ ──────────────────────────────────────────────────────
+    const gateZ   = yardZ + yardD * 0.5 + 5.0;
+    const gateW_  = 8.0;
+    const gateH_  = 3.2;
+    const fenceZ  = gateZ;
+    const fenceSpan = mW + 6.0;
+
+    // 敷地バウンディング
+    const margin  = 5.0;
+    const _siteMinX = Math.min(poolX - poolW*0.5, gymX - gymW*0.5) - margin;
+    const _siteMaxX = Math.max(eX + eW*0.5, mX + mW*0.5) + margin;
+    const _siteMinZ = Math.min(eZ - eD*0.5, gymZ - gymD*0.5, poolZ - poolD*0.5) - margin;
+    const _siteMaxZ = gateZ + 3.0 + margin;
+    const _siteCX   = (_siteMinX + _siteMaxX) * 0.5;
+    const _siteCZ   = (_siteMinZ + _siteMaxZ) * 0.5;
+    const _siteW    = _siteMaxX - _siteMinX;
+    const _siteD    = _siteMaxZ - _siteMinZ;
+
+    // ── 敷地 ─────────────────────────────────────────────────────────────────
+    box("site_pave",   "paving_main",  _siteW, 0.20, _siteD, _siteCX, 0.10, _siteCZ);
+
+    // ── 校庭 ─────────────────────────────────────────────────────────────────
+    box("schoolyard",  "schoolyard",   yardW, 0.22, yardD,   yardX, 0.11, yardZ);
+    // 校庭ライン (トラック外周・外側)
+    box("yard_ln_f",   "yard_line",    yardW*0.88, 0.08, 0.18,  yardX, 0.26, yardZ+yardD*0.44);
+    box("yard_ln_b",   "yard_line",    yardW*0.88, 0.08, 0.18,  yardX, 0.26, yardZ-yardD*0.44);
+    box("yard_ln_L",   "yard_line",    0.18, 0.08, yardD*0.82,  yardX-yardW*0.42, 0.26, yardZ);
+    box("yard_ln_R",   "yard_line",    0.18, 0.08, yardD*0.82,  yardX+yardW*0.42, 0.26, yardZ);
+    // バスケットゴール柱
+    for (const side of [-1, 1]) {
+      shape(`basket_pole_${side<0?"L":"R"}`, "cylinder", "steel_frame",
+        0.18, 3.2, 0.18, yardX + side*yardW*0.22, 1.6, yardZ + side*yardD*0.36);
+      box(`basket_board_${side<0?"L":"R"}`, "concrete", 1.8, 1.2, 0.12,
+        yardX + side*yardW*0.22, 3.6, yardZ + side*yardD*0.36);
+    }
+    // 国旗掲揚ポール
+    shape("flag_pole", "cylinder", "flagpole",  0.14, 8.0, 0.14,
+      yardX - yardW*0.38, 4.0, yardZ + yardD*0.44);
+    box("flag",        "wall_accent",  1.8, 0.90, 0.08,
+      yardX - yardW*0.38 + 0.9, 7.6, yardZ + yardD*0.44);
+
+    // ── 主棟 校舎 ────────────────────────────────────────────────────────────
+    box("m_found",     "concrete",    mW+0.4, foundH, mD+0.4,  mX, foundH*0.5, mZ);
+    for (let f = 0; f < floors; f++) {
+      const fy0 = foundH + f * fH;
+      box(`m_wall_f${f+1}`,  "wall_main",  mW, fH-0.14, mD,   mX, fy0+(fH-0.14)*0.5, mZ);
+      box(`m_band_f${f+1}`,  "wall_accent",mW+0.1, 0.14, mD+0.1, mX, fy0, mZ);
+      // 前面: 教室窓 (8スパン)
+      for (let w = -3; w <= 3; w++) {
+        box(`m_winF_f${f+1}_${w+4}`, "glass_win", mW*0.095, fH*0.60, 0.18,
+          mX + w * mW*0.136, fy0+fH*0.60, mFront);
+      }
+      // 後面: 廊下窓
+      box(`m_winB_f${f+1}`, "glass_win", mW*0.78, fH*0.38, 0.16, mX, fy0+fH*0.56, mZ-mD*0.5);
+    }
+    const mPY = foundH + bodyH;
+    box("m_par_f",  "concrete", mW+parT*2, parH, parT,  mX, mPY+parH*0.5, mFront+parT*0.5);
+    box("m_par_b",  "concrete", mW+parT*2, parH, parT,  mX, mPY+parH*0.5, mZ-mD*0.5-parT*0.5);
+    box("m_par_L",  "concrete", parT, parH, mD,          mX-mW*0.5-parT*0.5, mPY+parH*0.5, mZ);
+    box("m_par_R",  "concrete", parT, parH, mD,          mX+mW*0.5+parT*0.5, mPY+parH*0.5, mZ);
+    box("m_roof",   "roof_flat",mW+parT*2, roofSlabH, mD+parT*2, mX, mPY+parH+roofSlabH*0.5, mZ);
+
+    // ── 玄関ホール (主棟中央前面) ────────────────────────────────────────────
+    const entW = mW * 0.28;
+    const entD = 4.5;
+    const entZ = mFront;
+    box("ent_can",   "canopy",    entW+1.0, 0.24, entD+0.5,  mX, foundH+fH*0.84, entZ+entD*0.5+0.25);
+    box("ent_col_L", "steel_frame",0.22, foundH+fH*0.84, 0.22, mX-entW*0.42, (foundH+fH*0.84)*0.5, entZ+entD);
+    box("ent_col_R", "steel_frame",0.22, foundH+fH*0.84, 0.22, mX+entW*0.42, (foundH+fH*0.84)*0.5, entZ+entD);
+    box("ent_door",  "glass_entry",entW*0.62, fH*0.82, 0.22,   mX, foundH+fH*0.44, entZ);
+    // 学校名看板
+    box("ent_sign",  "sign_navy",  entW*0.80, fH*0.22, 0.14,  mX, mPY*0.88, entZ+0.01);
+    box("ent_sign_t","sign_white", entW*0.66, fH*0.12, 0.15,  mX, mPY*0.88, entZ+0.02);
+    // 校門へのアプローチ舗装
+    box("approach",  "paving_walk",entW+4.0, 0.22, yardD*0.5+8.0, mX, 0.11, (entZ + gateZ)*0.5);
+
+    // ── 東翼棟 ────────────────────────────────────────────────────────────────
+    box("e_found",   "concrete",   eW+0.3, foundH, eD+0.3,  eX, foundH*0.5, eZ);
+    for (let f = 0; f < floors; f++) {
+      const fy0 = foundH + f * fH;
+      box(`e_wall_f${f+1}`,  "wall_main",  eW, fH-0.14, eD,   eX, fy0+(fH-0.14)*0.5, eZ);
+      box(`e_band_f${f+1}`,  "wall_accent",eW+0.1, 0.14, eD+0.1, eX, fy0, eZ);
+      // 東面: 教室窓 (5スパン)
+      for (let w = -2; w <= 2; w++) {
+        box(`e_winE_f${f+1}_${w+3}`, "glass_win", 0.18, fH*0.60, eD*0.14,
+          eX+eW*0.5, fy0+fH*0.60, eZ + w*eD*0.18);
+      }
+      box(`e_winW_f${f+1}`, "glass_win", 0.16, fH*0.38, eD*0.78, eX-eW*0.5, fy0+fH*0.55, eZ);
+    }
+    const ePY = foundH + bodyH;
+    box("e_par_f",  "concrete", eW+parT*2, parH, parT,   eX, ePY+parH*0.5, eZ+eD*0.5+parT*0.5);
+    box("e_par_b",  "concrete", eW+parT*2, parH, parT,   eX, ePY+parH*0.5, eZ-eD*0.5-parT*0.5);
+    box("e_par_E",  "concrete", parT, parH, eD,           eX+eW*0.5+parT*0.5, ePY+parH*0.5, eZ);
+    box("e_par_W",  "concrete", parT, parH, eD,           eX-eW*0.5-parT*0.5, ePY+parH*0.5, eZ);
+    box("e_roof",   "roof_flat",eW+parT*2, roofSlabH, eD+parT*2, eX, ePY+parH+roofSlabH*0.5, eZ);
+
+    // ── 西翼棟 ────────────────────────────────────────────────────────────────
+    box("w_found",   "concrete",   wWg+0.3, foundH, wDg+0.3,  wX, foundH*0.5, wZg);
+    for (let f = 0; f < floors; f++) {
+      const fy0 = foundH + f * fH;
+      box(`w_wall_f${f+1}`,  "wall_main",  wWg, fH-0.14, wDg,  wX, fy0+(fH-0.14)*0.5, wZg);
+      box(`w_band_f${f+1}`,  "wall_accent",wWg+0.1, 0.14, wDg+0.1, wX, fy0, wZg);
+      for (let w = -1; w <= 1; w++) {
+        box(`w_winW_f${f+1}_${w+2}`, "glass_win", 0.18, fH*0.60, wDg*0.18,
+          wX-wWg*0.5, fy0+fH*0.60, wZg + w*wDg*0.28);
+      }
+      box(`w_winE_f${f+1}`, "glass_win", 0.16, fH*0.38, wDg*0.78, wX+wWg*0.5, fy0+fH*0.55, wZg);
+    }
+    const wPY = foundH + bodyH;
+    box("w_par_f",  "concrete", wWg+parT*2, parH, parT,  wX, wPY+parH*0.5, wZg+wDg*0.5+parT*0.5);
+    box("w_par_b",  "concrete", wWg+parT*2, parH, parT,  wX, wPY+parH*0.5, wZg-wDg*0.5-parT*0.5);
+    box("w_par_E",  "concrete", parT, parH, wDg,          wX+wWg*0.5+parT*0.5, wPY+parH*0.5, wZg);
+    box("w_par_W",  "concrete", parT, parH, wDg,          wX-wWg*0.5-parT*0.5, wPY+parH*0.5, wZg);
+    box("w_roof",   "roof_flat",wWg+parT*2, roofSlabH, wDg+parT*2, wX, wPY+parH+roofSlabH*0.5, wZg);
+
+    // ── 体育館 ────────────────────────────────────────────────────────────────
+    box("gym_found",  "concrete",  gymW+0.4, foundH, gymD+0.4,  gymX, foundH*0.5, gymZ);
+    box("gym_wall",   "wall_gym",  gymW, gymH, gymD,             gymX, foundH+gymH*0.5, gymZ);
+    box("gym_band_b", "wall_accent",gymW+0.1, 0.50, gymD+0.1,   gymX, foundH+1.0, gymZ);
+    // 側面 高窓 (ハイサイドライト)
+    for (let w = -2; w <= 2; w++) {
+      box(`gym_winS_${w+3}`, "glass_gym", gymW*0.10, gymH*0.28, 0.18,
+        gymX + w * gymW*0.18, foundH+gymH*0.76, gymZ+gymD*0.5);
+      box(`gym_winN_${w+3}`, "glass_gym", gymW*0.10, gymH*0.28, 0.18,
+        gymX + w * gymW*0.18, foundH+gymH*0.76, gymZ-gymD*0.5);
+    }
+    // 体育館 大屋根 (わずかに弧状に見せるため中央高め)
+    box("gym_roof_main","roof_gym",  gymW+0.4, 0.60, gymD+0.4,  gymX, foundH+gymH+0.30, gymZ);
+    box("gym_roof_ridge","roof_gym", gymW*0.40, 0.50, gymD*0.96, gymX, foundH+gymH+0.80, gymZ);
+    // 体育館入口
+    box("gym_entry",  "glass_entry",gymW*0.30, gymH*0.68, 0.22,  gymX, foundH+gymH*0.37, gymZ+gymD*0.5);
+    box("gym_ent_can","canopy",     gymW*0.40, 0.22, 3.5,        gymX, foundH+gymH*0.72, gymZ+gymD*0.5+1.75);
+
+    // ── プール ────────────────────────────────────────────────────────────────
+    box("pool_deck",  "pool_wall",  poolW+2.0, 0.55, poolD+2.0,  poolX, 0.28, poolZ);
+    box("pool_water", "pool_water", poolW,     0.40, poolD,       poolX, 0.40, poolZ);
+    box("pool_wall_f","pool_wall",  poolW+2.0, 0.55, 0.30,        poolX, 0.28, poolZ+poolD*0.5+0.15);
+    box("pool_wall_b","pool_wall",  poolW+2.0, 0.55, 0.30,        poolX, 0.28, poolZ-poolD*0.5-0.15);
+    box("pool_wall_L","pool_wall",  0.30, 0.55, poolD+2.0,        poolX-poolW*0.5-0.15, 0.28, poolZ);
+    box("pool_wall_R","pool_wall",  0.30, 0.55, poolD+2.0,        poolX+poolW*0.5+0.15, 0.28, poolZ);
+    // レーンライン (8レーン想定: 25mプール)
+    for (let l = 1; l <= 6; l++) {
+      box(`pool_lane_${l}`, "sign_white", 0.10, 0.06, poolD*0.88,
+        poolX - poolW*0.5 + l * poolW/7, 0.46, poolZ);
+    }
+
+    // ── 正門 ─────────────────────────────────────────────────────────────────
+    // 門柱 × 2 (太く重厚)
+    box("gate_post_L",  "gate_pillar",  1.2, gateH_+0.4, 1.2, -gateW_*0.5-0.6, (gateH_+0.4)*0.5, gateZ);
+    box("gate_post_R",  "gate_pillar",  1.2, gateH_+0.4, 1.2,  gateW_*0.5+0.6, (gateH_+0.4)*0.5, gateZ);
+    // 門扉 (左右2枚)
+    box("gate_door_L",  "gate_fence",   gateW_*0.44, gateH_*0.82, 0.12, -gateW_*0.22, gateH_*0.44, gateZ);
+    box("gate_door_R",  "gate_fence",   gateW_*0.44, gateH_*0.82, 0.12,  gateW_*0.22, gateH_*0.44, gateZ);
+    // 門扉上部飾り
+    box("gate_top",     "gate_pillar",  gateW_+1.5, 0.30, 0.30,  0, gateH_+0.55, gateZ);
+    // フェンス (左右)
+    const fSegW = (fenceSpan - gateW_ - 1.4) * 0.5;
+    box("fence_L",  "gate_fence",  fSegW, gateH_*0.78, 0.12,
+      -(gateW_*0.5 + 1.4 + fSegW*0.5), gateH_*0.42, gateZ);
+    box("fence_R",  "gate_fence",  fSegW, gateH_*0.78, 0.12,
+       (gateW_*0.5 + 1.4 + fSegW*0.5), gateH_*0.42, gateZ);
+    // 校名石碑 (右門柱横)
+    box("school_sign",  "gate_pillar",  0.30, 1.80, 0.80,
+      gateW_*0.5+1.5, 0.90, gateZ - 1.0);
+    box("school_sign_txt","sign_white", 0.08, 1.40, 0.58,
+      gateW_*0.5+1.36, 0.90, gateZ - 1.0);
+
+    // ── Surface details ───────────────────────────────────────────────────────
+    const schRegions = ["facade", "gym", "schoolyard", "window", "entrance"];
+    const schTypes   = ["panel_seam", "window_grid", "concrete_texture", "weathering", "trim_line"];
+    let sdIdx = 1;
+    for (const region of schRegions) {
+      for (let i = 0; i < 8; i++) {
+        pushSurface(`sd_${sdIdx++}`, region, schTypes[i % schTypes.length],
+          0.10 + (i%5)*0.04,
+          [Math.sin(i*0.9)*0.013, Math.cos(i*0.7)*0.011, ((i%4)-1.5)*0.009]);
+      }
+    }
+
+    const totalH = foundH + gymH + 0.80 + 0.50;  // 体育館が最高点
+    spec.globalScale = { height: rounded(totalH), width: rounded(_siteW), depth: rounded(_siteD) };
+    spec.parts = parts;
+    spec.surfaceDetails = surfaceDetails;
+    return spec;
+  }
+  // ── END facility_school override ──────────────────────────────────────────────
+
+  // ── 市役所・区役所・町役場: 5階建て・議会棟・大駐車場 ─────────────────────────
+  if (archetype === "facility_cityhall") {
+    spec.materials = {
+      wall_main:    { baseColor: "#D8D4C8", roughness: 0.88, metalness: 0.04 },
+      wall_base:    { baseColor: "#C4BEb0", roughness: 0.90, metalness: 0.03 },
+      wall_accent:  { baseColor: "#8A7A60", roughness: 0.85, metalness: 0.05 },
+      wall_council: { baseColor: "#C8C0A8", roughness: 0.88, metalness: 0.04 },
+      concrete:     { baseColor: "#C0BCB4", roughness: 0.92, metalness: 0.02 },
+      column:       { baseColor: "#D4D0C4", roughness: 0.86, metalness: 0.04 },
+      glass_win:    { baseColor: "#7AACC8", roughness: 0.10, metalness: 0.88 },
+      glass_curtain:{ baseColor: "#90C0D8", roughness: 0.06, metalness: 0.90 },
+      glass_entry:  { baseColor: "#A8D0E4", roughness: 0.05, metalness: 0.88 },
+      canopy:       { baseColor: "#D0CCC0", roughness: 0.84, metalness: 0.08 },
+      steel_frame:  { baseColor: "#9A9E9A", roughness: 0.52, metalness: 0.64 },
+      sign_gold:    { baseColor: "#B09030", roughness: 0.35, metalness: 0.75 },
+      sign_dark:    { baseColor: "#2A2820", roughness: 0.45, metalness: 0.12 },
+      sign_white:   { baseColor: "#F0EEE8", roughness: 0.55, metalness: 0.04 },
+      flagpole:     { baseColor: "#C0C4C0", roughness: 0.40, metalness: 0.80 },
+      flag_green:   { baseColor: "#2A7840", roughness: 0.65, metalness: 0.05 },
+      paving_main:  { baseColor: "#B8B4A8", roughness: 0.95, metalness: 0.01 },
+      paving_plaza: { baseColor: "#C8C4B8", roughness: 0.93, metalness: 0.01 },
+      parking_line: { baseColor: "#DCDCCC", roughness: 0.58, metalness: 0.04 },
+      roof_flat:    { baseColor: "#9E9C98", roughness: 0.90, metalness: 0.05 },
+      council_roof: { baseColor: "#8A8880", roughness: 0.88, metalness: 0.06 },
+    };
+
+    // ── 寸法設計 ─────────────────────────────────────────────────────────────
+    // 本庁舎: 5階建て・幅広・大型エントランス
+    // 議会棟: 独立翼・ドーム風天井（低層大スパン）
+    // 駐車場: 正面右側 + 議会棟横
+    const fH      = 3.8;    // フロア高（公共施設: やや高め）
+    const floors  = 5;
+    const foundH  = 0.8;    // 台座（公共建築らしい格式）
+    const parH    = 1.0;
+    const parT    = 0.35;
+    const roofSlabH = 0.25;
+    const bodyH   = fH * floors;   // 19.0m
+
+    // ── 本庁舎 (メイン: 横長5F) ──────────────────────────────────────────────
+    const mW = 54.0;
+    const mD = 18.0;
+    const mX = 0.0;
+    const mZ = 0.0;
+    const mFront = mZ + mD * 0.5;
+
+    // ── 議会棟 (右翼: 低層・大スパン) ───────────────────────────────────────
+    const cW = 24.0;   // 議会棟 幅
+    const cD = 20.0;   // 議会棟 奥行き
+    const cH = fH * 2.5;  // 約9.5m（大空間）
+    const cX = mW * 0.5 + cW * 0.5 + 0.5;
+    const cZ = mZ + mD * 0.5 - cD * 0.5;  // 前面揃え
+
+    // ── 別館 (左翼: 3階建て・窓口業務) ────────────────────────────────────
+    const aW = 18.0;
+    const aD = 14.0;
+    const aH = fH * 3;
+    const aX = -(mW * 0.5 + aW * 0.5 + 0.5);
+    const aZ = mZ + mD * 0.5 - aD * 0.5;
+
+    // ── 駐車場A (本庁舎正面右側) ─────────────────────────────────────────────
+    const pkAW    = 28.0;
+    const pkANs   = 10;
+    const pkASpW  = 2.5;
+    const pkASpD  = 5.0;
+    const pkAAisleD = 6.5;
+    const pkAD    = pkASpD + pkAAisleD;
+    const pkAX    = cX + cW * 0.5 + pkAW * 0.5 + 1.5;
+    const pkAZ    = mZ + mD * 0.5 - pkAD * 0.5;
+
+    // ── 駐車場B (議会棟後方) ────────────────────────────────────────────────
+    const pkBW    = cW + 4.0;
+    const pkBNs   = 7;
+    const pkBSpW  = 2.5;
+    const pkBSpD  = 5.0;
+    const pkBAisleD = 6.0;
+    const pkBD    = pkBSpD + pkBAisleD;
+    const pkBX    = cX;
+    const pkBZ    = cZ - cD * 0.5 - pkBD * 0.5 - 1.0;
+
+    // 正門・広場
+    const plazaD  = 16.0;   // 正面広場奥行き
+    const plazaZ  = mFront + plazaD * 0.5;
+    const gateZ   = mFront + plazaD + 3.0;
+
+    // 敷地バウンディング
+    const margin  = 5.0;
+    const _siteMinX = Math.min(aX - aW*0.5, pkAX - pkAW*0.5) - margin;
+    const _siteMaxX = Math.max(pkAX + pkAW*0.5, cX + cW*0.5) + margin;
+    const _siteMinZ = Math.min(pkBZ - pkBD*0.5, mZ - mD*0.5) - margin;
+    const _siteMaxZ = gateZ + 3.0 + margin;
+    const _siteCX   = (_siteMinX + _siteMaxX) * 0.5;
+    const _siteCZ   = (_siteMinZ + _siteMaxZ) * 0.5;
+    const _siteW    = _siteMaxX - _siteMinX;
+    const _siteD    = _siteMaxZ - _siteMinZ;
+
+    // ── 敷地 ─────────────────────────────────────────────────────────────────
+    box("site_pave",   "paving_main",  _siteW, 0.20, _siteD, _siteCX, 0.10, _siteCZ);
+
+    // ── 正面広場 (市民プラザ) ─────────────────────────────────────────────────
+    box("plaza",       "paving_plaza", mW*1.10, 0.22, plazaD, mX, 0.11, plazaZ);
+    // 広場 モニュメント (中央噴水台座)
+    shape("monument_base", "cylinder", "column", 4.0, 0.60, 4.0,  mX, 0.30, plazaZ);
+    shape("monument_col",  "cylinder", "sign_gold", 0.50, 3.5, 0.50, mX, 2.05, plazaZ);
+    box("monument_top", "sign_gold",  1.2, 0.50, 1.2,  mX, 4.05, plazaZ);
+    // 国旗ポール (3本: 国旗・都道府県旗・市区町村旗)
+    for (let i = -1; i <= 1; i++) {
+      shape(`flag_pole_${i+2}`, "cylinder", "flagpole", 0.12, bodyH*0.72, 0.12,
+        mX + i * 5.5, bodyH*0.36, plazaZ + plazaD*0.38);
+      box(`flag_${i+2}`, "flag_green", 1.6, 0.80, 0.08,
+        mX + i*5.5 + 0.80, bodyH*0.68, plazaZ + plazaD*0.38);
+    }
+
+    // ── 本庁舎 ───────────────────────────────────────────────────────────────
+    box("m_found",     "concrete",    mW+0.6, foundH, mD+0.6, mX, foundH*0.5, mZ);
+    for (let f = 0; f < floors; f++) {
+      const fy0 = foundH + f * fH;
+      box(`m_wall_f${f+1}`,  "wall_main",  mW, fH-0.16, mD, mX, fy0+(fH-0.16)*0.5, mZ);
+      box(`m_band_f${f+1}`,  "wall_accent",mW+0.1, 0.16, mD+0.1, mX, fy0, mZ);
+      // 前面 カーテンウォール (1F: 大窓, 2F以上: 連続窓)
+      if (f === 0) {
+        box(`m_curt_f1`,  "glass_curtain", mW*0.58, fH*0.72, 0.20, mX, fy0+fH*0.56, mFront);
+      } else {
+        for (let w = -3; w <= 3; w++) {
+          box(`m_winF_f${f+1}_${w+4}`, "glass_win", mW*0.096, fH*0.60, 0.20,
+            mX + w*mW*0.145, fy0+fH*0.62, mFront);
+        }
+      }
+      // 後面窓
+      box(`m_winB_f${f+1}`, "glass_win", mW*0.68, fH*0.48, 0.18, mX, fy0+fH*0.56, mZ-mD*0.5);
+      // 側面窓
+      box(`m_winL_f${f+1}`, "glass_win", 0.18, fH*0.50, mD*0.60, mX-mW*0.5, fy0+fH*0.58, mZ);
+      box(`m_winR_f${f+1}`, "glass_win", 0.18, fH*0.50, mD*0.60, mX+mW*0.5, fy0+fH*0.58, mZ);
+    }
+    const mPY = foundH + bodyH;
+    box("m_par_f",  "concrete", mW+parT*2, parH, parT, mX, mPY+parH*0.5, mFront+parT*0.5);
+    box("m_par_b",  "concrete", mW+parT*2, parH, parT, mX, mPY+parH*0.5, mZ-mD*0.5-parT*0.5);
+    box("m_par_L",  "concrete", parT, parH, mD,         mX-mW*0.5-parT*0.5, mPY+parH*0.5, mZ);
+    box("m_par_R",  "concrete", parT, parH, mD,         mX+mW*0.5+parT*0.5, mPY+parH*0.5, mZ);
+    box("m_roof",   "roof_flat",mW+parT*2, roofSlabH, mD+parT*2, mX, mPY+parH+roofSlabH*0.5, mZ);
+    // 屋上突出部 (機械室)
+    box("m_pent",   "concrete",  mW*0.22, fH*0.60, mD*0.55, mX+mW*0.20, mPY+parH+roofSlabH+fH*0.30, mZ-mD*0.12);
+
+    // ── 大エントランス (正面中央: コロネード) ───────────────────────────────
+    const entW = mW * 0.44;
+    const entZ = mFront;
+    const colH_ = foundH + bodyH * 0.45;
+    // 庇 (大型)
+    box("ent_lintel",  "concrete",   entW+2.0, 0.90, 1.4,   mX, foundH+fH*1.14, entZ+0.7);
+    // 円柱 6本
+    for (let c = -2; c <= 2; c++) {
+      shape(`ent_col_${c+3}`, "cylinder", "column", 0.72, colH_, 0.72,
+        mX + c * entW*0.22, foundH + colH_*0.5, entZ);
+    }
+    // エントランスドア (幅広自動ドア × 3連)
+    for (let d = -1; d <= 1; d++) {
+      box(`ent_door_${d+2}`, "glass_entry", entW*0.22, fH*0.84, 0.22,
+        mX + d*entW*0.26, foundH+fH*0.44, entZ);
+    }
+    // 庁舎名看板
+    box("hall_sign",  "sign_dark",  entW*0.72, fH*0.22, 0.14, mX, foundH+bodyH*0.90, entZ+0.01);
+    box("hall_sign_t","sign_gold",  entW*0.58, fH*0.12, 0.15, mX, foundH+bodyH*0.90, entZ+0.02);
+    // 入口階段 (5段)
+    for (let s = 0; s < 5; s++) {
+      box(`step_${s}`, "concrete", entW+2.0+s*0.5, foundH*0.18, 1.4,
+        mX, foundH*(0.09 + s*0.18), entZ + 1.4 + s*1.4);
+    }
+
+    // ── 議会棟 ───────────────────────────────────────────────────────────────
+    box("c_found",    "concrete",   cW+0.4, foundH, cD+0.4,  cX, foundH*0.5, cZ);
+    box("c_wall",     "wall_council",cW, cH, cD,             cX, foundH+cH*0.5, cZ);
+    box("c_band_b",   "wall_accent", cW+0.1, 0.25, cD+0.1,   cX, foundH+0.50, cZ);
+    // 議場 ハイサイドライト (高い位置の窓)
+    for (let w = -1; w <= 1; w++) {
+      box(`c_win_f_${w+2}`, "glass_win", cW*0.18, cH*0.24, 0.20,
+        cX + w*cW*0.28, foundH+cH*0.80, cZ+cD*0.5);
+      box(`c_win_b_${w+2}`, "glass_win", cW*0.18, cH*0.24, 0.20,
+        cX + w*cW*0.28, foundH+cH*0.80, cZ-cD*0.5);
+    }
+    // 議会棟屋根 (台形状: 格調)
+    box("c_roof_main","council_roof",cW+0.4, roofSlabH+0.20, cD+0.4, cX, foundH+cH+0.25, cZ);
+    box("c_roof_ridge","council_roof",cW*0.55, 0.40, cD*0.90, cX, foundH+cH+0.65, cZ);
+    // 議会棟入口
+    box("c_entry",    "glass_entry", cW*0.34, cH*0.50, 0.22, cX, foundH+cH*0.28, cZ+cD*0.5);
+    box("c_ent_can",  "canopy",      cW*0.44, 0.22, 3.0,     cX, foundH+cH*0.55, cZ+cD*0.5+1.5);
+    // 議会棟サイン
+    box("c_sign",     "sign_dark",   cW*0.55, cH*0.14, 0.14, cX, foundH+cH*0.72, cZ+cD*0.502);
+    box("c_sign_t",   "sign_gold",   cW*0.44, cH*0.08, 0.15, cX, foundH+cH*0.72, cZ+cD*0.503);
+
+    // ── 別館 ─────────────────────────────────────────────────────────────────
+    box("a_found",    "concrete",   aW+0.3, foundH, aD+0.3,  aX, foundH*0.5, aZ);
+    for (let f = 0; f < 3; f++) {
+      const fy0 = foundH + f * fH;
+      box(`a_wall_f${f+1}`, "wall_main",  aW, fH-0.16, aD, aX, fy0+(fH-0.16)*0.5, aZ);
+      box(`a_band_f${f+1}`, "wall_accent",aW+0.1, 0.16, aD+0.1, aX, fy0, aZ);
+      box(`a_winF_f${f+1}`, "glass_win",  aW*0.62, fH*0.56, 0.18, aX, fy0+fH*0.60, aZ+aD*0.5);
+      box(`a_winB_f${f+1}`, "glass_win",  aW*0.50, fH*0.46, 0.18, aX, fy0+fH*0.56, aZ-aD*0.5);
+    }
+    const aPY = foundH + aH;
+    box("a_par_f",  "concrete", aW+parT*2, parH, parT,  aX, aPY+parH*0.5, aZ+aD*0.5+parT*0.5);
+    box("a_par_b",  "concrete", aW+parT*2, parH, parT,  aX, aPY+parH*0.5, aZ-aD*0.5-parT*0.5);
+    box("a_par_L",  "concrete", parT, parH, aD,          aX-aW*0.5-parT*0.5, aPY+parH*0.5, aZ);
+    box("a_par_R",  "concrete", parT, parH, aD,          aX+aW*0.5+parT*0.5, aPY+parH*0.5, aZ);
+    box("a_roof",   "roof_flat",aW+parT*2, roofSlabH, aD+parT*2, aX, aPY+parH+roofSlabH*0.5, aZ);
+    // 別館入口
+    box("a_entry",  "glass_entry",aW*0.36, fH*0.80, 0.20, aX, foundH+fH*0.42, aZ+aD*0.5);
+    box("a_can",    "canopy",     aW*0.46, 0.20, 3.2,      aX, foundH+fH*0.84, aZ+aD*0.5+1.6);
+
+    // ── 駐車場A (正面右) ─────────────────────────────────────────────────────
+    box("pkA_base",  "paving_main", pkAW, 0.20, pkAD,  pkAX, 0.10, pkAZ);
+    for (let i = 0; i <= pkANs; i++) {
+      box(`pkA_ln_${i}`, "parking_line", 0.10, 0.06, pkASpD,
+        pkAX - pkAW*0.5 + i*pkASpW + (pkAW - pkANs*pkASpW)*0.5,
+        0.22, pkAZ - pkAAisleD*0.5 + pkASpD*0.5);
+    }
+    box("pkA_aisle", "parking_line", pkAW, 0.06, 0.10, pkAX, 0.22, pkAZ - pkAAisleD*0.5);
+    for (let i = 0; i < pkANs; i++) {
+      const sx = pkAX - pkAW*0.5 + (i+0.5)*pkASpW + (pkAW - pkANs*pkASpW)*0.5;
+      box(`pkA_stop_${i}`, "concrete", pkASpW*0.58, 0.14, 0.20, sx, 0.27, pkAZ - pkAD*0.5 + 0.5);
+    }
+
+    // ── 駐車場B (議会棟後方) ────────────────────────────────────────────────
+    box("pkB_base",  "paving_main", pkBW, 0.20, pkBD,  pkBX, 0.10, pkBZ);
+    for (let i = 0; i <= pkBNs; i++) {
+      box(`pkB_ln_${i}`, "parking_line", 0.10, 0.06, pkBSpD,
+        pkBX - pkBW*0.5 + i*pkBSpW + (pkBW - pkBNs*pkBSpW)*0.5,
+        0.22, pkBZ - pkBAisleD*0.5 + pkBSpD*0.5);
+    }
+    box("pkB_aisle", "parking_line", pkBW, 0.06, 0.10, pkBX, 0.22, pkBZ - pkBAisleD*0.5);
+
+    // ── Surface details ───────────────────────────────────────────────────────
+    const chRegions = ["facade", "council", "entrance", "plaza", "parking"];
+    const chTypes   = ["panel_seam", "concrete_texture", "window_grid", "weathering", "trim_line"];
+    let sdIdx = 1;
+    for (const region of chRegions) {
+      for (let i = 0; i < 8; i++) {
+        pushSurface(`sd_${sdIdx++}`, region, chTypes[i % chTypes.length],
+          0.10 + (i%5)*0.04,
+          [Math.sin(i*0.9)*0.013, Math.cos(i*0.7)*0.011, ((i%4)-1.5)*0.009]);
+      }
+    }
+
+    const totalH = foundH + bodyH + parH + roofSlabH;
+    spec.globalScale = { height: rounded(totalH), width: rounded(_siteW), depth: rounded(_siteD) };
+    spec.parts = parts;
+    spec.surfaceDetails = surfaceDetails;
+    return spec;
+  }
+  // ── END facility_cityhall override ────────────────────────────────────────────
+
+  // ── facility_university override ──────────────────────────────────────────────
+  if (archetype === "facility_university") {
+    // ── Materials ──────────────────────────────────────────────────────────────
+    spec.materials = {
+      concrete_main:   { baseColor: "#C8C4B8", roughness: 0.88, metalness: 0.04 },
+      concrete_dark:   { baseColor: "#8A8880", roughness: 0.86, metalness: 0.04 },
+      brick_warm:      { baseColor: "#B87050", roughness: 0.90, metalness: 0.02 },
+      glass_blue:      { baseColor: "#5890C8", roughness: 0.08, metalness: 0.85 },
+      glass_green:     { baseColor: "#60B890", roughness: 0.08, metalness: 0.85 },
+      roof_flat:       { baseColor: "#6A6860", roughness: 0.88, metalness: 0.06 },
+      roof_tile:       { baseColor: "#3A5A3A", roughness: 0.88, metalness: 0.04 },
+      road_asphalt:    { baseColor: "#3C3C3C", roughness: 0.96, metalness: 0.02 },
+      road_line:       { baseColor: "#E8E8E0", roughness: 0.80, metalness: 0.02 },
+      paving_main:     { baseColor: "#B8B4A8", roughness: 0.88, metalness: 0.02 },
+      paving_path:     { baseColor: "#C8C0A0", roughness: 0.90, metalness: 0.02 },
+      grass_green:     { baseColor: "#4A7A30", roughness: 0.98, metalness: 0.00 },
+      tree_foliage:    { baseColor: "#2A6020", roughness: 0.98, metalness: 0.00 },
+      tree_trunk:      { baseColor: "#6A4820", roughness: 0.96, metalness: 0.00 },
+      fence_metal:     { baseColor: "#404848", roughness: 0.60, metalness: 0.60 },
+      sign_white:      { baseColor: "#F0F0F0", roughness: 0.60, metalness: 0.10 },
+      sign_blue:       { baseColor: "#1A4080", roughness: 0.50, metalness: 0.15, emissive: "#0A2040" },
+      steel_gray:      { baseColor: "#808888", roughness: 0.50, metalness: 0.70 },
+      water_fountain:  { baseColor: "#4080B0", roughness: 0.10, metalness: 0.20 },
+      gym_wall:        { baseColor: "#D0C8A8", roughness: 0.90, metalness: 0.02 },
+      track_red:       { baseColor: "#CC3A20", roughness: 0.90, metalness: 0.02 },
+      field_green:     { baseColor: "#3A8028", roughness: 0.98, metalness: 0.00 },
+      parking_asphalt: { baseColor: "#484848", roughness: 0.94, metalness: 0.02 }
+    };
+
+    const parts = [];
+    const surfaceDetails = [];
+
+    const box = (id, mat, w, h, d, x, y, z) => {
+      parts.push({ id, kind: "box", material: mat,
+        size: [+w.toFixed(3), +h.toFixed(3), +d.toFixed(3)],
+        position: [+x.toFixed(3), +y.toFixed(3), +z.toFixed(3)] });
+    };
+    const cyl = (id, mat, r, h, x, y, z) => {
+      parts.push({ id, kind: "cylinder", material: mat,
+        size: [+(r*2).toFixed(3), +h.toFixed(3), +(r*2).toFixed(3)],
+        position: [+x.toFixed(3), +y.toFixed(3), +z.toFixed(3)] });
+    };
+    const sd = (id, type, mat, w, h, d, x, y, z, extra = {}) => {
+      surfaceDetails.push({ id, type, material: mat,
+        size: [+w.toFixed(3), +h.toFixed(3), +d.toFixed(3)],
+        position: [+x.toFixed(3), +y.toFixed(3), +z.toFixed(3)], ...extra });
+    };
+
+    // ──────────────────────────────────────────────────────────────────────────
+    // Campus layout (all units in meters, Y=up, +Z=front/street)
+    //
+    //  Total site: 320m (X) × 240m (Z)
+    //  Site center: (0, 0, 0)  → site spans X[-160..+160], Z[-120..+120]
+    //
+    //  Street (main gate) is at Z=+120 (south edge)
+    //  Main axis runs north (−Z direction) through the center
+    //
+    //  Zone layout (Z origin = street side):
+    //    Z [+120..+90]  : entrance plaza / gate / approach
+    //    Z [+90..+50]   : central mall  (front quads)
+    //    Z [+50..−50]   : core academic buildings (8 lecture halls)
+    //    Z [−50..−80]   : library + admin tower + cafeteria
+    //    Z [−80..−120]  : sports / gym / athletics track
+    //    X [+100..+160] : parking lots A & B
+    //    X [−160..−100] : parking lot C + bicycle parking
+    // ──────────────────────────────────────────────────────────────────────────
+
+    // ── Ground plane (site_pave) ─────────────────────────────────────────────
+    box("site_pave", "paving_main", 326, 0.20, 256, 0, 0.10, -3.5);
+
+    // ── Perimeter fence ──────────────────────────────────────────────────────
+    // South fence (with gate gap 14m wide)
+    box("fence_s_l", "fence_metal", 153, 2.0, 0.4,  -83.5, 1.0, 120);
+    box("fence_s_r", "fence_metal", 153, 2.0, 0.4,   83.5, 1.0, 120);
+    // North fence
+    box("fence_n",   "fence_metal", 320, 2.0, 0.4,    0,   1.0, -120);
+    // East fence
+    box("fence_e",   "fence_metal", 0.4, 2.0, 240,  160,   1.0,    0);
+    // West fence
+    box("fence_w",   "fence_metal", 0.4, 2.0, 240, -160,   1.0,    0);
+
+    // ── Main gate pillars ─────────────────────────────────────────────────────
+    box("gate_pillar_l",  "concrete_dark", 3.5, 5.0, 3.5, -10.0, 2.5, 120);
+    box("gate_pillar_r",  "concrete_dark", 3.5, 5.0, 3.5,  10.0, 2.5, 120);
+    box("gate_arch",      "concrete_dark", 20,  1.0, 1.2,   0,   5.5, 120);
+    // University name sign on arch
+    box("gate_sign",      "sign_blue",     16,  1.5, 0.3,   0,   6.5, 119.8);
+
+    // ── Guard booth ───────────────────────────────────────────────────────────
+    box("guard_booth",    "concrete_main",  4,  3.0, 4.0,  16,  1.5, 118);
+    box("guard_roof",     "roof_flat",      4.4,0.3, 4.4,  16,  3.15,118);
+
+    // ── Entrance plaza (Z=+90..+120) ──────────────────────────────────────────
+    box("plaza_pave",     "paving_path", 90, 0.25, 30,  0, 0.125, 105);
+    // Central fountain
+    cyl("fountain_basin", "water_fountain", 5.0, 0.8,   0, 0.4, 105);
+    cyl("fountain_pillar","concrete_dark",  0.4, 2.0,   0, 1.0, 105);
+    cyl("fountain_top",   "water_fountain", 1.5, 0.3,   0, 2.2, 105);
+    // Approach trees (6 pairs along main axis)
+    for (let i = 0; i < 6; i++) {
+      const tz = 118 - i * 5.5;
+      cyl(`tree_approach_l_${i}`, "tree_trunk", 0.4, 3.0, -18, 1.5, tz);
+      cyl(`tree_approach_r_${i}`, "tree_trunk", 0.4, 3.0,  18, 1.5, tz);
+      cyl(`tree_foliage_l_${i}`,  "tree_foliage",2.2, 3.5, -18, 4.5, tz);
+      cyl(`tree_foliage_r_${i}`,  "tree_foliage",2.2, 3.5,  18, 4.5, tz);
+    }
+    // Flagpoles (3)
+    cyl("flag_pole_l",  "steel_gray", 0.15, 12,  -8, 6.0, 95);
+    cyl("flag_pole_c",  "steel_gray", 0.15, 12,   0, 6.0, 95);
+    cyl("flag_pole_r",  "steel_gray", 0.15, 12,   8, 6.0, 95);
+    box("flag_l",       "sign_blue",  2.8, 1.6, 0.05, -6.6, 11.2, 95);
+    box("flag_c",       "sign_blue",  2.8, 1.6, 0.05,  1.4, 11.2, 95);
+    box("flag_r",       "sign_white", 2.8, 1.6, 0.05,  9.4, 11.2, 95);
+
+    // ── Central mall lawn (Z=+90..+50) ────────────────────────────────────────
+    box("mall_lawn_l",   "grass_green", 30, 0.20, 40, -35, 0.10, 70);
+    box("mall_lawn_r",   "grass_green", 30, 0.20, 40,  35, 0.10, 70);
+    box("mall_path",     "paving_path", 14, 0.22, 40,   0, 0.11, 70);
+    // Bench rows along path
+    for (let i = 0; i < 4; i++) {
+      const bz = 85 - i * 9;
+      box(`bench_l_${i}`, "concrete_dark", 2.5, 0.6, 0.8, -8,  0.3, bz);
+      box(`bench_r_${i}`, "concrete_dark", 2.5, 0.6, 0.8,  8,  0.3, bz);
+    }
+    // Mall trees
+    for (let i = 0; i < 5; i++) {
+      const tz = 87 - i * 8;
+      cyl(`mall_tree_ll_${i}`, "tree_trunk",   0.35, 2.5, -26, 1.25, tz);
+      cyl(`mall_tree_rl_${i}`, "tree_trunk",   0.35, 2.5,  26, 1.25, tz);
+      cyl(`mall_foliage_ll_${i}`,"tree_foliage",2.0, 3.0, -26, 3.75, tz);
+      cyl(`mall_foliage_rl_${i}`,"tree_foliage",2.0, 3.0,  26, 3.75, tz);
+    }
+
+    // ── Helper: lecture building (4F, brick+glass) ────────────────────────────
+    const lecBuilding = (prefix, bx, bz, bW, bD) => {
+      const fH = 3.8, nF = 4;
+      const bH = fH * nF;
+      // Main body
+      box(`${prefix}_body`,    "brick_warm",   bW,      bH,      bD,      bx,  bH*0.5,      bz);
+      // Flat roof
+      box(`${prefix}_roof`,    "roof_flat",    bW+0.4,  0.4,     bD+0.4,  bx,  bH+0.2,      bz);
+      // Curtain glass front (south face)
+      box(`${prefix}_glass_f`, "glass_blue",   bW*0.80, bH*0.88, 0.25,    bx,  bH*0.5+0.2,  bz+bD*0.5);
+      // Entrance canopy
+      box(`${prefix}_canopy`,  "concrete_dark",bW*0.35, 0.30,    3.0,     bx,  fH*0.5+fH,   bz+bD*0.5+1.5);
+      // Floor bands
+      for (let f = 1; f < nF; f++) {
+        box(`${prefix}_band_${f}`, "concrete_dark", bW+0.1, 0.18, bD+0.1, bx, fH*f, bz);
+      }
+      // Windows on back face
+      for (let f = 0; f < nF; f++) {
+        for (let w = 0; w < 4; w++) {
+          const wx = bx - bW*0.35 + w * (bW*0.70/3);
+          const wy = fH*0.35 + f*fH + fH*0.20;
+          box(`${prefix}_win_b_${f}_${w}`, "glass_green", bW*0.13, fH*0.50, 0.15, wx, wy, bz-bD*0.5);
+        }
+      }
+      // Entrance steps
+      box(`${prefix}_step1`,   "concrete_dark", bW*0.30, 0.18, 1.0, bx, 0.18, bz+bD*0.5+2.8);
+      box(`${prefix}_step2`,   "concrete_dark", bW*0.30, 0.36, 0.7, bx, 0.36, bz+bD*0.5+2.0);
+    };
+
+    // ── 8 Lecture buildings ──────────────────────────────────────────────────
+    // Row A: 4 buildings on west side, Z=+40..−20  (X≈−55)
+    // Row B: 4 buildings on east side, Z=+40..−20  (X≈+55)
+    const lecW = 36, lecD = 18;
+    const lecPositions = [
+      // Row A (west)
+      { prefix: "lec_a1", bx: -55, bz:  32 },
+      { prefix: "lec_a2", bx: -55, bz:   6 },
+      { prefix: "lec_a3", bx: -55, bz: -20 },
+      { prefix: "lec_a4", bx: -55, bz: -46 },
+      // Row B (east)
+      { prefix: "lec_b1", bx:  55, bz:  32 },
+      { prefix: "lec_b2", bx:  55, bz:   6 },
+      { prefix: "lec_b3", bx:  55, bz: -20 },
+      { prefix: "lec_b4", bx:  55, bz: -46 },
+    ];
+    for (const lp of lecPositions) {
+      lecBuilding(lp.prefix, lp.bx, lp.bz, lecW, lecD);
+    }
+
+    // Internal east-west paths between buildings
+    for (let i = 0; i < 5; i++) {
+      const pz = 44 - i * 26;
+      box(`inner_path_${i}`, "paving_path", 86, 0.22, 5, 0, 0.11, pz);
+    }
+
+    // ── Library (6F, central axis, Z=−60..−80) ────────────────────────────────
+    const libX = -28, libZ = -70, libW = 50, libD = 20, libH = 6 * 3.8;
+    box("library_body",   "concrete_main", libW,     libH,     libD,     libX, libH*0.5,     libZ);
+    box("library_roof",   "roof_flat",     libW+0.4, 0.40,     libD+0.4, libX, libH+0.2,     libZ);
+    box("library_glass_f","glass_blue",    libW*0.75,libH*0.90,0.25,     libX, libH*0.5+0.3, libZ+libD*0.5);
+    // Entrance portico
+    box("lib_portico",    "concrete_dark", libW*0.40,3.6,      2.5,      libX, 3.8+1.8,      libZ+libD*0.5+1.25);
+    for (let c = 0; c < 4; c++) {
+      const cx = libX - libW*0.15 + c*(libW*0.30/3);
+      cyl(`lib_col_${c}`,  "concrete_dark", 0.35, 3.6, cx, 1.8, libZ+libD*0.5+1.25);
+    }
+    box("lib_sign",       "sign_blue",     12,  1.4, 0.30,     libX, libH+1.1,              libZ+libD*0.5);
+    // Window bands
+    for (let f = 0; f < 6; f++) {
+      for (let w = 0; w < 5; w++) {
+        const wx = libX - libW*0.34 + w*(libW*0.68/4);
+        const wy = 3.8*0.35 + f*3.8 + 3.8*0.20;
+        box(`lib_win_${f}_${w}`, "glass_green", libW*0.10, 3.8*0.50, 0.15, wx, wy, libZ-libD*0.5);
+      }
+    }
+
+    // ── Admin tower (6F, central right, Z=−60..−80) ───────────────────────────
+    const admX = 28, admZ = -70, admW = 24, admD = 16, admH = 6 * 3.8;
+    box("admin_body",     "concrete_main", admW,     admH,     admD,     admX, admH*0.5,     admZ);
+    box("admin_roof",     "roof_flat",     admW+0.4, 0.40,     admD+0.4, admX, admH+0.2,     admZ);
+    box("admin_glass_f",  "glass_blue",    admW*0.75,admH*0.90,0.25,     admX, admH*0.5+0.3, admZ+admD*0.5);
+    box("admin_sign",     "sign_blue",     10,  1.2, 0.30,     admX, admH+1.0,              admZ+admD*0.5);
+
+    // ── Cafeteria / student union (2F, Z=−56..−70, between lib and sports) ────
+    const cafX = 0, cafZ = -58, cafW = 40, cafD = 14, cafH = 2 * 3.8;
+    box("cafe_body",      "brick_warm",    cafW,     cafH,     cafD,     cafX, cafH*0.5,     cafZ);
+    box("cafe_roof",      "roof_flat",     cafW+0.4, 0.35,     cafD+0.4, cafX, cafH+0.18,    cafZ);
+    box("cafe_glass_f",   "glass_blue",    cafW*0.70,cafH*0.85,0.25,     cafX, cafH*0.5+0.2, cafZ+cafD*0.5);
+    box("cafe_terrace",   "paving_path",   cafW*0.60,0.22,     4.0,      cafX, cafH+0.11,    cafZ+cafD*0.5+2.0);
+    // Terrace railing
+    box("cafe_rail_f",    "steel_gray",    cafW*0.60,0.9,      0.08,     cafX, cafH+0.66,    cafZ+cafD*0.5+4.0);
+
+    // ── Gymnasium (large single-story shed, Z=−85..−115) ─────────────────────
+    const gymX = -25, gymZ = -100, gymW = 60, gymD = 30, gymH = 10.0;
+    box("gym_body",       "gym_wall",      gymW,     gymH,     gymD,     gymX, gymH*0.5,     gymZ);
+    box("gym_roof_ridge", "roof_flat",     gymW+0.6, 0.50,     gymD+0.6, gymX, gymH+0.25,   gymZ);
+    box("gym_glass_f",    "glass_green",   gymW*0.60,gymH*0.55,0.25,     gymX, gymH*0.5,    gymZ+gymD*0.5);
+    // High-side clerestory windows
+    box("gym_clerestory", "glass_blue",    gymW*0.80,1.8,      0.20,     gymX, gymH*0.85,   gymZ+gymD*0.5);
+    // Entrance
+    box("gym_entry",      "concrete_dark", 10,  0.30,  3.5,    gymX, gymH*0.4,              gymZ+gymD*0.5+1.75);
+
+    // ── Athletics track + field ───────────────────────────────────────────────
+    // Field (soccer / multi-use) center
+    const fieldX = 50, fieldZ = -98;
+    box("track_outer",    "track_red",     90, 0.22, 60,  fieldX, 0.11, fieldZ);
+    box("field_inner",    "field_green",   74, 0.25, 44,  fieldX, 0.13, fieldZ);
+    // Track lane lines (4 lines each side)
+    for (let i = 0; i < 4; i++) {
+      const off = 6 + i * 2.5;
+      box(`track_line_l_${i}`, "road_line", 0.15, 0.26, 60, fieldX - 37 + off, 0.14, fieldZ);
+      box(`track_line_r_${i}`, "road_line", 0.15, 0.26, 60, fieldX + 37 - off, 0.14, fieldZ);
+    }
+    // Scoreboard
+    box("scoreboard_post_l","steel_gray",  0.6, 8, 0.6,  fieldX-8, 4.0, fieldZ-30.5);
+    box("scoreboard_post_r","steel_gray",  0.6, 8, 0.6,  fieldX+8, 4.0, fieldZ-30.5);
+    box("scoreboard_panel", "sign_blue",   18,  5, 0.4,  fieldX,   9.5, fieldZ-30.5);
+
+    // ── Parking lot A (east, X=+100..+155, Z=+20..−60) ───────────────────────
+    const pAX = 127.5, pAZ = -20;
+    box("parking_a_pave", "parking_asphalt", 55, 0.22, 80, pAX, 0.11, pAZ);
+    // Drive lane
+    box("parking_a_lane", "road_asphalt",    6.5, 0.24, 80, pAX-24.25, 0.12, pAZ);
+    // Parking space lines (20 spaces on east row)
+    for (let i = 0; i < 20; i++) {
+      const spz = pAZ - 38 + i * 4.0;
+      box(`pa_line_l_${i}`, "road_line", 0.12, 0.25, 2.4, pAX-22.0, 0.13, spz+2.0);
+      box(`pa_line_r_${i}`, "road_line", 0.12, 0.25, 2.4, pAX+8.0,  0.13, spz+2.0);
+    }
+    // Stop bar at entrance
+    box("pa_stop_bar",    "road_line",  6.5, 0.25, 0.25, pAX-24.25, 0.13, pAZ+40.0);
+
+    // ── Parking lot B (west, X=−100..−155, Z=+20..−60) ───────────────────────
+    const pBX = -127.5, pBZ = -20;
+    box("parking_b_pave", "parking_asphalt", 55, 0.22, 80, pBX, 0.11, pBZ);
+    box("parking_b_lane", "road_asphalt",    6.5, 0.24, 80, pBX+24.25, 0.12, pBZ);
+    for (let i = 0; i < 20; i++) {
+      const spz = pBZ - 38 + i * 4.0;
+      box(`pb_line_l_${i}`, "road_line", 0.12, 0.25, 2.4, pBX-8.0,  0.13, spz+2.0);
+      box(`pb_line_r_${i}`, "road_line", 0.12, 0.25, 2.4, pBX+22.0, 0.13, spz+2.0);
+    }
+    box("pb_stop_bar",    "road_line",  6.5, 0.25, 0.25, pBX+24.25, 0.13, pBZ+40.0);
+
+    // ── Bicycle parking shelter (east, near gate) ─────────────────────────────
+    const bpX = 130, bpZ = 108;
+    box("bike_park_floor","paving_path",  20, 0.22, 8,  bpX, 0.11, bpZ);
+    box("bike_park_roof", "roof_flat",    20.6, 0.3, 8.6, bpX, 3.2, bpZ);
+    box("bike_park_col_l","steel_gray",   0.2, 3.0, 0.2, bpX-9.5, 1.5, bpZ+4.0);
+    box("bike_park_col_r","steel_gray",   0.2, 3.0, 0.2, bpX+9.5, 1.5, bpZ+4.0);
+
+    // ── Campus park / garden (southeast quadrant, X=+10..+90, Z=+30..+60) ─────
+    box("park_lawn",       "grass_green",  80, 0.22, 30,  45, 0.11, 45);
+    box("park_path_main",  "paving_path",  4,  0.24, 30,  45, 0.12, 45);
+    // Ornamental pond
+    cyl("pond_water",      "water_fountain", 7.0, 0.5,  70, 0.25, 40);
+    cyl("pond_edge",       "concrete_dark",  7.4, 0.6,  70, 0.3,  40);
+    // Park benches
+    for (let i = 0; i < 5; i++) {
+      box(`park_bench_${i}`, "concrete_dark", 2.0, 0.6, 0.6, 30 + i*10, 0.3, 50);
+    }
+    // Park trees (scattered)
+    const parkTrees = [
+      [32,38],[38,55],[48,44],[58,50],[68,38],[72,54],[35,48],[62,42]
+    ];
+    for (let i = 0; i < parkTrees.length; i++) {
+      const [tx, tz] = parkTrees[i];
+      cyl(`park_trunk_${i}`,   "tree_trunk",   0.35, 2.8, tx, 1.4, tz);
+      cyl(`park_foliage_${i}`, "tree_foliage", 2.2,  3.5, tx, 4.5, tz);
+    }
+
+    // ── Scattered campus trees along roads ────────────────────────────────────
+    const roadTrees = [
+      [-15,20],[-15,-5],[-15,-30],[-15,-55],
+      [ 15,20],[ 15,-5],[ 15,-30],[ 15,-55],
+      [-90, 5],[-90,-20],[-90,-45],
+      [ 90, 5],[ 90,-20],[ 90,-45],
+    ];
+    for (let i = 0; i < roadTrees.length; i++) {
+      const [tx, tz] = roadTrees[i];
+      cyl(`rd_trunk_${i}`,   "tree_trunk",   0.35, 2.8, tx, 1.4, tz);
+      cyl(`rd_foliage_${i}`, "tree_foliage", 2.2,  3.5, tx, 4.5, tz);
+    }
+
+    // ── Internal roads ────────────────────────────────────────────────────────
+    // Main north-south road (center, 7m wide)
+    box("road_ns_main",  "road_asphalt",  7.0, 0.23, 210,    0, 0.12, -15);
+    // East service road
+    box("road_e_service","road_asphalt",  5.0, 0.23, 180,   95, 0.12, -10);
+    // West service road
+    box("road_w_service","road_asphalt",  5.0, 0.23, 180,  -95, 0.12, -10);
+    // East-west connector (mid campus)
+    box("road_ew_mid",   "road_asphalt",  190, 0.23, 5.0,   -5, 0.12,   0);
+    // South approach road (widened, 10m)
+    box("road_approach", "road_asphalt",  10,  0.23, 32,     0, 0.12, 104);
+
+    // ── Manhole / decorative road markings ───────────────────────────────────
+    box("cross_mark_n",  "road_line", 10, 0.24, 0.25, 0, 0.12,  50);
+    box("cross_mark_s",  "road_line", 10, 0.24, 0.25, 0, 0.12, -50);
+    box("cross_mark_e",  "road_line", 0.25, 0.24, 10, 95, 0.12,   0);
+    box("cross_mark_w",  "road_line", 0.25, 0.24, 10,-95, 0.12,   0);
+
+    // ── Bounding check & site_pave coverage ─────────────────────────────────
+    // Site: X[-160..+160], Z[-120..+120]  — all parts designed to fit within this
+
+    spec.parts          = parts;
+    spec.surfaceDetails = surfaceDetails;
+    return spec;
+  }
+  // ── END facility_university override ──────────────────────────────────────────
 
   // ── Facility building archetypes ────────────────────────────────────────────
   if (archetype.startsWith("facility_")) {
@@ -3102,6 +4904,160 @@ function buildBuildingSpec(prompt, height, styles) {
   }
   // ── END house_modern override ────────────────────────────────────────────────
 
+  // ── 大邸宅: 和風平屋建て (Japanese grand estate, single-story) ───────────────
+  if (archetype === "mansion_estate") {
+    // Override materials to Japanese wood / tile palette
+    spec.materials = {
+      wood_main:    { baseColor: "#7A5230", roughness: 0.82, metalness: 0.02 },
+      wood_dark:    { baseColor: "#4A2E12", roughness: 0.88, metalness: 0.01 },
+      wood_deck:    { baseColor: "#8C6238", roughness: 0.78, metalness: 0.02 },
+      roof_tile:    { baseColor: "#2E2A28", roughness: 0.80, metalness: 0.08 },
+      roof_copper:  { baseColor: "#5A8060", roughness: 0.55, metalness: 0.55 },
+      shoji:        { baseColor: "#E8E4D8", roughness: 0.95, metalness: 0.00 },
+      stone_wall:   { baseColor: "#9A9488", roughness: 0.94, metalness: 0.03 },
+      stone_ground: { baseColor: "#B4B0A4", roughness: 0.96, metalness: 0.01 },
+      gravel:       { baseColor: "#D0CCC0", roughness: 0.98, metalness: 0.00 },
+      pond:         { baseColor: "#3A6878", roughness: 0.12, metalness: 0.80 },
+    };
+
+    // Dimensions — site scales with H (default H=90 → site ~50m × 40m)
+    const siteW   = rounded(H * 0.56);   // site width
+    const siteD   = rounded(H * 0.44);   // site depth
+    const wallH   = 1.8;                 // 塀 height
+    const wallT   = 0.35;                // 塀 thickness
+    const gateW   = 4.0;                 // 門 opening width
+    const gateH   = 2.8;                 // 門 post height
+    const bodyH   = 3.0;                 // house wall height (平屋)
+    const eaveT   = 0.18;                // eave slab thickness
+    const eaveOv  = 1.2;                 // eave overhang each side
+    const ridgeH  = 1.6;                 // ridge (tri_prism) height
+    const foundH  = 0.4;                 // foundation stone height
+
+    // Site layout:
+    //   +Z = front (street side / 門)
+    //   -Z = back  (garden side)
+    //   center = (0, 0, 0)
+
+    // ── 敷地 (site base: gravel) ─────────────────────────────────────────────
+    box("site_gravel",   "gravel",       siteW - wallT*2, 0.20, siteD - wallT*2, 0, 0.10, 0);
+
+    // ── 母屋 (main building) ─────────────────────────────────────────────────
+    const mW = rounded(siteW * 0.50);    // 母屋 width
+    const mD = rounded(siteD * 0.42);    // 母屋 depth
+    const mZ = -siteD * 0.04;            // slightly back of center
+    const mY0 = foundH;                  // floor level
+
+    // Foundation plinth
+    box("main_found",    "stone_wall",   mW + 0.4, foundH, mD + 0.4,  0,  foundH*0.5,  mZ);
+    // Wall body
+    box("main_body",     "wood_main",    mW,        bodyH,  mD,         0,  mY0+bodyH*0.5, mZ);
+    // Shoji panels (front face)
+    box("shoji_front",   "shoji",        mW*0.72,   bodyH*0.68, 0.12,   0,  mY0+bodyH*0.46, mZ + mD*0.5);
+    // Shoji panels (back face)
+    box("shoji_back",    "shoji",        mW*0.60,   bodyH*0.60, 0.12,   0,  mY0+bodyH*0.44, mZ - mD*0.5);
+    // Lower eave slab
+    const rW = mW + eaveOv*2;
+    const rD = mD + eaveOv*2;
+    const eaveY = mY0 + bodyH;
+    box("main_eave",     "roof_tile",    rW, eaveT, rD,   0, eaveY + eaveT*0.5, mZ);
+    // Ridge (入母屋 upper)
+    shape("main_ridge",  "tri_prism", "roof_tile", mW*0.96, ridgeH, mD*0.94,
+      0, eaveY + eaveT + ridgeH*0.5, mZ);
+    // Copper ridge cap
+    box("ridge_cap",     "roof_copper",  mW*0.90, 0.14, 0.20,  0, eaveY + eaveT + ridgeH - 0.06, mZ);
+
+    // ── 縁側 (engawa — wooden veranda, front) ────────────────────────────────
+    const engW = mW * 0.90;
+    const engD = 1.2;
+    const engZ = mZ + mD*0.5 + engD*0.5;
+    box("engawa_deck",   "wood_deck",    engW, 0.22, engD,   0, mY0 - 0.06, engZ);
+    // Engawa roof (shallow lean-to)
+    box("engawa_eave",   "roof_tile",    engW + eaveOv, eaveT, engD + 0.4,
+      0, eaveY + eaveT*0.5 - 0.25, engZ + 0.1);
+
+    // ── 離れ (secondary wing — east side) ────────────────────────────────────
+    const swW = rounded(siteW * 0.18);
+    const swD = rounded(mD * 0.62);
+    const swX = mW*0.5 + swW*0.5 + 0.8;
+    box("south_found",   "stone_wall",   swW+0.3, foundH, swD+0.3,  swX, foundH*0.5, mZ);
+    box("south_body",    "wood_main",    swW,      bodyH*0.88, swD,  swX, mY0+bodyH*0.44, mZ);
+    box("south_shoji",   "shoji",        swW*0.68, bodyH*0.60, 0.10, swX, mY0+bodyH*0.40, mZ+swD*0.5);
+    box("south_eave",    "roof_tile",    swW+eaveOv*1.4, eaveT, swD+eaveOv,
+      swX, mY0+bodyH*0.88+eaveT*0.5, mZ);
+    shape("south_ridge", "tri_prism",    "roof_tile", swW*0.90, ridgeH*0.75, swD*0.88,
+      swX, mY0+bodyH*0.88+eaveT+ridgeH*0.375, mZ);
+
+    // ── 塀 (perimeter walls) ─────────────────────────────────────────────────
+    const fZ = siteD*0.5 - wallT*0.5;     // front wall Z center
+    const bZ = -siteD*0.5 + wallT*0.5;    // back wall Z center
+    const lX = -siteW*0.5 + wallT*0.5;    // left wall X center
+    const rX =  siteW*0.5 - wallT*0.5;    // right wall X center
+
+    // Back wall
+    box("wall_back",     "stone_wall",   siteW, wallH, wallT,  0,    wallH*0.5, bZ);
+    // East wall
+    box("wall_east",     "stone_wall",   wallT, wallH, siteD, rX,   wallH*0.5, 0);
+    // West wall
+    box("wall_west",     "stone_wall",   wallT, wallH, siteD, lX,   wallH*0.5, 0);
+    // Front wall left segment (西側)
+    const gapHalf = gateW*0.5 + wallT;
+    const fSegW = (siteW - gateW)*0.5 - wallT;
+    box("wall_front_W",  "stone_wall",   fSegW, wallH, wallT, -(gateW*0.5 + fSegW*0.5), wallH*0.5, fZ);
+    // Front wall right segment (東側)
+    box("wall_front_E",  "stone_wall",   fSegW, wallH, wallT,  (gateW*0.5 + fSegW*0.5), wallH*0.5, fZ);
+    // 塀の瓦笠木 (tile coping on walls)
+    box("cope_back",     "roof_tile",    siteW+0.1, 0.12, wallT+0.1,    0,    wallH+0.06, bZ);
+    box("cope_east",     "roof_tile",    wallT+0.1, 0.12, siteD+0.1,   rX,   wallH+0.06, 0);
+    box("cope_west",     "roof_tile",    wallT+0.1, 0.12, siteD+0.1,   lX,   wallH+0.06, 0);
+    box("cope_front_W",  "roof_tile",    fSegW+0.1, 0.12, wallT+0.1, -(gateW*0.5+fSegW*0.5), wallH+0.06, fZ);
+    box("cope_front_E",  "roof_tile",    fSegW+0.1, 0.12, wallT+0.1,  (gateW*0.5+fSegW*0.5), wallH+0.06, fZ);
+
+    // ── 門 (gate) ────────────────────────────────────────────────────────────
+    box("gate_post_W",   "wood_dark",    0.28, gateH, 0.28, -gateW*0.5+0.14, gateH*0.5,  fZ);
+    box("gate_post_E",   "wood_dark",    0.28, gateH, 0.28,  gateW*0.5-0.14, gateH*0.5,  fZ);
+    box("gate_lintel",   "wood_dark",    gateW+0.28, 0.24, 0.36, 0, gateH+0.12, fZ);
+    box("gate_nagedashi","roof_tile",    gateW+0.80, 0.16, 0.60, 0, gateH+0.32, fZ);
+    shape("gate_roof",   "tri_prism",    "roof_tile", gateW+0.60, 0.65, 0.55,
+      0, gateH+0.49, fZ);
+
+    // ── 庭 (garden — rear area) ──────────────────────────────────────────────
+    const gardenZ = -siteD*0.28;
+    // 池 (pond)
+    box("pond",          "pond",         siteW*0.16, 0.18, siteD*0.10,  siteW*0.10, 0.09, gardenZ);
+    // 石灯籠 (stone lantern base + body + cap)
+    box("lantern_base",  "stone_wall",   0.50, 0.20, 0.50,  -siteW*0.16, 0.10, gardenZ);
+    box("lantern_body",  "stone_wall",   0.28, 0.80, 0.28,  -siteW*0.16, 0.60, gardenZ);
+    box("lantern_cap",   "stone_wall",   0.54, 0.18, 0.54,  -siteW*0.16, 1.09, gardenZ);
+    // 松 (pine tree trunk + canopy)
+    shape("pine_trunk",  "cylinder",  "wood_dark", 0.30, 3.8, 0.30,
+      siteW*0.16, 1.9, gardenZ - siteD*0.06);
+    shape("pine_canopy", "sphere",    "wood_main", 3.0, 2.4, 3.0,
+      siteW*0.16, 4.8, gardenZ - siteD*0.06);
+    // 飛び石 (stepping stones, from gate to entrance)
+    for (let i = 0; i < 6; i++) {
+      box(`step_${i}`,   "stone_ground", 0.55, 0.10, 0.42,
+        (i%2===0 ? -0.3 : 0.3), 0.30, fZ - 1.0 - i*1.6);
+    }
+
+    // ── Surface details ───────────────────────────────────────────────────────
+    const estRegions  = ["main_body", "roof", "wall", "engawa", "garden"];
+    const estTypes    = ["wood_grain", "tile_seam", "weathering", "trim_line", "panel_seam"];
+    let sdIdx = 1;
+    for (const region of estRegions) {
+      for (let i = 0; i < 8; i++) {
+        pushSurface(`sd_${sdIdx++}`, region, estTypes[i % estTypes.length],
+          0.12 + (i % 5) * 0.04,
+          [Math.sin(i*0.9)*0.014, Math.cos(i*0.7)*0.011, ((i%4)-1.5)*0.009]);
+      }
+    }
+
+    spec.globalScale = { height: rounded(mY0+bodyH+eaveT+ridgeH), width: siteW, depth: siteD };
+    spec.parts = parts;
+    spec.surfaceDetails = surfaceDetails;
+    return spec;
+  }
+  // ── END mansion_estate override ──────────────────────────────────────────────
+
   // ── Modern apartment archetype ───────────────────────────────────────────────
   if (archetype === "apartment_mid" || archetype === "apartment_2f") {
     const Hw = Math.min(H, 14);
@@ -3260,7 +5216,8 @@ function buildBuildingSpec(prompt, height, styles) {
     box("corridor", "facade_secondary", width * 0.98, bodyHeight * 0.14, depth * 0.14, 0, baseHeight + bodyHeight * 0.18, depth * 0.44);
     box("roof", "roof", width * 0.96, roofHeight * 0.62, depth * 0.92, 0, H - roofHeight * 0.50, 0);
   } else {
-    shape("roof", "tri_prism", "roof", width * 0.96, roofHeight * 0.62, depth * 0.92, 0, H - roofHeight * 0.50, 0);
+    // position: bottom flush with body top (H - roofHeight), center raised by half the shape height
+    shape("roof", "tri_prism", "roof", width * 0.96, roofHeight * 0.62, depth * 0.92, 0, H - roofHeight + roofHeight * 0.62 * 0.5, 0);
   }
 
   const floors = Math.max(2, Math.min(18, Math.round(bodyHeight / 3.2)));
@@ -4181,11 +6138,23 @@ function buildHumanSpec(prompt, height, styles) {
   const isSuitWoman   = isSuit && isWoman;
 
   // Body proportion scaling
-  const scale = isChild ? 0.70 : isElderly ? 0.95 : 1.0;
+  const scale = isChild ? 0.68 : isElderly ? 0.95 : 1.0;
   const sH = H * scale;
 
   // Canonical proportions (fraction of total height)
-  const prop = {
+  // Children have larger heads and shorter limbs relative to torso
+  const prop = isChild ? {
+    headH:   sH * 0.175,  headW:  sH * 0.160,  headD:  sH * 0.140,
+    neckH:   sH * 0.032,  neckR:  sH * 0.028,
+    torsoH:  sH * 0.295,  torsoW: sH * 0.230,  torsoD: sH * 0.130,
+    hipH:    sH * 0.110,  hipW:   sH * 0.210,  hipD:   sH * 0.120,
+    upperAH: sH * 0.140,  upperAW:sH * 0.068,  upperAD:sH * 0.062,
+    lowerAH: sH * 0.125,  lowerAW:sH * 0.054,  lowerAD:sH * 0.048,
+    handH:   sH * 0.052,  handW:  sH * 0.055,  handD:  sH * 0.026,
+    thighH:  sH * 0.210,  thighW: sH * 0.088,  thighD: sH * 0.085,
+    shinH:   sH * 0.185,  shinW:  sH * 0.066,  shinD:  sH * 0.062,
+    footH:   sH * 0.038,  footW:  sH * 0.064,  footD:  sH * 0.130
+  } : {
     headH:   sH * 0.130,  headW:  sH * 0.110,  headD:  sH * 0.100,
     neckH:   sH * 0.040,  neckR:  sH * 0.030,
     torsoH:  sH * 0.300,  torsoW: sH * 0.240,  torsoD: sH * 0.140,
@@ -4256,8 +6225,8 @@ function buildHumanSpec(prompt, height, styles) {
 
   // Determine skin/clothing material keys
   const skinMat    = "skin";
-  const topMat     = isPolice || isFirefighter ? "uniform_main" : isNurse || isDoctor ? (isNurse ? "uniform_main" : "coat") : "clothing_main";
-  const bottomMat  = isPolice || isFirefighter ? "uniform_main" : isDoctor ? "scrubs" : isNurse ? "uniform_main" : "clothing_main";
+  const topMat     = isPolice || isFirefighter ? "uniform_main" : isNurse || isDoctor ? (isNurse ? "uniform_main" : "coat") : isChild ? "shirt" : "clothing_main";
+  const bottomMat  = isPolice || isFirefighter ? "uniform_main" : isDoctor ? "scrubs" : isNurse ? "uniform_main" : isChild ? "pants" : "clothing_main";
   const shoesMat   = "shoe" in (spec.materials) ? "shoe" : "boot" in (spec.materials) ? "boot" : "clothing_dark";
   const hairMat    = "hair";
   const headwearMat= isPolice ? "cap" : isFirefighter ? "helmet" : isNurse ? "cap" : null;
@@ -4330,15 +6299,7 @@ function buildHumanSpec(prompt, height, styles) {
       0, yTorso + prop.torsoH * 0.50, prop.torsoD * 0.52);
   }
 
-  // Child backpack
-  if (isChild) {
-    box("backpack_body", "backpack", prop.torsoW * 0.50, prop.torsoH * 0.55, prop.torsoD * 0.28,
-      0, yTorso + prop.torsoH * 0.42, -prop.torsoD * 0.58);
-    box("backpack_strap_L", "backpack", prop.torsoW * 0.06, prop.torsoH * 0.60, prop.torsoD * 0.04,
-      -prop.torsoW * 0.18, yTorso + prop.torsoH * 0.38, 0);
-    box("backpack_strap_R", "backpack", prop.torsoW * 0.06, prop.torsoH * 0.60, prop.torsoD * 0.04,
-       prop.torsoW * 0.18, yTorso + prop.torsoH * 0.38, 0);
-  }
+  // (child backpack removed)
 
   // Elderly cane
   if (isElderly) {
@@ -4390,7 +6351,7 @@ function buildHumanSpec(prompt, height, styles) {
   // Hair
   shape("hair_top", "sphere", hairMat, prop.headW * 0.96, prop.headH * 0.60, prop.headD * 0.96,
     0, yHead + prop.headH * 0.72, 0);
-  if (!isPolice && !isFirefighter) {
+  if (!isPolice && !isFirefighter && !isChild) {
     box("hair_back", hairMat, prop.headW * 0.90, prop.headH * 0.55, prop.headD * 0.20,
       0, yHead + prop.headH * 0.58, -prop.headD * 0.48);
   }

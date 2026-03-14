@@ -96,7 +96,8 @@ When invoked:
 - building / facility_nursing (老人ホーム・介護施設)
 - building / facility_school (学校)
 - building / facility_cityhall (市役所・区役所)
-- human (人間全般: police_officer / firefighter / nurse / doctor / child / elderly / woman / adult)
+- building / facility_university (大学・キャンパス)
+- human (男性 / 女性 / 子ども)
 - vehicle (generic transport)
 - structure (tree / signal / bridge / infra)
 
