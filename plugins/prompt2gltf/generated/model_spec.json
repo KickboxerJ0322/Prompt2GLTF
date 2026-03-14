@@ -1,14 +1,14 @@
 {
   "meta": {
-    "name": "robot_35m_巨大ロボ",
+    "name": "robot_35m_ロボット",
     "version": "0.2.0",
     "units": "meters",
     "generator": "prompt2gltf",
-    "generatedFrom": "巨大ロボ",
-    "createdAt": "2026-03-14T03:13:19.624Z"
+    "generatedFrom": "ロボット",
+    "createdAt": "2026-03-14T03:26:04.400Z"
   },
   "promptInterpretation": {
-    "originalPrompt": "巨大ロボ",
+    "originalPrompt": "ロボット",
     "normalizedSubject": "robot",
     "targetHeightMeters": 35,
     "styleTags": [

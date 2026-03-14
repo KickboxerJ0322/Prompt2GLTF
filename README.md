@@ -263,6 +263,4 @@ plugins/prompt2cesiumjs/generated/
 
 ## 動画
 
-> 解説動画は準備中です。
-
-<!-- [![prompt2gltf 解説動画](https://img.youtube.com/vi/PLACEHOLDER/0.jpg)](https://www.youtube.com/watch?v=PLACEHOLDER) -->
+![prompt2gltf 解説動画](https://www.youtube.com/watch?v=Irw6JqgXudk)

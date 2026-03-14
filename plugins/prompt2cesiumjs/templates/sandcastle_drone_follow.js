@@ -322,7 +322,7 @@ await viewer.camera.flyTo({
 // ------------------------------------
 let smoothCamPos;
 
-viewer.scene.preRender.addEventListener(function (scene, time) {
+viewer.scene.preRender.addEventListener(function (_scene, time) {
   const p = position.getValue(time);
   const q = baseOrientation.getValue(time);
 

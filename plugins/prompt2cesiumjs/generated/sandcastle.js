@@ -1,16 +1,16 @@
 // ==============================
-// Cesium Sandcastle
+// Cesium Sandcastle 用
 // Google Photorealistic 3D Tiles
-// Helicopter moving from Yamashita Park toward Tokyo
+// ヘリコプター：東京ビッグサイト → 皇居
+// 後方追尾カメラ付き片道飛行
 // ==============================
 
 // ------------------------------------
-// Model orientation adjustment
-// Tune these if heli.glb points sideways/backward.
+// モデル向き補正（GLB の前方軸がずれている場合に調整）
 // ------------------------------------
 const HEADING_FIX_DEG = 0;
-const PITCH_FIX_DEG = 0;
-const ROLL_FIX_DEG = 0;
+const PITCH_FIX_DEG   = 0;
+const ROLL_FIX_DEG    = 0;
 
 // ------------------------------------
 // Viewer
@@ -35,101 +35,86 @@ try {
   const googleTileset = await Cesium.createGooglePhotorealistic3DTileset();
   viewer.scene.primitives.add(googleTileset);
 } catch (error) {
-  console.log("Failed to load Google Photorealistic 3D Tiles", error);
+  console.log("Google Photorealistic 3D Tiles の読み込みに失敗:", error);
   throw error;
 }
 
 // ------------------------------------
-// Helicopter setup
+// ヘリコプター設定
 // ------------------------------------
-const PERSON = {
-  name: "Helicopter",
-  glb: "https://raw.githubusercontent.com/KickboxerJ0322/Prompt2GLTF/master/glb/heli.glb",
-  scale: 2,
-  minimumPixelSize: 96,
-  maximumScale: 400,
-  heightMeters: 180,
-  speedMultiplier: 1.0,
-  pathWidth: 5,
-  followOffset: new Cesium.Cartesian3(-260.0, 0.0, 120.0),
-  lookOffset: new Cesium.Cartesian3(90.0, 0.0, 20.0),
-  cameraSmooth: 0.08,
+const HELI = {
+  name: "ヘリコプター",
+  uri: "https://raw.githubusercontent.com/KickboxerJ0322/Prompt2GLTF/master/glb/heli.glb",
+  scale: 2.0,
+  minimumPixelSize: 48,
+  maximumScale: 600,
+
+  // 後方追尾カメラオフセット（モデルローカル座標）
+  // X: 前方, Y: 左, Z: 上（VelocityOrientationProperty 基準）
+  followOffset: new Cesium.Cartesian3(-250, 0, 70),  // 250m後方・70m上
+  lookOffset:   new Cesium.Cartesian3( 100, 0,  0),  // 機体より少し前方を注視
+  cameraSmooth: 0.06,                                 // 追尾の滑らかさ（小さいほど遅延大）
 };
 
-// [seconds, lon, lat]
-// Yamashita Park -> Yokohama Bay -> toward Tokyo
-const route2D = [
-  [0, 139.65085, 35.44352],
-  [20, 139.65540, 35.44605],
-  [40, 139.66260, 35.45075],
-  [60, 139.67250, 35.45710],
-  [80, 139.68520, 35.46520],
-  [100, 139.70050, 35.47540],
-  [120, 139.71780, 35.48690],
-  [140, 139.73600, 35.49960],
-];
-
-const DEFAULT_PLACE_LABELS = [
-  { name: "Yamashita Park", lon: 139.65085, lat: 35.44352, height: 30, color: "LIME" },
-  { name: "Yokohama Marine Tower", lon: 139.65158, lat: 35.44398, height: 60, color: "CYAN" },
-  { name: "Osanbashi", lon: 139.65120, lat: 35.45147, height: 30, color: "WHITE" },
-  { name: "Minato Mirai", lon: 139.63547, lat: 35.45596, height: 40, color: "WHITE" },
-  { name: "Yokohama Bay Bridge", lon: 139.68391, lat: 35.45955, height: 80, color: "ORANGE" },
-  { name: "Toward Tokyo", lon: 139.73600, lat: 35.49960, height: 40, color: "YELLOW" },
-];
-
-const WAYPOINTS = [
-  { lon: 139.68391, lat: 35.45955, label: "Bay Bridge", color: "ORANGE" },
-  { lon: 139.71780, lat: 35.48690, label: "Tokyo Direction", color: "YELLOW" },
+// ------------------------------------
+// 飛行ルート：東京ビッグサイト → 皇居
+// [秒, 経度, 緯度, 高度]
+// ------------------------------------
+const FLIGHT_ROUTE = [
+  [  0, 139.7948, 35.6298, 150], // 東京ビッグサイト（出発）
+  [ 10, 139.7919, 35.6359, 220], // 有明ガーデン上空
+  [ 22, 139.7757, 35.6270, 280], // お台場海浜公園上空
+  [ 36, 139.7565, 35.6356, 320], // レインボーブリッジ上空
+  [ 48, 139.7450, 35.6450, 300], // 芝浦上空
+  [ 60, 139.7454, 35.6586, 350], // 東京タワー上空
+  [ 71, 139.7510, 35.6680, 280], // 虎ノ門上空
+  [ 80, 139.7520, 35.6740, 220], // 霞が関上空
+  [ 87, 139.7540, 35.6800, 160], // 皇居外苑上空
+  [ 90, 139.7528, 35.6852, 100], // 皇居（到着）
 ];
 
 // ------------------------------------
-// Time setup
+// クロック設定（終点で停止）
 // ------------------------------------
-const startIso = "2026-03-14T09:00:00Z";
+const startIso = new Date().toISOString();
 const start = Cesium.JulianDate.fromIso8601(startIso);
-const stop = Cesium.JulianDate.addSeconds(
-  start,
-  route2D[route2D.length - 1][0],
-  new Cesium.JulianDate()
-);
+const totalSec = FLIGHT_ROUTE[FLIGHT_ROUTE.length - 1][0];
+const stop = Cesium.JulianDate.addSeconds(start, totalSec, new Cesium.JulianDate());
 
 viewer.clock.startTime = start.clone();
 viewer.clock.stopTime = stop.clone();
 viewer.clock.currentTime = start.clone();
-viewer.clock.clockRange = Cesium.ClockRange.LOOP_STOP;
-viewer.clock.multiplier = PERSON.speedMultiplier;
-viewer.clock.shouldAnimate = true;
+viewer.clock.clockRange = Cesium.ClockRange.CLAMPED; // 到着で停止
+viewer.clock.multiplier = 2;                         // 2倍速
 
 // ------------------------------------
-// Flight path samples
+// 飛行ルート（SampledPositionProperty）
 // ------------------------------------
 const position = new Cesium.SampledPositionProperty();
-
-for (const [sec, lon, lat] of route2D) {
-  const time = Cesium.JulianDate.addSeconds(start, sec, new Cesium.JulianDate());
-  const pos = Cesium.Cartesian3.fromDegrees(lon, lat, PERSON.heightMeters);
-  position.addSample(time, pos);
-}
-
 position.setInterpolationOptions({
-  interpolationDegree: 1,
-  interpolationAlgorithm: Cesium.LinearApproximation,
+  interpolationDegree: 3,
+  interpolationAlgorithm: Cesium.HermitePolynomialApproximation,
 });
 
+for (const [sec, lon, lat, height] of FLIGHT_ROUTE) {
+  const t = Cesium.JulianDate.addSeconds(start, sec, new Cesium.JulianDate());
+  position.addSample(t, Cesium.Cartesian3.fromDegrees(lon, lat, height));
+}
+
 // ------------------------------------
-// Orientation
+// 向き（速度方向 + 補正）
 // ------------------------------------
 const velocityOrientation = new Cesium.VelocityOrientationProperty(position);
 
-const baseOrientation = new Cesium.CallbackProperty(function (time, result) {
+// カメラ追尾用（補正なし）
+const baseOrientation = new Cesium.CallbackProperty((time, result) => {
   return velocityOrientation.getValue(time, result);
 }, false);
 
-const modelOrientation = new Cesium.CallbackProperty(function (time, result) {
+// モデル表示用（GLB軸補正あり）
+const modelOrientation = new Cesium.CallbackProperty((time, result) => {
   const baseQ = velocityOrientation.getValue(time, result);
   if (!Cesium.defined(baseQ)) return undefined;
-
   const fixQ = Cesium.Quaternion.fromHeadingPitchRoll(
     new Cesium.HeadingPitchRoll(
       Cesium.Math.toRadians(HEADING_FIX_DEG),
@@ -137,111 +122,114 @@ const modelOrientation = new Cesium.CallbackProperty(function (time, result) {
       Cesium.Math.toRadians(ROLL_FIX_DEG)
     )
   );
-
   return Cesium.Quaternion.multiply(baseQ, fixQ, new Cesium.Quaternion());
 }, false);
 
 // ------------------------------------
-// Route line
+// ヘリコプター エンティティ
 // ------------------------------------
 viewer.entities.add({
-  name: "Yamashita Park to Tokyo route",
+  name: HELI.name,
+  position: position,
+  orientation: modelOrientation,
+  availability: new Cesium.TimeIntervalCollection([
+    new Cesium.TimeInterval({ start, stop }),
+  ]),
+  model: {
+    uri: HELI.uri,
+    scale: HELI.scale,
+    minimumPixelSize: HELI.minimumPixelSize,
+    maximumScale: HELI.maximumScale,
+    runAnimations: true,
+  },
+  path: {
+    width: 3,
+    material: new Cesium.PolylineGlowMaterialProperty({
+      glowPower: 0.2,
+      color: Cesium.Color.YELLOW,
+    }),
+    leadTime: 0,
+    trailTime: totalSec,
+    resolution: 2,
+  },
+});
+
+// ------------------------------------
+// 飛行ルート ポリライン（全体）
+// ------------------------------------
+viewer.entities.add({
   polyline: {
-    positions: route2D.map(([, lon, lat]) =>
-      Cesium.Cartesian3.fromDegrees(lon, lat, PERSON.heightMeters)
+    positions: FLIGHT_ROUTE.map(([, lon, lat, h]) =>
+      Cesium.Cartesian3.fromDegrees(lon, lat, h)
     ),
-    width: PERSON.pathWidth,
-    material: new Cesium.PolylineOutlineMaterialProperty({
-      color: Cesium.Color.CYAN.withAlpha(0.9),
-      outlineColor: Cesium.Color.BLACK,
-      outlineWidth: 1,
+    width: 2,
+    material: new Cesium.PolylineDashMaterialProperty({
+      color: Cesium.Color.YELLOW.withAlpha(0.35),
+      dashLength: 16,
     }),
   },
 });
 
-viewer.entities.add({
-  position: Cesium.Cartesian3.fromDegrees(
-    route2D[0][1],
-    route2D[0][2],
-    PERSON.heightMeters
-  ),
-  point: {
-    pixelSize: 14,
-    color: Cesium.Color.LIME,
-    outlineColor: Cesium.Color.BLACK,
-    outlineWidth: 2,
-    disableDepthTestDistance: Number.POSITIVE_INFINITY,
+// ------------------------------------
+// 出発・到着マーカー
+// ------------------------------------
+const TERMINALS = [
+  {
+    lon: 139.7948, lat: 35.6298, height: 10,
+    text: "出発：東京ビッグサイト",
+    color: Cesium.Color.CYAN,
   },
-  label: {
-    text: "Start: Yamashita Park",
-    font: "20px sans-serif",
-    fillColor: Cesium.Color.LIME,
-    outlineColor: Cesium.Color.BLACK,
-    outlineWidth: 3,
-    style: Cesium.LabelStyle.FILL_AND_OUTLINE,
-    pixelOffset: new Cesium.Cartesian2(0, -30),
-    disableDepthTestDistance: Number.POSITIVE_INFINITY,
+  {
+    lon: 139.7528, lat: 35.6852, height: 10,
+    text: "到着：皇居",
+    color: Cesium.Color.GOLD,
   },
-});
+];
 
-viewer.entities.add({
-  position: Cesium.Cartesian3.fromDegrees(
-    route2D[route2D.length - 1][1],
-    route2D[route2D.length - 1][2],
-    PERSON.heightMeters
-  ),
-  point: {
-    pixelSize: 14,
-    color: Cesium.Color.YELLOW,
-    outlineColor: Cesium.Color.BLACK,
-    outlineWidth: 2,
-    disableDepthTestDistance: Number.POSITIVE_INFINITY,
-  },
-  label: {
-    text: "Goal: Toward Tokyo",
-    font: "20px sans-serif",
-    fillColor: Cesium.Color.YELLOW,
-    outlineColor: Cesium.Color.BLACK,
-    outlineWidth: 3,
-    style: Cesium.LabelStyle.FILL_AND_OUTLINE,
-    pixelOffset: new Cesium.Cartesian2(0, -30),
-    disableDepthTestDistance: Number.POSITIVE_INFINITY,
-  },
-});
-
-for (const wp of WAYPOINTS) {
+for (const t of TERMINALS) {
   viewer.entities.add({
-    position: Cesium.Cartesian3.fromDegrees(wp.lon, wp.lat, PERSON.heightMeters),
+    position: Cesium.Cartesian3.fromDegrees(t.lon, t.lat, t.height),
     point: {
-      pixelSize: 10,
-      color: Cesium.Color[wp.color] || Cesium.Color.ORANGE,
+      pixelSize: 14,
+      color: t.color,
       outlineColor: Cesium.Color.BLACK,
       outlineWidth: 2,
       disableDepthTestDistance: Number.POSITIVE_INFINITY,
     },
     label: {
-      text: wp.label,
+      text: t.text,
       font: "18px sans-serif",
-      fillColor: Cesium.Color[wp.color] || Cesium.Color.ORANGE,
+      fillColor: t.color,
       outlineColor: Cesium.Color.BLACK,
       outlineWidth: 3,
       style: Cesium.LabelStyle.FILL_AND_OUTLINE,
-      pixelOffset: new Cesium.Cartesian2(0, -26),
+      showBackground: true,
+      backgroundColor: Cesium.Color.BLACK.withAlpha(0.45),
+      pixelOffset: new Cesium.Cartesian2(0, -28),
       disableDepthTestDistance: Number.POSITIVE_INFINITY,
     },
   });
 }
 
-for (const place of DEFAULT_PLACE_LABELS) {
+// ------------------------------------
+// 経由地名ラベル
+// ------------------------------------
+const PLACE_LABELS = [
+  { name: "有明ガーデン",       lon: 139.7919, lat: 35.6359, color: "WHITE"  },
+  { name: "お台場海浜公園",     lon: 139.7757, lat: 35.6270, color: "CYAN"   },
+  { name: "レインボーブリッジ", lon: 139.7565, lat: 35.6356, color: "WHITE"  },
+  { name: "東京タワー",         lon: 139.7454, lat: 35.6586, color: "ORANGE" },
+  { name: "虎ノ門",             lon: 139.7510, lat: 35.6680, color: "WHITE"  },
+  { name: "霞が関",             lon: 139.7520, lat: 35.6740, color: "WHITE"  },
+  { name: "皇居外苑",           lon: 139.7540, lat: 35.6800, color: "LIME"   },
+];
+
+for (const place of PLACE_LABELS) {
   viewer.entities.add({
-    position: Cesium.Cartesian3.fromDegrees(
-      place.lon,
-      place.lat,
-      place.height ?? PERSON.heightMeters
-    ),
+    position: Cesium.Cartesian3.fromDegrees(place.lon, place.lat, 20),
     label: {
       text: place.name,
-      font: "18px sans-serif",
+      font: "15px sans-serif",
       fillColor: Cesium.Color[place.color] || Cesium.Color.WHITE,
       outlineColor: Cesium.Color.BLACK,
       outlineWidth: 3,
@@ -255,116 +243,64 @@ for (const place of DEFAULT_PLACE_LABELS) {
 }
 
 // ------------------------------------
-// Helicopter entity
-// ------------------------------------
-viewer.entities.add({
-  name: PERSON.name,
-  position: position,
-  orientation: modelOrientation,
-  availability: new Cesium.TimeIntervalCollection([
-    new Cesium.TimeInterval({ start, stop }),
-  ]),
-  model: {
-    uri: PERSON.glb,
-    scale: PERSON.scale,
-    minimumPixelSize: PERSON.minimumPixelSize,
-    maximumScale: PERSON.maximumScale,
-    runAnimations: true,
-  },
-  path: {
-    width: PERSON.pathWidth,
-    material: new Cesium.PolylineOutlineMaterialProperty({
-      color: Cesium.Color.CYAN.withAlpha(0.55),
-      outlineColor: Cesium.Color.BLACK,
-      outlineWidth: 1,
-    }),
-    leadTime: 0,
-    trailTime: 9999,
-    resolution: 5,
-  },
-});
-
-// ------------------------------------
-// Initial camera
+// 最初にルート全体を俯瞰
 // ------------------------------------
 await viewer.camera.flyTo({
-  destination: Cesium.Cartesian3.fromDegrees(139.668, 35.456, 2200),
+  destination: Cesium.Cartesian3.fromDegrees(139.7730, 35.6580, 18000),
   orientation: {
-    heading: Cesium.Math.toRadians(42),
-    pitch: Cesium.Math.toRadians(-32),
+    heading: Cesium.Math.toRadians(0),
+    pitch: Cesium.Math.toRadians(-50),
     roll: 0,
   },
-  duration: 1.5,
+  duration: 2.0,
 });
 
 // ------------------------------------
-// Follow camera
+// 後方追尾カメラ（preRender でフレーム毎に更新）
 // ------------------------------------
 let smoothCamPos;
 
-viewer.scene.preRender.addEventListener(function (scene, time) {
+viewer.scene.preRender.addEventListener(function (_scene, time) {
   const p = position.getValue(time);
   const q = baseOrientation.getValue(time);
-
   if (!Cesium.defined(p) || !Cesium.defined(q)) return;
 
   const rot = Cesium.Matrix3.fromQuaternion(q);
 
-  const worldFollowOffset = Cesium.Matrix3.multiplyByVector(
-    rot,
-    PERSON.followOffset,
-    new Cesium.Cartesian3()
+  // followOffset をワールド座標へ変換してカメラ目標位置を算出
+  const worldFollow = Cesium.Matrix3.multiplyByVector(
+    rot, HELI.followOffset, new Cesium.Cartesian3()
   );
+  const desiredCamPos = Cesium.Cartesian3.add(p, worldFollow, new Cesium.Cartesian3());
 
-  const desiredCamPos = Cesium.Cartesian3.add(
-    p,
-    worldFollowOffset,
-    new Cesium.Cartesian3()
+  // lookOffset をワールド座標へ変換して注視点を算出
+  const worldLook = Cesium.Matrix3.multiplyByVector(
+    rot, HELI.lookOffset, new Cesium.Cartesian3()
   );
+  const lookAt = Cesium.Cartesian3.add(p, worldLook, new Cesium.Cartesian3());
 
-  const worldLookOffset = Cesium.Matrix3.multiplyByVector(
-    rot,
-    PERSON.lookOffset,
-    new Cesium.Cartesian3()
-  );
-
-  const targetLookAt = Cesium.Cartesian3.add(
-    p,
-    worldLookOffset,
-    new Cesium.Cartesian3()
-  );
-
+  // カメラ位置をスムーズに補間
   if (!Cesium.defined(smoothCamPos)) {
     smoothCamPos = Cesium.Cartesian3.clone(desiredCamPos);
   } else {
-    Cesium.Cartesian3.lerp(
-      smoothCamPos,
-      desiredCamPos,
-      PERSON.cameraSmooth,
-      smoothCamPos
-    );
+    Cesium.Cartesian3.lerp(smoothCamPos, desiredCamPos, HELI.cameraSmooth, smoothCamPos);
   }
 
+  // カメラ方向ベクトルを計算
   const dir = Cesium.Cartesian3.normalize(
-    Cesium.Cartesian3.subtract(
-      targetLookAt,
-      smoothCamPos,
-      new Cesium.Cartesian3()
-    ),
+    Cesium.Cartesian3.subtract(lookAt, smoothCamPos, new Cesium.Cartesian3()),
     new Cesium.Cartesian3()
   );
 
   const localUp = Cesium.Ellipsoid.WGS84.geodeticSurfaceNormal(
-    smoothCamPos,
-    new Cesium.Cartesian3()
+    smoothCamPos, new Cesium.Cartesian3()
   );
 
   let right = Cesium.Cartesian3.cross(dir, localUp, new Cesium.Cartesian3());
-
   if (Cesium.Cartesian3.magnitude(right) < 1e-6) {
     right = Cesium.Cartesian3.clone(Cesium.Cartesian3.UNIT_X);
   } else {
-    right = Cesium.Cartesian3.normalize(right, right);
+    Cesium.Cartesian3.normalize(right, right);
   }
 
   const up = Cesium.Cartesian3.normalize(
@@ -374,11 +310,11 @@ viewer.scene.preRender.addEventListener(function (scene, time) {
 
   viewer.camera.setView({
     destination: smoothCamPos,
-    orientation: {
-      direction: dir,
-      up: up,
-    },
+    orientation: { direction: dir, up: up },
   });
 });
 
-console.log("Loaded helicopter route from Yamashita Park toward Tokyo");
+// ------------------------------------
+// 読み込み完了
+// ------------------------------------
+console.log("読み込み完了: ヘリコプター 東京ビッグサイト → 皇居（後方追尾カメラ・6倍速）");
