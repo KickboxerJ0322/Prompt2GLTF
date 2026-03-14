@@ -1,6 +1,6 @@
 {
   "id": "prompt2gltf",
-  "name": "Prompt2GLTF",
+  "name": "prompt2gltf",
   "version": "0.2.0",
   "description": "自然言語のプロンプトから 3D モデル（GLTF/GLB）とプレビュー HTML を生成するスキル。建物・施設・人物・乗り物・怪獣・ロボットなど幅広いカテゴリに対応。",
   "author": "prompt2gltf-hackathon",

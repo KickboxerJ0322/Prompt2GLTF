@@ -1,0 +1,14 @@
+{
+  "id": "prompt2cesiumjs",
+  "name": "Prompt2cesiumJS",
+  "version": "0.2.0",
+  "description": "自然言語のプロンプトから Cesium Sandcastle 用 JavaScript を生成するスキル。Google Photorealistic 3D Tiles、GLTF/GLBモデル、移動ルート、固定配置、追尾カメラ付きコードを出力する。",
+  "author": "prompt2cesiumjs-hackathon",
+  "license": "MIT",
+  "skills": [
+    {
+      "name": "prompt2cesiumjs",
+      "path": "skills/prompt2cesiumjs/SKILL.md"
+    }
+  ]
+}

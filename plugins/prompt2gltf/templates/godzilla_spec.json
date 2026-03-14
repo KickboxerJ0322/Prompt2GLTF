@@ -3,7 +3,7 @@
     "name": "kaiju_80m_ゴジラ風巨大怪獣",
     "version": "0.2.0",
     "units": "meters",
-    "generator": "Prompt2GLTF",
+    "generator": "prompt2gltf",
     "generatedFrom": "ゴジラ風巨大怪獣",
     "createdAt": "2026-03-08T07:21:14.258Z"
   },

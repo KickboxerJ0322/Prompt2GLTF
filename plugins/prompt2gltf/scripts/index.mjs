@@ -1,4 +1,5 @@
-﻿import fs from "node:fs/promises";
+﻿
+import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
@@ -9,8 +10,9 @@ import {
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const PLUGIN_ROOT = path.resolve(__dirname, "..");
-const OUTPUT_DIR  = path.join(PLUGIN_ROOT, "generated");
+const PLUGIN_ROOT   = path.resolve(__dirname, "..");
+const OUTPUT_DIR    = path.join(PLUGIN_ROOT, "generated");
+const TEMPLATES_DIR = path.join(PLUGIN_ROOT, "templates");
 
 function getArg(name) {
   const idx = process.argv.indexOf(name);
@@ -118,7 +120,7 @@ const SUBJECT_REGISTRY = [
   },
   {
     id: "airship",
-    match: /airship|\u98db\u884c\u8239/iu,
+    match: /airship|飛行船|飛空艇|飛空挺/iu,
     defaultHeight: () => 80,
     defaultStyle: "fantasy_steampunk",
   },
@@ -154,7 +156,7 @@ const SUBJECT_REGISTRY = [
   },
   {
     id: "human",
-    match: /police.?officer|firefighter|nurse|doctor|physician|child|adult|woman|elderly|old.?man|old.?woman|person|human|people|\u8b66\u5bdf\u5b98|\u8b66\u5b98|\u6d88\u9632\u58eb|\u770b\u8b77\u5e2b|\u533b\u5e2b|\u5b50\u3069\u3082|\u5b50\u4f9b|\u5c0f\u5b66\u751f|\u5927\u4eba|\u5973\u6027|\u7537\u6027|\u8001\u4eba|\u9ad8\u9f62\u8005|\u4eba\u9593|\u4eba\u7269/iu,
+    match: /police.?officer|firefighter|nurse|doctor|physician|child|adult|woman|elderly|old.?man|old.?woman|person|human|people|runner|marathon|jogging|sprint|\u8b66\u5bdf\u5b98|\u8b66\u5b98|\u6d88\u9632\u58eb|\u770b\u8b77\u5e2b|\u533b\u5e2b|\u5b50\u3069\u3082|\u5b50\u4f9b|\u5c0f\u5b66\u751f|\u5927\u4eba|\u5973\u6027|\u7537\u6027|\u8001\u4eba|\u9ad8\u9f62\u8005|\u4eba\u9593|\u4eba\u7269|ランナー|マラソン|走る人/iu,
     defaultHeight: () => 1.7,
     defaultStyle: "realistic_human",
   },
@@ -256,6 +258,7 @@ function inferStyle(prompt, subject) {
   if (/elderly|old.?man|old.?woman|\u8001\u4eba|\u9ad8\u9f62\u8005/iu.test(prompt)) tags.push("elderly");
   if (/woman|\u5973\u6027/iu.test(prompt)) tags.push("woman");
   if (/marathon|runner|jogging|sprint|\u30de\u30e9\u30bd\u30f3|\u30e9\u30f3\u30ca\u30fc|\u8d70\u308b/iu.test(prompt)) tags.push("runner");
+  if (/suit|\u30b9\u30fc\u30c4|\u80cc\u5e83|\u30d3\u30b8\u30cd\u30b9\u30de\u30f3|\u30b5\u30e9\u30ea\u30fc\u30de\u30f3/iu.test(prompt)) tags.push("suit");
 
   if (tags.length === 0) {
     const entry = SUBJECT_REGISTRY.find((r) => r.id === subject);
@@ -488,6 +491,34 @@ function createBaseMaterials(subject, styles) {
       hair:           { baseColor: "#D8D4D0", roughness: 0.88, metalness: 0.00 },
       cane:           { baseColor: "#7A5030", roughness: 0.80, metalness: 0.10 }
     };
+    if (styles.includes("suit") && styles.includes("woman")) return {
+      skin:           { baseColor: "#F2C9A0", roughness: 0.78, metalness: 0.00 },
+      suit_jacket:    { baseColor: "#111827", roughness: 0.68, metalness: 0.03 },
+      skirt:          { baseColor: "#111827", roughness: 0.72, metalness: 0.02 },
+      skirt_dark:     { baseColor: "#0B1220", roughness: 0.74, metalness: 0.02 },
+      blouse:         { baseColor: "#F8FAFC", roughness: 0.78, metalness: 0.01 },
+      heel_shoe:      { baseColor: "#0B1220", roughness: 0.38, metalness: 0.14 },
+      shoe_sole:      { baseColor: "#0A0A0E", roughness: 0.92, metalness: 0.01 },
+      button_silver:  { baseColor: "#C8C8C8", roughness: 0.25, metalness: 0.90 },
+      accent_pin:     { baseColor: "#0EA5E9", roughness: 0.22, metalness: 0.30 },
+      glass_frame:    { baseColor: "#111827", roughness: 0.28, metalness: 0.18 },
+      glass_lens:     { baseColor: "#93C5FD", roughness: 0.08, metalness: 0.00 },
+      hair:           { baseColor: "#3F2A1A", roughness: 0.88, metalness: 0.00 }
+    };
+    if (styles.includes("suit")) return {
+      skin:           skinTone,
+      suit_jacket:    { baseColor: "#1C2030", roughness: 0.68, metalness: 0.03 },
+      suit_pants:     { baseColor: "#1E2232", roughness: 0.70, metalness: 0.02 },
+      dress_shirt:    { baseColor: "#F4F2EE", roughness: 0.78, metalness: 0.01 },
+      tie:            { baseColor: "#8B1E2D", roughness: 0.55, metalness: 0.04 },
+      dress_shoe:     { baseColor: "#1A1210", roughness: 0.42, metalness: 0.12 },
+      shoe_sole:      { baseColor: "#0E0C0A", roughness: 0.90, metalness: 0.01 },
+      button_silver:  { baseColor: "#C8C8C8", roughness: 0.25, metalness: 0.90 },
+      belt:           { baseColor: "#1A1210", roughness: 0.62, metalness: 0.04 },
+      belt_buckle:    { baseColor: "#C8A840", roughness: 0.28, metalness: 0.88 },
+      pocket_square:  { baseColor: "#F0EEE8", roughness: 0.72, metalness: 0.01 },
+      hair:           { baseColor: "#201808", roughness: 0.86, metalness: 0.00 }
+    };
     // Default adult / woman
     return {
       skin:           skinTone,
@@ -551,7 +582,7 @@ function buildHighDensityMeta(prompt, subject, height, styles) {
       name: `${subject}_${height}m_${slugify(prompt)}`,
       version: "0.2.0",
       units: "meters",
-      generator: "Prompt2GLTF",
+      generator: "prompt2gltf",
       generatedFrom: prompt,
       createdAt: new Date().toISOString()
     },
@@ -1932,6 +1963,7 @@ function classifyBuildingArchetype(prompt) {
   if (/2[-\s]?(story|floor)|\u4e8c\u968e\u5efa|\u0032\u968e\u5efa/u.test(prompt)) return "house_2f";
   if (/3[-\s]?(story|floor)|\u4e09\u968e\u5efa|\u0033\u968e\u5efa/u.test(prompt)) return "house_3f";
   if (/japanese|traditional|washitsu|\u548c\u98a8|\u548c\u5f0f/u.test(prompt) && /house|\u4f4f\u5b85|\u6238\u5efa/u.test(prompt)) return "house_jp";
+  if (/modern|contemporary|\u30e2\u30c0\u30f3/iu.test(prompt) && /house|\u4f4f\u5b85|\u6238\u5efa|\u30cf\u30a6\u30b9/u.test(prompt)) return "house_modern";
   if (/western|\u6d0b\u98a8/u.test(prompt) && /house|\u4f4f\u5b85|\u6238\u5efa/u.test(prompt)) return "house_western";
   if (/family.*mansion|family.*condo|\u30d5\u30a1\u30df\u30ea\u30fc.*\u30de\u30f3\u30b7\u30e7\u30f3/u.test(prompt)) return "mansion_family";
   if (/\u5927\u90b8\u5b85|mansion|estate|villa/u.test(prompt)) return "mansion_estate";
@@ -1980,6 +2012,7 @@ function buildBuildingSpec(prompt, height, styles) {
     house_2f:      { w: 0.72, d: 0.60, body: 0.72, roof: 0.24 },
     house_3f:      { w: 0.62, d: 0.52, body: 0.78, roof: 0.18 },
     house_jp:      { w: 0.80, d: 0.66, body: 0.66, roof: 0.30 },
+    house_modern:  { w: 0.72, d: 0.60, body: 0.73, roof: 0.27 },
     house_western: { w: 0.74, d: 0.62, body: 0.70, roof: 0.26 },
     apartment_2f:  { w: 0.96, d: 0.42, body: 0.76, roof: 0.18 },
     apartment_mid: { w: 0.72, d: 0.44, body: 0.82, roof: 0.14 },
@@ -2646,11 +2679,443 @@ function buildBuildingSpec(prompt, height, styles) {
     return spec;
   }
 
+  // ── Japanese traditional house (和風戸建て) — full override ──────────────────
+  if (archetype === "house_jp") {
+    // Cap to realistic residential height (default building H is 90m; houses are ~8-9m)
+    const Hw = Math.min(H, 8.5);
+
+    spec.materials = {
+      stone_main:    { baseColor: "#A0A09A", roughness: 0.96, metalness: 0.03 },
+      stone_step:    { baseColor: "#8A8A84", roughness: 0.94, metalness: 0.02 },
+      plaster_white: { baseColor: "#F4F2EC", roughness: 0.92, metalness: 0.01 },
+      wood_dark:     { baseColor: "#5D4037", roughness: 0.88, metalness: 0.02 },
+      wood_light:    { baseColor: "#8D6E63", roughness: 0.86, metalness: 0.02 },
+      tile_roof:     { baseColor: "#4A4E5D", roughness: 0.80, metalness: 0.10 },
+      tile_ridge:    { baseColor: "#3A3840", roughness: 0.82, metalness: 0.08 },
+      shoji:         { baseColor: "#F2F0E8", roughness: 0.78, metalness: 0.01 },
+      fusuma:        { baseColor: "#8B4513", roughness: 0.85, metalness: 0.04 },
+      glass_wa:      { baseColor: "#3A5870", roughness: 0.18, metalness: 0.86 },
+    };
+    spec.globalScale = { height: Hw, width: rounded(Hw * 1.50), depth: rounded(Hw * 1.12) };
+
+    // ── Vertical zones ────────────────────────────────────────────────────────
+    const baseH    = Hw * 0.058;   // 0.5m concrete foundation
+    const f1H      = Hw * 0.340;   // 2.9m first-floor walls
+    const eave1H   = Hw * 0.047;   // 0.4m low eave slab
+    const f2H      = Hw * 0.270;   // 2.3m second-floor walls
+    const roofH    = Hw * 0.285;   // 2.4m hip roof
+
+    const yF1   = baseH;
+    const yEav1 = yF1   + f1H;
+    const yF2   = yEav1 + eave1H;
+    const yRoof = yF2   + f2H;
+
+    // ── Plan dimensions ───────────────────────────────────────────────────────
+    const bsW = Hw * 1.50;   const bsD = Hw * 1.12;   // base footprint
+    const wW  = Hw * 1.25;   const wD  = Hw * 0.875;  // first-floor walls
+    const eW  = Hw * 1.56;   const eD  = Hw * 1.19;   // low-eave overhang
+    const f2W = Hw * 0.875;  const f2D = Hw * 0.625;  // second-floor (narrower)
+    const rW1 = Hw * 1.30;   const rD1 = Hw * 1.19;   // roof eave layer
+    const rW2 = Hw * 0.975;  const rD2 = Hw * 0.875;  // roof body
+    const pW  = Hw * 0.038;                            // post width
+
+    // ── Foundation & stone steps ──────────────────────────────────────────────
+    box("foundation", "stone_main",  bsW,          baseH,          bsD,          0,  baseH*0.50,              0);
+    box("step_1",     "stone_step",  Hw*0.30,      baseH*1.60,     Hw*0.08,      0,  baseH*1.30,  bsD*0.50+Hw*0.04);
+    box("step_2",     "stone_step",  Hw*0.30,      baseH*0.90,     Hw*0.08,      0,  baseH*0.80,  bsD*0.50+Hw*0.12);
+
+    // ── Engawa (縁側 — perimeter wooden deck) ─────────────────────────────────
+    box("engawa_front",  "wood_light", eW*0.88,  Hw*0.042, Hw*0.20,  0,           yF1+Hw*0.021,  wD*0.52);
+    box("engawa_side_L", "wood_light", Hw*0.20,  Hw*0.042, wD*0.88, -wW*0.52,    yF1+Hw*0.021,  0);
+    box("engawa_side_R", "wood_light", Hw*0.20,  Hw*0.042, wD*0.88,  wW*0.52,    yF1+Hw*0.021,  0);
+
+    // ── First floor body ──────────────────────────────────────────────────────
+    box("wall_f1", "plaster_white", wW, f1H, wD, 0, yF1 + f1H*0.5, 0);
+
+    // ── Corner posts 1F (柱) ──────────────────────────────────────────────────
+    for (const [sx, sz] of [[-1,-1],[-1,1],[1,-1],[1,1]]) {
+      box(`post1_${sx<0?"L":"R"}${sz<0?"B":"F"}`, "wood_dark",
+        pW, f1H*1.05, pW,
+        sx*(wW*0.50+pW*0.30), yF1+f1H*0.525, sz*(wD*0.50+pW*0.30));
+    }
+
+    // ── 1F front facade: fusuma doors + shoji windows ────────────────────────
+    box("fusuma_1",    "fusuma", wW*0.14, f1H*0.66, wD*0.03,  wW*0.13,  yF1+f1H*0.38,  wD*0.505);
+    box("fusuma_2",    "fusuma", wW*0.14, f1H*0.66, wD*0.03,  wW*0.29,  yF1+f1H*0.38,  wD*0.505);
+    box("shoji_f1_L",  "shoji",  wW*0.28, f1H*0.52, wD*0.03, -wW*0.28,  yF1+f1H*0.42,  wD*0.505);
+    box("shoji_f1_R",  "shoji",  wW*0.24, f1H*0.52, wD*0.03,  wW*0.42,  yF1+f1H*0.42,  wD*0.505);
+    box("shoji_bar_1", "wood_dark", wW*0.28, f1H*0.020, wD*0.035, -wW*0.28, yF1+f1H*0.54, wD*0.505);
+    box("shoji_bar_2", "wood_dark", wW*0.28, f1H*0.020, wD*0.035, -wW*0.28, yF1+f1H*0.38, wD*0.505);
+    box("lintel",      "wood_dark", wW*0.58, f1H*0.038, wD*0.04,  wW*0.10,  yF1+f1H*0.74,  wD*0.505);
+
+    // ── Low eave / ひさし ─────────────────────────────────────────────────────
+    box("eave_low",    "tile_roof",  eW,       eave1H,       eD,         0, yEav1+eave1H*0.50, 0);
+    box("eave_soffit", "wood_light", eW*0.96,  eave1H*0.18,  eD*0.96,    0, yEav1+eave1H*0.09, 0);
+
+    // ── Second floor body ─────────────────────────────────────────────────────
+    box("wall_f2", "plaster_white", f2W, f2H, f2D, 0, yF2 + f2H*0.5, 0);
+
+    // ── Corner posts 2F ───────────────────────────────────────────────────────
+    for (const [sx, sz] of [[-1,-1],[-1,1],[1,-1],[1,1]]) {
+      box(`post2_${sx<0?"L":"R"}${sz<0?"B":"F"}`, "wood_dark",
+        pW*0.85, f2H*1.04, pW*0.85,
+        sx*(f2W*0.50+pW*0.22), yF2+f2H*0.52, sz*(f2D*0.50+pW*0.22));
+    }
+
+    // ── 2F front shoji windows ────────────────────────────────────────────────
+    box("shoji_f2_L",     "shoji",    f2W*0.30, f2H*0.50, f2D*0.03, -f2W*0.28, yF2+f2H*0.42, f2D*0.505);
+    box("shoji_f2_C",     "shoji",    f2W*0.18, f2H*0.50, f2D*0.03,  0,         yF2+f2H*0.42, f2D*0.505);
+    box("shoji_f2_R",     "shoji",    f2W*0.30, f2H*0.50, f2D*0.03,  f2W*0.28,  yF2+f2H*0.42, f2D*0.505);
+    box("shoji2_bar_top", "wood_dark", f2W*0.86, f2H*0.022, f2D*0.04, 0, yF2+f2H*0.68, f2D*0.505);
+    box("shoji2_bar_bot", "wood_dark", f2W*0.86, f2H*0.022, f2D*0.04, 0, yF2+f2H*0.20, f2D*0.505);
+
+    // ── Hip roof (寄棟造) — three stacked layers + ridge ──────────────────────
+    box("roof_eave",   "tile_roof",  rW1,       roofH*0.28, rD1,       0, yRoof+roofH*0.14, 0);
+    box("roof_mid",    "tile_roof",  rW2,       roofH*0.38, rD2*0.96,  0, yRoof+roofH*0.47, 0);
+    box("roof_cap",    "tile_roof",  rW2*0.62,  roofH*0.26, rD2*0.62,  0, yRoof+roofH*0.79, 0);
+    box("ridge",       "tile_ridge", rW2*0.58,  roofH*0.06, Hw*0.055,  0, yRoof+roofH*0.96, 0);
+    box("onigawara_L", "tile_ridge", Hw*0.07,   roofH*0.09, Hw*0.055, -rW2*0.29, yRoof+roofH*0.97, 0);
+    box("onigawara_R", "tile_ridge", Hw*0.07,   roofH*0.09, Hw*0.055,  rW2*0.29, yRoof+roofH*0.97, 0);
+    // Hip-corner rafter lines (斜めの流れ)
+    for (const [sx, sz] of [[-1,-1],[-1,1],[1,-1],[1,1]]) {
+      box(`hip_${sx<0?"L":"R"}${sz<0?"B":"F"}`, "tile_roof",
+        Hw*0.055, roofH*0.52, rD1*0.38,
+        sx*rW1*0.37, yRoof+roofH*0.50, sz*rD1*0.18);
+    }
+
+    // ── Railing on engawa (縁側手すり) ────────────────────────────────────────
+    box("railing_front", "wood_dark", eW*0.88, Hw*0.032, Hw*0.025, 0, yF1+Hw*0.13, wD*0.60);
+
+    // Surface details
+    const jpRegions   = ["facade", "roof", "engawa", "window", "entrance"];
+    const jpDetailTypes = ["wood_grain", "tile_texture", "plaster_texture", "shoji_grid", "panel_seam"];
+    let jpIdx = 1;
+    for (const region of jpRegions) {
+      for (let i = 0; i < 8; i++) {
+        pushSurface(`sd_${jpIdx++}`, region, jpDetailTypes[i % jpDetailTypes.length],
+          0.12 + (i%5)*0.05,
+          [Math.sin(i*0.9)*0.015, Math.cos(i*0.7)*0.012, ((i%4)-1.5)*0.010]);
+      }
+    }
+
+    spec.parts = parts;
+    spec.surfaceDetails = surfaceDetails;
+    return spec;
+  }
+  // ── END house_jp override ────────────────────────────────────────────────────
+
+  // ── Modern house archetype ───────────────────────────────────────────────────
+  if (archetype === "house_modern") {
+    const Hw = Math.min(H, 8.5);
+
+    spec.materials = {
+      concrete:     { baseColor: "#C0C8CA", roughness: 0.88, metalness: 0.04 },
+      wall_main:    { baseColor: "#EDEEF0", roughness: 0.86, metalness: 0.01 },
+      wall_dark:    { baseColor: "#2E3234", roughness: 0.90, metalness: 0.02 },
+      wall_wood:    { baseColor: "#8D6E4A", roughness: 0.82, metalness: 0.02 },
+      glass_win:    { baseColor: "#7AB8D8", roughness: 0.08, metalness: 0.88 },
+      glass_dark:   { baseColor: "#2A4860", roughness: 0.10, metalness: 0.90 },
+      steel_frame:  { baseColor: "#8A9298", roughness: 0.38, metalness: 0.80 },
+      steel_dark:   { baseColor: "#3A4042", roughness: 0.42, metalness: 0.84 },
+      door_main:    { baseColor: "#1E2628", roughness: 0.55, metalness: 0.42 },
+      roof_flat:    { baseColor: "#8A9298", roughness: 0.86, metalness: 0.06 },
+      parapet:      { baseColor: "#DADEE0", roughness: 0.86, metalness: 0.02 },
+      louvre:       { baseColor: "#8A9298", roughness: 0.40, metalness: 0.72 },
+      paving:       { baseColor: "#A4AEB0", roughness: 0.92, metalness: 0.02 },
+      fence:        { baseColor: "#C4CCCC", roughness: 0.88, metalness: 0.04 },
+    };
+
+    // ── Vertical zones ────────────────────────────────────────────────────────
+    const baseH    = Hw * 0.050;  // concrete plinth
+    const f1H      = Hw * 0.375;  // 1F walls
+    const slabH    = Hw * 0.038;  // inter-floor slab
+    const f2H      = Hw * 0.325;  // 2F walls
+    const parapetH = Hw * 0.062;  // parapet
+    const copeH    = Hw * 0.014;  // coping
+
+    const yF1   = baseH;
+    const ySlab = yF1   + f1H;
+    const yF2   = ySlab + slabH;
+    const yPar  = yF2   + f2H;
+    const yCope = yPar  + parapetH;
+
+    // ── Plan dimensions ───────────────────────────────────────────────────────
+    const mW = Hw * 1.10;   // main body width
+    const mD = Hw * 0.94;   // main body depth
+    const gW = Hw * 0.44;   // garage width (left side)
+    const gH = f1H + slabH; // garage height = single storey
+    const gX = -(mW * 0.5 + gW * 0.5);  // garage center X
+
+    spec.globalScale = { height: Hw, width: rounded((mW + gW) * 1.02), depth: rounded(mD * 1.04) };
+
+    // ── Foundation plinth ─────────────────────────────────────────────────────
+    box("plinth_main",   "concrete", mW,           baseH, mD, 0,  baseH*0.5, 0);
+    box("plinth_garage", "concrete", gW+Hw*0.02,   baseH, mD, gX, baseH*0.5, 0);
+
+    // ── 1F main body ──────────────────────────────────────────────────────────
+    box("f1_body",   "wall_main", mW, f1H, mD, 0,  yF1+f1H*0.5, 0);
+
+    // ── Garage body (single storey, white wall) ───────────────────────────────
+    box("garage_body", "wall_main", gW, gH, mD, gX, yF1+gH*0.5, 0);
+
+    // ── Inter-floor slab band (visible front edge) ────────────────────────────
+    box("slab_band", "concrete", mW, slabH, mD*1.01, 0, ySlab+slabH*0.5, 0);
+
+    // ── 2F body — three horizontal panels: wood / dark / white ───────────────
+    // Panels span full mW: wood 15% | dark 30% | white 55%
+    box("f2_wood_panel", "wall_wood", mW*0.15, f2H, mD, -mW*0.425, yF2+f2H*0.5, 0);
+    box("f2_dark_panel", "wall_dark", mW*0.30, f2H, mD, -mW*0.200, yF2+f2H*0.5, 0);
+    box("f2_right",      "wall_main", mW*0.55, f2H, mD,  mW*0.225, yF2+f2H*0.5, 0);
+
+    // ── Garage flat roof ──────────────────────────────────────────────────────
+    box("garage_roof", "roof_flat", gW+Hw*0.04, slabH*0.80, mD+Hw*0.04, gX, ySlab+slabH*0.40, 0);
+
+    // ── Roof deck (flat roof of main body) ────────────────────────────────────
+    box("roof_deck", "roof_flat", mW, slabH*0.70, mD, 0, yPar-slabH*0.35, 0);
+
+    // ── Parapet (4 sides) ─────────────────────────────────────────────────────
+    const pT = Hw * 0.030;  // parapet thickness
+    box("parapet_front", "parapet", mW+pT*2, parapetH, pT,    0,       yPar+parapetH*0.5,  mD*0.5+pT*0.5);
+    box("parapet_back",  "parapet", mW+pT*2, parapetH, pT,    0,       yPar+parapetH*0.5, -mD*0.5-pT*0.5);
+    box("parapet_L",     "parapet", pT,       parapetH, mD,   -mW*0.5, yPar+parapetH*0.5, 0);
+    box("parapet_R",     "parapet", pT,       parapetH, mD,    mW*0.5, yPar+parapetH*0.5, 0);
+
+    // ── Parapet coping (steel cap strip) ──────────────────────────────────────
+    const co = Hw * 0.010;
+    box("cope_front", "steel_frame", mW+pT*2+co*2, copeH, pT+co*2,  0,       yCope+copeH*0.5,  mD*0.5+pT*0.5);
+    box("cope_back",  "steel_frame", mW+pT*2+co*2, copeH, pT+co*2,  0,       yCope+copeH*0.5, -mD*0.5-pT*0.5);
+    box("cope_L",     "steel_frame", pT+co*2,       copeH, mD+co*2, -mW*0.5, yCope+copeH*0.5, 0);
+    box("cope_R",     "steel_frame", pT+co*2,       copeH, mD+co*2,  mW*0.5, yCope+copeH*0.5, 0);
+
+    // ── Entrance canopy ───────────────────────────────────────────────────────
+    const cX  = mW * 0.18;   // slightly right of center
+    const cW  = mW * 0.42;
+    const cY  = yF1 + f1H * 0.76;
+    box("canopy",           "concrete",   cW,       slabH*0.65, Hw*0.30, cX,          cY,        mD*0.5+Hw*0.15);
+    box("canopy_support_L", "steel_dark", Hw*0.018, cY,         Hw*0.018, cX-cW*0.42, cY*0.5,    mD*0.5+Hw*0.06);
+    box("canopy_support_R", "steel_dark", Hw*0.018, cY,         Hw*0.018, cX+cW*0.42, cY*0.5,    mD*0.5+Hw*0.06);
+
+    // ── Entry steps ───────────────────────────────────────────────────────────
+    box("step_1", "paving", cW*0.85, baseH*1.5, Hw*0.12, cX, baseH*0.75, mD*0.5+Hw*0.20);
+    box("step_2", "paving", cW*0.75, baseH*0.9, Hw*0.10, cX, baseH*0.45, mD*0.5+Hw*0.32);
+
+    // ── Entry door + sidelights ───────────────────────────────────────────────
+    box("entry_frame",  "steel_frame", Hw*0.200, f1H*0.77, Hw*0.028, cX,           yF1+f1H*0.39, mD*0.504);
+    box("entry_door",   "door_main",   Hw*0.135, f1H*0.74, Hw*0.030, cX,           yF1+f1H*0.38, mD*0.506);
+    box("sidelight_L",  "glass_win",   Hw*0.052, f1H*0.66, Hw*0.030, cX-Hw*0.108, yF1+f1H*0.38, mD*0.506);
+    box("sidelight_R",  "glass_win",   Hw*0.052, f1H*0.66, Hw*0.030, cX+Hw*0.108, yF1+f1H*0.38, mD*0.506);
+
+    // ── 1F large curtain-wall window (living/dining, left zone) ───────────────
+    const wLX = -mW * 0.30;
+    box("f1_win_L",       "glass_win",   mW*0.38, f1H*0.60, Hw*0.030, wLX, yF1+f1H*0.46, mD*0.508);
+    box("f1_win_frame_L", "steel_frame", mW*0.40, f1H*0.62, Hw*0.026, wLX, yF1+f1H*0.46, mD*0.506);
+
+    // ── 1F right small window ─────────────────────────────────────────────────
+    box("f1_win_R",       "glass_win",   mW*0.18, f1H*0.44, Hw*0.030, mW*0.36, yF1+f1H*0.44, mD*0.508);
+    box("f1_win_frame_R", "steel_frame", mW*0.20, f1H*0.46, Hw*0.026, mW*0.36, yF1+f1H*0.44, mD*0.506);
+
+    // ── Garage door (horizontal panel style) ──────────────────────────────────
+    const gdZ = mD*0.5 + Hw*0.012;
+    const gdH = gH * 0.62;
+    box("garage_door",        "steel_dark",  gW*0.80, gdH,       Hw*0.026, gX, yF1+gdH*0.50,    gdZ);
+    box("garage_door_seam_1", "steel_frame", gW*0.80, gH*0.025,  Hw*0.028, gX, yF1+gdH*0.25,    gdZ);
+    box("garage_door_seam_2", "steel_frame", gW*0.80, gH*0.025,  Hw*0.028, gX, yF1+gdH*0.50,    gdZ);
+    box("garage_door_seam_3", "steel_frame", gW*0.80, gH*0.025,  Hw*0.028, gX, yF1+gdH*0.75,    gdZ);
+
+    // ── 2F balcony (front, above living area) ─────────────────────────────────
+    const bkW = mW * 0.40;
+    const bkX = -mW * 0.10;
+    box("balcony_slab",       "concrete",    bkW,      slabH*0.85, Hw*0.28,  bkX,         yF2+slabH*0.43, mD*0.5+Hw*0.14);
+    box("balcony_rail_front", "steel_frame", bkW,      Hw*0.050,   Hw*0.018, bkX,         yF2+Hw*0.100,   mD*0.5+Hw*0.27);
+    box("balcony_rail_L",     "steel_frame", Hw*0.018, Hw*0.050,   Hw*0.28,  bkX-bkW*0.5, yF2+Hw*0.100,   mD*0.5+Hw*0.14);
+    box("balcony_rail_R",     "steel_frame", Hw*0.018, Hw*0.050,   Hw*0.28,  bkX+bkW*0.5, yF2+Hw*0.100,   mD*0.5+Hw*0.14);
+
+    // ── 2F front windows ──────────────────────────────────────────────────────
+    box("f2_win_L",       "glass_win",   mW*0.30, f2H*0.56, Hw*0.030, -mW*0.26, yF2+f2H*0.44, mD*0.508);
+    box("f2_win_C",       "glass_dark",  mW*0.20, f2H*0.56, Hw*0.030,  mW*0.03, yF2+f2H*0.44, mD*0.508);
+    box("f2_win_R",       "glass_win",   mW*0.20, f2H*0.48, Hw*0.030,  mW*0.32, yF2+f2H*0.40, mD*0.508);
+    box("f2_win_frame_L", "steel_frame", mW*0.32, f2H*0.58, Hw*0.026, -mW*0.26, yF2+f2H*0.44, mD*0.506);
+    box("f2_win_frame_C", "steel_frame", mW*0.22, f2H*0.58, Hw*0.026,  mW*0.03, yF2+f2H*0.44, mD*0.506);
+    box("f2_win_frame_R", "steel_frame", mW*0.22, f2H*0.50, Hw*0.026,  mW*0.32, yF2+f2H*0.40, mD*0.506);
+
+    // ── Horizontal louvres (sun-shading over 1F large window) ─────────────────
+    for (let li = 0; li < 5; li++) {
+      box(`louvre_${li+1}`, "louvre", mW*0.44, Hw*0.012, Hw*0.10,
+        wLX, yF1+f1H*0.76+li*Hw*0.018, mD*0.5+Hw*0.055);
+    }
+
+    // ── AC unit on roof ───────────────────────────────────────────────────────
+    box("ac_unit", "steel_dark", Hw*0.14, Hw*0.070, Hw*0.18, mW*0.34, yPar+Hw*0.035, -mD*0.28);
+
+    // ── Front yard fence & gate posts ─────────────────────────────────────────
+    box("fence_L",     "fence",    Hw*0.014, Hw*0.090, mD*0.36, gX-gW*0.36,  Hw*0.045, mD*0.32);
+    box("fence_R",     "fence",    Hw*0.014, Hw*0.090, mD*0.24, mW*0.50,     Hw*0.045, mD*0.12);
+    box("gate_post_L", "concrete", Hw*0.044, Hw*0.115, Hw*0.044, gX-gW*0.10, Hw*0.058, mD*0.5+Hw*0.10);
+    box("gate_post_R", "concrete", Hw*0.044, Hw*0.115, Hw*0.044, mW*0.44,    Hw*0.058, mD*0.5+Hw*0.10);
+    box("paving_front","paving",   mW*0.30,  baseH*0.28, Hw*0.52, cX,        baseH*0.14, mD*0.5+Hw*0.26);
+
+    // ── Surface details ───────────────────────────────────────────────────────
+    const modRegions     = ["facade", "roof", "garage", "window", "balcony", "entrance"];
+    const modDetailTypes = ["panel_seam", "concrete_texture", "metal_panel", "window_grid", "wood_grain", "weathering"];
+    let modIdx = 1;
+    for (const region of modRegions) {
+      for (let i = 0; i < 7; i++) {
+        pushSurface(`sd_${modIdx++}`, region, modDetailTypes[i % modDetailTypes.length],
+          0.10 + (i % 5) * 0.04,
+          [Math.sin(i * 0.9) * 0.014, Math.cos(i * 0.7) * 0.011, ((i % 4) - 1.5) * 0.009]);
+      }
+    }
+
+    spec.parts = parts;
+    spec.surfaceDetails = surfaceDetails;
+    return spec;
+  }
+  // ── END house_modern override ────────────────────────────────────────────────
+
+  // ── Modern apartment archetype ───────────────────────────────────────────────
+  if (archetype === "apartment_mid" || archetype === "apartment_2f") {
+    const Hw = Math.min(H, 14);
+
+    spec.materials = {
+      concrete:    { baseColor: "#C4C8CA", roughness: 0.88, metalness: 0.04 },
+      wall_main:   { baseColor: "#EAECEE", roughness: 0.86, metalness: 0.01 },
+      wall_accent: { baseColor: "#2C3034", roughness: 0.90, metalness: 0.02 },
+      slab_band:   { baseColor: "#B0B8BA", roughness: 0.90, metalness: 0.03 },
+      glass_win:   { baseColor: "#7ABCD8", roughness: 0.08, metalness: 0.88 },
+      glass_lobby: { baseColor: "#5AA0C0", roughness: 0.06, metalness: 0.92 },
+      steel_frame: { baseColor: "#8A9298", roughness: 0.38, metalness: 0.80 },
+      steel_dark:  { baseColor: "#3A4042", roughness: 0.42, metalness: 0.84 },
+      balk_slab:   { baseColor: "#B8BCBE", roughness: 0.88, metalness: 0.04 },
+      rail_steel:  { baseColor: "#90989C", roughness: 0.36, metalness: 0.82 },
+      roof_flat:   { baseColor: "#8A9298", roughness: 0.86, metalness: 0.06 },
+      parapet:     { baseColor: "#D8DCDE", roughness: 0.86, metalness: 0.02 },
+      door_auto:   { baseColor: "#1E2426", roughness: 0.52, metalness: 0.44 },
+      mailbox:     { baseColor: "#5A6268", roughness: 0.50, metalness: 0.60 },
+      paving:      { baseColor: "#A4AEB0", roughness: 0.92, metalness: 0.02 },
+    };
+
+    // ── Vertical zones (4 floors) ──────────────────────────────────────────
+    const baseH    = Hw * 0.028;
+    const floorH   = Hw * 0.215;  // per floor
+    const slabH    = Hw * 0.020;  // inter-floor slab
+    const parapetH = Hw * 0.033;
+    const copeH    = Hw * 0.009;
+
+    const yF1   = baseH;
+    const ySlb1 = yF1   + floorH;
+    const yF2   = ySlb1 + slabH;
+    const ySlb2 = yF2   + floorH;
+    const yF3   = ySlb2 + slabH;
+    const ySlb3 = yF3   + floorH;
+    const yF4   = ySlb3 + slabH;
+    const yPar  = yF4   + floorH;
+    const yCope = yPar  + parapetH;
+
+    // ── Plan (3 bays) ─────────────────────────────────────────────────────
+    const bW   = Hw * 1.60;
+    const bD   = Hw * 0.52;
+    const bayW = bW / 3;
+
+    spec.globalScale = { height: Hw, width: rounded(bW * 1.04), depth: rounded(bD * 1.04) };
+
+    // ── Plinth ────────────────────────────────────────────────────────────
+    box("plinth", "concrete", bW + Hw*0.04, baseH, bD + Hw*0.04, 0, baseH*0.5, 0);
+
+    // ── Wall: vertical dark accent strips (L/R edges) + white body ────────
+    const accW  = Hw * 0.042;
+    const wallH = yPar - yF1;
+    box("accent_L",  "wall_accent", accW,         wallH, bD, -bW*0.5 + accW*0.5, yF1+wallH*0.5, 0);
+    box("accent_R",  "wall_accent", accW,         wallH, bD,  bW*0.5 - accW*0.5, yF1+wallH*0.5, 0);
+    box("body_main", "wall_main",   bW - accW*2,  wallH, bD,  0,                 yF1+wallH*0.5, 0);
+
+    // ── Inter-floor slab bands ────────────────────────────────────────────
+    box("slab_1", "slab_band", bW+Hw*0.02, slabH, bD+Hw*0.02, 0, ySlb1+slabH*0.5, 0);
+    box("slab_2", "slab_band", bW+Hw*0.02, slabH, bD+Hw*0.02, 0, ySlb2+slabH*0.5, 0);
+    box("slab_3", "slab_band", bW+Hw*0.02, slabH, bD+Hw*0.02, 0, ySlb3+slabH*0.5, 0);
+
+    // ── Parapet (4 sides) + coping + roof deck ────────────────────────────
+    const pT = Hw * 0.026;
+    box("parapet_front", "parapet",     bW+pT*2, parapetH, pT,  0,       yPar+parapetH*0.5,  bD*0.5+pT*0.5);
+    box("parapet_back",  "parapet",     bW+pT*2, parapetH, pT,  0,       yPar+parapetH*0.5, -bD*0.5-pT*0.5);
+    box("parapet_L",     "parapet",     pT,       parapetH, bD, -bW*0.5, yPar+parapetH*0.5, 0);
+    box("parapet_R",     "parapet",     pT,       parapetH, bD,  bW*0.5, yPar+parapetH*0.5, 0);
+    box("cope_front",    "steel_frame", bW+pT*2+Hw*0.01, copeH, pT+Hw*0.01, 0, yCope+copeH*0.5, bD*0.5+pT*0.5);
+    box("roof_deck",     "roof_flat",   bW, slabH*0.60, bD, 0, yPar-slabH*0.30, 0);
+
+    // ── Entrance lobby (center bay, 1F) ───────────────────────────────────
+    const lobW = bayW * 0.72;
+    const lobH = floorH * 0.76;
+    const canY = yF1 + floorH * 0.82;
+    box("lobby_frame",  "steel_dark",  lobW+Hw*0.030, lobH+Hw*0.018, Hw*0.028, 0, yF1+lobH*0.5,  bD*0.504);
+    box("lobby_glass",  "glass_lobby", lobW,          lobH,          Hw*0.030, 0, yF1+lobH*0.5,  bD*0.508);
+    box("lobby_canopy", "concrete",    lobW+bayW*0.20, slabH*0.60, Hw*0.28,   0, canY,           bD*0.5+Hw*0.14);
+    box("canopy_sup_L", "steel_dark",  Hw*0.016, canY, Hw*0.016, -(lobW*0.5+bayW*0.05), canY*0.5, bD*0.5+Hw*0.06);
+    box("canopy_sup_R", "steel_dark",  Hw*0.016, canY, Hw*0.016,  (lobW*0.5+bayW*0.05), canY*0.5, bD*0.5+Hw*0.06);
+
+    // ── Entry steps ───────────────────────────────────────────────────────
+    box("step_1", "paving", lobW*1.10, baseH*1.6, Hw*0.10, 0, baseH*0.80, bD*0.5+Hw*0.18);
+    box("step_2", "paving", lobW*0.90, baseH*0.9, Hw*0.08, 0, baseH*0.45, bD*0.5+Hw*0.28);
+
+    // ── Mailbox unit (right of lobby, 1F) ────────────────────────────────
+    box("mailbox_unit", "mailbox", bayW*0.38, floorH*0.50, Hw*0.030, bayW*0.56, yF1+floorH*0.35, bD*0.508);
+
+    // ── 1F side windows (L & R bays; center = lobby) ─────────────────────
+    box("f1_win_L",       "glass_win",   bayW*0.52, floorH*0.50, Hw*0.030, -bayW, yF1+floorH*0.45, bD*0.508);
+    box("f1_win_frame_L", "steel_frame", bayW*0.55, floorH*0.52, Hw*0.026, -bayW, yF1+floorH*0.45, bD*0.506);
+    box("f1_win_R",       "glass_win",   bayW*0.52, floorH*0.50, Hw*0.030,  bayW, yF1+floorH*0.45, bD*0.508);
+    box("f1_win_frame_R", "steel_frame", bayW*0.55, floorH*0.52, Hw*0.026,  bayW, yF1+floorH*0.45, bD*0.506);
+
+    // ── 2F–4F windows (3 bays × 3 floors = 18 glass + 18 frames) ─────────
+    const upperFloors = [
+      { nm: "f2", yF: yF2 },
+      { nm: "f3", yF: yF3 },
+      { nm: "f4", yF: yF4 },
+    ];
+    for (const { nm, yF } of upperFloors) {
+      for (const [sfx, bx] of [["L", -bayW], ["C", 0], ["R", bayW]]) {
+        box(`${nm}_win_${sfx}`,       "glass_win",   bayW*0.52, floorH*0.48, Hw*0.030, bx, yF+floorH*0.44, bD*0.508);
+        box(`${nm}_win_frame_${sfx}`, "steel_frame", bayW*0.55, floorH*0.50, Hw*0.026, bx, yF+floorH*0.44, bD*0.506);
+      }
+    }
+
+    // ── Balconies (2F–4F, full-width slab + rail + end dividers) ──────────
+    const balkD = Hw * 0.15;
+    for (const { nm, yF } of upperFloors) {
+      const by = yF - slabH * 0.10;
+      box(`balk_slab_${nm}`,  "balk_slab",  bW*0.92,  slabH*0.80, balkD,    0,          by+slabH*0.40,  bD*0.5+balkD*0.5);
+      box(`balk_rail_${nm}`,  "rail_steel",  bW*0.92,  Hw*0.044,   Hw*0.014, 0,          by+Hw*0.088,    bD*0.5+balkD);
+      box(`balk_div_L_${nm}`, "concrete",    Hw*0.014, Hw*0.088,   balkD,   -bW*0.5*0.9, by+Hw*0.044,    bD*0.5+balkD*0.5);
+      box(`balk_div_R_${nm}`, "concrete",    Hw*0.014, Hw*0.088,   balkD,    bW*0.5*0.9, by+Hw*0.044,    bD*0.5+balkD*0.5);
+    }
+
+    // ── Roof AC units + utility ────────────────────────────────────────────
+    box("ac_unit_1",    "steel_dark", Hw*0.14, Hw*0.065, Hw*0.18, -bW*0.25,         yPar+Hw*0.033, -bD*0.22);
+    box("ac_unit_2",    "steel_dark", Hw*0.14, Hw*0.065, Hw*0.18,  bW*0.20,         yPar+Hw*0.033, -bD*0.22);
+    box("utility_pipe", "steel_dark", Hw*0.016, wallH,   Hw*0.016,  bW*0.5-Hw*0.065, yF1+wallH*0.5, -bD*0.30);
+
+    // ── Surface details ───────────────────────────────────────────────────
+    const aptRegions     = ["facade", "balcony", "lobby", "window", "roof", "base"];
+    const aptDetailTypes = ["panel_seam", "concrete_texture", "glass_reflection", "window_grid", "metal_panel", "weathering"];
+    let aptIdx = 1;
+    for (const region of aptRegions) {
+      for (let i = 0; i < 7; i++) {
+        pushSurface(`sd_${aptIdx++}`, region, aptDetailTypes[i % aptDetailTypes.length],
+          0.10 + (i % 5) * 0.04,
+          [Math.sin(i * 0.9) * 0.014, Math.cos(i * 0.7) * 0.011, ((i % 4) - 1.5) * 0.009]);
+      }
+    }
+
+    spec.parts = parts;
+    spec.surfaceDetails = surfaceDetails;
+    return spec;
+  }
+  // ── END apartment_mid override ───────────────────────────────────────────────
+
   // ── Generic building geometry ───────────────────────────────────────────────
   box("base", "facade_secondary", width * 1.04, baseHeight, depth * 1.04, 0, baseHeight * 0.5, 0);
   box("body", "facade_main", width, bodyHeight, depth, 0, baseHeight + bodyHeight * 0.5, 0);
 
-  if (archetype === "house_jp") {
+  if (false && archetype === "house_jp") {
     box("engawa", "wood_main", width * 0.96, baseHeight * 0.18, depth * 1.08, 0, baseHeight * 0.60, 0);
     box("roof_lower", "roof", width * 1.10, roofHeight * 0.35, depth * 1.10, 0, H - roofHeight * 0.52, 0);
     box("roof_upper", "roof", width * 0.78, roofHeight * 0.30, depth * 0.78, 0, H - roofHeight * 0.24, 0);
@@ -3582,6 +4047,8 @@ function buildHumanSpec(prompt, height, styles) {
   const isElderly     = styles.includes("elderly");
   const isWoman       = styles.includes("woman");
   const isRunner      = styles.includes("runner") || /marathon|\u30de\u30e9\u30bd\u30f3|\u30e9\u30f3\u30ca\u30fc/iu.test(prompt);
+  const isSuit        = styles.includes("suit");
+  const isSuitWoman   = isSuit && isWoman;
 
   // Body proportion scaling
   const scale = isChild ? 0.70 : isElderly ? 0.95 : 1.0;
@@ -3862,8 +4329,240 @@ function buildHumanSpec(prompt, height, styles) {
   }
 
 
+  // ── SUIT WOMAN OVERRIDE ────────────────────────────────────────────────────
+  if (isSuitWoman) {
+    parts.length = 0;
+    surfaceDetails.length = 0;
+
+    spec.promptInterpretation.humanType = "suited_woman";
+    spec.style.bodyLanguage = "standing_confident_feminine";
+
+    const skirtH  = prop.hipH + prop.thighH;
+    const skirtCY = yThigh + skirtH * 0.5;
+
+    // ── Heeled shoes ──────────────────────────────────────────────────────────
+    for (const side of ["L", "R"]) {
+      const sx = side === "L" ? -prop.footW * 0.48 : prop.footW * 0.48;
+      box(`foot_${side}`,     "heel_shoe", prop.footW * 0.88, prop.footH * 0.65, prop.footD * 0.92, sx, yFoot + prop.footH * 0.40, prop.footD * 0.08);
+      box(`shoe_toe_${side}`, "heel_shoe", prop.footW * 0.52, prop.footH * 0.28, prop.footD * 0.26, sx, yFoot + prop.footH * 0.16, prop.footD * 0.50);
+      box(`heel_${side}`,     "heel_shoe", prop.footW * 0.18, prop.footH * 1.50, prop.footD * 0.16, sx, yFoot + prop.footH * 0.75, -prop.footD * 0.36);
+      box(`sole_${side}`,     "shoe_sole", prop.footW * 0.90, prop.footH * 0.10, prop.footD * 0.94, sx, yFoot + prop.footH * 0.05, prop.footD * 0.08);
+    }
+
+    // ── Legs (slender, visible below skirt) ───────────────────────────────────
+    for (const side of ["L", "R"]) {
+      const sx = side === "L" ? -prop.thighW * 0.42 : prop.thighW * 0.42;
+      shape(`shin_${side}`, "cylinder", "skin", prop.shinW * 0.75, prop.shinH,        prop.shinD * 0.75, sx, yShin  + prop.shinH  * 0.5,   0);
+      shape(`knee_${side}`, "sphere",   "skin", prop.shinW * 0.70, prop.shinW * 0.70, prop.shinD * 0.70, sx, yThigh - prop.shinW  * 0.28,   0);
+    }
+
+    // ── Skirt (pencil/A-line, knee-length) ────────────────────────────────────
+    box("skirt_body", "skirt",      prop.hipW * 1.04, skirtH,          prop.hipD * 1.00, 0, skirtCY, 0);
+    box("skirt_slit", "skirt_dark", prop.hipW * 0.06, skirtH * 0.22,   prop.hipD * 0.04, 0, skirtCY - skirtH * 0.24, prop.hipD * 0.52);
+
+    // ── Blouse ───────────────────────────────────────────────────────────────
+    box("blouse_front",    "blouse", prop.torsoW * 0.15, prop.torsoH * 0.90, prop.torsoD * 0.04, 0,                  yTorso + prop.torsoH * 0.46, prop.torsoD * 0.50);
+    box("blouse_collar_L", "blouse", prop.torsoW * 0.13, prop.neckH  * 1.10, prop.torsoD * 0.04, -prop.neckR * 0.72, yNeck  - prop.neckH  * 0.10,  prop.torsoD * 0.46);
+    box("blouse_collar_R", "blouse", prop.torsoW * 0.13, prop.neckH  * 1.10, prop.torsoD * 0.04,  prop.neckR * 0.72, yNeck  - prop.neckH  * 0.10,  prop.torsoD * 0.46);
+
+    // ── Jacket ───────────────────────────────────────────────────────────────
+    box("jacket_body",       "suit_jacket", prop.torsoW * 0.98,  prop.torsoH * 0.96, prop.torsoD,         0,                    yTorso + prop.torsoH * 0.46, 0);
+    box("jacket_lapel_L",    "suit_jacket", prop.torsoW * 0.20,  prop.torsoH * 0.44, prop.torsoD * 0.04, -prop.torsoW * 0.15,  yTorso + prop.torsoH * 0.62, prop.torsoD * 0.50);
+    box("jacket_lapel_R",    "suit_jacket", prop.torsoW * 0.20,  prop.torsoH * 0.44, prop.torsoD * 0.04,  prop.torsoW * 0.15,  yTorso + prop.torsoH * 0.62, prop.torsoD * 0.50);
+    box("jacket_shoulder_L", "suit_jacket", prop.upperAW * 1.20, prop.torsoH * 0.07, prop.torsoD * 1.00, -(prop.torsoW * 0.48 + prop.upperAW * 0.36), yNeck - prop.neckH * 0.28, 0);
+    box("jacket_shoulder_R", "suit_jacket", prop.upperAW * 1.20, prop.torsoH * 0.07, prop.torsoD * 1.00,  (prop.torsoW * 0.48 + prop.upperAW * 0.36), yNeck - prop.neckH * 0.28, 0);
+    shape("jacket_btn_1",    "sphere", "button_silver", prop.torsoW * 0.025, prop.torsoW * 0.025, prop.torsoD * 0.04, 0, yTorso + prop.torsoH * 0.40, prop.torsoD * 0.51);
+    shape("jacket_btn_2",    "sphere", "button_silver", prop.torsoW * 0.025, prop.torsoW * 0.025, prop.torsoD * 0.04, 0, yTorso + prop.torsoH * 0.56, prop.torsoD * 0.51);
+    box("jacket_pocket_L",   "suit_jacket", prop.torsoW * 0.18, prop.torsoH * 0.03, prop.torsoD * 0.04, -prop.torsoW * 0.28, yTorso + prop.torsoH * 0.28, prop.torsoD * 0.51);
+    box("jacket_pocket_R",   "suit_jacket", prop.torsoW * 0.18, prop.torsoH * 0.03, prop.torsoD * 0.04,  prop.torsoW * 0.28, yTorso + prop.torsoH * 0.28, prop.torsoD * 0.51);
+    box("chest_pocket",      "suit_jacket", prop.torsoW * 0.11, prop.torsoH * 0.05, prop.torsoD * 0.03, -prop.torsoW * 0.24, yTorso + prop.torsoH * 0.77, prop.torsoD * 0.51);
+    box("brooch",            "accent_pin",  prop.torsoW * 0.06, prop.torsoW * 0.06, prop.torsoD * 0.04, -prop.torsoW * 0.22, yTorso + prop.torsoH * 0.82, prop.torsoD * 0.53);
+
+    // ── Arms (suit sleeves) ───────────────────────────────────────────────────
+    for (const side of ["L", "R"]) {
+      const sx   = side === "L" ? -(prop.torsoW * 0.48 + prop.upperAW * 0.55) : (prop.torsoW * 0.48 + prop.upperAW * 0.55);
+      const yArm = yTorso + prop.torsoH * 0.84;
+      shape(`upper_arm_${side}`, "cylinder", "suit_jacket", prop.upperAW * 0.92, prop.upperAH,  prop.upperAD,        sx, yArm,                                              0);
+      shape(`elbow_${side}`,     "sphere",   "suit_jacket", prop.upperAW * 0.86, prop.upperAW * 0.86, prop.upperAD,  sx, yArm - prop.upperAH * 0.48,                       0);
+      shape(`lower_arm_${side}`, "cylinder", "suit_jacket", prop.lowerAW * 0.90, prop.lowerAH,  prop.lowerAD,        sx, yArm - prop.upperAH * 0.50 - prop.lowerAH * 0.50, 0);
+      box(`cuff_${side}`,        "blouse",   prop.lowerAW * 1.10, prop.lowerAH * 0.12, prop.lowerAD * 1.10, sx, yArm - prop.upperAH * 0.50 - prop.lowerAH * 0.92, 0);
+      box(`hand_${side}`,        "skin",     prop.handW * 0.90, prop.handH, prop.handD, sx, yArm - prop.upperAH * 0.50 - prop.lowerAH - prop.handH * 0.50, 0);
+    }
+
+    // ── Neck ─────────────────────────────────────────────────────────────────
+    shape("neck", "cylinder", "skin", prop.neckR * 1.85, prop.neckH, prop.neckR * 1.85, 0, yNeck + prop.neckH * 0.5, 0);
+
+    // ── Head & hair (bob) ─────────────────────────────────────────────────────
+    shape("head",        "sphere", "skin", prop.headW,        prop.headH,        prop.headD,        0,               yHead + prop.headH * 0.5,  0);
+    // Bob hair — front faces kept well behind head-sphere front (Z < +headD*0.20)
+    // to prevent Z-fighting that makes face appear transparent.
+    // hair_top: depth 0.70, center Z=-0.14 → front face at +headD*0.21
+    box("hair_top",    "hair", prop.headW * 1.06, prop.headH * 0.70, prop.headD * 0.70,  0,               yHead + prop.headH * 0.86, -prop.headD * 0.14);
+    // hair_back: hugs rear skull (already well behind face)
+    box("hair_back",   "hair", prop.headW * 1.10, prop.headH * 0.72, prop.headD * 0.26,  0,               yHead + prop.headH * 0.57, -prop.headD * 0.44);
+    // bangs: intentionally at forehead front surface
+    box("bangs_L",     "hair", prop.headW * 0.36, prop.headH * 0.36, prop.headD * 0.12, -prop.headW * 0.17, yHead + prop.headH * 0.80,  prop.headD * 0.38);
+    box("bangs_R",     "hair", prop.headW * 0.36, prop.headH * 0.36, prop.headD * 0.12,  prop.headW * 0.17, yHead + prop.headH * 0.80,  prop.headD * 0.38);
+    // hair_side: depth 0.65, center Z=-0.24 → front face at +headD*0.085 (behind sphere)
+    box("hair_side_L", "hair", prop.headW * 0.14, prop.headH * 0.58, prop.headD * 0.65, -prop.headW * 0.52, yHead + prop.headH * 0.60, -prop.headD * 0.24);
+    box("hair_side_R", "hair", prop.headW * 0.14, prop.headH * 0.58, prop.headD * 0.65,  prop.headW * 0.52, yHead + prop.headH * 0.60, -prop.headD * 0.24);
+
+    // ── Face detail ───────────────────────────────────────────────────────────
+    shape("ear_L",     "sphere", "skin", prop.headW * 0.10, prop.headH * 0.13, prop.headD * 0.08, -prop.headW * 0.52, yHead + prop.headH * 0.44, 0);
+    shape("ear_R",     "sphere", "skin", prop.headW * 0.10, prop.headH * 0.13, prop.headD * 0.08,  prop.headW * 0.52, yHead + prop.headH * 0.44, 0);
+
+    // Glasses — placed clearly IN FRONT of face (Z > headD*0.50) to avoid Z-fighting
+    box("glass_frame",  "glass_frame", prop.headW * 1.02, prop.headH * 0.06, prop.headD * 0.03, 0,                yHead + prop.headH * 0.50, prop.headD * 0.55);
+    box("glass_lens_L", "glass_lens",  prop.headW * 0.36, prop.headH * 0.09, prop.headD * 0.02, -prop.headW * 0.24, yHead + prop.headH * 0.50, prop.headD * 0.56);
+    box("glass_lens_R", "glass_lens",  prop.headW * 0.36, prop.headH * 0.09, prop.headD * 0.02,  prop.headW * 0.24, yHead + prop.headH * 0.50, prop.headD * 0.56);
+
+    shape("eye_L",     "sphere", "skin", prop.headW * 0.10, prop.headH * 0.09, prop.headD * 0.06, -prop.headW * 0.22, yHead + prop.headH * 0.50, prop.headD * 0.48);
+    shape("eye_R",     "sphere", "skin", prop.headW * 0.10, prop.headH * 0.09, prop.headD * 0.06,  prop.headW * 0.22, yHead + prop.headH * 0.50, prop.headD * 0.48);
+    box("eyebrow_L",   "hair", prop.headW * 0.14, prop.headH * 0.024, prop.headD * 0.02, -prop.headW * 0.22, yHead + prop.headH * 0.58, prop.headD * 0.47);
+    box("eyebrow_R",   "hair", prop.headW * 0.14, prop.headH * 0.024, prop.headD * 0.02,  prop.headW * 0.22, yHead + prop.headH * 0.58, prop.headD * 0.47);
+    shape("nose",      "sphere", "skin", prop.headW * 0.09, prop.headH * 0.11, prop.headD * 0.13, 0, yHead + prop.headH * 0.36, prop.headD * 0.50);
+    box("upper_lip",   "skin", prop.headW * 0.17, prop.headH * 0.028, prop.headD * 0.04, 0, yHead + prop.headH * 0.25, prop.headD * 0.48);
+    box("lower_lip",   "skin", prop.headW * 0.19, prop.headH * 0.030, prop.headD * 0.05, 0, yHead + prop.headH * 0.21, prop.headD * 0.47);
+    shape("chin",      "sphere", "skin", prop.headW * 0.20, prop.headH * 0.15, prop.headD * 0.17, 0,               yHead + prop.headH * 0.10, prop.headD * 0.40);
+    shape("cheek_L",   "sphere", "skin", prop.headW * 0.17, prop.headH * 0.13, prop.headD * 0.12, -prop.headW * 0.28, yHead + prop.headH * 0.34, prop.headD * 0.44);
+    shape("cheek_R",   "sphere", "skin", prop.headW * 0.17, prop.headH * 0.13, prop.headD * 0.12,  prop.headW * 0.28, yHead + prop.headH * 0.34, prop.headD * 0.44);
+
+    // Surface details
+    const wRegions    = ["head", "jacket", "skirt", "blouse", "shoes"];
+    const wDetailTypes = ["fabric_weave", "seam_stitch", "crease", "skin_pore", "button_detail"];
+    let wdIdx = 1;
+    for (const region of wRegions) {
+      for (let i = 0; i < 8; i++) {
+        surfaceDetails.push({ id: `surface_detail_${wdIdx++}`, region, type: wDetailTypes[i % wDetailTypes.length],
+          strength: rounded(0.10 + (i % 5) * 0.06),
+          offset: [Math.sin(i * 0.9) * 0.012, Math.cos(i * 0.7) * 0.010, ((i % 4) - 1.5) * 0.008].map(rounded) });
+      }
+    }
+    spec.parts = parts;
+    spec.surfaceDetails = surfaceDetails;
+    return spec;
+  }
+  // ── END SUIT WOMAN OVERRIDE ──────────────────────────────────────────────────
+
+  // ── SUIT OVERRIDE ─────────────────────────────────────────────────────────
+  if (isSuit) {
+    parts.length = 0;
+    surfaceDetails.length = 0;
+
+    spec.promptInterpretation.humanType = "suited_man";
+    spec.style.bodyLanguage = "standing_confident";
+
+    // ── Dress shoes ────────────────────────────────────────────────────────
+    for (const side of ["L", "R"]) {
+      const sx = side === "L" ? -prop.footW * 0.55 : prop.footW * 0.55;
+      box(`foot_${side}`,     "dress_shoe", prop.footW * 1.02, prop.footH * 0.72, prop.footD * 1.10, sx, yFoot + prop.footH * 0.36, prop.footD * 0.06);
+      box(`shoe_toe_${side}`, "dress_shoe", prop.footW * 0.90, prop.footH * 0.42, prop.footD * 0.28, sx, yFoot + prop.footH * 0.22, prop.footD * 0.46);
+      box(`sole_${side}`,     "shoe_sole",  prop.footW * 1.04, prop.footH * 0.14, prop.footD * 1.12, sx, yFoot + prop.footH * 0.07, prop.footD * 0.06);
+    }
+
+    // ── Legs (suit pants) ──────────────────────────────────────────────────
+    for (const side of ["L", "R"]) {
+      const sx = side === "L" ? -prop.thighW * 0.48 : prop.thighW * 0.48;
+      shape(`shin_${side}`,  "cylinder", "suit_pants", prop.shinW * 0.92,  prop.shinH,  prop.shinD * 0.92,  sx, yShin  + prop.shinH  * 0.5, 0);
+      shape(`knee_${side}`,  "sphere",   "suit_pants", prop.shinW * 0.88,  prop.shinW * 0.88, prop.shinD * 0.88, sx, yShin + prop.shinH * 0.95, 0);
+      shape(`thigh_${side}`, "cylinder", "suit_pants", prop.thighW * 0.92, prop.thighH, prop.thighD * 0.92, sx, yThigh + prop.thighH * 0.5, 0);
+    }
+
+    // ── Hips & belt ────────────────────────────────────────────────────────
+    box("hips",        "suit_pants",  prop.hipW,        prop.hipH,          prop.hipD,          0, yHip + prop.hipH * 0.5,  0);
+    box("belt",        "belt",        prop.hipW * 1.02, prop.hipH * 0.14,   prop.hipD * 1.04,   0, yHip + prop.hipH * 0.86, 0);
+    box("belt_buckle", "belt_buckle", prop.hipW * 0.08, prop.hipH * 0.13,   prop.hipD * 0.06,   0, yHip + prop.hipH * 0.86, prop.hipD * 0.52);
+
+    // ── Dress shirt (placket + collar) ─────────────────────────────────────
+    box("shirt_placket",   "dress_shirt", prop.torsoW * 0.14, prop.torsoH * 0.92, prop.torsoD * 0.04, 0,                yTorso + prop.torsoH * 0.46, prop.torsoD * 0.50);
+    box("shirt_collar_L",  "dress_shirt", prop.torsoW * 0.14, prop.neckH * 1.20,  prop.torsoD * 0.05, -prop.neckR * 0.80, yNeck - prop.neckH * 0.10,   prop.torsoD * 0.46);
+    box("shirt_collar_R",  "dress_shirt", prop.torsoW * 0.14, prop.neckH * 1.20,  prop.torsoD * 0.05,  prop.neckR * 0.80, yNeck - prop.neckH * 0.10,   prop.torsoD * 0.46);
+
+    // ── Tie ────────────────────────────────────────────────────────────────
+    box("tie_knot", "tie", prop.neckR * 0.90, prop.neckH * 0.65,  prop.torsoD * 0.08, 0, yNeck + prop.neckH * 0.10,   prop.torsoD * 0.44);
+    box("tie_body", "tie", prop.torsoW * 0.07, prop.torsoH * 0.58, prop.torsoD * 0.04, 0, yTorso + prop.torsoH * 0.54, prop.torsoD * 0.52);
+    box("tie_tip",  "tie", prop.torsoW * 0.06, prop.torsoH * 0.10, prop.torsoD * 0.04, 0, yTorso + prop.torsoH * 0.19, prop.torsoD * 0.52);
+
+    // ── Jacket body ────────────────────────────────────────────────────────
+    box("jacket_body",       "suit_jacket", prop.torsoW * 1.04,  prop.torsoH * 0.96, prop.torsoD,          0,                    yTorso + prop.torsoH * 0.46, 0);
+    box("jacket_lapel_L",    "suit_jacket", prop.torsoW * 0.22,  prop.torsoH * 0.46, prop.torsoD * 0.04,  -prop.torsoW * 0.17,  yTorso + prop.torsoH * 0.64,  prop.torsoD * 0.50);
+    box("jacket_lapel_R",    "suit_jacket", prop.torsoW * 0.22,  prop.torsoH * 0.46, prop.torsoD * 0.04,   prop.torsoW * 0.17,  yTorso + prop.torsoH * 0.64,  prop.torsoD * 0.50);
+    box("jacket_shoulder_L", "suit_jacket", prop.upperAW * 1.30, prop.torsoH * 0.08, prop.torsoD * 1.02,  -(prop.torsoW * 0.5 + prop.upperAW * 0.40), yNeck - prop.neckH * 0.28, 0);
+    box("jacket_shoulder_R", "suit_jacket", prop.upperAW * 1.30, prop.torsoH * 0.08, prop.torsoD * 1.02,   (prop.torsoW * 0.5 + prop.upperAW * 0.40), yNeck - prop.neckH * 0.28, 0);
+    shape("jacket_btn_1", "sphere", "button_silver", prop.torsoW * 0.025, prop.torsoW * 0.025, prop.torsoD * 0.04, 0, yTorso + prop.torsoH * 0.38, prop.torsoD * 0.51);
+    shape("jacket_btn_2", "sphere", "button_silver", prop.torsoW * 0.025, prop.torsoW * 0.025, prop.torsoD * 0.04, 0, yTorso + prop.torsoH * 0.51, prop.torsoD * 0.51);
+    shape("jacket_btn_3", "sphere", "button_silver", prop.torsoW * 0.025, prop.torsoW * 0.025, prop.torsoD * 0.04, 0, yTorso + prop.torsoH * 0.64, prop.torsoD * 0.51);
+    box("jacket_pocket_L",     "suit_jacket",  prop.torsoW * 0.18, prop.torsoH * 0.03, prop.torsoD * 0.04, -prop.torsoW * 0.28, yTorso + prop.torsoH * 0.28, prop.torsoD * 0.51);
+    box("jacket_pocket_R",     "suit_jacket",  prop.torsoW * 0.18, prop.torsoH * 0.03, prop.torsoD * 0.04,  prop.torsoW * 0.28, yTorso + prop.torsoH * 0.28, prop.torsoD * 0.51);
+    box("jacket_chest_pocket", "suit_jacket",  prop.torsoW * 0.12, prop.torsoH * 0.06, prop.torsoD * 0.03, -prop.torsoW * 0.24, yTorso + prop.torsoH * 0.76, prop.torsoD * 0.51);
+    box("pocket_square",       "pocket_square",prop.torsoW * 0.08, prop.torsoH * 0.04, prop.torsoD * 0.03, -prop.torsoW * 0.24, yTorso + prop.torsoH * 0.81, prop.torsoD * 0.53);
+
+    // ── Arms (suit sleeves + shirt cuffs) ──────────────────────────────────
+    for (const side of ["L", "R"]) {
+      const sx = side === "L" ? -(prop.torsoW * 0.5 + prop.upperAW * 0.6) : (prop.torsoW * 0.5 + prop.upperAW * 0.6);
+      const yArm = yTorso + prop.torsoH * 0.84;
+      shape(`upper_arm_${side}`, "cylinder", "suit_jacket", prop.upperAW * 1.04, prop.upperAH,  prop.upperAD,        sx, yArm,                                             0);
+      shape(`elbow_${side}`,     "sphere",   "suit_jacket", prop.upperAW,        prop.upperAW,  prop.upperAD,        sx, yArm - prop.upperAH * 0.48,                       0);
+      shape(`lower_arm_${side}`, "cylinder", "suit_jacket", prop.lowerAW * 1.04, prop.lowerAH,  prop.lowerAD,        sx, yArm - prop.upperAH * 0.50 - prop.lowerAH * 0.50, 0);
+      box(`cuff_${side}`,        "dress_shirt", prop.lowerAW * 1.22, prop.lowerAH * 0.13, prop.lowerAD * 1.22, sx, yArm - prop.upperAH * 0.50 - prop.lowerAH * 0.94,   0);
+      box(`hand_${side}`,        "skin",        prop.handW,  prop.handH, prop.handD,  sx, yArm - prop.upperAH * 0.50 - prop.lowerAH - prop.handH * 0.50,  0);
+    }
+
+    // ── Neck ───────────────────────────────────────────────────────────────
+    shape("neck", "cylinder", "skin", prop.neckR * 2, prop.neckH, prop.neckR * 2, 0, yNeck + prop.neckH * 0.5, 0);
+
+    // ── Head & face detail ─────────────────────────────────────────────────
+    shape("head",      "sphere", "skin", prop.headW,       prop.headH,       prop.headD,       0,               yHead + prop.headH * 0.5,  0);
+    // Hair: top dome — centered at crown (88% from bottom = near head top)
+    shape("hair_top",  "sphere", "hair", prop.headW * 0.98, prop.headH * 0.62, prop.headD * 0.94, 0, yHead + prop.headH * 0.88, 0);
+    // Bangs (前髪) — front surface of forehead
+    box("bangs",       "hair", prop.headW * 0.76, prop.headH * 0.18, prop.headD * 0.14, 0, yHead + prop.headH * 0.74, prop.headD * 0.40);
+    // Back of head — hug the skull surface
+    box("hair_back",   "hair", prop.headW * 0.88, prop.headH * 0.55, prop.headD * 0.22, 0, yHead + prop.headH * 0.72, -prop.headD * 0.44);
+    // Side panels — on side surface of skull
+    box("hair_side_L", "hair", prop.headW * 0.10, prop.headH * 0.50, prop.headD * 0.82, -prop.headW * 0.50, yHead + prop.headH * 0.68, -prop.headD * 0.06);
+    box("hair_side_R", "hair", prop.headW * 0.10, prop.headH * 0.50, prop.headD * 0.82,  prop.headW * 0.50, yHead + prop.headH * 0.68, -prop.headD * 0.06);
+    shape("ear_L",  "sphere", "skin", prop.headW * 0.10, prop.headH * 0.14, prop.headD * 0.08, -prop.headW * 0.52, yHead + prop.headH * 0.44, 0);
+    shape("ear_R",  "sphere", "skin", prop.headW * 0.10, prop.headH * 0.14, prop.headD * 0.08,  prop.headW * 0.52, yHead + prop.headH * 0.44, 0);
+    // Eyes
+    shape("eye_L",  "sphere", "skin", prop.headW * 0.10, prop.headH * 0.09, prop.headD * 0.06, -prop.headW * 0.22, yHead + prop.headH * 0.50, prop.headD * 0.48);
+    shape("eye_R",  "sphere", "skin", prop.headW * 0.10, prop.headH * 0.09, prop.headD * 0.06,  prop.headW * 0.22, yHead + prop.headH * 0.50, prop.headD * 0.48);
+    // Eyebrows
+    box("eyebrow_L", "hair", prop.headW * 0.14, prop.headH * 0.026, prop.headD * 0.02, -prop.headW * 0.22, yHead + prop.headH * 0.58, prop.headD * 0.47);
+    box("eyebrow_R", "hair", prop.headW * 0.14, prop.headH * 0.026, prop.headD * 0.02,  prop.headW * 0.22, yHead + prop.headH * 0.58, prop.headD * 0.47);
+    // Nose
+    shape("nose",      "sphere", "skin", prop.headW * 0.10, prop.headH * 0.12, prop.headD * 0.14, 0, yHead + prop.headH * 0.36, prop.headD * 0.50);
+    // Mouth
+    box("upper_lip",   "skin", prop.headW * 0.18, prop.headH * 0.028, prop.headD * 0.04, 0, yHead + prop.headH * 0.25, prop.headD * 0.48);
+    box("lower_lip",   "skin", prop.headW * 0.20, prop.headH * 0.030, prop.headD * 0.05, 0, yHead + prop.headH * 0.21, prop.headD * 0.47);
+    // Jaw & cheeks
+    shape("chin",    "sphere", "skin", prop.headW * 0.22, prop.headH * 0.16, prop.headD * 0.18, 0,               yHead + prop.headH * 0.10, prop.headD * 0.40);
+    shape("cheek_L", "sphere", "skin", prop.headW * 0.18, prop.headH * 0.14, prop.headD * 0.12, -prop.headW * 0.30, yHead + prop.headH * 0.34, prop.headD * 0.44);
+    shape("cheek_R", "sphere", "skin", prop.headW * 0.18, prop.headH * 0.14, prop.headD * 0.12,  prop.headW * 0.30, yHead + prop.headH * 0.34, prop.headD * 0.44);
+
+    // Surface details
+    const suitRegions    = ["head", "jacket", "shirt", "pants", "shoes"];
+    const suitDetailTypes = ["fabric_weave", "seam_stitch", "crease", "skin_pore", "button_detail"];
+    let sdIdx = 1;
+    for (const region of suitRegions) {
+      for (let i = 0; i < 8; i++) {
+        surfaceDetails.push({ id: `surface_detail_${sdIdx++}`, region, type: suitDetailTypes[i % suitDetailTypes.length],
+          strength: rounded(0.10 + (i % 5) * 0.06),
+          offset: [Math.sin(i * 0.9) * 0.012, Math.cos(i * 0.7) * 0.010, ((i % 4) - 1.5) * 0.008].map(rounded) });
+      }
+    }
+    spec.parts = parts;
+    spec.surfaceDetails = surfaceDetails;
+    return spec;
+  }
+  // ── END SUIT OVERRIDE ─────────────────────────────────────────────────────
+
   // ── RUNNER POSE OVERRIDE ──────────────────────────────────────────────────
   if (isRunner) {
+    // Clear base human parts — runner replaces them entirely
+    parts.length = 0;
+    surfaceDetails.length = 0;
+
     spec.materials["running_top"]    = { baseColor: "#E8304A", roughness: 0.55, metalness: 0.02 };
     spec.materials["running_shorts"] = { baseColor: "#C02038", roughness: 0.55, metalness: 0.02 };
     spec.materials["running_shoe"]   = { baseColor: "#F5F5F5", roughness: 0.42, metalness: 0.04 };
@@ -4104,7 +4803,7 @@ function createSphereGeometry(width, height, depth, latSeg = 10, lonSeg = 14) {
     for (let x = 0; x < lonSeg; x++) {
       const a = y * (lonSeg + 1) + x;
       const b = a + lonSeg + 1;
-      indices.push(a, b, a + 1, b, b + 1, a + 1);
+      indices.push(a, a + 1, b, b, a + 1, b + 1);  // CCW = outward front faces
     }
   }
 
@@ -4290,108 +4989,179 @@ function createPreviewHtml(currentGlb, allGlbs) {
   const currentJson = JSON.stringify(currentGlb);
   const countStr    = String(allGlbs.length);
 
-  const staticHtml = "<!doctype html>\n<html lang='ja'>\n<head>\n  <meta charset='utf-8' />\n  <meta name='viewport' content='width=device-width,initial-scale=1' />\n  <title>Prompt2GLTF · Gallery</title>\n  <link rel='preconnect' href='https://fonts.googleapis.com'>\n  <link href='https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Noto+Sans+JP:wght@300;400&display=swap' rel='stylesheet'>\n  <style>\n    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }\n    :root {\n      --bg: #0a0a0f; --surface: #12121a; --border: #2a2a3a;\n      --accent: #6ee7f7; --accent2: #a78bfa; --text: #e0e0f0; --muted: #5a5a7a;\n    }\n    body { background: var(--bg); color: var(--text); font-family: 'Noto Sans JP', sans-serif; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }\n    header { padding: 14px 22px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 14px; background: var(--surface); flex-shrink: 0; }\n    .logo { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .2em; color: var(--accent); text-transform: uppercase; }\n    .logo span { color: var(--accent2); }\n    .hint { margin-left: auto; font-size: 11px; color: var(--muted); font-family: 'Space Mono', monospace; letter-spacing: .05em; }\n    .main { flex: 1; display: flex; overflow: hidden; }\n    #sidebar { width: 220px; min-width: 220px; background: var(--surface); border-right: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden; }\n    .sidebar-hd { padding: 14px 14px 8px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; border-bottom: 1px solid var(--border); }\n    .sidebar-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; color: var(--muted); text-transform: uppercase; }\n    .model-count { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--accent2); background: rgba(167,139,250,.12); padding: 2px 7px; border-radius: 10px; }\n    #model-list { overflow-y: auto; flex: 1; padding: 6px 0; }\n    #model-list::-webkit-scrollbar { width: 4px; }\n    #model-list::-webkit-scrollbar-track { background: transparent; }\n    #model-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }\n    .mbtn { display: block; width: 100%; text-align: left; padding: 9px 16px 9px 14px; background: none; border: none; border-left: 2px solid transparent; color: var(--muted); cursor: pointer; font-size: 12px; font-family: 'Space Mono', monospace; letter-spacing: .04em; transition: background .12s, border-color .12s, color .12s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }\n    .mbtn:hover { background: rgba(110,231,247,.04); color: var(--text); }\n    .mbtn.active { border-left-color: var(--accent); background: rgba(110,231,247,.06); color: var(--accent); }\n    .mbtn .dot { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--accent2); margin-right: 8px; vertical-align: middle; opacity: 0; transition: opacity .15s; }\n    .mbtn.active .dot { opacity: 1; }\n    #viewer { flex: 1; position: relative; overflow: hidden; }\n    canvas { display: block; width: 100% !important; height: 100% !important; }\n    .grid-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 40px 40px; opacity: .18; pointer-events: none; z-index: 0; }\n    #info { position: absolute; top: 14px; left: 14px; font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); z-index: 5; line-height: 1.9; opacity: 0; transition: opacity .3s; background: rgba(10,10,15,.75); padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border); backdrop-filter: blur(6px); }\n    #info.visible { opacity: 1; }\n    .controls-bar { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 5; opacity: 0; transition: opacity .3s; }\n    .controls-bar.visible { opacity: 1; }\n    .ctrl-btn { background: rgba(18,18,26,.90); border: 1px solid var(--border); color: var(--text); font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .06em; padding: 7px 14px; border-radius: 6px; cursor: pointer; backdrop-filter: blur(8px); transition: border-color .15s, color .15s; }\n    .ctrl-btn:hover { border-color: var(--accent); color: var(--accent); }\n    .ctrl-btn.on { border-color: var(--accent2); color: var(--accent2); }\n    #status-bar { position: absolute; bottom: 18px; right: 18px; font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); z-index: 5; background: rgba(10,10,15,.75); padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border); backdrop-filter: blur(6px); letter-spacing: .04em; }\n  </style>\n</head>\n<body>\n  <header>\n    <div class='logo'>PROMPT2GLTF <span>//</span> Gallery</div>\n    <div class='hint'>drag &middot; scroll &middot; pinch to navigate</div>\n  </header>\n  <div class='main'>\n    <div id='sidebar'>\n      <div class='sidebar-hd'>\n        <span class='sidebar-label'>Models</span>\n        <span class='model-count' id='count-badge'>0</span>\n      </div>\n      <div id='model-list'></div>\n    </div>\n    <div id='viewer'>\n      <div class='grid-bg'></div>\n      <canvas id='c'></canvas>\n      <div id='info'></div>\n      <div class='controls-bar' id='controls-bar'>\n        <button class='ctrl-btn' id='btn-reset'>&#x27F3; RESET</button>\n        <button class='ctrl-btn' id='btn-wire'>&#x25FB; WIRE</button>\n        <button class='ctrl-btn on' id='btn-rotate'>&#x27F2; AUTO</button>\n      </div>\n      <div id='status-bar'>Loading...</div>\n    </div>\n  </div>\n  <script type='importmap'>\n  {\"imports\":{\"three\":\"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js\",\"three/addons/\":\"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/\"}}\n  </script>";
-
-  const scriptBlock = [
-    "  <script type='module'>",
-    "    import * as THREE from 'three';",
-    "    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';",
-    "    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';",
-    "    const MODELS  = " + modelsJson + ";",
-    "    const INITIAL = " + currentJson + ";",
-    "    const COUNT   = " + countStr + ";",
+  const lines = [
+    "<!doctype html>",
+    "<html lang='ja'>",
+    "<head>",
+    "  <meta charset='utf-8'>",
+    "  <meta name='viewport' content='width=device-width,initial-scale=1'>",
+    "  <title>prompt2gltf &middot; Gallery</title>",
+    "  <link rel='preconnect' href='https://fonts.googleapis.com'>",
+    "  <link href='https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Noto+Sans+JP:wght@300;400&display=swap' rel='stylesheet'>",
+    "  <style>",
+    "    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }",
+    "    :root {",
+    "      --bg: #0a0a0f; --surface: #12121a; --border: #2a2a3a;",
+    "      --accent: #6ee7f7; --accent2: #a78bfa; --text: #e0e0f0; --muted: #5a5a7a;",
+    "    }",
+    "    body { background: var(--bg); color: var(--text); font-family: 'Noto Sans JP', sans-serif; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }",
+    "    header { padding: 14px 22px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 14px; background: var(--surface); flex-shrink: 0; }",
+    "    .logo { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .2em; color: var(--accent); text-transform: uppercase; }",
+    "    .logo span { color: var(--accent2); }",
+    "    .hint { margin-left: auto; font-size: 11px; color: var(--muted); font-family: 'Space Mono', monospace; letter-spacing: .05em; }",
+    "    .main { flex: 1; display: flex; overflow: hidden; }",
+    "    #sidebar { width: 220px; min-width: 220px; background: var(--surface); border-right: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden; }",
+    "    .sidebar-hd { padding: 14px 14px 8px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; border-bottom: 1px solid var(--border); }",
+    "    .sidebar-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; color: var(--muted); text-transform: uppercase; }",
+    "    .model-count { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--accent2); background: rgba(167,139,250,.12); padding: 2px 7px; border-radius: 10px; }",
+    "    #model-list { overflow-y: auto; flex: 1; padding: 6px 0; }",
+    "    #model-list::-webkit-scrollbar { width: 4px; }",
+    "    #model-list::-webkit-scrollbar-track { background: transparent; }",
+    "    #model-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }",
+    "    .mbtn { display: block; width: 100%; text-align: left; padding: 9px 16px 9px 14px; background: none; border: none; border-left: 2px solid transparent; color: var(--muted); cursor: pointer; font-size: 12px; font-family: 'Space Mono', monospace; letter-spacing: .04em; transition: background .12s, border-color .12s, color .12s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }",
+    "    .mbtn:hover { background: rgba(110,231,247,.04); color: var(--text); }",
+    "    .mbtn.active { border-left-color: var(--accent); background: rgba(110,231,247,.06); color: var(--accent); }",
+    "    .mbtn .dot { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--accent2); margin-right: 8px; vertical-align: middle; opacity: 0; transition: opacity .15s; }",
+    "    .mbtn.active .dot { opacity: 1; }",
+    "    #viewer { flex: 1; position: relative; overflow: hidden; }",
+    "    canvas { display: block; width: 100% !important; height: 100% !important; }",
+    "    .grid-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 40px 40px; opacity: .18; pointer-events: none; z-index: 0; }",
+    "    #info { position: absolute; top: 14px; left: 14px; font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); z-index: 5; line-height: 1.9; opacity: 0; transition: opacity .3s; background: rgba(10,10,15,.75); padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border); backdrop-filter: blur(6px); }",
+    "    #info.visible { opacity: 1; }",
+    "    .controls-bar { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 5; opacity: 0; transition: opacity .3s; }",
+    "    .controls-bar.visible { opacity: 1; }",
+    "    .ctrl-btn { background: rgba(18,18,26,.90); border: 1px solid var(--border); color: var(--text); font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .06em; padding: 7px 14px; border-radius: 6px; cursor: pointer; backdrop-filter: blur(8px); transition: border-color .15s, color .15s; }",
+    "    .ctrl-btn:hover { border-color: var(--accent); color: var(--accent); }",
+    "    .ctrl-btn.on { border-color: var(--accent2); color: var(--accent2); }",
+    "    #status-bar { position: absolute; bottom: 18px; right: 18px; font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); z-index: 5; background: rgba(10,10,15,.75); padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border); backdrop-filter: blur(6px); letter-spacing: .04em; }",
+    "  </style>",
+    "</head>",
+    "<body>",
+    "  <header>",
+    "    <div class='logo'>PROMPT2GLTF <span>//</span> Gallery</div>",
+    "    <div class='hint'>drag &middot; scroll &middot; pinch to navigate</div>",
+    "  </header>",
+    "  <div class='main'>",
+    "    <div id='sidebar'>",
+    "      <div class='sidebar-hd'>",
+    "        <span class='sidebar-label'>Models</span>",
+    "        <span class='model-count' id='count-badge'>0</span>",
+    "      </div>",
+    "      <div id='model-list'></div>",
+    "    </div>",
+    "    <div id='viewer'>",
+    "      <div class='grid-bg'></div>",
+    "      <canvas id='c'></canvas>",
+    "      <div id='info'></div>",
+    "      <div class='controls-bar' id='controls-bar'>",
+    "        <button class='ctrl-btn' id='btn-reset'>&#x27F3; RESET</button>",
+    "        <button class='ctrl-btn' id='btn-wire'>&#x25FB; WIRE</button>",
+    "        <button class='ctrl-btn on' id='btn-rotate'>&#x27F2; AUTO</button>",
+    "      </div>",
+    "      <div id='status-bar'>Loading...</div>",
+    "    </div>",
+    "  </div>",
+    "  <!-- Three.js r128 UMD (last version with examples/js UMD addons) -->",
+    "  <script src='https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js'></script>",
+    "  <script src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js'></script>",
+    "  <script src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js'></script>",
+    "  <script>",
+    "    if(location.protocol==='file:'){",
+    "      document.getElementById('status-bar').innerHTML='&#x26A0; file:// では GLB を読み込めません。<br>VSCode ターミナルで <b>node serve.cjs</b> を実行し、<br>ブラウザで <b>http://localhost:3456/</b> を開いてください。';",
+    "      document.getElementById('status-bar').style.cssText='position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;font-family:monospace;font-size:13px;color:#6ee7f7;background:#0a0a0f;z-index:99;padding:40px;line-height:2;';",
+    "    }",
+    "    var MODELS  = " + modelsJson + ";",
+    "    var INITIAL = " + currentJson + ";",
+    "    var COUNT   = " + countStr + ";",
     "    document.getElementById('count-badge').textContent = COUNT;",
-    "    const statusEl  = document.getElementById('status-bar');",
-    "    const infoEl    = document.getElementById('info');",
-    "    const ctrlBar   = document.getElementById('controls-bar');",
-    "    const listEl    = document.getElementById('model-list');",
-    "    const canvas    = document.getElementById('c');",
-    // Three.js setup
-    "    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });",
+    "    var statusEl  = document.getElementById('status-bar');",
+    "    var infoEl    = document.getElementById('info');",
+    "    var ctrlBar   = document.getElementById('controls-bar');",
+    "    var listEl    = document.getElementById('model-list');",
+    "    var canvas    = document.getElementById('c');",
+    "    var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });",
     "    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));",
     "    renderer.toneMapping = THREE.ACESFilmicToneMapping;",
     "    renderer.toneMappingExposure = 1.1;",
-    "    const scene = new THREE.Scene();",
+    "    var scene = new THREE.Scene();",
     "    scene.background = new THREE.Color(0x0a0a0f);",
-    "    const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 10000);",
-    "    const controls = new OrbitControls(camera, renderer.domElement);",
+    "    var camera = new THREE.PerspectiveCamera(50, 1, 0.1, 10000);",
+    "    var controls = new THREE.OrbitControls(camera, renderer.domElement);",
     "    controls.enableDamping = true; controls.dampingFactor = 0.08;",
-    // Lights
-    "    const amb = new THREE.AmbientLight(0xffffff, 0.4); scene.add(amb);",
-    "    const dir1 = new THREE.DirectionalLight(0x6ee7f7, 2.2); dir1.position.set(180,260,140); scene.add(dir1);",
-    "    const dir2 = new THREE.DirectionalLight(0xa78bfa, 1.0); dir2.position.set(-120,90,-160); scene.add(dir2);",
-    "    const dir3 = new THREE.DirectionalLight(0xffffff, 0.8); dir3.position.set(0,-100,0); scene.add(dir3);",
-    // Grid
+    "    var amb = new THREE.AmbientLight(0xffffff, 0.4); scene.add(amb);",
+    "    var dir1 = new THREE.DirectionalLight(0x6ee7f7, 2.2); dir1.position.set(180,260,140); scene.add(dir1);",
+    "    var dir2 = new THREE.DirectionalLight(0xa78bfa, 1.0); dir2.position.set(-120,90,-160); scene.add(dir2);",
+    "    var dir3 = new THREE.DirectionalLight(0xffffff, 0.8); dir3.position.set(0,-100,0); scene.add(dir3);",
     "    scene.add(new THREE.GridHelper(600, 60, 0x2a2a3a, 0x1a1a28));",
-    "    const ground = new THREE.Mesh(new THREE.PlaneGeometry(800,800), new THREE.MeshStandardMaterial({color:0x0a0a0f,roughness:0.98}));",
+    "    var ground = new THREE.Mesh(new THREE.PlaneGeometry(800,800), new THREE.MeshStandardMaterial({color:0x0a0a0f,roughness:0.98}));",
     "    ground.rotation.x = -Math.PI/2; ground.position.y = -0.02; scene.add(ground);",
-    // Resize
-    "    function resize() { const w=canvas.clientWidth,h=canvas.clientHeight; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); }",
+    "    function resize() { var w=canvas.clientWidth,h=canvas.clientHeight; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); }",
     "    window.addEventListener('resize', resize); resize();",
-    // frameObject
     "    function frameObject(obj) {",
-    "      const box=new THREE.Box3().setFromObject(obj), size=new THREE.Vector3(), center=new THREE.Vector3();",
+    "      var box=new THREE.Box3().setFromObject(obj), size=new THREE.Vector3(), center=new THREE.Vector3();",
     "      box.getSize(size); box.getCenter(center);",
     "      obj.position.x -= center.x; obj.position.y -= box.min.y; obj.position.z -= center.z;",
-    "      const maxDim=Math.max(size.x,size.y,size.z), dist=Math.max(60,maxDim*1.8);",
+    "      var maxDim=Math.max(size.x,size.y,size.z), dist=Math.max(60,maxDim*1.8);",
     "      camera.near=Math.max(0.1,maxDim/500); camera.far=Math.max(1000,maxDim*20); camera.updateProjectionMatrix();",
     "      scene.fog=new THREE.Fog(0x0a0a0f,dist*2.5,dist*9);",
     "      camera.position.set(dist*0.72,size.y*0.62+dist*0.22,dist);",
     "      controls.target.set(0,size.y*0.42,0); controls.update();",
     "    }",
-    // Model loader
-    "    const loader=new GLTFLoader();",
-    "    let currentObj=null, wireframe=false, autoRotate=true;",
+    "    var loader = new THREE.GLTFLoader();",
+    "    var currentObj=null, wireframe=false, autoRotate=true;",
     "    function loadModel(filename) {",
     "      if(currentObj){ scene.remove(currentObj); currentObj=null; }",
     "      infoEl.classList.remove('visible'); ctrlBar.classList.remove('visible');",
     "      statusEl.textContent='Loading '+filename+' ...';",
-    "      loader.load('generated/'+filename,",
-    "        (gltf)=>{",
+    "      var glbPath = (location.protocol==='file:') ? 'generated/'+filename : 'generated/'+filename;",
+    "      loader.load(glbPath,",
+    "        function(gltf){",
     "          currentObj=gltf.scene; scene.add(currentObj);",
     "          frameObject(currentObj);",
-    "          // apply wireframe state",
-    "          currentObj.traverse(n=>{ if(n.isMesh) n.material.wireframe=wireframe; });",
-    "          // info panel",
-    "          let meshCount=0; currentObj.traverse(n=>{ if(n.isMesh) meshCount++; });",
-    "          const box=new THREE.Box3().setFromObject(currentObj), sz=new THREE.Vector3(); box.getSize(sz);",
+    "          currentObj.traverse(function(n){ if(n.isMesh) n.material.wireframe=wireframe; });",
+    "          var meshCount=0; currentObj.traverse(function(n){ if(n.isMesh) meshCount++; });",
+    "          var box=new THREE.Box3().setFromObject(currentObj), sz=new THREE.Vector3(); box.getSize(sz);",
     "          infoEl.innerHTML='FILE: '+filename+'<br>MESHES: '+meshCount+'<br>SIZE: '+sz.x.toFixed(1)+' x '+sz.y.toFixed(1)+' x '+sz.z.toFixed(1)+' m';",
     "          infoEl.classList.add('visible'); ctrlBar.classList.add('visible');",
-    "          statusEl.textContent=filename+' \u2713';",
+    "          statusEl.textContent=filename+' &#x2713;';",
     "        },",
-    "        (evt)=>{ statusEl.textContent=evt.total?'Loading... '+Math.round(evt.loaded/evt.total*100)+'%':'Loading... '+Math.round(evt.loaded/1024)+' KB'; },",
-    "        (err)=>{ statusEl.textContent='Load failed: '+(err.message||err); }",
+    "        function(evt){ statusEl.textContent=evt.total?'Loading... '+Math.round(evt.loaded/evt.total*100)+'%':'Loading... '+Math.round(evt.loaded/1024)+' KB'; },",
+    "        function(err){ statusEl.textContent='Load failed: '+(err.message||err); }",
     "      );",
     "    }",
-    // Sidebar
-    "    MODELS.forEach(filename=>{",
-    "      const btn=document.createElement('button');",
+    "    MODELS.forEach(function(filename){",
+    "      var btn=document.createElement('button');",
     "      btn.className='mbtn'+(filename===INITIAL?' active':'');",
     "      btn.title=filename;",
-    "      const label=filename.replace(/\\.glb$/,'').replace(/_/g,' ');",
-    "      const _sp=document.createElement('span'); _sp.className='dot'; btn.textContent=label; btn.prepend(_sp);",
-    "      btn.onclick=()=>{",
-    "        document.querySelectorAll('.mbtn').forEach(b=>b.classList.remove('active'));",
-    "        btn.classList.add('active'); loadModel(filename);",
-    "      };",
+    "      var label=filename.replace(/\.glb$/,'').replace(/_/g,' ');",
+    "      var _sp=document.createElement('span'); _sp.className='dot'; btn.textContent=label; btn.prepend(_sp);",
+    "      btn.onclick=function(){ document.querySelectorAll('.mbtn').forEach(function(b){b.classList.remove('active');}); btn.classList.add('active'); loadModel(filename); };",
     "      listEl.appendChild(btn);",
     "    });",
-    // Controls
-    "    document.getElementById('btn-reset').onclick=()=>{ if(currentObj){ frameObject(currentObj); } };",
-    "    document.getElementById('btn-wire').onclick=function(){ wireframe=!wireframe; this.classList.toggle('on',wireframe); if(currentObj) currentObj.traverse(n=>{ if(n.isMesh) n.material.wireframe=wireframe; }); this.textContent=wireframe?'\u25A0 SOLID':'\u25FB WIRE'; };",
+    "    document.getElementById('btn-reset').onclick=function(){ if(currentObj){ frameObject(currentObj); } };",
+    "    document.getElementById('btn-wire').onclick=function(){ wireframe=!wireframe; this.classList.toggle('on',wireframe); if(currentObj) currentObj.traverse(function(n){ if(n.isMesh) n.material.wireframe=wireframe; }); this.textContent=wireframe?'&#x25A0; SOLID':'&#x25FB; WIRE'; };",
     "    document.getElementById('btn-rotate').onclick=function(){ autoRotate=!autoRotate; this.classList.toggle('on',autoRotate); };",
-    "    controls.addEventListener('start',()=>{ autoRotate=false; document.getElementById('btn-rotate').classList.remove('on'); });",
-    // Render loop
+    "    controls.addEventListener('start',function(){ autoRotate=false; document.getElementById('btn-rotate').classList.remove('on'); });",
     "    (function render(){ controls.update(); if(currentObj&&autoRotate) currentObj.rotation.y+=0.003; renderer.render(scene,camera); requestAnimationFrame(render); })();",
     "    loadModel(INITIAL);",
     "  </script>",
     "</body>",
     "</html>",
-  ].join("\n");
+  ];
 
-  return staticHtml + "\n" + scriptBlock;
+  return lines.join("\n");
 }
 
+
+async function loadTemplateSpec(templatePath, prompt) {
+  const raw = await fs.readFile(templatePath, "utf-8");
+  const spec = JSON.parse(raw);
+  // Update prompt-specific fields so meta reflects the current run
+  spec.meta.generatedFrom = prompt;
+  spec.meta.createdAt = new Date().toISOString();
+  spec.promptInterpretation.originalPrompt = prompt;
+  return spec;
+}
 
 async function main() {
   const prompt = getArg("--prompt");
@@ -4402,24 +5172,30 @@ async function main() {
 
   await fs.mkdir(OUTPUT_DIR, { recursive: true });
 
-  const spec = buildSpec(prompt);
-  const slug = promptToSlug(prompt);
-  const specPath = path.join(OUTPUT_DIR, slug + "_spec.json");
+  // If --template is provided, load that spec as the base; otherwise build from scratch
+  const templateArg = getArg("--template");
+  let spec;
+  if (templateArg) {
+    const templatePath = path.isAbsolute(templateArg)
+      ? templateArg
+      : path.resolve(PLUGIN_ROOT, templateArg);
+    console.log(`Using template: ${templatePath}`);
+    spec = await loadTemplateSpec(templatePath, prompt);
+  } else {
+    spec = buildSpec(prompt);
+  }
+  const specPath = path.join(OUTPUT_DIR, "model_spec.json");
   await fs.writeFile(specPath, JSON.stringify(spec, null, 2), "utf-8");
 
   const doc = buildDocumentFromSpec(spec);
   const io = new NodeIO();
 
-  // Derive filenames from slug
-  const glbFilename  = slug + ".glb";
-  const gltfFilename = slug + ".gltf";
-
   // GLB: self-contained binary (no external files)
-  const glbPath = path.join(OUTPUT_DIR, glbFilename);
+  const glbPath = path.join(OUTPUT_DIR, "model.glb");
   await io.write(glbPath, doc);
 
   // GLTF: embed binary buffer as base64 data URI so no .bin file is needed
-  const gltfPath = path.join(OUTPUT_DIR, gltfFilename);
+  const gltfPath = path.join(OUTPUT_DIR, "model.gltf");
   const { json, resources } = await io.writeJSON(doc);
   for (const [resPath, data] of Object.entries(resources)) {
     if (resPath.endsWith(".bin")) {
@@ -4430,14 +5206,8 @@ async function main() {
   }
   await fs.writeFile(gltfPath, JSON.stringify(json, null, 2), "utf-8");
 
-  // Collect all .glb files for sidebar
-  const allFiles = await fs.readdir(OUTPUT_DIR);
-  const allGlbs  = allFiles.filter(f => f.endsWith(".glb") && f !== "model.glb").sort();
-
-  const previewPath = path.join(PLUGIN_ROOT, "preview.html");
-  await fs.writeFile(previewPath, createPreviewHtml(glbFilename, allGlbs), "utf-8");
-
-  console.log("Prompt2GLTF generation complete.");
+  console.log("prompt2gltf generation complete.");
+  if (templateArg) console.log(`Template: ${templateArg}`);
   console.log(`Prompt: ${prompt}`);
   console.log(`Subject: ${spec.promptInterpretation.normalizedSubject || spec.promptInterpretation.subject}`);
   console.log(`Parts: ${spec.parts.length}`);
@@ -4447,7 +5217,6 @@ async function main() {
   console.log(`- ${specPath}`);
   console.log(`- ${gltfPath}`);
   console.log(`- ${glbPath}`);
-  console.log(`- ${previewPath}`);
 }
 
 main().catch((err) => {

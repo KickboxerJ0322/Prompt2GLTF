@@ -59,7 +59,7 @@ server.on("error", (err) => {
 
 server.listen(PORT, "127.0.0.1", () => {
   const url = `http://localhost:${PORT}/`;
-  console.log(`\nPrompt2GLTF Gallery`);
+  console.log(`\nprompt2gltf Gallery`);
   console.log(`  ${url}`);
   console.log(`\nCtrl+C to stop\n`);
   const cmd = process.platform === "win32" ? `start ${url}` :

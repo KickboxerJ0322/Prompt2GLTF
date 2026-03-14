@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cmd /c ren \"c:\\\\Users\\\\shouy\\\\Desktop\\\\潤平勉強\\\\Prompt2GLTF\\\\plugins\\\\prompt2cesium\" \"prompt2cesiumjs\")",
+      "Bash(powershell -Command \"Rename-Item -Path ''c:/Users/shouy/Desktop/潤平勉強/Prompt2GLTF/plugins/prompt2cesium'' -NewName ''prompt2cesiumjs''\")"
+    ]
+  }
+}

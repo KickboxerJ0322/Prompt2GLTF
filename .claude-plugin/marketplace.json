@@ -16,6 +16,14 @@
       "version": "0.2.0",
       "category": "3d-generation",
       "tags": ["3d", "gltf", "glb", "procedural", "generation", "hackathon"]
+    },
+    {
+      "name": "prompt2cesiumjs",
+      "source": "./plugins/prompt2cesiumjs",
+      "description": "自然言語のプロンプトから Cesium Sandcastle 用 JavaScript を生成するスキル。Google Photorealistic 3D Tiles、GLTF/GLBモデル、移動ルート、固定配置、追尾カメラ付きコードを出力する。",
+      "version": "0.2.0",
+      "category": "3d-generation",
+      "tags": ["3d", "cesium", "cesiumjs", "sandcastle", "gltf", "glb", "generation", "hackathon"]
     }
   ]
 }

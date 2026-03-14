@@ -1,0 +1,2123 @@
+{
+  "meta": {
+    "name": "airship_80m_飛空艇をつくって_ファンタジー風",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "prompt2gltf",
+    "generatedFrom": "飛空艇をつくって、ファンタジー風",
+    "createdAt": "2026-03-12T10:46:25.964Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "飛空艇をつくって、ファンタジー風",
+    "normalizedSubject": "airship",
+    "targetHeightMeters": 80,
+    "styleTags": [
+      "western_fantasy"
+    ],
+    "geometryDirective": "Use mixed primitives (box/cylinder/sphere/tri_prism); represent curved real-world forms with rounded geometry.",
+    "summary": "Generated from prompt as a airship with high-density procedural spec.",
+    "designIntent": {
+      "scaleImpression": "extreme_colossal",
+      "mood": "majestic",
+      "originalityPolicy": "generalized_original_design"
+    }
+  },
+  "globalScale": {
+    "length": 80,
+    "width": 22.4,
+    "height": 44
+  },
+  "style": {
+    "silhouette": "elongated_hull_with_balloon_envelope",
+    "mood": "adventurous_sky_vessel",
+    "genre": "fantasy_steampunk",
+    "detailDensity": "ultra_high",
+    "orientation": "Z_axis_fore_to_aft",
+    "shapeLanguage": [
+      "billowing_envelope",
+      "wooden_galleon_hull",
+      "brass_fittings",
+      "canvas_sails",
+      "rope_rigging",
+      "cannon_ports"
+    ]
+  },
+  "materials": {
+    "wood_main": {
+      "baseColor": "#6B3E22",
+      "roughness": 0.88,
+      "metalness": 0.03
+    },
+    "wood_dark": {
+      "baseColor": "#3D2410",
+      "roughness": 0.92,
+      "metalness": 0.02
+    },
+    "wood_deck": {
+      "baseColor": "#7D4E28",
+      "roughness": 0.85,
+      "metalness": 0.04
+    },
+    "canvas_main": {
+      "baseColor": "#C8AA78",
+      "roughness": 0.82,
+      "metalness": 0.02
+    },
+    "canvas_accent": {
+      "baseColor": "#8B3A1E",
+      "roughness": 0.8,
+      "metalness": 0.03
+    },
+    "canvas_dark": {
+      "baseColor": "#5A3E28",
+      "roughness": 0.9,
+      "metalness": 0.01
+    },
+    "canvas_sail": {
+      "baseColor": "#DCC890",
+      "roughness": 0.78,
+      "metalness": 0.02
+    },
+    "brass": {
+      "baseColor": "#C8941E",
+      "roughness": 0.38,
+      "metalness": 0.82
+    },
+    "gilded": {
+      "baseColor": "#D4A820",
+      "roughness": 0.28,
+      "metalness": 0.9
+    },
+    "rope": {
+      "baseColor": "#8A7248",
+      "roughness": 0.95,
+      "metalness": 0.01
+    },
+    "cannon_iron": {
+      "baseColor": "#2E2E30",
+      "roughness": 0.6,
+      "metalness": 0.75
+    },
+    "glass_port": {
+      "baseColor": "#8ABCD4",
+      "roughness": 0.15,
+      "metalness": 0.8
+    }
+  },
+  "parts": [
+    {
+      "id": "balloon_main",
+      "kind": "box",
+      "material": "canvas_main",
+      "size": [
+        20.8,
+        16,
+        57.6
+      ],
+      "position": [
+        0,
+        25.6,
+        0
+      ]
+    },
+    {
+      "id": "balloon_fore",
+      "kind": "box",
+      "material": "canvas_accent",
+      "size": [
+        16,
+        12.8,
+        8
+      ],
+      "position": [
+        0,
+        25.6,
+        31.2
+      ]
+    },
+    {
+      "id": "balloon_aft",
+      "kind": "box",
+      "material": "canvas_dark",
+      "size": [
+        14.4,
+        11.2,
+        7.2
+      ],
+      "position": [
+        0,
+        25.6,
+        -31.2
+      ]
+    },
+    {
+      "id": "balloon_fore_tip",
+      "kind": "box",
+      "material": "canvas_main",
+      "size": [
+        8,
+        7.2,
+        4.8
+      ],
+      "position": [
+        0,
+        25.6,
+        35.2
+      ]
+    },
+    {
+      "id": "balloon_aft_tip",
+      "kind": "box",
+      "material": "canvas_dark",
+      "size": [
+        6.4,
+        5.6,
+        4
+      ],
+      "position": [
+        0,
+        25.6,
+        -35.2
+      ]
+    },
+    {
+      "id": "balloon_top_ridge",
+      "kind": "box",
+      "material": "canvas_sail",
+      "size": [
+        2.4,
+        2.4,
+        54.4
+      ],
+      "position": [
+        0,
+        34.8,
+        0
+      ]
+    },
+    {
+      "id": "balloon_bottom_keel",
+      "kind": "box",
+      "material": "canvas_dark",
+      "size": [
+        3.2,
+        2,
+        48
+      ],
+      "position": [
+        0,
+        16.64,
+        0
+      ]
+    },
+    {
+      "id": "balloon_rib_1",
+      "kind": "box",
+      "material": "brass",
+      "size": [
+        21.6,
+        1.44,
+        1.44
+      ],
+      "position": [
+        0,
+        25.6,
+        -28
+      ]
+    },
+    {
+      "id": "balloon_rib_2",
+      "kind": "box",
+      "material": "brass",
+      "size": [
+        21.6,
+        1.44,
+        1.44
+      ],
+      "position": [
+        0,
+        25.6,
+        -20
+      ]
+    },
+    {
+      "id": "balloon_rib_3",
+      "kind": "box",
+      "material": "brass",
+      "size": [
+        21.6,
+        1.44,
+        1.44
+      ],
+      "position": [
+        0,
+        25.6,
+        -12
+      ]
+    },
+    {
+      "id": "balloon_rib_4",
+      "kind": "box",
+      "material": "brass",
+      "size": [
+        21.6,
+        1.44,
+        1.44
+      ],
+      "position": [
+        0,
+        25.6,
+        -4
+      ]
+    },
+    {
+      "id": "balloon_rib_5",
+      "kind": "box",
+      "material": "brass",
+      "size": [
+        21.6,
+        1.44,
+        1.44
+      ],
+      "position": [
+        0,
+        25.6,
+        4
+      ]
+    },
+    {
+      "id": "balloon_rib_6",
+      "kind": "box",
+      "material": "brass",
+      "size": [
+        21.6,
+        1.44,
+        1.44
+      ],
+      "position": [
+        0,
+        25.6,
+        12
+      ]
+    },
+    {
+      "id": "balloon_rib_7",
+      "kind": "box",
+      "material": "brass",
+      "size": [
+        21.6,
+        1.44,
+        1.44
+      ],
+      "position": [
+        0,
+        25.6,
+        20
+      ]
+    },
+    {
+      "id": "balloon_rib_8",
+      "kind": "box",
+      "material": "brass",
+      "size": [
+        21.6,
+        1.44,
+        1.44
+      ],
+      "position": [
+        0,
+        25.6,
+        28
+      ]
+    },
+    {
+      "id": "balloon_panel_L1",
+      "kind": "box",
+      "material": "canvas_accent",
+      "size": [
+        0.48,
+        12.8,
+        14.4
+      ],
+      "position": [
+        -10.4,
+        25.6,
+        -22.4
+      ]
+    },
+    {
+      "id": "balloon_panel_R1",
+      "kind": "box",
+      "material": "canvas_accent",
+      "size": [
+        0.48,
+        12.8,
+        14.4
+      ],
+      "position": [
+        10.4,
+        25.6,
+        -22.4
+      ]
+    },
+    {
+      "id": "balloon_panel_L2",
+      "kind": "box",
+      "material": "canvas_sail",
+      "size": [
+        0.48,
+        12.8,
+        14.4
+      ],
+      "position": [
+        -10.4,
+        25.6,
+        -7.2
+      ]
+    },
+    {
+      "id": "balloon_panel_R2",
+      "kind": "box",
+      "material": "canvas_sail",
+      "size": [
+        0.48,
+        12.8,
+        14.4
+      ],
+      "position": [
+        10.4,
+        25.6,
+        -7.2
+      ]
+    },
+    {
+      "id": "balloon_panel_L3",
+      "kind": "box",
+      "material": "canvas_accent",
+      "size": [
+        0.48,
+        12.8,
+        14.4
+      ],
+      "position": [
+        -10.4,
+        25.6,
+        8
+      ]
+    },
+    {
+      "id": "balloon_panel_R3",
+      "kind": "box",
+      "material": "canvas_accent",
+      "size": [
+        0.48,
+        12.8,
+        14.4
+      ],
+      "position": [
+        10.4,
+        25.6,
+        8
+      ]
+    },
+    {
+      "id": "balloon_panel_L4",
+      "kind": "box",
+      "material": "canvas_sail",
+      "size": [
+        0.48,
+        12.8,
+        14.4
+      ],
+      "position": [
+        -10.4,
+        25.6,
+        23.2
+      ]
+    },
+    {
+      "id": "balloon_panel_R4",
+      "kind": "box",
+      "material": "canvas_sail",
+      "size": [
+        0.48,
+        12.8,
+        14.4
+      ],
+      "position": [
+        10.4,
+        25.6,
+        23.2
+      ]
+    },
+    {
+      "id": "hull_main",
+      "kind": "box",
+      "material": "wood_main",
+      "size": [
+        12,
+        7.2,
+        46.4
+      ],
+      "position": [
+        0,
+        8,
+        0
+      ]
+    },
+    {
+      "id": "hull_prow",
+      "kind": "box",
+      "material": "wood_dark",
+      "size": [
+        7.2,
+        5.6,
+        9.6
+      ],
+      "position": [
+        0,
+        8,
+        27.2
+      ]
+    },
+    {
+      "id": "hull_stern",
+      "kind": "box",
+      "material": "wood_dark",
+      "size": [
+        9.6,
+        6.4,
+        8
+      ],
+      "position": [
+        0,
+        8,
+        -26.4
+      ]
+    },
+    {
+      "id": "hull_keel",
+      "kind": "box",
+      "material": "wood_dark",
+      "size": [
+        2.4,
+        3.2,
+        44.8
+      ],
+      "position": [
+        0,
+        4.4,
+        0
+      ]
+    },
+    {
+      "id": "hull_deck",
+      "kind": "box",
+      "material": "wood_deck",
+      "size": [
+        11.2,
+        0.96,
+        44
+      ],
+      "position": [
+        0,
+        12.08,
+        0
+      ]
+    },
+    {
+      "id": "plank_L1",
+      "kind": "box",
+      "material": "wood_main",
+      "size": [
+        0.48,
+        5.6,
+        10.4
+      ],
+      "position": [
+        -6.08,
+        7.04,
+        -17.6
+      ]
+    },
+    {
+      "id": "plank_R1",
+      "kind": "box",
+      "material": "wood_main",
+      "size": [
+        0.48,
+        5.6,
+        10.4
+      ],
+      "position": [
+        6.08,
+        7.04,
+        -17.6
+      ]
+    },
+    {
+      "id": "plank_L2",
+      "kind": "box",
+      "material": "wood_main",
+      "size": [
+        0.48,
+        5.6,
+        10.4
+      ],
+      "position": [
+        -6.08,
+        8,
+        -5.6
+      ]
+    },
+    {
+      "id": "plank_R2",
+      "kind": "box",
+      "material": "wood_main",
+      "size": [
+        0.48,
+        5.6,
+        10.4
+      ],
+      "position": [
+        6.08,
+        8,
+        -5.6
+      ]
+    },
+    {
+      "id": "plank_L3",
+      "kind": "box",
+      "material": "wood_main",
+      "size": [
+        0.48,
+        5.6,
+        10.4
+      ],
+      "position": [
+        -6.08,
+        8.96,
+        6.4
+      ]
+    },
+    {
+      "id": "plank_R3",
+      "kind": "box",
+      "material": "wood_main",
+      "size": [
+        0.48,
+        5.6,
+        10.4
+      ],
+      "position": [
+        6.08,
+        8.96,
+        6.4
+      ]
+    },
+    {
+      "id": "plank_L4",
+      "kind": "box",
+      "material": "wood_main",
+      "size": [
+        0.48,
+        5.6,
+        10.4
+      ],
+      "position": [
+        -6.08,
+        7.04,
+        18.4
+      ]
+    },
+    {
+      "id": "plank_R4",
+      "kind": "box",
+      "material": "wood_main",
+      "size": [
+        0.48,
+        5.6,
+        10.4
+      ],
+      "position": [
+        6.08,
+        7.04,
+        18.4
+      ]
+    },
+    {
+      "id": "cannon_L1",
+      "kind": "box",
+      "material": "cannon_iron",
+      "size": [
+        3.2,
+        2.4,
+        2.4
+      ],
+      "position": [
+        -7.2,
+        8,
+        -14.4
+      ]
+    },
+    {
+      "id": "cannon_R1",
+      "kind": "box",
+      "material": "cannon_iron",
+      "size": [
+        3.2,
+        2.4,
+        2.4
+      ],
+      "position": [
+        7.2,
+        8,
+        -14.4
+      ]
+    },
+    {
+      "id": "cannon_L2",
+      "kind": "box",
+      "material": "cannon_iron",
+      "size": [
+        3.2,
+        2.4,
+        2.4
+      ],
+      "position": [
+        -7.2,
+        8,
+        0.4
+      ]
+    },
+    {
+      "id": "cannon_R2",
+      "kind": "box",
+      "material": "cannon_iron",
+      "size": [
+        3.2,
+        2.4,
+        2.4
+      ],
+      "position": [
+        7.2,
+        8,
+        0.4
+      ]
+    },
+    {
+      "id": "cannon_L3",
+      "kind": "box",
+      "material": "cannon_iron",
+      "size": [
+        3.2,
+        2.4,
+        2.4
+      ],
+      "position": [
+        -7.2,
+        8,
+        15.2
+      ]
+    },
+    {
+      "id": "cannon_R3",
+      "kind": "box",
+      "material": "cannon_iron",
+      "size": [
+        3.2,
+        2.4,
+        2.4
+      ],
+      "position": [
+        7.2,
+        8,
+        15.2
+      ]
+    },
+    {
+      "id": "ballast_L",
+      "kind": "box",
+      "material": "brass",
+      "size": [
+        3.2,
+        2.4,
+        12
+      ],
+      "position": [
+        -6.8,
+        3.6,
+        0
+      ]
+    },
+    {
+      "id": "ballast_R",
+      "kind": "box",
+      "material": "brass",
+      "size": [
+        3.2,
+        2.4,
+        12
+      ],
+      "position": [
+        6.8,
+        3.6,
+        0
+      ]
+    },
+    {
+      "id": "strap_fore_L",
+      "kind": "box",
+      "material": "rope",
+      "size": [
+        0.96,
+        13.52,
+        0.96
+      ],
+      "position": [
+        -5.2,
+        18.84,
+        17.6
+      ]
+    },
+    {
+      "id": "strap_fore_R",
+      "kind": "box",
+      "material": "rope",
+      "size": [
+        0.96,
+        13.52,
+        0.96
+      ],
+      "position": [
+        5.2,
+        18.84,
+        17.6
+      ]
+    },
+    {
+      "id": "strap_aft_L",
+      "kind": "box",
+      "material": "rope",
+      "size": [
+        0.96,
+        13.52,
+        0.96
+      ],
+      "position": [
+        -5.2,
+        18.84,
+        -17.6
+      ]
+    },
+    {
+      "id": "strap_aft_R",
+      "kind": "box",
+      "material": "rope",
+      "size": [
+        0.96,
+        13.52,
+        0.96
+      ],
+      "position": [
+        5.2,
+        18.84,
+        -17.6
+      ]
+    },
+    {
+      "id": "pod_L",
+      "kind": "box",
+      "material": "brass",
+      "size": [
+        3.2,
+        3.2,
+        8
+      ],
+      "position": [
+        -9.2,
+        8.4,
+        -22.4
+      ]
+    },
+    {
+      "id": "pod_R",
+      "kind": "box",
+      "material": "brass",
+      "size": [
+        3.2,
+        3.2,
+        8
+      ],
+      "position": [
+        9.2,
+        8.4,
+        -22.4
+      ]
+    },
+    {
+      "id": "hub_L",
+      "kind": "box",
+      "material": "cannon_iron",
+      "size": [
+        2,
+        2,
+        1.44
+      ],
+      "position": [
+        -9.2,
+        8.4,
+        -27.2
+      ]
+    },
+    {
+      "id": "hub_R",
+      "kind": "box",
+      "material": "cannon_iron",
+      "size": [
+        2,
+        2,
+        1.44
+      ],
+      "position": [
+        9.2,
+        8.4,
+        -27.2
+      ]
+    },
+    {
+      "id": "blade_L1",
+      "kind": "box",
+      "material": "wood_dark",
+      "size": [
+        0.96,
+        7.2,
+        0.96
+      ],
+      "position": [
+        -9.2,
+        12.8,
+        -27.2
+      ]
+    },
+    {
+      "id": "blade_R1",
+      "kind": "box",
+      "material": "wood_dark",
+      "size": [
+        0.96,
+        7.2,
+        0.96
+      ],
+      "position": [
+        9.2,
+        12.8,
+        -27.2
+      ]
+    },
+    {
+      "id": "blade_L2",
+      "kind": "box",
+      "material": "wood_dark",
+      "size": [
+        0.96,
+        7.2,
+        0.96
+      ],
+      "position": [
+        -9.2,
+        4,
+        -27.2
+      ]
+    },
+    {
+      "id": "blade_R2",
+      "kind": "box",
+      "material": "wood_dark",
+      "size": [
+        0.96,
+        7.2,
+        0.96
+      ],
+      "position": [
+        9.2,
+        4,
+        -27.2
+      ]
+    },
+    {
+      "id": "blade_L3",
+      "kind": "box",
+      "material": "wood_dark",
+      "size": [
+        0.96,
+        7.2,
+        0.96
+      ],
+      "position": [
+        -4.8,
+        8.4,
+        -27.2
+      ]
+    },
+    {
+      "id": "blade_R3",
+      "kind": "box",
+      "material": "wood_dark",
+      "size": [
+        0.96,
+        7.2,
+        0.96
+      ],
+      "position": [
+        13.6,
+        8.4,
+        -27.2
+      ]
+    },
+    {
+      "id": "blade_L4",
+      "kind": "box",
+      "material": "wood_dark",
+      "size": [
+        0.96,
+        7.2,
+        0.96
+      ],
+      "position": [
+        -13.6,
+        8.4,
+        -27.2
+      ]
+    },
+    {
+      "id": "blade_R4",
+      "kind": "box",
+      "material": "wood_dark",
+      "size": [
+        0.96,
+        7.2,
+        0.96
+      ],
+      "position": [
+        4.8,
+        8.4,
+        -27.2
+      ]
+    },
+    {
+      "id": "mast_fore",
+      "kind": "box",
+      "material": "wood_dark",
+      "size": [
+        1.44,
+        22.4,
+        1.44
+      ],
+      "position": [
+        0,
+        23.28,
+        14.4
+      ]
+    },
+    {
+      "id": "yard_fore",
+      "kind": "box",
+      "material": "wood_dark",
+      "size": [
+        17.6,
+        0.96,
+        0.96
+      ],
+      "position": [
+        0,
+        30.448,
+        14.4
+      ]
+    },
+    {
+      "id": "sail_fore",
+      "kind": "box",
+      "material": "canvas_sail",
+      "size": [
+        14.4,
+        11.2,
+        0.64
+      ],
+      "position": [
+        0,
+        26.64,
+        14.4
+      ]
+    },
+    {
+      "id": "flag_fore",
+      "kind": "box",
+      "material": "gilded",
+      "size": [
+        3.2,
+        2,
+        0.32
+      ],
+      "position": [
+        0,
+        35.12,
+        14.4
+      ]
+    },
+    {
+      "id": "crow_nest",
+      "kind": "box",
+      "material": "wood_deck",
+      "size": [
+        4.8,
+        1.6,
+        4.8
+      ],
+      "position": [
+        0,
+        28.208,
+        14.4
+      ]
+    },
+    {
+      "id": "mast_aft",
+      "kind": "box",
+      "material": "wood_dark",
+      "size": [
+        1.2,
+        17.6,
+        1.2
+      ],
+      "position": [
+        0,
+        20.88,
+        -8
+      ]
+    },
+    {
+      "id": "yard_aft",
+      "kind": "box",
+      "material": "wood_dark",
+      "size": [
+        13.6,
+        0.8,
+        0.8
+      ],
+      "position": [
+        0,
+        26.16,
+        -8
+      ]
+    },
+    {
+      "id": "sail_aft",
+      "kind": "box",
+      "material": "canvas_sail",
+      "size": [
+        11.2,
+        8.8,
+        0.48
+      ],
+      "position": [
+        0,
+        22.992,
+        -8
+      ]
+    },
+    {
+      "id": "flag_aft",
+      "kind": "box",
+      "material": "gilded",
+      "size": [
+        2.4,
+        1.6,
+        0.24
+      ],
+      "position": [
+        0,
+        30.16,
+        -8
+      ]
+    },
+    {
+      "id": "rudder",
+      "kind": "box",
+      "material": "wood_dark",
+      "size": [
+        0.96,
+        9.6,
+        8
+      ],
+      "position": [
+        0,
+        10,
+        -32.8
+      ]
+    },
+    {
+      "id": "fin_port",
+      "kind": "box",
+      "material": "canvas_dark",
+      "size": [
+        8,
+        6.4,
+        9.6
+      ],
+      "position": [
+        -9.6,
+        19.2,
+        -30.4
+      ]
+    },
+    {
+      "id": "fin_stbd",
+      "kind": "box",
+      "material": "canvas_dark",
+      "size": [
+        8,
+        6.4,
+        9.6
+      ],
+      "position": [
+        9.6,
+        19.2,
+        -30.4
+      ]
+    },
+    {
+      "id": "fin_top",
+      "kind": "box",
+      "material": "canvas_dark",
+      "size": [
+        0.96,
+        9.6,
+        9.6
+      ],
+      "position": [
+        0,
+        31.2,
+        -30.4
+      ]
+    },
+    {
+      "id": "helm_post",
+      "kind": "box",
+      "material": "wood_dark",
+      "size": [
+        0.96,
+        4.8,
+        0.96
+      ],
+      "position": [
+        0,
+        15.28,
+        -16
+      ]
+    },
+    {
+      "id": "helm_wheel",
+      "kind": "box",
+      "material": "brass",
+      "size": [
+        4.8,
+        4.8,
+        0.64
+      ],
+      "position": [
+        0,
+        17.84,
+        -16
+      ]
+    },
+    {
+      "id": "figurehead",
+      "kind": "box",
+      "material": "gilded",
+      "size": [
+        2.4,
+        4.8,
+        3.2
+      ],
+      "position": [
+        0,
+        11.2,
+        33.6
+      ]
+    },
+    {
+      "id": "prow_lantern",
+      "kind": "box",
+      "material": "gilded",
+      "size": [
+        1.6,
+        2,
+        1.6
+      ],
+      "position": [
+        0,
+        12.64,
+        31.2
+      ]
+    },
+    {
+      "id": "railing_bow_L",
+      "kind": "box",
+      "material": "brass",
+      "size": [
+        0.4,
+        2,
+        12
+      ],
+      "position": [
+        -5.6,
+        12.08,
+        22.4
+      ]
+    },
+    {
+      "id": "railing_bow_R",
+      "kind": "box",
+      "material": "brass",
+      "size": [
+        0.4,
+        2,
+        12
+      ],
+      "position": [
+        5.6,
+        12.08,
+        22.4
+      ]
+    },
+    {
+      "id": "railing_aft_L",
+      "kind": "box",
+      "material": "brass",
+      "size": [
+        0.4,
+        2,
+        8
+      ],
+      "position": [
+        -4.8,
+        12.08,
+        -20.8
+      ]
+    },
+    {
+      "id": "railing_aft_R",
+      "kind": "box",
+      "material": "brass",
+      "size": [
+        0.4,
+        2,
+        8
+      ],
+      "position": [
+        4.8,
+        12.08,
+        -20.8
+      ]
+    },
+    {
+      "id": "rope_coil_1",
+      "kind": "box",
+      "material": "rope",
+      "size": [
+        3.2,
+        1.44,
+        3.2
+      ],
+      "position": [
+        -4,
+        12.08,
+        9.6
+      ]
+    },
+    {
+      "id": "rope_coil_2",
+      "kind": "box",
+      "material": "rope",
+      "size": [
+        3.2,
+        1.44,
+        3.2
+      ],
+      "position": [
+        4,
+        12.08,
+        9.6
+      ]
+    },
+    {
+      "id": "rope_coil_3",
+      "kind": "box",
+      "material": "rope",
+      "size": [
+        3.2,
+        1.44,
+        3.2
+      ],
+      "position": [
+        -4,
+        12.08,
+        -4
+      ]
+    },
+    {
+      "id": "rope_coil_4",
+      "kind": "box",
+      "material": "rope",
+      "size": [
+        3.2,
+        1.44,
+        3.2
+      ],
+      "position": [
+        4,
+        12.08,
+        -4
+      ]
+    },
+    {
+      "id": "hatch_fore",
+      "kind": "box",
+      "material": "wood_deck",
+      "size": [
+        4,
+        0.64,
+        4
+      ],
+      "position": [
+        0,
+        12.08,
+        6.4
+      ]
+    },
+    {
+      "id": "hatch_aft",
+      "kind": "box",
+      "material": "wood_deck",
+      "size": [
+        4,
+        0.64,
+        4
+      ],
+      "position": [
+        0,
+        12.08,
+        -9.6
+      ]
+    },
+    {
+      "id": "anchor_L",
+      "kind": "box",
+      "material": "cannon_iron",
+      "size": [
+        2.4,
+        3.2,
+        1.6
+      ],
+      "position": [
+        -6.4,
+        2.4,
+        24
+      ]
+    },
+    {
+      "id": "anchor_R",
+      "kind": "box",
+      "material": "cannon_iron",
+      "size": [
+        2.4,
+        3.2,
+        1.6
+      ],
+      "position": [
+        6.4,
+        2.4,
+        24
+      ]
+    },
+    {
+      "id": "rigging_1",
+      "kind": "box",
+      "material": "rope",
+      "size": [
+        0.48,
+        19.2,
+        0.48
+      ],
+      "position": [
+        -6.4,
+        21.68,
+        20
+      ]
+    },
+    {
+      "id": "rigging_2",
+      "kind": "box",
+      "material": "rope",
+      "size": [
+        0.48,
+        19.2,
+        0.48
+      ],
+      "position": [
+        -6.4,
+        21.68,
+        9.6
+      ]
+    },
+    {
+      "id": "rigging_3",
+      "kind": "box",
+      "material": "rope",
+      "size": [
+        0.48,
+        19.2,
+        0.48
+      ],
+      "position": [
+        6.4,
+        21.68,
+        20
+      ]
+    },
+    {
+      "id": "rigging_4",
+      "kind": "box",
+      "material": "rope",
+      "size": [
+        0.48,
+        19.2,
+        0.48
+      ],
+      "position": [
+        6.4,
+        21.68,
+        9.6
+      ]
+    }
+  ],
+  "surfaceDetails": [
+    {
+      "id": "surface_detail_1",
+      "region": "balloon_top",
+      "type": "canvas_stitch",
+      "scale": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_2",
+      "region": "balloon_top",
+      "type": "plank_grain",
+      "scale": 0.21,
+      "offset": [
+        0.01682941969615793,
+        0.009324149524059966,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_3",
+      "region": "balloon_top",
+      "type": "rope_weave",
+      "scale": 0.27,
+      "offset": [
+        0.018185948536513636,
+        -0.0034080314203963065,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_4",
+      "region": "balloon_top",
+      "type": "brass_rivet",
+      "scale": 0.32999999999999996,
+      "offset": [
+        0.002822400161197344,
+        -0.013561082130255918,
+        0.015
+      ]
+    },
+    {
+      "id": "surface_detail_5",
+      "region": "balloon_top",
+      "type": "paint_wear",
+      "scale": 0.39,
+      "offset": [
+        -0.015136049906158565,
+        -0.013451376245012204,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_6",
+      "region": "balloon_top",
+      "type": "rope_knot",
+      "scale": 0.15,
+      "offset": [
+        -0.01917848549326277,
+        -0.0031619369914616955,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_7",
+      "region": "balloon_top",
+      "type": "barnacle",
+      "scale": 0.21,
+      "offset": [
+        -0.005588309963978517,
+        0.00952039313913952,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_8",
+      "region": "balloon_top",
+      "type": "canvas_stitch",
+      "scale": 0.27,
+      "offset": [
+        0.013139731974375781,
+        0.014997879545751226,
+        0.015
+      ]
+    },
+    {
+      "id": "surface_detail_9",
+      "region": "balloon_sides",
+      "type": "canvas_stitch",
+      "scale": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_10",
+      "region": "balloon_sides",
+      "type": "plank_grain",
+      "scale": 0.21,
+      "offset": [
+        0.01682941969615793,
+        0.009324149524059966,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_11",
+      "region": "balloon_sides",
+      "type": "rope_weave",
+      "scale": 0.27,
+      "offset": [
+        0.018185948536513636,
+        -0.0034080314203963065,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_12",
+      "region": "balloon_sides",
+      "type": "brass_rivet",
+      "scale": 0.32999999999999996,
+      "offset": [
+        0.002822400161197344,
+        -0.013561082130255918,
+        0.015
+      ]
+    },
+    {
+      "id": "surface_detail_13",
+      "region": "balloon_sides",
+      "type": "paint_wear",
+      "scale": 0.39,
+      "offset": [
+        -0.015136049906158565,
+        -0.013451376245012204,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_14",
+      "region": "balloon_sides",
+      "type": "rope_knot",
+      "scale": 0.15,
+      "offset": [
+        -0.01917848549326277,
+        -0.0031619369914616955,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_15",
+      "region": "balloon_sides",
+      "type": "barnacle",
+      "scale": 0.21,
+      "offset": [
+        -0.005588309963978517,
+        0.00952039313913952,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_16",
+      "region": "balloon_sides",
+      "type": "canvas_stitch",
+      "scale": 0.27,
+      "offset": [
+        0.013139731974375781,
+        0.014997879545751226,
+        0.015
+      ]
+    },
+    {
+      "id": "surface_detail_17",
+      "region": "hull_port",
+      "type": "canvas_stitch",
+      "scale": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_18",
+      "region": "hull_port",
+      "type": "plank_grain",
+      "scale": 0.21,
+      "offset": [
+        0.01682941969615793,
+        0.009324149524059966,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_19",
+      "region": "hull_port",
+      "type": "rope_weave",
+      "scale": 0.27,
+      "offset": [
+        0.018185948536513636,
+        -0.0034080314203963065,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_20",
+      "region": "hull_port",
+      "type": "brass_rivet",
+      "scale": 0.32999999999999996,
+      "offset": [
+        0.002822400161197344,
+        -0.013561082130255918,
+        0.015
+      ]
+    },
+    {
+      "id": "surface_detail_21",
+      "region": "hull_port",
+      "type": "paint_wear",
+      "scale": 0.39,
+      "offset": [
+        -0.015136049906158565,
+        -0.013451376245012204,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_22",
+      "region": "hull_port",
+      "type": "rope_knot",
+      "scale": 0.15,
+      "offset": [
+        -0.01917848549326277,
+        -0.0031619369914616955,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_23",
+      "region": "hull_port",
+      "type": "barnacle",
+      "scale": 0.21,
+      "offset": [
+        -0.005588309963978517,
+        0.00952039313913952,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_24",
+      "region": "hull_port",
+      "type": "canvas_stitch",
+      "scale": 0.27,
+      "offset": [
+        0.013139731974375781,
+        0.014997879545751226,
+        0.015
+      ]
+    },
+    {
+      "id": "surface_detail_25",
+      "region": "hull_starboard",
+      "type": "canvas_stitch",
+      "scale": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_26",
+      "region": "hull_starboard",
+      "type": "plank_grain",
+      "scale": 0.21,
+      "offset": [
+        0.01682941969615793,
+        0.009324149524059966,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_27",
+      "region": "hull_starboard",
+      "type": "rope_weave",
+      "scale": 0.27,
+      "offset": [
+        0.018185948536513636,
+        -0.0034080314203963065,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_28",
+      "region": "hull_starboard",
+      "type": "brass_rivet",
+      "scale": 0.32999999999999996,
+      "offset": [
+        0.002822400161197344,
+        -0.013561082130255918,
+        0.015
+      ]
+    },
+    {
+      "id": "surface_detail_29",
+      "region": "hull_starboard",
+      "type": "paint_wear",
+      "scale": 0.39,
+      "offset": [
+        -0.015136049906158565,
+        -0.013451376245012204,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_30",
+      "region": "hull_starboard",
+      "type": "rope_knot",
+      "scale": 0.15,
+      "offset": [
+        -0.01917848549326277,
+        -0.0031619369914616955,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_31",
+      "region": "hull_starboard",
+      "type": "barnacle",
+      "scale": 0.21,
+      "offset": [
+        -0.005588309963978517,
+        0.00952039313913952,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_32",
+      "region": "hull_starboard",
+      "type": "canvas_stitch",
+      "scale": 0.27,
+      "offset": [
+        0.013139731974375781,
+        0.014997879545751226,
+        0.015
+      ]
+    },
+    {
+      "id": "surface_detail_33",
+      "region": "hull_fore",
+      "type": "canvas_stitch",
+      "scale": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_34",
+      "region": "hull_fore",
+      "type": "plank_grain",
+      "scale": 0.21,
+      "offset": [
+        0.01682941969615793,
+        0.009324149524059966,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_35",
+      "region": "hull_fore",
+      "type": "rope_weave",
+      "scale": 0.27,
+      "offset": [
+        0.018185948536513636,
+        -0.0034080314203963065,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_36",
+      "region": "hull_fore",
+      "type": "brass_rivet",
+      "scale": 0.32999999999999996,
+      "offset": [
+        0.002822400161197344,
+        -0.013561082130255918,
+        0.015
+      ]
+    },
+    {
+      "id": "surface_detail_37",
+      "region": "hull_fore",
+      "type": "paint_wear",
+      "scale": 0.39,
+      "offset": [
+        -0.015136049906158565,
+        -0.013451376245012204,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_38",
+      "region": "hull_fore",
+      "type": "rope_knot",
+      "scale": 0.15,
+      "offset": [
+        -0.01917848549326277,
+        -0.0031619369914616955,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_39",
+      "region": "hull_fore",
+      "type": "barnacle",
+      "scale": 0.21,
+      "offset": [
+        -0.005588309963978517,
+        0.00952039313913952,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_40",
+      "region": "hull_fore",
+      "type": "canvas_stitch",
+      "scale": 0.27,
+      "offset": [
+        0.013139731974375781,
+        0.014997879545751226,
+        0.015
+      ]
+    },
+    {
+      "id": "surface_detail_41",
+      "region": "hull_aft",
+      "type": "canvas_stitch",
+      "scale": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_42",
+      "region": "hull_aft",
+      "type": "plank_grain",
+      "scale": 0.21,
+      "offset": [
+        0.01682941969615793,
+        0.009324149524059966,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_43",
+      "region": "hull_aft",
+      "type": "rope_weave",
+      "scale": 0.27,
+      "offset": [
+        0.018185948536513636,
+        -0.0034080314203963065,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_44",
+      "region": "hull_aft",
+      "type": "brass_rivet",
+      "scale": 0.32999999999999996,
+      "offset": [
+        0.002822400161197344,
+        -0.013561082130255918,
+        0.015
+      ]
+    },
+    {
+      "id": "surface_detail_45",
+      "region": "hull_aft",
+      "type": "paint_wear",
+      "scale": 0.39,
+      "offset": [
+        -0.015136049906158565,
+        -0.013451376245012204,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_46",
+      "region": "hull_aft",
+      "type": "rope_knot",
+      "scale": 0.15,
+      "offset": [
+        -0.01917848549326277,
+        -0.0031619369914616955,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_47",
+      "region": "hull_aft",
+      "type": "barnacle",
+      "scale": 0.21,
+      "offset": [
+        -0.005588309963978517,
+        0.00952039313913952,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_48",
+      "region": "hull_aft",
+      "type": "canvas_stitch",
+      "scale": 0.27,
+      "offset": [
+        0.013139731974375781,
+        0.014997879545751226,
+        0.015
+      ]
+    },
+    {
+      "id": "surface_detail_49",
+      "region": "deck",
+      "type": "canvas_stitch",
+      "scale": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_50",
+      "region": "deck",
+      "type": "plank_grain",
+      "scale": 0.21,
+      "offset": [
+        0.01682941969615793,
+        0.009324149524059966,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_51",
+      "region": "deck",
+      "type": "rope_weave",
+      "scale": 0.27,
+      "offset": [
+        0.018185948536513636,
+        -0.0034080314203963065,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_52",
+      "region": "deck",
+      "type": "brass_rivet",
+      "scale": 0.32999999999999996,
+      "offset": [
+        0.002822400161197344,
+        -0.013561082130255918,
+        0.015
+      ]
+    },
+    {
+      "id": "surface_detail_53",
+      "region": "deck",
+      "type": "paint_wear",
+      "scale": 0.39,
+      "offset": [
+        -0.015136049906158565,
+        -0.013451376245012204,
+        -0.015
+      ]
+    },
+    {
+      "id": "surface_detail_54",
+      "region": "deck",
+      "type": "rope_knot",
+      "scale": 0.15,
+      "offset": [
+        -0.01917848549326277,
+        -0.0031619369914616955,
+        -0.005
+      ]
+    },
+    {
+      "id": "surface_detail_55",
+      "region": "deck",
+      "type": "barnacle",
+      "scale": 0.21,
+      "offset": [
+        -0.005588309963978517,
+        0.00952039313913952,
+        0.005
+      ]
+    },
+    {
+      "id": "surface_detail_56",
+      "region": "deck",
+      "type": "canvas_stitch",
+      "scale": 0.27,
+      "offset": [
+        0.013139731974375781,
+        0.014997879545751226,
+        0.015
+      ]
+    }
+  ],
+  "ornaments": []
+}

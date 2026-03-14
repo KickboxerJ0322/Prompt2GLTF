@@ -1,16 +1,15 @@
 ---
 name: prompt2gltf
-description: Generate a high-density 3D specification JSON from a user's prompt, then build GLTF/GLB and a preview HTML. Best for requests like "100m級の巨人を作って", "巨大ロボを作って", or "城を作って".
+description: Generate a high-density 3D specification JSON from a user's prompt, then build GLTF/GLB. Best for requests like "100m級の巨人を作って", "巨大ロボを作って", or "城を作って".
 ---
 
-# Prompt2GLTF
+# prompt2gltf
 
 ## Purpose
 Turn a user's natural language prompt into:
 1. a large structured 3D spec JSON
 2. a procedurally generated `.gltf`
 3. a procedurally generated `.glb`
-4. a lightweight `preview.html`
 
 ## When to use
 Use this skill when the user asks to:
@@ -25,17 +24,35 @@ Use this skill when the user asks to:
 - Keep outputs deterministic and file-based.
 - Geometry directive: do not rely on rectangular boxes only. Use mixed primitives (box / cylinder / sphere / triangular prism) and preserve real-world roundness/curvature when the subject has curved forms.
 - Keep overall JSON richness at least the current level (do not reduce part/detail metadata density).
+- **Never generate preview.html.**
 
 ## Output location
 Write generated files under:
 
-generated/prompt2gltf/
+generated/
 
 Expected files:
-- generated/prompt2gltf/spec.json
-- generated/prompt2gltf/model.gltf
-- generated/prompt2gltf/model.glb
-- generated/prompt2gltf/preview.html
+- generated/model_spec.json
+- generated/model.gltf
+- generated/model.glb
+
+## Template reference
+Templates are stored in `plugins/prompt2gltf/templates/`. Each template is a full spec JSON for a representative subject.
+
+**Before running the generator:**
+1. List `plugins/prompt2gltf/templates/` to see available templates.
+2. Read each template's `promptInterpretation.normalizedSubject` and `meta.name`.
+3. Pick the template whose subject / style best matches the user's prompt.
+4. Pass it via `--template templates/<filename>` to the generator command.
+
+**Template matching guide:**
+| Template file          | normalizedSubject | Good for                            |
+|------------------------|-------------------|-------------------------------------|
+| godzilla_spec.json     | kaiju             | 怪獣, 巨大生物, モンスター          |
+| tsutenkaku_spec.json   | tower             | タワー, 塔, 電波塔, 観光塔          |
+| datacenter_spec.json   | structure         | 建物, 工場, 施設, データセンター     |
+
+If no template closely matches, omit `--template` (the generator builds from scratch).
 
 ## Workflow
 When invoked:
@@ -49,12 +66,18 @@ When invoked:
    - materials
    - accessories
    - pose
-3. Run the local generator:
+3. Select the best matching template from `plugins/prompt2gltf/templates/` (see Template reference above).
+4. Run the local generator with the selected template:
+
+   node plugins/prompt2gltf/scripts/index.mjs --prompt "<USER_PROMPT>" --template templates/<BEST_MATCH>.json
+
+   If no template matches:
 
    node plugins/prompt2gltf/scripts/index.mjs --prompt "<USER_PROMPT>"
 
-4. After generation, summarize:
+5. After generation, summarize:
    - what was inferred
+   - which template was used (if any)
    - where files were written
    - any simplifications made
 
@@ -114,9 +137,10 @@ Example:
 ## Success message format
 Return a short result summary like:
 
+- テンプレート: templates/godzilla_spec.json を使用
 - 3D仕様JSONを生成しました
-- GLTF / GLB / Preview を出力しました
-- 出力先: generated/prompt2gltf/
+- GLTF / GLB を出力しました
+- 出力先: generated/
 
 ## Failure handling
 If generation fails:

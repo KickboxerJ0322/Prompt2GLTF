@@ -3,7 +3,7 @@
     "name": "tower_300m_通天閣風タワー",
     "version": "0.2.0",
     "units": "meters",
-    "generator": "Prompt2GLTF",
+    "generator": "prompt2gltf",
     "generatedFrom": "通天閣風タワー",
     "createdAt": "2026-03-08T13:45:00.682Z"
   },
