@@ -116,29 +116,6 @@ const placedModel = viewer.entities.add({
   }
 });
 
-// ------------------------------------
-// 設置位置マーカー
-// ------------------------------------
-viewer.entities.add({
-  position: modelPosition,
-  point: {
-    pixelSize: {{MARKER_PIXEL_SIZE}},
-    color: Cesium.Color.{{MARKER_COLOR}},
-    outlineColor: Cesium.Color.BLACK,
-    outlineWidth: 2,
-    disableDepthTestDistance: Number.POSITIVE_INFINITY
-  },
-  label: {
-    text: "{{MARKER_LABEL}}",
-    font: "18px sans-serif",
-    fillColor: Cesium.Color.{{MARKER_COLOR}},
-    outlineColor: Cesium.Color.BLACK,
-    outlineWidth: 3,
-    style: Cesium.LabelStyle.FILL_AND_OUTLINE,
-    pixelOffset: new Cesium.Cartesian2(0, -28),
-    disableDepthTestDistance: Number.POSITIVE_INFINITY
-  }
-});
 
 // ------------------------------------
 // 周辺地名ラベル表示

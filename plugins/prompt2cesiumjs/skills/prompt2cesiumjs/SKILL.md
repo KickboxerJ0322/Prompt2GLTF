@@ -30,7 +30,6 @@ description: 自然文から Cesium Sandcastle 用 JavaScript を生成する。
 - 終了地点ラベル
 - 経由地点ラベル
 - ルートポリライン表示
-- 設置地点マーカー
 
 出力時には次のリンク先を案内すること。
 
@@ -112,7 +111,6 @@ description: 自然文から Cesium Sandcastle 用 JavaScript を生成する。
 - 終了地点ラベル
 - 経由地点ラベル
 - 固定配置モデルの名称ラベル
-- 設置地点マーカーラベル
 
 ## ルート作成ポリシー
 
@@ -204,9 +202,6 @@ Skill はユーザー入力を元にこれらを埋める。
 - {{MINIMUM_PIXEL_SIZE}}
 - {{MAXIMUM_SCALE}}
 - {{LABEL_TEXT}}
-- {{MARKER_PIXEL_SIZE}}
-- {{MARKER_COLOR}}
-- {{MARKER_LABEL}}
 - {{CAMERA_HEIGHT}}
 - {{CAMERA_HEADING_DEG}}
 - {{CAMERA_PITCH_DEG}}
@@ -227,9 +222,6 @@ Skill はユーザー入力を元にこれらを埋める。
     SCALE = 2.0
     MINIMUM_PIXEL_SIZE = 96
     MAXIMUM_SCALE = 300
-
-    MARKER_PIXEL_SIZE = 12
-    MARKER_COLOR = CYAN
 
     CAMERA_HEIGHT = 1200
     CAMERA_HEADING_DEG = 0
