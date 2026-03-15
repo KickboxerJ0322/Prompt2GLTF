@@ -120,8 +120,8 @@ for (const [sec, lon, lat] of route2D) {
 }
 
 position.setInterpolationOptions({
-  interpolationDegree: 1,
-  interpolationAlgorithm: Cesium.LinearApproximation,
+  interpolationDegree: 5,
+  interpolationAlgorithm: Cesium.HermitePolynomialApproximation,
 });
 
 // ------------------------------------
@@ -149,7 +149,8 @@ const modelOrientation = new Cesium.CallbackProperty(function (time, result) {
 }, false);
 
 // ------------------------------------
-// ルート線
+// 計画ルート（点線）: ウェイポイントを直線でつないだ予定ルート
+// 実際の飛行はHermite補間でなめらかにカーブするため、path と2本のラインになる
 // ------------------------------------
 viewer.entities.add({
   name: "{{ROUTE_NAME}}",
@@ -157,11 +158,10 @@ viewer.entities.add({
     positions: route2D.map(([, lon, lat]) =>
       Cesium.Cartesian3.fromDegrees(lon, lat, PERSON.heightMeters)
     ),
-    width: PERSON.pathWidth,
-    material: new Cesium.PolylineOutlineMaterialProperty({
-      color: Cesium.Color.CYAN.withAlpha(0.9),
-      outlineColor: Cesium.Color.BLACK,
-      outlineWidth: 1,
+    width: 2,
+    material: new Cesium.PolylineDashMaterialProperty({
+      color: Cesium.Color.WHITE.withAlpha(0.55),
+      dashLength: 24,
     }),
   },
 });
