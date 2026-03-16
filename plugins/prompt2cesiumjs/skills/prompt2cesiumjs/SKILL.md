@@ -42,6 +42,7 @@ description: 自然文から Cesium Sandcastle 用 JavaScript を生成する。
 - templates/sandcastle_walk_follow.js
 - templates/sandcastle_drone_follow.js
 - templates/sandcastle_place_model.js
+- templates/sandcastle_free_flight.js
 
 ユーザー指定が無い場合は walk_follow テンプレートを使用する。
 
@@ -68,6 +69,18 @@ description: 自然文から Cesium Sandcastle 用 JavaScript を生成する。
 - ドローン
 - 上から追尾
 
+### free_flight を使う条件
+
+次の語句が含まれる場合は free_flight を使う。
+
+- 自由に飛びたい
+- 自分で操作
+- 手動操作
+- フリーフライト
+- free flight
+- 自分で動かす
+- キーボードで操作
+
 ### place_model を使う条件
 
 次の語句が含まれる場合は place_model を使う。
@@ -86,6 +99,48 @@ description: 自然文から Cesium Sandcastle 用 JavaScript を生成する。
 - その場に置く
 
 固定配置モードでは route2D を使う移動コードは生成しない。
+
+## フリーフライトモード
+
+キーボードで機体を自由操作できるインタラクティブモード。
+
+### 生成手順
+
+1. `templates/sandcastle_free_flight.js` をそのまま読み込む
+2. ユーザーのニーズに合わせて必要箇所だけ書き換える
+3. 書き換えた完全コードを `generated/sandcastle.js` に出力する
+
+移動ルート（route2D）は使用しない。
+
+### フリーフライトモードのデフォルト値
+
+- `MODEL_URL`: `https://raw.githubusercontent.com/KickboxerJ0322/Prompt2GLTF/master/glb/heli.glb`
+- 初期位置はユーザー指定の場所に変更する（省略時: 晴海ふ頭公園上空）
+- `START_ALT`: 200〜300m 程度
+
+### フリーフライトモードの必須コード構造
+
+1. Cesium Viewer 初期化（animation/timeline は false）
+2. Google Photorealistic 3D Tiles 読み込み
+3. キーボード入力管理（`keys` オブジェクト）
+4. HUD 表示（操作説明 + ステータス）
+5. モデル配置（単一 entity）
+6. `viewer.clock.onTick` による毎フレーム更新
+7. 追尾カメラ（C キーで ON/OFF）
+8. リセット機能（R キー）
+
+### フリーフライトモードで変更するもの
+
+- `START_LON` / `START_LAT` / `START_ALT`: ユーザー指定の場所に設定
+- モデル URL 変数（`HELI_MODEL_URL` など）: ユーザー指定のモデルに差し替え
+- HUD の `b` タグ内の見出し文字列（場所名を反映）
+- `console.log` の完了メッセージ
+
+### フリーフライトモードで変更しないもの
+
+- キーボード操作ロジック（W/S/A/D/Q/E/矢印/Z/X/C/R）
+- 物理パラメータ（ACCEL / DRAG / TURN_RATE / CLIMB_RATE など）
+- HUD のレイアウト構造
 
 ## route2D 形式
 
