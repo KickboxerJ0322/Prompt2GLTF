@@ -1,0 +1,2942 @@
+{
+  "meta": {
+    "name": "structure_48m_歩道橋",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "prompt2gltf",
+    "generatedFrom": "歩道橋",
+    "createdAt": "2026-03-17T12:37:29.214Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "歩道橋",
+    "normalizedSubject": "structure",
+    "targetHeightMeters": 48,
+    "styleTags": [
+      "infrastructure"
+    ],
+    "geometryDirective": "Use mixed primitives (box/cylinder/sphere/tri_prism); represent curved real-world forms with rounded geometry.",
+    "summary": "Generated from prompt as a structure with high-density procedural spec.",
+    "designIntent": {
+      "scaleImpression": "very_large",
+      "mood": "majestic",
+      "originalityPolicy": "generalized_original_design"
+    },
+    "structureType": "pedestrian_bridge"
+  },
+  "globalScale": {
+    "height": 6.03,
+    "width": 20,
+    "depth": 7.6
+  },
+  "style": {
+    "silhouette": "pedestrian_bridge",
+    "mood": "functional",
+    "genre": "infrastructure",
+    "detailDensity": "high"
+  },
+  "materials": {
+    "concrete": {
+      "baseColor": "#C8C4C0",
+      "roughness": 0.92,
+      "metalness": 0.03
+    },
+    "steel": {
+      "baseColor": "#7A8490",
+      "roughness": 0.42,
+      "metalness": 0.78
+    },
+    "steel_dark": {
+      "baseColor": "#3A4248",
+      "roughness": 0.48,
+      "metalness": 0.8
+    },
+    "rail": {
+      "baseColor": "#9098A0",
+      "roughness": 0.36,
+      "metalness": 0.82
+    },
+    "mesh": {
+      "baseColor": "#6A7278",
+      "roughness": 0.5,
+      "metalness": 0.72
+    },
+    "asphalt": {
+      "baseColor": "#585856",
+      "roughness": 0.96,
+      "metalness": 0.01
+    },
+    "warning": {
+      "baseColor": "#E8C030",
+      "roughness": 0.88,
+      "metalness": 0.02
+    },
+    "stair_nosing": {
+      "baseColor": "#D8C840",
+      "roughness": 0.86,
+      "metalness": 0.02
+    }
+  },
+  "parts": [
+    {
+      "id": "col_LF",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.22,
+        4.5,
+        0.22
+      ],
+      "position": [
+        -9.6,
+        2.25,
+        1
+      ]
+    },
+    {
+      "id": "col_LB",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.22,
+        4.5,
+        0.22
+      ],
+      "position": [
+        -9.6,
+        2.25,
+        -1
+      ]
+    },
+    {
+      "id": "col_RF",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.22,
+        4.5,
+        0.22
+      ],
+      "position": [
+        9.6,
+        2.25,
+        1
+      ]
+    },
+    {
+      "id": "col_RB",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.22,
+        4.5,
+        0.22
+      ],
+      "position": [
+        9.6,
+        2.25,
+        -1
+      ]
+    },
+    {
+      "id": "base_LF",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [
+        0.34,
+        0.06,
+        0.34
+      ],
+      "position": [
+        -9.6,
+        0.03,
+        1
+      ]
+    },
+    {
+      "id": "base_LB",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [
+        0.34,
+        0.06,
+        0.34
+      ],
+      "position": [
+        -9.6,
+        0.03,
+        -1
+      ]
+    },
+    {
+      "id": "base_RF",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [
+        0.34,
+        0.06,
+        0.34
+      ],
+      "position": [
+        9.6,
+        0.03,
+        1
+      ]
+    },
+    {
+      "id": "base_RB",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [
+        0.34,
+        0.06,
+        0.34
+      ],
+      "position": [
+        9.6,
+        0.03,
+        -1
+      ]
+    },
+    {
+      "id": "girder_f_web",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        20,
+        0.16,
+        0.018
+      ],
+      "position": [
+        0,
+        4.42,
+        1.2
+      ]
+    },
+    {
+      "id": "girder_f_flange_t",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        20,
+        0.022,
+        0.38
+      ],
+      "position": [
+        0,
+        4.489,
+        1.2
+      ]
+    },
+    {
+      "id": "girder_f_flange_b",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        20,
+        0.022,
+        0.38
+      ],
+      "position": [
+        0,
+        4.329,
+        1.2
+      ]
+    },
+    {
+      "id": "girder_b_web",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        20,
+        0.16,
+        0.018
+      ],
+      "position": [
+        0,
+        4.42,
+        -1.2
+      ]
+    },
+    {
+      "id": "girder_b_flange_t",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        20,
+        0.022,
+        0.38
+      ],
+      "position": [
+        0,
+        4.489,
+        -1.2
+      ]
+    },
+    {
+      "id": "girder_b_flange_b",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        20,
+        0.022,
+        0.38
+      ],
+      "position": [
+        0,
+        4.329,
+        -1.2
+      ]
+    },
+    {
+      "id": "xbeam_1",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.12,
+        0.16,
+        2.48
+      ],
+      "position": [
+        -10,
+        4.42,
+        0
+      ]
+    },
+    {
+      "id": "xbeam_2",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.12,
+        0.16,
+        2.48
+      ],
+      "position": [
+        -5,
+        4.42,
+        0
+      ]
+    },
+    {
+      "id": "xbeam_3",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.12,
+        0.16,
+        2.48
+      ],
+      "position": [
+        0,
+        4.42,
+        0
+      ]
+    },
+    {
+      "id": "xbeam_4",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.12,
+        0.16,
+        2.48
+      ],
+      "position": [
+        5,
+        4.42,
+        0
+      ]
+    },
+    {
+      "id": "xbeam_5",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.12,
+        0.16,
+        2.48
+      ],
+      "position": [
+        10,
+        4.42,
+        0
+      ]
+    },
+    {
+      "id": "deck_slab",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        20,
+        0.28,
+        2.4
+      ],
+      "position": [
+        0,
+        4.64,
+        0
+      ]
+    },
+    {
+      "id": "conn_L",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        2.2,
+        0.28,
+        1
+      ],
+      "position": [
+        -10,
+        4.64,
+        1.7
+      ]
+    },
+    {
+      "id": "toplnd_L_pst_aL",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        -11.04,
+        5.33,
+        2.18
+      ]
+    },
+    {
+      "id": "toplnd_L_pst_aR",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        -8.96,
+        5.33,
+        2.18
+      ]
+    },
+    {
+      "id": "toplnd_L_pst_bL",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        -11.04,
+        5.33,
+        1.72
+      ]
+    },
+    {
+      "id": "toplnd_L_pst_bR",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        -8.96,
+        5.33,
+        1.72
+      ]
+    },
+    {
+      "id": "toplnd_L_erail",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        2.3,
+        0.055,
+        0.055
+      ],
+      "position": [
+        -10,
+        5.8525,
+        2.18
+      ]
+    },
+    {
+      "id": "toplnd_L_srail_a",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.055,
+        0.055,
+        1.1
+      ],
+      "position": [
+        -11.04,
+        5.8525,
+        1.7
+      ]
+    },
+    {
+      "id": "toplnd_L_srail_b",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.055,
+        0.055,
+        1.1
+      ],
+      "position": [
+        -8.96,
+        5.8525,
+        1.7
+      ]
+    },
+    {
+      "id": "conn_R",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        2.2,
+        0.28,
+        1
+      ],
+      "position": [
+        10,
+        4.64,
+        -1.7
+      ]
+    },
+    {
+      "id": "toplnd_R_pst_aL",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        8.96,
+        5.33,
+        -2.18
+      ]
+    },
+    {
+      "id": "toplnd_R_pst_aR",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        11.04,
+        5.33,
+        -2.18
+      ]
+    },
+    {
+      "id": "toplnd_R_pst_bL",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        8.96,
+        5.33,
+        -1.72
+      ]
+    },
+    {
+      "id": "toplnd_R_pst_bR",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        11.04,
+        5.33,
+        -1.72
+      ]
+    },
+    {
+      "id": "toplnd_R_erail",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        2.3,
+        0.055,
+        0.055
+      ],
+      "position": [
+        10,
+        5.8525,
+        -2.18
+      ]
+    },
+    {
+      "id": "toplnd_R_srail_a",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.055,
+        0.055,
+        1.1
+      ],
+      "position": [
+        8.96,
+        5.8525,
+        -1.7
+      ]
+    },
+    {
+      "id": "toplnd_R_srail_b",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.055,
+        0.055,
+        1.1
+      ],
+      "position": [
+        11.04,
+        5.8525,
+        -1.7
+      ]
+    },
+    {
+      "id": "post_f_1",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        -9.5,
+        5.33,
+        1.2
+      ]
+    },
+    {
+      "id": "post_b_1",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        -9.5,
+        5.33,
+        -1.2
+      ]
+    },
+    {
+      "id": "post_f_2",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        -7.125,
+        5.33,
+        1.2
+      ]
+    },
+    {
+      "id": "post_b_2",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        -7.125,
+        5.33,
+        -1.2
+      ]
+    },
+    {
+      "id": "post_f_3",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        -4.75,
+        5.33,
+        1.2
+      ]
+    },
+    {
+      "id": "post_b_3",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        -4.75,
+        5.33,
+        -1.2
+      ]
+    },
+    {
+      "id": "post_f_4",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        -2.375,
+        5.33,
+        1.2
+      ]
+    },
+    {
+      "id": "post_b_4",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        -2.375,
+        5.33,
+        -1.2
+      ]
+    },
+    {
+      "id": "post_f_5",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        0,
+        5.33,
+        1.2
+      ]
+    },
+    {
+      "id": "post_b_5",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        0,
+        5.33,
+        -1.2
+      ]
+    },
+    {
+      "id": "post_f_6",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        2.375,
+        5.33,
+        1.2
+      ]
+    },
+    {
+      "id": "post_b_6",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        2.375,
+        5.33,
+        -1.2
+      ]
+    },
+    {
+      "id": "post_f_7",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        4.75,
+        5.33,
+        1.2
+      ]
+    },
+    {
+      "id": "post_b_7",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        4.75,
+        5.33,
+        -1.2
+      ]
+    },
+    {
+      "id": "post_f_8",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        7.125,
+        5.33,
+        1.2
+      ]
+    },
+    {
+      "id": "post_b_8",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        7.125,
+        5.33,
+        -1.2
+      ]
+    },
+    {
+      "id": "post_f_9",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        9.5,
+        5.33,
+        1.2
+      ]
+    },
+    {
+      "id": "post_b_9",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.1,
+        0.06
+      ],
+      "position": [
+        9.5,
+        5.33,
+        -1.2
+      ]
+    },
+    {
+      "id": "rail_deck_f_top",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        20,
+        0.055,
+        0.055
+      ],
+      "position": [
+        0,
+        5.8525,
+        1.2
+      ]
+    },
+    {
+      "id": "rail_deck_b_top",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        20,
+        0.055,
+        0.055
+      ],
+      "position": [
+        0,
+        5.8525,
+        -1.2
+      ]
+    },
+    {
+      "id": "rail_deck_f_mid",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        20,
+        0.055,
+        0.055
+      ],
+      "position": [
+        0,
+        5.3465,
+        1.2
+      ]
+    },
+    {
+      "id": "rail_deck_b_mid",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        20,
+        0.055,
+        0.055
+      ],
+      "position": [
+        0,
+        5.3465,
+        -1.2
+      ]
+    },
+    {
+      "id": "mesh_f_1",
+      "kind": "box",
+      "material": "mesh",
+      "size": [
+        2.295,
+        0.858,
+        0.04
+      ],
+      "position": [
+        -8.3125,
+        5.242,
+        1.2
+      ]
+    },
+    {
+      "id": "mesh_b_1",
+      "kind": "box",
+      "material": "mesh",
+      "size": [
+        2.295,
+        0.858,
+        0.04
+      ],
+      "position": [
+        -8.3125,
+        5.242,
+        -1.2
+      ]
+    },
+    {
+      "id": "mesh_f_2",
+      "kind": "box",
+      "material": "mesh",
+      "size": [
+        2.295,
+        0.858,
+        0.04
+      ],
+      "position": [
+        -5.9375,
+        5.242,
+        1.2
+      ]
+    },
+    {
+      "id": "mesh_b_2",
+      "kind": "box",
+      "material": "mesh",
+      "size": [
+        2.295,
+        0.858,
+        0.04
+      ],
+      "position": [
+        -5.9375,
+        5.242,
+        -1.2
+      ]
+    },
+    {
+      "id": "mesh_f_3",
+      "kind": "box",
+      "material": "mesh",
+      "size": [
+        2.295,
+        0.858,
+        0.04
+      ],
+      "position": [
+        -3.5625,
+        5.242,
+        1.2
+      ]
+    },
+    {
+      "id": "mesh_b_3",
+      "kind": "box",
+      "material": "mesh",
+      "size": [
+        2.295,
+        0.858,
+        0.04
+      ],
+      "position": [
+        -3.5625,
+        5.242,
+        -1.2
+      ]
+    },
+    {
+      "id": "mesh_f_4",
+      "kind": "box",
+      "material": "mesh",
+      "size": [
+        2.295,
+        0.858,
+        0.04
+      ],
+      "position": [
+        -1.1875,
+        5.242,
+        1.2
+      ]
+    },
+    {
+      "id": "mesh_b_4",
+      "kind": "box",
+      "material": "mesh",
+      "size": [
+        2.295,
+        0.858,
+        0.04
+      ],
+      "position": [
+        -1.1875,
+        5.242,
+        -1.2
+      ]
+    },
+    {
+      "id": "mesh_f_5",
+      "kind": "box",
+      "material": "mesh",
+      "size": [
+        2.295,
+        0.858,
+        0.04
+      ],
+      "position": [
+        1.1875,
+        5.242,
+        1.2
+      ]
+    },
+    {
+      "id": "mesh_b_5",
+      "kind": "box",
+      "material": "mesh",
+      "size": [
+        2.295,
+        0.858,
+        0.04
+      ],
+      "position": [
+        1.1875,
+        5.242,
+        -1.2
+      ]
+    },
+    {
+      "id": "mesh_f_6",
+      "kind": "box",
+      "material": "mesh",
+      "size": [
+        2.295,
+        0.858,
+        0.04
+      ],
+      "position": [
+        3.5625,
+        5.242,
+        1.2
+      ]
+    },
+    {
+      "id": "mesh_b_6",
+      "kind": "box",
+      "material": "mesh",
+      "size": [
+        2.295,
+        0.858,
+        0.04
+      ],
+      "position": [
+        3.5625,
+        5.242,
+        -1.2
+      ]
+    },
+    {
+      "id": "mesh_f_7",
+      "kind": "box",
+      "material": "mesh",
+      "size": [
+        2.295,
+        0.858,
+        0.04
+      ],
+      "position": [
+        5.9375,
+        5.242,
+        1.2
+      ]
+    },
+    {
+      "id": "mesh_b_7",
+      "kind": "box",
+      "material": "mesh",
+      "size": [
+        2.295,
+        0.858,
+        0.04
+      ],
+      "position": [
+        5.9375,
+        5.242,
+        -1.2
+      ]
+    },
+    {
+      "id": "mesh_f_8",
+      "kind": "box",
+      "material": "mesh",
+      "size": [
+        2.295,
+        0.858,
+        0.04
+      ],
+      "position": [
+        8.3125,
+        5.242,
+        1.2
+      ]
+    },
+    {
+      "id": "mesh_b_8",
+      "kind": "box",
+      "material": "mesh",
+      "size": [
+        2.295,
+        0.858,
+        0.04
+      ],
+      "position": [
+        8.3125,
+        5.242,
+        -1.2
+      ]
+    },
+    {
+      "id": "pad_L",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        2.8,
+        0.3,
+        5.2
+      ],
+      "position": [
+        -10,
+        0.15,
+        3.4
+      ]
+    },
+    {
+      "id": "approach_L",
+      "kind": "box",
+      "material": "asphalt",
+      "size": [
+        2.4,
+        0.1,
+        2.2
+      ],
+      "position": [
+        -10,
+        0.05,
+        3.4
+      ]
+    },
+    {
+      "id": "tcol_L_a1",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.18,
+        4.5,
+        0.18
+      ],
+      "position": [
+        -10.98,
+        2.25,
+        1.35
+      ]
+    },
+    {
+      "id": "tcol_L_a2",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.18,
+        4.5,
+        0.18
+      ],
+      "position": [
+        -9.02,
+        2.25,
+        1.35
+      ]
+    },
+    {
+      "id": "tcol_L_b1",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.18,
+        2.25,
+        0.18
+      ],
+      "position": [
+        -10.98,
+        1.125,
+        5.45
+      ]
+    },
+    {
+      "id": "tcol_L_b2",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.18,
+        2.25,
+        0.18
+      ],
+      "position": [
+        -9.02,
+        1.125,
+        5.45
+      ]
+    },
+    {
+      "id": "tbase_L_a1",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [
+        0.28,
+        0.05,
+        0.28
+      ],
+      "position": [
+        -10.98,
+        0.025,
+        1.35
+      ]
+    },
+    {
+      "id": "tbase_L_a2",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [
+        0.28,
+        0.05,
+        0.28
+      ],
+      "position": [
+        -9.02,
+        0.025,
+        1.35
+      ]
+    },
+    {
+      "id": "tbase_L_b1",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [
+        0.28,
+        0.05,
+        0.28
+      ],
+      "position": [
+        -10.98,
+        0.025,
+        5.45
+      ]
+    },
+    {
+      "id": "tbase_L_b2",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [
+        0.28,
+        0.05,
+        0.28
+      ],
+      "position": [
+        -9.02,
+        0.025,
+        5.45
+      ]
+    },
+    {
+      "id": "slab_L_upper",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        1.1,
+        0.34,
+        3.75
+      ],
+      "position": [
+        -9.45,
+        3.375,
+        2.7
+      ],
+      "rotation": [
+        0.6435,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "stgr_L_upper_a",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.04,
+        0.52,
+        3.75
+      ],
+      "position": [
+        -9.96,
+        3.375,
+        2.7
+      ],
+      "rotation": [
+        0.6435,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "stgr_L_upper_b",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.04,
+        0.52,
+        3.75
+      ],
+      "position": [
+        -8.94,
+        3.375,
+        2.7
+      ],
+      "rotation": [
+        0.6435,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "hrail_L_upper_a",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.055,
+        0.055,
+        3.95
+      ],
+      "position": [
+        -9.95,
+        4.295,
+        2.7
+      ],
+      "rotation": [
+        0.6435,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "hrail_L_upper_b",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.055,
+        0.055,
+        3.95
+      ],
+      "position": [
+        -8.95,
+        4.295,
+        2.7
+      ],
+      "rotation": [
+        0.6435,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "nos_L_u1",
+      "kind": "box",
+      "material": "stair_nosing",
+      "size": [
+        1.1,
+        0.04,
+        0.07
+      ],
+      "position": [
+        -9.45,
+        4.145,
+        1.7
+      ]
+    },
+    {
+      "id": "nos_L_u2",
+      "kind": "box",
+      "material": "stair_nosing",
+      "size": [
+        1.1,
+        0.04,
+        0.07
+      ],
+      "position": [
+        -9.45,
+        3.77,
+        2.2
+      ]
+    },
+    {
+      "id": "nos_L_u3",
+      "kind": "box",
+      "material": "stair_nosing",
+      "size": [
+        1.1,
+        0.04,
+        0.07
+      ],
+      "position": [
+        -9.45,
+        3.395,
+        2.7
+      ]
+    },
+    {
+      "id": "nos_L_u4",
+      "kind": "box",
+      "material": "stair_nosing",
+      "size": [
+        1.1,
+        0.04,
+        0.07
+      ],
+      "position": [
+        -9.45,
+        3.02,
+        3.2
+      ]
+    },
+    {
+      "id": "nos_L_u5",
+      "kind": "box",
+      "material": "stair_nosing",
+      "size": [
+        1.1,
+        0.04,
+        0.07
+      ],
+      "position": [
+        -9.45,
+        2.645,
+        3.7
+      ]
+    },
+    {
+      "id": "landing_L_mid",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        2.2,
+        0.28,
+        1.4
+      ],
+      "position": [
+        -10,
+        2.39,
+        4.9
+      ]
+    },
+    {
+      "id": "land_L_rail",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        2.3,
+        0.06,
+        0.06
+      ],
+      "position": [
+        -10,
+        3.31,
+        5.6
+      ]
+    },
+    {
+      "id": "land_L_post_a",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.06,
+        0.06
+      ],
+      "position": [
+        -11.04,
+        2.78,
+        5.6
+      ]
+    },
+    {
+      "id": "land_L_post_b",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.06,
+        0.06
+      ],
+      "position": [
+        -8.96,
+        2.78,
+        5.6
+      ]
+    },
+    {
+      "id": "land_L_side_a",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.06,
+        1.4
+      ],
+      "position": [
+        -11.04,
+        2.78,
+        4.9
+      ]
+    },
+    {
+      "id": "land_L_side_b",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.06,
+        1.4
+      ],
+      "position": [
+        -8.96,
+        2.78,
+        4.9
+      ]
+    },
+    {
+      "id": "slab_L_lower",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        1.1,
+        0.34,
+        3.75
+      ],
+      "position": [
+        -10.55,
+        1.125,
+        4.1
+      ],
+      "rotation": [
+        -0.6435,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "stgr_L_lower_a",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.04,
+        0.52,
+        3.75
+      ],
+      "position": [
+        -11.06,
+        1.125,
+        4.1
+      ],
+      "rotation": [
+        -0.6435,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "stgr_L_lower_b",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.04,
+        0.52,
+        3.75
+      ],
+      "position": [
+        -10.04,
+        1.125,
+        4.1
+      ],
+      "rotation": [
+        -0.6435,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "hrail_L_lower_a",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.055,
+        0.055,
+        3.95
+      ],
+      "position": [
+        -11.05,
+        2.045,
+        4.1
+      ],
+      "rotation": [
+        -0.6435,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "hrail_L_lower_b",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.055,
+        0.055,
+        3.95
+      ],
+      "position": [
+        -10.05,
+        2.045,
+        4.1
+      ],
+      "rotation": [
+        -0.6435,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "nos_L_l1",
+      "kind": "box",
+      "material": "stair_nosing",
+      "size": [
+        1.1,
+        0.04,
+        0.07
+      ],
+      "position": [
+        -10.55,
+        1.895,
+        5.1
+      ]
+    },
+    {
+      "id": "nos_L_l2",
+      "kind": "box",
+      "material": "stair_nosing",
+      "size": [
+        1.1,
+        0.04,
+        0.07
+      ],
+      "position": [
+        -10.55,
+        1.52,
+        4.6
+      ]
+    },
+    {
+      "id": "nos_L_l3",
+      "kind": "box",
+      "material": "stair_nosing",
+      "size": [
+        1.1,
+        0.04,
+        0.07
+      ],
+      "position": [
+        -10.55,
+        1.145,
+        4.1
+      ]
+    },
+    {
+      "id": "nos_L_l4",
+      "kind": "box",
+      "material": "stair_nosing",
+      "size": [
+        1.1,
+        0.04,
+        0.07
+      ],
+      "position": [
+        -10.55,
+        0.77,
+        3.6
+      ]
+    },
+    {
+      "id": "nos_L_l5",
+      "kind": "box",
+      "material": "stair_nosing",
+      "size": [
+        1.1,
+        0.04,
+        0.07
+      ],
+      "position": [
+        -10.55,
+        0.395,
+        3.1
+      ]
+    },
+    {
+      "id": "warn_L",
+      "kind": "box",
+      "material": "warning",
+      "size": [
+        2.4,
+        0.04,
+        0.3
+      ],
+      "position": [
+        -10,
+        0.02,
+        2.45
+      ]
+    },
+    {
+      "id": "bollard_L_a",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.12,
+        0.9,
+        0.12
+      ],
+      "position": [
+        -10.7,
+        0.45,
+        2.1
+      ]
+    },
+    {
+      "id": "bollard_L_b",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.12,
+        0.9,
+        0.12
+      ],
+      "position": [
+        -9.3,
+        0.45,
+        2.1
+      ]
+    },
+    {
+      "id": "pad_R",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        2.8,
+        0.3,
+        5.2
+      ],
+      "position": [
+        10,
+        0.15,
+        -3.4
+      ]
+    },
+    {
+      "id": "approach_R",
+      "kind": "box",
+      "material": "asphalt",
+      "size": [
+        2.4,
+        0.1,
+        2.2
+      ],
+      "position": [
+        10,
+        0.05,
+        -3.4
+      ]
+    },
+    {
+      "id": "tcol_R_a1",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.18,
+        4.5,
+        0.18
+      ],
+      "position": [
+        9.02,
+        2.25,
+        -1.35
+      ]
+    },
+    {
+      "id": "tcol_R_a2",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.18,
+        4.5,
+        0.18
+      ],
+      "position": [
+        10.98,
+        2.25,
+        -1.35
+      ]
+    },
+    {
+      "id": "tcol_R_b1",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.18,
+        2.25,
+        0.18
+      ],
+      "position": [
+        9.02,
+        1.125,
+        -5.45
+      ]
+    },
+    {
+      "id": "tcol_R_b2",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.18,
+        2.25,
+        0.18
+      ],
+      "position": [
+        10.98,
+        1.125,
+        -5.45
+      ]
+    },
+    {
+      "id": "tbase_R_a1",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [
+        0.28,
+        0.05,
+        0.28
+      ],
+      "position": [
+        9.02,
+        0.025,
+        -1.35
+      ]
+    },
+    {
+      "id": "tbase_R_a2",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [
+        0.28,
+        0.05,
+        0.28
+      ],
+      "position": [
+        10.98,
+        0.025,
+        -1.35
+      ]
+    },
+    {
+      "id": "tbase_R_b1",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [
+        0.28,
+        0.05,
+        0.28
+      ],
+      "position": [
+        9.02,
+        0.025,
+        -5.45
+      ]
+    },
+    {
+      "id": "tbase_R_b2",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [
+        0.28,
+        0.05,
+        0.28
+      ],
+      "position": [
+        10.98,
+        0.025,
+        -5.45
+      ]
+    },
+    {
+      "id": "slab_R_upper",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        1.1,
+        0.34,
+        3.75
+      ],
+      "position": [
+        9.45,
+        3.375,
+        -2.7
+      ],
+      "rotation": [
+        -0.6435,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "stgr_R_upper_a",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.04,
+        0.52,
+        3.75
+      ],
+      "position": [
+        8.94,
+        3.375,
+        -2.7
+      ],
+      "rotation": [
+        -0.6435,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "stgr_R_upper_b",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.04,
+        0.52,
+        3.75
+      ],
+      "position": [
+        9.96,
+        3.375,
+        -2.7
+      ],
+      "rotation": [
+        -0.6435,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "hrail_R_upper_a",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.055,
+        0.055,
+        3.95
+      ],
+      "position": [
+        8.95,
+        4.295,
+        -2.7
+      ],
+      "rotation": [
+        -0.6435,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "hrail_R_upper_b",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.055,
+        0.055,
+        3.95
+      ],
+      "position": [
+        9.95,
+        4.295,
+        -2.7
+      ],
+      "rotation": [
+        -0.6435,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "nos_R_u1",
+      "kind": "box",
+      "material": "stair_nosing",
+      "size": [
+        1.1,
+        0.04,
+        0.07
+      ],
+      "position": [
+        9.45,
+        4.145,
+        -1.7
+      ]
+    },
+    {
+      "id": "nos_R_u2",
+      "kind": "box",
+      "material": "stair_nosing",
+      "size": [
+        1.1,
+        0.04,
+        0.07
+      ],
+      "position": [
+        9.45,
+        3.77,
+        -2.2
+      ]
+    },
+    {
+      "id": "nos_R_u3",
+      "kind": "box",
+      "material": "stair_nosing",
+      "size": [
+        1.1,
+        0.04,
+        0.07
+      ],
+      "position": [
+        9.45,
+        3.395,
+        -2.7
+      ]
+    },
+    {
+      "id": "nos_R_u4",
+      "kind": "box",
+      "material": "stair_nosing",
+      "size": [
+        1.1,
+        0.04,
+        0.07
+      ],
+      "position": [
+        9.45,
+        3.02,
+        -3.2
+      ]
+    },
+    {
+      "id": "nos_R_u5",
+      "kind": "box",
+      "material": "stair_nosing",
+      "size": [
+        1.1,
+        0.04,
+        0.07
+      ],
+      "position": [
+        9.45,
+        2.645,
+        -3.7
+      ]
+    },
+    {
+      "id": "landing_R_mid",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        2.2,
+        0.28,
+        1.4
+      ],
+      "position": [
+        10,
+        2.39,
+        -4.9
+      ]
+    },
+    {
+      "id": "land_R_rail",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        2.3,
+        0.06,
+        0.06
+      ],
+      "position": [
+        10,
+        3.31,
+        -5.6
+      ]
+    },
+    {
+      "id": "land_R_post_a",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.06,
+        0.06
+      ],
+      "position": [
+        8.96,
+        2.78,
+        -5.6
+      ]
+    },
+    {
+      "id": "land_R_post_b",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.06,
+        0.06
+      ],
+      "position": [
+        11.04,
+        2.78,
+        -5.6
+      ]
+    },
+    {
+      "id": "land_R_side_a",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.06,
+        1.4
+      ],
+      "position": [
+        8.96,
+        2.78,
+        -4.9
+      ]
+    },
+    {
+      "id": "land_R_side_b",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.06,
+        1.06,
+        1.4
+      ],
+      "position": [
+        11.04,
+        2.78,
+        -4.9
+      ]
+    },
+    {
+      "id": "slab_R_lower",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        1.1,
+        0.34,
+        3.75
+      ],
+      "position": [
+        10.55,
+        1.125,
+        -4.1
+      ],
+      "rotation": [
+        0.6435,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "stgr_R_lower_a",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.04,
+        0.52,
+        3.75
+      ],
+      "position": [
+        10.04,
+        1.125,
+        -4.1
+      ],
+      "rotation": [
+        0.6435,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "stgr_R_lower_b",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.04,
+        0.52,
+        3.75
+      ],
+      "position": [
+        11.06,
+        1.125,
+        -4.1
+      ],
+      "rotation": [
+        0.6435,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "hrail_R_lower_a",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.055,
+        0.055,
+        3.95
+      ],
+      "position": [
+        10.05,
+        2.045,
+        -4.1
+      ],
+      "rotation": [
+        0.6435,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "hrail_R_lower_b",
+      "kind": "box",
+      "material": "rail",
+      "size": [
+        0.055,
+        0.055,
+        3.95
+      ],
+      "position": [
+        11.05,
+        2.045,
+        -4.1
+      ],
+      "rotation": [
+        0.6435,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "nos_R_l1",
+      "kind": "box",
+      "material": "stair_nosing",
+      "size": [
+        1.1,
+        0.04,
+        0.07
+      ],
+      "position": [
+        10.55,
+        1.895,
+        -5.1
+      ]
+    },
+    {
+      "id": "nos_R_l2",
+      "kind": "box",
+      "material": "stair_nosing",
+      "size": [
+        1.1,
+        0.04,
+        0.07
+      ],
+      "position": [
+        10.55,
+        1.52,
+        -4.6
+      ]
+    },
+    {
+      "id": "nos_R_l3",
+      "kind": "box",
+      "material": "stair_nosing",
+      "size": [
+        1.1,
+        0.04,
+        0.07
+      ],
+      "position": [
+        10.55,
+        1.145,
+        -4.1
+      ]
+    },
+    {
+      "id": "nos_R_l4",
+      "kind": "box",
+      "material": "stair_nosing",
+      "size": [
+        1.1,
+        0.04,
+        0.07
+      ],
+      "position": [
+        10.55,
+        0.77,
+        -3.6
+      ]
+    },
+    {
+      "id": "nos_R_l5",
+      "kind": "box",
+      "material": "stair_nosing",
+      "size": [
+        1.1,
+        0.04,
+        0.07
+      ],
+      "position": [
+        10.55,
+        0.395,
+        -3.1
+      ]
+    },
+    {
+      "id": "warn_R",
+      "kind": "box",
+      "material": "warning",
+      "size": [
+        2.4,
+        0.04,
+        0.3
+      ],
+      "position": [
+        10,
+        0.02,
+        -2.45
+      ]
+    },
+    {
+      "id": "bollard_R_a",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.12,
+        0.9,
+        0.12
+      ],
+      "position": [
+        9.3,
+        0.45,
+        -2.1
+      ]
+    },
+    {
+      "id": "bollard_R_b",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.12,
+        0.9,
+        0.12
+      ],
+      "position": [
+        10.7,
+        0.45,
+        -2.1
+      ]
+    }
+  ],
+  "surfaceDetails": [
+    {
+      "id": "sd_1",
+      "region": "deck",
+      "type": "concrete_texture",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_2",
+      "region": "deck",
+      "type": "anti_slip_pattern",
+      "strength": 0.14,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_3",
+      "region": "deck",
+      "type": "steel_weld",
+      "strength": 0.18,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_4",
+      "region": "deck",
+      "type": "mesh_grid",
+      "strength": 0.22,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "sd_5",
+      "region": "deck",
+      "type": "rust_weathering",
+      "strength": 0.26,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_6",
+      "region": "deck",
+      "type": "bolt_pattern",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_7",
+      "region": "deck",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_8",
+      "region": "stair",
+      "type": "concrete_texture",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_9",
+      "region": "stair",
+      "type": "anti_slip_pattern",
+      "strength": 0.14,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_10",
+      "region": "stair",
+      "type": "steel_weld",
+      "strength": 0.18,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_11",
+      "region": "stair",
+      "type": "mesh_grid",
+      "strength": 0.22,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "sd_12",
+      "region": "stair",
+      "type": "rust_weathering",
+      "strength": 0.26,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_13",
+      "region": "stair",
+      "type": "bolt_pattern",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_14",
+      "region": "stair",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_15",
+      "region": "girder",
+      "type": "concrete_texture",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_16",
+      "region": "girder",
+      "type": "anti_slip_pattern",
+      "strength": 0.14,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_17",
+      "region": "girder",
+      "type": "steel_weld",
+      "strength": 0.18,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_18",
+      "region": "girder",
+      "type": "mesh_grid",
+      "strength": 0.22,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "sd_19",
+      "region": "girder",
+      "type": "rust_weathering",
+      "strength": 0.26,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_20",
+      "region": "girder",
+      "type": "bolt_pattern",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_21",
+      "region": "girder",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_22",
+      "region": "handrail",
+      "type": "concrete_texture",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_23",
+      "region": "handrail",
+      "type": "anti_slip_pattern",
+      "strength": 0.14,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_24",
+      "region": "handrail",
+      "type": "steel_weld",
+      "strength": 0.18,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_25",
+      "region": "handrail",
+      "type": "mesh_grid",
+      "strength": 0.22,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "sd_26",
+      "region": "handrail",
+      "type": "rust_weathering",
+      "strength": 0.26,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_27",
+      "region": "handrail",
+      "type": "bolt_pattern",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_28",
+      "region": "handrail",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_29",
+      "region": "column",
+      "type": "concrete_texture",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_30",
+      "region": "column",
+      "type": "anti_slip_pattern",
+      "strength": 0.14,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_31",
+      "region": "column",
+      "type": "steel_weld",
+      "strength": 0.18,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_32",
+      "region": "column",
+      "type": "mesh_grid",
+      "strength": 0.22,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "sd_33",
+      "region": "column",
+      "type": "rust_weathering",
+      "strength": 0.26,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_34",
+      "region": "column",
+      "type": "bolt_pattern",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_35",
+      "region": "column",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_36",
+      "region": "landing",
+      "type": "concrete_texture",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_37",
+      "region": "landing",
+      "type": "anti_slip_pattern",
+      "strength": 0.14,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_38",
+      "region": "landing",
+      "type": "steel_weld",
+      "strength": 0.18,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_39",
+      "region": "landing",
+      "type": "mesh_grid",
+      "strength": 0.22,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "sd_40",
+      "region": "landing",
+      "type": "rust_weathering",
+      "strength": 0.26,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_41",
+      "region": "landing",
+      "type": "bolt_pattern",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_42",
+      "region": "landing",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    }
+  ],
+  "ornaments": [],
+  "pose": {
+    "preset": "static"
+  },
+  "animationHints": {},
+  "lod": {
+    "high": "full",
+    "medium": "reduce_repetition",
+    "low": "merge_parts"
+  },
+  "exportOptions": {
+    "formats": [
+      "gltf",
+      "glb"
+    ],
+    "previewHtml": true
+  }
+}

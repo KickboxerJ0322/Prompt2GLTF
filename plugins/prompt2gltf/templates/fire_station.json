@@ -1,0 +1,1483 @@
+{
+  "meta": {
+    "name": "building_90m_消防署",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "prompt2gltf",
+    "generatedFrom": "消防署",
+    "createdAt": "2026-03-17T11:23:05.502Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "消防署",
+    "normalizedSubject": "building",
+    "targetHeightMeters": 90,
+    "styleTags": [
+      "fire_station"
+    ],
+    "geometryDirective": "Use mixed primitives (box/cylinder/sphere/tri_prism); represent curved real-world forms with rounded geometry.",
+    "summary": "Generated from prompt as a building with high-density procedural spec.",
+    "designIntent": {
+      "scaleImpression": "extreme_colossal",
+      "mood": "majestic",
+      "originalityPolicy": "generalized_original_design"
+    },
+    "buildingArchetype": "facility_fire"
+  },
+  "globalScale": {
+    "height": 19.4,
+    "width": 52.85,
+    "depth": 34
+  },
+  "style": {
+    "silhouette": "civic_public_building",
+    "mood": "authoritative_public",
+    "genre": "emergency_services_facility",
+    "detailDensity": "high",
+    "bodyLanguage": "static_structure",
+    "shapeLanguage": [
+      "main_volume",
+      "roof_profile",
+      "entrance",
+      "window_rhythm",
+      "signage"
+    ]
+  },
+  "materials": {
+    "wall_main": {
+      "baseColor": "#D8D0C4",
+      "roughness": 0.88,
+      "metalness": 0.03
+    },
+    "wall_red": {
+      "baseColor": "#B82020",
+      "roughness": 0.72,
+      "metalness": 0.1
+    },
+    "wall_dark": {
+      "baseColor": "#3A3030",
+      "roughness": 0.9,
+      "metalness": 0.05
+    },
+    "concrete": {
+      "baseColor": "#C0BCB4",
+      "roughness": 0.92,
+      "metalness": 0.02
+    },
+    "glass_win": {
+      "baseColor": "#6090B0",
+      "roughness": 0.1,
+      "metalness": 0.88
+    },
+    "glass_entry": {
+      "baseColor": "#80B0C8",
+      "roughness": 0.06,
+      "metalness": 0.88
+    },
+    "shutter": {
+      "baseColor": "#B0B4B8",
+      "roughness": 0.6,
+      "metalness": 0.5
+    },
+    "shutter_red": {
+      "baseColor": "#CC2010",
+      "roughness": 0.55,
+      "metalness": 0.45
+    },
+    "sign_red": {
+      "baseColor": "#CC1010",
+      "roughness": 0.38,
+      "metalness": 0.12
+    },
+    "sign_white": {
+      "baseColor": "#F0F0F0",
+      "roughness": 0.55,
+      "metalness": 0.05
+    },
+    "steel_frame": {
+      "baseColor": "#909898",
+      "roughness": 0.55,
+      "metalness": 0.62
+    },
+    "flagpole": {
+      "baseColor": "#B8BCBC",
+      "roughness": 0.4,
+      "metalness": 0.82
+    },
+    "flag_red": {
+      "baseColor": "#CC1010",
+      "roughness": 0.65,
+      "metalness": 0.05
+    },
+    "paving_main": {
+      "baseColor": "#B0B4AC",
+      "roughness": 0.95,
+      "metalness": 0.01
+    },
+    "paving_apron": {
+      "baseColor": "#C8C4BC",
+      "roughness": 0.94,
+      "metalness": 0.01
+    },
+    "apron_line": {
+      "baseColor": "#E8E020",
+      "roughness": 0.58,
+      "metalness": 0.05
+    },
+    "roof_flat": {
+      "baseColor": "#8A8C88",
+      "roughness": 0.9,
+      "metalness": 0.05
+    },
+    "hose_tower": {
+      "baseColor": "#D0281C",
+      "roughness": 0.75,
+      "metalness": 0.08
+    }
+  },
+  "parts": [
+    {
+      "id": "site_pave",
+      "kind": "box",
+      "material": "paving_main",
+      "size": [
+        52.85,
+        0.2,
+        34
+      ],
+      "position": [
+        4.225,
+        0.1,
+        7
+      ]
+    },
+    {
+      "id": "apron",
+      "kind": "box",
+      "material": "paving_apron",
+      "size": [
+        37.5,
+        0.22,
+        14
+      ],
+      "position": [
+        9.325,
+        0.11,
+        13
+      ]
+    },
+    {
+      "id": "apron_line_0",
+      "kind": "box",
+      "material": "apron_line",
+      "size": [
+        0.12,
+        0.08,
+        11.9
+      ],
+      "position": [
+        -8.2,
+        0.25,
+        13
+      ]
+    },
+    {
+      "id": "apron_line_1",
+      "kind": "box",
+      "material": "apron_line",
+      "size": [
+        0.12,
+        0.08,
+        11.9
+      ],
+      "position": [
+        -4.1,
+        0.25,
+        13
+      ]
+    },
+    {
+      "id": "apron_line_2",
+      "kind": "box",
+      "material": "apron_line",
+      "size": [
+        0.12,
+        0.08,
+        11.9
+      ],
+      "position": [
+        0,
+        0.25,
+        13
+      ]
+    },
+    {
+      "id": "apron_line_3",
+      "kind": "box",
+      "material": "apron_line",
+      "size": [
+        0.12,
+        0.08,
+        11.9
+      ],
+      "position": [
+        4.1,
+        0.25,
+        13
+      ]
+    },
+    {
+      "id": "apron_line_4",
+      "kind": "box",
+      "material": "apron_line",
+      "size": [
+        0.12,
+        0.08,
+        11.9
+      ],
+      "position": [
+        8.2,
+        0.25,
+        13
+      ]
+    },
+    {
+      "id": "fire_found",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        13.8,
+        0.4,
+        12.3
+      ],
+      "position": [
+        -10.25,
+        0.2,
+        0
+      ]
+    },
+    {
+      "id": "fire_back",
+      "kind": "box",
+      "material": "wall_red",
+      "size": [
+        13.5,
+        5.5,
+        2
+      ],
+      "position": [
+        -10.25,
+        3.15,
+        -5
+      ]
+    },
+    {
+      "id": "fire_side_L",
+      "kind": "box",
+      "material": "wall_main",
+      "size": [
+        1.2,
+        5.5,
+        12
+      ],
+      "position": [
+        -17.6,
+        3.15,
+        0
+      ]
+    },
+    {
+      "id": "fire_roof",
+      "kind": "box",
+      "material": "roof_flat",
+      "size": [
+        14.7,
+        0.25,
+        12.25
+      ],
+      "position": [
+        -10.55,
+        6.025,
+        0
+      ]
+    },
+    {
+      "id": "shutter_f_0",
+      "kind": "box",
+      "material": "shutter_red",
+      "size": [
+        4.3,
+        4.95,
+        0.25
+      ],
+      "position": [
+        -14.75,
+        2.93,
+        6
+      ]
+    },
+    {
+      "id": "frame_f_0",
+      "kind": "box",
+      "material": "wall_dark",
+      "size": [
+        4.4,
+        0.25,
+        0.3
+      ],
+      "position": [
+        -14.75,
+        5.9,
+        6
+      ]
+    },
+    {
+      "id": "shutter_f_1",
+      "kind": "box",
+      "material": "shutter_red",
+      "size": [
+        4.3,
+        4.95,
+        0.25
+      ],
+      "position": [
+        -10.25,
+        2.93,
+        6
+      ]
+    },
+    {
+      "id": "frame_f_1",
+      "kind": "box",
+      "material": "wall_dark",
+      "size": [
+        4.4,
+        0.25,
+        0.3
+      ],
+      "position": [
+        -10.25,
+        5.9,
+        6
+      ]
+    },
+    {
+      "id": "shutter_f_2",
+      "kind": "box",
+      "material": "shutter_red",
+      "size": [
+        4.3,
+        4.95,
+        0.25
+      ],
+      "position": [
+        -5.75,
+        2.93,
+        6
+      ]
+    },
+    {
+      "id": "frame_f_2",
+      "kind": "box",
+      "material": "wall_dark",
+      "size": [
+        4.4,
+        0.25,
+        0.3
+      ],
+      "position": [
+        -5.75,
+        5.9,
+        6
+      ]
+    },
+    {
+      "id": "ambu_found",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        6.7,
+        0.4,
+        9.3
+      ],
+      "position": [
+        10.25,
+        0.2,
+        1.5
+      ]
+    },
+    {
+      "id": "ambu_back",
+      "kind": "box",
+      "material": "wall_main",
+      "size": [
+        6.4,
+        4,
+        2
+      ],
+      "position": [
+        10.25,
+        2.4,
+        -2
+      ]
+    },
+    {
+      "id": "ambu_side_R",
+      "kind": "box",
+      "material": "wall_main",
+      "size": [
+        1,
+        4,
+        9
+      ],
+      "position": [
+        13.95,
+        2.4,
+        1.5
+      ]
+    },
+    {
+      "id": "ambu_roof",
+      "kind": "box",
+      "material": "roof_flat",
+      "size": [
+        7.4,
+        0.22,
+        9.22
+      ],
+      "position": [
+        10.5,
+        4.51,
+        1.5
+      ]
+    },
+    {
+      "id": "shutter_a_0",
+      "kind": "box",
+      "material": "shutter",
+      "size": [
+        3,
+        3.52,
+        0.22
+      ],
+      "position": [
+        8.65,
+        2.2,
+        6
+      ]
+    },
+    {
+      "id": "frame_a_0",
+      "kind": "box",
+      "material": "wall_dark",
+      "size": [
+        3.1,
+        0.22,
+        0.28
+      ],
+      "position": [
+        8.65,
+        4.4,
+        6
+      ]
+    },
+    {
+      "id": "shutter_a_1",
+      "kind": "box",
+      "material": "shutter",
+      "size": [
+        3,
+        3.52,
+        0.22
+      ],
+      "position": [
+        11.85,
+        2.2,
+        6
+      ]
+    },
+    {
+      "id": "frame_a_1",
+      "kind": "box",
+      "material": "wall_dark",
+      "size": [
+        3.1,
+        0.22,
+        0.28
+      ],
+      "position": [
+        11.85,
+        4.4,
+        6
+      ]
+    },
+    {
+      "id": "red_stripe",
+      "kind": "box",
+      "material": "wall_red",
+      "size": [
+        21.1,
+        0.6,
+        0.2
+      ],
+      "position": [
+        0,
+        6.25,
+        6
+      ]
+    },
+    {
+      "id": "ad_found",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        16.3,
+        0.4,
+        14.3
+      ],
+      "position": [
+        18.65,
+        0.2,
+        -1
+      ]
+    },
+    {
+      "id": "ad_wall_f1",
+      "kind": "box",
+      "material": "wall_main",
+      "size": [
+        16,
+        3.46,
+        14
+      ],
+      "position": [
+        18.65,
+        2.13,
+        -1
+      ]
+    },
+    {
+      "id": "ad_band_f1",
+      "kind": "box",
+      "material": "wall_red",
+      "size": [
+        16.1,
+        0.14,
+        14.1
+      ],
+      "position": [
+        18.65,
+        0.4,
+        -1
+      ]
+    },
+    {
+      "id": "ad_win_f1",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        9.28,
+        1.8,
+        0.18
+      ],
+      "position": [
+        18.65,
+        2.38,
+        6
+      ]
+    },
+    {
+      "id": "ad_win_b1",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        7.36,
+        1.584,
+        0.18
+      ],
+      "position": [
+        18.65,
+        2.272,
+        -8
+      ]
+    },
+    {
+      "id": "ad_wall_f2",
+      "kind": "box",
+      "material": "wall_main",
+      "size": [
+        16,
+        3.46,
+        14
+      ],
+      "position": [
+        18.65,
+        5.73,
+        -1
+      ]
+    },
+    {
+      "id": "ad_band_f2",
+      "kind": "box",
+      "material": "wall_red",
+      "size": [
+        16.1,
+        0.14,
+        14.1
+      ],
+      "position": [
+        18.65,
+        4,
+        -1
+      ]
+    },
+    {
+      "id": "ad_win_f2",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        9.28,
+        1.8,
+        0.18
+      ],
+      "position": [
+        18.65,
+        5.98,
+        6
+      ]
+    },
+    {
+      "id": "ad_win_b2",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        7.36,
+        1.584,
+        0.18
+      ],
+      "position": [
+        18.65,
+        5.872,
+        -8
+      ]
+    },
+    {
+      "id": "ad_wall_f3",
+      "kind": "box",
+      "material": "wall_main",
+      "size": [
+        16,
+        3.46,
+        14
+      ],
+      "position": [
+        18.65,
+        9.33,
+        -1
+      ]
+    },
+    {
+      "id": "ad_band_f3",
+      "kind": "box",
+      "material": "wall_red",
+      "size": [
+        16.1,
+        0.14,
+        14.1
+      ],
+      "position": [
+        18.65,
+        7.6,
+        -1
+      ]
+    },
+    {
+      "id": "ad_win_f3",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        9.28,
+        1.8,
+        0.18
+      ],
+      "position": [
+        18.65,
+        9.58,
+        6
+      ]
+    },
+    {
+      "id": "ad_win_b3",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        7.36,
+        1.584,
+        0.18
+      ],
+      "position": [
+        18.65,
+        9.472,
+        -8
+      ]
+    },
+    {
+      "id": "ad_par_f",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        16.6,
+        0.8,
+        0.28
+      ],
+      "position": [
+        18.65,
+        11.6,
+        6.14
+      ]
+    },
+    {
+      "id": "ad_par_b",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        16.6,
+        0.8,
+        0.28
+      ],
+      "position": [
+        18.65,
+        11.6,
+        -8.14
+      ]
+    },
+    {
+      "id": "ad_par_L",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        0.28,
+        0.8,
+        14
+      ],
+      "position": [
+        10.51,
+        11.6,
+        -1
+      ]
+    },
+    {
+      "id": "ad_par_R",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        0.28,
+        0.8,
+        14
+      ],
+      "position": [
+        26.79,
+        11.6,
+        -1
+      ]
+    },
+    {
+      "id": "ad_roof",
+      "kind": "box",
+      "material": "roof_flat",
+      "size": [
+        16.6,
+        0.22,
+        14.6
+      ],
+      "position": [
+        18.65,
+        12.11,
+        -1
+      ]
+    },
+    {
+      "id": "ad_entry_can",
+      "kind": "box",
+      "material": "wall_main",
+      "size": [
+        7.2,
+        0.22,
+        3.5
+      ],
+      "position": [
+        18.65,
+        3.352,
+        7.75
+      ]
+    },
+    {
+      "id": "ad_entry_col_L",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        0.22,
+        3.352,
+        0.22
+      ],
+      "position": [
+        15.77,
+        1.676,
+        9.3
+      ]
+    },
+    {
+      "id": "ad_entry_col_R",
+      "kind": "box",
+      "material": "steel_frame",
+      "size": [
+        0.22,
+        3.352,
+        0.22
+      ],
+      "position": [
+        21.53,
+        1.676,
+        9.3
+      ]
+    },
+    {
+      "id": "ad_door",
+      "kind": "box",
+      "material": "glass_entry",
+      "size": [
+        4.48,
+        2.808,
+        0.2
+      ],
+      "position": [
+        18.65,
+        1.912,
+        6
+      ]
+    },
+    {
+      "id": "sign_h",
+      "kind": "box",
+      "material": "sign_red",
+      "size": [
+        2.8,
+        0.4,
+        0.14
+      ],
+      "position": [
+        22.17,
+        9.904,
+        6.01
+      ]
+    },
+    {
+      "id": "sign_v",
+      "kind": "box",
+      "material": "sign_red",
+      "size": [
+        0.4,
+        2.8,
+        0.14
+      ],
+      "position": [
+        22.17,
+        8.176,
+        6.01
+      ]
+    },
+    {
+      "id": "tower_body",
+      "kind": "box",
+      "material": "hose_tower",
+      "size": [
+        2.2,
+        18.8,
+        2.2
+      ],
+      "position": [
+        23.45,
+        9.4,
+        -1
+      ]
+    },
+    {
+      "id": "tower_top",
+      "kind": "box",
+      "material": "wall_dark",
+      "size": [
+        2.6,
+        0.6,
+        2.6
+      ],
+      "position": [
+        23.45,
+        19.1,
+        -1
+      ]
+    },
+    {
+      "id": "tower_win_1",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.5,
+        1.2,
+        0.18
+      ],
+      "position": [
+        23.45,
+        2.8923,
+        0.1
+      ]
+    },
+    {
+      "id": "tower_win_2",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.5,
+        1.2,
+        0.18
+      ],
+      "position": [
+        23.45,
+        5.7846,
+        0.1
+      ]
+    },
+    {
+      "id": "tower_win_3",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.5,
+        1.2,
+        0.18
+      ],
+      "position": [
+        23.45,
+        8.6769,
+        0.1
+      ]
+    },
+    {
+      "id": "tower_win_4",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.5,
+        1.2,
+        0.18
+      ],
+      "position": [
+        23.45,
+        11.5692,
+        0.1
+      ]
+    },
+    {
+      "id": "tower_win_5",
+      "kind": "box",
+      "material": "glass_win",
+      "size": [
+        0.5,
+        1.2,
+        0.18
+      ],
+      "position": [
+        23.45,
+        14.4615,
+        0.1
+      ]
+    },
+    {
+      "id": "flagpole",
+      "kind": "cylinder",
+      "material": "flagpole",
+      "size": [
+        0.14,
+        5.94,
+        0.14
+      ],
+      "position": [
+        13.85,
+        2.97,
+        9
+      ]
+    },
+    {
+      "id": "flag",
+      "kind": "box",
+      "material": "flag_red",
+      "size": [
+        1.6,
+        0.8,
+        0.08
+      ],
+      "position": [
+        14.65,
+        5.616,
+        9
+      ]
+    }
+  ],
+  "surfaceDetails": [
+    {
+      "id": "sd_1",
+      "region": "facade",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.011,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_2",
+      "region": "facade",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        0.0102,
+        0.0084,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_3",
+      "region": "facade",
+      "type": "weathering",
+      "strength": 0.18,
+      "offset": [
+        0.0127,
+        0.0019,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_4",
+      "region": "facade",
+      "type": "trim_line",
+      "strength": 0.22,
+      "offset": [
+        0.0056,
+        -0.0056,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_5",
+      "region": "facade",
+      "type": "window_grid",
+      "strength": 0.26,
+      "offset": [
+        -0.0058,
+        -0.0104,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_6",
+      "region": "facade",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0127,
+        -0.0103,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_7",
+      "region": "facade",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        -0.01,
+        -0.0054,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_8",
+      "region": "facade",
+      "type": "weathering",
+      "strength": 0.18,
+      "offset": [
+        0.0002,
+        0.0021,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_9",
+      "region": "garage",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.011,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_10",
+      "region": "garage",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        0.0102,
+        0.0084,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_11",
+      "region": "garage",
+      "type": "weathering",
+      "strength": 0.18,
+      "offset": [
+        0.0127,
+        0.0019,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_12",
+      "region": "garage",
+      "type": "trim_line",
+      "strength": 0.22,
+      "offset": [
+        0.0056,
+        -0.0056,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_13",
+      "region": "garage",
+      "type": "window_grid",
+      "strength": 0.26,
+      "offset": [
+        -0.0058,
+        -0.0104,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_14",
+      "region": "garage",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0127,
+        -0.0103,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_15",
+      "region": "garage",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        -0.01,
+        -0.0054,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_16",
+      "region": "garage",
+      "type": "weathering",
+      "strength": 0.18,
+      "offset": [
+        0.0002,
+        0.0021,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_17",
+      "region": "tower",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.011,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_18",
+      "region": "tower",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        0.0102,
+        0.0084,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_19",
+      "region": "tower",
+      "type": "weathering",
+      "strength": 0.18,
+      "offset": [
+        0.0127,
+        0.0019,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_20",
+      "region": "tower",
+      "type": "trim_line",
+      "strength": 0.22,
+      "offset": [
+        0.0056,
+        -0.0056,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_21",
+      "region": "tower",
+      "type": "window_grid",
+      "strength": 0.26,
+      "offset": [
+        -0.0058,
+        -0.0104,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_22",
+      "region": "tower",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0127,
+        -0.0103,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_23",
+      "region": "tower",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        -0.01,
+        -0.0054,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_24",
+      "region": "tower",
+      "type": "weathering",
+      "strength": 0.18,
+      "offset": [
+        0.0002,
+        0.0021,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_25",
+      "region": "entrance",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.011,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_26",
+      "region": "entrance",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        0.0102,
+        0.0084,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_27",
+      "region": "entrance",
+      "type": "weathering",
+      "strength": 0.18,
+      "offset": [
+        0.0127,
+        0.0019,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_28",
+      "region": "entrance",
+      "type": "trim_line",
+      "strength": 0.22,
+      "offset": [
+        0.0056,
+        -0.0056,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_29",
+      "region": "entrance",
+      "type": "window_grid",
+      "strength": 0.26,
+      "offset": [
+        -0.0058,
+        -0.0104,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_30",
+      "region": "entrance",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0127,
+        -0.0103,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_31",
+      "region": "entrance",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        -0.01,
+        -0.0054,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_32",
+      "region": "entrance",
+      "type": "weathering",
+      "strength": 0.18,
+      "offset": [
+        0.0002,
+        0.0021,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_33",
+      "region": "roof",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.011,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_34",
+      "region": "roof",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        0.0102,
+        0.0084,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_35",
+      "region": "roof",
+      "type": "weathering",
+      "strength": 0.18,
+      "offset": [
+        0.0127,
+        0.0019,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_36",
+      "region": "roof",
+      "type": "trim_line",
+      "strength": 0.22,
+      "offset": [
+        0.0056,
+        -0.0056,
+        0.0135
+      ]
+    },
+    {
+      "id": "sd_37",
+      "region": "roof",
+      "type": "window_grid",
+      "strength": 0.26,
+      "offset": [
+        -0.0058,
+        -0.0104,
+        -0.0135
+      ]
+    },
+    {
+      "id": "sd_38",
+      "region": "roof",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0127,
+        -0.0103,
+        -0.0045
+      ]
+    },
+    {
+      "id": "sd_39",
+      "region": "roof",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        -0.01,
+        -0.0054,
+        0.0045
+      ]
+    },
+    {
+      "id": "sd_40",
+      "region": "roof",
+      "type": "weathering",
+      "strength": 0.18,
+      "offset": [
+        0.0002,
+        0.0021,
+        0.0135
+      ]
+    }
+  ],
+  "ornaments": [],
+  "pose": {
+    "preset": "static"
+  },
+  "animationHints": {},
+  "lod": {
+    "high": "full",
+    "medium": "reduce_window_bands",
+    "low": "merge_facade_layers"
+  },
+  "exportOptions": {
+    "formats": [
+      "gltf",
+      "glb"
+    ],
+    "previewHtml": true
+  }
+}

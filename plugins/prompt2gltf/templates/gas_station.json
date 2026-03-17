@@ -1,0 +1,1661 @@
+{
+  "meta": {
+    "name": "building_90m_ガソリンスタンド",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "prompt2gltf",
+    "generatedFrom": "ガソリンスタンド",
+    "createdAt": "2026-03-17T12:58:56.107Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "ガソリンスタンド",
+    "normalizedSubject": "building",
+    "targetHeightMeters": 90,
+    "styleTags": [
+      "civic_architecture"
+    ],
+    "geometryDirective": "Use mixed primitives (box/cylinder/sphere/tri_prism); represent curved real-world forms with rounded geometry.",
+    "summary": "Generated from prompt as a building with high-density procedural spec.",
+    "designIntent": {
+      "scaleImpression": "extreme_colossal",
+      "mood": "majestic",
+      "originalityPolicy": "generalized_original_design"
+    },
+    "buildingArchetype": "gas_station"
+  },
+  "globalScale": {
+    "height": 5.75,
+    "width": 30,
+    "depth": 36
+  },
+  "style": {
+    "silhouette": "multi_unit_or_civic_mass",
+    "mood": "inhabited",
+    "genre": "residential_architecture",
+    "detailDensity": "high",
+    "bodyLanguage": "static_structure",
+    "shapeLanguage": [
+      "main_volume",
+      "roof_profile",
+      "entrance",
+      "window_rhythm",
+      "signage"
+    ]
+  },
+  "materials": {
+    "canopy": {
+      "baseColor": "#E8EAE4",
+      "roughness": 0.82,
+      "metalness": 0.12
+    },
+    "canopy_trim": {
+      "baseColor": "#C0392B",
+      "roughness": 0.65,
+      "metalness": 0.18
+    },
+    "column": {
+      "baseColor": "#D8D4CC",
+      "roughness": 0.85,
+      "metalness": 0.1
+    },
+    "pump": {
+      "baseColor": "#2C3E50",
+      "roughness": 0.62,
+      "metalness": 0.45
+    },
+    "pump_panel": {
+      "baseColor": "#E8E4DC",
+      "roughness": 0.75,
+      "metalness": 0.08
+    },
+    "pump_nozzle": {
+      "baseColor": "#1A1A1A",
+      "roughness": 0.55,
+      "metalness": 0.65
+    },
+    "wall": {
+      "baseColor": "#EDEAE4",
+      "roughness": 0.88,
+      "metalness": 0.04
+    },
+    "wall_trim": {
+      "baseColor": "#C0392B",
+      "roughness": 0.65,
+      "metalness": 0.12
+    },
+    "glass": {
+      "baseColor": "#7ABED8",
+      "roughness": 0.06,
+      "metalness": 0.92
+    },
+    "door_frame": {
+      "baseColor": "#202020",
+      "roughness": 0.6,
+      "metalness": 0.55
+    },
+    "steel": {
+      "baseColor": "#7A7A7A",
+      "roughness": 0.52,
+      "metalness": 0.75
+    },
+    "asphalt": {
+      "baseColor": "#484644",
+      "roughness": 0.96,
+      "metalness": 0.01
+    },
+    "concrete": {
+      "baseColor": "#C4C0B8",
+      "roughness": 0.93,
+      "metalness": 0.02
+    },
+    "marking": {
+      "baseColor": "#F0EEE8",
+      "roughness": 0.85,
+      "metalness": 0.02
+    },
+    "signboard": {
+      "baseColor": "#C0392B",
+      "roughness": 0.6,
+      "metalness": 0.15,
+      "emissive": "#601508"
+    },
+    "sign_white": {
+      "baseColor": "#F0EEE8",
+      "roughness": 0.7,
+      "metalness": 0.05
+    },
+    "sign_price": {
+      "baseColor": "#1A1A1A",
+      "roughness": 0.75,
+      "metalness": 0.05
+    },
+    "island_base": {
+      "baseColor": "#D0CCC4",
+      "roughness": 0.9,
+      "metalness": 0.04
+    },
+    "curb_yellow": {
+      "baseColor": "#E8C020",
+      "roughness": 0.82,
+      "metalness": 0.04
+    }
+  },
+  "parts": [
+    {
+      "id": "canopy_slab",
+      "kind": "box",
+      "material": "canopy",
+      "size": [
+        24,
+        0.35,
+        16
+      ],
+      "position": [
+        0,
+        5.375,
+        0
+      ]
+    },
+    {
+      "id": "canopy_trim_f",
+      "kind": "box",
+      "material": "canopy_trim",
+      "size": [
+        24.1,
+        0.28,
+        0.12
+      ],
+      "position": [
+        0,
+        5.55,
+        8
+      ]
+    },
+    {
+      "id": "canopy_trim_b",
+      "kind": "box",
+      "material": "canopy_trim",
+      "size": [
+        24.1,
+        0.28,
+        0.12
+      ],
+      "position": [
+        0,
+        5.55,
+        -8
+      ]
+    },
+    {
+      "id": "canopy_trim_L",
+      "kind": "box",
+      "material": "canopy_trim",
+      "size": [
+        0.12,
+        0.28,
+        16.1
+      ],
+      "position": [
+        -12,
+        5.55,
+        0
+      ]
+    },
+    {
+      "id": "canopy_trim_R",
+      "kind": "box",
+      "material": "canopy_trim",
+      "size": [
+        0.12,
+        0.28,
+        16.1
+      ],
+      "position": [
+        12,
+        5.55,
+        0
+      ]
+    },
+    {
+      "id": "col_FL",
+      "kind": "box",
+      "material": "column",
+      "size": [
+        0.4,
+        5.2,
+        0.4
+      ],
+      "position": [
+        -10.8,
+        2.6,
+        6.8
+      ]
+    },
+    {
+      "id": "col_FR",
+      "kind": "box",
+      "material": "column",
+      "size": [
+        0.4,
+        5.2,
+        0.4
+      ],
+      "position": [
+        10.8,
+        2.6,
+        6.8
+      ]
+    },
+    {
+      "id": "col_BL",
+      "kind": "box",
+      "material": "column",
+      "size": [
+        0.4,
+        5.2,
+        0.4
+      ],
+      "position": [
+        -10.8,
+        2.6,
+        -6.8
+      ]
+    },
+    {
+      "id": "col_BR",
+      "kind": "box",
+      "material": "column",
+      "size": [
+        0.4,
+        5.2,
+        0.4
+      ],
+      "position": [
+        10.8,
+        2.6,
+        -6.8
+      ]
+    },
+    {
+      "id": "base_FL",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.6,
+        0.08,
+        0.6
+      ],
+      "position": [
+        -10.8,
+        0.04,
+        6.8
+      ]
+    },
+    {
+      "id": "base_FR",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.6,
+        0.08,
+        0.6
+      ],
+      "position": [
+        10.8,
+        0.04,
+        6.8
+      ]
+    },
+    {
+      "id": "base_BL",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.6,
+        0.08,
+        0.6
+      ],
+      "position": [
+        -10.8,
+        0.04,
+        -6.8
+      ]
+    },
+    {
+      "id": "base_BR",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.6,
+        0.08,
+        0.6
+      ],
+      "position": [
+        10.8,
+        0.04,
+        -6.8
+      ]
+    },
+    {
+      "id": "light_0",
+      "kind": "box",
+      "material": "sign_white",
+      "size": [
+        1,
+        0.08,
+        2
+      ],
+      "position": [
+        -8.4,
+        5.14,
+        0
+      ]
+    },
+    {
+      "id": "light_1",
+      "kind": "box",
+      "material": "sign_white",
+      "size": [
+        1,
+        0.08,
+        2
+      ],
+      "position": [
+        0,
+        5.14,
+        0
+      ]
+    },
+    {
+      "id": "light_2",
+      "kind": "box",
+      "material": "sign_white",
+      "size": [
+        1,
+        0.08,
+        2
+      ],
+      "position": [
+        8.4,
+        5.14,
+        0
+      ]
+    },
+    {
+      "id": "island_0",
+      "kind": "box",
+      "material": "island_base",
+      "size": [
+        17.28,
+        0.16,
+        1.4
+      ],
+      "position": [
+        0,
+        0.08,
+        -3
+      ]
+    },
+    {
+      "id": "curb_0",
+      "kind": "box",
+      "material": "curb_yellow",
+      "size": [
+        17.38,
+        0.1,
+        0.12
+      ],
+      "position": [
+        0,
+        0.21,
+        -3
+      ]
+    },
+    {
+      "id": "pump_0_0",
+      "kind": "box",
+      "material": "pump",
+      "size": [
+        0.6,
+        1.55,
+        0.45
+      ],
+      "position": [
+        -6.72,
+        0.935,
+        -3
+      ]
+    },
+    {
+      "id": "pump_panel_0_0",
+      "kind": "box",
+      "material": "pump_panel",
+      "size": [
+        0.52,
+        0.5,
+        0.08
+      ],
+      "position": [
+        -6.72,
+        1.6,
+        -2.78
+      ]
+    },
+    {
+      "id": "nozzle_0_0_L",
+      "kind": "box",
+      "material": "pump_nozzle",
+      "size": [
+        0.08,
+        0.3,
+        0.08
+      ],
+      "position": [
+        -6.94,
+        1.3,
+        -3
+      ]
+    },
+    {
+      "id": "nozzle_0_0_R",
+      "kind": "box",
+      "material": "pump_nozzle",
+      "size": [
+        0.08,
+        0.3,
+        0.08
+      ],
+      "position": [
+        -6.5,
+        1.3,
+        -3
+      ]
+    },
+    {
+      "id": "pump_0_1",
+      "kind": "box",
+      "material": "pump",
+      "size": [
+        0.6,
+        1.55,
+        0.45
+      ],
+      "position": [
+        0,
+        0.935,
+        -3
+      ]
+    },
+    {
+      "id": "pump_panel_0_1",
+      "kind": "box",
+      "material": "pump_panel",
+      "size": [
+        0.52,
+        0.5,
+        0.08
+      ],
+      "position": [
+        0,
+        1.6,
+        -2.78
+      ]
+    },
+    {
+      "id": "nozzle_0_1_L",
+      "kind": "box",
+      "material": "pump_nozzle",
+      "size": [
+        0.08,
+        0.3,
+        0.08
+      ],
+      "position": [
+        -0.22,
+        1.3,
+        -3
+      ]
+    },
+    {
+      "id": "nozzle_0_1_R",
+      "kind": "box",
+      "material": "pump_nozzle",
+      "size": [
+        0.08,
+        0.3,
+        0.08
+      ],
+      "position": [
+        0.22,
+        1.3,
+        -3
+      ]
+    },
+    {
+      "id": "pump_0_2",
+      "kind": "box",
+      "material": "pump",
+      "size": [
+        0.6,
+        1.55,
+        0.45
+      ],
+      "position": [
+        6.72,
+        0.935,
+        -3
+      ]
+    },
+    {
+      "id": "pump_panel_0_2",
+      "kind": "box",
+      "material": "pump_panel",
+      "size": [
+        0.52,
+        0.5,
+        0.08
+      ],
+      "position": [
+        6.72,
+        1.6,
+        -2.78
+      ]
+    },
+    {
+      "id": "nozzle_0_2_L",
+      "kind": "box",
+      "material": "pump_nozzle",
+      "size": [
+        0.08,
+        0.3,
+        0.08
+      ],
+      "position": [
+        6.5,
+        1.3,
+        -3
+      ]
+    },
+    {
+      "id": "nozzle_0_2_R",
+      "kind": "box",
+      "material": "pump_nozzle",
+      "size": [
+        0.08,
+        0.3,
+        0.08
+      ],
+      "position": [
+        6.94,
+        1.3,
+        -3
+      ]
+    },
+    {
+      "id": "island_1",
+      "kind": "box",
+      "material": "island_base",
+      "size": [
+        17.28,
+        0.16,
+        1.4
+      ],
+      "position": [
+        0,
+        0.08,
+        3
+      ]
+    },
+    {
+      "id": "curb_1",
+      "kind": "box",
+      "material": "curb_yellow",
+      "size": [
+        17.38,
+        0.1,
+        0.12
+      ],
+      "position": [
+        0,
+        0.21,
+        3
+      ]
+    },
+    {
+      "id": "pump_1_0",
+      "kind": "box",
+      "material": "pump",
+      "size": [
+        0.6,
+        1.55,
+        0.45
+      ],
+      "position": [
+        -6.72,
+        0.935,
+        3
+      ]
+    },
+    {
+      "id": "pump_panel_1_0",
+      "kind": "box",
+      "material": "pump_panel",
+      "size": [
+        0.52,
+        0.5,
+        0.08
+      ],
+      "position": [
+        -6.72,
+        1.6,
+        3.22
+      ]
+    },
+    {
+      "id": "nozzle_1_0_L",
+      "kind": "box",
+      "material": "pump_nozzle",
+      "size": [
+        0.08,
+        0.3,
+        0.08
+      ],
+      "position": [
+        -6.94,
+        1.3,
+        3
+      ]
+    },
+    {
+      "id": "nozzle_1_0_R",
+      "kind": "box",
+      "material": "pump_nozzle",
+      "size": [
+        0.08,
+        0.3,
+        0.08
+      ],
+      "position": [
+        -6.5,
+        1.3,
+        3
+      ]
+    },
+    {
+      "id": "pump_1_1",
+      "kind": "box",
+      "material": "pump",
+      "size": [
+        0.6,
+        1.55,
+        0.45
+      ],
+      "position": [
+        0,
+        0.935,
+        3
+      ]
+    },
+    {
+      "id": "pump_panel_1_1",
+      "kind": "box",
+      "material": "pump_panel",
+      "size": [
+        0.52,
+        0.5,
+        0.08
+      ],
+      "position": [
+        0,
+        1.6,
+        3.22
+      ]
+    },
+    {
+      "id": "nozzle_1_1_L",
+      "kind": "box",
+      "material": "pump_nozzle",
+      "size": [
+        0.08,
+        0.3,
+        0.08
+      ],
+      "position": [
+        -0.22,
+        1.3,
+        3
+      ]
+    },
+    {
+      "id": "nozzle_1_1_R",
+      "kind": "box",
+      "material": "pump_nozzle",
+      "size": [
+        0.08,
+        0.3,
+        0.08
+      ],
+      "position": [
+        0.22,
+        1.3,
+        3
+      ]
+    },
+    {
+      "id": "pump_1_2",
+      "kind": "box",
+      "material": "pump",
+      "size": [
+        0.6,
+        1.55,
+        0.45
+      ],
+      "position": [
+        6.72,
+        0.935,
+        3
+      ]
+    },
+    {
+      "id": "pump_panel_1_2",
+      "kind": "box",
+      "material": "pump_panel",
+      "size": [
+        0.52,
+        0.5,
+        0.08
+      ],
+      "position": [
+        6.72,
+        1.6,
+        3.22
+      ]
+    },
+    {
+      "id": "nozzle_1_2_L",
+      "kind": "box",
+      "material": "pump_nozzle",
+      "size": [
+        0.08,
+        0.3,
+        0.08
+      ],
+      "position": [
+        6.5,
+        1.3,
+        3
+      ]
+    },
+    {
+      "id": "nozzle_1_2_R",
+      "kind": "box",
+      "material": "pump_nozzle",
+      "size": [
+        0.08,
+        0.3,
+        0.08
+      ],
+      "position": [
+        6.94,
+        1.3,
+        3
+      ]
+    },
+    {
+      "id": "sb_body",
+      "kind": "box",
+      "material": "wall",
+      "size": [
+        8,
+        3.6,
+        6
+      ],
+      "position": [
+        0,
+        1.8,
+        -11.5
+      ]
+    },
+    {
+      "id": "sb_roof",
+      "kind": "box",
+      "material": "canopy",
+      "size": [
+        8.2,
+        0.2,
+        6.2
+      ],
+      "position": [
+        0,
+        3.7,
+        -11.5
+      ]
+    },
+    {
+      "id": "sb_trim_f",
+      "kind": "box",
+      "material": "wall_trim",
+      "size": [
+        8,
+        0.35,
+        0.12
+      ],
+      "position": [
+        0,
+        3.42,
+        -8.5
+      ]
+    },
+    {
+      "id": "sb_glass_L",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        2,
+        2,
+        0.12
+      ],
+      "position": [
+        -2.4,
+        1.2,
+        -8.5
+      ]
+    },
+    {
+      "id": "sb_glass_R",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        2,
+        2,
+        0.12
+      ],
+      "position": [
+        2.4,
+        1.2,
+        -8.5
+      ]
+    },
+    {
+      "id": "sb_door_post_L",
+      "kind": "box",
+      "material": "door_frame",
+      "size": [
+        0.12,
+        2.4,
+        0.12
+      ],
+      "position": [
+        -0.72,
+        1.2,
+        -8.5
+      ]
+    },
+    {
+      "id": "sb_door_post_R",
+      "kind": "box",
+      "material": "door_frame",
+      "size": [
+        0.12,
+        2.4,
+        0.12
+      ],
+      "position": [
+        0.72,
+        1.2,
+        -8.5
+      ]
+    },
+    {
+      "id": "sb_door_L",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        1.2,
+        2.2,
+        0.06
+      ],
+      "position": [
+        -0.66,
+        1.2,
+        -8.46
+      ]
+    },
+    {
+      "id": "sb_door_R",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        1.2,
+        2.2,
+        0.06
+      ],
+      "position": [
+        0.66,
+        1.2,
+        -8.46
+      ]
+    },
+    {
+      "id": "sb_ac_1",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.9,
+        0.5,
+        0.5
+      ],
+      "position": [
+        -3.5,
+        3.85,
+        -14.2
+      ]
+    },
+    {
+      "id": "sb_ac_2",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.9,
+        0.5,
+        0.5
+      ],
+      "position": [
+        -2.4,
+        3.85,
+        -14.2
+      ]
+    },
+    {
+      "id": "air_post",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.12,
+        1.2,
+        0.12
+      ],
+      "position": [
+        9.5,
+        0.6,
+        6.5
+      ]
+    },
+    {
+      "id": "air_unit",
+      "kind": "box",
+      "material": "pump",
+      "size": [
+        0.5,
+        0.5,
+        0.35
+      ],
+      "position": [
+        9.5,
+        1.35,
+        6.5
+      ]
+    },
+    {
+      "id": "ps_pole",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.25,
+        7,
+        0.25
+      ],
+      "position": [
+        13.5,
+        3.5,
+        7
+      ]
+    },
+    {
+      "id": "ps_panel",
+      "kind": "box",
+      "material": "signboard",
+      "size": [
+        2.8,
+        4,
+        0.3
+      ],
+      "position": [
+        13.5,
+        6.5,
+        7
+      ]
+    },
+    {
+      "id": "ps_price",
+      "kind": "box",
+      "material": "sign_price",
+      "size": [
+        2.4,
+        2.8,
+        0.1
+      ],
+      "position": [
+        13.5,
+        6.5,
+        7.16
+      ]
+    },
+    {
+      "id": "ps_top",
+      "kind": "box",
+      "material": "canopy_trim",
+      "size": [
+        2.9,
+        0.35,
+        0.32
+      ],
+      "position": [
+        13.5,
+        8.68,
+        7
+      ]
+    },
+    {
+      "id": "ground_slab",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        30,
+        0.1,
+        36
+      ],
+      "position": [
+        0,
+        0.05,
+        -8
+      ]
+    },
+    {
+      "id": "apron_F",
+      "kind": "box",
+      "material": "asphalt",
+      "size": [
+        30,
+        0.08,
+        8
+      ],
+      "position": [
+        0,
+        0.04,
+        12
+      ]
+    },
+    {
+      "id": "apron_B",
+      "kind": "box",
+      "material": "asphalt",
+      "size": [
+        30,
+        0.08,
+        4
+      ],
+      "position": [
+        0,
+        0.04,
+        -16.5
+      ]
+    },
+    {
+      "id": "guide_0",
+      "kind": "box",
+      "material": "marking",
+      "size": [
+        0.12,
+        0.02,
+        5
+      ],
+      "position": [
+        -9.6,
+        0.09,
+        10.5
+      ]
+    },
+    {
+      "id": "guide_1",
+      "kind": "box",
+      "material": "marking",
+      "size": [
+        0.12,
+        0.02,
+        5
+      ],
+      "position": [
+        0,
+        0.09,
+        10.5
+      ]
+    },
+    {
+      "id": "guide_2",
+      "kind": "box",
+      "material": "marking",
+      "size": [
+        0.12,
+        0.02,
+        5
+      ],
+      "position": [
+        9.6,
+        0.09,
+        10.5
+      ]
+    },
+    {
+      "id": "curb_F_L",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        0.18,
+        0.22,
+        8
+      ],
+      "position": [
+        -15,
+        0.11,
+        12
+      ]
+    },
+    {
+      "id": "curb_F_R",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        0.18,
+        0.22,
+        8
+      ],
+      "position": [
+        15,
+        0.11,
+        12
+      ]
+    }
+  ],
+  "surfaceDetails": [
+    {
+      "id": "sd_1",
+      "region": "canopy",
+      "type": "concrete_texture",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_2",
+      "region": "canopy",
+      "type": "panel_seam",
+      "strength": 0.14,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_3",
+      "region": "canopy",
+      "type": "weathering",
+      "strength": 0.18,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_4",
+      "region": "canopy",
+      "type": "asphalt_marking",
+      "strength": 0.22,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "sd_5",
+      "region": "canopy",
+      "type": "emissive_glow",
+      "strength": 0.26,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_6",
+      "region": "canopy",
+      "type": "bolt_pattern",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_7",
+      "region": "canopy",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_8",
+      "region": "pump",
+      "type": "concrete_texture",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_9",
+      "region": "pump",
+      "type": "panel_seam",
+      "strength": 0.14,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_10",
+      "region": "pump",
+      "type": "weathering",
+      "strength": 0.18,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_11",
+      "region": "pump",
+      "type": "asphalt_marking",
+      "strength": 0.22,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "sd_12",
+      "region": "pump",
+      "type": "emissive_glow",
+      "strength": 0.26,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_13",
+      "region": "pump",
+      "type": "bolt_pattern",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_14",
+      "region": "pump",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_15",
+      "region": "facade",
+      "type": "concrete_texture",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_16",
+      "region": "facade",
+      "type": "panel_seam",
+      "strength": 0.14,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_17",
+      "region": "facade",
+      "type": "weathering",
+      "strength": 0.18,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_18",
+      "region": "facade",
+      "type": "asphalt_marking",
+      "strength": 0.22,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "sd_19",
+      "region": "facade",
+      "type": "emissive_glow",
+      "strength": 0.26,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_20",
+      "region": "facade",
+      "type": "bolt_pattern",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_21",
+      "region": "facade",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_22",
+      "region": "ground",
+      "type": "concrete_texture",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_23",
+      "region": "ground",
+      "type": "panel_seam",
+      "strength": 0.14,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_24",
+      "region": "ground",
+      "type": "weathering",
+      "strength": 0.18,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_25",
+      "region": "ground",
+      "type": "asphalt_marking",
+      "strength": 0.22,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "sd_26",
+      "region": "ground",
+      "type": "emissive_glow",
+      "strength": 0.26,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_27",
+      "region": "ground",
+      "type": "bolt_pattern",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_28",
+      "region": "ground",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_29",
+      "region": "signage",
+      "type": "concrete_texture",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_30",
+      "region": "signage",
+      "type": "panel_seam",
+      "strength": 0.14,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_31",
+      "region": "signage",
+      "type": "weathering",
+      "strength": 0.18,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_32",
+      "region": "signage",
+      "type": "asphalt_marking",
+      "strength": 0.22,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "sd_33",
+      "region": "signage",
+      "type": "emissive_glow",
+      "strength": 0.26,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_34",
+      "region": "signage",
+      "type": "bolt_pattern",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_35",
+      "region": "signage",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_36",
+      "region": "column",
+      "type": "concrete_texture",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_37",
+      "region": "column",
+      "type": "panel_seam",
+      "strength": 0.14,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_38",
+      "region": "column",
+      "type": "weathering",
+      "strength": 0.18,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_39",
+      "region": "column",
+      "type": "asphalt_marking",
+      "strength": 0.22,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "sd_40",
+      "region": "column",
+      "type": "emissive_glow",
+      "strength": 0.26,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_41",
+      "region": "column",
+      "type": "bolt_pattern",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_42",
+      "region": "column",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    }
+  ],
+  "ornaments": [],
+  "pose": {
+    "preset": "static"
+  },
+  "animationHints": {},
+  "lod": {
+    "high": "full",
+    "medium": "reduce_window_bands",
+    "low": "merge_facade_layers"
+  },
+  "exportOptions": {
+    "formats": [
+      "gltf",
+      "glb"
+    ],
+    "previewHtml": true
+  }
+}

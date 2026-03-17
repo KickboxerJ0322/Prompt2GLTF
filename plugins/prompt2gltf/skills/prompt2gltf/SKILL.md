@@ -51,6 +51,14 @@ Templates are stored in `plugins/prompt2gltf/templates/`. Each template is a ful
 | godzilla_spec.json     | kaiju             | 怪獣, 巨大生物, モンスター          |
 | tsutenkaku_spec.json   | tower             | タワー, 塔, 電波塔, 観光塔          |
 | datacenter_spec.json   | structure         | 建物, 工場, 施設, データセンター     |
+| police_station.json    | building          | 警察署, 交番, 警察施設              |
+| fire_station.json      | building          | 消防署, 消防局, 消防施設            |
+| nursing_home_100bed.json | building        | 老人ホーム, 特養, 介護施設, 100床   |
+| pedestrian_bridge.json   | structure       | 歩道橋, 陸橋, 横断歩道橋            |
+| convenience_store.json   | building        | コンビニ, コンビニエンスストア, セブンイレブン, ローソン, ファミリーマート |
+| gas_station.json         | building        | ガソリンスタンド, 給油所, エネオス, 出光, コスモ石油               |
+| spherical_gas_holder.json | structure      | 球形ガスホルダー, ガスタンク, 球形タンク, 高圧ガスタンク, 都市ガス貯蔵施設 |
+| lighthouse.json           | structure      | 灯台, 海上灯台, 沿岸灯台, lighthouse                                       |
 
 If no template closely matches, omit `--template` (the generator builds from scratch).
 
@@ -100,6 +108,8 @@ When invoked:
 - human (男性 / 女性 / 子ども)
 - vehicle (generic transport)
 - structure (tree / signal / bridge / infra)
+- structure / spherical_gas_holder (球形ガスホルダー・高圧ガスタンク)
+- structure / lighthouse (灯台・海上灯台)
 
 ## Prompt interpretation rules
 ### giant

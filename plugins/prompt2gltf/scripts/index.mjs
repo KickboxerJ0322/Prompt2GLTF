@@ -2355,6 +2355,11 @@ function classifyBuildingArchetype(prompt) {
   if (/shrine|\u795e\u793e|\u9d25\u5c45/iu.test(prompt)) return "shrine_jp";
   if (/temple|\u5bfa|\u5bfa\u9662|\u4eee\u6bbf|\u91d1\u95a3/iu.test(prompt)) return "temple_jp";
 
+  // Retail / convenience store (check before facility/residential)
+  if (/convenience.?store|コンビニ|コンビニエンスストア|cvs|seven.?eleven|7.?eleven|ローソン|ファミリーマート|セブン/iu.test(prompt)) return "convenience_store";
+  // Gas station
+  if (/gas.?station|gasoline|petrol|filling.?station|ガソリンスタンド|ガスステーション|給油所|スタンド|eneos|エネオス|出光|コスモ/iu.test(prompt)) return "gas_station";
+
   // Facility buildings (check before generic residential to avoid misclassification)
   if (/clinic|\u30af\u30ea\u30cb\u30c3\u30af|\u8a3a\u7642\u6240|\u5185\u79d1|\u7686\u79d1|\u6b6f\u79d1|\u5916\u79d1|\u5c0f\u5150\u79d1|\u76ae\u819a\u79d1|\u7adf\u7cbe\u795e\u79d1/iu.test(prompt)) return "facility_clinic";
   if (/hospital|\u75c5\u9662/iu.test(prompt)) return "facility_hospital";
@@ -2444,7 +2449,9 @@ function buildBuildingSpec(prompt, height, styles) {
     facility_nursing:  { w: 1.00, d: 0.70, body: 0.80, roof: 0.08 },
     facility_cityhall:    { w: 1.30, d: 0.70, body: 0.78, roof: 0.10 },
     facility_school:      { w: 1.40, d: 0.60, body: 0.80, roof: 0.08 },
-    facility_university:  { w: 1.50, d: 0.80, body: 0.82, roof: 0.06 }
+    facility_university:  { w: 1.50, d: 0.80, body: 0.82, roof: 0.06 },
+    convenience_store:    { w: 1.40, d: 1.10, body: 0.84, roof: 0.16 },
+    gas_station:          { w: 2.20, d: 1.80, body: 0.50, roof: 0.50 }
   };
   const d = dimsByType[archetype] || dimsByType.building_generic;
 
@@ -4632,6 +4639,253 @@ function buildBuildingSpec(prompt, height, styles) {
   }
   // ── END facility_university override ──────────────────────────────────────────
 
+  // ── コンビニエンスストア (セブンイレブン風): 平屋・駐車場・自動ドア・看板 ──
+  if (archetype === "convenience_store") {
+    spec.materials = {
+      wall:          { baseColor: "#EDE9E2", roughness: 0.90, metalness: 0.03 },
+      fascia_green:  { baseColor: "#006633", roughness: 0.68, metalness: 0.08, emissive: "#003319" },
+      fascia_red:    { baseColor: "#CC1800", roughness: 0.68, metalness: 0.08, emissive: "#660C00" },
+      fascia_orange: { baseColor: "#FF7200", roughness: 0.70, metalness: 0.06, emissive: "#7F3900" },
+      glass:         { baseColor: "#7ABED8", roughness: 0.06, metalness: 0.92 },
+      door_frame:    { baseColor: "#202020", roughness: 0.60, metalness: 0.55 },
+      roof:          { baseColor: "#C8C4BC", roughness: 0.92, metalness: 0.03 },
+      steel:         { baseColor: "#787878", roughness: 0.55, metalness: 0.72 },
+      asphalt:       { baseColor: "#4A4846", roughness: 0.96, metalness: 0.01 },
+      marking:       { baseColor: "#F0EEE8", roughness: 0.86, metalness: 0.02 },
+      concrete:      { baseColor: "#C0BCB4", roughness: 0.92, metalness: 0.03 },
+      canopy:        { baseColor: "#005A2B", roughness: 0.72, metalness: 0.08 },
+      signboard:     { baseColor: "#006633", roughness: 0.65, metalness: 0.12, emissive: "#003319" },
+    };
+
+    // ── 寸法（実寸） ──────────────────────────────────────────────────
+    const BW  = 15.0;   // 建屋幅 (X)
+    const BD  = 12.0;   // 建屋奥行 (Z)
+    const BH  = 3.8;    // 本体高さ
+    const PH  = 0.7;    // パラペット高さ
+    const TH  = BH + PH;
+    const FZ  = BD * 0.5;   // 前面フェイス Z座標 (+Z方向が正面)
+    const PKD = 14.0;   // 駐車場奥行 (Z)
+    const PKZ = FZ + PKD * 0.5;  // 駐車場中心Z
+
+    // ── 本体躯体 ──────────────────────────────────────────────────────
+    box("body",            "wall",         BW,       BH,   BD,    0,         BH*0.5,        0);
+    box("roof_slab",       "roof",         BW,       0.15, BD,    0,         BH+0.075,      0);
+    // パラペット (4面)
+    box("parapet_front",   "fascia_green", BW+0.2,   PH,   0.3,   0,         BH+PH*0.5,     FZ+0.15);
+    box("parapet_back",    "wall",         BW+0.2,   PH,   0.3,   0,         BH+PH*0.5,    -FZ-0.15);
+    box("parapet_L",       "wall",         0.3,      PH,   BD+0.2,-BW*0.5-0.15, BH+PH*0.5, 0);
+    box("parapet_R",       "wall",         0.3,      PH,   BD+0.2, BW*0.5+0.15, BH+PH*0.5, 0);
+
+    // ── 前面ファサード (正面 Z=+FZ) ───────────────────────────────────
+    // 看板帯 (上段から: 緑・オレンジ・赤)
+    box("fascia_green",    "fascia_green", BW,       1.0,  0.45,  0,         BH-0.55,       FZ+0.22);
+    box("fascia_orange",   "fascia_orange",BW,       0.28, 0.45,  0,         BH-1.18,       FZ+0.22);
+    box("fascia_red",      "fascia_red",   BW,       0.28, 0.45,  0,         BH-1.58,       FZ+0.22);
+    // 大型ガラス面 (左右)
+    box("glass_L",         "glass",        4.6,      2.5,  0.12, -4.5,       1.35,          FZ);
+    box("glass_R",         "glass",        4.6,      2.5,  0.12,  4.5,       1.35,          FZ);
+    // 自動ドア枠
+    box("door_lintel",     "door_frame",   3.4,      0.22, 0.14,  0,         2.84,          FZ);
+    box("door_post_L",     "door_frame",   0.14,     2.8,  0.14, -1.65,      1.4,           FZ);
+    box("door_post_R",     "door_frame",   0.14,     2.8,  0.14,  1.65,      1.4,           FZ);
+    // 自動ドアガラス
+    box("door_pane_L",     "glass",        1.4,      2.6,  0.06, -0.82,      1.4,           FZ+0.04);
+    box("door_pane_R",     "glass",        1.4,      2.6,  0.06,  0.82,      1.4,           FZ+0.04);
+    // 入口キャノピー
+    box("canopy_slab",     "canopy",       5.6,      0.18, 1.8,   0,         2.8,           FZ+0.9);
+    box("canopy_post_L",   "steel",        0.12,     2.62, 0.12, -2.5,       1.31,          FZ+1.7);
+    box("canopy_post_R",   "steel",        0.12,     2.62, 0.12,  2.5,       1.31,          FZ+1.7);
+
+    // ── 側面・背面 ────────────────────────────────────────────────────
+    box("win_L1",          "glass",        0.12,     1.0,  2.4,  -BW*0.5,    1.9,           1.2);
+    box("win_L2",          "glass",        0.12,     1.0,  2.4,  -BW*0.5,    1.9,          -1.8);
+    box("win_R1",          "glass",        0.12,     1.0,  2.4,   BW*0.5,    1.9,           1.2);
+    box("win_R2",          "glass",        0.12,     1.0,  2.4,   BW*0.5,    1.9,          -1.8);
+    box("svc_door",        "door_frame",   2.0,      2.4,  0.12,  4.8,       1.2,          -FZ);
+
+    // ── 屋上設備 ──────────────────────────────────────────────────────
+    box("ac_1",            "steel",        1.2,      0.55, 0.9,  -5.5,       BH+0.275,     -1.5);
+    box("ac_2",            "steel",        1.2,      0.55, 0.9,  -3.8,       BH+0.275,     -1.5);
+    box("ac_3",            "steel",        1.2,      0.55, 0.9,   5.5,       BH+0.275,     -1.5);
+    box("mech_room",       "steel",        3.0,      1.0,  2.0,   0.8,       BH+0.5,       -2.2);
+
+    // ── 駐車場 ────────────────────────────────────────────────────────
+    box("parking_slab",    "asphalt",      BW+2.0,   0.08, PKD,   0,         0.04,          PKZ);
+    // 駐車区画線 (6本 = 5台分)
+    for (let i = 0; i <= 5; i++) {
+      const lx = -BW*0.5 + 1.0 + i * (BW / 5);
+      box(`p_line_${i}`,   "marking",      0.1,      0.02, 5.6,   lx,        0.09,          PKZ-0.8);
+    }
+    // 車止め (5台分)
+    for (let i = 0; i < 5; i++) {
+      const wx = -BW*0.5 + 1.0 + (i + 0.5) * (BW / 5);
+      box(`wheel_stop_${i}`,"concrete",    1.6,      0.12, 0.2,   wx,        0.16,          PKZ-4.0);
+    }
+    // 歩道・縁石
+    box("sidewalk",        "concrete",     BW+2.0,   0.1,  2.5,   0,         0.05,          FZ+1.25);
+    box("curb",            "concrete",     BW+2.0,   0.22, 0.2,   0,         0.11,          FZ+2.6);
+
+    // ── 野立て看板 (ポールサイン) ─────────────────────────────────────
+    box("sign_pole",       "steel",        0.22,     5.5,  0.22,  BW*0.5-1.5,2.75,          PKZ-4.0);
+    box("sign_panel",      "signboard",    2.6,      3.2,  0.28,  BW*0.5-1.5,4.85,          PKZ-4.0);
+    box("sign_panel_top",  "fascia_red",   2.6,      0.55, 0.28,  BW*0.5-1.5,6.62,          PKZ-4.0);
+    box("sign_panel_bot",  "fascia_orange",2.6,      0.35, 0.28,  BW*0.5-1.5,3.22,          PKZ-4.0);
+
+    // ── サイト地面 ────────────────────────────────────────────────────
+    box("site_base",       "asphalt",      BW+3.0,   0.08, BD+PKD, 0,        0.04,          (BD+PKD)*0.5-FZ);
+
+    // ── Surface details ───────────────────────────────────────────────
+    const cvRegions = ["facade", "signage", "glass", "parking", "roof", "entrance"];
+    const cvTypes   = ["concrete_texture", "emissive_glow", "reflection", "asphalt_marking", "weathering", "trim_line"];
+    let sdIdx = 1;
+    for (const region of cvRegions) {
+      for (let i = 0; i < 7; i++) {
+        pushSurface(`sd_${sdIdx++}`, region, cvTypes[i % cvTypes.length],
+          0.10 + (i % 5) * 0.04,
+          [Math.sin(i*0.9)*0.012, Math.cos(i*0.7)*0.010, ((i%4)-1.5)*0.008]);
+      }
+    }
+
+    spec.globalScale = { height: rounded(TH + 3.5), width: rounded(BW + 2.0), depth: rounded(BD + PKD + 1.0) };
+    spec.parts = parts;
+    spec.surfaceDetails = surfaceDetails;
+    return spec;
+  }
+  // ── END convenience_store override ────────────────────────────────────────────
+
+  // ── ガソリンスタンド: キャノピー・給油ポンプ・サービス棟・ポールサイン ──────
+  if (archetype === "gas_station") {
+    spec.materials = {
+      canopy:       { baseColor: "#E8EAE4", roughness: 0.82, metalness: 0.12 },
+      canopy_trim:  { baseColor: "#C0392B", roughness: 0.65, metalness: 0.18 },   // ENEOS赤帯
+      column:       { baseColor: "#D8D4CC", roughness: 0.85, metalness: 0.10 },
+      pump:         { baseColor: "#2C3E50", roughness: 0.62, metalness: 0.45 },
+      pump_panel:   { baseColor: "#E8E4DC", roughness: 0.75, metalness: 0.08 },
+      pump_nozzle:  { baseColor: "#1A1A1A", roughness: 0.55, metalness: 0.65 },
+      wall:         { baseColor: "#EDEAE4", roughness: 0.88, metalness: 0.04 },
+      wall_trim:    { baseColor: "#C0392B", roughness: 0.65, metalness: 0.12 },
+      glass:        { baseColor: "#7ABED8", roughness: 0.06, metalness: 0.92 },
+      door_frame:   { baseColor: "#202020", roughness: 0.60, metalness: 0.55 },
+      steel:        { baseColor: "#7A7A7A", roughness: 0.52, metalness: 0.75 },
+      asphalt:      { baseColor: "#484644", roughness: 0.96, metalness: 0.01 },
+      concrete:     { baseColor: "#C4C0B8", roughness: 0.93, metalness: 0.02 },
+      marking:      { baseColor: "#F0EEE8", roughness: 0.85, metalness: 0.02 },
+      signboard:    { baseColor: "#C0392B", roughness: 0.60, metalness: 0.15, emissive: "#601508" },
+      sign_white:   { baseColor: "#F0EEE8", roughness: 0.70, metalness: 0.05 },
+      sign_price:   { baseColor: "#1A1A1A", roughness: 0.75, metalness: 0.05 },
+      island_base:  { baseColor: "#D0CCC4", roughness: 0.90, metalness: 0.04 },
+      curb_yellow:  { baseColor: "#E8C020", roughness: 0.82, metalness: 0.04 },
+    };
+
+    // ── 実寸 ──────────────────────────────────────────────────────────
+    const CW  = 24.0;   // キャノピー幅 (X)
+    const CD  = 16.0;   // キャノピー奥行 (Z)
+    const CH  = 5.2;    // キャノピー床面高さ
+    const CT  = 0.35;   // キャノピースラブ厚
+    const COL_S = 0.40; // 柱断面
+    const SBW = 8.0;    // サービス棟幅
+    const SBD = 6.0;    // サービス棟奥行
+    const SBH = 3.6;    // サービス棟高さ
+    const SBZ = -CD*0.5 - SBD*0.5 - 0.5; // サービス棟Z中心 (キャノピー後方)
+    const GW  = CW + 6.0;  // 敷地幅
+    const GD  = CD + SBD + 14.0; // 敷地奥行
+
+    // ── キャノピー ────────────────────────────────────────────────────
+    box("canopy_slab",     "canopy",       CW,      CT,    CD,    0,  CH+CT*0.5, 0);
+    box("canopy_trim_f",   "canopy_trim",  CW+0.1,  0.28,  0.12,  0,  CH+CT,     CD*0.5);
+    box("canopy_trim_b",   "canopy_trim",  CW+0.1,  0.28,  0.12,  0,  CH+CT,    -CD*0.5);
+    box("canopy_trim_L",   "canopy_trim",  0.12,    0.28,  CD+0.1,-CW*0.5, CH+CT, 0);
+    box("canopy_trim_R",   "canopy_trim",  0.12,    0.28,  CD+0.1, CW*0.5, CH+CT, 0);
+    // 支柱 (前列2本・後列2本)
+    const col_xL = -CW*0.5 + 1.2, col_xR = CW*0.5 - 1.2;
+    const col_zF =  CD*0.5 - 1.2, col_zB = -CD*0.5 + 1.2;
+    box("col_FL",  "column", COL_S, CH, COL_S, col_xL, CH*0.5, col_zF);
+    box("col_FR",  "column", COL_S, CH, COL_S, col_xR, CH*0.5, col_zF);
+    box("col_BL",  "column", COL_S, CH, COL_S, col_xL, CH*0.5, col_zB);
+    box("col_BR",  "column", COL_S, CH, COL_S, col_xR, CH*0.5, col_zB);
+    // 柱ベースプレート
+    box("base_FL", "steel",  0.60, 0.08, 0.60, col_xL, 0.04, col_zF);
+    box("base_FR", "steel",  0.60, 0.08, 0.60, col_xR, 0.04, col_zF);
+    box("base_BL", "steel",  0.60, 0.08, 0.60, col_xL, 0.04, col_zB);
+    box("base_BR", "steel",  0.60, 0.08, 0.60, col_xR, 0.04, col_zB);
+    // キャノピー内照明ユニット
+    for (let i = 0; i < 3; i++) {
+      const lx = -CW*0.35 + i * CW*0.35;
+      box(`light_${i}`, "sign_white", 1.0, 0.08, 2.0, lx, CH-0.06, 0);
+    }
+
+    // ── 給油アイランド×2列 ────────────────────────────────────────────
+    // アイランドベース
+    for (let row = 0; row < 2; row++) {
+      const iz = row === 0 ? -3.0 : 3.0;
+      box(`island_${row}`, "island_base", CW*0.72, 0.16, 1.4, 0, 0.08, iz);
+      box(`curb_${row}`,   "curb_yellow", CW*0.72+0.1, 0.10, 0.12, 0, 0.21, iz);
+      // ポンプ本体 (3台/列)
+      for (let p = 0; p < 3; p++) {
+        const px = -CW*0.28 + p * CW*0.28;
+        box(`pump_${row}_${p}`,       "pump",       0.6,  1.55, 0.45, px, 0.935, iz);
+        box(`pump_panel_${row}_${p}`, "pump_panel", 0.52, 0.5,  0.08, px, 1.6,   iz + 0.22);
+        box(`nozzle_${row}_${p}_L`,   "pump_nozzle",0.08, 0.30, 0.08, px-0.22, 1.3, iz);
+        box(`nozzle_${row}_${p}_R`,   "pump_nozzle",0.08, 0.30, 0.08, px+0.22, 1.3, iz);
+      }
+    }
+
+    // ── サービス棟 (キャノピー後方) ───────────────────────────────────
+    box("sb_body",      "wall",       SBW,      SBH,   SBD,   0,    SBH*0.5, SBZ);
+    box("sb_roof",      "canopy",     SBW+0.2,  0.2,   SBD+0.2, 0, SBH+0.1, SBZ);
+    box("sb_trim_f",    "wall_trim",  SBW,      0.35,  0.12,  0,    SBH-0.18, SBZ+SBD*0.5);
+    box("sb_glass_L",   "glass",      2.0,      2.0,   0.12, -2.4,  1.2,     SBZ+SBD*0.5);
+    box("sb_glass_R",   "glass",      2.0,      2.0,   0.12,  2.4,  1.2,     SBZ+SBD*0.5);
+    box("sb_door_post_L","door_frame",0.12,     2.4,   0.12, -0.72, 1.2,     SBZ+SBD*0.5);
+    box("sb_door_post_R","door_frame",0.12,     2.4,   0.12,  0.72, 1.2,     SBZ+SBD*0.5);
+    box("sb_door_L",    "glass",      1.2,      2.2,   0.06, -0.66, 1.2,     SBZ+SBD*0.5+0.04);
+    box("sb_door_R",    "glass",      1.2,      2.2,   0.06,  0.66, 1.2,     SBZ+SBD*0.5+0.04);
+    // エアコン室外機
+    box("sb_ac_1",      "steel",      0.9,      0.5,   0.5,  -3.5,  SBH+0.25, SBZ-SBD*0.5+0.3);
+    box("sb_ac_2",      "steel",      0.9,      0.5,   0.5,  -2.4,  SBH+0.25, SBZ-SBD*0.5+0.3);
+
+    // ── エア補充スタンド ───────────────────────────────────────────────
+    box("air_post",     "steel",      0.12, 1.2, 0.12, CW*0.5-2.5, 0.6, CD*0.5-1.5);
+    box("air_unit",     "pump",       0.5,  0.5, 0.35, CW*0.5-2.5, 1.35, CD*0.5-1.5);
+
+    // ── ポールサイン (価格表示) ───────────────────────────────────────
+    const psX = CW*0.5 + 1.5, psZ = CD*0.5 - 1.0;
+    box("ps_pole",      "steel",      0.25, 7.0,  0.25, psX, 3.5,   psZ);
+    box("ps_panel",     "signboard",  2.8,  4.0,  0.30, psX, 6.5,   psZ);
+    box("ps_price",     "sign_price", 2.4,  2.8,  0.10, psX, 6.5,   psZ+0.16);
+    box("ps_top",       "canopy_trim",2.9,  0.35, 0.32, psX, 8.68,  psZ);
+
+    // ── 地面・車道 ────────────────────────────────────────────────────
+    box("ground_slab",  "concrete",   GW,   0.10, GD,   0, 0.05, (CD*0.5-GD*0.5+2.0));
+    box("apron_F",      "asphalt",    GW,   0.08, 8.0,  0, 0.04, CD*0.5+4.0);
+    box("apron_B",      "asphalt",    GW,   0.08, 4.0,  0, 0.04, SBZ-SBD*0.5-2.0);
+    // 入出庫誘導ライン
+    for (let i = 0; i < 3; i++) {
+      box(`guide_${i}`, "marking",    0.12, 0.02, 5.0, -CW*0.4+i*CW*0.4, 0.09, CD*0.5+2.5);
+    }
+    // 縁石
+    box("curb_F_L",     "concrete",   0.18, 0.22, 8.0, -GW*0.5,   0.11, CD*0.5+4.0);
+    box("curb_F_R",     "concrete",   0.18, 0.22, 8.0,  GW*0.5,   0.11, CD*0.5+4.0);
+
+    // ── Surface details ───────────────────────────────────────────────
+    const gsRegions = ["canopy", "pump", "facade", "ground", "signage", "column"];
+    const gsTypes   = ["concrete_texture", "panel_seam", "weathering", "asphalt_marking", "emissive_glow", "bolt_pattern"];
+    let sdIdx = 1;
+    for (const region of gsRegions) {
+      for (let i = 0; i < 7; i++) {
+        pushSurface(`sd_${sdIdx++}`, region, gsTypes[i % gsTypes.length],
+          0.10 + (i % 5) * 0.04,
+          [Math.sin(i*0.9)*0.012, Math.cos(i*0.7)*0.010, ((i%4)-1.5)*0.008]);
+      }
+    }
+
+    spec.globalScale = { height: rounded(CH+CT+0.2), width: rounded(GW), depth: rounded(GD) };
+    spec.parts = parts;
+    spec.surfaceDetails = surfaceDetails;
+    return spec;
+  }
+  // ── END gas_station override ───────────────────────────────────────────────────
+
   // ── Facility building archetypes ────────────────────────────────────────────
   if (archetype.startsWith("facility_")) {
     const facilityMats = {
@@ -5013,9 +5267,11 @@ function buildBuildingSpec(prompt, height, styles) {
   }
   // ── END house_jp override ────────────────────────────────────────────────────
 
-  // ── Modern house archetype ───────────────────────────────────────────────────
-  if (archetype === "house_modern") {
-    const Hw = Math.min(H, 8.5);
+  // ── Modern house archetype (also handles house_3f) ───────────────────────────
+  if (archetype === "house_modern" || archetype === "house_3f") {
+    // Derive floor count: house_3f always 3F; otherwise use height threshold
+    const floors3 = archetype === "house_3f" || H >= 9.5;
+    const Hw = floors3 ? Math.min(H, 12.0) : Math.min(H, 8.5);
 
     spec.materials = {
       concrete:     { baseColor: "#C0C8CA", roughness: 0.88, metalness: 0.04 },
@@ -5035,25 +5291,31 @@ function buildBuildingSpec(prompt, height, styles) {
     };
 
     // ── Vertical zones ────────────────────────────────────────────────────────
-    const baseH    = Hw * 0.050;  // concrete plinth
-    const f1H      = Hw * 0.375;  // 1F walls
-    const slabH    = Hw * 0.038;  // inter-floor slab
-    const f2H      = Hw * 0.325;  // 2F walls
-    const parapetH = Hw * 0.062;  // parapet
-    const copeH    = Hw * 0.014;  // coping
+    // 2F: base / 1F / slab / 2F / parapet / cope
+    // 3F: base / 1F / slab / 2F / slab2 / 3F / parapet / cope
+    const baseH    = Hw * 0.040;
+    const f1H      = Hw * (floors3 ? 0.280 : 0.375);
+    const slabH    = Hw * (floors3 ? 0.028 : 0.038);
+    const f2H      = Hw * (floors3 ? 0.240 : 0.325);
+    const slab2H   = floors3 ? slabH : 0;
+    const f3H      = floors3 ? Hw * 0.240 : 0;
+    const parapetH = Hw * (floors3 ? 0.048 : 0.062);
+    const copeH    = Hw * 0.014;
 
-    const yF1   = baseH;
-    const ySlab = yF1   + f1H;
-    const yF2   = ySlab + slabH;
-    const yPar  = yF2   + f2H;
-    const yCope = yPar  + parapetH;
+    const yF1    = baseH;
+    const ySlab  = yF1   + f1H;
+    const yF2    = ySlab + slabH;
+    const ySlab2 = yF2   + f2H;
+    const yF3    = floors3 ? ySlab2 + slab2H : 0;
+    const yPar   = floors3 ? yF3 + f3H : yF2 + f2H;
+    const yCope  = yPar  + parapetH;
 
     // ── Plan dimensions ───────────────────────────────────────────────────────
-    const mW = Hw * 1.10;   // main body width
-    const mD = Hw * 0.94;   // main body depth
-    const gW = Hw * 0.44;   // garage width (left side)
-    const gH = f1H + slabH; // garage height = single storey
-    const gX = -(mW * 0.5 + gW * 0.5);  // garage center X
+    const mW = Hw * 1.10;
+    const mD = Hw * 0.94;
+    const gW = Hw * 0.44;
+    const gH = f1H + slabH;
+    const gX = -(mW * 0.5 + gW * 0.5);
 
     spec.globalScale = { height: Hw, width: rounded((mW + gW) * 1.02), depth: rounded(mD * 1.04) };
 
@@ -5064,14 +5326,13 @@ function buildBuildingSpec(prompt, height, styles) {
     // ── 1F main body ──────────────────────────────────────────────────────────
     box("f1_body",   "wall_main", mW, f1H, mD, 0,  yF1+f1H*0.5, 0);
 
-    // ── Garage body (single storey, white wall) ───────────────────────────────
+    // ── Garage body (single storey) ───────────────────────────────────────────
     box("garage_body", "wall_main", gW, gH, mD, gX, yF1+gH*0.5, 0);
 
-    // ── Inter-floor slab band (visible front edge) ────────────────────────────
+    // ── 1F→2F slab band ───────────────────────────────────────────────────────
     box("slab_band", "concrete", mW, slabH, mD*1.01, 0, ySlab+slabH*0.5, 0);
 
     // ── 2F body — three horizontal panels: wood / dark / white ───────────────
-    // Panels span full mW: wood 15% | dark 30% | white 55%
     box("f2_wood_panel", "wall_wood", mW*0.15, f2H, mD, -mW*0.425, yF2+f2H*0.5, 0);
     box("f2_dark_panel", "wall_dark", mW*0.30, f2H, mD, -mW*0.200, yF2+f2H*0.5, 0);
     box("f2_right",      "wall_main", mW*0.55, f2H, mD,  mW*0.225, yF2+f2H*0.5, 0);
@@ -5079,11 +5340,32 @@ function buildBuildingSpec(prompt, height, styles) {
     // ── Garage flat roof ──────────────────────────────────────────────────────
     box("garage_roof", "roof_flat", gW+Hw*0.04, slabH*0.80, mD+Hw*0.04, gX, ySlab+slabH*0.40, 0);
 
+    // ── 3F (only when 3-story) ────────────────────────────────────────────────
+    if (floors3) {
+      // 2F→3F slab
+      box("slab2_band", "concrete", mW, slab2H, mD*1.01, 0, ySlab2+slab2H*0.5, 0);
+      // 3F body — setback left wing slightly for silhouette variety
+      box("f3_main",       "wall_main", mW*0.72, f3H, mD,       mW*0.14,  yF3+f3H*0.5, 0);
+      box("f3_dark_strip", "wall_dark", mW*0.24, f3H, mD,      -mW*0.43,  yF3+f3H*0.5, 0);
+      // 3F terrace slab (over 2F balcony zone)
+      const t3W = mW * 0.38;
+      const t3X = -mW * 0.12;
+      box("terrace3_slab",       "concrete",    t3W,      slab2H*0.85, Hw*0.26,  t3X,          yF3+slab2H*0.43, mD*0.5+Hw*0.13);
+      box("terrace3_rail_front", "steel_frame", t3W,      Hw*0.048,    Hw*0.016, t3X,          yF3+Hw*0.090,    mD*0.5+Hw*0.25);
+      box("terrace3_rail_L",     "steel_frame", Hw*0.016, Hw*0.048,    Hw*0.26,  t3X-t3W*0.5, yF3+Hw*0.090,    mD*0.5+Hw*0.13);
+      box("terrace3_rail_R",     "steel_frame", Hw*0.016, Hw*0.048,    Hw*0.26,  t3X+t3W*0.5, yF3+Hw*0.090,    mD*0.5+Hw*0.13);
+      // 3F front windows
+      box("f3_win_L",       "glass_win",   mW*0.28, f3H*0.54, Hw*0.030, -mW*0.24, yF3+f3H*0.44, mD*0.508);
+      box("f3_win_R",       "glass_dark",  mW*0.22, f3H*0.54, Hw*0.030,  mW*0.26, yF3+f3H*0.44, mD*0.508);
+      box("f3_win_frame_L", "steel_frame", mW*0.30, f3H*0.56, Hw*0.026, -mW*0.24, yF3+f3H*0.44, mD*0.506);
+      box("f3_win_frame_R", "steel_frame", mW*0.24, f3H*0.56, Hw*0.026,  mW*0.26, yF3+f3H*0.44, mD*0.506);
+    }
+
     // ── Roof deck (flat roof of main body) ────────────────────────────────────
     box("roof_deck", "roof_flat", mW, slabH*0.70, mD, 0, yPar-slabH*0.35, 0);
 
     // ── Parapet (4 sides) ─────────────────────────────────────────────────────
-    const pT = Hw * 0.030;  // parapet thickness
+    const pT = Hw * 0.030;
     box("parapet_front", "parapet", mW+pT*2, parapetH, pT,    0,       yPar+parapetH*0.5,  mD*0.5+pT*0.5);
     box("parapet_back",  "parapet", mW+pT*2, parapetH, pT,    0,       yPar+parapetH*0.5, -mD*0.5-pT*0.5);
     box("parapet_L",     "parapet", pT,       parapetH, mD,   -mW*0.5, yPar+parapetH*0.5, 0);
@@ -5097,7 +5379,7 @@ function buildBuildingSpec(prompt, height, styles) {
     box("cope_R",     "steel_frame", pT+co*2,       copeH, mD+co*2,  mW*0.5, yCope+copeH*0.5, 0);
 
     // ── Entrance canopy ───────────────────────────────────────────────────────
-    const cX  = mW * 0.18;   // slightly right of center
+    const cX  = mW * 0.18;
     const cW  = mW * 0.42;
     const cY  = yF1 + f1H * 0.76;
     box("canopy",           "concrete",   cW,       slabH*0.65, Hw*0.30, cX,          cY,        mD*0.5+Hw*0.15);
@@ -6116,11 +6398,280 @@ function buildStructureSpec(prompt, height, styles) {
     shape("light_y", "sphere", "signal_yellow", H * 0.04, H * 0.04, H * 0.03, H * 0.24, H * 0.62, 0);
     shape("light_g", "sphere", "signal_green", H * 0.04, H * 0.04, H * 0.03, H * 0.24, H * 0.56, 0);
   } else if (structureType === "pedestrian_bridge") {
-    box("deck", "concrete", H * 1.2, H * 0.08, H * 0.28, 0, H * 0.42, 0);
-    box("stairs_L", "steel", H * 0.24, H * 0.40, H * 0.24, -H * 0.48, H * 0.20, 0);
-    box("stairs_R", "steel", H * 0.24, H * 0.40, H * 0.24, H * 0.48, H * 0.20, 0);
-    box("rail_L", "steel", H * 1.2, H * 0.06, H * 0.03, 0, H * 0.49, H * 0.12);
-    box("rail_R", "steel", H * 1.2, H * 0.06, H * 0.03, 0, H * 0.49, -H * 0.12);
+    // ── Realistic pedestrian overpass with switchback stairs (折り返し階段) ──
+    const SPAN   = 20.0;   // deck span along X
+    const DW     = 2.4;    // walkway width (Z)
+    const DT     = 0.28;   // deck slab thickness
+    const DY     = 4.5;    // deck clearance height
+    const COL_W  = 0.22;   // deck column section
+    const GW     = 0.16;   // girder web height
+    const GF     = 0.022;  // girder flange thickness
+    const GFW    = 0.38;   // girder flange width
+    const FW     = 2.2;    // stair flight width (X direction)
+    const FR     = 3.0;    // horizontal run per stair flight (Z direction)
+    const LD     = 1.4;    // mid-landing depth (Z direction)
+    const POST_H = 1.1;    // handrail post height above deck
+    const RAIL_T = 0.055;  // rail tube size
+    const MESH_T = 0.040;  // mesh panel thickness
+    const LX     = SPAN * 0.5;    // half span = 10 m
+    const dz     = DW  * 0.5;     // half deck width = 1.2 m
+    // Stair geometry
+    const fLen = Math.sqrt(FR * FR + (DY * 0.5) * (DY * 0.5));  // diagonal per flight ≈ 3.75 m
+    const fα   = Math.atan2(DY * 0.5, FR);                       // stair angle ≈ 36.9°
+    // Left tower Z coordinates (stair extends in +Z from bridge edge)
+    const Z0  = dz;              // 1.2 m  – bridge deck edge / upper-flight top
+    const ZUF = Z0 + FR;         // 4.2 m  – top of upper flight = near edge of mid-landing
+    const ZLD = ZUF + LD;        // 5.6 m  – far edge of mid-landing
+    const ZGR = Z0 + LD;         // 2.6 m  – ground exit of lower flight
+    // Derived centres
+    const ZUF_C = (Z0  + ZUF) * 0.5;   // 2.7 m  – upper-flight centre Z
+    const ZLD_C = (ZUF + ZLD) * 0.5;   // 4.9 m  – mid-landing centre Z
+    const ZLF_C = (ZLD + ZGR) * 0.5;   // 4.1 m  – lower-flight centre Z
+    const YUF   = DY * 0.75;            // 3.375 m – upper-flight centre Y
+    const YLF   = DY * 0.25;            // 1.125 m – lower-flight centre Y
+    const YLD   = DY * 0.5 + DT * 0.5; // 2.39  m – mid-landing centre Y
+    const TC    = 0.18;                  // stair-tower column section
+    const FW_h  = FW * 0.5;             // 1.1 m – half-width per flight lane
+
+    spec.globalScale = {
+      height: rounded(DY + DT + POST_H + 0.15),
+      width:  rounded(SPAN),
+      depth:  rounded(ZLD + 2.0)
+    };
+
+    spec.materials = {
+      concrete:     { baseColor: "#C8C4C0", roughness: 0.92, metalness: 0.03 },
+      steel:        { baseColor: "#7A8490", roughness: 0.42, metalness: 0.78 },
+      steel_dark:   { baseColor: "#3A4248", roughness: 0.48, metalness: 0.80 },
+      rail:         { baseColor: "#9098A0", roughness: 0.36, metalness: 0.82 },
+      mesh:         { baseColor: "#6A7278", roughness: 0.50, metalness: 0.72 },
+      asphalt:      { baseColor: "#585856", roughness: 0.96, metalness: 0.01 },
+      warning:      { baseColor: "#E8C030", roughness: 0.88, metalness: 0.02 },
+      stair_nosing: { baseColor: "#D8C840", roughness: 0.86, metalness: 0.02 },
+    };
+
+    // Helper: box with rotation
+    const boxR = (id, mat, sx, sy, sz, px, py, pz, rx, ry, rz) =>
+      parts.push({ id, kind: "box", material: mat,
+        size:     [rounded(sx), rounded(sy), rounded(sz)],
+        position: [rounded(px), rounded(py), rounded(pz)],
+        rotation: [rounded(rx), rounded(ry), rounded(rz)] });
+
+    // ════════════════════════════════════════════════════════════
+    // BRIDGE DECK
+    // ════════════════════════════════════════════════════════════
+
+    // Deck support columns (2 per end)
+    box("col_LF", "steel", COL_W, DY, COL_W, -LX+0.4, DY*0.5,  dz-0.20);
+    box("col_LB", "steel", COL_W, DY, COL_W, -LX+0.4, DY*0.5, -dz+0.20);
+    box("col_RF", "steel", COL_W, DY, COL_W,  LX-0.4, DY*0.5,  dz-0.20);
+    box("col_RB", "steel", COL_W, DY, COL_W,  LX-0.4, DY*0.5, -dz+0.20);
+    box("base_LF", "steel_dark", 0.34, 0.06, 0.34, -LX+0.4, 0.03,  dz-0.20);
+    box("base_LB", "steel_dark", 0.34, 0.06, 0.34, -LX+0.4, 0.03, -dz+0.20);
+    box("base_RF", "steel_dark", 0.34, 0.06, 0.34,  LX-0.4, 0.03,  dz-0.20);
+    box("base_RB", "steel_dark", 0.34, 0.06, 0.34,  LX-0.4, 0.03, -dz+0.20);
+
+    // Longitudinal girders (I-section: web + top + bottom flange)
+    box("girder_f_web",      "steel", SPAN, GW,  0.018, 0, DY-GW*0.5,      dz);
+    box("girder_f_flange_t", "steel", SPAN, GF,  GFW,   0, DY-GF*0.5,      dz);
+    box("girder_f_flange_b", "steel", SPAN, GF,  GFW,   0, DY-GW-GF*0.5,   dz);
+    box("girder_b_web",      "steel", SPAN, GW,  0.018, 0, DY-GW*0.5,     -dz);
+    box("girder_b_flange_t", "steel", SPAN, GF,  GFW,   0, DY-GF*0.5,     -dz);
+    box("girder_b_flange_b", "steel", SPAN, GF,  GFW,   0, DY-GW-GF*0.5,  -dz);
+
+    // Cross beams (5 evenly spaced)
+    for (let i = 0; i <= 4; i++) {
+      const bx = -LX + i * (SPAN / 4);
+      box(`xbeam_${i+1}`, "steel", 0.12, GW, DW+0.08, bx, DY-GW*0.5, 0);
+    }
+
+    // Deck slab
+    box("deck_slab", "concrete", SPAN, DT, DW, 0, DY+DT*0.5, 0);
+
+    // Deck connection extensions + top landing handrails (where stair tower meets deck)
+    // Top landing slab + handrails at the head of each staircase
+    // Left top landing
+    box("conn_L",          "concrete", FW, DT, 1.0,         -LX, DY+DT*0.5, Z0+0.5);
+    box("toplnd_L_pst_aL", "rail", 0.06, POST_H, 0.06,      -LX-FW*0.5+0.06, DY+DT+POST_H*0.5, Z0+0.98);
+    box("toplnd_L_pst_aR", "rail", 0.06, POST_H, 0.06,      -LX+FW*0.5-0.06, DY+DT+POST_H*0.5, Z0+0.98);
+    box("toplnd_L_pst_bL", "rail", 0.06, POST_H, 0.06,      -LX-FW*0.5+0.06, DY+DT+POST_H*0.5, Z0+0.52);
+    box("toplnd_L_pst_bR", "rail", 0.06, POST_H, 0.06,      -LX+FW*0.5-0.06, DY+DT+POST_H*0.5, Z0+0.52);
+    box("toplnd_L_erail",  "rail", FW+0.1, RAIL_T, RAIL_T,  -LX, DY+DT+POST_H-RAIL_T*0.5, Z0+0.98);
+    box("toplnd_L_srail_a","rail", RAIL_T, RAIL_T, 1.0+0.1, -LX-FW*0.5+0.06, DY+DT+POST_H-RAIL_T*0.5, Z0+0.5);
+    box("toplnd_L_srail_b","rail", RAIL_T, RAIL_T, 1.0+0.1, -LX+FW*0.5-0.06, DY+DT+POST_H-RAIL_T*0.5, Z0+0.5);
+    // Right top landing
+    box("conn_R",          "concrete", FW, DT, 1.0,          LX, DY+DT*0.5, -(Z0+0.5));
+    box("toplnd_R_pst_aL", "rail", 0.06, POST_H, 0.06,       LX-FW*0.5+0.06, DY+DT+POST_H*0.5, -(Z0+0.98));
+    box("toplnd_R_pst_aR", "rail", 0.06, POST_H, 0.06,       LX+FW*0.5-0.06, DY+DT+POST_H*0.5, -(Z0+0.98));
+    box("toplnd_R_pst_bL", "rail", 0.06, POST_H, 0.06,       LX-FW*0.5+0.06, DY+DT+POST_H*0.5, -(Z0+0.52));
+    box("toplnd_R_pst_bR", "rail", 0.06, POST_H, 0.06,       LX+FW*0.5-0.06, DY+DT+POST_H*0.5, -(Z0+0.52));
+    box("toplnd_R_erail",  "rail", FW+0.1, RAIL_T, RAIL_T,   LX, DY+DT+POST_H-RAIL_T*0.5, -(Z0+0.98));
+    box("toplnd_R_srail_a","rail", RAIL_T, RAIL_T, 1.0+0.1,  LX-FW*0.5+0.06, DY+DT+POST_H-RAIL_T*0.5, -(Z0+0.5));
+    box("toplnd_R_srail_b","rail", RAIL_T, RAIL_T, 1.0+0.1,  LX+FW*0.5-0.06, DY+DT+POST_H-RAIL_T*0.5, -(Z0+0.5));
+
+    // Deck handrail posts (9 per side)
+    const nPosts = 9;
+    const postSpan = (SPAN - 1.0) / (nPosts - 1);
+    for (let i = 0; i < nPosts; i++) {
+      const px = -LX + 0.5 + i * postSpan;
+      box(`post_f_${i+1}`, "rail", 0.06, POST_H, 0.06, px, DY+DT+POST_H*0.5,  dz);
+      box(`post_b_${i+1}`, "rail", 0.06, POST_H, 0.06, px, DY+DT+POST_H*0.5, -dz);
+    }
+
+    // Deck top + mid rails
+    const railY = DY + DT + POST_H - RAIL_T*0.5;
+    box("rail_deck_f_top", "rail", SPAN, RAIL_T, RAIL_T, 0, railY,              dz);
+    box("rail_deck_b_top", "rail", SPAN, RAIL_T, RAIL_T, 0, railY,             -dz);
+    box("rail_deck_f_mid", "rail", SPAN, RAIL_T, RAIL_T, 0, railY-POST_H*0.46,  dz);
+    box("rail_deck_b_mid", "rail", SPAN, RAIL_T, RAIL_T, 0, railY-POST_H*0.46, -dz);
+
+    // Mesh infill panels
+    for (let i = 0; i < nPosts - 1; i++) {
+      const mx = -LX + 0.5 + i * postSpan + postSpan * 0.5;
+      box(`mesh_f_${i+1}`, "mesh", postSpan-0.08, POST_H*0.78, MESH_T, mx, DY+DT+POST_H*0.42,  dz);
+      box(`mesh_b_${i+1}`, "mesh", postSpan-0.08, POST_H*0.78, MESH_T, mx, DY+DT+POST_H*0.42, -dz);
+    }
+
+    // ════════════════════════════════════════════════════════════
+    // SWITCHBACK STAIR TOWERS  (折り返し階段)
+    //
+    //  Left tower extends in +Z from the bridge end at x = -LX
+    //  Right tower extends in -Z from the bridge end at x = +LX
+    //
+    //  Each tower layout (Z-Y cross-section, viewed from +X):
+    //
+    //   DY ─── [bridge deck] ── (Z0=1.2)
+    //           │  upper flight
+    //   DY/2 ── [mid landing] ── (ZUF=4.2 ~ ZLD=5.6)
+    //           │  lower flight (folds back in -Z)
+    //   0   ─── [ground exit] ── (ZGR=2.6)
+    //
+    // ════════════════════════════════════════════════════════════
+
+    // ── LEFT stair tower (x = -LX, stair in +Z direction) ─────────────────────
+    // Foundation pad & approach slab
+    box("pad_L",      "concrete", FW+0.6, 0.30, FR+LD+0.8, -LX, 0.15, (Z0+ZLD)*0.5);
+    box("approach_L", "asphalt",  FW+0.2, 0.10, 2.2,        -LX, 0.05, ZGR+0.8);
+
+    // Stair tower corner columns
+    //   Near side (Z ≈ Z0): full height DY (supports deck connection)
+    //   Far side  (Z ≈ ZLD): half height DY/2 (supports mid-landing only)
+    box("tcol_L_a1", "steel", TC, DY,     TC, -LX-FW*0.5+0.12, DY*0.5,     Z0+0.15);
+    box("tcol_L_a2", "steel", TC, DY,     TC, -LX+FW*0.5-0.12, DY*0.5,     Z0+0.15);
+    box("tcol_L_b1", "steel", TC, DY*0.5, TC, -LX-FW*0.5+0.12, DY*0.25,  ZLD-0.15);
+    box("tcol_L_b2", "steel", TC, DY*0.5, TC, -LX+FW*0.5-0.12, DY*0.25,  ZLD-0.15);
+    // Column base plates
+    box("tbase_L_a1", "steel_dark", TC+0.10, 0.05, TC+0.10, -LX-FW*0.5+0.12, 0.025,  Z0+0.15);
+    box("tbase_L_a2", "steel_dark", TC+0.10, 0.05, TC+0.10, -LX+FW*0.5-0.12, 0.025,  Z0+0.15);
+    box("tbase_L_b1", "steel_dark", TC+0.10, 0.05, TC+0.10, -LX-FW*0.5+0.12, 0.025, ZLD-0.15);
+    box("tbase_L_b2", "steel_dark", TC+0.10, 0.05, TC+0.10, -LX+FW*0.5-0.12, 0.025, ZLD-0.15);
+
+    // ── Upper flight (bridge deck → mid landing)  ─ occupies RIGHT half (x = −LX + FW_h/2)
+    // rot_x = +fα:  −Z end goes UP (bridge side, y=DY),  +Z end goes DOWN (mid-landing, y=DY/2)
+    boxR("slab_L_upper",  "concrete", FW_h, 0.34, fLen, -LX+FW_h*0.5, YUF, ZUF_C, +fα, 0, 0);
+    boxR("stgr_L_upper_a","steel",  0.04, 0.52, fLen, -LX+0.04,       YUF, ZUF_C, +fα, 0, 0);  // inner (left) edge
+    boxR("stgr_L_upper_b","steel",  0.04, 0.52, fLen, -LX+FW_h-0.04, YUF, ZUF_C, +fα, 0, 0);  // outer (right) edge
+    boxR("hrail_L_upper_a","rail", 0.055, 0.055, fLen+0.2, -LX+0.05,      YUF+0.92, ZUF_C, +fα, 0, 0);
+    boxR("hrail_L_upper_b","rail", 0.055, 0.055, fLen+0.2, -LX+FW_h-0.05, YUF+0.92, ZUF_C, +fα, 0, 0);
+    for (let i = 1; i <= 5; i++) {
+      const t  = i / 6;
+      box(`nos_L_u${i}`, "stair_nosing", FW_h, 0.04, 0.07, -LX+FW_h*0.5, DY-(DY*0.5)*t+0.02, Z0+FR*t);
+    }
+
+    // ── Mid landing (horizontal slab between the two flights)
+    box("landing_L_mid",  "concrete", FW, DT,   LD,    -LX, YLD, ZLD_C);
+    // Landing edge guardrail (far end)
+    box("land_L_rail",    "rail",     FW+0.1, 0.06, 0.06, -LX, DY*0.5+1.06, ZLD);
+    box("land_L_post_a",  "rail",     0.06, 1.06, 0.06, -LX-FW*0.5+0.06, DY*0.5+0.53, ZLD);
+    box("land_L_post_b",  "rail",     0.06, 1.06, 0.06, -LX+FW*0.5-0.06, DY*0.5+0.53, ZLD);
+    // Landing side rails (along Z edges of landing slab)
+    box("land_L_side_a",  "rail",     0.06, 1.06, LD,   -LX-FW*0.5+0.06, DY*0.5+0.53, ZLD_C);
+    box("land_L_side_b",  "rail",     0.06, 1.06, LD,   -LX+FW*0.5-0.06, DY*0.5+0.53, ZLD_C);
+
+    // ── Lower flight (mid landing → ground)  ─ occupies LEFT half (x = −LX − FW_h/2)
+    // ZLF_C = 4.1, going from ZLD=5.6 (+Z end) to ZGR=2.6 (−Z end)
+    // rot_x = −fα:  +Z end goes UP (mid-landing, y=DY/2),  −Z end goes DOWN (ground, y=0)
+    boxR("slab_L_lower",  "concrete", FW_h, 0.34, fLen, -LX-FW_h*0.5, YLF, ZLF_C, -fα, 0, 0);
+    boxR("stgr_L_lower_a","steel",  0.04, 0.52, fLen, -LX-FW_h+0.04, YLF, ZLF_C, -fα, 0, 0);  // outer (left) edge
+    boxR("stgr_L_lower_b","steel",  0.04, 0.52, fLen, -LX-0.04,       YLF, ZLF_C, -fα, 0, 0);  // inner (right) edge
+    boxR("hrail_L_lower_a","rail", 0.055, 0.055, fLen+0.2, -LX-FW_h+0.05, YLF+0.92, ZLF_C, -fα, 0, 0);
+    boxR("hrail_L_lower_b","rail", 0.055, 0.055, fLen+0.2, -LX-0.05,       YLF+0.92, ZLF_C, -fα, 0, 0);
+    for (let i = 1; i <= 5; i++) {
+      const t  = i / 6;
+      box(`nos_L_l${i}`, "stair_nosing", FW_h, 0.04, 0.07, -LX-FW_h*0.5, DY*0.5-(DY*0.5)*t+0.02, ZLD-FR*t);
+    }
+
+    // Ground-level bollard posts at stair exit
+    box("warn_L",      "warning", FW+0.2, 0.04, 0.30, -LX, 0.02, ZGR-0.15);
+    box("bollard_L_a", "steel",   0.12, 0.90, 0.12,   -LX-0.70, 0.45, ZGR-0.50);
+    box("bollard_L_b", "steel",   0.12, 0.90, 0.12,   -LX+0.70, 0.45, ZGR-0.50);
+
+    // ── RIGHT stair tower (x = +LX, stair in −Z direction, mirror) ────────────
+    // Mirror rule: all Z coordinates → negated; upper-flight rot_x flips sign.
+    box("pad_R",      "concrete", FW+0.6, 0.30, FR+LD+0.8,  LX, 0.15, -(Z0+ZLD)*0.5);
+    box("approach_R", "asphalt",  FW+0.2, 0.10, 2.2,         LX, 0.05, -(ZGR+0.8));
+
+    box("tcol_R_a1", "steel", TC, DY,     TC,  LX-FW*0.5+0.12, DY*0.5,    -(Z0+0.15));
+    box("tcol_R_a2", "steel", TC, DY,     TC,  LX+FW*0.5-0.12, DY*0.5,    -(Z0+0.15));
+    box("tcol_R_b1", "steel", TC, DY*0.5, TC,  LX-FW*0.5+0.12, DY*0.25, -(ZLD-0.15));
+    box("tcol_R_b2", "steel", TC, DY*0.5, TC,  LX+FW*0.5-0.12, DY*0.25, -(ZLD-0.15));
+    box("tbase_R_a1", "steel_dark", TC+0.10, 0.05, TC+0.10,  LX-FW*0.5+0.12, 0.025, -(Z0+0.15));
+    box("tbase_R_a2", "steel_dark", TC+0.10, 0.05, TC+0.10,  LX+FW*0.5-0.12, 0.025, -(Z0+0.15));
+    box("tbase_R_b1", "steel_dark", TC+0.10, 0.05, TC+0.10,  LX-FW*0.5+0.12, 0.025, -(ZLD-0.15));
+    box("tbase_R_b2", "steel_dark", TC+0.10, 0.05, TC+0.10,  LX+FW*0.5-0.12, 0.025, -(ZLD-0.15));
+
+    // Right upper flight: going in −Z  ─ occupies LEFT half of right tower (x = LX − FW_h/2)
+    // rot_x = −fα gives +Z end UP → bridge side at z=−Z0 is the +Z end ✓
+    boxR("slab_R_upper",   "concrete", FW_h, 0.34, fLen,  LX-FW_h*0.5, YUF, -ZUF_C, -fα, 0, 0);
+    boxR("stgr_R_upper_a", "steel",  0.04, 0.52, fLen,  LX-FW_h+0.04, YUF, -ZUF_C, -fα, 0, 0);  // outer (left) edge
+    boxR("stgr_R_upper_b", "steel",  0.04, 0.52, fLen,  LX-0.04,       YUF, -ZUF_C, -fα, 0, 0);  // inner (right) edge
+    boxR("hrail_R_upper_a","rail", 0.055, 0.055, fLen+0.2,  LX-FW_h+0.05, YUF+0.92, -ZUF_C, -fα, 0, 0);
+    boxR("hrail_R_upper_b","rail", 0.055, 0.055, fLen+0.2,  LX-0.05,       YUF+0.92, -ZUF_C, -fα, 0, 0);
+    for (let i = 1; i <= 5; i++) {
+      const t = i / 6;
+      box(`nos_R_u${i}`, "stair_nosing", FW_h, 0.04, 0.07,  LX-FW_h*0.5, DY-(DY*0.5)*t+0.02, -(Z0+FR*t));
+    }
+
+    box("landing_R_mid",  "concrete", FW, DT,   LD,    LX, YLD, -ZLD_C);
+    box("land_R_rail",    "rail",     FW+0.1, 0.06, 0.06,  LX, DY*0.5+1.06, -ZLD);
+    box("land_R_post_a",  "rail",     0.06, 1.06, 0.06,  LX-FW*0.5+0.06, DY*0.5+0.53, -ZLD);
+    box("land_R_post_b",  "rail",     0.06, 1.06, 0.06,  LX+FW*0.5-0.06, DY*0.5+0.53, -ZLD);
+    box("land_R_side_a",  "rail",     0.06, 1.06, LD,    LX-FW*0.5+0.06, DY*0.5+0.53, -ZLD_C);
+    box("land_R_side_b",  "rail",     0.06, 1.06, LD,    LX+FW*0.5-0.06, DY*0.5+0.53, -ZLD_C);
+
+    // Right lower flight: from (z=−ZLD, y=DY/2) back to (z=−ZGR, y=0), going in +Z.
+    // Occupies RIGHT half of right tower (x = LX + FW_h/2)
+    // +Z end = (z=−ZGR = −2.6, y=0) = LOWER;  −Z end = (z=−ZLD = −5.6, y=DY/2) = HIGHER.
+    // rot_x = +fα:  −Z end goes UP ✓
+    boxR("slab_R_lower",   "concrete", FW_h, 0.34, fLen,  LX+FW_h*0.5, YLF, -ZLF_C, +fα, 0, 0);
+    boxR("stgr_R_lower_a", "steel",  0.04, 0.52, fLen,  LX+0.04,       YLF, -ZLF_C, +fα, 0, 0);  // inner (left) edge
+    boxR("stgr_R_lower_b", "steel",  0.04, 0.52, fLen,  LX+FW_h-0.04, YLF, -ZLF_C, +fα, 0, 0);  // outer (right) edge
+    boxR("hrail_R_lower_a","rail", 0.055, 0.055, fLen+0.2,  LX+0.05,       YLF+0.92, -ZLF_C, +fα, 0, 0);
+    boxR("hrail_R_lower_b","rail", 0.055, 0.055, fLen+0.2,  LX+FW_h-0.05, YLF+0.92, -ZLF_C, +fα, 0, 0);
+    for (let i = 1; i <= 5; i++) {
+      const t = i / 6;
+      box(`nos_R_l${i}`, "stair_nosing", FW_h, 0.04, 0.07,  LX+FW_h*0.5, DY*0.5-(DY*0.5)*t+0.02, -(ZLD-FR*t));
+    }
+
+    box("warn_R",      "warning", FW+0.2, 0.04, 0.30,  LX, 0.02, -(ZGR-0.15));
+    box("bollard_R_a", "steel",   0.12, 0.90, 0.12,    LX-0.70, 0.45, -(ZGR-0.50));
+    box("bollard_R_b", "steel",   0.12, 0.90, 0.12,    LX+0.70, 0.45, -(ZGR-0.50));
+
+    // ── Surface details ────────────────────────────────────────────────────────
+    const pbRegions     = ["deck", "stair", "girder", "handrail", "column", "landing"];
+    const pbDetailTypes = ["concrete_texture", "anti_slip_pattern", "steel_weld", "mesh_grid", "rust_weathering", "bolt_pattern"];
+    let pbIdx = 1;
+    for (const region of pbRegions) {
+      for (let i = 0; i < 7; i++) {
+        pushSurface(`sd_${pbIdx++}`, region, pbDetailTypes[i % pbDetailTypes.length],
+          0.10 + (i % 5) * 0.04,
+          [Math.sin(i*0.9)*0.012, Math.cos(i*0.7)*0.010, ((i%4)-1.5)*0.008]);
+      }
+    }
+
+    spec.parts = parts;
+    spec.surfaceDetails = surfaceDetails;
+    return spec;
   } else if (structureType === "bridge") {
     box("road_deck", "concrete", H * 1.6, H * 0.12, H * 0.42, 0, H * 0.36, 0);
     box("pier_L", "concrete", H * 0.20, H * 0.60, H * 0.20, -H * 0.55, H * 0.18, 0);
@@ -7851,6 +8402,15 @@ async function loadTemplateSpec(templatePath, prompt) {
   spec.meta.generatedFrom = prompt;
   spec.meta.createdAt = new Date().toISOString();
   spec.promptInterpretation.originalPrompt = prompt;
+  // Re-infer height from prompt so floor-count phrases (e.g. "3階建て") override template default
+  const subject = spec.promptInterpretation?.normalizedSubject ?? "building";
+  const inferredH = inferHeightMeters(prompt, subject);
+  // Only override when the prompt explicitly specifies floors or meters
+  const hasFloorSpec = /\d+\s*(?:floors?|stories?|fl(?:oor)?|[階建])/iu.test(prompt);
+  const hasMeterSpec = /\d+\s*(?:m(?!\w)|meters?|メートル|米)/iu.test(prompt);
+  if (hasFloorSpec || hasMeterSpec) {
+    spec.promptInterpretation.targetHeightMeters = inferredH;
+  }
   return spec;
 }
 
@@ -7872,6 +8432,14 @@ async function main() {
       : path.resolve(PLUGIN_ROOT, templateArg);
     console.log(`Using template: ${templatePath}`);
     spec = await loadTemplateSpec(templatePath, prompt);
+    // When the prompt explicitly specifies floor count or height for a building,
+    // rebuild geometry from scratch so the new scale is reflected in the 3D parts.
+    const hasFloorSpec = /\d+\s*(?:floors?|stories?|fl(?:oor)?|[階建])/iu.test(prompt);
+    const hasMeterSpec = /\d+\s*(?:m(?!\w)|meters?|メートル|米)/iu.test(prompt);
+    const isBuilding   = spec.promptInterpretation?.normalizedSubject === "building";
+    if ((hasFloorSpec || hasMeterSpec) && isBuilding) {
+      spec = buildSpec(prompt);
+    }
   } else {
     spec = buildSpec(prompt);
   }

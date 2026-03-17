@@ -1,0 +1,433 @@
+{
+  "meta": {
+    "name": "structure_33m_灯台",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "prompt2gltf",
+    "generatedFrom": "灯台",
+    "createdAt": "2026-03-18T00:00:00.000Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "灯台",
+    "normalizedSubject": "structure",
+    "targetHeightMeters": 33,
+    "styleTags": ["maritime", "lighthouse", "coastal_infrastructure"],
+    "geometryDirective": "Tall CYLINDER tower with red horizontal stripe bands. Three-step circular foundation. External balcony ring at top of tower. Cylindrical lantern room with glass + dark metal frame. Dome cap above lantern. Service/keeper building at base (box + tri_prism roof). Fog horn pipe. Flag pole. NO generic building volumes.",
+    "summary": "Classic coastal lighthouse: tall cylindrical white tower with red stripes, balcony, lantern room, dome, service building at base, fog horn, flag pole.",
+    "designIntent": {
+      "scaleImpression": "large",
+      "mood": "maritime_classic",
+      "originalityPolicy": "generalized_original_design"
+    },
+    "structureType": "lighthouse"
+  },
+  "globalScale": {
+    "height": 33,
+    "width": 18,
+    "depth": 18
+  },
+  "style": {
+    "silhouette": "tall_cylindrical_tower_with_lantern",
+    "mood": "maritime",
+    "genre": "infrastructure",
+    "detailDensity": "high",
+    "bodyLanguage": "static_structure",
+    "shapeLanguage": ["cylinder_tower", "stripe_bands", "balcony_ring", "lantern_dome", "service_building"]
+  },
+  "materials": {
+    "tower_white": {
+      "baseColor": "#F0EDE6",
+      "roughness": 0.68,
+      "metalness": 0.06
+    },
+    "tower_red": {
+      "baseColor": "#C82020",
+      "roughness": 0.65,
+      "metalness": 0.08
+    },
+    "steel_structure": {
+      "baseColor": "#6A7A88",
+      "roughness": 0.44,
+      "metalness": 0.84
+    },
+    "steel_dark": {
+      "baseColor": "#3A484E",
+      "roughness": 0.50,
+      "metalness": 0.82
+    },
+    "glass_lantern": {
+      "baseColor": "#2A3438",
+      "roughness": 0.12,
+      "metalness": 0.90
+    },
+    "dome_cap": {
+      "baseColor": "#303A3E",
+      "roughness": 0.28,
+      "metalness": 0.88
+    },
+    "concrete": {
+      "baseColor": "#B8B4B0",
+      "roughness": 0.92,
+      "metalness": 0.02
+    },
+    "stone_wall": {
+      "baseColor": "#C0BAB0",
+      "roughness": 0.88,
+      "metalness": 0.04
+    },
+    "roof_tile": {
+      "baseColor": "#6A5848",
+      "roughness": 0.82,
+      "metalness": 0.06
+    },
+    "door_frame": {
+      "baseColor": "#5A3828",
+      "roughness": 0.75,
+      "metalness": 0.12
+    },
+    "glass": {
+      "baseColor": "#608090",
+      "roughness": 0.14,
+      "metalness": 0.88
+    },
+    "light_beacon": {
+      "baseColor": "#FFEE80",
+      "roughness": 0.06,
+      "metalness": 0.20
+    },
+    "pipe": {
+      "baseColor": "#8A9298",
+      "roughness": 0.38,
+      "metalness": 0.86
+    },
+    "accent": {
+      "baseColor": "#D82828",
+      "roughness": 0.60,
+      "metalness": 0.15
+    }
+  },
+  "parts": [
+    {
+      "id": "foundation",
+      "kind": "cylinder",
+      "material": "concrete",
+      "size": [8.0, 0.8, 8.0],
+      "position": [0, 0.4, 0]
+    },
+    {
+      "id": "base_step_1",
+      "kind": "cylinder",
+      "material": "concrete",
+      "size": [6.5, 0.7, 6.5],
+      "position": [0, 1.15, 0]
+    },
+    {
+      "id": "base_step_2",
+      "kind": "cylinder",
+      "material": "concrete",
+      "size": [5.5, 0.5, 5.5],
+      "position": [0, 1.75, 0]
+    },
+    {
+      "id": "base_molding",
+      "kind": "cylinder",
+      "material": "tower_white",
+      "size": [5.0, 0.4, 5.0],
+      "position": [0, 2.2, 0]
+    },
+    {
+      "id": "tower_shaft",
+      "kind": "cylinder",
+      "material": "tower_white",
+      "size": [4.5, 22.0, 4.5],
+      "position": [0, 13.4, 0]
+    },
+    {
+      "id": "stripe_1",
+      "kind": "cylinder",
+      "material": "tower_red",
+      "size": [4.56, 1.4, 4.56],
+      "position": [0, 7.0, 0]
+    },
+    {
+      "id": "stripe_2",
+      "kind": "cylinder",
+      "material": "tower_red",
+      "size": [4.54, 1.4, 4.54],
+      "position": [0, 13.0, 0]
+    },
+    {
+      "id": "stripe_3",
+      "kind": "cylinder",
+      "material": "tower_red",
+      "size": [4.52, 1.4, 4.52],
+      "position": [0, 19.0, 0]
+    },
+    {
+      "id": "tower_door",
+      "kind": "box",
+      "material": "door_frame",
+      "size": [0.95, 2.0, 0.18],
+      "position": [2.27, 3.4, 0]
+    },
+    {
+      "id": "window_1",
+      "kind": "box",
+      "material": "glass",
+      "size": [0.5, 0.9, 0.14],
+      "position": [2.27, 8.5, 0]
+    },
+    {
+      "id": "window_2",
+      "kind": "box",
+      "material": "glass",
+      "size": [0.5, 0.9, 0.14],
+      "position": [2.27, 11.5, 0]
+    },
+    {
+      "id": "window_3",
+      "kind": "box",
+      "material": "glass",
+      "size": [0.5, 0.9, 0.14],
+      "position": [2.27, 14.5, 0]
+    },
+    {
+      "id": "window_4",
+      "kind": "box",
+      "material": "glass",
+      "size": [0.5, 0.9, 0.14],
+      "position": [2.27, 17.5, 0]
+    },
+    {
+      "id": "window_5",
+      "kind": "box",
+      "material": "glass",
+      "size": [0.5, 0.9, 0.14],
+      "position": [2.27, 20.5, 0]
+    },
+    {
+      "id": "balcony_corbel",
+      "kind": "cylinder",
+      "material": "steel_dark",
+      "size": [5.8, 0.55, 5.8],
+      "position": [0, 24.68, 0]
+    },
+    {
+      "id": "balcony_floor",
+      "kind": "cylinder",
+      "material": "steel_structure",
+      "size": [6.5, 0.25, 6.5],
+      "position": [0, 25.08, 0]
+    },
+    {
+      "id": "balcony_railing",
+      "kind": "cylinder",
+      "material": "steel_dark",
+      "size": [6.6, 1.0, 6.6],
+      "position": [0, 25.7, 0]
+    },
+    {
+      "id": "balcony_handrail",
+      "kind": "cylinder",
+      "material": "steel_dark",
+      "size": [6.5, 0.12, 6.5],
+      "position": [0, 26.26, 0]
+    },
+    {
+      "id": "lantern_base",
+      "kind": "cylinder",
+      "material": "steel_dark",
+      "size": [4.2, 0.5, 4.2],
+      "position": [0, 26.55, 0]
+    },
+    {
+      "id": "lantern_glass",
+      "kind": "cylinder",
+      "material": "glass_lantern",
+      "size": [3.8, 3.0, 3.8],
+      "position": [0, 28.3, 0]
+    },
+    {
+      "id": "lantern_frame_ring_1",
+      "kind": "cylinder",
+      "material": "steel_dark",
+      "size": [3.95, 0.2, 3.95],
+      "position": [0, 26.9, 0]
+    },
+    {
+      "id": "lantern_frame_ring_2",
+      "kind": "cylinder",
+      "material": "steel_dark",
+      "size": [3.95, 0.2, 3.95],
+      "position": [0, 28.3, 0]
+    },
+    {
+      "id": "lantern_frame_ring_3",
+      "kind": "cylinder",
+      "material": "steel_dark",
+      "size": [3.95, 0.2, 3.95],
+      "position": [0, 29.7, 0]
+    },
+    {
+      "id": "lantern_top_ring",
+      "kind": "cylinder",
+      "material": "steel_dark",
+      "size": [4.1, 0.35, 4.1],
+      "position": [0, 30.0, 0]
+    },
+    {
+      "id": "dome_cap",
+      "kind": "sphere",
+      "material": "dome_cap",
+      "size": [4.2, 4.2, 4.2],
+      "position": [0, 31.3, 0]
+    },
+    {
+      "id": "finial_pipe",
+      "kind": "cylinder",
+      "material": "steel_dark",
+      "size": [0.28, 1.5, 0.28],
+      "position": [0, 33.65, 0]
+    },
+    {
+      "id": "light_outer",
+      "kind": "sphere",
+      "material": "light_beacon",
+      "size": [1.8, 1.8, 1.8],
+      "position": [0, 28.3, 0]
+    },
+    {
+      "id": "light_inner",
+      "kind": "sphere",
+      "material": "light_beacon",
+      "size": [0.85, 0.85, 0.85],
+      "position": [0, 28.3, 0]
+    },
+    {
+      "id": "service_body",
+      "kind": "box",
+      "material": "stone_wall",
+      "size": [9.0, 3.5, 7.0],
+      "position": [0, 1.75, -7.0]
+    },
+    {
+      "id": "service_roof",
+      "kind": "tri_prism",
+      "material": "roof_tile",
+      "size": [8.6, 1.5, 6.6],
+      "position": [0, 3.8, -7.0]
+    },
+    {
+      "id": "service_door",
+      "kind": "box",
+      "material": "door_frame",
+      "size": [1.1, 2.0, 0.2],
+      "position": [0, 1.0, -3.6]
+    },
+    {
+      "id": "service_window_L",
+      "kind": "box",
+      "material": "glass",
+      "size": [1.0, 0.9, 0.15],
+      "position": [-2.5, 2.0, -3.6]
+    },
+    {
+      "id": "service_window_R",
+      "kind": "box",
+      "material": "glass",
+      "size": [1.0, 0.9, 0.15],
+      "position": [2.5, 2.0, -3.6]
+    },
+    {
+      "id": "service_chimney",
+      "kind": "cylinder",
+      "material": "concrete",
+      "size": [0.5, 1.8, 0.5],
+      "position": [2.0, 5.65, -7.0]
+    },
+    {
+      "id": "walkway",
+      "kind": "box",
+      "material": "concrete",
+      "size": [2.5, 0.3, 6.0],
+      "position": [0, 0.15, -0.5]
+    },
+    {
+      "id": "fence_L",
+      "kind": "box",
+      "material": "stone_wall",
+      "size": [0.28, 1.5, 10.5],
+      "position": [-5.5, 0.75, -3.0]
+    },
+    {
+      "id": "fence_R",
+      "kind": "box",
+      "material": "stone_wall",
+      "size": [0.28, 1.5, 10.5],
+      "position": [5.5, 0.75, -3.0]
+    },
+    {
+      "id": "fog_horn",
+      "kind": "cylinder",
+      "material": "pipe",
+      "size": [0.5, 2.5, 0.5],
+      "position": [-3.0, 1.5, 2.5]
+    },
+    {
+      "id": "flag_pole",
+      "kind": "cylinder",
+      "material": "steel_dark",
+      "size": [0.10, 3.0, 0.10],
+      "position": [0, 35.4, 0]
+    },
+    {
+      "id": "signal_flag",
+      "kind": "box",
+      "material": "accent",
+      "size": [1.5, 0.9, 0.05],
+      "position": [0.75, 35.8, 0]
+    }
+  ],
+  "surfaceDetails": [
+    { "id": "sd_01", "region": "tower", "type": "paint_fade",    "strength": 0.20, "offset": [ 0.000,  0.020,  0.000] },
+    { "id": "sd_02", "region": "tower", "type": "weathering",    "strength": 0.25, "offset": [ 0.015,  0.000,  0.000] },
+    { "id": "sd_03", "region": "tower", "type": "panel_seam",    "strength": 0.20, "offset": [ 0.000,  0.000,  0.015] },
+    { "id": "sd_04", "region": "tower", "type": "weld_seam",     "strength": 0.30, "offset": [ 0.010,  0.010,  0.000] },
+    { "id": "sd_05", "region": "tower", "type": "crack",         "strength": 0.15, "offset": [-0.010,  0.020,  0.000] },
+    { "id": "sd_06", "region": "tower", "type": "stain",         "strength": 0.18, "offset": [ 0.000, -0.015,  0.010] },
+    { "id": "sd_07", "region": "tower", "type": "paint_fade",    "strength": 0.22, "offset": [-0.015,  0.000,  0.010] },
+    { "id": "sd_08", "region": "tower", "type": "weathering",    "strength": 0.28, "offset": [ 0.020, -0.010,  0.000] },
+    { "id": "sd_09", "region": "stripe", "type": "paint_fade",   "strength": 0.25, "offset": [ 0.000,  0.010,  0.000] },
+    { "id": "sd_10", "region": "stripe", "type": "weathering",   "strength": 0.20, "offset": [ 0.010,  0.000,  0.010] },
+    { "id": "sd_11", "region": "stripe", "type": "stain",        "strength": 0.18, "offset": [-0.010, -0.010,  0.000] },
+    { "id": "sd_12", "region": "stripe", "type": "crack",        "strength": 0.12, "offset": [ 0.015,  0.015,  0.000] },
+    { "id": "sd_13", "region": "lantern", "type": "weld_seam",   "strength": 0.35, "offset": [ 0.000,  0.010,  0.000] },
+    { "id": "sd_14", "region": "lantern", "type": "rivet_line",  "strength": 0.30, "offset": [ 0.010,  0.000,  0.010] },
+    { "id": "sd_15", "region": "lantern", "type": "weathering",  "strength": 0.20, "offset": [-0.010,  0.010,  0.000] },
+    { "id": "sd_16", "region": "lantern", "type": "panel_seam",  "strength": 0.28, "offset": [ 0.000, -0.010,  0.015] },
+    { "id": "sd_17", "region": "balcony", "type": "rust_streak", "strength": 0.30, "offset": [ 0.000,  0.020,  0.000] },
+    { "id": "sd_18", "region": "balcony", "type": "weld_seam",   "strength": 0.35, "offset": [ 0.010,  0.000,  0.000] },
+    { "id": "sd_19", "region": "balcony", "type": "weathering",  "strength": 0.22, "offset": [ 0.000, -0.010,  0.010] },
+    { "id": "sd_20", "region": "balcony", "type": "paint_chip",  "strength": 0.28, "offset": [-0.010,  0.010,  0.000] },
+    { "id": "sd_21", "region": "dome",   "type": "weathering",   "strength": 0.25, "offset": [ 0.000,  0.010,  0.000] },
+    { "id": "sd_22", "region": "dome",   "type": "weld_seam",    "strength": 0.30, "offset": [ 0.015,  0.000,  0.010] },
+    { "id": "sd_23", "region": "dome",   "type": "rivet_line",   "strength": 0.22, "offset": [-0.010,  0.015,  0.000] },
+    { "id": "sd_24", "region": "dome",   "type": "rust_streak",  "strength": 0.20, "offset": [ 0.000, -0.015,  0.010] },
+    { "id": "sd_25", "region": "service", "type": "weathering",  "strength": 0.30, "offset": [ 0.010,  0.000,  0.020] },
+    { "id": "sd_26", "region": "service", "type": "stain",       "strength": 0.25, "offset": [-0.010,  0.010,  0.000] },
+    { "id": "sd_27", "region": "service", "type": "crack",       "strength": 0.20, "offset": [ 0.020,  0.000, -0.010] },
+    { "id": "sd_28", "region": "service", "type": "panel_seam",  "strength": 0.22, "offset": [ 0.000, -0.010,  0.015] },
+    { "id": "sd_29", "region": "foundation", "type": "crack",    "strength": 0.22, "offset": [ 0.020,  0.000,  0.000] },
+    { "id": "sd_30", "region": "foundation", "type": "stain",    "strength": 0.28, "offset": [ 0.000,  0.005, -0.015] },
+    { "id": "sd_31", "region": "foundation", "type": "weathering","strength": 0.30,"offset": [ 0.010,  0.000,  0.020] },
+    { "id": "sd_32", "region": "tower", "type": "weld_seam",     "strength": 0.32, "offset": [-0.015, -0.010,  0.010] },
+    { "id": "sd_33", "region": "tower", "type": "panel_seam",    "strength": 0.25, "offset": [ 0.020, -0.005, -0.010] },
+    { "id": "sd_34", "region": "tower", "type": "paint_fade",    "strength": 0.18, "offset": [-0.020,  0.010, -0.005] },
+    { "id": "sd_35", "region": "lantern", "type": "weld_seam",   "strength": 0.28, "offset": [ 0.010, -0.020,  0.010] },
+    { "id": "sd_36", "region": "balcony", "type": "rivet_line",  "strength": 0.30, "offset": [ 0.020,  0.010,  0.000] },
+    { "id": "sd_37", "region": "service", "type": "weathering",  "strength": 0.32, "offset": [-0.010, -0.005,  0.020] },
+    { "id": "sd_38", "region": "tower",  "type": "nameplate_emboss","strength": 0.40,"offset": [ 0.000,  0.000, -0.020] },
+    { "id": "sd_39", "region": "dome",   "type": "paint_chip",   "strength": 0.18, "offset": [ 0.010,  0.020, -0.010] },
+    { "id": "sd_40", "region": "stripe", "type": "paint_chip",   "strength": 0.22, "offset": [-0.005, -0.020,  0.010] }
+  ]
+}

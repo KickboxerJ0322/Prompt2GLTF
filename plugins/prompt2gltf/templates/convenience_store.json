@@ -1,0 +1,1304 @@
+{
+  "meta": {
+    "name": "building_90m_コンビニエンスストア",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "prompt2gltf",
+    "generatedFrom": "コンビニエンスストア",
+    "createdAt": "2026-03-17T12:50:26.257Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "コンビニエンスストア",
+    "normalizedSubject": "building",
+    "targetHeightMeters": 90,
+    "styleTags": [
+      "civic_architecture"
+    ],
+    "geometryDirective": "Use mixed primitives (box/cylinder/sphere/tri_prism); represent curved real-world forms with rounded geometry.",
+    "summary": "Generated from prompt as a building with high-density procedural spec.",
+    "designIntent": {
+      "scaleImpression": "extreme_colossal",
+      "mood": "majestic",
+      "originalityPolicy": "generalized_original_design"
+    },
+    "buildingArchetype": "convenience_store"
+  },
+  "globalScale": {
+    "height": 8,
+    "width": 17,
+    "depth": 27
+  },
+  "style": {
+    "silhouette": "multi_unit_or_civic_mass",
+    "mood": "inhabited",
+    "genre": "residential_architecture",
+    "detailDensity": "high",
+    "bodyLanguage": "static_structure",
+    "shapeLanguage": [
+      "main_volume",
+      "roof_profile",
+      "entrance",
+      "window_rhythm",
+      "signage"
+    ]
+  },
+  "materials": {
+    "wall": {
+      "baseColor": "#EDE9E2",
+      "roughness": 0.9,
+      "metalness": 0.03
+    },
+    "fascia_green": {
+      "baseColor": "#006633",
+      "roughness": 0.68,
+      "metalness": 0.08,
+      "emissive": "#003319"
+    },
+    "fascia_red": {
+      "baseColor": "#CC1800",
+      "roughness": 0.68,
+      "metalness": 0.08,
+      "emissive": "#660C00"
+    },
+    "fascia_orange": {
+      "baseColor": "#FF7200",
+      "roughness": 0.7,
+      "metalness": 0.06,
+      "emissive": "#7F3900"
+    },
+    "glass": {
+      "baseColor": "#7ABED8",
+      "roughness": 0.06,
+      "metalness": 0.92
+    },
+    "door_frame": {
+      "baseColor": "#202020",
+      "roughness": 0.6,
+      "metalness": 0.55
+    },
+    "roof": {
+      "baseColor": "#C8C4BC",
+      "roughness": 0.92,
+      "metalness": 0.03
+    },
+    "steel": {
+      "baseColor": "#787878",
+      "roughness": 0.55,
+      "metalness": 0.72
+    },
+    "asphalt": {
+      "baseColor": "#4A4846",
+      "roughness": 0.96,
+      "metalness": 0.01
+    },
+    "marking": {
+      "baseColor": "#F0EEE8",
+      "roughness": 0.86,
+      "metalness": 0.02
+    },
+    "concrete": {
+      "baseColor": "#C0BCB4",
+      "roughness": 0.92,
+      "metalness": 0.03
+    },
+    "canopy": {
+      "baseColor": "#005A2B",
+      "roughness": 0.72,
+      "metalness": 0.08
+    },
+    "signboard": {
+      "baseColor": "#006633",
+      "roughness": 0.65,
+      "metalness": 0.12,
+      "emissive": "#003319"
+    }
+  },
+  "parts": [
+    {
+      "id": "body",
+      "kind": "box",
+      "material": "wall",
+      "size": [
+        15,
+        3.8,
+        12
+      ],
+      "position": [
+        0,
+        1.9,
+        0
+      ]
+    },
+    {
+      "id": "roof_slab",
+      "kind": "box",
+      "material": "roof",
+      "size": [
+        15,
+        0.15,
+        12
+      ],
+      "position": [
+        0,
+        3.875,
+        0
+      ]
+    },
+    {
+      "id": "parapet_front",
+      "kind": "box",
+      "material": "fascia_green",
+      "size": [
+        15.2,
+        0.7,
+        0.3
+      ],
+      "position": [
+        0,
+        4.15,
+        6.15
+      ]
+    },
+    {
+      "id": "parapet_back",
+      "kind": "box",
+      "material": "wall",
+      "size": [
+        15.2,
+        0.7,
+        0.3
+      ],
+      "position": [
+        0,
+        4.15,
+        -6.15
+      ]
+    },
+    {
+      "id": "parapet_L",
+      "kind": "box",
+      "material": "wall",
+      "size": [
+        0.3,
+        0.7,
+        12.2
+      ],
+      "position": [
+        -7.65,
+        4.15,
+        0
+      ]
+    },
+    {
+      "id": "parapet_R",
+      "kind": "box",
+      "material": "wall",
+      "size": [
+        0.3,
+        0.7,
+        12.2
+      ],
+      "position": [
+        7.65,
+        4.15,
+        0
+      ]
+    },
+    {
+      "id": "fascia_green",
+      "kind": "box",
+      "material": "fascia_green",
+      "size": [
+        15,
+        1,
+        0.45
+      ],
+      "position": [
+        0,
+        3.25,
+        6.22
+      ]
+    },
+    {
+      "id": "fascia_orange",
+      "kind": "box",
+      "material": "fascia_orange",
+      "size": [
+        15,
+        0.28,
+        0.45
+      ],
+      "position": [
+        0,
+        2.62,
+        6.22
+      ]
+    },
+    {
+      "id": "fascia_red",
+      "kind": "box",
+      "material": "fascia_red",
+      "size": [
+        15,
+        0.28,
+        0.45
+      ],
+      "position": [
+        0,
+        2.22,
+        6.22
+      ]
+    },
+    {
+      "id": "glass_L",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        4.6,
+        2.5,
+        0.12
+      ],
+      "position": [
+        -4.5,
+        1.35,
+        6
+      ]
+    },
+    {
+      "id": "glass_R",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        4.6,
+        2.5,
+        0.12
+      ],
+      "position": [
+        4.5,
+        1.35,
+        6
+      ]
+    },
+    {
+      "id": "door_lintel",
+      "kind": "box",
+      "material": "door_frame",
+      "size": [
+        3.4,
+        0.22,
+        0.14
+      ],
+      "position": [
+        0,
+        2.84,
+        6
+      ]
+    },
+    {
+      "id": "door_post_L",
+      "kind": "box",
+      "material": "door_frame",
+      "size": [
+        0.14,
+        2.8,
+        0.14
+      ],
+      "position": [
+        -1.65,
+        1.4,
+        6
+      ]
+    },
+    {
+      "id": "door_post_R",
+      "kind": "box",
+      "material": "door_frame",
+      "size": [
+        0.14,
+        2.8,
+        0.14
+      ],
+      "position": [
+        1.65,
+        1.4,
+        6
+      ]
+    },
+    {
+      "id": "door_pane_L",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        1.4,
+        2.6,
+        0.06
+      ],
+      "position": [
+        -0.82,
+        1.4,
+        6.04
+      ]
+    },
+    {
+      "id": "door_pane_R",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        1.4,
+        2.6,
+        0.06
+      ],
+      "position": [
+        0.82,
+        1.4,
+        6.04
+      ]
+    },
+    {
+      "id": "canopy_slab",
+      "kind": "box",
+      "material": "canopy",
+      "size": [
+        5.6,
+        0.18,
+        1.8
+      ],
+      "position": [
+        0,
+        2.8,
+        6.9
+      ]
+    },
+    {
+      "id": "canopy_post_L",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.12,
+        2.62,
+        0.12
+      ],
+      "position": [
+        -2.5,
+        1.31,
+        7.7
+      ]
+    },
+    {
+      "id": "canopy_post_R",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.12,
+        2.62,
+        0.12
+      ],
+      "position": [
+        2.5,
+        1.31,
+        7.7
+      ]
+    },
+    {
+      "id": "win_L1",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        0.12,
+        1,
+        2.4
+      ],
+      "position": [
+        -7.5,
+        1.9,
+        1.2
+      ]
+    },
+    {
+      "id": "win_L2",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        0.12,
+        1,
+        2.4
+      ],
+      "position": [
+        -7.5,
+        1.9,
+        -1.8
+      ]
+    },
+    {
+      "id": "win_R1",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        0.12,
+        1,
+        2.4
+      ],
+      "position": [
+        7.5,
+        1.9,
+        1.2
+      ]
+    },
+    {
+      "id": "win_R2",
+      "kind": "box",
+      "material": "glass",
+      "size": [
+        0.12,
+        1,
+        2.4
+      ],
+      "position": [
+        7.5,
+        1.9,
+        -1.8
+      ]
+    },
+    {
+      "id": "svc_door",
+      "kind": "box",
+      "material": "door_frame",
+      "size": [
+        2,
+        2.4,
+        0.12
+      ],
+      "position": [
+        4.8,
+        1.2,
+        -6
+      ]
+    },
+    {
+      "id": "ac_1",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        1.2,
+        0.55,
+        0.9
+      ],
+      "position": [
+        -5.5,
+        4.075,
+        -1.5
+      ]
+    },
+    {
+      "id": "ac_2",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        1.2,
+        0.55,
+        0.9
+      ],
+      "position": [
+        -3.8,
+        4.075,
+        -1.5
+      ]
+    },
+    {
+      "id": "ac_3",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        1.2,
+        0.55,
+        0.9
+      ],
+      "position": [
+        5.5,
+        4.075,
+        -1.5
+      ]
+    },
+    {
+      "id": "mech_room",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        3,
+        1,
+        2
+      ],
+      "position": [
+        0.8,
+        4.3,
+        -2.2
+      ]
+    },
+    {
+      "id": "parking_slab",
+      "kind": "box",
+      "material": "asphalt",
+      "size": [
+        17,
+        0.08,
+        14
+      ],
+      "position": [
+        0,
+        0.04,
+        13
+      ]
+    },
+    {
+      "id": "p_line_0",
+      "kind": "box",
+      "material": "marking",
+      "size": [
+        0.1,
+        0.02,
+        5.6
+      ],
+      "position": [
+        -6.5,
+        0.09,
+        12.2
+      ]
+    },
+    {
+      "id": "p_line_1",
+      "kind": "box",
+      "material": "marking",
+      "size": [
+        0.1,
+        0.02,
+        5.6
+      ],
+      "position": [
+        -3.5,
+        0.09,
+        12.2
+      ]
+    },
+    {
+      "id": "p_line_2",
+      "kind": "box",
+      "material": "marking",
+      "size": [
+        0.1,
+        0.02,
+        5.6
+      ],
+      "position": [
+        -0.5,
+        0.09,
+        12.2
+      ]
+    },
+    {
+      "id": "p_line_3",
+      "kind": "box",
+      "material": "marking",
+      "size": [
+        0.1,
+        0.02,
+        5.6
+      ],
+      "position": [
+        2.5,
+        0.09,
+        12.2
+      ]
+    },
+    {
+      "id": "p_line_4",
+      "kind": "box",
+      "material": "marking",
+      "size": [
+        0.1,
+        0.02,
+        5.6
+      ],
+      "position": [
+        5.5,
+        0.09,
+        12.2
+      ]
+    },
+    {
+      "id": "p_line_5",
+      "kind": "box",
+      "material": "marking",
+      "size": [
+        0.1,
+        0.02,
+        5.6
+      ],
+      "position": [
+        8.5,
+        0.09,
+        12.2
+      ]
+    },
+    {
+      "id": "wheel_stop_0",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        1.6,
+        0.12,
+        0.2
+      ],
+      "position": [
+        -5,
+        0.16,
+        9
+      ]
+    },
+    {
+      "id": "wheel_stop_1",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        1.6,
+        0.12,
+        0.2
+      ],
+      "position": [
+        -2,
+        0.16,
+        9
+      ]
+    },
+    {
+      "id": "wheel_stop_2",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        1.6,
+        0.12,
+        0.2
+      ],
+      "position": [
+        1,
+        0.16,
+        9
+      ]
+    },
+    {
+      "id": "wheel_stop_3",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        1.6,
+        0.12,
+        0.2
+      ],
+      "position": [
+        4,
+        0.16,
+        9
+      ]
+    },
+    {
+      "id": "wheel_stop_4",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        1.6,
+        0.12,
+        0.2
+      ],
+      "position": [
+        7,
+        0.16,
+        9
+      ]
+    },
+    {
+      "id": "sidewalk",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        17,
+        0.1,
+        2.5
+      ],
+      "position": [
+        0,
+        0.05,
+        7.25
+      ]
+    },
+    {
+      "id": "curb",
+      "kind": "box",
+      "material": "concrete",
+      "size": [
+        17,
+        0.22,
+        0.2
+      ],
+      "position": [
+        0,
+        0.11,
+        8.6
+      ]
+    },
+    {
+      "id": "sign_pole",
+      "kind": "box",
+      "material": "steel",
+      "size": [
+        0.22,
+        5.5,
+        0.22
+      ],
+      "position": [
+        6,
+        2.75,
+        9
+      ]
+    },
+    {
+      "id": "sign_panel",
+      "kind": "box",
+      "material": "signboard",
+      "size": [
+        2.6,
+        3.2,
+        0.28
+      ],
+      "position": [
+        6,
+        4.85,
+        9
+      ]
+    },
+    {
+      "id": "sign_panel_top",
+      "kind": "box",
+      "material": "fascia_red",
+      "size": [
+        2.6,
+        0.55,
+        0.28
+      ],
+      "position": [
+        6,
+        6.62,
+        9
+      ]
+    },
+    {
+      "id": "sign_panel_bot",
+      "kind": "box",
+      "material": "fascia_orange",
+      "size": [
+        2.6,
+        0.35,
+        0.28
+      ],
+      "position": [
+        6,
+        3.22,
+        9
+      ]
+    },
+    {
+      "id": "site_base",
+      "kind": "box",
+      "material": "asphalt",
+      "size": [
+        18,
+        0.08,
+        26
+      ],
+      "position": [
+        0,
+        0.04,
+        7
+      ]
+    }
+  ],
+  "surfaceDetails": [
+    {
+      "id": "sd_1",
+      "region": "facade",
+      "type": "concrete_texture",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_2",
+      "region": "facade",
+      "type": "emissive_glow",
+      "strength": 0.14,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_3",
+      "region": "facade",
+      "type": "reflection",
+      "strength": 0.18,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_4",
+      "region": "facade",
+      "type": "asphalt_marking",
+      "strength": 0.22,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "sd_5",
+      "region": "facade",
+      "type": "weathering",
+      "strength": 0.26,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_6",
+      "region": "facade",
+      "type": "trim_line",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_7",
+      "region": "facade",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_8",
+      "region": "signage",
+      "type": "concrete_texture",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_9",
+      "region": "signage",
+      "type": "emissive_glow",
+      "strength": 0.14,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_10",
+      "region": "signage",
+      "type": "reflection",
+      "strength": 0.18,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_11",
+      "region": "signage",
+      "type": "asphalt_marking",
+      "strength": 0.22,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "sd_12",
+      "region": "signage",
+      "type": "weathering",
+      "strength": 0.26,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_13",
+      "region": "signage",
+      "type": "trim_line",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_14",
+      "region": "signage",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_15",
+      "region": "glass",
+      "type": "concrete_texture",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_16",
+      "region": "glass",
+      "type": "emissive_glow",
+      "strength": 0.14,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_17",
+      "region": "glass",
+      "type": "reflection",
+      "strength": 0.18,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_18",
+      "region": "glass",
+      "type": "asphalt_marking",
+      "strength": 0.22,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "sd_19",
+      "region": "glass",
+      "type": "weathering",
+      "strength": 0.26,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_20",
+      "region": "glass",
+      "type": "trim_line",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_21",
+      "region": "glass",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_22",
+      "region": "parking",
+      "type": "concrete_texture",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_23",
+      "region": "parking",
+      "type": "emissive_glow",
+      "strength": 0.14,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_24",
+      "region": "parking",
+      "type": "reflection",
+      "strength": 0.18,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_25",
+      "region": "parking",
+      "type": "asphalt_marking",
+      "strength": 0.22,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "sd_26",
+      "region": "parking",
+      "type": "weathering",
+      "strength": 0.26,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_27",
+      "region": "parking",
+      "type": "trim_line",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_28",
+      "region": "parking",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_29",
+      "region": "roof",
+      "type": "concrete_texture",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_30",
+      "region": "roof",
+      "type": "emissive_glow",
+      "strength": 0.14,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_31",
+      "region": "roof",
+      "type": "reflection",
+      "strength": 0.18,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_32",
+      "region": "roof",
+      "type": "asphalt_marking",
+      "strength": 0.22,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "sd_33",
+      "region": "roof",
+      "type": "weathering",
+      "strength": 0.26,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_34",
+      "region": "roof",
+      "type": "trim_line",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_35",
+      "region": "roof",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_36",
+      "region": "entrance",
+      "type": "concrete_texture",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.01,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_37",
+      "region": "entrance",
+      "type": "emissive_glow",
+      "strength": 0.14,
+      "offset": [
+        0.0094,
+        0.0076,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_38",
+      "region": "entrance",
+      "type": "reflection",
+      "strength": 0.18,
+      "offset": [
+        0.0117,
+        0.0017,
+        0.004
+      ]
+    },
+    {
+      "id": "sd_39",
+      "region": "entrance",
+      "type": "asphalt_marking",
+      "strength": 0.22,
+      "offset": [
+        0.0051,
+        -0.005,
+        0.012
+      ]
+    },
+    {
+      "id": "sd_40",
+      "region": "entrance",
+      "type": "weathering",
+      "strength": 0.26,
+      "offset": [
+        -0.0053,
+        -0.0094,
+        -0.012
+      ]
+    },
+    {
+      "id": "sd_41",
+      "region": "entrance",
+      "type": "trim_line",
+      "strength": 0.1,
+      "offset": [
+        -0.0117,
+        -0.0094,
+        -0.004
+      ]
+    },
+    {
+      "id": "sd_42",
+      "region": "entrance",
+      "type": "concrete_texture",
+      "strength": 0.14,
+      "offset": [
+        -0.0093,
+        -0.0049,
+        0.004
+      ]
+    }
+  ],
+  "ornaments": [],
+  "pose": {
+    "preset": "static"
+  },
+  "animationHints": {},
+  "lod": {
+    "high": "full",
+    "medium": "reduce_window_bands",
+    "low": "merge_facade_layers"
+  },
+  "exportOptions": {
+    "formats": [
+      "gltf",
+      "glb"
+    ],
+    "previewHtml": true
+  }
+}

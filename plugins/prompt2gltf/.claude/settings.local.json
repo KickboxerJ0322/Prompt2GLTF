@@ -15,7 +15,11 @@
       "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"病院\")",
       "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"診療所\")",
       "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"警察署\")",
-      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"市役所\")"
+      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"市役所\")",
+      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"3階建ての家\" --template templates/house.json)",
+      "Bash(node scripts/index.mjs --prompt \"歩道橋\")",
+      "Bash(node scripts/index.mjs --prompt \"コンビニエンスストア\")",
+      "Bash(node scripts/index.mjs --prompt \"ガソリンスタンド\")"
     ]
   }
 }

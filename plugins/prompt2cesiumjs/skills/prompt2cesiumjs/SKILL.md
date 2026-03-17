@@ -43,6 +43,7 @@ description: 自然文から Cesium Sandcastle 用 JavaScript を生成する。
 - templates/sandcastle_drone_follow.js
 - templates/sandcastle_place_model.js
 - templates/sandcastle_free_flight.js
+- templates/sandcastle_free_walk.js
 
 ユーザー指定が無い場合は walk_follow テンプレートを使用する。
 
@@ -56,7 +57,6 @@ description: 自然文から Cesium Sandcastle 用 JavaScript を生成する。
 - 歩く
 - 人が歩く
 - 真後ろ
-- 散歩
 - ルートに沿って移動
 
 ### drone_follow を使う条件
@@ -80,6 +80,19 @@ description: 自然文から Cesium Sandcastle 用 JavaScript を生成する。
 - free flight
 - 自分で動かす
 - キーボードで操作
+
+### free_walk を使う条件
+
+次の語句が含まれる場合は free_walk を使う。
+
+- free walk
+- フリーウォーク
+- 自由に歩く
+- 自分で歩く
+- 散歩
+- 歩き回る
+- キャラクターを操作して歩く
+- 自分で操作して歩く
 
 ### place_model を使う条件
 
@@ -140,6 +153,61 @@ description: 自然文から Cesium Sandcastle 用 JavaScript を生成する。
 
 - キーボード操作ロジック（W/S/A/D/Q/E/矢印/Z/X/C/R）
 - 物理パラメータ（ACCEL / DRAG / TURN_RATE / CLIMB_RATE など）
+- HUD のレイアウト構造
+
+## フリーウォークモード
+
+キーボードでキャラクターを自由に歩き回らせるインタラクティブモード。三人称視点カメラと 2D ミニマップ付き。
+
+### 生成手順
+
+1. `templates/sandcastle_free_walk.js` をそのまま読み込む
+2. ユーザーのニーズに合わせて必要箇所だけ書き換える
+3. 書き換えた完全コードを `generated/sandcastle.js` に出力する
+
+移動ルート（route2D）は使用しない。
+
+### フリーウォークモードのデフォルト値
+
+- `MODEL_URL`: `https://raw.githubusercontent.com/KickboxerJ0322/Prompt2GLTF/master/glb/robo.glb`
+- 初期位置はユーザー指定の場所に変更する（省略時: 東京駅周辺）
+- `START_ALT`: 40〜50m 程度（地上付近）
+
+### フリーウォークモードの必須コード構造
+
+1. Cesium Viewer 初期化（animation/timeline は false）
+2. Google Photorealistic 3D Tiles 読み込み
+3. キーボード入力管理（`keys` オブジェクト）
+4. HUD 表示（操作説明 + ステータス）
+5. 2D ミニマップ（右上オーバーレイ、M キーで表示/非表示）
+6. モデル配置（単一 entity）
+7. `viewer.clock.onTick` による毎フレーム更新
+8. 三人称追尾カメラ（プレイヤーの後方）
+
+### キーバインド（変更禁止）
+
+- W/S または ↑/↓: 前進・後退
+- A/D または ←/→: 左右回転
+- Q/E: 左右平行移動（ストレーフ）
+- R/F: 上昇・下降
+- Shift: 走る
+- J/L: カメラ左右
+- I/K: カメラ上下
+- U/O: ズームイン / ズームアウト
+- C: カメラ角度リセット
+- M: ミニマップ 表示/非表示
+
+### フリーウォークモードで変更するもの
+
+- `START_LON` / `START_LAT` / `START_ALT`: ユーザー指定の場所に設定
+- `MODEL_URL`: ユーザー指定のモデルに差し替え（省略時は robo.glb）
+- HUD の `<b>Free Walk Mode</b>` の場所名（必要に応じて）
+
+### フリーウォークモードで変更しないもの
+
+- キーボード操作ロジック全体
+- 物理パラメータ（WALK_SPEED / RUN_SPEED / ROT_SPEED など）
+- ミニマップ構造（minimapViewer / minimapWrap）
 - HUD のレイアウト構造
 
 ## route2D 形式
@@ -417,6 +485,13 @@ presets/tokyo_routes.json に近いルートがある場合は、それを参考
 - route2D を自然に生成する
 - PERSON.glb を差し替える
 - ラベル名を差し替える
+- 必ず完全コードを出力する
+
+### フリーウォークモード
+
+- free_walk を選択する
+- START_LON / START_LAT / START_ALT をユーザー指定の場所に設定する
+- MODEL_URL を設定する（省略時は robo.glb）
 - 必ず完全コードを出力する
 
 ### 固定配置モード

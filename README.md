@@ -178,6 +178,8 @@ plugins/prompt2gltf/generated/
 |---|---|
 | `walk_follow` | ルートに沿って人型モデルが歩き、後方追尾カメラで追う |
 | `drone_follow` | ルートに沿ってモデルが移動し、ドローン視点（上空から）で追う |
+| `free_flight` | キーボードで機体を自由操作できるインタラクティブフライトモード |
+| `free_walk` | キーボードでキャラクターを自由に歩き回らせるインタラクティブモード（三人称視点 + ミニマップ付き） |
 | `place_model` | 3D マップ上の指定座標に glTF / glb モデルを固定配置する |
 
 ---
@@ -190,6 +192,8 @@ plugins/prompt2gltf/generated/
 スキルprompt2cesiumjsを使って、東京ヘリポートセンターから東京都庁まで少し上から追尾するjsを作って。https://github.com/KickboxerJ0322/Prompt2GLTF/blob/master/glb/heli.glb
 スキルprompt2cesiumjsを使って、虎ノ門ヒルズから東京タワーまで歩くコード。
 スキルprompt2cesiumjsを使って、豊洲ぐるり公園に家を置く Sandcastle コードを作って。https://github.com/KickboxerJ0322/Prompt2GLTF/blob/master/glb/house.glb
+スキルprompt2cesiumjsを使って、晴海ふ頭公園上空でヘリコプターを自由に操作できるコードを作って。
+スキルprompt2cesiumjsを使って、東京駅周辺を自由に歩き回れるコードを作って。
 ```
 
 スキルがモードを自動判定し、テンプレートをベースにコードを生成します。
@@ -212,8 +216,10 @@ plugins/prompt2cesiumjs/generated/
 
 | モード | 選択される語句の例 |
 |---|---|
-| `walk_follow` | 後ろから追尾、歩く、散歩、ルートに沿って移動 |
+| `walk_follow` | 後ろから追尾、歩く、ルートに沿って移動 |
 | `drone_follow` | ドローン視点、少し上から、上空から、上から追尾 |
+| `free_flight` | 自由に飛びたい、自分で操作、フリーフライト、キーボードで操作 |
+| `free_walk` | フリーウォーク、自由に歩く、散歩、歩き回る、自分で操作して歩く |
 | `place_model` | gltf を地図に置く、固定配置、建物モデルを設置、移動しないモデル |
 
 ---
@@ -226,6 +232,8 @@ plugins/prompt2cesiumjs/generated/
 | `plugins/prompt2cesiumjs/skills/prompt2cesiumjs/SKILL.md` | スキル定義（Claude Code が読む） |
 | `plugins/prompt2cesiumjs/templates/sandcastle_walk_follow.js` | 後方追尾移動テンプレート |
 | `plugins/prompt2cesiumjs/templates/sandcastle_drone_follow.js` | ドローン追尾移動テンプレート |
+| `plugins/prompt2cesiumjs/templates/sandcastle_free_flight.js` | フリーフライトテンプレート |
+| `plugins/prompt2cesiumjs/templates/sandcastle_free_walk.js` | フリーウォークテンプレート |
 | `plugins/prompt2cesiumjs/templates/sandcastle_place_model.js` | 固定配置テンプレート |
 | `plugins/prompt2cesiumjs/presets/tokyo_routes.json` | 東京ルートプリセット |
 | `plugins/prompt2cesiumjs/generated/sandcastle.js` | 生成物の出力先 |

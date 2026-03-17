@@ -1,0 +1,398 @@
+{
+  "meta": {
+    "name": "structure_30m_球形ガスホルダー",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "prompt2gltf",
+    "generatedFrom": "球形ガスホルダー（ガスタンク）",
+    "createdAt": "2026-03-18T00:00:00.000Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "球形ガスホルダー（ガスタンク）",
+    "normalizedSubject": "structure",
+    "targetHeightMeters": 30,
+    "styleTags": ["industrial_infrastructure", "gas_facility", "steel_tank"],
+    "geometryDirective": "Dominant large SPHERE is the tank body. 8 inclined cylindrical support legs connect into the sphere lower hemisphere. Two horizontal ring braces on the legs. Equatorial catwalk ring around sphere. Top vent pipe + valve. Bottom drain pipes + flanges. Access ladder on one side. NO building volumes, NO roof shape, NO windows.",
+    "summary": "Industrial spherical high-pressure gas holder: large sphere (都市ガス貯蔵) elevated on 8 steel support legs with ring braces, equatorial catwalk, top and bottom piping, access ladder.",
+    "designIntent": {
+      "scaleImpression": "large",
+      "mood": "industrial_functional",
+      "originalityPolicy": "generalized_original_design"
+    },
+    "structureType": "spherical_gas_holder"
+  },
+  "globalScale": {
+    "height": 30,
+    "width": 20,
+    "depth": 20
+  },
+  "style": {
+    "silhouette": "spherical_elevated_tank",
+    "mood": "industrial",
+    "genre": "infrastructure",
+    "detailDensity": "high",
+    "bodyLanguage": "static_structure",
+    "shapeLanguage": ["sphere_dominant", "leg_support", "ring_bracing", "piping", "catwalk"]
+  },
+  "materials": {
+    "tank_white": {
+      "baseColor": "#EEECEA",
+      "roughness": 0.22,
+      "metalness": 0.78
+    },
+    "tank_green": {
+      "baseColor": "#2C6B3E",
+      "roughness": 0.48,
+      "metalness": 0.52
+    },
+    "steel_structure": {
+      "baseColor": "#7A8898",
+      "roughness": 0.44,
+      "metalness": 0.84
+    },
+    "steel_dark": {
+      "baseColor": "#485560",
+      "roughness": 0.50,
+      "metalness": 0.80
+    },
+    "concrete": {
+      "baseColor": "#B8B4B0",
+      "roughness": 0.92,
+      "metalness": 0.02
+    },
+    "pipe": {
+      "baseColor": "#8A9298",
+      "roughness": 0.36,
+      "metalness": 0.86
+    },
+    "accent": {
+      "baseColor": "#C83020",
+      "roughness": 0.58,
+      "metalness": 0.22
+    }
+  },
+  "parts": [
+    {
+      "id": "foundation_pad",
+      "kind": "box",
+      "material": "concrete",
+      "size": [22, 0.4, 22],
+      "position": [0, 0.2, 0]
+    },
+    {
+      "id": "foundation_ring",
+      "kind": "cylinder",
+      "material": "concrete",
+      "size": [19, 0.6, 19],
+      "position": [0, 0.5, 0]
+    },
+    {
+      "id": "anchor_ring",
+      "kind": "cylinder",
+      "material": "concrete",
+      "size": [12.0, 0.35, 12.0],
+      "position": [0, 0.175, 0]
+    },
+    {
+      "id": "leg_0",
+      "kind": "cylinder",
+      "material": "steel_structure",
+      "size": [0.75, 12.5, 0.75],
+      "position": [5.5, 6.25, 0]
+    },
+    {
+      "id": "leg_1",
+      "kind": "cylinder",
+      "material": "steel_structure",
+      "size": [0.75, 12.5, 0.75],
+      "position": [3.889, 6.25, 3.889]
+    },
+    {
+      "id": "leg_2",
+      "kind": "cylinder",
+      "material": "steel_structure",
+      "size": [0.75, 12.5, 0.75],
+      "position": [0, 6.25, 5.5]
+    },
+    {
+      "id": "leg_3",
+      "kind": "cylinder",
+      "material": "steel_structure",
+      "size": [0.75, 12.5, 0.75],
+      "position": [-3.889, 6.25, 3.889]
+    },
+    {
+      "id": "leg_4",
+      "kind": "cylinder",
+      "material": "steel_structure",
+      "size": [0.75, 12.5, 0.75],
+      "position": [-5.5, 6.25, 0]
+    },
+    {
+      "id": "leg_5",
+      "kind": "cylinder",
+      "material": "steel_structure",
+      "size": [0.75, 12.5, 0.75],
+      "position": [-3.889, 6.25, -3.889]
+    },
+    {
+      "id": "leg_6",
+      "kind": "cylinder",
+      "material": "steel_structure",
+      "size": [0.75, 12.5, 0.75],
+      "position": [0, 6.25, -5.5]
+    },
+    {
+      "id": "leg_7",
+      "kind": "cylinder",
+      "material": "steel_structure",
+      "size": [0.75, 12.5, 0.75],
+      "position": [3.889, 6.25, -3.889]
+    },
+    {
+      "id": "hring_lower",
+      "kind": "cylinder",
+      "material": "steel_dark",
+      "size": [11.6, 0.22, 11.6],
+      "position": [0, 3.5, 0]
+    },
+    {
+      "id": "hring_upper",
+      "kind": "cylinder",
+      "material": "steel_dark",
+      "size": [11.6, 0.22, 11.6],
+      "position": [0, 8.5, 0]
+    },
+    {
+      "id": "diag_brace_X_low",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [11.2, 0.18, 0.20],
+      "position": [0, 5.5, 0]
+    },
+    {
+      "id": "diag_brace_Z_low",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [0.20, 0.18, 11.2],
+      "position": [0, 5.5, 0]
+    },
+    {
+      "id": "diag_brace_X_high",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [11.2, 0.18, 0.20],
+      "position": [0, 9.5, 0]
+    },
+    {
+      "id": "diag_brace_Z_high",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [0.20, 0.18, 11.2],
+      "position": [0, 9.5, 0]
+    },
+    {
+      "id": "sphere_main",
+      "kind": "sphere",
+      "material": "tank_white",
+      "size": [16, 16, 16],
+      "position": [0, 18, 0]
+    },
+    {
+      "id": "green_stripe",
+      "kind": "cylinder",
+      "material": "tank_green",
+      "size": [16.3, 1.0, 16.3],
+      "position": [0, 18, 0]
+    },
+    {
+      "id": "equator_ring",
+      "kind": "cylinder",
+      "material": "steel_structure",
+      "size": [16.8, 0.5, 16.8],
+      "position": [0, 18, 0]
+    },
+    {
+      "id": "top_pipe",
+      "kind": "cylinder",
+      "material": "pipe",
+      "size": [0.5, 4.0, 0.5],
+      "position": [0, 28, 0]
+    },
+    {
+      "id": "top_flange_lower",
+      "kind": "cylinder",
+      "material": "pipe",
+      "size": [1.1, 0.28, 1.1],
+      "position": [0, 26.15, 0]
+    },
+    {
+      "id": "top_flange_upper",
+      "kind": "cylinder",
+      "material": "pipe",
+      "size": [1.1, 0.28, 1.1],
+      "position": [0, 29.8, 0]
+    },
+    {
+      "id": "top_valve",
+      "kind": "box",
+      "material": "pipe",
+      "size": [0.7, 0.65, 0.7],
+      "position": [0, 30.3, 0]
+    },
+    {
+      "id": "bottom_pipe_1",
+      "kind": "cylinder",
+      "material": "pipe",
+      "size": [0.4, 3.0, 0.4],
+      "position": [1.5, 8.5, 0]
+    },
+    {
+      "id": "bottom_pipe_2",
+      "kind": "cylinder",
+      "material": "pipe",
+      "size": [0.4, 3.0, 0.4],
+      "position": [-1.5, 8.5, 0]
+    },
+    {
+      "id": "bottom_flange_1",
+      "kind": "cylinder",
+      "material": "pipe",
+      "size": [0.85, 0.24, 0.85],
+      "position": [1.5, 10.1, 0]
+    },
+    {
+      "id": "bottom_flange_2",
+      "kind": "cylinder",
+      "material": "pipe",
+      "size": [0.85, 0.24, 0.85],
+      "position": [-1.5, 10.1, 0]
+    },
+    {
+      "id": "ladder",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [0.10, 18.0, 0.10],
+      "position": [6.0, 9.0, 0.30]
+    },
+    {
+      "id": "ladder_rail_back",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [0.08, 18.0, 0.08],
+      "position": [6.0, 9.0, -0.30]
+    },
+    {
+      "id": "access_platform",
+      "kind": "box",
+      "material": "steel_structure",
+      "size": [2.2, 0.14, 1.0],
+      "position": [8.5, 18.0, 0]
+    },
+    {
+      "id": "platform_railing_F",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [2.2, 0.85, 0.06],
+      "position": [8.5, 18.43, 0.5]
+    },
+    {
+      "id": "platform_railing_B",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [2.2, 0.85, 0.06],
+      "position": [8.5, 18.43, -0.5]
+    },
+    {
+      "id": "inspection_hatch",
+      "kind": "box",
+      "material": "steel_dark",
+      "size": [0.9, 0.9, 0.20],
+      "position": [7.9, 18.0, 0]
+    },
+    {
+      "id": "safety_valve",
+      "kind": "cylinder",
+      "material": "accent",
+      "size": [0.58, 0.75, 0.58],
+      "position": [3.5, 25.2, 0]
+    },
+    {
+      "id": "pressure_gauge",
+      "kind": "cylinder",
+      "material": "pipe",
+      "size": [0.38, 0.48, 0.38],
+      "position": [-3.5, 25.0, 0]
+    },
+    {
+      "id": "vent_side_pipe",
+      "kind": "cylinder",
+      "material": "pipe",
+      "size": [0.30, 2.5, 0.30],
+      "position": [0, 25.5, 3.5]
+    },
+    {
+      "id": "drain_valve",
+      "kind": "box",
+      "material": "pipe",
+      "size": [0.5, 0.48, 0.5],
+      "position": [0, 7.2, 0]
+    },
+    {
+      "id": "nameplate",
+      "kind": "box",
+      "material": "accent",
+      "size": [1.6, 0.55, 0.06],
+      "position": [5.7, 14.0, 0.4]
+    },
+    {
+      "id": "lightning_rod",
+      "kind": "cylinder",
+      "material": "pipe",
+      "size": [0.08, 2.5, 0.08],
+      "position": [0, 31.25, 0]
+    }
+  ],
+  "surfaceDetails": [
+    { "id": "sd_01", "region": "sphere", "type": "weld_seam",    "strength": 0.40, "offset": [ 0.000,  0.020,  0.000] },
+    { "id": "sd_02", "region": "sphere", "type": "panel_seam",   "strength": 0.30, "offset": [ 0.020,  0.000,  0.000] },
+    { "id": "sd_03", "region": "sphere", "type": "rivet_line",   "strength": 0.25, "offset": [ 0.000,  0.000,  0.020] },
+    { "id": "sd_04", "region": "sphere", "type": "weathering",   "strength": 0.15, "offset": [ 0.010,  0.010,  0.000] },
+    { "id": "sd_05", "region": "sphere", "type": "paint_fade",   "strength": 0.20, "offset": [-0.010,  0.020,  0.000] },
+    { "id": "sd_06", "region": "sphere", "type": "weld_seam",    "strength": 0.35, "offset": [ 0.000, -0.020,  0.010] },
+    { "id": "sd_07", "region": "sphere", "type": "panel_seam",   "strength": 0.30, "offset": [-0.020,  0.000,  0.010] },
+    { "id": "sd_08", "region": "sphere", "type": "rivet_line",   "strength": 0.25, "offset": [ 0.020, -0.010,  0.000] },
+    { "id": "sd_09", "region": "sphere", "type": "weld_seam",    "strength": 0.32, "offset": [ 0.010,  0.000, -0.020] },
+    { "id": "sd_10", "region": "sphere", "type": "panel_seam",   "strength": 0.28, "offset": [ 0.000, -0.010,  0.020] },
+    { "id": "sd_11", "region": "sphere", "type": "rivet_line",   "strength": 0.22, "offset": [ 0.020,  0.020,  0.000] },
+    { "id": "sd_12", "region": "sphere", "type": "weathering",   "strength": 0.18, "offset": [-0.020,  0.000,  0.010] },
+    { "id": "sd_13", "region": "sphere", "type": "paint_fade",   "strength": 0.15, "offset": [ 0.000,  0.030,  0.000] },
+    { "id": "sd_14", "region": "sphere", "type": "weld_seam",    "strength": 0.38, "offset": [-0.010, -0.020,  0.010] },
+    { "id": "sd_15", "region": "sphere", "type": "panel_seam",   "strength": 0.33, "offset": [ 0.020, -0.010, -0.010] },
+    { "id": "sd_16", "region": "sphere", "type": "nameplate_emboss", "strength": 0.45, "offset": [ 0.000,  0.000, -0.020] },
+    { "id": "sd_17", "region": "leg",    "type": "weld_seam",    "strength": 0.30, "offset": [ 0.000,  0.010,  0.000] },
+    { "id": "sd_18", "region": "leg",    "type": "weathering",   "strength": 0.20, "offset": [ 0.010,  0.000,  0.000] },
+    { "id": "sd_19", "region": "leg",    "type": "rust_streak",  "strength": 0.18, "offset": [ 0.000, -0.010,  0.010] },
+    { "id": "sd_20", "region": "leg",    "type": "panel_seam",   "strength": 0.22, "offset": [-0.010,  0.010,  0.000] },
+    { "id": "sd_21", "region": "structure", "type": "weld_seam",   "strength": 0.28, "offset": [ 0.000,  0.000,  0.010] },
+    { "id": "sd_22", "region": "structure", "type": "weathering",  "strength": 0.22, "offset": [ 0.010, -0.010,  0.000] },
+    { "id": "sd_23", "region": "structure", "type": "paint_chip",  "strength": 0.30, "offset": [-0.010,  0.000, -0.010] },
+    { "id": "sd_24", "region": "structure", "type": "rivet_line",  "strength": 0.20, "offset": [ 0.020,  0.010,  0.000] },
+    { "id": "sd_25", "region": "structure", "type": "weld_seam",   "strength": 0.30, "offset": [ 0.010,  0.020,  0.000] },
+    { "id": "sd_26", "region": "structure", "type": "paint_chip",  "strength": 0.25, "offset": [-0.010, -0.010,  0.020] },
+    { "id": "sd_27", "region": "pipe",    "type": "weld_seam",    "strength": 0.35, "offset": [ 0.000,  0.020,  0.000] },
+    { "id": "sd_28", "region": "pipe",    "type": "weathering",   "strength": 0.18, "offset": [ 0.010,  0.000,  0.010] },
+    { "id": "sd_29", "region": "pipe",    "type": "rust_streak",  "strength": 0.25, "offset": [ 0.000, -0.010,  0.000] },
+    { "id": "sd_30", "region": "pipe",    "type": "flange_detail","strength": 0.40, "offset": [-0.010,  0.010,  0.000] },
+    { "id": "sd_31", "region": "pipe",    "type": "weld_seam",    "strength": 0.32, "offset": [ 0.000, -0.020,  0.010] },
+    { "id": "sd_32", "region": "pipe",    "type": "corrosion",    "strength": 0.22, "offset": [ 0.010,  0.010, -0.010] },
+    { "id": "sd_33", "region": "catwalk", "type": "grating",      "strength": 0.35, "offset": [ 0.000,  0.000,  0.000] },
+    { "id": "sd_34", "region": "catwalk", "type": "handrail_detail","strength": 0.40,"offset": [ 0.010,  0.010,  0.000] },
+    { "id": "sd_35", "region": "ladder",  "type": "rung_detail",  "strength": 0.45, "offset": [ 0.000,  0.020,  0.000] },
+    { "id": "sd_36", "region": "ladder",  "type": "weathering",   "strength": 0.20, "offset": [ 0.010,  0.000,  0.000] },
+    { "id": "sd_37", "region": "foundation","type": "weathering", "strength": 0.30, "offset": [ 0.000,  0.000,  0.020] },
+    { "id": "sd_38", "region": "foundation","type": "crack",      "strength": 0.20, "offset": [ 0.020,  0.000,  0.000] },
+    { "id": "sd_39", "region": "foundation","type": "stain",      "strength": 0.28, "offset": [ 0.000,  0.010, -0.010] },
+    { "id": "sd_40", "region": "sphere",  "type": "rivet_line",   "strength": 0.27, "offset": [-0.020,  0.020, -0.010] }
+  ]
+}
