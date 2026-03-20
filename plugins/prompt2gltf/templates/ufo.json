@@ -1,0 +1,3580 @@
+{
+  "meta": {
+    "name": "ufo_8m_ufo",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "prompt2gltf",
+    "generatedFrom": "UFO",
+    "createdAt": "2026-03-20T06:31:24.793Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "UFO",
+    "normalizedSubject": "ufo",
+    "targetHeightMeters": 8,
+    "styleTags": [
+      "alien_saucer"
+    ],
+    "geometryDirective": "Use mixed primitives (box/cylinder/sphere/tri_prism); represent curved real-world forms with rounded geometry.",
+    "summary": "Generated from prompt as a ufo with high-density procedural spec.",
+    "designIntent": {
+      "scaleImpression": "large",
+      "mood": "majestic",
+      "originalityPolicy": "generalized_original_design"
+    },
+    "ufoType": "flying_saucer",
+    "discDiameterMeters": 28
+  },
+  "globalScale": {
+    "height": 8,
+    "width": 28,
+    "depth": 28
+  },
+  "style": {
+    "silhouette": "oblate_disc_with_dome",
+    "mood": "classic_alien_visitor",
+    "genre": "sci_fi_extraterrestrial",
+    "detailDensity": "ultra_high",
+    "bodyLanguage": "hovering",
+    "shapeLanguage": [
+      "disc_body",
+      "central_dome",
+      "rim_lights",
+      "landing_gear",
+      "tractor_beam_port",
+      "hull_panels",
+      "sensor_array",
+      "antenna"
+    ]
+  },
+  "materials": {
+    "hull_silver": {
+      "baseColor": "#B8C0C8",
+      "roughness": 0.28,
+      "metalness": 0.94
+    },
+    "hull_dark": {
+      "baseColor": "#2E3440",
+      "roughness": 0.42,
+      "metalness": 0.88
+    },
+    "hull_accent": {
+      "baseColor": "#6A7888",
+      "roughness": 0.35,
+      "metalness": 0.9
+    },
+    "dome_tint": {
+      "baseColor": "#1A3050",
+      "roughness": 0.08,
+      "metalness": 0.8
+    },
+    "emissive_green": {
+      "baseColor": "#00FF80",
+      "roughness": 0.05,
+      "metalness": 0,
+      "emissive": "#00FF80"
+    },
+    "emissive_blue": {
+      "baseColor": "#2080FF",
+      "roughness": 0.05,
+      "metalness": 0,
+      "emissive": "#2080FF"
+    },
+    "emissive_white": {
+      "baseColor": "#E8F4FF",
+      "roughness": 0.04,
+      "metalness": 0,
+      "emissive": "#E8F4FF"
+    },
+    "emissive_red": {
+      "baseColor": "#FF3020",
+      "roughness": 0.05,
+      "metalness": 0,
+      "emissive": "#FF3020"
+    },
+    "leg_metal": {
+      "baseColor": "#6A7280",
+      "roughness": 0.5,
+      "metalness": 0.8
+    },
+    "panel_line": {
+      "baseColor": "#222A36",
+      "roughness": 0.6,
+      "metalness": 0.7
+    }
+  },
+  "parts": [
+    {
+      "id": "disc_upper_1",
+      "kind": "box",
+      "material": "hull_silver",
+      "size": [
+        10.64,
+        0.56,
+        10.64
+      ],
+      "position": [
+        0,
+        4.56,
+        0
+      ]
+    },
+    {
+      "id": "disc_upper_2",
+      "kind": "box",
+      "material": "hull_silver",
+      "size": [
+        14.56,
+        0.52,
+        14.56
+      ],
+      "position": [
+        0,
+        4.24,
+        0
+      ]
+    },
+    {
+      "id": "disc_upper_3",
+      "kind": "box",
+      "material": "hull_silver",
+      "size": [
+        18.48,
+        0.48,
+        18.48
+      ],
+      "position": [
+        0,
+        3.92,
+        0
+      ]
+    },
+    {
+      "id": "disc_upper_4",
+      "kind": "box",
+      "material": "hull_silver",
+      "size": [
+        22.4,
+        0.44,
+        22.4
+      ],
+      "position": [
+        0,
+        3.6,
+        0
+      ]
+    },
+    {
+      "id": "disc_upper_5",
+      "kind": "box",
+      "material": "hull_accent",
+      "size": [
+        25.48,
+        0.384,
+        25.48
+      ],
+      "position": [
+        0,
+        3.32,
+        0
+      ]
+    },
+    {
+      "id": "disc_upper_6",
+      "kind": "box",
+      "material": "hull_accent",
+      "size": [
+        27.44,
+        0.304,
+        27.44
+      ],
+      "position": [
+        0,
+        3.056,
+        0
+      ]
+    },
+    {
+      "id": "disc_upper_7",
+      "kind": "box",
+      "material": "hull_dark",
+      "size": [
+        28,
+        0.224,
+        28
+      ],
+      "position": [
+        0,
+        2.864,
+        0
+      ]
+    },
+    {
+      "id": "disc_lower_1",
+      "kind": "box",
+      "material": "hull_dark",
+      "size": [
+        26.88,
+        0.2,
+        26.88
+      ],
+      "position": [
+        0,
+        2.704,
+        0
+      ]
+    },
+    {
+      "id": "disc_lower_2",
+      "kind": "box",
+      "material": "hull_accent",
+      "size": [
+        22.96,
+        0.28,
+        22.96
+      ],
+      "position": [
+        0,
+        2.52,
+        0
+      ]
+    },
+    {
+      "id": "disc_lower_3",
+      "kind": "box",
+      "material": "hull_dark",
+      "size": [
+        17.92,
+        0.36,
+        17.92
+      ],
+      "position": [
+        0,
+        2.24,
+        0
+      ]
+    },
+    {
+      "id": "disc_lower_4",
+      "kind": "box",
+      "material": "hull_dark",
+      "size": [
+        12.32,
+        0.4,
+        12.32
+      ],
+      "position": [
+        0,
+        1.96,
+        0
+      ]
+    },
+    {
+      "id": "disc_lower_5",
+      "kind": "box",
+      "material": "hull_dark",
+      "size": [
+        7.28,
+        0.36,
+        7.28
+      ],
+      "position": [
+        0,
+        1.72,
+        0
+      ]
+    },
+    {
+      "id": "dome_1",
+      "kind": "box",
+      "material": "dome_tint",
+      "size": [
+        10.08,
+        0.52,
+        10.08
+      ],
+      "position": [
+        0,
+        4.88,
+        0
+      ]
+    },
+    {
+      "id": "dome_2",
+      "kind": "box",
+      "material": "dome_tint",
+      "size": [
+        8.26,
+        0.52,
+        8.26
+      ],
+      "position": [
+        0,
+        5.36,
+        0
+      ]
+    },
+    {
+      "id": "dome_3",
+      "kind": "box",
+      "material": "dome_tint",
+      "size": [
+        6.384,
+        0.496,
+        6.384
+      ],
+      "position": [
+        0,
+        5.824,
+        0
+      ]
+    },
+    {
+      "id": "dome_4",
+      "kind": "box",
+      "material": "dome_tint",
+      "size": [
+        4.536,
+        0.464,
+        4.536
+      ],
+      "position": [
+        0,
+        6.256,
+        0
+      ]
+    },
+    {
+      "id": "dome_5",
+      "kind": "box",
+      "material": "dome_tint",
+      "size": [
+        2.744,
+        0.44,
+        2.744
+      ],
+      "position": [
+        0,
+        6.656,
+        0
+      ]
+    },
+    {
+      "id": "dome_6",
+      "kind": "box",
+      "material": "dome_tint",
+      "size": [
+        1.26,
+        0.36,
+        1.26
+      ],
+      "position": [
+        0,
+        6.976,
+        0
+      ]
+    },
+    {
+      "id": "dome_collar",
+      "kind": "box",
+      "material": "hull_accent",
+      "size": [
+        12.32,
+        0.224,
+        12.32
+      ],
+      "position": [
+        0,
+        4.76,
+        0
+      ]
+    },
+    {
+      "id": "rim_light_1",
+      "kind": "box",
+      "material": "emissive_green",
+      "size": [
+        0.496,
+        0.336,
+        0.496
+      ],
+      "position": [
+        0,
+        3,
+        13.23
+      ]
+    },
+    {
+      "id": "rim_light_2",
+      "kind": "box",
+      "material": "emissive_green",
+      "size": [
+        0.496,
+        0.336,
+        0.496
+      ],
+      "position": [
+        6.615,
+        3,
+        11.4575
+      ]
+    },
+    {
+      "id": "rim_light_3",
+      "kind": "box",
+      "material": "emissive_green",
+      "size": [
+        0.496,
+        0.336,
+        0.496
+      ],
+      "position": [
+        11.4575,
+        3,
+        6.615
+      ]
+    },
+    {
+      "id": "rim_light_4",
+      "kind": "box",
+      "material": "emissive_green",
+      "size": [
+        0.496,
+        0.336,
+        0.496
+      ],
+      "position": [
+        13.23,
+        3,
+        0
+      ]
+    },
+    {
+      "id": "rim_light_5",
+      "kind": "box",
+      "material": "emissive_green",
+      "size": [
+        0.496,
+        0.336,
+        0.496
+      ],
+      "position": [
+        11.4575,
+        3,
+        -6.615
+      ]
+    },
+    {
+      "id": "rim_light_6",
+      "kind": "box",
+      "material": "emissive_green",
+      "size": [
+        0.496,
+        0.336,
+        0.496
+      ],
+      "position": [
+        6.615,
+        3,
+        -11.4575
+      ]
+    },
+    {
+      "id": "rim_light_7",
+      "kind": "box",
+      "material": "emissive_green",
+      "size": [
+        0.496,
+        0.336,
+        0.496
+      ],
+      "position": [
+        0,
+        3,
+        -13.23
+      ]
+    },
+    {
+      "id": "rim_light_8",
+      "kind": "box",
+      "material": "emissive_green",
+      "size": [
+        0.496,
+        0.336,
+        0.496
+      ],
+      "position": [
+        -6.615,
+        3,
+        -11.4575
+      ]
+    },
+    {
+      "id": "rim_light_9",
+      "kind": "box",
+      "material": "emissive_green",
+      "size": [
+        0.496,
+        0.336,
+        0.496
+      ],
+      "position": [
+        -11.4575,
+        3,
+        -6.615
+      ]
+    },
+    {
+      "id": "rim_light_10",
+      "kind": "box",
+      "material": "emissive_green",
+      "size": [
+        0.496,
+        0.336,
+        0.496
+      ],
+      "position": [
+        -13.23,
+        3,
+        0
+      ]
+    },
+    {
+      "id": "rim_light_11",
+      "kind": "box",
+      "material": "emissive_green",
+      "size": [
+        0.496,
+        0.336,
+        0.496
+      ],
+      "position": [
+        -11.4575,
+        3,
+        6.615
+      ]
+    },
+    {
+      "id": "rim_light_12",
+      "kind": "box",
+      "material": "emissive_green",
+      "size": [
+        0.496,
+        0.336,
+        0.496
+      ],
+      "position": [
+        -6.615,
+        3,
+        11.4575
+      ]
+    },
+    {
+      "id": "thruster_1",
+      "kind": "box",
+      "material": "emissive_blue",
+      "size": [
+        0.44,
+        0.224,
+        0.44
+      ],
+      "position": [
+        4.6879,
+        2.864,
+        11.3175
+      ]
+    },
+    {
+      "id": "thruster_2",
+      "kind": "box",
+      "material": "emissive_blue",
+      "size": [
+        0.44,
+        0.224,
+        0.44
+      ],
+      "position": [
+        11.3175,
+        2.864,
+        4.6879
+      ]
+    },
+    {
+      "id": "thruster_3",
+      "kind": "box",
+      "material": "emissive_blue",
+      "size": [
+        0.44,
+        0.224,
+        0.44
+      ],
+      "position": [
+        11.3175,
+        2.864,
+        -4.6879
+      ]
+    },
+    {
+      "id": "thruster_4",
+      "kind": "box",
+      "material": "emissive_blue",
+      "size": [
+        0.44,
+        0.224,
+        0.44
+      ],
+      "position": [
+        4.6879,
+        2.864,
+        -11.3175
+      ]
+    },
+    {
+      "id": "thruster_5",
+      "kind": "box",
+      "material": "emissive_blue",
+      "size": [
+        0.44,
+        0.224,
+        0.44
+      ],
+      "position": [
+        -4.6879,
+        2.864,
+        -11.3175
+      ]
+    },
+    {
+      "id": "thruster_6",
+      "kind": "box",
+      "material": "emissive_blue",
+      "size": [
+        0.44,
+        0.224,
+        0.44
+      ],
+      "position": [
+        -11.3175,
+        2.864,
+        -4.6879
+      ]
+    },
+    {
+      "id": "thruster_7",
+      "kind": "box",
+      "material": "emissive_blue",
+      "size": [
+        0.44,
+        0.224,
+        0.44
+      ],
+      "position": [
+        -11.3175,
+        2.864,
+        4.6879
+      ]
+    },
+    {
+      "id": "thruster_8",
+      "kind": "box",
+      "material": "emissive_blue",
+      "size": [
+        0.44,
+        0.224,
+        0.44
+      ],
+      "position": [
+        -4.6879,
+        2.864,
+        11.3175
+      ]
+    },
+    {
+      "id": "panel_radial_1",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        0.176,
+        0.064,
+        12.32
+      ],
+      "position": [
+        0,
+        4,
+        8.12
+      ]
+    },
+    {
+      "id": "panel_radial_2",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        0.176,
+        0.064,
+        12.32
+      ],
+      "position": [
+        5.7417,
+        4,
+        5.7417
+      ],
+      "rotation": [
+        0,
+        22.5,
+        0
+      ]
+    },
+    {
+      "id": "panel_radial_3",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        0.176,
+        0.064,
+        12.32
+      ],
+      "position": [
+        8.12,
+        4,
+        0
+      ],
+      "rotation": [
+        0,
+        45,
+        0
+      ]
+    },
+    {
+      "id": "panel_radial_4",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        0.176,
+        0.064,
+        12.32
+      ],
+      "position": [
+        5.7417,
+        4,
+        -5.7417
+      ],
+      "rotation": [
+        0,
+        67.5,
+        0
+      ]
+    },
+    {
+      "id": "panel_radial_5",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        0.176,
+        0.064,
+        12.32
+      ],
+      "position": [
+        0,
+        4,
+        -8.12
+      ],
+      "rotation": [
+        0,
+        90,
+        0
+      ]
+    },
+    {
+      "id": "panel_radial_6",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        0.176,
+        0.064,
+        12.32
+      ],
+      "position": [
+        -5.7417,
+        4,
+        -5.7417
+      ],
+      "rotation": [
+        0,
+        112.5,
+        0
+      ]
+    },
+    {
+      "id": "panel_radial_7",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        0.176,
+        0.064,
+        12.32
+      ],
+      "position": [
+        -8.12,
+        4,
+        0
+      ],
+      "rotation": [
+        0,
+        135,
+        0
+      ]
+    },
+    {
+      "id": "panel_radial_8",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        0.176,
+        0.064,
+        12.32
+      ],
+      "position": [
+        -5.7417,
+        4,
+        5.7417
+      ],
+      "rotation": [
+        0,
+        157.5,
+        0
+      ]
+    },
+    {
+      "id": "panel_ring_top_1",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        6.16,
+        0.048,
+        6.16
+      ],
+      "position": [
+        0,
+        3.984,
+        0
+      ]
+    },
+    {
+      "id": "panel_ring_top_2",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        11.76,
+        0.048,
+        11.76
+      ],
+      "position": [
+        0,
+        3.984,
+        0
+      ]
+    },
+    {
+      "id": "panel_ring_top_3",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        17.36,
+        0.048,
+        17.36
+      ],
+      "position": [
+        0,
+        3.984,
+        0
+      ]
+    },
+    {
+      "id": "panel_ring_top_4",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        22.96,
+        0.048,
+        22.96
+      ],
+      "position": [
+        0,
+        3.984,
+        0
+      ]
+    },
+    {
+      "id": "panel_ring_bot_1",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        5.04,
+        0.048,
+        5.04
+      ],
+      "position": [
+        0,
+        2.44,
+        0
+      ]
+    },
+    {
+      "id": "panel_ring_bot_2",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        10.08,
+        0.048,
+        10.08
+      ],
+      "position": [
+        0,
+        2.44,
+        0
+      ]
+    },
+    {
+      "id": "panel_ring_bot_3",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        15.12,
+        0.048,
+        15.12
+      ],
+      "position": [
+        0,
+        2.44,
+        0
+      ]
+    },
+    {
+      "id": "panel_ring_bot_4",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        20.16,
+        0.048,
+        20.16
+      ],
+      "position": [
+        0,
+        2.44,
+        0
+      ]
+    },
+    {
+      "id": "hatch_1",
+      "kind": "box",
+      "material": "hull_dark",
+      "size": [
+        0.72,
+        0.176,
+        1.04
+      ],
+      "position": [
+        0,
+        3.48,
+        11.48
+      ]
+    },
+    {
+      "id": "hatch_bolt_1",
+      "kind": "box",
+      "material": "hull_accent",
+      "size": [
+        0.112,
+        0.08,
+        0.112
+      ],
+      "position": [
+        0,
+        3.552,
+        11.864
+      ]
+    },
+    {
+      "id": "hatch_2",
+      "kind": "box",
+      "material": "hull_dark",
+      "size": [
+        0.72,
+        0.176,
+        1.04
+      ],
+      "position": [
+        8.1176,
+        3.48,
+        8.1176
+      ]
+    },
+    {
+      "id": "hatch_bolt_2",
+      "kind": "box",
+      "material": "hull_accent",
+      "size": [
+        0.112,
+        0.08,
+        0.112
+      ],
+      "position": [
+        8.1176,
+        3.552,
+        8.5016
+      ]
+    },
+    {
+      "id": "hatch_3",
+      "kind": "box",
+      "material": "hull_dark",
+      "size": [
+        0.72,
+        0.176,
+        1.04
+      ],
+      "position": [
+        11.48,
+        3.48,
+        0
+      ]
+    },
+    {
+      "id": "hatch_bolt_3",
+      "kind": "box",
+      "material": "hull_accent",
+      "size": [
+        0.112,
+        0.08,
+        0.112
+      ],
+      "position": [
+        11.48,
+        3.552,
+        0.384
+      ]
+    },
+    {
+      "id": "hatch_4",
+      "kind": "box",
+      "material": "hull_dark",
+      "size": [
+        0.72,
+        0.176,
+        1.04
+      ],
+      "position": [
+        8.1176,
+        3.48,
+        -8.1176
+      ]
+    },
+    {
+      "id": "hatch_bolt_4",
+      "kind": "box",
+      "material": "hull_accent",
+      "size": [
+        0.112,
+        0.08,
+        0.112
+      ],
+      "position": [
+        8.1176,
+        3.552,
+        -7.7336
+      ]
+    },
+    {
+      "id": "hatch_5",
+      "kind": "box",
+      "material": "hull_dark",
+      "size": [
+        0.72,
+        0.176,
+        1.04
+      ],
+      "position": [
+        0,
+        3.48,
+        -11.48
+      ]
+    },
+    {
+      "id": "hatch_bolt_5",
+      "kind": "box",
+      "material": "hull_accent",
+      "size": [
+        0.112,
+        0.08,
+        0.112
+      ],
+      "position": [
+        0,
+        3.552,
+        -11.096
+      ]
+    },
+    {
+      "id": "hatch_6",
+      "kind": "box",
+      "material": "hull_dark",
+      "size": [
+        0.72,
+        0.176,
+        1.04
+      ],
+      "position": [
+        -8.1176,
+        3.48,
+        -8.1176
+      ]
+    },
+    {
+      "id": "hatch_bolt_6",
+      "kind": "box",
+      "material": "hull_accent",
+      "size": [
+        0.112,
+        0.08,
+        0.112
+      ],
+      "position": [
+        -8.1176,
+        3.552,
+        -7.7336
+      ]
+    },
+    {
+      "id": "hatch_7",
+      "kind": "box",
+      "material": "hull_dark",
+      "size": [
+        0.72,
+        0.176,
+        1.04
+      ],
+      "position": [
+        -11.48,
+        3.48,
+        0
+      ]
+    },
+    {
+      "id": "hatch_bolt_7",
+      "kind": "box",
+      "material": "hull_accent",
+      "size": [
+        0.112,
+        0.08,
+        0.112
+      ],
+      "position": [
+        -11.48,
+        3.552,
+        0.384
+      ]
+    },
+    {
+      "id": "hatch_8",
+      "kind": "box",
+      "material": "hull_dark",
+      "size": [
+        0.72,
+        0.176,
+        1.04
+      ],
+      "position": [
+        -8.1176,
+        3.48,
+        8.1176
+      ]
+    },
+    {
+      "id": "hatch_bolt_8",
+      "kind": "box",
+      "material": "hull_accent",
+      "size": [
+        0.112,
+        0.08,
+        0.112
+      ],
+      "position": [
+        -8.1176,
+        3.552,
+        8.5016
+      ]
+    },
+    {
+      "id": "emitter_ring_outer",
+      "kind": "box",
+      "material": "hull_dark",
+      "size": [
+        9.52,
+        0.2,
+        9.52
+      ],
+      "position": [
+        0,
+        1.64,
+        0
+      ]
+    },
+    {
+      "id": "emitter_ring_inner",
+      "kind": "box",
+      "material": "hull_accent",
+      "size": [
+        6.16,
+        0.16,
+        6.16
+      ],
+      "position": [
+        0,
+        1.536,
+        0
+      ]
+    },
+    {
+      "id": "emitter_core",
+      "kind": "box",
+      "material": "emissive_blue",
+      "size": [
+        3.36,
+        0.24,
+        3.36
+      ],
+      "position": [
+        0,
+        1.44,
+        0
+      ]
+    },
+    {
+      "id": "emitter_focus",
+      "kind": "box",
+      "material": "emissive_white",
+      "size": [
+        1.54,
+        0.304,
+        1.54
+      ],
+      "position": [
+        0,
+        1.296,
+        0
+      ]
+    },
+    {
+      "id": "leg_upper_1",
+      "kind": "box",
+      "material": "leg_metal",
+      "size": [
+        0.304,
+        1.32,
+        0.304
+      ],
+      "position": [
+        0,
+        1.56,
+        5.32
+      ]
+    },
+    {
+      "id": "leg_knee_1",
+      "kind": "box",
+      "material": "hull_dark",
+      "size": [
+        0.44,
+        0.32,
+        0.44
+      ],
+      "position": [
+        0,
+        0.976,
+        6.3
+      ]
+    },
+    {
+      "id": "leg_lower_1",
+      "kind": "box",
+      "material": "leg_metal",
+      "size": [
+        0.24,
+        1.16,
+        0.24
+      ],
+      "position": [
+        0,
+        0.6,
+        7.28
+      ]
+    },
+    {
+      "id": "leg_foot_1",
+      "kind": "box",
+      "material": "leg_metal",
+      "size": [
+        0.92,
+        0.176,
+        0.92
+      ],
+      "position": [
+        0,
+        0.088,
+        8.12
+      ]
+    },
+    {
+      "id": "leg_piston_1",
+      "kind": "box",
+      "material": "hull_accent",
+      "size": [
+        0.144,
+        0.48,
+        0.144
+      ],
+      "position": [
+        0,
+        1.16,
+        4.522
+      ]
+    },
+    {
+      "id": "leg_upper_2",
+      "kind": "box",
+      "material": "leg_metal",
+      "size": [
+        0.304,
+        1.32,
+        0.304
+      ],
+      "position": [
+        4.6073,
+        1.56,
+        -2.66
+      ]
+    },
+    {
+      "id": "leg_knee_2",
+      "kind": "box",
+      "material": "hull_dark",
+      "size": [
+        0.44,
+        0.32,
+        0.44
+      ],
+      "position": [
+        5.456,
+        0.976,
+        -3.15
+      ]
+    },
+    {
+      "id": "leg_lower_2",
+      "kind": "box",
+      "material": "leg_metal",
+      "size": [
+        0.24,
+        1.16,
+        0.24
+      ],
+      "position": [
+        6.3047,
+        0.6,
+        -3.64
+      ]
+    },
+    {
+      "id": "leg_foot_2",
+      "kind": "box",
+      "material": "leg_metal",
+      "size": [
+        0.92,
+        0.176,
+        0.92
+      ],
+      "position": [
+        7.0321,
+        0.088,
+        -4.06
+      ]
+    },
+    {
+      "id": "leg_piston_2",
+      "kind": "box",
+      "material": "hull_accent",
+      "size": [
+        0.144,
+        0.48,
+        0.144
+      ],
+      "position": [
+        3.9162,
+        1.16,
+        -2.261
+      ]
+    },
+    {
+      "id": "leg_upper_3",
+      "kind": "box",
+      "material": "leg_metal",
+      "size": [
+        0.304,
+        1.32,
+        0.304
+      ],
+      "position": [
+        -4.6073,
+        1.56,
+        -2.66
+      ]
+    },
+    {
+      "id": "leg_knee_3",
+      "kind": "box",
+      "material": "hull_dark",
+      "size": [
+        0.44,
+        0.32,
+        0.44
+      ],
+      "position": [
+        -5.456,
+        0.976,
+        -3.15
+      ]
+    },
+    {
+      "id": "leg_lower_3",
+      "kind": "box",
+      "material": "leg_metal",
+      "size": [
+        0.24,
+        1.16,
+        0.24
+      ],
+      "position": [
+        -6.3047,
+        0.6,
+        -3.64
+      ]
+    },
+    {
+      "id": "leg_foot_3",
+      "kind": "box",
+      "material": "leg_metal",
+      "size": [
+        0.92,
+        0.176,
+        0.92
+      ],
+      "position": [
+        -7.0321,
+        0.088,
+        -4.06
+      ]
+    },
+    {
+      "id": "leg_piston_3",
+      "kind": "box",
+      "material": "hull_accent",
+      "size": [
+        0.144,
+        0.48,
+        0.144
+      ],
+      "position": [
+        -3.9162,
+        1.16,
+        -2.261
+      ]
+    },
+    {
+      "id": "sensor_1",
+      "kind": "box",
+      "material": "emissive_green",
+      "size": [
+        0.304,
+        0.384,
+        0.304
+      ],
+      "position": [
+        0,
+        4.896,
+        2.8
+      ]
+    },
+    {
+      "id": "sensor_2",
+      "kind": "box",
+      "material": "hull_dark",
+      "size": [
+        0.304,
+        0.384,
+        0.304
+      ],
+      "position": [
+        2.4249,
+        4.896,
+        1.4
+      ]
+    },
+    {
+      "id": "sensor_3",
+      "kind": "box",
+      "material": "emissive_green",
+      "size": [
+        0.304,
+        0.384,
+        0.304
+      ],
+      "position": [
+        2.4249,
+        4.896,
+        -1.4
+      ]
+    },
+    {
+      "id": "sensor_4",
+      "kind": "box",
+      "material": "hull_dark",
+      "size": [
+        0.304,
+        0.384,
+        0.304
+      ],
+      "position": [
+        0,
+        4.896,
+        -2.8
+      ]
+    },
+    {
+      "id": "sensor_5",
+      "kind": "box",
+      "material": "emissive_green",
+      "size": [
+        0.304,
+        0.384,
+        0.304
+      ],
+      "position": [
+        -2.4249,
+        4.896,
+        -1.4
+      ]
+    },
+    {
+      "id": "sensor_6",
+      "kind": "box",
+      "material": "hull_dark",
+      "size": [
+        0.304,
+        0.384,
+        0.304
+      ],
+      "position": [
+        -2.4249,
+        4.896,
+        1.4
+      ]
+    },
+    {
+      "id": "antenna_base",
+      "kind": "box",
+      "material": "hull_silver",
+      "size": [
+        0.44,
+        0.304,
+        0.44
+      ],
+      "position": [
+        0,
+        7.2,
+        0
+      ]
+    },
+    {
+      "id": "antenna_shaft",
+      "kind": "box",
+      "material": "hull_dark",
+      "size": [
+        0.144,
+        0.76,
+        0.144
+      ],
+      "position": [
+        0,
+        7.664,
+        0
+      ]
+    },
+    {
+      "id": "antenna_tip",
+      "kind": "box",
+      "material": "emissive_red",
+      "size": [
+        0.224,
+        0.224,
+        0.224
+      ],
+      "position": [
+        0,
+        8.064,
+        0
+      ]
+    },
+    {
+      "id": "nav_port",
+      "kind": "box",
+      "material": "emissive_red",
+      "size": [
+        0.32,
+        0.224,
+        0.32
+      ],
+      "position": [
+        -13.72,
+        2.96,
+        0
+      ]
+    },
+    {
+      "id": "nav_stbd",
+      "kind": "box",
+      "material": "emissive_green",
+      "size": [
+        0.32,
+        0.224,
+        0.32
+      ],
+      "position": [
+        13.72,
+        2.96,
+        0
+      ]
+    },
+    {
+      "id": "vent_1",
+      "kind": "box",
+      "material": "emissive_blue",
+      "size": [
+        0.36,
+        0.112,
+        0.52
+      ],
+      "position": [
+        0,
+        3.344,
+        10.08
+      ]
+    },
+    {
+      "id": "vent_2",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        0.36,
+        0.112,
+        0.52
+      ],
+      "position": [
+        3.8574,
+        3.344,
+        9.3127
+      ]
+    },
+    {
+      "id": "vent_3",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        0.36,
+        0.112,
+        0.52
+      ],
+      "position": [
+        7.1276,
+        3.344,
+        7.1276
+      ]
+    },
+    {
+      "id": "vent_4",
+      "kind": "box",
+      "material": "emissive_blue",
+      "size": [
+        0.36,
+        0.112,
+        0.52
+      ],
+      "position": [
+        9.3127,
+        3.344,
+        3.8574
+      ]
+    },
+    {
+      "id": "vent_5",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        0.36,
+        0.112,
+        0.52
+      ],
+      "position": [
+        10.08,
+        3.344,
+        0
+      ]
+    },
+    {
+      "id": "vent_6",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        0.36,
+        0.112,
+        0.52
+      ],
+      "position": [
+        9.3127,
+        3.344,
+        -3.8574
+      ]
+    },
+    {
+      "id": "vent_7",
+      "kind": "box",
+      "material": "emissive_blue",
+      "size": [
+        0.36,
+        0.112,
+        0.52
+      ],
+      "position": [
+        7.1276,
+        3.344,
+        -7.1276
+      ]
+    },
+    {
+      "id": "vent_8",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        0.36,
+        0.112,
+        0.52
+      ],
+      "position": [
+        3.8574,
+        3.344,
+        -9.3127
+      ]
+    },
+    {
+      "id": "vent_9",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        0.36,
+        0.112,
+        0.52
+      ],
+      "position": [
+        0,
+        3.344,
+        -10.08
+      ]
+    },
+    {
+      "id": "vent_10",
+      "kind": "box",
+      "material": "emissive_blue",
+      "size": [
+        0.36,
+        0.112,
+        0.52
+      ],
+      "position": [
+        -3.8574,
+        3.344,
+        -9.3127
+      ]
+    },
+    {
+      "id": "vent_11",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        0.36,
+        0.112,
+        0.52
+      ],
+      "position": [
+        -7.1276,
+        3.344,
+        -7.1276
+      ]
+    },
+    {
+      "id": "vent_12",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        0.36,
+        0.112,
+        0.52
+      ],
+      "position": [
+        -9.3127,
+        3.344,
+        -3.8574
+      ]
+    },
+    {
+      "id": "vent_13",
+      "kind": "box",
+      "material": "emissive_blue",
+      "size": [
+        0.36,
+        0.112,
+        0.52
+      ],
+      "position": [
+        -10.08,
+        3.344,
+        0
+      ]
+    },
+    {
+      "id": "vent_14",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        0.36,
+        0.112,
+        0.52
+      ],
+      "position": [
+        -9.3127,
+        3.344,
+        3.8574
+      ]
+    },
+    {
+      "id": "vent_15",
+      "kind": "box",
+      "material": "panel_line",
+      "size": [
+        0.36,
+        0.112,
+        0.52
+      ],
+      "position": [
+        -7.1276,
+        3.344,
+        7.1276
+      ]
+    },
+    {
+      "id": "vent_16",
+      "kind": "box",
+      "material": "emissive_blue",
+      "size": [
+        0.36,
+        0.112,
+        0.52
+      ],
+      "position": [
+        -3.8574,
+        3.344,
+        9.3127
+      ]
+    },
+    {
+      "id": "cockpit_seat_l",
+      "kind": "box",
+      "material": "hull_dark",
+      "size": [
+        0.48,
+        0.44,
+        0.4
+      ],
+      "position": [
+        -0.6,
+        5.12,
+        0
+      ]
+    },
+    {
+      "id": "cockpit_seat_r",
+      "kind": "box",
+      "material": "hull_dark",
+      "size": [
+        0.48,
+        0.44,
+        0.4
+      ],
+      "position": [
+        0.6,
+        5.12,
+        0
+      ]
+    },
+    {
+      "id": "cockpit_console",
+      "kind": "box",
+      "material": "hull_accent",
+      "size": [
+        1.44,
+        0.28,
+        0.56
+      ],
+      "position": [
+        0,
+        4.92,
+        0.48
+      ]
+    },
+    {
+      "id": "cockpit_glow_l",
+      "kind": "box",
+      "material": "emissive_blue",
+      "size": [
+        0.2,
+        0.16,
+        0.2
+      ],
+      "position": [
+        -0.48,
+        5.04,
+        0.56
+      ]
+    },
+    {
+      "id": "cockpit_glow_r",
+      "kind": "box",
+      "material": "emissive_blue",
+      "size": [
+        0.2,
+        0.16,
+        0.2
+      ],
+      "position": [
+        0.48,
+        5.04,
+        0.56
+      ]
+    }
+  ],
+  "surfaceDetails": [
+    {
+      "id": "ufo_sd_1",
+      "region": "disc_top",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_2",
+      "region": "disc_top",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        0.0178,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_3",
+      "region": "disc_top",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0162,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_4",
+      "region": "disc_top",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        -0.0032,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_5",
+      "region": "disc_top",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        -0.019,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_6",
+      "region": "disc_top",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0141,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_7",
+      "region": "disc_top",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        0.0062,
+        -0.0074,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_8",
+      "region": "disc_top",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0198,
+        0.0028,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_9",
+      "region": "disc_top",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        0.0117,
+        0.0116,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_10",
+      "region": "disc_top",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        -0.0092,
+        0.015,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_11",
+      "region": "disc_top",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.02,
+        0.0113,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_12",
+      "region": "disc_top",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        -0.009,
+        0.0023,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_13",
+      "region": "disc_top",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0118,
+        -0.0078,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_14",
+      "region": "disc_top",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        0.0197,
+        -0.0142,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_15",
+      "region": "disc_top",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        0.0061,
+        -0.014,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_16",
+      "region": "disc_top",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0142,
+        -0.0071,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_17",
+      "region": "disc_bottom",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_18",
+      "region": "disc_bottom",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        0.0178,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_19",
+      "region": "disc_bottom",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0162,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_20",
+      "region": "disc_bottom",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        -0.0032,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_21",
+      "region": "disc_bottom",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        -0.019,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_22",
+      "region": "disc_bottom",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0141,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_23",
+      "region": "disc_bottom",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        0.0062,
+        -0.0074,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_24",
+      "region": "disc_bottom",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0198,
+        0.0028,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_25",
+      "region": "disc_bottom",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        0.0117,
+        0.0116,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_26",
+      "region": "disc_bottom",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        -0.0092,
+        0.015,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_27",
+      "region": "disc_bottom",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.02,
+        0.0113,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_28",
+      "region": "disc_bottom",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        -0.009,
+        0.0023,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_29",
+      "region": "disc_bottom",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0118,
+        -0.0078,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_30",
+      "region": "disc_bottom",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        0.0197,
+        -0.0142,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_31",
+      "region": "disc_bottom",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        0.0061,
+        -0.014,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_32",
+      "region": "disc_bottom",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0142,
+        -0.0071,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_33",
+      "region": "disc_rim",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_34",
+      "region": "disc_rim",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        0.0178,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_35",
+      "region": "disc_rim",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0162,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_36",
+      "region": "disc_rim",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        -0.0032,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_37",
+      "region": "disc_rim",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        -0.019,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_38",
+      "region": "disc_rim",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0141,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_39",
+      "region": "disc_rim",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        0.0062,
+        -0.0074,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_40",
+      "region": "disc_rim",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0198,
+        0.0028,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_41",
+      "region": "disc_rim",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        0.0117,
+        0.0116,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_42",
+      "region": "disc_rim",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        -0.0092,
+        0.015,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_43",
+      "region": "disc_rim",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.02,
+        0.0113,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_44",
+      "region": "disc_rim",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        -0.009,
+        0.0023,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_45",
+      "region": "disc_rim",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0118,
+        -0.0078,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_46",
+      "region": "disc_rim",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        0.0197,
+        -0.0142,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_47",
+      "region": "disc_rim",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        0.0061,
+        -0.014,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_48",
+      "region": "disc_rim",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0142,
+        -0.0071,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_49",
+      "region": "dome",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_50",
+      "region": "dome",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        0.0178,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_51",
+      "region": "dome",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0162,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_52",
+      "region": "dome",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        -0.0032,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_53",
+      "region": "dome",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        -0.019,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_54",
+      "region": "dome",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0141,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_55",
+      "region": "dome",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        0.0062,
+        -0.0074,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_56",
+      "region": "dome",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0198,
+        0.0028,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_57",
+      "region": "dome",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        0.0117,
+        0.0116,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_58",
+      "region": "dome",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        -0.0092,
+        0.015,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_59",
+      "region": "dome",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.02,
+        0.0113,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_60",
+      "region": "dome",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        -0.009,
+        0.0023,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_61",
+      "region": "dome",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0118,
+        -0.0078,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_62",
+      "region": "dome",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        0.0197,
+        -0.0142,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_63",
+      "region": "dome",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        0.0061,
+        -0.014,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_64",
+      "region": "dome",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0142,
+        -0.0071,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_65",
+      "region": "undercarriage",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_66",
+      "region": "undercarriage",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        0.0178,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_67",
+      "region": "undercarriage",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0162,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_68",
+      "region": "undercarriage",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        -0.0032,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_69",
+      "region": "undercarriage",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        -0.019,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_70",
+      "region": "undercarriage",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0141,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_71",
+      "region": "undercarriage",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        0.0062,
+        -0.0074,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_72",
+      "region": "undercarriage",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0198,
+        0.0028,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_73",
+      "region": "undercarriage",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        0.0117,
+        0.0116,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_74",
+      "region": "undercarriage",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        -0.0092,
+        0.015,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_75",
+      "region": "undercarriage",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.02,
+        0.0113,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_76",
+      "region": "undercarriage",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        -0.009,
+        0.0023,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_77",
+      "region": "undercarriage",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0118,
+        -0.0078,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_78",
+      "region": "undercarriage",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        0.0197,
+        -0.0142,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_79",
+      "region": "undercarriage",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        0.0061,
+        -0.014,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_80",
+      "region": "undercarriage",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0142,
+        -0.0071,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_81",
+      "region": "landing_gear",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_82",
+      "region": "landing_gear",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        0.0178,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_83",
+      "region": "landing_gear",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0162,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_84",
+      "region": "landing_gear",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        -0.0032,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_85",
+      "region": "landing_gear",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        -0.019,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_86",
+      "region": "landing_gear",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0141,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_87",
+      "region": "landing_gear",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        0.0062,
+        -0.0074,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_88",
+      "region": "landing_gear",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0198,
+        0.0028,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_89",
+      "region": "landing_gear",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        0.0117,
+        0.0116,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_90",
+      "region": "landing_gear",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        -0.0092,
+        0.015,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_91",
+      "region": "landing_gear",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.02,
+        0.0113,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_92",
+      "region": "landing_gear",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        -0.009,
+        0.0023,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_93",
+      "region": "landing_gear",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0118,
+        -0.0078,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_94",
+      "region": "landing_gear",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        0.0197,
+        -0.0142,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_95",
+      "region": "landing_gear",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        0.0061,
+        -0.014,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_96",
+      "region": "landing_gear",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0142,
+        -0.0071,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_97",
+      "region": "sensor_array",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_98",
+      "region": "sensor_array",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        0.0178,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_99",
+      "region": "sensor_array",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0162,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_100",
+      "region": "sensor_array",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        -0.0032,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_101",
+      "region": "sensor_array",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        -0.019,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_102",
+      "region": "sensor_array",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0141,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_103",
+      "region": "sensor_array",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        0.0062,
+        -0.0074,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_104",
+      "region": "sensor_array",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0198,
+        0.0028,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_105",
+      "region": "sensor_array",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        0.0117,
+        0.0116,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_106",
+      "region": "sensor_array",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        -0.0092,
+        0.015,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_107",
+      "region": "sensor_array",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.02,
+        0.0113,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_108",
+      "region": "sensor_array",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        -0.009,
+        0.0023,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_109",
+      "region": "sensor_array",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0118,
+        -0.0078,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_110",
+      "region": "sensor_array",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        0.0197,
+        -0.0142,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_111",
+      "region": "sensor_array",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        0.0061,
+        -0.014,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_112",
+      "region": "sensor_array",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0142,
+        -0.0071,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_113",
+      "region": "hull_left",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_114",
+      "region": "hull_left",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        0.0178,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_115",
+      "region": "hull_left",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0162,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_116",
+      "region": "hull_left",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        -0.0032,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_117",
+      "region": "hull_left",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        -0.019,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_118",
+      "region": "hull_left",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0141,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_119",
+      "region": "hull_left",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        0.0062,
+        -0.0074,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_120",
+      "region": "hull_left",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0198,
+        0.0028,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_121",
+      "region": "hull_left",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        0.0117,
+        0.0116,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_122",
+      "region": "hull_left",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        -0.0092,
+        0.015,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_123",
+      "region": "hull_left",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.02,
+        0.0113,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_124",
+      "region": "hull_left",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        -0.009,
+        0.0023,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_125",
+      "region": "hull_left",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0118,
+        -0.0078,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_126",
+      "region": "hull_left",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        0.0197,
+        -0.0142,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_127",
+      "region": "hull_left",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        0.0061,
+        -0.014,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_128",
+      "region": "hull_left",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0142,
+        -0.0071,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_129",
+      "region": "hull_right",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_130",
+      "region": "hull_right",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        0.0178,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_131",
+      "region": "hull_right",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0162,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_132",
+      "region": "hull_right",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        -0.0032,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_133",
+      "region": "hull_right",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        -0.019,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_134",
+      "region": "hull_right",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0141,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_135",
+      "region": "hull_right",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        0.0062,
+        -0.0074,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_136",
+      "region": "hull_right",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0198,
+        0.0028,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_137",
+      "region": "hull_right",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        0.0117,
+        0.0116,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_138",
+      "region": "hull_right",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        -0.0092,
+        0.015,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_139",
+      "region": "hull_right",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.02,
+        0.0113,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_140",
+      "region": "hull_right",
+      "type": "rivet_row",
+      "strength": 0.16,
+      "offset": [
+        -0.009,
+        0.0023,
+        0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_141",
+      "region": "hull_right",
+      "type": "ablation_mark",
+      "strength": 0.22,
+      "offset": [
+        0.0118,
+        -0.0078,
+        -0.015
+      ]
+    },
+    {
+      "id": "ufo_sd_142",
+      "region": "hull_right",
+      "type": "hull_plating",
+      "strength": 0.28,
+      "offset": [
+        0.0197,
+        -0.0142,
+        -0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_143",
+      "region": "hull_right",
+      "type": "weld_line",
+      "strength": 0.34,
+      "offset": [
+        0.0061,
+        -0.014,
+        0.005
+      ]
+    },
+    {
+      "id": "ufo_sd_144",
+      "region": "hull_right",
+      "type": "panel_seam",
+      "strength": 0.1,
+      "offset": [
+        -0.0142,
+        -0.0071,
+        0.015
+      ]
+    }
+  ],
+  "ornaments": [],
+  "pose": {
+    "preset": "hovering",
+    "hoverHeightMeters": 0
+  },
+  "animationHints": {
+    "rimLightPulse": true,
+    "discRotate": false,
+    "beamFlicker": true,
+    "hoverBob": true
+  },
+  "lod": {
+    "high": "full",
+    "medium": "remove_panel_lines",
+    "low": "merge_disc_layers"
+  },
+  "exportOptions": {
+    "formats": [
+      "gltf",
+      "glb"
+    ]
+  }
+}

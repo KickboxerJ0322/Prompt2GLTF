@@ -1,0 +1,1057 @@
+{
+  "meta": {
+    "name": "Slime – green_slime",
+    "version": "1.0",
+    "generator": "prompt2gltf",
+    "created": "2026-03-20T07:22:28.910Z"
+  },
+  "promptInterpretation": {
+    "original": "スライムを作って。スライムは粘液状あるいはゼリー状の体を持った架空の怪物。",
+    "normalizedSubject": "slime",
+    "subType": "green_slime",
+    "targetHeightMeters": 3,
+    "count": 1
+  },
+  "globalScale": {
+    "unit": "meter",
+    "value": 1
+  },
+  "style": {
+    "era": "fantasy",
+    "genre": "fantasy_monster",
+    "tags": [
+      "fantasy_slime"
+    ]
+  },
+  "materials": {
+    "body_main": {
+      "baseColor": "#44BB44",
+      "roughness": 0.1,
+      "metalness": 0,
+      "opacity": 0.8
+    },
+    "body_hi": {
+      "baseColor": "#88EE88",
+      "roughness": 0.05,
+      "metalness": 0,
+      "opacity": 0.7
+    },
+    "nucleus": {
+      "baseColor": "#AAFF44",
+      "roughness": 0.05,
+      "metalness": 0,
+      "emissive": "#AAFF44",
+      "emissiveIntensity": 2.5,
+      "opacity": 0.9
+    },
+    "eye_glow": {
+      "baseColor": "#FFFFFF",
+      "roughness": 0.05,
+      "metalness": 0,
+      "emissive": "#FFFFFF",
+      "emissiveIntensity": 2
+    },
+    "pupil": {
+      "baseColor": "#110011",
+      "roughness": 0.8,
+      "metalness": 0
+    },
+    "puddle": {
+      "baseColor": "#44BB44",
+      "roughness": 0.05,
+      "metalness": 0,
+      "opacity": 0.55
+    },
+    "drip": {
+      "baseColor": "#88EE88",
+      "roughness": 0.08,
+      "metalness": 0,
+      "opacity": 0.72
+    }
+  },
+  "parts": [
+    {
+      "id": "ground_puddle",
+      "kind": "cylinder",
+      "material": "puddle",
+      "size": [
+        4.455,
+        0.12,
+        4.455
+      ],
+      "position": [
+        0,
+        0.03,
+        0
+      ]
+    },
+    {
+      "id": "puddle_inner",
+      "kind": "cylinder",
+      "material": "body_hi",
+      "size": [
+        2.64,
+        0.075,
+        2.64
+      ],
+      "position": [
+        0,
+        0.045,
+        0
+      ]
+    },
+    {
+      "id": "body_main",
+      "kind": "sphere",
+      "material": "body_main",
+      "size": [
+        3.3,
+        2.85,
+        2.76
+      ],
+      "position": [
+        0,
+        1.44,
+        0
+      ]
+    },
+    {
+      "id": "body_dome",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        2.31,
+        1.86,
+        1.8768
+      ],
+      "position": [
+        0,
+        1.98,
+        0
+      ]
+    },
+    {
+      "id": "lump_eq_1",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "position": [
+        0,
+        1.44,
+        1.518
+      ]
+    },
+    {
+      "id": "lump_eq_2",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.48,
+        0.48,
+        0.48
+      ],
+      "position": [
+        1.0734,
+        1.541,
+        1.0734
+      ]
+    },
+    {
+      "id": "lump_eq_3",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.56,
+        0.56,
+        0.56
+      ],
+      "position": [
+        1.518,
+        1.5491,
+        0
+      ]
+    },
+    {
+      "id": "lump_eq_4",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "position": [
+        1.0734,
+        1.4569,
+        -1.0734
+      ]
+    },
+    {
+      "id": "lump_eq_5",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.48,
+        0.48,
+        0.48
+      ],
+      "position": [
+        0,
+        1.3492,
+        -1.518
+      ]
+    },
+    {
+      "id": "lump_eq_6",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.56,
+        0.56,
+        0.56
+      ],
+      "position": [
+        -1.0734,
+        1.3249,
+        -1.0734
+      ]
+    },
+    {
+      "id": "lump_eq_7",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.4,
+        0.4,
+        0.4
+      ],
+      "position": [
+        -1.518,
+        1.4065,
+        0
+      ]
+    },
+    {
+      "id": "lump_eq_8",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.48,
+        0.48,
+        0.48
+      ],
+      "position": [
+        -1.0734,
+        1.5188,
+        1.0734
+      ]
+    },
+    {
+      "id": "lump_up_1",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.32,
+        0.32,
+        0.32
+      ],
+      "position": [
+        0,
+        2.7,
+        0.99
+      ]
+    },
+    {
+      "id": "lump_up_2",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.42,
+        0.42,
+        0.42
+      ],
+      "position": [
+        0.99,
+        2.7,
+        0
+      ]
+    },
+    {
+      "id": "lump_up_3",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.32,
+        0.32,
+        0.32
+      ],
+      "position": [
+        0,
+        2.7,
+        -0.99
+      ]
+    },
+    {
+      "id": "lump_up_4",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.42,
+        0.42,
+        0.42
+      ],
+      "position": [
+        -0.99,
+        2.7,
+        0
+      ]
+    },
+    {
+      "id": "lump_crown",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.6,
+        0.54,
+        0.6
+      ],
+      "position": [
+        0,
+        3.03,
+        0
+      ]
+    },
+    {
+      "id": "nucleus_outer",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        1.584,
+        1.584,
+        1.584
+      ],
+      "position": [
+        0,
+        1.62,
+        0.24
+      ]
+    },
+    {
+      "id": "nucleus_inner",
+      "kind": "sphere",
+      "material": "nucleus",
+      "size": [
+        1.32,
+        1.32,
+        1.32
+      ],
+      "position": [
+        0,
+        1.62,
+        0.3
+      ]
+    },
+    {
+      "id": "nucleus_core",
+      "kind": "sphere",
+      "material": "nucleus",
+      "size": [
+        0.66,
+        0.66,
+        0.66
+      ],
+      "position": [
+        0,
+        1.62,
+        0.36
+      ]
+    },
+    {
+      "id": "eye_glow_L",
+      "kind": "sphere",
+      "material": "eye_glow",
+      "size": [
+        0.54,
+        0.54,
+        0.54
+      ],
+      "position": [
+        -0.726,
+        2.28,
+        1.3248
+      ]
+    },
+    {
+      "id": "pupil_L",
+      "kind": "box",
+      "material": "pupil",
+      "size": [
+        0.0756,
+        0.405,
+        0.0405
+      ],
+      "position": [
+        -0.726,
+        2.28,
+        1.5678
+      ]
+    },
+    {
+      "id": "eye_hi_L",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.1215,
+        0.1215,
+        0.1215
+      ],
+      "position": [
+        -0.645,
+        2.388,
+        1.5948
+      ]
+    },
+    {
+      "id": "eye_glow_R",
+      "kind": "sphere",
+      "material": "eye_glow",
+      "size": [
+        0.54,
+        0.54,
+        0.54
+      ],
+      "position": [
+        0.726,
+        2.28,
+        1.3248
+      ]
+    },
+    {
+      "id": "pupil_R",
+      "kind": "box",
+      "material": "pupil",
+      "size": [
+        0.0756,
+        0.405,
+        0.0405
+      ],
+      "position": [
+        0.726,
+        2.28,
+        1.5678
+      ]
+    },
+    {
+      "id": "eye_hi_R",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.1215,
+        0.1215,
+        0.1215
+      ],
+      "position": [
+        0.807,
+        2.388,
+        1.5948
+      ]
+    },
+    {
+      "id": "mouth_slot",
+      "kind": "box",
+      "material": "pupil",
+      "size": [
+        1.155,
+        0.12,
+        0.12
+      ],
+      "position": [
+        0,
+        1.74,
+        1.3524
+      ]
+    },
+    {
+      "id": "mouth_drip",
+      "kind": "sphere",
+      "material": "drip",
+      "size": [
+        0.18,
+        0.24,
+        0.18
+      ],
+      "position": [
+        0,
+        1.56,
+        1.3248
+      ]
+    },
+    {
+      "id": "drip_tendril_1",
+      "kind": "cylinder",
+      "material": "drip",
+      "size": [
+        0.42,
+        0.84,
+        0.42
+      ],
+      "position": [
+        0,
+        0.42,
+        1.254
+      ]
+    },
+    {
+      "id": "drip_tip_1",
+      "kind": "sphere",
+      "material": "drip",
+      "size": [
+        0.462,
+        0.294,
+        0.462
+      ],
+      "position": [
+        0,
+        0.105,
+        1.254
+      ]
+    },
+    {
+      "id": "drip_tendril_2",
+      "kind": "cylinder",
+      "material": "drip",
+      "size": [
+        0.54,
+        1.02,
+        0.54
+      ],
+      "position": [
+        0.9774,
+        0.51,
+        0.5643
+      ]
+    },
+    {
+      "id": "drip_tip_2",
+      "kind": "sphere",
+      "material": "drip",
+      "size": [
+        0.594,
+        0.378,
+        0.594
+      ],
+      "position": [
+        0.9774,
+        0.135,
+        0.5643
+      ]
+    },
+    {
+      "id": "drip_tendril_3",
+      "kind": "cylinder",
+      "material": "drip",
+      "size": [
+        0.42,
+        1.2,
+        0.42
+      ],
+      "position": [
+        1.1946,
+        0.6,
+        -0.6897
+      ]
+    },
+    {
+      "id": "drip_tip_3",
+      "kind": "sphere",
+      "material": "drip",
+      "size": [
+        0.462,
+        0.294,
+        0.462
+      ],
+      "position": [
+        1.1946,
+        0.105,
+        -0.6897
+      ]
+    },
+    {
+      "id": "drip_tendril_4",
+      "kind": "cylinder",
+      "material": "drip",
+      "size": [
+        0.54,
+        0.84,
+        0.54
+      ],
+      "position": [
+        0,
+        0.42,
+        -1.1913
+      ]
+    },
+    {
+      "id": "drip_tip_4",
+      "kind": "sphere",
+      "material": "drip",
+      "size": [
+        0.594,
+        0.378,
+        0.594
+      ],
+      "position": [
+        0,
+        0.135,
+        -1.1913
+      ]
+    },
+    {
+      "id": "drip_tendril_5",
+      "kind": "cylinder",
+      "material": "drip",
+      "size": [
+        0.42,
+        1.02,
+        0.42
+      ],
+      "position": [
+        -1.1403,
+        0.51,
+        -0.6584
+      ]
+    },
+    {
+      "id": "drip_tip_5",
+      "kind": "sphere",
+      "material": "drip",
+      "size": [
+        0.462,
+        0.294,
+        0.462
+      ],
+      "position": [
+        -1.1403,
+        0.105,
+        -0.6584
+      ]
+    },
+    {
+      "id": "drip_tendril_6",
+      "kind": "cylinder",
+      "material": "drip",
+      "size": [
+        0.54,
+        1.2,
+        0.54
+      ],
+      "position": [
+        -0.9557,
+        0.6,
+        0.5518
+      ]
+    },
+    {
+      "id": "drip_tip_6",
+      "kind": "sphere",
+      "material": "drip",
+      "size": [
+        0.594,
+        0.378,
+        0.594
+      ],
+      "position": [
+        -0.9557,
+        0.135,
+        0.5518
+      ]
+    },
+    {
+      "id": "mini_drip_1",
+      "kind": "sphere",
+      "material": "drip",
+      "size": [
+        0.24,
+        0.192,
+        0.24
+      ],
+      "position": [
+        0.825,
+        0.15,
+        1.1951
+      ]
+    },
+    {
+      "id": "mini_drip_2",
+      "kind": "sphere",
+      "material": "drip",
+      "size": [
+        0.24,
+        0.192,
+        0.24
+      ],
+      "position": [
+        1.4289,
+        0.15,
+        -0.69
+      ]
+    },
+    {
+      "id": "mini_drip_3",
+      "kind": "sphere",
+      "material": "drip",
+      "size": [
+        0.24,
+        0.192,
+        0.24
+      ],
+      "position": [
+        -0.825,
+        0.15,
+        -1.1951
+      ]
+    },
+    {
+      "id": "mini_drip_4",
+      "kind": "sphere",
+      "material": "drip",
+      "size": [
+        0.24,
+        0.192,
+        0.24
+      ],
+      "position": [
+        -1.4289,
+        0.15,
+        0.69
+      ]
+    },
+    {
+      "id": "pseudopod_L",
+      "kind": "cylinder",
+      "material": "body_main",
+      "size": [
+        1.05,
+        0.72,
+        0.72
+      ],
+      "position": [
+        -2.241,
+        1.68,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "id": "pseudopod_tip_L",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.864,
+        0.864,
+        0.864
+      ],
+      "position": [
+        -2.766,
+        1.68,
+        0
+      ]
+    },
+    {
+      "id": "pseudopod_lump_L",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.504,
+        0.504,
+        0.504
+      ],
+      "position": [
+        -2.1885,
+        1.86,
+        0
+      ]
+    },
+    {
+      "id": "pseudopod_R",
+      "kind": "cylinder",
+      "material": "body_main",
+      "size": [
+        1.05,
+        0.72,
+        0.72
+      ],
+      "position": [
+        2.241,
+        1.68,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "id": "pseudopod_tip_R",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.864,
+        0.864,
+        0.864
+      ],
+      "position": [
+        2.766,
+        1.68,
+        0
+      ]
+    },
+    {
+      "id": "pseudopod_lump_R",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.504,
+        0.504,
+        0.504
+      ],
+      "position": [
+        2.1885,
+        1.86,
+        0
+      ]
+    },
+    {
+      "id": "bubble_1",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.12,
+        0.12,
+        0.12
+      ],
+      "position": [
+        0.54,
+        1.14,
+        0.45
+      ]
+    },
+    {
+      "id": "bubble_2",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.1,
+        0.1,
+        0.1
+      ],
+      "position": [
+        -0.6,
+        1.59,
+        0.24
+      ]
+    },
+    {
+      "id": "bubble_3",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.14,
+        0.14,
+        0.14
+      ],
+      "position": [
+        0.36,
+        1.98,
+        -0.48
+      ]
+    },
+    {
+      "id": "bubble_4",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.08,
+        0.08,
+        0.08
+      ],
+      "position": [
+        -0.3,
+        0.9,
+        -0.3
+      ]
+    },
+    {
+      "id": "bubble_5",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.1,
+        0.1,
+        0.1
+      ],
+      "position": [
+        0.84,
+        1.8,
+        0.36
+      ]
+    },
+    {
+      "id": "bubble_6",
+      "kind": "sphere",
+      "material": "body_hi",
+      "size": [
+        0.12,
+        0.12,
+        0.12
+      ],
+      "position": [
+        -0.75,
+        1.2,
+        0.6
+      ]
+    }
+  ],
+  "surfaceDetails": [
+    {
+      "type": "translucent_gel",
+      "region": "body",
+      "coverage": 1,
+      "texture": "smooth_jelly"
+    },
+    {
+      "type": "internal_bubbles",
+      "region": "body",
+      "count": 12,
+      "texture": "trapped_air_spheres"
+    },
+    {
+      "type": "surface_ripple",
+      "region": "body",
+      "density": "medium",
+      "texture": "viscous_wave"
+    },
+    {
+      "type": "ooze_drip",
+      "region": "base",
+      "count": 6,
+      "texture": "thick_fluid_trail"
+    },
+    {
+      "type": "nucleus_glow",
+      "region": "centre",
+      "emissiveRadius": 0.99
+    },
+    {
+      "type": "eye_glow_corona",
+      "region": "eyes",
+      "radius": 0.30000000000000004
+    }
+  ],
+  "ornaments": [
+    {
+      "type": "gel_shimmer",
+      "location": "body",
+      "intensity": 0.6
+    },
+    {
+      "type": "nucleus_pulse",
+      "location": "nucleus",
+      "period_s": 2
+    },
+    {
+      "type": "drip_motion",
+      "location": "tendrils",
+      "speed": 0.3
+    },
+    {
+      "type": "eye_blink",
+      "location": "eyes",
+      "interval_s": 4
+    }
+  ],
+  "pose": {
+    "stance": "amorphous_resting",
+    "pseudopods": "extended",
+    "mouth": "slightly_open"
+  },
+  "animationHints": [
+    {
+      "clip": "idle_wobble",
+      "loop": true,
+      "affectedParts": [
+        "body_main",
+        "body_dome",
+        "lump_crown"
+      ]
+    },
+    {
+      "clip": "nucleus_pulse",
+      "loop": true,
+      "affectedParts": [
+        "nucleus_inner",
+        "nucleus_core"
+      ]
+    },
+    {
+      "clip": "eye_blink",
+      "loop": true,
+      "affectedParts": [
+        "pupil_L",
+        "pupil_R"
+      ]
+    },
+    {
+      "clip": "drip_ooze",
+      "loop": true,
+      "affectedParts": [
+        "drip_tendril_1",
+        "drip_tip_1",
+        "drip_tendril_2",
+        "drip_tip_2",
+        "drip_tendril_3",
+        "drip_tip_3",
+        "drip_tendril_4",
+        "drip_tip_4",
+        "drip_tendril_5",
+        "drip_tip_5",
+        "drip_tendril_6",
+        "drip_tip_6"
+      ]
+    }
+  ],
+  "lod": [
+    {
+      "level": 0,
+      "partCount": 56,
+      "notes": "full_detail"
+    },
+    {
+      "level": 1,
+      "partCount": 31,
+      "notes": "medium_lod"
+    },
+    {
+      "level": 2,
+      "partCount": 14,
+      "notes": "low_lod"
+    }
+  ],
+  "exportOptions": {
+    "format": [
+      "gltf",
+      "glb"
+    ],
+    "embedTextures": true,
+    "generateNormals": true
+  }
+}

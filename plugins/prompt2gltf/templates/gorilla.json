@@ -1,0 +1,5101 @@
+{
+  "meta": {
+    "name": "animal_1.7m_ゴリラ",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "prompt2gltf",
+    "generatedFrom": "ゴリラ",
+    "createdAt": "2026-03-20T05:58:53.113Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "ゴリラ",
+    "normalizedSubject": "animal",
+    "targetHeightMeters": 1.7,
+    "styleTags": [
+      "realistic_animal"
+    ],
+    "geometryDirective": "Use mixed primitives (box/cylinder/sphere/tri_prism); represent curved real-world forms with rounded geometry.",
+    "summary": "Generated from prompt as a animal with high-density procedural spec.",
+    "designIntent": {
+      "scaleImpression": "large",
+      "mood": "majestic",
+      "originalityPolicy": "generalized_original_design"
+    },
+    "animalType": "gorilla",
+    "subspecies": "western_lowland_gorilla",
+    "ageClass": "adult_male_silverback",
+    "pose": "knuckle_walking"
+  },
+  "globalScale": {
+    "height": 1.054,
+    "width": 1.224,
+    "depth": 0.986
+  },
+  "style": {
+    "silhouette": "quadrupedal_knuckle_walking_great_ape",
+    "mood": "dominant_male",
+    "genre": "realistic_wildlife",
+    "detailDensity": "ultra_high",
+    "bodyLanguage": "knuckle_walking_forward_lean",
+    "shapeLanguage": [
+      "barrel_chest",
+      "massive_shoulders",
+      "long_arms",
+      "sagittal_crest",
+      "prominent_brow_ridge",
+      "no_tail"
+    ]
+  },
+  "materials": {
+    "fur_dark": {
+      "baseColor": "#1C1E1A",
+      "roughness": 0.96,
+      "metalness": 0
+    },
+    "fur_black": {
+      "baseColor": "#0E0F0D",
+      "roughness": 0.98,
+      "metalness": 0
+    },
+    "silverback": {
+      "baseColor": "#8A9080",
+      "roughness": 0.9,
+      "metalness": 0
+    },
+    "skin_exposed": {
+      "baseColor": "#1A1614",
+      "roughness": 0.78,
+      "metalness": 0
+    },
+    "eye_dark": {
+      "baseColor": "#2A1E0A",
+      "roughness": 0.45,
+      "metalness": 0
+    },
+    "lip_dark": {
+      "baseColor": "#2A1E18",
+      "roughness": 0.75,
+      "metalness": 0
+    },
+    "nail_dark": {
+      "baseColor": "#221A10",
+      "roughness": 0.62,
+      "metalness": 0.04
+    }
+  },
+  "parts": [
+    {
+      "id": "foot_l",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.153,
+        0.051,
+        0.238
+      ],
+      "position": [
+        -0.17,
+        0.0255,
+        -0.289
+      ]
+    },
+    {
+      "id": "toe_big_l",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.068,
+        0.0374,
+        0.068
+      ],
+      "position": [
+        -0.0935,
+        0.0204,
+        -0.17
+      ]
+    },
+    {
+      "id": "toe_l_1",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.034,
+        0.0306,
+        0.0612
+      ],
+      "position": [
+        -0.1275,
+        0.017,
+        -0.1955
+      ]
+    },
+    {
+      "id": "toe_l_2",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.034,
+        0.0306,
+        0.0612
+      ],
+      "position": [
+        -0.1581,
+        0.017,
+        -0.187
+      ]
+    },
+    {
+      "id": "toe_l_3",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.034,
+        0.0306,
+        0.0612
+      ],
+      "position": [
+        -0.1887,
+        0.017,
+        -0.1785
+      ]
+    },
+    {
+      "id": "toe_l_4",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.034,
+        0.0306,
+        0.0612
+      ],
+      "position": [
+        -0.2193,
+        0.017,
+        -0.17
+      ]
+    },
+    {
+      "id": "ankle_l",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.1224,
+        0.085,
+        0.136
+      ],
+      "position": [
+        -0.17,
+        0.0935,
+        -0.255
+      ]
+    },
+    {
+      "id": "shin_l",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.136,
+        0.272,
+        0.153
+      ],
+      "position": [
+        -0.17,
+        0.2805,
+        -0.1955
+      ],
+      "rotation": [
+        -12,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "knee_l",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.153,
+        0.0884,
+        0.1615
+      ],
+      "position": [
+        -0.17,
+        0.476,
+        -0.0935
+      ]
+    },
+    {
+      "id": "thigh_l",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.187,
+        0.306,
+        0.17
+      ],
+      "position": [
+        -0.17,
+        0.6545,
+        0
+      ],
+      "rotation": [
+        -8,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "foot_r",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.153,
+        0.051,
+        0.238
+      ],
+      "position": [
+        0.17,
+        0.0255,
+        -0.289
+      ]
+    },
+    {
+      "id": "toe_big_r",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.068,
+        0.0374,
+        0.068
+      ],
+      "position": [
+        0.0935,
+        0.0204,
+        -0.17
+      ]
+    },
+    {
+      "id": "toe_r_1",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.034,
+        0.0306,
+        0.0612
+      ],
+      "position": [
+        0.1275,
+        0.017,
+        -0.1955
+      ]
+    },
+    {
+      "id": "toe_r_2",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.034,
+        0.0306,
+        0.0612
+      ],
+      "position": [
+        0.1581,
+        0.017,
+        -0.187
+      ]
+    },
+    {
+      "id": "toe_r_3",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.034,
+        0.0306,
+        0.0612
+      ],
+      "position": [
+        0.1887,
+        0.017,
+        -0.1785
+      ]
+    },
+    {
+      "id": "toe_r_4",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.034,
+        0.0306,
+        0.0612
+      ],
+      "position": [
+        0.2193,
+        0.017,
+        -0.17
+      ]
+    },
+    {
+      "id": "ankle_r",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.1224,
+        0.085,
+        0.136
+      ],
+      "position": [
+        0.17,
+        0.0935,
+        -0.255
+      ]
+    },
+    {
+      "id": "shin_r",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.136,
+        0.272,
+        0.153
+      ],
+      "position": [
+        0.17,
+        0.2805,
+        -0.1955
+      ],
+      "rotation": [
+        -12,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "knee_r",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.153,
+        0.0884,
+        0.1615
+      ],
+      "position": [
+        0.17,
+        0.476,
+        -0.0935
+      ]
+    },
+    {
+      "id": "thigh_r",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.187,
+        0.306,
+        0.17
+      ],
+      "position": [
+        0.17,
+        0.6545,
+        0
+      ],
+      "rotation": [
+        -8,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "pelvis",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.51,
+        0.17,
+        0.34
+      ],
+      "position": [
+        0,
+        0.7735,
+        -0.017
+      ]
+    },
+    {
+      "id": "hip_l",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.136,
+        0.153,
+        0.204
+      ],
+      "position": [
+        -0.2635,
+        0.7565,
+        -0.0085
+      ]
+    },
+    {
+      "id": "hip_r",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.136,
+        0.153,
+        0.204
+      ],
+      "position": [
+        0.2635,
+        0.7565,
+        -0.0085
+      ]
+    },
+    {
+      "id": "lumbar",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.442,
+        0.17,
+        0.306
+      ],
+      "position": [
+        0,
+        0.884,
+        0.017
+      ]
+    },
+    {
+      "id": "belly",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.544,
+        0.17,
+        0.408
+      ],
+      "position": [
+        0,
+        0.986,
+        0.068
+      ]
+    },
+    {
+      "id": "lower_chest",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.646,
+        0.17,
+        0.442
+      ],
+      "position": [
+        0,
+        1.0795,
+        0.136
+      ]
+    },
+    {
+      "id": "mid_chest",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.714,
+        0.204,
+        0.442
+      ],
+      "position": [
+        0,
+        1.156,
+        0.17
+      ]
+    },
+    {
+      "id": "upper_chest",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.68,
+        0.17,
+        0.408
+      ],
+      "position": [
+        0,
+        1.2325,
+        0.204
+      ]
+    },
+    {
+      "id": "pec_l",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.238,
+        0.153,
+        0.17
+      ],
+      "position": [
+        -0.204,
+        1.1815,
+        0.2465
+      ]
+    },
+    {
+      "id": "pec_r",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.238,
+        0.153,
+        0.17
+      ],
+      "position": [
+        0.204,
+        1.1815,
+        0.2465
+      ]
+    },
+    {
+      "id": "upper_back",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.51,
+        0.238,
+        0.238
+      ],
+      "position": [
+        0,
+        1.1475,
+        -0.102
+      ]
+    },
+    {
+      "id": "silverback_main",
+      "kind": "box",
+      "material": "silverback",
+      "size": [
+        0.408,
+        0.204,
+        0.102
+      ],
+      "position": [
+        0,
+        1.19,
+        -0.1615
+      ]
+    },
+    {
+      "id": "silverback_upper",
+      "kind": "box",
+      "material": "silverback",
+      "size": [
+        0.306,
+        0.102,
+        0.068
+      ],
+      "position": [
+        0,
+        1.2665,
+        -0.153
+      ]
+    },
+    {
+      "id": "silverback_lower",
+      "kind": "box",
+      "material": "silverback",
+      "size": [
+        0.34,
+        0.102,
+        0.085
+      ],
+      "position": [
+        0,
+        1.1135,
+        -0.153
+      ]
+    },
+    {
+      "id": "shoulder_l",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.17,
+        0.17,
+        0.204
+      ],
+      "position": [
+        -0.3825,
+        1.258,
+        0.085
+      ]
+    },
+    {
+      "id": "shoulder_cap_l",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.136,
+        0.102,
+        0.17
+      ],
+      "position": [
+        -0.4335,
+        1.275,
+        0.068
+      ]
+    },
+    {
+      "id": "shoulder_r",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.17,
+        0.17,
+        0.204
+      ],
+      "position": [
+        0.3825,
+        1.258,
+        0.085
+      ]
+    },
+    {
+      "id": "shoulder_cap_r",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.136,
+        0.102,
+        0.17
+      ],
+      "position": [
+        0.4335,
+        1.275,
+        0.068
+      ]
+    },
+    {
+      "id": "upper_arm_l",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.1615,
+        0.442,
+        0.1615
+      ],
+      "position": [
+        -0.4165,
+        1.0625,
+        0.2125
+      ],
+      "rotation": [
+        30,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "upper_arm_bulk_l",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.1275,
+        0.238,
+        0.1275
+      ],
+      "position": [
+        -0.4165,
+        0.969,
+        0.2975
+      ],
+      "rotation": [
+        30,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "upper_arm_r",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.1615,
+        0.442,
+        0.1615
+      ],
+      "position": [
+        0.4165,
+        1.0625,
+        0.2125
+      ],
+      "rotation": [
+        30,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "upper_arm_bulk_r",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.1275,
+        0.238,
+        0.1275
+      ],
+      "position": [
+        0.4165,
+        0.969,
+        0.2975
+      ],
+      "rotation": [
+        30,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "elbow_l",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.153,
+        0.0935,
+        0.153
+      ],
+      "position": [
+        -0.4165,
+        0.8245,
+        0.3655
+      ]
+    },
+    {
+      "id": "forearm_l",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.136,
+        0.425,
+        0.136
+      ],
+      "position": [
+        -0.408,
+        0.6205,
+        0.4335
+      ],
+      "rotation": [
+        25,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "forearm_lower_l",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.119,
+        0.238,
+        0.1156
+      ],
+      "position": [
+        -0.4029,
+        0.3825,
+        0.5015
+      ],
+      "rotation": [
+        20,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "elbow_r",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.153,
+        0.0935,
+        0.153
+      ],
+      "position": [
+        0.4165,
+        0.8245,
+        0.3655
+      ]
+    },
+    {
+      "id": "forearm_r",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.136,
+        0.425,
+        0.136
+      ],
+      "position": [
+        0.408,
+        0.6205,
+        0.4335
+      ],
+      "rotation": [
+        25,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "forearm_lower_r",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.119,
+        0.238,
+        0.1156
+      ],
+      "position": [
+        0.4029,
+        0.3825,
+        0.5015
+      ],
+      "rotation": [
+        20,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "wrist_l",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.1445,
+        0.0765,
+        0.119
+      ],
+      "position": [
+        -0.3961,
+        0.2125,
+        0.544
+      ]
+    },
+    {
+      "id": "palm_l",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.17,
+        0.0935,
+        0.153
+      ],
+      "position": [
+        -0.391,
+        0.1105,
+        0.561
+      ]
+    },
+    {
+      "id": "knuckle_l_1",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.0374,
+        0.0476,
+        0.0578
+      ],
+      "position": [
+        -0.3315,
+        0.0561,
+        0.561
+      ]
+    },
+    {
+      "id": "finger_l_1",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.0306,
+        0.0425,
+        0.0476
+      ],
+      "position": [
+        -0.3315,
+        0.0255,
+        0.6086
+      ],
+      "rotation": [
+        15,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "knuckle_l_2",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.0374,
+        0.0476,
+        0.0578
+      ],
+      "position": [
+        -0.3689,
+        0.0561,
+        0.5695
+      ]
+    },
+    {
+      "id": "finger_l_2",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.0306,
+        0.0425,
+        0.0476
+      ],
+      "position": [
+        -0.3689,
+        0.0255,
+        0.6171
+      ],
+      "rotation": [
+        15,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "knuckle_l_3",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.0374,
+        0.0476,
+        0.0578
+      ],
+      "position": [
+        -0.4063,
+        0.0561,
+        0.578
+      ]
+    },
+    {
+      "id": "finger_l_3",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.0306,
+        0.0425,
+        0.0476
+      ],
+      "position": [
+        -0.4063,
+        0.0255,
+        0.6256
+      ],
+      "rotation": [
+        15,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "knuckle_l_4",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.0374,
+        0.0476,
+        0.0578
+      ],
+      "position": [
+        -0.4437,
+        0.0561,
+        0.5865
+      ]
+    },
+    {
+      "id": "finger_l_4",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.0306,
+        0.0425,
+        0.0476
+      ],
+      "position": [
+        -0.4437,
+        0.0255,
+        0.6341
+      ],
+      "rotation": [
+        15,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "thumb_l",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.0476,
+        0.068,
+        0.0476
+      ],
+      "position": [
+        -0.2856,
+        0.1275,
+        0.51
+      ]
+    },
+    {
+      "id": "nail_l_1",
+      "kind": "box",
+      "material": "nail_dark",
+      "size": [
+        0.0272,
+        0.0102,
+        0.0238
+      ],
+      "position": [
+        -0.3315,
+        0.0102,
+        0.6086
+      ]
+    },
+    {
+      "id": "nail_l_2",
+      "kind": "box",
+      "material": "nail_dark",
+      "size": [
+        0.0272,
+        0.0102,
+        0.0238
+      ],
+      "position": [
+        -0.3689,
+        0.0102,
+        0.6137
+      ]
+    },
+    {
+      "id": "nail_l_3",
+      "kind": "box",
+      "material": "nail_dark",
+      "size": [
+        0.0272,
+        0.0102,
+        0.0238
+      ],
+      "position": [
+        -0.4063,
+        0.0102,
+        0.6188
+      ]
+    },
+    {
+      "id": "nail_l_4",
+      "kind": "box",
+      "material": "nail_dark",
+      "size": [
+        0.0272,
+        0.0102,
+        0.0238
+      ],
+      "position": [
+        -0.4437,
+        0.0102,
+        0.6239
+      ]
+    },
+    {
+      "id": "wrist_r",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.1445,
+        0.0765,
+        0.119
+      ],
+      "position": [
+        0.3961,
+        0.2125,
+        0.544
+      ]
+    },
+    {
+      "id": "palm_r",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.17,
+        0.0935,
+        0.153
+      ],
+      "position": [
+        0.391,
+        0.1105,
+        0.561
+      ]
+    },
+    {
+      "id": "knuckle_r_1",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.0374,
+        0.0476,
+        0.0578
+      ],
+      "position": [
+        0.3315,
+        0.0561,
+        0.561
+      ]
+    },
+    {
+      "id": "finger_r_1",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.0306,
+        0.0425,
+        0.0476
+      ],
+      "position": [
+        0.3315,
+        0.0255,
+        0.6086
+      ],
+      "rotation": [
+        15,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "knuckle_r_2",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.0374,
+        0.0476,
+        0.0578
+      ],
+      "position": [
+        0.3689,
+        0.0561,
+        0.5695
+      ]
+    },
+    {
+      "id": "finger_r_2",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.0306,
+        0.0425,
+        0.0476
+      ],
+      "position": [
+        0.3689,
+        0.0255,
+        0.6171
+      ],
+      "rotation": [
+        15,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "knuckle_r_3",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.0374,
+        0.0476,
+        0.0578
+      ],
+      "position": [
+        0.4063,
+        0.0561,
+        0.578
+      ]
+    },
+    {
+      "id": "finger_r_3",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.0306,
+        0.0425,
+        0.0476
+      ],
+      "position": [
+        0.4063,
+        0.0255,
+        0.6256
+      ],
+      "rotation": [
+        15,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "knuckle_r_4",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.0374,
+        0.0476,
+        0.0578
+      ],
+      "position": [
+        0.4437,
+        0.0561,
+        0.5865
+      ]
+    },
+    {
+      "id": "finger_r_4",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.0306,
+        0.0425,
+        0.0476
+      ],
+      "position": [
+        0.4437,
+        0.0255,
+        0.6341
+      ],
+      "rotation": [
+        15,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "thumb_r",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.0476,
+        0.068,
+        0.0476
+      ],
+      "position": [
+        0.2856,
+        0.1275,
+        0.51
+      ]
+    },
+    {
+      "id": "nail_r_1",
+      "kind": "box",
+      "material": "nail_dark",
+      "size": [
+        0.0272,
+        0.0102,
+        0.0238
+      ],
+      "position": [
+        0.3315,
+        0.0102,
+        0.6086
+      ]
+    },
+    {
+      "id": "nail_r_2",
+      "kind": "box",
+      "material": "nail_dark",
+      "size": [
+        0.0272,
+        0.0102,
+        0.0238
+      ],
+      "position": [
+        0.3689,
+        0.0102,
+        0.6137
+      ]
+    },
+    {
+      "id": "nail_r_3",
+      "kind": "box",
+      "material": "nail_dark",
+      "size": [
+        0.0272,
+        0.0102,
+        0.0238
+      ],
+      "position": [
+        0.4063,
+        0.0102,
+        0.6188
+      ]
+    },
+    {
+      "id": "nail_r_4",
+      "kind": "box",
+      "material": "nail_dark",
+      "size": [
+        0.0272,
+        0.0102,
+        0.0238
+      ],
+      "position": [
+        0.4437,
+        0.0102,
+        0.6239
+      ]
+    },
+    {
+      "id": "neck_lower",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.272,
+        0.102,
+        0.272
+      ],
+      "position": [
+        0,
+        1.3175,
+        0.204
+      ]
+    },
+    {
+      "id": "neck_upper",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.238,
+        0.085,
+        0.238
+      ],
+      "position": [
+        0,
+        1.394,
+        0.2465
+      ]
+    },
+    {
+      "id": "cranium",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.357,
+        0.2635,
+        0.3145
+      ],
+      "position": [
+        0,
+        1.5385,
+        0.2465
+      ]
+    },
+    {
+      "id": "sagittal_crest_base",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.1105,
+        0.153,
+        0.204
+      ],
+      "position": [
+        0,
+        1.666,
+        0.221
+      ],
+      "rotation": [
+        -10,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "sagittal_crest_tip",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.068,
+        0.1105,
+        0.136
+      ],
+      "position": [
+        0,
+        1.734,
+        0.2006
+      ],
+      "rotation": [
+        -15,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "occiput",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.272,
+        0.1615,
+        0.136
+      ],
+      "position": [
+        0,
+        1.5385,
+        0.0986
+      ]
+    },
+    {
+      "id": "brow_ridge_l",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.153,
+        0.0646,
+        0.085
+      ],
+      "position": [
+        -0.085,
+        1.581,
+        0.3706
+      ]
+    },
+    {
+      "id": "brow_ridge_r",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.153,
+        0.0646,
+        0.085
+      ],
+      "position": [
+        0.085,
+        1.581,
+        0.3706
+      ]
+    },
+    {
+      "id": "brow_ridge_c",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.068,
+        0.051,
+        0.068
+      ],
+      "position": [
+        0,
+        1.5776,
+        0.3774
+      ]
+    },
+    {
+      "id": "face_upper",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.289,
+        0.119,
+        0.102
+      ],
+      "position": [
+        0,
+        1.5436,
+        0.3808
+      ]
+    },
+    {
+      "id": "face_mid",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.2635,
+        0.0935,
+        0.0935
+      ],
+      "position": [
+        0,
+        1.4926,
+        0.3842
+      ]
+    },
+    {
+      "id": "face_lower",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.221,
+        0.0765,
+        0.085
+      ],
+      "position": [
+        0,
+        1.4484,
+        0.374
+      ]
+    },
+    {
+      "id": "nose_bridge",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.1105,
+        0.051,
+        0.0476
+      ],
+      "position": [
+        0,
+        1.5385,
+        0.408
+      ]
+    },
+    {
+      "id": "nose_tip",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.153,
+        0.0374,
+        0.0425
+      ],
+      "position": [
+        0,
+        1.5096,
+        0.425
+      ]
+    },
+    {
+      "id": "nostril_l",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.051,
+        0.0306,
+        0.0306
+      ],
+      "position": [
+        -0.0476,
+        1.5028,
+        0.4318
+      ]
+    },
+    {
+      "id": "nostril_r",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.051,
+        0.0306,
+        0.0306
+      ],
+      "position": [
+        0.0476,
+        1.5028,
+        0.4318
+      ]
+    },
+    {
+      "id": "eye_l",
+      "kind": "box",
+      "material": "eye_dark",
+      "size": [
+        0.068,
+        0.051,
+        0.0442
+      ],
+      "position": [
+        -0.085,
+        1.5606,
+        0.3706
+      ]
+    },
+    {
+      "id": "eye_r",
+      "kind": "box",
+      "material": "eye_dark",
+      "size": [
+        0.068,
+        0.051,
+        0.0442
+      ],
+      "position": [
+        0.085,
+        1.5606,
+        0.3706
+      ]
+    },
+    {
+      "id": "sclera_l",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.0476,
+        0.0374,
+        0.0204
+      ],
+      "position": [
+        -0.085,
+        1.5623,
+        0.3876
+      ]
+    },
+    {
+      "id": "sclera_r",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.0476,
+        0.0374,
+        0.0204
+      ],
+      "position": [
+        0.085,
+        1.5623,
+        0.3876
+      ]
+    },
+    {
+      "id": "cheek_l",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.085,
+        0.085,
+        0.085
+      ],
+      "position": [
+        -0.1496,
+        1.4892,
+        0.3672
+      ]
+    },
+    {
+      "id": "cheek_r",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.085,
+        0.085,
+        0.085
+      ],
+      "position": [
+        0.1496,
+        1.4892,
+        0.3672
+      ]
+    },
+    {
+      "id": "lip_upper",
+      "kind": "box",
+      "material": "lip_dark",
+      "size": [
+        0.1615,
+        0.0425,
+        0.051
+      ],
+      "position": [
+        0,
+        1.4552,
+        0.408
+      ]
+    },
+    {
+      "id": "lip_lower",
+      "kind": "box",
+      "material": "lip_dark",
+      "size": [
+        0.1445,
+        0.034,
+        0.0476
+      ],
+      "position": [
+        0,
+        1.428,
+        0.4046
+      ]
+    },
+    {
+      "id": "jaw_upper",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.221,
+        0.051,
+        0.102
+      ],
+      "position": [
+        0,
+        1.4416,
+        0.374
+      ]
+    },
+    {
+      "id": "jaw_lower",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.2125,
+        0.0765,
+        0.0935
+      ],
+      "position": [
+        0,
+        1.411,
+        0.357
+      ]
+    },
+    {
+      "id": "chin",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.136,
+        0.0476,
+        0.0595
+      ],
+      "position": [
+        0,
+        1.3855,
+        0.3876
+      ]
+    },
+    {
+      "id": "ear_l",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.051,
+        0.0646,
+        0.0306
+      ],
+      "position": [
+        -0.1768,
+        1.5572,
+        0.1972
+      ]
+    },
+    {
+      "id": "ear_r",
+      "kind": "box",
+      "material": "skin_exposed",
+      "size": [
+        0.051,
+        0.0646,
+        0.0306
+      ],
+      "position": [
+        0.1768,
+        1.5572,
+        0.1972
+      ]
+    },
+    {
+      "id": "crown_fur_l",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.102,
+        0.0935,
+        0.119
+      ],
+      "position": [
+        -0.153,
+        1.5895,
+        0.1785
+      ]
+    },
+    {
+      "id": "crown_fur_r",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.102,
+        0.0935,
+        0.119
+      ],
+      "position": [
+        0.153,
+        1.5895,
+        0.1785
+      ]
+    },
+    {
+      "id": "shoulder_fur_l_1",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.0595,
+        0.0425,
+        0.051
+      ],
+      "position": [
+        -0.374,
+        1.224,
+        0.034
+      ]
+    },
+    {
+      "id": "shoulder_fur_l_2",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.0595,
+        0.0425,
+        0.051
+      ],
+      "position": [
+        -0.3944,
+        1.2495,
+        0.051
+      ]
+    },
+    {
+      "id": "shoulder_fur_l_3",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.0595,
+        0.0425,
+        0.051
+      ],
+      "position": [
+        -0.4148,
+        1.275,
+        0.068
+      ]
+    },
+    {
+      "id": "shoulder_fur_l_4",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.0595,
+        0.0425,
+        0.051
+      ],
+      "position": [
+        -0.4352,
+        1.3005,
+        0.085
+      ]
+    },
+    {
+      "id": "shoulder_fur_l_5",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.0595,
+        0.0425,
+        0.051
+      ],
+      "position": [
+        -0.4556,
+        1.326,
+        0.102
+      ]
+    },
+    {
+      "id": "shoulder_fur_r_1",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.0595,
+        0.0425,
+        0.051
+      ],
+      "position": [
+        0.374,
+        1.224,
+        0.034
+      ]
+    },
+    {
+      "id": "shoulder_fur_r_2",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.0595,
+        0.0425,
+        0.051
+      ],
+      "position": [
+        0.3944,
+        1.2495,
+        0.051
+      ]
+    },
+    {
+      "id": "shoulder_fur_r_3",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.0595,
+        0.0425,
+        0.051
+      ],
+      "position": [
+        0.4148,
+        1.275,
+        0.068
+      ]
+    },
+    {
+      "id": "shoulder_fur_r_4",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.0595,
+        0.0425,
+        0.051
+      ],
+      "position": [
+        0.4352,
+        1.3005,
+        0.085
+      ]
+    },
+    {
+      "id": "shoulder_fur_r_5",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.0595,
+        0.0425,
+        0.051
+      ],
+      "position": [
+        0.4556,
+        1.326,
+        0.102
+      ]
+    },
+    {
+      "id": "chest_fur_1_1",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        -0.153,
+        1.054,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_1_2",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        -0.0765,
+        1.054,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_1_3",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        0,
+        1.054,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_1_4",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        0.0765,
+        1.054,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_1_5",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        0.153,
+        1.054,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_2_1",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        -0.153,
+        1.088,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_2_2",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        -0.0765,
+        1.088,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_2_3",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        0,
+        1.088,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_2_4",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        0.0765,
+        1.088,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_2_5",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        0.153,
+        1.088,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_3_1",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        -0.153,
+        1.122,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_3_2",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        -0.0765,
+        1.122,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_3_3",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        0,
+        1.122,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_3_4",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        0.0765,
+        1.122,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_3_5",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        0.153,
+        1.122,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_4_1",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        -0.153,
+        1.156,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_4_2",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        -0.0765,
+        1.156,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_4_3",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        0,
+        1.156,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_4_4",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        0.0765,
+        1.156,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_4_5",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        0.153,
+        1.156,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_5_1",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        -0.153,
+        1.19,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_5_2",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        -0.0765,
+        1.19,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_5_3",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        0,
+        1.19,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_5_4",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        0.0765,
+        1.19,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_5_5",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        0.153,
+        1.19,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_6_1",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        -0.153,
+        1.224,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_6_2",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        -0.0765,
+        1.224,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_6_3",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        0,
+        1.224,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_6_4",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        0.0765,
+        1.224,
+        0.2465
+      ]
+    },
+    {
+      "id": "chest_fur_6_5",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.0714,
+        0.051,
+        0.0306
+      ],
+      "position": [
+        0.153,
+        1.224,
+        0.2465
+      ]
+    },
+    {
+      "id": "back_fur_1_1",
+      "kind": "box",
+      "material": "silverback",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        -0.136,
+        1.071,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_1_2",
+      "kind": "box",
+      "material": "silverback",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        -0.068,
+        1.071,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_1_3",
+      "kind": "box",
+      "material": "silverback",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0,
+        1.071,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_1_4",
+      "kind": "box",
+      "material": "silverback",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0.068,
+        1.071,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_1_5",
+      "kind": "box",
+      "material": "silverback",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0.136,
+        1.071,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_2_1",
+      "kind": "box",
+      "material": "silverback",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        -0.136,
+        1.1016,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_2_2",
+      "kind": "box",
+      "material": "silverback",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        -0.068,
+        1.1016,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_2_3",
+      "kind": "box",
+      "material": "silverback",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0,
+        1.1016,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_2_4",
+      "kind": "box",
+      "material": "silverback",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0.068,
+        1.1016,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_2_5",
+      "kind": "box",
+      "material": "silverback",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0.136,
+        1.1016,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_3_1",
+      "kind": "box",
+      "material": "silverback",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        -0.136,
+        1.1322,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_3_2",
+      "kind": "box",
+      "material": "silverback",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        -0.068,
+        1.1322,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_3_3",
+      "kind": "box",
+      "material": "silverback",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0,
+        1.1322,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_3_4",
+      "kind": "box",
+      "material": "silverback",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0.068,
+        1.1322,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_3_5",
+      "kind": "box",
+      "material": "silverback",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0.136,
+        1.1322,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_4_1",
+      "kind": "box",
+      "material": "silverback",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        -0.136,
+        1.1628,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_4_2",
+      "kind": "box",
+      "material": "silverback",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        -0.068,
+        1.1628,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_4_3",
+      "kind": "box",
+      "material": "silverback",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0,
+        1.1628,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_4_4",
+      "kind": "box",
+      "material": "silverback",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0.068,
+        1.1628,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_4_5",
+      "kind": "box",
+      "material": "silverback",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0.136,
+        1.1628,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_5_1",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        -0.136,
+        1.1934,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_5_2",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        -0.068,
+        1.1934,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_5_3",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0,
+        1.1934,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_5_4",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0.068,
+        1.1934,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_5_5",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0.136,
+        1.1934,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_6_1",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        -0.136,
+        1.224,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_6_2",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        -0.068,
+        1.224,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_6_3",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0,
+        1.224,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_6_4",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0.068,
+        1.224,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_6_5",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0.136,
+        1.224,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_7_1",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        -0.136,
+        1.2546,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_7_2",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        -0.068,
+        1.2546,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_7_3",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0,
+        1.2546,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_7_4",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0.068,
+        1.2546,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_7_5",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0.136,
+        1.2546,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_8_1",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        -0.136,
+        1.2852,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_8_2",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        -0.068,
+        1.2852,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_8_3",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0,
+        1.2852,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_8_4",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0.068,
+        1.2852,
+        -0.1224
+      ]
+    },
+    {
+      "id": "back_fur_8_5",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.068,
+        0.0476,
+        0.0306
+      ],
+      "position": [
+        0.136,
+        1.2852,
+        -0.1224
+      ]
+    },
+    {
+      "id": "arm_fur_l_1",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.17,
+        0.0204,
+        0.17
+      ],
+      "position": [
+        -0.4131,
+        0.952,
+        0.204
+      ]
+    },
+    {
+      "id": "arm_fur_l_2",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.17,
+        0.0204,
+        0.17
+      ],
+      "position": [
+        -0.4131,
+        0.901,
+        0.2414
+      ]
+    },
+    {
+      "id": "arm_fur_l_3",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.17,
+        0.0204,
+        0.17
+      ],
+      "position": [
+        -0.4131,
+        0.85,
+        0.2788
+      ]
+    },
+    {
+      "id": "arm_fur_l_4",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.17,
+        0.0204,
+        0.17
+      ],
+      "position": [
+        -0.4131,
+        0.799,
+        0.3162
+      ]
+    },
+    {
+      "id": "arm_fur_l_5",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.17,
+        0.0204,
+        0.17
+      ],
+      "position": [
+        -0.4131,
+        0.748,
+        0.3536
+      ]
+    },
+    {
+      "id": "arm_fur_l_6",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.17,
+        0.0204,
+        0.17
+      ],
+      "position": [
+        -0.4131,
+        0.697,
+        0.391
+      ]
+    },
+    {
+      "id": "arm_fur_l_7",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.17,
+        0.0204,
+        0.17
+      ],
+      "position": [
+        -0.4131,
+        0.646,
+        0.4284
+      ]
+    },
+    {
+      "id": "arm_fur_l_8",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.17,
+        0.0204,
+        0.17
+      ],
+      "position": [
+        -0.4131,
+        0.595,
+        0.4658
+      ]
+    },
+    {
+      "id": "arm_fur_r_1",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.17,
+        0.0204,
+        0.17
+      ],
+      "position": [
+        0.4131,
+        0.952,
+        0.204
+      ]
+    },
+    {
+      "id": "arm_fur_r_2",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.17,
+        0.0204,
+        0.17
+      ],
+      "position": [
+        0.4131,
+        0.901,
+        0.2414
+      ]
+    },
+    {
+      "id": "arm_fur_r_3",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.17,
+        0.0204,
+        0.17
+      ],
+      "position": [
+        0.4131,
+        0.85,
+        0.2788
+      ]
+    },
+    {
+      "id": "arm_fur_r_4",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.17,
+        0.0204,
+        0.17
+      ],
+      "position": [
+        0.4131,
+        0.799,
+        0.3162
+      ]
+    },
+    {
+      "id": "arm_fur_r_5",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.17,
+        0.0204,
+        0.17
+      ],
+      "position": [
+        0.4131,
+        0.748,
+        0.3536
+      ]
+    },
+    {
+      "id": "arm_fur_r_6",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.17,
+        0.0204,
+        0.17
+      ],
+      "position": [
+        0.4131,
+        0.697,
+        0.391
+      ]
+    },
+    {
+      "id": "arm_fur_r_7",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.17,
+        0.0204,
+        0.17
+      ],
+      "position": [
+        0.4131,
+        0.646,
+        0.4284
+      ]
+    },
+    {
+      "id": "arm_fur_r_8",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.17,
+        0.0204,
+        0.17
+      ],
+      "position": [
+        0.4131,
+        0.595,
+        0.4658
+      ]
+    },
+    {
+      "id": "thigh_fur_l_1",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.1955,
+        0.0204,
+        0.1785
+      ],
+      "position": [
+        -0.17,
+        0.544,
+        -0.0085
+      ]
+    },
+    {
+      "id": "thigh_fur_l_2",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.1955,
+        0.0204,
+        0.1785
+      ],
+      "position": [
+        -0.17,
+        0.5746,
+        0
+      ]
+    },
+    {
+      "id": "thigh_fur_l_3",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.1955,
+        0.0204,
+        0.1785
+      ],
+      "position": [
+        -0.17,
+        0.6052,
+        0.0085
+      ]
+    },
+    {
+      "id": "thigh_fur_l_4",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.1955,
+        0.0204,
+        0.1785
+      ],
+      "position": [
+        -0.17,
+        0.6358,
+        0.017
+      ]
+    },
+    {
+      "id": "thigh_fur_l_5",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.1955,
+        0.0204,
+        0.1785
+      ],
+      "position": [
+        -0.17,
+        0.6664,
+        0.0255
+      ]
+    },
+    {
+      "id": "thigh_fur_l_6",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.1955,
+        0.0204,
+        0.1785
+      ],
+      "position": [
+        -0.17,
+        0.697,
+        0.034
+      ]
+    },
+    {
+      "id": "thigh_fur_r_1",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.1955,
+        0.0204,
+        0.1785
+      ],
+      "position": [
+        0.17,
+        0.544,
+        -0.0085
+      ]
+    },
+    {
+      "id": "thigh_fur_r_2",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.1955,
+        0.0204,
+        0.1785
+      ],
+      "position": [
+        0.17,
+        0.5746,
+        0
+      ]
+    },
+    {
+      "id": "thigh_fur_r_3",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.1955,
+        0.0204,
+        0.1785
+      ],
+      "position": [
+        0.17,
+        0.6052,
+        0.0085
+      ]
+    },
+    {
+      "id": "thigh_fur_r_4",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.1955,
+        0.0204,
+        0.1785
+      ],
+      "position": [
+        0.17,
+        0.6358,
+        0.017
+      ]
+    },
+    {
+      "id": "thigh_fur_r_5",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.1955,
+        0.0204,
+        0.1785
+      ],
+      "position": [
+        0.17,
+        0.6664,
+        0.0255
+      ]
+    },
+    {
+      "id": "thigh_fur_r_6",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.1955,
+        0.0204,
+        0.1785
+      ],
+      "position": [
+        0.17,
+        0.697,
+        0.034
+      ]
+    },
+    {
+      "id": "shin_fur_l_1",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.1445,
+        0.017,
+        0.1615
+      ],
+      "position": [
+        -0.17,
+        0.1615,
+        -0.1955
+      ]
+    },
+    {
+      "id": "shin_fur_l_2",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.1445,
+        0.017,
+        0.1615
+      ],
+      "position": [
+        -0.17,
+        0.1989,
+        -0.187
+      ]
+    },
+    {
+      "id": "shin_fur_l_3",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.1445,
+        0.017,
+        0.1615
+      ],
+      "position": [
+        -0.17,
+        0.2363,
+        -0.1785
+      ]
+    },
+    {
+      "id": "shin_fur_l_4",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.1445,
+        0.017,
+        0.1615
+      ],
+      "position": [
+        -0.17,
+        0.2737,
+        -0.17
+      ]
+    },
+    {
+      "id": "shin_fur_l_5",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.1445,
+        0.017,
+        0.1615
+      ],
+      "position": [
+        -0.17,
+        0.3111,
+        -0.1615
+      ]
+    },
+    {
+      "id": "shin_fur_r_1",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.1445,
+        0.017,
+        0.1615
+      ],
+      "position": [
+        0.17,
+        0.1615,
+        -0.1955
+      ]
+    },
+    {
+      "id": "shin_fur_r_2",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.1445,
+        0.017,
+        0.1615
+      ],
+      "position": [
+        0.17,
+        0.1989,
+        -0.187
+      ]
+    },
+    {
+      "id": "shin_fur_r_3",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.1445,
+        0.017,
+        0.1615
+      ],
+      "position": [
+        0.17,
+        0.2363,
+        -0.1785
+      ]
+    },
+    {
+      "id": "shin_fur_r_4",
+      "kind": "box",
+      "material": "fur_black",
+      "size": [
+        0.1445,
+        0.017,
+        0.1615
+      ],
+      "position": [
+        0.17,
+        0.2737,
+        -0.17
+      ]
+    },
+    {
+      "id": "shin_fur_r_5",
+      "kind": "box",
+      "material": "fur_dark",
+      "size": [
+        0.1445,
+        0.017,
+        0.1615
+      ],
+      "position": [
+        0.17,
+        0.3111,
+        -0.1615
+      ]
+    }
+  ],
+  "surfaceDetails": [
+    {
+      "id": "sd_1",
+      "region": "head",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_2",
+      "region": "head",
+      "type": "skin_fold",
+      "strength": 0.22,
+      "offset": [
+        0.0157,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_3",
+      "region": "head",
+      "type": "wrinkle",
+      "strength": 0.29,
+      "offset": [
+        0.0195,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_4",
+      "region": "head",
+      "type": "muscle_ridge",
+      "strength": 0.36,
+      "offset": [
+        0.0085,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_5",
+      "region": "head",
+      "type": "scar",
+      "strength": 0.43,
+      "offset": [
+        -0.0089,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_6",
+      "region": "head",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        -0.0196,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_7",
+      "region": "head",
+      "type": "skin_fold",
+      "strength": 0.22,
+      "offset": [
+        -0.0155,
+        -0.0074,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_8",
+      "region": "head",
+      "type": "wrinkle",
+      "strength": 0.29,
+      "offset": [
+        0.0003,
+        0.0028,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_9",
+      "region": "head",
+      "type": "muscle_ridge",
+      "strength": 0.36,
+      "offset": [
+        0.0159,
+        0.0116,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_10",
+      "region": "head",
+      "type": "scar",
+      "strength": 0.43,
+      "offset": [
+        0.0194,
+        0.015,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_11",
+      "region": "face",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_12",
+      "region": "face",
+      "type": "skin_fold",
+      "strength": 0.22,
+      "offset": [
+        0.0157,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_13",
+      "region": "face",
+      "type": "wrinkle",
+      "strength": 0.29,
+      "offset": [
+        0.0195,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_14",
+      "region": "face",
+      "type": "muscle_ridge",
+      "strength": 0.36,
+      "offset": [
+        0.0085,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_15",
+      "region": "face",
+      "type": "scar",
+      "strength": 0.43,
+      "offset": [
+        -0.0089,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_16",
+      "region": "face",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        -0.0196,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_17",
+      "region": "face",
+      "type": "skin_fold",
+      "strength": 0.22,
+      "offset": [
+        -0.0155,
+        -0.0074,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_18",
+      "region": "face",
+      "type": "wrinkle",
+      "strength": 0.29,
+      "offset": [
+        0.0003,
+        0.0028,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_19",
+      "region": "face",
+      "type": "muscle_ridge",
+      "strength": 0.36,
+      "offset": [
+        0.0159,
+        0.0116,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_20",
+      "region": "face",
+      "type": "scar",
+      "strength": 0.43,
+      "offset": [
+        0.0194,
+        0.015,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_21",
+      "region": "neck",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_22",
+      "region": "neck",
+      "type": "skin_fold",
+      "strength": 0.22,
+      "offset": [
+        0.0157,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_23",
+      "region": "neck",
+      "type": "wrinkle",
+      "strength": 0.29,
+      "offset": [
+        0.0195,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_24",
+      "region": "neck",
+      "type": "muscle_ridge",
+      "strength": 0.36,
+      "offset": [
+        0.0085,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_25",
+      "region": "neck",
+      "type": "scar",
+      "strength": 0.43,
+      "offset": [
+        -0.0089,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_26",
+      "region": "neck",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        -0.0196,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_27",
+      "region": "chest",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_28",
+      "region": "chest",
+      "type": "skin_fold",
+      "strength": 0.22,
+      "offset": [
+        0.0157,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_29",
+      "region": "chest",
+      "type": "wrinkle",
+      "strength": 0.29,
+      "offset": [
+        0.0195,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_30",
+      "region": "chest",
+      "type": "muscle_ridge",
+      "strength": 0.36,
+      "offset": [
+        0.0085,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_31",
+      "region": "chest",
+      "type": "scar",
+      "strength": 0.43,
+      "offset": [
+        -0.0089,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_32",
+      "region": "chest",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        -0.0196,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_33",
+      "region": "belly",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_34",
+      "region": "belly",
+      "type": "skin_fold",
+      "strength": 0.22,
+      "offset": [
+        0.0157,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_35",
+      "region": "belly",
+      "type": "wrinkle",
+      "strength": 0.29,
+      "offset": [
+        0.0195,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_36",
+      "region": "belly",
+      "type": "muscle_ridge",
+      "strength": 0.36,
+      "offset": [
+        0.0085,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_37",
+      "region": "belly",
+      "type": "scar",
+      "strength": 0.43,
+      "offset": [
+        -0.0089,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_38",
+      "region": "belly",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        -0.0196,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_39",
+      "region": "back",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_40",
+      "region": "back",
+      "type": "skin_fold",
+      "strength": 0.22,
+      "offset": [
+        0.0157,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_41",
+      "region": "back",
+      "type": "wrinkle",
+      "strength": 0.29,
+      "offset": [
+        0.0195,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_42",
+      "region": "back",
+      "type": "muscle_ridge",
+      "strength": 0.36,
+      "offset": [
+        0.0085,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_43",
+      "region": "back",
+      "type": "scar",
+      "strength": 0.43,
+      "offset": [
+        -0.0089,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_44",
+      "region": "back",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        -0.0196,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_45",
+      "region": "silverback",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_46",
+      "region": "silverback",
+      "type": "skin_fold",
+      "strength": 0.22,
+      "offset": [
+        0.0157,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_47",
+      "region": "silverback",
+      "type": "wrinkle",
+      "strength": 0.29,
+      "offset": [
+        0.0195,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_48",
+      "region": "silverback",
+      "type": "muscle_ridge",
+      "strength": 0.36,
+      "offset": [
+        0.0085,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_49",
+      "region": "silverback",
+      "type": "scar",
+      "strength": 0.43,
+      "offset": [
+        -0.0089,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_50",
+      "region": "silverback",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        -0.0196,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_51",
+      "region": "left_shoulder",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_52",
+      "region": "left_shoulder",
+      "type": "skin_fold",
+      "strength": 0.22,
+      "offset": [
+        0.0157,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_53",
+      "region": "left_shoulder",
+      "type": "wrinkle",
+      "strength": 0.29,
+      "offset": [
+        0.0195,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_54",
+      "region": "left_shoulder",
+      "type": "muscle_ridge",
+      "strength": 0.36,
+      "offset": [
+        0.0085,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_55",
+      "region": "left_shoulder",
+      "type": "scar",
+      "strength": 0.43,
+      "offset": [
+        -0.0089,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_56",
+      "region": "left_shoulder",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        -0.0196,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_57",
+      "region": "right_shoulder",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_58",
+      "region": "right_shoulder",
+      "type": "skin_fold",
+      "strength": 0.22,
+      "offset": [
+        0.0157,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_59",
+      "region": "right_shoulder",
+      "type": "wrinkle",
+      "strength": 0.29,
+      "offset": [
+        0.0195,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_60",
+      "region": "right_shoulder",
+      "type": "muscle_ridge",
+      "strength": 0.36,
+      "offset": [
+        0.0085,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_61",
+      "region": "right_shoulder",
+      "type": "scar",
+      "strength": 0.43,
+      "offset": [
+        -0.0089,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_62",
+      "region": "right_shoulder",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        -0.0196,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_63",
+      "region": "left_upper_arm",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_64",
+      "region": "left_upper_arm",
+      "type": "skin_fold",
+      "strength": 0.22,
+      "offset": [
+        0.0157,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_65",
+      "region": "left_upper_arm",
+      "type": "wrinkle",
+      "strength": 0.29,
+      "offset": [
+        0.0195,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_66",
+      "region": "left_upper_arm",
+      "type": "muscle_ridge",
+      "strength": 0.36,
+      "offset": [
+        0.0085,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_67",
+      "region": "left_upper_arm",
+      "type": "scar",
+      "strength": 0.43,
+      "offset": [
+        -0.0089,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_68",
+      "region": "left_upper_arm",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        -0.0196,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_69",
+      "region": "right_upper_arm",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_70",
+      "region": "right_upper_arm",
+      "type": "skin_fold",
+      "strength": 0.22,
+      "offset": [
+        0.0157,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_71",
+      "region": "right_upper_arm",
+      "type": "wrinkle",
+      "strength": 0.29,
+      "offset": [
+        0.0195,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_72",
+      "region": "right_upper_arm",
+      "type": "muscle_ridge",
+      "strength": 0.36,
+      "offset": [
+        0.0085,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_73",
+      "region": "right_upper_arm",
+      "type": "scar",
+      "strength": 0.43,
+      "offset": [
+        -0.0089,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_74",
+      "region": "right_upper_arm",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        -0.0196,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_75",
+      "region": "left_forearm",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_76",
+      "region": "left_forearm",
+      "type": "skin_fold",
+      "strength": 0.22,
+      "offset": [
+        0.0157,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_77",
+      "region": "left_forearm",
+      "type": "wrinkle",
+      "strength": 0.29,
+      "offset": [
+        0.0195,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_78",
+      "region": "left_forearm",
+      "type": "muscle_ridge",
+      "strength": 0.36,
+      "offset": [
+        0.0085,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_79",
+      "region": "left_forearm",
+      "type": "scar",
+      "strength": 0.43,
+      "offset": [
+        -0.0089,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_80",
+      "region": "left_forearm",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        -0.0196,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_81",
+      "region": "right_forearm",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_82",
+      "region": "right_forearm",
+      "type": "skin_fold",
+      "strength": 0.22,
+      "offset": [
+        0.0157,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_83",
+      "region": "right_forearm",
+      "type": "wrinkle",
+      "strength": 0.29,
+      "offset": [
+        0.0195,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_84",
+      "region": "right_forearm",
+      "type": "muscle_ridge",
+      "strength": 0.36,
+      "offset": [
+        0.0085,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_85",
+      "region": "right_forearm",
+      "type": "scar",
+      "strength": 0.43,
+      "offset": [
+        -0.0089,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_86",
+      "region": "right_forearm",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        -0.0196,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_87",
+      "region": "left_hand",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_88",
+      "region": "left_hand",
+      "type": "skin_fold",
+      "strength": 0.22,
+      "offset": [
+        0.0157,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_89",
+      "region": "left_hand",
+      "type": "wrinkle",
+      "strength": 0.29,
+      "offset": [
+        0.0195,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_90",
+      "region": "left_hand",
+      "type": "muscle_ridge",
+      "strength": 0.36,
+      "offset": [
+        0.0085,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_91",
+      "region": "left_hand",
+      "type": "scar",
+      "strength": 0.43,
+      "offset": [
+        -0.0089,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_92",
+      "region": "left_hand",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        -0.0196,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_93",
+      "region": "right_hand",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_94",
+      "region": "right_hand",
+      "type": "skin_fold",
+      "strength": 0.22,
+      "offset": [
+        0.0157,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_95",
+      "region": "right_hand",
+      "type": "wrinkle",
+      "strength": 0.29,
+      "offset": [
+        0.0195,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_96",
+      "region": "right_hand",
+      "type": "muscle_ridge",
+      "strength": 0.36,
+      "offset": [
+        0.0085,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_97",
+      "region": "right_hand",
+      "type": "scar",
+      "strength": 0.43,
+      "offset": [
+        -0.0089,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_98",
+      "region": "right_hand",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        -0.0196,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_99",
+      "region": "left_thigh",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_100",
+      "region": "left_thigh",
+      "type": "skin_fold",
+      "strength": 0.22,
+      "offset": [
+        0.0157,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_101",
+      "region": "left_thigh",
+      "type": "wrinkle",
+      "strength": 0.29,
+      "offset": [
+        0.0195,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_102",
+      "region": "left_thigh",
+      "type": "muscle_ridge",
+      "strength": 0.36,
+      "offset": [
+        0.0085,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_103",
+      "region": "left_thigh",
+      "type": "scar",
+      "strength": 0.43,
+      "offset": [
+        -0.0089,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_104",
+      "region": "left_thigh",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        -0.0196,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_105",
+      "region": "right_thigh",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_106",
+      "region": "right_thigh",
+      "type": "skin_fold",
+      "strength": 0.22,
+      "offset": [
+        0.0157,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_107",
+      "region": "right_thigh",
+      "type": "wrinkle",
+      "strength": 0.29,
+      "offset": [
+        0.0195,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_108",
+      "region": "right_thigh",
+      "type": "muscle_ridge",
+      "strength": 0.36,
+      "offset": [
+        0.0085,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_109",
+      "region": "right_thigh",
+      "type": "scar",
+      "strength": 0.43,
+      "offset": [
+        -0.0089,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_110",
+      "region": "right_thigh",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        -0.0196,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_111",
+      "region": "left_shin",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_112",
+      "region": "left_shin",
+      "type": "skin_fold",
+      "strength": 0.22,
+      "offset": [
+        0.0157,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_113",
+      "region": "left_shin",
+      "type": "wrinkle",
+      "strength": 0.29,
+      "offset": [
+        0.0195,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_114",
+      "region": "left_shin",
+      "type": "muscle_ridge",
+      "strength": 0.36,
+      "offset": [
+        0.0085,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_115",
+      "region": "left_shin",
+      "type": "scar",
+      "strength": 0.43,
+      "offset": [
+        -0.0089,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_116",
+      "region": "left_shin",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        -0.0196,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_117",
+      "region": "right_shin",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_118",
+      "region": "right_shin",
+      "type": "skin_fold",
+      "strength": 0.22,
+      "offset": [
+        0.0157,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_119",
+      "region": "right_shin",
+      "type": "wrinkle",
+      "strength": 0.29,
+      "offset": [
+        0.0195,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_120",
+      "region": "right_shin",
+      "type": "muscle_ridge",
+      "strength": 0.36,
+      "offset": [
+        0.0085,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_121",
+      "region": "right_shin",
+      "type": "scar",
+      "strength": 0.43,
+      "offset": [
+        -0.0089,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_122",
+      "region": "right_shin",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        -0.0196,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_123",
+      "region": "left_foot",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_124",
+      "region": "left_foot",
+      "type": "skin_fold",
+      "strength": 0.22,
+      "offset": [
+        0.0157,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_125",
+      "region": "left_foot",
+      "type": "wrinkle",
+      "strength": 0.29,
+      "offset": [
+        0.0195,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_126",
+      "region": "left_foot",
+      "type": "muscle_ridge",
+      "strength": 0.36,
+      "offset": [
+        0.0085,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_127",
+      "region": "left_foot",
+      "type": "scar",
+      "strength": 0.43,
+      "offset": [
+        -0.0089,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_128",
+      "region": "left_foot",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        -0.0196,
+        -0.014,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_129",
+      "region": "right_foot",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        0,
+        0.015,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_130",
+      "region": "right_foot",
+      "type": "skin_fold",
+      "strength": 0.22,
+      "offset": [
+        0.0157,
+        0.0115,
+        -0.005
+      ]
+    },
+    {
+      "id": "sd_131",
+      "region": "right_foot",
+      "type": "wrinkle",
+      "strength": 0.29,
+      "offset": [
+        0.0195,
+        0.0025,
+        0.005
+      ]
+    },
+    {
+      "id": "sd_132",
+      "region": "right_foot",
+      "type": "muscle_ridge",
+      "strength": 0.36,
+      "offset": [
+        0.0085,
+        -0.0076,
+        0.015
+      ]
+    },
+    {
+      "id": "sd_133",
+      "region": "right_foot",
+      "type": "scar",
+      "strength": 0.43,
+      "offset": [
+        -0.0089,
+        -0.0141,
+        -0.015
+      ]
+    },
+    {
+      "id": "sd_134",
+      "region": "right_foot",
+      "type": "fur_strand",
+      "strength": 0.15,
+      "offset": [
+        -0.0196,
+        -0.014,
+        -0.005
+      ]
+    }
+  ],
+  "ornaments": [],
+  "pose": {
+    "preset": "knuckle_walk",
+    "bodyForwardTiltDeg": 35,
+    "headForwardTiltDeg": 20
+  },
+  "animationHints": {
+    "idleBreathScale": 0.008,
+    "knuckleBounce": true,
+    "headSway": false
+  },
+  "lod": {
+    "high": "full",
+    "medium": "merge_fur_patches",
+    "low": "merge_limb_segments"
+  },
+  "exportOptions": {
+    "formats": [
+      "gltf",
+      "glb"
+    ]
+  }
+}

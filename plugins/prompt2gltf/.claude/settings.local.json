@@ -19,7 +19,19 @@
       "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"3階建ての家\" --template templates/house.json)",
       "Bash(node scripts/index.mjs --prompt \"歩道橋\")",
       "Bash(node scripts/index.mjs --prompt \"コンビニエンスストア\")",
-      "Bash(node scripts/index.mjs --prompt \"ガソリンスタンド\")"
+      "Bash(node scripts/index.mjs --prompt \"ガソリンスタンド\")",
+      "Bash(node -e \"const s=require\\(''c:/Users/shouy/Desktop/潤平勉強/prompt2gltf/plugins/prompt2gltf/generated/model_spec.json''\\); console.log\\(''materials:'', Object.keys\\(s.materials\\)\\)\")",
+      "Bash(node scripts/index.mjs --prompt \"赤いキリン\" --template templates/giraffe.json)",
+      "Bash(node -e \"const s=require\\(''./generated/model_spec.json''\\); console.log\\(''coat_cream:'', JSON.stringify\\(s.materials.coat_cream\\)\\); console.log\\(''coat_patch:'', JSON.stringify\\(s.materials.coat_patch\\)\\)\")",
+      "Bash(node -e \"const s=require\\(''''./generated/model_spec.json''''\\); console.log\\(''''coat_cream:'''', s.materials.coat_cream.baseColor\\)\")",
+      "Bash(node scripts/index.mjs --prompt \"3mのゴリラ\" --template templates/gorilla.json)",
+      "Bash(node -e \"const s=require\\(''''./generated/model_spec.json''''\\); console.log\\(''''height:'''', s.globalScale.height, ''''subject:'''', s.promptInterpretation.normalizedSubject\\)\")",
+      "Bash(node scripts/index.mjs --prompt \"キリン5頭\" --template templates/giraffe.json)",
+      "Bash(node -e \"const s=require\\(''''./generated/model_spec.json''''\\); console.log\\(''''count:'''', s.promptInterpretation.count\\)\")",
+      "Bash(node -e \"const s=require\\(''c:/Users/shouy/Desktop/潤平勉強/prompt2gltf/plugins/prompt2gltf/generated/model_spec.json''\\); console.log\\(''animalType:'', s.promptInterpretation.animalType\\); console.log\\(''sex:'', s.promptInterpretation.sex\\); console.log\\(''fur_main:'', s.materials.fur_main.baseColor\\); console.log\\(''mane_outer:'', s.materials.mane_outer.baseColor\\)\")",
+      "Bash(node scripts/index.mjs --prompt \"UFO\")",
+      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"ドラゴンを作って\")",
+      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"スライムを作って。スライムは粘液状あるいはゼリー状の体を持った架空の怪物。\")"
     ]
   }
 }

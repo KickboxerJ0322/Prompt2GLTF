@@ -107,6 +107,12 @@ const MATERIAL_PALETTE = {
 // Order of rows matters: first match wins.
 const SUBJECT_REGISTRY = [
   {
+    id: "dragon",
+    match: /dragon|ドラゴン|竜|龍|wyvern|ワイバーン|wyrm|ウォーム/iu,
+    defaultHeight: () => 20,
+    defaultStyle: "western_fantasy_dragon",
+  },
+  {
     id: "kaiju",
     match: /kaiju|monster|creature|\u602a\u7363/iu,
     defaultHeight: () => 80,
@@ -123,6 +129,12 @@ const SUBJECT_REGISTRY = [
     match: /airship|飛行船|飛空艇|飛空挺/iu,
     defaultHeight: () => 80,
     defaultStyle: "fantasy_steampunk",
+  },
+  {
+    id: "ufo",
+    match: /ufo|ユーフォー|ユーフォ|flying.?saucer|空飛ぶ円盤|未確認飛行物体|flying.?disc|alien.?ship/iu,
+    defaultHeight: () => 8,
+    defaultStyle: "alien_saucer",
   },
   {
     id: "vehicle",
@@ -153,6 +165,18 @@ const SUBJECT_REGISTRY = [
     match: /ferris.?wheel|観覧車|かんらんしゃ|kanransha/iu,
     defaultHeight: () => 90,
     defaultStyle: "amusement_attraction",
+  },
+  {
+    id: "slime",
+    match: /slime|スライム|ooze|ウーズ|blob|ブロブ|gelatinous|ゼリー状|粘液|粘体|ぬめり|スタライム/iu,
+    defaultHeight: () => 3,
+    defaultStyle: "fantasy_slime",
+  },
+  {
+    id: "animal",
+    match: /gorilla|ゴリラ|chimpanzee|チンパンジー|orangutan|オランウータン|ape|類人猿|大型類人猿|giraffe|キリン|きりん|麒麟|bear|熊|くま|elephant|ゾウ|象|lion|ライオン|tiger|トラ|虎|wolf|オオカミ|狼|deer|鹿|horse|馬|うま|dog|犬|いぬ|cat|猫|ねこ|primate|霊長|サル|monkey|baboon|mandrill/iu,
+    defaultHeight: (p) => /giraffe|キリン|きりん|麒麟/iu.test(p) ? 5.5 : 1.7,
+    defaultStyle: "realistic_animal",
   },
   {
     id: "building",
@@ -273,6 +297,66 @@ function inferStyle(prompt, subject) {
   return tags;
 }
 function _rawBaseMaterials(subject, styles) {
+  if (subject === "slime") {
+    const prompt = styles._prompt ?? "";
+    const isRed    = /red|赤|紅|blood|bloodスライム|fire|炎/iu.test(prompt) || styles.includes("red");
+    const isBlue   = /blue|青|water|水|ice|氷/iu.test(prompt) || styles.includes("blue");
+    const isPurple = /purple|紫|poison|毒|toxic|dark/iu.test(prompt) || styles.includes("purple");
+    const isYellow = /yellow|黄|gold|金|acid|酸/iu.test(prompt) || styles.includes("yellow");
+    const isBlack  = /black|黒|dark|闇|shadow/iu.test(prompt) || styles.includes("black");
+    // base body colour
+    const bodyCol  = isRed ? "#CC3322" : isBlue ? "#2255CC" : isPurple ? "#882299" : isYellow ? "#CCAA22" : isBlack ? "#221133" : "#44BB44";
+    const bodyHi   = isRed ? "#FF7766" : isBlue ? "#66AAFF" : isPurple ? "#CC66FF" : isYellow ? "#FFEE66" : isBlack ? "#553366" : "#88EE88";
+    const nucleusCol = isRed ? "#FF5500" : isBlue ? "#00CCFF" : isPurple ? "#FF00FF" : isYellow ? "#FFFF00" : isBlack ? "#9900CC" : "#AAFF44";
+    return {
+      body_main:   { baseColor: bodyCol,   roughness: 0.10, metalness: 0.00, opacity: 0.80 },
+      body_hi:     { baseColor: bodyHi,    roughness: 0.05, metalness: 0.00, opacity: 0.70 },
+      nucleus:     { baseColor: nucleusCol, roughness: 0.05, metalness: 0.00, emissive: nucleusCol, emissiveIntensity: 2.5, opacity: 0.90 },
+      eye_glow:    { baseColor: "#FFFFFF",  roughness: 0.05, metalness: 0.00, emissive: "#FFFFFF", emissiveIntensity: 2.0 },
+      pupil:       { baseColor: "#110011",  roughness: 0.80, metalness: 0.00 },
+      puddle:      { baseColor: bodyCol,   roughness: 0.05, metalness: 0.00, opacity: 0.55 },
+      drip:        { baseColor: bodyHi,    roughness: 0.08, metalness: 0.00, opacity: 0.72 },
+    };
+  }
+  if (subject === "dragon") {
+    const dark   = styles.includes("dark");
+    const fire   = styles.includes("fire") || styles.includes("red");
+    const ice    = styles.includes("ice") || styles.includes("blue") || styles.includes("frost");
+    const poison = styles.includes("poison") || styles.includes("green");
+    // Choose base hue
+    const scaleMain  = fire ? "#8B1A1A" : ice ? "#1A4A7A" : poison ? "#2A6B2A" : dark ? "#2A1A3A" : "#4A1A1A";
+    const scaleBelly = fire ? "#C85A1A" : ice ? "#7ABADC" : poison ? "#8BCE5A" : dark ? "#3A2A4A" : "#7A3A2A";
+    const scaleDark  = fire ? "#5A0A0A" : ice ? "#0A2A5A" : poison ? "#1A4A1A" : dark ? "#1A0A2A" : "#2A0A0A";
+    const scaleAccent= fire ? "#FF6A00" : ice ? "#A0DEFF" : poison ? "#AAFF50" : dark ? "#9A1AFF" : "#FF3A00";
+    const wingColor  = fire ? "#6B1010" : ice ? "#1A3560" : poison ? "#1A5020" : dark ? "#200A30" : "#3A0A0A";
+    return {
+      scale_main:    { baseColor: scaleMain,   roughness: 0.50, metalness: 0.10 },
+      scale_belly:   { baseColor: scaleBelly,  roughness: 0.60, metalness: 0.05 },
+      scale_dark:    { baseColor: scaleDark,   roughness: 0.55, metalness: 0.08 },
+      scale_accent:  { baseColor: scaleAccent, roughness: 0.40, metalness: 0.20 },
+      wing_membrane: { baseColor: wingColor,   roughness: 0.70, metalness: 0.00 },
+      claw:          { baseColor: "#1A1208",   roughness: 0.35, metalness: 0.15 },
+      horn:          { baseColor: "#2A2010",   roughness: 0.40, metalness: 0.10 },
+      eye_glow:      { baseColor: fire ? "#FFAA00" : ice ? "#00CCFF" : poison ? "#88FF00" : "#FF4400", roughness: 0.10, metalness: 0.00, emissive: fire ? "#FF6600" : ice ? "#0099CC" : poison ? "#44CC00" : "#CC2200", emissiveIntensity: 2.5 },
+      fire_glow:     { baseColor: "#FF8800", roughness: 0.20, metalness: 0.00, emissive: "#FF6600", emissiveIntensity: 3.0 },
+      fire_emissive: { baseColor: "#FFCC00", roughness: 0.10, metalness: 0.00, emissive: "#FF9900", emissiveIntensity: 4.0 },
+    };
+  }
+  if (subject === "ufo") {
+    const dark = styles.includes("dark");
+    return {
+      hull_silver:    { baseColor: dark ? "#4A5058" : "#B8C0C8", roughness: 0.28, metalness: 0.94 },
+      hull_dark:      { baseColor: dark ? "#1A1E24" : "#2E3440", roughness: 0.42, metalness: 0.88 },
+      hull_accent:    { baseColor: dark ? "#3A4050" : "#6A7888", roughness: 0.35, metalness: 0.90 },
+      dome_tint:      { baseColor: dark ? "#0A1520" : "#1A3050", roughness: 0.08, metalness: 0.80 },
+      emissive_green: { baseColor: "#00FF80", roughness: 0.05, metalness: 0.00, emissive: "#00FF80" },
+      emissive_blue:  { baseColor: "#2080FF", roughness: 0.05, metalness: 0.00, emissive: "#2080FF" },
+      emissive_white: { baseColor: "#E8F4FF", roughness: 0.04, metalness: 0.00, emissive: "#E8F4FF" },
+      emissive_red:   { baseColor: "#FF3020", roughness: 0.05, metalness: 0.00, emissive: "#FF3020" },
+      leg_metal:      { baseColor: "#6A7280", roughness: 0.50, metalness: 0.80 },
+      panel_line:     { baseColor: dark ? "#141820" : "#222A36", roughness: 0.60, metalness: 0.70 }
+    };
+  }
   if (subject === "airship") {
     const dark = styles.includes("dark");
     return {
@@ -568,6 +652,60 @@ function _rawBaseMaterials(subject, styles) {
     }
   }
 
+  if (subject === "animal") {
+    const p = styles._prompt || "";
+    const isGorilla = /gorilla|ゴリラ|類人猿|大型類人猿|ape|chimpanzee|チンパンジー|orangutan|オランウータン/iu.test(p);
+    const isGiraffe = /giraffe|キリン|きりん|麒麟/iu.test(p);
+    if (isGorilla) {
+      return {
+        fur_dark:     { baseColor: "#1C1E1A", roughness: 0.96, metalness: 0.00 },
+        fur_black:    { baseColor: "#0E0F0D", roughness: 0.98, metalness: 0.00 },
+        silverback:   { baseColor: "#8A9080", roughness: 0.90, metalness: 0.00 },
+        skin_exposed: { baseColor: "#1A1614", roughness: 0.78, metalness: 0.00 },
+        eye_dark:     { baseColor: "#2A1E0A", roughness: 0.45, metalness: 0.00 },
+        lip_dark:     { baseColor: "#2A1E18", roughness: 0.75, metalness: 0.00 },
+        nail_dark:    { baseColor: "#221A10", roughness: 0.62, metalness: 0.04 }
+      };
+    }
+    const isLion = /lion|ライオン|獅子|シシ|panthera.?leo/iu.test(p);
+    if (isLion) {
+      const isMale = !/メス|female|雌/iu.test(p);
+      return {
+        fur_main:    { baseColor: "#C8A040", roughness: 0.94, metalness: 0.00 },  // tawny golden
+        fur_belly:   { baseColor: "#E0C870", roughness: 0.92, metalness: 0.00 },  // lighter belly
+        fur_dark:    { baseColor: "#6A4418", roughness: 0.95, metalness: 0.00 },  // limb shading
+        mane_outer:  isMale ? { baseColor: "#2A1A08", roughness: 0.97, metalness: 0.00 } : { baseColor: "#C8A040", roughness: 0.94, metalness: 0.00 },
+        mane_inner:  isMale ? { baseColor: "#5A3010", roughness: 0.95, metalness: 0.00 } : { baseColor: "#C8A040", roughness: 0.94, metalness: 0.00 },
+        nose_skin:   { baseColor: "#C87060", roughness: 0.76, metalness: 0.00 },
+        eye_amber:   { baseColor: "#C08010", roughness: 0.32, metalness: 0.00 },
+        claw:        { baseColor: "#E8D8A0", roughness: 0.58, metalness: 0.04 },
+        tail_tuft:   { baseColor: "#2A1608", roughness: 0.97, metalness: 0.00 },
+        whisker_pad: { baseColor: "#D4A870", roughness: 0.82, metalness: 0.00 }
+      };
+    }
+    if (isGiraffe) {
+      // Reticulated/Masai giraffe: cream base with orange-brown irregular patches
+      return {
+        coat_cream:   { baseColor: "#E8D8A8", roughness: 0.92, metalness: 0.00 },
+        coat_patch:   { baseColor: "#8B4A1A", roughness: 0.90, metalness: 0.00 },
+        coat_dark:    { baseColor: "#5C2E0A", roughness: 0.92, metalness: 0.00 },
+        mane_dark:    { baseColor: "#3A2010", roughness: 0.88, metalness: 0.00 },
+        ossicone:     { baseColor: "#6B4020", roughness: 0.82, metalness: 0.00 },
+        ossicone_tip: { baseColor: "#1A1008", roughness: 0.80, metalness: 0.00 },
+        hoof:         { baseColor: "#1E1610", roughness: 0.72, metalness: 0.04 },
+        eye_brown:    { baseColor: "#3A2808", roughness: 0.42, metalness: 0.00 },
+        skin_face:    { baseColor: "#C8A870", roughness: 0.82, metalness: 0.00 },
+        tongue:       { baseColor: "#2A0A0A", roughness: 0.78, metalness: 0.00 }
+      };
+    }
+    return {
+      fur_main:   { baseColor: "#4A3828", roughness: 0.95, metalness: 0.00 },
+      fur_dark:   { baseColor: "#2A2018", roughness: 0.98, metalness: 0.00 },
+      skin:       { baseColor: "#3A2820", roughness: 0.78, metalness: 0.00 },
+      eye:        { baseColor: "#3A2800", roughness: 0.40, metalness: 0.00 }
+    };
+  }
+
   const dark = styles.includes("dark");
   return {
     body_main:       { baseColor: dark ? "#5E5E60" : "#8F877A", roughness: 0.88, metalness: 0.06 },
@@ -617,6 +755,10 @@ const USER_COLOR_PRIMARY_KEYS = {
   human:       ["clothing_main", "uniform_main"],
   warrior:     ["plate_main"],
   giant:       ["body_main", "armor_main"],
+  animal:      ["fur_dark", "fur_main", "coat_cream", "skin"],
+  dragon:      ["scale_main", "scale_belly", "scale_accent", "wing_membrane"],
+  slime:       ["body_main", "body_hi", "nucleus", "drip"],
+  ufo:         ["hull_silver"],
   ferris_wheel: [], // handled inside buildFerrisWheelSpec
 };
 
@@ -7887,9 +8029,1474 @@ function buildFerrisWheelSpec(prompt, height, styles) {
   return spec;
 }
 
+// ============================================================
+// SLIME BUILDER
+// ============================================================
+function buildSlimeSpec(prompt, height, styles) {
+  const H = height;           // total body height (default 3 m)
+  const s = H / 3;            // scale factor
+
+  // Style tags
+  const isGiant  = H >= 8;
+  const isRed    = /red|赤|紅|blood|fire|炎/iu.test(prompt);
+  const isBlue   = /blue|青|water|水|ice|氷/iu.test(prompt);
+  const isPurple = /purple|紫|poison|毒|toxic/iu.test(prompt);
+  const isYellow = /yellow|黄|gold|金|acid|酸/iu.test(prompt);
+  const isBlack  = /black|黒|dark|闇/iu.test(prompt);
+
+  styles._prompt = prompt;
+  const mats = createBaseMaterials("slime", styles);
+
+  // ── Reference measurements ──────────────────────────────────
+  //  Slime sits on the ground. Body is a flattened ellipsoid.
+  //  Ground at Y = 0.  Body centre Y = H * 0.48.
+  const BW  = H * 1.10;   // body width (X diameter, wider than tall)
+  const BD  = H * 0.92;   // body depth (Z diameter)
+  const BY  = H * 0.48;   // body centre Y
+  // nucleus sits near body centre, slightly forward
+  const NR  = H * 0.22;   // nucleus radius
+
+  const parts = [];
+  const P = (id, kind, mat, size, pos, rot) => {
+    const p = { id, kind, material: mat,
+      size: size.map(v => +v.toFixed(4)),
+      position: pos.map(v => +v.toFixed(4)) };
+    if (rot) p.rotation = rot.map(v => +v.toFixed(4));
+    parts.push(p);
+  };
+
+  // ── GROUND PUDDLE ─────────────────────────────────────────────
+  //  Flat translucent pool spreading around the body base
+  P("ground_puddle", "cylinder", "puddle",
+    [BW * 1.35, H * 0.04, BW * 1.35], [0, H * 0.01, 0]);
+  // Inner highlight ring
+  P("puddle_inner", "cylinder", "body_hi",
+    [BW * 0.80, H * 0.025, BW * 0.80], [0, H * 0.015, 0]);
+
+  // ── MAIN BODY ─────────────────────────────────────────────────
+  //  Central flattened sphere
+  P("body_main", "sphere", "body_main",
+    [BW, H * 0.95, BD], [0, BY, 0]);
+  // Dorsal dome — slightly raised top giving a lumpy silhouette
+  P("body_dome", "sphere", "body_hi",
+    [BW * 0.70, H * 0.62, BD * 0.68], [0, BY + H * 0.18, 0]);
+
+  // ── SURFACE LUMPS ─────────────────────────────────────────────
+  //  8 spherical bumps evenly distributed around the body equator
+  //  and 4 on the upper hemisphere, making the surface irregular.
+  const lumpEquatorR = [0, 45, 90, 135, 180, 225, 270, 315];
+  for (let i = 0; i < lumpEquatorR.length; i++) {
+    const ang = lumpEquatorR[i] * Math.PI / 180;
+    const er  = BW * 0.46;
+    const lx  = Math.sin(ang) * er;
+    const lz  = Math.cos(ang) * er;
+    const lr  = (0.20 + (i % 3) * 0.04) * s;
+    P(`lump_eq_${i+1}`, "sphere", "body_hi",
+      [lr*2, lr*2, lr*2], [lx, BY + H * 0.04 * Math.sin(i), lz]);
+  }
+  // Upper lumps
+  const upperAngles = [0, 90, 180, 270];
+  for (let i = 0; i < upperAngles.length; i++) {
+    const ang = upperAngles[i] * Math.PI / 180;
+    const ur  = BW * 0.30;
+    const lr  = (0.16 + (i % 2) * 0.05) * s;
+    P(`lump_up_${i+1}`, "sphere", "body_hi",
+      [lr*2, lr*2, lr*2],
+      [Math.sin(ang) * ur, BY + H * 0.42, Math.cos(ang) * ur]);
+  }
+  // Top crown lump
+  P("lump_crown", "sphere", "body_hi",
+    [H*0.20, H*0.18, H*0.20], [0, BY + H * 0.53, 0]);
+
+  // ── NUCLEUS ───────────────────────────────────────────────────
+  //  Glowing inner core, slightly forward so it shows through the body
+  P("nucleus_outer", "sphere", "body_hi",
+    [NR*2.4, NR*2.4, NR*2.4], [0, BY + H*0.06, H*0.08]);
+  P("nucleus_inner", "sphere", "nucleus",
+    [NR*2, NR*2, NR*2],     [0, BY + H*0.06, H*0.10]);
+  P("nucleus_core",  "sphere", "nucleus",
+    [NR, NR, NR],            [0, BY + H*0.06, H*0.12]);
+
+  // ── EYES ──────────────────────────────────────────────────────
+  //  Two glowing eyes embedded in the front-upper body hemisphere
+  const eyeY  = BY + H * 0.28;
+  const eyeZ  = BD * 0.48;
+  const eyeX  = BW * 0.22;
+  const eyeR  = H * 0.09;
+  for (const side of [-1, 1]) {
+    const lr = side < 0 ? "L" : "R";
+    // Eye whites / glow sphere
+    P(`eye_glow_${lr}`, "sphere", "eye_glow",
+      [eyeR*2, eyeR*2, eyeR*2],
+      [side * eyeX, eyeY, eyeZ]);
+    // Slit pupil (thin vertical box in front of the glow sphere)
+    P(`pupil_${lr}`, "box", "pupil",
+      [eyeR*0.28, eyeR*1.5, eyeR*0.15],
+      [side * eyeX, eyeY, eyeZ + eyeR*0.9]);
+    // Eye highlight
+    P(`eye_hi_${lr}`, "sphere", "body_hi",
+      [eyeR*0.45, eyeR*0.45, eyeR*0.45],
+      [side * eyeX + eyeR*0.3, eyeY + eyeR*0.4, eyeZ + eyeR]);
+  }
+
+  // ── MOUTH ─────────────────────────────────────────────────────
+  //  Wide, slightly open slit below the eyes
+  P("mouth_slot", "box", "pupil",
+    [BW * 0.35, H * 0.04, H * 0.04],
+    [0, eyeY - H * 0.18, BD * 0.49]);
+  // Mouth drool drip — small sphere hanging from mouth centre
+  P("mouth_drip", "sphere", "drip",
+    [H*0.06, H*0.08, H*0.06],
+    [0, eyeY - H * 0.24, BD * 0.48]);
+
+  // ── BOTTOM DRIPS & TENDRILS ───────────────────────────────────
+  //  6 ooze tendrils around the base, connecting body to puddle.
+  //  Each tendril: a tapered cylinder + a rounded tip sphere.
+  const dripAngles = [0, 60, 120, 180, 240, 300];
+  const dripScale  = [1.0, 0.9, 1.1, 0.95, 1.05, 0.88];
+  for (let i = 0; i < dripAngles.length; i++) {
+    const ang  = dripAngles[i] * Math.PI / 180;
+    const rOff = BW * 0.38 * dripScale[i];
+    const dx   = Math.sin(ang) * rOff;
+    const dz   = Math.cos(ang) * rOff;
+    const dh   = H * (0.28 + (i % 3) * 0.06);
+    const dr   = H * (0.07 + (i % 2) * 0.02);
+    // Tendril cylinder from body base to ground
+    P(`drip_tendril_${i+1}`, "cylinder", "drip",
+      [dr*2, dh, dr*2], [dx, dh * 0.5, dz]);
+    // Rounded tip (sphere) at ground level
+    P(`drip_tip_${i+1}`, "sphere", "drip",
+      [dr*2.2, dr*1.4, dr*2.2], [dx, dr*0.5, dz]);
+  }
+  // A few extra mini-drips between the main ones
+  for (let i = 0; i < 4; i++) {
+    const ang = (i * 90 + 30) * Math.PI / 180;
+    const rx  = Math.sin(ang) * BW * 0.50;
+    const rz  = Math.cos(ang) * BD * 0.50;
+    const mr  = H * 0.04;
+    P(`mini_drip_${i+1}`, "sphere", "drip",
+      [mr*2, mr*1.6, mr*2], [rx, H*0.05, rz]);
+  }
+
+  // ── PSEUDOPODS (optional extended arms) ───────────────────────
+  //  2 short pseudopod stubs sticking outward from the body sides,
+  //  giving the impression the slime is reaching out.
+  for (const side of [-1, 1]) {
+    const lr  = side < 0 ? "L" : "R";
+    const px  = side * BW * 0.52;
+    const py  = BY + H * 0.08;
+    const ph  = H * 0.35;
+    const pr  = H * 0.12;
+    // Pod base cylinder (horizontal)
+    P(`pseudopod_${lr}`, "cylinder", "body_main",
+      [ph, pr*2, pr*2], [px + side*(ph*0.5), py, 0], [0, 0, 90]);
+    // Pod tip sphere
+    P(`pseudopod_tip_${lr}`, "sphere", "body_hi",
+      [pr*2.4, pr*2.4, pr*2.4],
+      [side * (BW * 0.52 + ph), py, 0]);
+    // Pseudopod lump
+    P(`pseudopod_lump_${lr}`, "sphere", "body_hi",
+      [pr*1.4, pr*1.4, pr*1.4],
+      [side * (BW * 0.52 + ph * 0.45), py + pr * 0.5, 0]);
+  }
+
+  // ── INNER BUBBLE DETAILS ──────────────────────────────────────
+  //  Small spheres floating inside the translucent body
+  const bubbleData = [
+    [ 0.18, -0.10,  0.15,  0.06],
+    [-0.20,  0.05,  0.08,  0.05],
+    [ 0.12,  0.18, -0.16,  0.07],
+    [-0.10, -0.18, -0.10,  0.04],
+    [ 0.28,  0.12,  0.12,  0.05],
+    [-0.25, -0.08,  0.20,  0.06],
+  ];
+  for (let i = 0; i < bubbleData.length; i++) {
+    const [bx, bdy, bz, br] = bubbleData[i];
+    P(`bubble_${i+1}`, "sphere", "body_hi",
+      [br*s*2, br*s*2, br*s*2],
+      [bx*H, BY + bdy*H, bz*H]);
+  }
+
+  // ── SURFACE DETAILS ───────────────────────────────────────────
+  const surfaceDetails = [
+    { type: "translucent_gel",  region: "body",   coverage: 1.0,  texture: "smooth_jelly" },
+    { type: "internal_bubbles", region: "body",   count: 12,      texture: "trapped_air_spheres" },
+    { type: "surface_ripple",   region: "body",   density: "medium", texture: "viscous_wave" },
+    { type: "ooze_drip",        region: "base",   count: 6,       texture: "thick_fluid_trail" },
+    { type: "nucleus_glow",     region: "centre", emissiveRadius: NR * 1.5 },
+    { type: "eye_glow_corona",  region: "eyes",   radius: H * 0.10 },
+  ];
+
+  // ── ORNAMENTS ─────────────────────────────────────────────────
+  const ornaments = [
+    { type: "gel_shimmer",      location: "body",    intensity: 0.6 },
+    { type: "nucleus_pulse",    location: "nucleus", period_s: 2.0 },
+    { type: "drip_motion",      location: "tendrils", speed: 0.3 },
+    { type: "eye_blink",        location: "eyes",    interval_s: 4.0 },
+  ];
+
+  const slimeVariant = isRed ? "blood_slime" : isBlue ? "water_slime" : isPurple ? "poison_slime"
+                     : isYellow ? "acid_slime" : isBlack ? "dark_slime" : "green_slime";
+
+  const spec = {
+    meta: {
+      name: `Slime – ${slimeVariant}${isGiant ? " (giant)" : ""}`,
+      version: "1.0",
+      generator: "prompt2gltf",
+      created: new Date().toISOString(),
+    },
+    promptInterpretation: {
+      original: prompt,
+      normalizedSubject: "slime",
+      subType: slimeVariant,
+      targetHeightMeters: H,
+      count: 1,
+    },
+    globalScale: { unit: "meter", value: 1.0 },
+    style: {
+      era: "fantasy",
+      genre: "fantasy_monster",
+      tags: styles.filter(t => typeof t === "string"),
+    },
+    materials: mats,
+    parts,
+    surfaceDetails,
+    ornaments,
+    pose: {
+      stance: "amorphous_resting",
+      pseudopods: "extended",
+      mouth: "slightly_open",
+    },
+    animationHints: [
+      { clip: "idle_wobble",    loop: true,  affectedParts: ["body_main","body_dome","lump_crown"] },
+      { clip: "nucleus_pulse",  loop: true,  affectedParts: ["nucleus_inner","nucleus_core"] },
+      { clip: "eye_blink",      loop: true,  affectedParts: ["pupil_L","pupil_R"] },
+      { clip: "drip_ooze",      loop: true,  affectedParts: parts.filter(p => p.id.startsWith("drip")).map(p => p.id) },
+    ],
+    lod: [
+      { level: 0, partCount: parts.length,                    notes: "full_detail" },
+      { level: 1, partCount: Math.round(parts.length * 0.55), notes: "medium_lod" },
+      { level: 2, partCount: Math.round(parts.length * 0.25), notes: "low_lod" },
+    ],
+    exportOptions: { format: ["gltf","glb"], embedTextures: true, generateNormals: true },
+  };
+  return spec;
+}
+
+// ============================================================
+// DRAGON BUILDER
+// ============================================================
+function buildDragonSpec(prompt, height, styles) {
+  const H  = height;          // total height tip-of-tail-base to horn
+  const s  = H / 20;          // scale factor (designed at 20 m)
+
+  // Style detection
+  const isFire   = /fire|炎|flame|red|赤|紅/iu.test(prompt) || styles.includes("fire") || styles.includes("red");
+  const isIce    = /ice|氷|frost|blue|青|frost/iu.test(prompt) || styles.includes("ice") || styles.includes("blue");
+  const isPoison = /poison|毒|green|緑/iu.test(prompt) || styles.includes("poison") || styles.includes("green");
+  const isDark   = /dark|闇|black|黒|shadow|影/iu.test(prompt) || styles.includes("dark");
+  const isWyvern = /wyvern|ワイバーン/iu.test(prompt);
+
+  const styleTag = isFire ? "fire" : isIce ? "ice" : isPoison ? "poison" : isDark ? "dark" : "classic";
+  styles = styles.filter(x => !["fire","ice","poison","dark","classic"].includes(x)).concat(styleTag);
+
+  const mats = createBaseMaterials("dragon", styles);
+
+  // ── Reference landmarks ─────────────────────────────────────
+  //  Dragon in standing quadruped pose, facing +Z (head at +Z)
+  //  Ground plane Y = 0
+  const bodyY    = 6.0 * s;    // torso centre
+  const bW       = 5.0 * s;    // body width reference
+
+  // Z positions (dragon faces +Z)
+  const pelvisZ  = -5.0 * s;
+  const abdomenZ = -2.0 * s;
+  const chestZ   =  1.0 * s;
+  const headCtrZ =  9.5 * s;
+  const snoutZ   = 11.0 * s;
+
+  // Derived connection points (computed so parts meet exactly)
+  const pelvisBackZ   = pelvisZ - 2.0 * s;   // = -7.0  back face of pelvis box (size Z=4)
+  const pelvisY       = bodyY - 0.5 * s;     // = 5.5   pelvis box centre Y
+  const chestCtrY     = bodyY + 0.5 * s;     // = 6.5   chest cylinder centre Y
+  const chestTopY     = chestCtrY + 2.25 * s;// = 8.75  chest top (height=4.5 → half=2.25)
+  const chestHalfR    = bW * 0.375;           // ≈ 1.875 chest radius in X/Z
+  const skullBackZ    = headCtrZ - 1.25 * s; // = 8.25  skull back face (size Z=2.5 → half=1.25)
+  const headCtrY      = 12.5 * s;
+  // Wing root inner X aligns with chest surface
+  const wingRootInnX  = chestHalfR;           // ≈ 1.875
+  const wingRootLen   = 1.8 * s;
+  const wingRootCtrX  = wingRootInnX + wingRootLen * 0.5; // centre of horizontal wing-root cylinder
+  const wingSocketX   = wingRootInnX + wingRootLen;       // outer end = spar attachment point
+  const wingRootY     = chestTopY - 0.5 * s; // = 8.25  just below chest top
+  const wingRootZ     = chestZ;               // = 1.0   at chest Z
+
+  const parts = [];
+  const P = (id, kind, mat, size, position, rotation) => {
+    const p = { id, kind, material: mat, size: size.map(v => +v.toFixed(4)), position: position.map(v => +v.toFixed(4)) };
+    if (rotation) p.rotation = rotation.map(v => +v.toFixed(4));
+    parts.push(p);
+  };
+
+  // ── bone() helper ───────────────────────────────────────────
+  //  Creates a cylinder from point A [x,y,z] to point B [x,y,z].
+  //  Handles motion in the YZ plane (A[0] === B[0]).
+  //  Computes centre and rotX = atan2(dZ, dY) so the cylinder axis
+  //  runs exactly from A to B.
+  const bone = (id, mat, radius, A, B) => {
+    const dy = B[1] - A[1], dz = B[2] - A[2];
+    const len = Math.sqrt(dy * dy + dz * dz);
+    if (len < 0.001) return;
+    const rotX = Math.atan2(dz, dy) * (180 / Math.PI);
+    P(id, "cylinder", mat,
+      [radius * 2, len, radius * 2],
+      [(A[0] + B[0]) * 0.5, (A[1] + B[1]) * 0.5, (A[2] + B[2]) * 0.5],
+      [rotX, 0, 0]);
+  };
+
+  // ── TAIL ─────────────────────────────────────────────────────
+  //  7 waypoints: first waypoint is at pelvis back face so the tail
+  //  starts flush against the pelvis with no gap.
+  const tailWP = [
+    [0, pelvisY + 0.5*s, pelvisBackZ],           // Z=-7.0  flush with pelvis back
+    [0, 4.0*s,           pelvisBackZ - 1.8*s],   // Z=-8.8
+    [0, 3.2*s,           pelvisBackZ - 3.8*s],   // Z=-10.8
+    [0, 2.5*s,           pelvisBackZ - 5.8*s],   // Z=-12.8
+    [0, 2.0*s,           pelvisBackZ - 7.5*s],   // Z=-14.5
+    [0, 1.7*s,           pelvisBackZ - 9.0*s],   // Z=-16.0
+    [0, 2.2*s,           pelvisBackZ - 10.5*s],  // Z=-17.5  curves back up at spade
+  ];
+  const tailRadii = [1.25, 1.0, 0.82, 0.65, 0.52, 0.40, 0.30];
+  for (let i = 0; i < tailWP.length - 1; i++) {
+    bone(`tail_seg_${i+1}`, "scale_dark", tailRadii[i] * s, tailWP[i], tailWP[i + 1]);
+  }
+  // Tail spade — centred on the last waypoint
+  const [spX, spY, spZ] = tailWP[tailWP.length - 1];
+  P("tail_spade",   "box", "scale_accent", [1.0*s, 0.28*s, 1.8*s], [spX,         spY, spZ], [0,  0, 0]);
+  P("tail_spade_L", "box", "scale_accent", [0.5*s, 0.20*s, 1.2*s], [spX - 0.5*s, spY, spZ - 0.7*s], [0,  18, 0]);
+  P("tail_spade_R", "box", "scale_accent", [0.5*s, 0.20*s, 1.2*s], [spX + 0.5*s, spY, spZ - 0.7*s], [0, -18, 0]);
+
+  // ── PELVIS ────────────────────────────────────────────────────
+  P("pelvis", "box", "scale_main",
+    [bW*0.85, 3.0*s, 4.0*s], [0, pelvisY, pelvisZ]);
+  P("pelvis_top", "box", "scale_dark",
+    [bW*0.70, 0.6*s, 3.0*s], [0, pelvisY + 1.6*s, pelvisZ]);
+
+  // ── REAR LEGS (×2) ────────────────────────────────────────────
+  //  Joints are defined explicitly; bone() computes centre + rotation
+  //  so every segment connects flush to the previous one.
+  for (const side of [-1, 1]) {
+    const sx = side * (bW * 0.42 + 0.2 * s);
+    const lr = side < 0 ? "L" : "R";
+
+    // Joint positions
+    const hipJ    = [sx, pelvisY - 1.0*s, pelvisZ];          // pelvis side, mid-height
+    const kneeJ   = [sx, 2.6*s,           pelvisZ + 2.2*s];  // forward & down
+    const ankleJ  = [sx, 0.7*s,           pelvisZ + 3.8*s];  // further forward, low
+    const footJ   = [sx, 0.15*s,          pelvisZ + 5.5*s];  // foot base (nearly flat)
+
+    // Hip ball — sphere sits at the hip joint, clearly touching the pelvis side
+    P(`haunch_${lr}`, "sphere", "scale_dark",
+      [1.6*s, 1.6*s, 1.6*s], hipJ);
+    // Bone segments
+    bone(`thigh_${lr}`,       "scale_main", 0.85*s, hipJ,   kneeJ);
+    P(`knee_${lr}`, "sphere", "scale_dark", [1.0*s, 1.0*s, 1.0*s], kneeJ);
+    bone(`shin_${lr}`,        "scale_dark", 0.68*s, kneeJ,  ankleJ);
+    P(`ankle_${lr}`, "sphere", "scale_main", [0.8*s, 0.8*s, 0.8*s], ankleJ);
+    bone(`metatarsal_${lr}`,  "scale_dark", 0.50*s, ankleJ, footJ);
+
+    // Foot pad
+    P(`foot_${lr}`, "box", "scale_main",
+      [1.4*s, 0.5*s, 2.0*s], [sx, 0.1*s, pelvisZ + 6.2*s]);
+    // Three toes
+    for (let t = 0; t < 3; t++) {
+      const tx = sx + (t - 1) * 0.38 * s;
+      const toeA = [tx, 0.12*s, pelvisZ + 6.3*s];
+      const toeB = [tx, 0.05*s, pelvisZ + 7.2*s];
+      bone(`rear_toe_${lr}_${t+1}`, "scale_dark", 0.18*s, toeA, toeB);
+      P(`rear_claw_${lr}_${t+1}`, "box", "claw",
+        [0.22*s, 0.22*s, 0.45*s], [tx, 0.02*s, pelvisZ + 7.6*s], [12, 0, 0]);
+    }
+  }
+
+  // ── BELLY PLATES ──────────────────────────────────────────────
+  const bellyY = bodyY - 1.7 * s;
+  for (let i = 0; i < 7; i++) {
+    P(`belly_plate_${i+1}`, "box", "scale_belly",
+      [bW*0.65, 0.28*s, 1.5*s], [0, bellyY, pelvisZ + i * 1.4*s]);
+  }
+
+  // ── ABDOMEN ───────────────────────────────────────────────────
+  P("abdomen", "cylinder", "scale_main",
+    [bW*0.80, 5.5*s, bW*0.80], [0, bodyY, abdomenZ]);
+  P("abdomen_side_L", "box", "scale_dark",
+    [1.2*s, 3.0*s, 4.5*s], [-bW*0.45, bodyY, abdomenZ]);
+  P("abdomen_side_R", "box", "scale_dark",
+    [1.2*s, 3.0*s, 4.5*s], [bW*0.45, bodyY, abdomenZ]);
+
+  // ── CHEST ─────────────────────────────────────────────────────
+  P("chest", "cylinder", "scale_main",
+    [bW*0.75, 4.5*s, bW*0.75], [0, chestCtrY, chestZ]);
+  P("chest_keel", "box", "scale_belly",
+    [bW*0.5, 1.0*s, 3.5*s], [0, bodyY - 1.2*s, chestZ]);
+  P("chest_plate", "box", "scale_dark",
+    [bW*0.55, 0.5*s, 3.0*s], [0, chestCtrY + 2.0*s, chestZ]);
+
+  // ── DORSAL SPINES ─────────────────────────────────────────────
+  const spineZList = [-6*s, -4.5*s, -3*s, -1.5*s, 0, 1.5*s, 3*s, 4.5*s];
+  const spineHList = [1.0, 1.4, 1.8, 2.0, 1.8, 1.6, 1.4, 1.2];
+  for (let i = 0; i < spineZList.length; i++) {
+    const sh = spineHList[i] * s;
+    P(`dorsal_spine_${i+1}`, "tri_prism", "scale_accent",
+      [0.5*s, sh, 0.4*s], [0, bodyY + 2.0*s + sh * 0.5, spineZList[i]]);
+  }
+
+  // ── FRONT LEGS (×2) ───────────────────────────────────────────
+  //  shoulderZ is set to chestZ so the shoulder sphere overlaps the
+  //  chest cylinder's forward hemisphere — no gap between shoulder and body.
+  const shoulderZ = chestZ + chestHalfR * 0.8;   // ≈ 2.5  just inside chest front face
+  for (const side of [-1, 1]) {
+    const sx = side * (bW * 0.44 + 0.15 * s);
+    const lr = side < 0 ? "L" : "R";
+
+    // Joint positions
+    const shdJ  = [sx, chestCtrY + 1.0*s, shoulderZ];      // shoulder socket on chest
+    const elbJ  = [sx, 3.2*s,             shoulderZ + 2.0*s]; // elbow: down & forward
+    const wstJ  = [sx, 0.8*s,             shoulderZ + 3.5*s]; // wrist: low & forward
+    const plmJ  = [sx, 0.15*s,            shoulderZ + 5.0*s]; // palm base (flat)
+
+    // Shoulder ball — overlaps chest cylinder
+    P(`shoulder_${lr}`, "sphere", "scale_dark",
+      [1.8*s, 1.8*s, 1.8*s], shdJ);
+    bone(`upper_arm_${lr}`, "scale_main", 0.80*s, shdJ,  elbJ);
+    P(`elbow_${lr}`, "sphere", "scale_dark", [0.9*s, 0.9*s, 0.9*s], elbJ);
+    bone(`forearm_${lr}`,   "scale_dark", 0.62*s, elbJ,  wstJ);
+    P(`wrist_${lr}`, "sphere", "scale_main", [0.75*s, 0.75*s, 0.75*s], wstJ);
+    bone(`metacarpal_${lr}`,"scale_dark", 0.45*s, wstJ,  plmJ);
+
+    // Palm pad
+    P(`palm_${lr}`, "box", "scale_dark",
+      [1.2*s, 0.45*s, 1.8*s], [sx, 0.1*s, shoulderZ + 5.6*s]);
+    // Three toes
+    for (let t = 0; t < 3; t++) {
+      const tx = sx + (t - 1) * 0.32 * s;
+      const toeA = [tx, 0.12*s, shoulderZ + 5.7*s];
+      const toeB = [tx, 0.04*s, shoulderZ + 6.5*s];
+      bone(`front_toe_${lr}_${t+1}`, "scale_main", 0.16*s, toeA, toeB);
+      P(`front_claw_${lr}_${t+1}`, "box", "claw",
+        [0.20*s, 0.20*s, 0.50*s], [tx, 0.02*s, shoulderZ + 6.85*s], [15, 0, 0]);
+    }
+    // Thumb claw — attached to palm side
+    P(`front_thumb_claw_${lr}`, "box", "claw",
+      [0.26*s, 0.26*s, 0.60*s],
+      [sx + side * 0.50*s, 0.55*s, shoulderZ + 5.3*s], [28, side * -18, 0]);
+  }
+
+  // ── WINGS ─────────────────────────────────────────────────────
+  //  Wing root inner end = body surface (chestHalfR ≈ 1.875*s).
+  //  Wing root outer end = wingSocketX.  All spars start at wingSocketX
+  //  so there is no gap between body, root, and spars.
+  const wingLen = 9.5 * s;
+
+  for (const side of [-1, 1]) {
+    const sgn = side;       // ±1
+    const lr  = side < 0 ? "L" : "R";
+    const wx  = sgn * wingSocketX;   // X of spar attachment (≈ ±3.675*s)
+
+    // Wing root: horizontal cylinder embedded in the chest side wall
+    P(`wing_root_${lr}`, "cylinder", "scale_dark",
+      [0.9*s, wingRootLen, 0.9*s],
+      [sgn * wingRootCtrX, wingRootY, wingRootZ],
+      [0, 0, 90]);
+
+    // Knuckle joint — at the outer end of the wing root
+    P(`wing_knuckle_${lr}`, "sphere", "scale_dark",
+      [1.0*s, 1.0*s, 1.0*s], [wx, wingRootY, wingRootZ]);
+
+    // Primary spar: from knuckle outward, slightly back and down
+    //  Centre = knuckle + half-length in the spar direction
+    //  Rotation primarily rotZ so spar spreads laterally.
+    const sp1Cx = wx + sgn * wingLen * 0.50;
+    P(`wing_spar1_${lr}`, "cylinder", "scale_dark",
+      [0.7*s, wingLen, 0.7*s],
+      [sp1Cx, wingRootY - 0.5*s, wingRootZ - 0.4*s],
+      [-8, sgn * -12, sgn * -30]);
+
+    // Secondary spar: from knuckle, steeper downward angle
+    const sp2Cx = wx + sgn * wingLen * 0.42;
+    P(`wing_spar2_${lr}`, "cylinder", "scale_dark",
+      [0.5*s, wingLen * 0.80, 0.5*s],
+      [sp2Cx, wingRootY - 1.8*s, wingRootZ - 0.4*s],
+      [-18, sgn * -10, sgn * -40]);
+
+    // Tertiary spar: steepest
+    const sp3Cx = wx + sgn * wingLen * 0.35;
+    P(`wing_spar3_${lr}`, "cylinder", "scale_dark",
+      [0.4*s, wingLen * 0.62, 0.4*s],
+      [sp3Cx, wingRootY - 3.2*s, wingRootZ - 0.4*s],
+      [-28, sgn * -7, sgn * -48]);
+
+    // Wing tip
+    P(`wing_tip_${lr}`, "box", "scale_accent",
+      [0.5*s, 0.5*s, 1.5*s],
+      [wx + sgn * wingLen * 0.96, wingRootY - 4.5*s, wingRootZ - 1.5*s]);
+
+    // Upper membrane — between spar 1 and spar 2, centre in between
+    P(`wing_upper_mem_${lr}`, "box", "wing_membrane",
+      [wingLen * 0.88, 0.16*s, wingLen * 0.58],
+      [wx + sgn * wingLen * 0.48, wingRootY - 0.9*s, wingRootZ - 0.8*s],
+      [-6, sgn * -12, sgn * -25]);
+
+    // Lower membrane — between spar 2 and 3
+    P(`wing_lower_mem_${lr}`, "box", "wing_membrane",
+      [wingLen * 0.62, 0.14*s, wingLen * 0.52],
+      [wx + sgn * wingLen * 0.40, wingRootY - 2.5*s, wingRootZ - 0.6*s],
+      [-16, sgn * -10, sgn * -36]);
+
+    // Body membrane — from spar 3 back toward the body flank
+    P(`wing_body_mem_${lr}`, "box", "wing_membrane",
+      [wingLen * 0.38, 0.14*s, wingLen * 0.42],
+      [wx + sgn * wingLen * 0.20, wingRootY - 1.8*s, wingRootZ - 0.4*s],
+      [-22, sgn * -6, sgn * -42]);
+
+    // Leading edge accent strip
+    P(`wing_edge_${lr}`, "box", "scale_accent",
+      [wingLen * 0.90, 0.22*s, 0.38*s],
+      [wx + sgn * wingLen * 0.48, wingRootY - 0.3*s, wingRootZ - 0.8*s],
+      [-4, sgn * -12, sgn * -14]);
+  }
+
+  // ── NECK (5 segments, each computed with bone()) ───────────────
+  //  Base: embedded in chest top.  Tip: meets skull back face.
+  const neckSegs  = 5;
+  const neckBase  = [0, chestTopY - 0.3*s, chestZ + 0.3*s]; // inside chest top
+  const neckTip   = [0, headCtrY - 1.0*s,  skullBackZ];      // skull back face
+  const neckWP    = [];
+  for (let i = 0; i <= neckSegs; i++) {
+    const t = i / neckSegs;
+    neckWP.push([
+      0,
+      neckBase[1] + (neckTip[1] - neckBase[1]) * t,
+      neckBase[2] + (neckTip[2] - neckBase[2]) * t,
+    ]);
+  }
+  for (let i = 0; i < neckSegs; i++) {
+    const t  = (i + 0.5) / neckSegs;
+    const r  = (1.1 - 0.48 * t) * s;
+    const A  = neckWP[i], B = neckWP[i + 1];
+    const my = (A[1] + B[1]) * 0.5, mz = (A[2] + B[2]) * 0.5;
+    bone(`neck_seg_${i+1}`, "scale_main", r, A, B);
+    // Dorsal ridge sits above the segment midpoint
+    P(`neck_ridge_${i+1}`, "tri_prism", "scale_accent",
+      [0.32*s, (0.80 - 0.28*t)*s, 0.32*s],
+      [0, my + r + 0.35*s, mz]);
+    // Side scales
+    P(`neck_scale_L_${i+1}`, "box", "scale_dark",
+      [0.55*s, 0.28*s, 1.3*s], [-r - 0.18*s, my, mz], [0, 0, 18]);
+    P(`neck_scale_R_${i+1}`, "box", "scale_dark",
+      [0.55*s, 0.28*s, 1.3*s], [r + 0.18*s, my, mz], [0, 0, -18]);
+  }
+
+  // ── HEAD ──────────────────────────────────────────────────────
+  // Skull
+  P("skull", "box", "scale_main",
+    [2.6*s, 2.0*s, 2.5*s], [0, headCtrY, headCtrZ]);
+  // Upper snout — abuts the skull's forward face
+  P("snout", "box", "scale_main",
+    [1.8*s, 1.4*s, 2.8*s], [0, headCtrY - 0.3*s, snoutZ]);
+  // Snout tip
+  P("snout_tip", "box", "scale_dark",
+    [1.4*s, 1.0*s, 0.8*s], [0, headCtrY - 0.4*s, snoutZ + 1.6*s]);
+  // Lower jaw (slightly open)
+  P("jaw_lower", "box", "scale_main",
+    [1.8*s, 0.8*s, 2.6*s], [0, headCtrY - 1.1*s, snoutZ], [10, 0, 0]);
+  P("jaw_lower_tip", "box", "scale_dark",
+    [1.2*s, 0.5*s, 0.6*s], [0, headCtrY - 1.5*s, snoutZ + 1.3*s], [10, 0, 0]);
+  // Upper jaw ridge
+  P("jaw_upper_ridge", "box", "scale_dark",
+    [0.5*s, 0.5*s, 2.6*s], [0, headCtrY + 0.6*s, headCtrZ + 0.5*s]);
+
+  // Cheek scales
+  P("cheek_L", "box", "scale_dark",
+    [0.5*s, 1.0*s, 1.8*s], [-1.4*s, headCtrY - 0.2*s, headCtrZ]);
+  P("cheek_R", "box", "scale_dark",
+    [0.5*s, 1.0*s, 1.8*s], [1.4*s, headCtrY - 0.2*s, headCtrZ]);
+
+  // Brow ridges
+  P("brow_L", "box", "scale_dark",
+    [0.8*s, 0.35*s, 1.5*s], [-1.0*s, headCtrY + 0.9*s, headCtrZ + 0.3*s], [0, 0, -10]);
+  P("brow_R", "box", "scale_dark",
+    [0.8*s, 0.35*s, 1.5*s], [1.0*s, headCtrY + 0.9*s, headCtrZ + 0.3*s], [0, 0, 10]);
+
+  // Eyes (sockets + glowing pupils)
+  for (const side of [-1, 1]) {
+    const ex = side * 1.1 * s;
+    const lr = side < 0 ? "L" : "R";
+    P(`eye_socket_${lr}`, "sphere", "scale_dark",
+      [0.7*s, 0.55*s, 0.7*s], [ex, headCtrY + 0.4*s, headCtrZ + 0.8*s]);
+    P(`eye_${lr}`, "sphere", "eye_glow",
+      [0.45*s, 0.45*s, 0.45*s], [ex, headCtrY + 0.4*s, headCtrZ + 1.0*s]);
+    P(`eye_slit_${lr}`, "box", "scale_dark",
+      [0.08*s, 0.4*s, 0.08*s], [ex, headCtrY + 0.4*s, headCtrZ + 1.1*s]);
+  }
+
+  // Nostrils + fire glow
+  P("nostril_L", "box", "scale_dark",
+    [0.35*s, 0.28*s, 0.28*s], [-0.55*s, headCtrY - 0.05*s, snoutZ + 1.7*s]);
+  P("nostril_R", "box", "scale_dark",
+    [0.35*s, 0.28*s, 0.28*s], [0.55*s, headCtrY - 0.05*s, snoutZ + 1.7*s]);
+  P("fire_glow_L", "sphere", "fire_glow",
+    [0.3*s, 0.3*s, 0.3*s], [-0.55*s, headCtrY - 0.05*s, snoutZ + 1.9*s]);
+  P("fire_glow_R", "sphere", "fire_glow",
+    [0.3*s, 0.3*s, 0.3*s], [0.55*s, headCtrY - 0.05*s, snoutZ + 1.9*s]);
+  // Fire breath emitter — starts right at the snout tip front face
+  P("fire_breath", "cylinder", "fire_emissive",
+    [0.8*s, 3.0*s, 0.8*s], [0, headCtrY - 0.5*s, snoutZ + 3.5*s], [90, 0, 0]);
+
+  // Fangs (upper)
+  const fangPairs = [[-0.6*s, -0.8*s], [0.6*s, -0.8*s], [-0.35*s, -0.7*s], [0.35*s, -0.7*s]];
+  for (let i = 0; i < fangPairs.length; i++) {
+    P(`upper_fang_${i+1}`, "tri_prism", "scale_belly",
+      [0.22*s, 0.55*s, 0.22*s], [fangPairs[i][0], headCtrY + fangPairs[i][1], snoutZ + 1.1*s]);
+  }
+  // Lower fangs
+  P("lower_fang_L", "tri_prism", "scale_belly",
+    [0.20*s, 0.45*s, 0.20*s], [-0.45*s, headCtrY - 1.4*s, snoutZ + 0.9*s], [180, 0, 0]);
+  P("lower_fang_R", "tri_prism", "scale_belly",
+    [0.20*s, 0.45*s, 0.20*s], [0.45*s, headCtrY - 1.4*s, snoutZ + 0.9*s], [180, 0, 0]);
+
+  // Ear frills (behind eyes, flat panels)
+  P("ear_frill_L", "box", "wing_membrane",
+    [0.15*s, 1.2*s, 1.0*s], [-1.3*s, headCtrY + 0.8*s, headCtrZ - 0.8*s], [0, 0, -20]);
+  P("ear_frill_R", "box", "wing_membrane",
+    [0.15*s, 1.2*s, 1.0*s], [1.3*s, headCtrY + 0.8*s, headCtrZ - 0.8*s], [0, 0, 20]);
+
+  // Horns — roots embedded in skull top
+  P("horn_main_L", "cylinder", "horn",
+    [0.5*s, 3.5*s, 0.5*s], [-0.9*s, headCtrY + 1.8*s, headCtrZ - 0.5*s], [30, -20, -20]);
+  P("horn_main_R", "cylinder", "horn",
+    [0.5*s, 3.5*s, 0.5*s], [0.9*s, headCtrY + 1.8*s, headCtrZ - 0.5*s], [30, 20, 20]);
+  P("horn_tip_L", "tri_prism", "horn",
+    [0.35*s, 1.0*s, 0.35*s], [-1.2*s, headCtrY + 3.5*s, headCtrZ - 1.5*s], [30, -20, -20]);
+  P("horn_tip_R", "tri_prism", "horn",
+    [0.35*s, 1.0*s, 0.35*s], [1.2*s, headCtrY + 3.5*s, headCtrZ - 1.5*s], [30, 20, 20]);
+  // Side horns
+  P("horn_side_L", "cylinder", "horn",
+    [0.3*s, 1.8*s, 0.3*s], [-1.3*s, headCtrY + 0.9*s, headCtrZ + 0.2*s], [0, 20, -40]);
+  P("horn_side_R", "cylinder", "horn",
+    [0.3*s, 1.8*s, 0.3*s], [1.3*s, headCtrY + 0.9*s, headCtrZ + 0.2*s], [0, -20, 40]);
+  // Chin spike — base flush with lower jaw tip
+  P("chin_spike", "tri_prism", "horn",
+    [0.3*s, 1.0*s, 0.3*s], [0, headCtrY - 1.6*s, snoutZ + 0.3*s], [-20, 0, 0]);
+  // Brow spikes
+  P("brow_spike_L", "tri_prism", "horn",
+    [0.22*s, 0.6*s, 0.22*s], [-1.0*s, headCtrY + 1.2*s, headCtrZ + 0.5*s], [-10, -15, -25]);
+  P("brow_spike_R", "tri_prism", "horn",
+    [0.22*s, 0.6*s, 0.22*s], [1.0*s, headCtrY + 1.2*s, headCtrZ + 0.5*s], [-10, 15, 25]);
+
+  // ── BACK SCALE ROWS ───────────────────────────────────────────
+  for (let i = 0; i < 8; i++) {
+    const sz = pelvisZ + i * 1.2 * s;
+    P(`back_scale_L_${i+1}`, "box", "scale_accent",
+      [0.5*s, 0.3*s, 0.9*s], [-1.0*s, bodyY + 2.2*s, sz]);
+    P(`back_scale_R_${i+1}`, "box", "scale_accent",
+      [0.5*s, 0.3*s, 0.9*s], [1.0*s, bodyY + 2.2*s, sz]);
+  }
+
+  // ── SURFACE DETAILS ───────────────────────────────────────────
+  const surfaceDetails = [
+    { type: "scale_pattern",  region: "body",  coverage: 0.95, scaleSize: "medium",  texture: "reptilian_overlapping" },
+    { type: "ridge_spines",   region: "back",  count: 8,       texture: "dorsal_keratin" },
+    { type: "belly_scutes",   region: "belly", count: 12,      texture: "smooth_plate" },
+    { type: "wing_veins",     region: "wings", density: "high", texture: "membrane_vasculature" },
+    { type: "horn_rings",     region: "horns", count: 5,        texture: "growth_rings" },
+    { type: "claw_grooves",   region: "claws", count: 3,        texture: "keratin_grooves" },
+    { type: "eye_iris",       region: "eyes",  texture: "slit_pupil_iris" },
+    { type: "fire_glow_halo", region: "nostril", emissiveRadius: 0.8*s },
+  ];
+
+  // ── ORNAMENTS ────────────────────────────────────────────────
+  const ornaments = [
+    { type: "fire_breath_particle", location: "nostril", density: "medium", color: isFire ? "#FF6600" : isIce ? "#88CCFF" : isPoison ? "#88FF44" : "#FF8800" },
+    { type: "eye_glow_corona",      location: "eyes",    radius: 0.6*s },
+    { type: "scale_shimmer",        location: "body",    intensity: 0.4 },
+    { type: "wing_membrane_glow",   location: "wings",   intensity: 0.2 },
+  ];
+
+  const dragonType = isWyvern ? "wyvern" : "western_dragon";
+
+  const spec = {
+    meta: {
+      name: `Dragon – ${styleTag} ${dragonType}`,
+      version: "1.0",
+      generator: "prompt2gltf",
+      created: new Date().toISOString(),
+    },
+    promptInterpretation: {
+      original: prompt,
+      normalizedSubject: "dragon",
+      subType: dragonType,
+      dragonStyle: styleTag,
+      targetHeightMeters: H,
+      count: 1,
+    },
+    globalScale: { unit: "meter", value: 1.0 },
+    style: {
+      era: "fantasy",
+      genre: "western_fantasy_dragon",
+      tags: styles,
+    },
+    materials: mats,
+    parts,
+    surfaceDetails,
+    ornaments,
+    pose: {
+      stance: "quadruped_standing",
+      wings: "half_spread",
+      mouth: "open_roaring",
+      tail: "arched_threat_display",
+    },
+    animationHints: [
+      { clip: "idle_breathe",  loop: true,  affectedParts: ["chest","abdomen"] },
+      { clip: "roar",          loop: false, affectedParts: ["jaw_lower","fire_breath","fire_glow_L","fire_glow_R"] },
+      { clip: "wing_flap",     loop: true,  affectedParts: ["wing_spar1_L","wing_spar1_R","wing_upper_mem_L","wing_upper_mem_R"] },
+      { clip: "tail_sweep",    loop: true,  affectedParts: ["tail_seg_1","tail_seg_2","tail_seg_3","tail_seg_4","tail_seg_5","tail_seg_6","tail_seg_7","tail_seg_8","tail_spade"] },
+    ],
+    lod: [
+      { level: 0, partCount: parts.length, notes: "full_detail" },
+      { level: 1, partCount: Math.round(parts.length * 0.6), notes: "medium_lod" },
+      { level: 2, partCount: Math.round(parts.length * 0.25), notes: "low_lod" },
+    ],
+    exportOptions: { format: ["gltf","glb"], embedTextures: true, generateNormals: true },
+  };
+  return spec;
+}
+
+// ============================================================
+// UFO BUILDER
+// ============================================================
+function buildUFOSpec(prompt, height, styles) {
+  const H = height;              // total height (landing gear bottom to dome tip)
+  const R = H * 1.75;            // disc radius
+  const base = buildHighDensityMeta(prompt, "ufo", H, styles);
+  const dark = styles.includes("dark");
+
+  const spec = {
+    ...base,
+    promptInterpretation: {
+      ...base.promptInterpretation,
+      ufoType: "flying_saucer",
+      discDiameterMeters: rounded(R * 2),
+    },
+    globalScale: { height: rounded(H), width: rounded(R * 2), depth: rounded(R * 2) },
+    style: {
+      silhouette:    "oblate_disc_with_dome",
+      mood:          dark ? "ominous_invader" : "classic_alien_visitor",
+      genre:         "sci_fi_extraterrestrial",
+      detailDensity: "ultra_high",
+      bodyLanguage:  "hovering",
+      shapeLanguage: ["disc_body", "central_dome", "rim_lights", "landing_gear",
+                      "tractor_beam_port", "hull_panels", "sensor_array", "antenna"]
+    },
+    materials: createBaseMaterials("ufo", styles),
+    parts: [],
+    surfaceDetails: [],
+    ornaments: [],
+    pose:           { preset: "hovering", hoverHeightMeters: 0 },
+    animationHints: { rimLightPulse: true, discRotate: false, beamFlicker: true, hoverBob: true },
+    lod:            { high: "full", medium: "remove_panel_lines", low: "merge_disc_layers" },
+    exportOptions:  { formats: ["gltf", "glb"] }
+  };
+
+  const parts = [];
+  const surfaceDetails = [];
+
+  const box = (id, mat, w, h, d, px, py, pz, rx = 0, ry = 0, rz = 0) => {
+    const e = { id, kind: "box", material: mat,
+      size: [rounded(w), rounded(h), rounded(d)],
+      position: [rounded(px), rounded(py), rounded(pz)] };
+    if (rx || ry || rz) e.rotation = [rounded(rx), rounded(ry), rounded(rz)];
+    parts.push(e);
+  };
+  const surf = (id, region, type, strength, offset) =>
+    surfaceDetails.push({ id, region, type, strength: rounded(strength), offset: offset.map(rounded) });
+
+  // ── DISC BODY (7 upper + 5 lower tiers, stepped disc profile) ─
+  //  Y-axis: disc center ≈ 0.40H.  Tiers widen outward then taper to rim.
+  const upperTiers = [
+    { ry: H*0.570, rr: R*0.38, rh: H*0.070, mat: "hull_silver" },  // inner high
+    { ry: H*0.530, rr: R*0.52, rh: H*0.065, mat: "hull_silver" },
+    { ry: H*0.490, rr: R*0.66, rh: H*0.060, mat: "hull_silver" },
+    { ry: H*0.450, rr: R*0.80, rh: H*0.055, mat: "hull_silver" },
+    { ry: H*0.415, rr: R*0.91, rh: H*0.048, mat: "hull_accent" },  // widest
+    { ry: H*0.382, rr: R*0.98, rh: H*0.038, mat: "hull_accent" },  // rim shoulder
+    { ry: H*0.358, rr: R*1.00, rh: H*0.028, mat: "hull_dark"   },  // rim edge
+  ];
+  for (let i = 0; i < upperTiers.length; i++) {
+    const { ry, rr, rh, mat } = upperTiers[i];
+    box(`disc_upper_${i+1}`, mat, rr*2, rh, rr*2, 0, ry, 0);
+  }
+
+  const lowerTiers = [
+    { ry: H*0.338, rr: R*0.96, rh: H*0.025, mat: "hull_dark"   },  // under rim
+    { ry: H*0.315, rr: R*0.82, rh: H*0.035, mat: "hull_accent" },
+    { ry: H*0.280, rr: R*0.64, rh: H*0.045, mat: "hull_dark"   },
+    { ry: H*0.245, rr: R*0.44, rh: H*0.050, mat: "hull_dark"   },
+    { ry: H*0.215, rr: R*0.26, rh: H*0.045, mat: "hull_dark"   },  // belly center
+  ];
+  for (let i = 0; i < lowerTiers.length; i++) {
+    const { ry, rr, rh, mat } = lowerTiers[i];
+    box(`disc_lower_${i+1}`, mat, rr*2, rh, rr*2, 0, ry, 0);
+  }
+
+  // ── DOME (cockpit — 6 tapering sections) ──────────────────────
+  const domeTiers = [
+    { dy: H*0.610, dr: R*0.360, dh: H*0.065 },
+    { dy: H*0.670, dr: R*0.295, dh: H*0.065 },
+    { dy: H*0.728, dr: R*0.228, dh: H*0.062 },
+    { dy: H*0.782, dr: R*0.162, dh: H*0.058 },
+    { dy: H*0.832, dr: R*0.098, dh: H*0.055 },
+    { dy: H*0.872, dr: R*0.045, dh: H*0.045 },
+  ];
+  for (let i = 0; i < domeTiers.length; i++) {
+    const { dy, dr, dh } = domeTiers[i];
+    box(`dome_${i+1}`, "dome_tint", dr*2, dh, dr*2, 0, dy, 0);
+  }
+  // Dome collar (junction ring between disc and dome)
+  box("dome_collar", "hull_accent", R*0.44*2, H*0.028, R*0.44*2, 0, H*0.595, 0);
+
+  // ── RIM LIGHTS (12 evenly-spaced green emissive) ──────────────
+  for (let i = 0; i < 12; i++) {
+    const a = (i / 12) * Math.PI * 2;
+    const lx = Math.sin(a) * R * 0.945;
+    const lz = Math.cos(a) * R * 0.945;
+    box(`rim_light_${i+1}`, "emissive_green", H*0.062, H*0.042, H*0.062, lx, H*0.375, lz);
+  }
+
+  // ── RIM THRUSTER PORTS (8 blue emissive, offset from lights) ──
+  for (let i = 0; i < 8; i++) {
+    const a = ((i + 0.5) / 8) * Math.PI * 2;
+    const tx = Math.sin(a) * R * 0.875;
+    const tz = Math.cos(a) * R * 0.875;
+    box(`thruster_${i+1}`, "emissive_blue", H*0.055, H*0.028, H*0.055, tx, H*0.358, tz);
+  }
+
+  // ── HULL PANEL LINES on upper disc (8 radial + 4 concentric) ──
+  for (let i = 0; i < 8; i++) {
+    const a = (i / 8) * Math.PI * 2;
+    const px = Math.sin(a) * R * 0.58;
+    const pz = Math.cos(a) * R * 0.58;
+    box(`panel_radial_${i+1}`, "panel_line", H*0.022, H*0.008, R*0.88, px, H*0.500, pz, 0, (i/8)*360*0.5, 0);
+  }
+  for (let i = 0; i < 4; i++) {
+    const cr = R * (0.22 + i * 0.20);
+    box(`panel_ring_top_${i+1}`, "panel_line", cr*2, H*0.006, cr*2, 0, H*0.498, 0);
+  }
+  // Underside panel rings
+  for (let i = 0; i < 4; i++) {
+    const cr = R * (0.18 + i * 0.18);
+    box(`panel_ring_bot_${i+1}`, "panel_line", cr*2, H*0.006, cr*2, 0, H*0.305, 0);
+  }
+
+  // ── HATCH PANELS around rim (8 rectangular hatches) ───────────
+  for (let i = 0; i < 8; i++) {
+    const a = (i / 8) * Math.PI * 2;
+    const hx = Math.sin(a) * R * 0.82;
+    const hz = Math.cos(a) * R * 0.82;
+    box(`hatch_${i+1}`, "hull_dark", H*0.090, H*0.022, H*0.130, hx, H*0.435, hz);
+    box(`hatch_bolt_${i+1}`, "hull_accent", H*0.014, H*0.010, H*0.014, hx, H*0.444, hz + H*0.048);
+  }
+
+  // ── BOTTOM EMITTER (tractor beam port) ────────────────────────
+  box("emitter_ring_outer", "hull_dark",      R*0.34*2, H*0.025, R*0.34*2, 0, H*0.205, 0);
+  box("emitter_ring_inner", "hull_accent",    R*0.22*2, H*0.020, R*0.22*2, 0, H*0.192, 0);
+  box("emitter_core",       "emissive_blue",  R*0.12*2, H*0.030, R*0.12*2, 0, H*0.180, 0);
+  box("emitter_focus",      "emissive_white", R*0.055*2,H*0.038, R*0.055*2,0, H*0.162, 0);
+
+  // ── LANDING LEGS (3 legs, 120° apart) ────────────────────────
+  for (let i = 0; i < 3; i++) {
+    const a = (i / 3) * Math.PI * 2;
+    const sx = Math.sin(a), sz = Math.cos(a);
+    const ux = sx * R * 0.38, uz = sz * R * 0.38;
+    const lx = sx * R * 0.52, lz = sz * R * 0.52;
+    const fx = sx * R * 0.58, fz = sz * R * 0.58;
+    // Upper strut
+    box(`leg_upper_${i+1}`,  "leg_metal", H*0.038, H*0.165, H*0.038, ux, H*0.195, uz);
+    // Knee joint
+    box(`leg_knee_${i+1}`,   "hull_dark", H*0.055, H*0.040, H*0.055, (ux+lx)*0.5, H*0.122, (uz+lz)*0.5);
+    // Lower strut
+    box(`leg_lower_${i+1}`,  "leg_metal", H*0.030, H*0.145, H*0.030, lx, H*0.075, lz);
+    // Foot pad (tripod base)
+    box(`leg_foot_${i+1}`,   "leg_metal", H*0.115, H*0.022, H*0.115, fx, H*0.011, fz);
+    // Hydraulic detail
+    box(`leg_piston_${i+1}`, "hull_accent",H*0.018, H*0.060, H*0.018, ux*0.85, H*0.145, uz*0.85);
+  }
+
+  // ── DOME SENSOR CLUSTER (6 sensors at dome base) ──────────────
+  for (let i = 0; i < 6; i++) {
+    const a = (i / 6) * Math.PI * 2;
+    const sx = Math.sin(a) * R * 0.200;
+    const sz = Math.cos(a) * R * 0.200;
+    box(`sensor_${i+1}`, i % 2 === 0 ? "emissive_green" : "hull_dark", H*0.038, H*0.048, H*0.038, sx, H*0.612, sz);
+  }
+
+  // ── ANTENNA / NAVIGATION LIGHTS ───────────────────────────────
+  box("antenna_base",   "hull_silver",    H*0.055, H*0.038, H*0.055, 0, H*0.900, 0);
+  box("antenna_shaft",  "hull_dark",      H*0.018, H*0.095, H*0.018, 0, H*0.958, 0);
+  box("antenna_tip",    "emissive_red",   H*0.028, H*0.028, H*0.028, 0, H*1.008, 0);
+  // Navigation lights on rim (red/green at sides)
+  box("nav_port",       "emissive_red",   H*0.040, H*0.028, H*0.040, -R*0.980, H*0.370, 0);
+  box("nav_stbd",       "emissive_green", H*0.040, H*0.028, H*0.040,  R*0.980, H*0.370, 0);
+
+  // ── EXHAUST / VENT GRILLES (16, alternating around mid-disc) ──
+  for (let i = 0; i < 16; i++) {
+    const a = (i / 16) * Math.PI * 2;
+    const vx = Math.sin(a) * R * 0.72;
+    const vz = Math.cos(a) * R * 0.72;
+    box(`vent_${i+1}`, i % 3 === 0 ? "emissive_blue" : "panel_line",
+      H*0.045, H*0.014, H*0.065, vx, H*0.418, vz);
+  }
+
+  // ── DOME INTERIOR DETAIL (visible through tinted glass) ───────
+  box("cockpit_seat_l",  "hull_dark",  H*0.060, H*0.055, H*0.050, -H*0.075, H*0.640, 0);
+  box("cockpit_seat_r",  "hull_dark",  H*0.060, H*0.055, H*0.050,  H*0.075, H*0.640, 0);
+  box("cockpit_console", "hull_accent",H*0.180, H*0.035, H*0.070,  0,        H*0.615, H*0.060);
+  box("cockpit_glow_l",  "emissive_blue", H*0.025, H*0.020, H*0.025, -H*0.060, H*0.630, H*0.070);
+  box("cockpit_glow_r",  "emissive_blue", H*0.025, H*0.020, H*0.025,  H*0.060, H*0.630, H*0.070);
+
+  // ── SURFACE DETAILS ───────────────────────────────────────────
+  const regions = ["disc_top", "disc_bottom", "disc_rim", "dome", "undercarriage",
+                   "landing_gear", "sensor_array", "hull_left", "hull_right"];
+  const dTypes  = ["panel_seam", "rivet_row", "ablation_mark", "hull_plating", "weld_line"];
+  let sdi = 1;
+  for (const region of regions) {
+    for (let i = 0; i < 16; i++) {
+      surf(`ufo_sd_${sdi++}`, region, dTypes[i % dTypes.length],
+        0.10 + (i % 5) * 0.06,
+        [Math.sin(i * 1.1) * 0.020, Math.cos(i * 0.7) * 0.015, ((i % 4) - 1.5) * 0.010]);
+    }
+  }
+
+  spec.parts = parts;
+  spec.surfaceDetails = surfaceDetails;
+  spec.ornaments = [];
+  return spec;
+}
+
+// ============================================================
+// ANIMAL BUILDER
+// ============================================================
+function buildAnimalSpec(prompt, height, styles) {
+  const H = height; // standing reference height (default 1.7m for gorilla)
+  styles._prompt = prompt;
+  const base = buildHighDensityMeta(prompt, "animal", H, styles);
+
+  const isGorilla = /gorilla|ゴリラ|類人猿|大型類人猿|ape|chimpanzee|チンパンジー|orangutan|オランウータン/iu.test(prompt);
+  const isGiraffe = /giraffe|キリン|きりん|麒麟/iu.test(prompt);
+  const isLion    = /lion|ライオン|獅子|シシ|panthera.?leo/iu.test(prompt);
+  const isEastern = /ヒガシ|eastern|マウンテン|mountain/iu.test(prompt);
+  // Silverback = adult male
+  const isSilverback = !/メス|female|幼|子ゴリラ|若|juvenile/iu.test(prompt);
+
+  const spec = {
+    ...base,
+    promptInterpretation: {
+      ...base.promptInterpretation,
+      animalType:      isGorilla ? "gorilla" : "primate",
+      subspecies:      isEastern ? "eastern_gorilla" : "western_lowland_gorilla",
+      ageClass:        isSilverback ? "adult_male_silverback" : "adult",
+      pose:            "knuckle_walking",
+    },
+    globalScale: { height: rounded(H * 0.62), width: rounded(H * 0.72), depth: rounded(H * 0.58) },
+    style: {
+      silhouette:    "quadrupedal_knuckle_walking_great_ape",
+      mood:          "dominant_male",
+      genre:         "realistic_wildlife",
+      detailDensity: "ultra_high",
+      bodyLanguage:  "knuckle_walking_forward_lean",
+      shapeLanguage: ["barrel_chest", "massive_shoulders", "long_arms", "sagittal_crest", "prominent_brow_ridge", "no_tail"]
+    },
+    materials: createBaseMaterials("animal", styles),
+    parts: [],
+    surfaceDetails: [],
+    ornaments: [],
+    pose: { preset: "knuckle_walk", bodyForwardTiltDeg: 35, headForwardTiltDeg: 20 },
+    animationHints: { idleBreathScale: 0.008, knuckleBounce: true, headSway: false },
+    lod: { high: "full", medium: "merge_fur_patches", low: "merge_limb_segments" },
+    exportOptions: { formats: ["gltf", "glb"] }
+  };
+
+  const parts = [];
+  const surfaceDetails = [];
+
+  const box = (id, mat, w, h, d, px, py, pz, rx = 0, ry = 0, rz = 0) => {
+    const entry = { id, kind: "box", material: mat,
+      size: [rounded(w), rounded(h), rounded(d)],
+      position: [rounded(px), rounded(py), rounded(pz)] };
+    if (rx || ry || rz) entry.rotation = [rounded(rx), rounded(ry), rounded(rz)];
+    parts.push(entry);
+  };
+  const cyl = (id, mat, r, h, px, py, pz) => {
+    parts.push({ id, kind: "cylinder", material: mat,
+      size: [rounded(r*2), rounded(h), rounded(r*2)],
+      position: [rounded(px), rounded(py), rounded(pz)] });
+  };
+  const sph = (id, mat, r, px, py, pz) => {
+    parts.push({ id, kind: "sphere", material: mat,
+      size: [rounded(r*2), rounded(r*2), rounded(r*2)],
+      position: [rounded(px), rounded(py), rounded(pz)] });
+  };
+  const surf = (id, region, type, strength, offset) => {
+    surfaceDetails.push({ id, region, type, strength: rounded(strength), offset: offset.map(rounded) });
+  };
+
+  // ── Coordinate conventions ──────────────────────────────────
+  // Y = up, ground = Y 0
+  // Z = forward (+ = toward viewer / front of animal)
+  // X = right (+ = right side of animal)
+  //
+  // Knuckle-walking posture:
+  //   Rear feet flat on ground (Z ≈ -0.15H)
+  //   Front knuckles on ground (Z ≈ +0.30H)
+  //   Body tilted ~35° forward
+  // ────────────────────────────────────────────────────────────
+
+  // ════════════════════════════════════════════════════════════
+  // GIRAFFE GEOMETRY
+  // ════════════════════════════════════════════════════════════
+  if (isGiraffe) {
+    // Giraffe proportions (H = total height, default 5.5m)
+    // Y=0 ground, Z+ forward, X+ right
+    // Key heights as fraction of H:
+    //   hoof       0.00
+    //   lower leg  0.02–0.20
+    //   knee/hock  0.20
+    //   upper leg  0.20–0.38
+    //   body       0.38–0.56
+    //   withers    0.56
+    //   neck       0.56–0.88
+    //   head       0.88–0.96
+    //   ossicones  0.96–1.00
+    // Front legs (Z≈+0.10H), rear legs (Z≈-0.14H)
+
+    // Override spec fields for giraffe
+    spec.promptInterpretation.animalType   = "giraffe";
+    spec.promptInterpretation.subspecies   = /アミメ|reticulated/iu.test(prompt) ? "reticulated_giraffe"
+      : /マサイ|masai/iu.test(prompt) ? "masai_giraffe"
+      : /ミナミ|southern/iu.test(prompt) ? "southern_giraffe"
+      : "reticulated_giraffe";
+    spec.promptInterpretation.pose         = "standing";
+    spec.globalScale = { height: rounded(H), width: rounded(H*0.22), depth: rounded(H*0.40) };
+    spec.style.silhouette    = "long_necked_even_toed_ungulate";
+    spec.style.bodyLanguage  = "standing_alert";
+    spec.style.shapeLanguage = ["extremely_long_neck", "long_legs", "compact_body", "ossicones", "reticulated_coat_pattern", "tufted_tail"];
+    spec.pose = { preset: "standing_alert", neckElevationDeg: 75 };
+    spec.animationHints = { idleBreathScale: 0.005, neckSway: true, tailFlick: true };
+
+    // ── HOOVES & LOWER LEGS (cannon bones) ───────────────────
+    // Front legs
+    for (const [sx, lr] of [[-1, "l"], [1, "r"]]) {
+      const fz = H*0.10; // front Z offset
+      box(`hoof_f_${lr}`,      "hoof",       H*0.060, H*0.030, H*0.055,  sx*H*0.065, H*0.015, fz);
+      box(`fetlock_f_${lr}`,   "coat_cream",  H*0.055, H*0.028, H*0.050,  sx*H*0.065, H*0.044, fz);
+      box(`cannon_f_${lr}`,    "coat_cream",  H*0.048, H*0.145, H*0.044,  sx*H*0.065, H*0.145, fz);
+      // Knee (carpus)
+      box(`knee_f_${lr}`,      "coat_patch",  H*0.060, H*0.038, H*0.055,  sx*H*0.065, H*0.228, fz);
+      // Radius (upper foreleg)
+      box(`radius_f_${lr}`,    "coat_cream",  H*0.055, H*0.130, H*0.050,  sx*H*0.065, H*0.325, fz);
+      // Elbow pad
+      box(`elbow_f_${lr}`,     "coat_dark",   H*0.060, H*0.032, H*0.058,  sx*H*0.065, H*0.392, fz + H*0.005);
+      // Humerus (upper arm)
+      box(`humerus_f_${lr}`,   "coat_patch",  H*0.065, H*0.095, H*0.060,  sx*H*0.065, H*0.450, fz - H*0.010);
+    }
+    // Rear legs
+    for (const [sx, lr] of [[-1, "l"], [1, "r"]]) {
+      const rz = -H*0.14;
+      box(`hoof_r_${lr}`,      "hoof",        H*0.060, H*0.030, H*0.055,  sx*H*0.060, H*0.015, rz);
+      box(`fetlock_r_${lr}`,   "coat_cream",  H*0.055, H*0.028, H*0.050,  sx*H*0.060, H*0.044, rz);
+      box(`cannon_r_${lr}`,    "coat_cream",  H*0.048, H*0.148, H*0.044,  sx*H*0.060, H*0.148, rz);
+      // Hock (tarsus)
+      box(`hock_r_${lr}`,      "coat_patch",  H*0.065, H*0.040, H*0.060,  sx*H*0.060, H*0.232, rz - H*0.010);
+      // Tibia
+      box(`tibia_r_${lr}`,     "coat_cream",  H*0.058, H*0.125, H*0.054,  sx*H*0.060, H*0.322, rz);
+      // Stifle (knee)
+      box(`stifle_r_${lr}`,    "coat_patch",  H*0.065, H*0.035, H*0.062,  sx*H*0.060, H*0.392, rz + H*0.008);
+      // Femur (thigh)
+      box(`femur_r_${lr}`,     "coat_cream",  H*0.068, H*0.100, H*0.062,  sx*H*0.060, H*0.450, rz + H*0.015);
+    }
+
+    // ── PELVIS / HINDQUARTERS ─────────────────────────────────
+    box("pelvis",          "coat_patch",  H*0.180, H*0.095, H*0.080,  0, H*0.508, -H*0.080);
+    box("croup",           "coat_cream",  H*0.165, H*0.075, H*0.065,  0, H*0.540, -H*0.110);
+    box("hip_l",           "coat_patch",  H*0.060, H*0.075, H*0.060, -H*0.095, H*0.505, -H*0.060);
+    box("hip_r",           "coat_patch",  H*0.060, H*0.075, H*0.060,  H*0.095, H*0.505, -H*0.060);
+
+    // ── BODY (compact, barrel-shaped) ────────────────────────
+    box("body_rear",       "coat_cream",  H*0.195, H*0.100, H*0.155,  0, H*0.478, -H*0.055);
+    box("body_mid",        "coat_patch",  H*0.200, H*0.105, H*0.160,  0, H*0.498, H*0.00);
+    box("body_fore",       "coat_cream",  H*0.190, H*0.095, H*0.150,  0, H*0.510, H*0.055);
+    box("belly",           "coat_cream",  H*0.160, H*0.055, H*0.260,  0, H*0.418, -H*0.010);
+    box("rib_l",           "coat_patch",  H*0.050, H*0.080, H*0.165, -H*0.105, H*0.490, H*0.010);
+    box("rib_r",           "coat_patch",  H*0.050, H*0.080, H*0.165,  H*0.105, H*0.490, H*0.010);
+
+    // ── WITHERS / SHOULDER ───────────────────────────────────
+    box("withers",         "coat_dark",   H*0.090, H*0.060, H*0.075,  0, H*0.565, H*0.045);
+    box("scapula_l",       "coat_patch",  H*0.065, H*0.075, H*0.070, -H*0.095, H*0.540, H*0.040);
+    box("scapula_r",       "coat_patch",  H*0.065, H*0.075, H*0.070,  H*0.095, H*0.540, H*0.040);
+
+    // ── NECK (extremely long — main feature of giraffe) ───────
+    // 7 cervical vertebra segments, neck rises nearly vertical
+    const neckSegs = 10;
+    for (let i = 0; i < neckSegs; i++) {
+      const t = i / (neckSegs - 1);
+      const ny = H*0.575 + t * H*0.290;
+      const nz = H*0.055 - t * H*0.020; // slight forward lean at base, vertical at top
+      const nw = H*(0.110 - t*0.028);   // tapers from base to head
+      const nd = H*(0.115 - t*0.030);
+      const mat = i % 2 === 0 ? "coat_cream" : "coat_patch";
+      box(`neck_${i+1}`, mat, nw, H*0.038, nd, 0, ny, nz);
+    }
+    // Neck mane (row of stiff dark hairs along top of neck)
+    const maneSegs = 14;
+    for (let i = 0; i < maneSegs; i++) {
+      const t = i / (maneSegs - 1);
+      const my = H*0.575 + t * H*0.285;
+      const mz = H*0.042 - t * H*0.025;
+      box(`mane_${i+1}`, "mane_dark", H*0.018, H*0.040, H*0.010, 0, my + H*0.048, mz - H*0.050);
+    }
+    // Neck patch decorations (alternating cream/patch bands to simulate coat)
+    for (let i = 0; i < 8; i++) {
+      const t = i / 7;
+      const py = H*0.585 + t * H*0.275;
+      const pz = H*0.052 - t * H*0.018;
+      const mat = i % 2 === 0 ? "coat_dark" : "coat_cream";
+      box(`neck_patch_l_${i+1}`, mat, H*0.010, H*0.030, H*0.060, -H*0.050, py, pz);
+      box(`neck_patch_r_${i+1}`, mat, H*0.010, H*0.030, H*0.060,  H*0.050, py, pz);
+    }
+
+    // ── HEAD (small, elongated) ───────────────────────────────
+    const hy = H*0.895; // head center Y
+    const hz = H*0.030; // head center Z
+    box("cranium",         "coat_cream",  H*0.095, H*0.060, H*0.130,  0, hy,         hz);
+    box("forehead",        "coat_patch",  H*0.088, H*0.042, H*0.080,  0, hy - H*0.01, hz + H*0.075);
+    box("face",            "skin_face",   H*0.075, H*0.045, H*0.095,  0, hy - H*0.035, hz + H*0.120);
+    box("muzzle",          "skin_face",   H*0.062, H*0.038, H*0.075,  0, hy - H*0.060, hz + H*0.175);
+    // Nostrils
+    box("nostril_l",       "coat_dark",   H*0.020, H*0.016, H*0.024, -H*0.020, hy - H*0.065, hz + H*0.218);
+    box("nostril_r",       "coat_dark",   H*0.020, H*0.016, H*0.024,  H*0.020, hy - H*0.065, hz + H*0.218);
+    // Upper/lower lips (giraffes have a very long prehensile tongue & lip)
+    box("lip_upper",       "skin_face",   H*0.055, H*0.018, H*0.025,  0, hy - H*0.075, hz + H*0.220);
+    box("lip_lower",       "skin_face",   H*0.048, H*0.014, H*0.022,  0, hy - H*0.086, hz + H*0.218);
+    // Chin
+    box("chin",            "coat_cream",  H*0.045, H*0.020, H*0.020,  0, hy - H*0.098, hz + H*0.212);
+    // Eyes (large, on sides of head)
+    box("eye_l",           "eye_brown",   H*0.030, H*0.028, H*0.022, -H*0.046, hy + H*0.012, hz + H*0.068);
+    box("eye_r",           "eye_brown",   H*0.030, H*0.028, H*0.022,  H*0.046, hy + H*0.012, hz + H*0.068);
+    // Eyelash tufts
+    box("lash_l",          "mane_dark",   H*0.028, H*0.006, H*0.010, -H*0.046, hy + H*0.025, hz + H*0.078);
+    box("lash_r",          "mane_dark",   H*0.028, H*0.006, H*0.010,  H*0.046, hy + H*0.025, hz + H*0.078);
+    // Ears (large, mobile)
+    box("ear_l",           "coat_cream",  H*0.030, H*0.058, H*0.018, -H*0.055, hy + H*0.035, hz - H*0.010, 0, 0, -10);
+    box("ear_r",           "coat_cream",  H*0.030, H*0.058, H*0.018,  H*0.055, hy + H*0.035, hz - H*0.010, 0, 0,  10);
+    box("ear_inner_l",     "skin_face",   H*0.020, H*0.042, H*0.006, -H*0.055, hy + H*0.032, hz - H*0.008, 0, 0, -10);
+    box("ear_inner_r",     "skin_face",   H*0.020, H*0.042, H*0.006,  H*0.055, hy + H*0.032, hz - H*0.008, 0, 0,  10);
+
+    // ── OSSICONES (horn-like protrusions, skin-covered) ───────
+    // Central ossicone (median, above eyes — present in both sexes)
+    box("ossicone_c_base", "ossicone",    H*0.022, H*0.040, H*0.022,  0, hy + H*0.042, hz + H*0.008);
+    box("ossicone_c_tip",  "ossicone_tip",H*0.016, H*0.020, H*0.016,  0, hy + H*0.078, hz + H*0.006);
+    // Pair ossicones (main ones)
+    for (const [sx, lr] of [[-1, "l"], [1, "r"]]) {
+      box(`ossicone_${lr}_base`, "ossicone",    H*0.028, H*0.060, H*0.028, sx*H*0.032, hy + H*0.048, hz - H*0.005, 0, 0, sx*5);
+      box(`ossicone_${lr}_shaft`,"ossicone",    H*0.022, H*0.045, H*0.022, sx*H*0.034, hy + H*0.090, hz - H*0.006, 0, 0, sx*5);
+      box(`ossicone_${lr}_tip`,  "ossicone_tip",H*0.016, H*0.025, H*0.016, sx*H*0.036, hy + H*0.125, hz - H*0.007, 0, 0, sx*5);
+      // Tuft of dark hair at ossicone tip
+      box(`ossicone_tuft_${lr}`, "mane_dark",   H*0.024, H*0.018, H*0.014, sx*H*0.036, hy + H*0.146, hz - H*0.007);
+    }
+
+    // ── TAIL (thin, long, tufted) ─────────────────────────────
+    for (let i = 0; i < 8; i++) {
+      const t = i / 7;
+      box(`tail_${i+1}`, "coat_cream",   H*0.018, H*0.030, H*0.018,
+        0, H*(0.520 - t*0.090), H*(-0.150 - t*0.015));
+    }
+    // Tail tuft
+    box("tail_tuft",       "mane_dark",   H*0.035, H*0.055, H*0.022,  0, H*0.424, -H*0.163);
+
+    // ── COAT PATCH PATTERN (body) ─────────────────────────────
+    // Large irregular patches on body (reticulated pattern)
+    const bodyPatches = [
+      // [mat, w, h, d, px, py, pz]
+      ["coat_patch", H*0.070, H*0.055, H*0.090,  H*0.060, H*0.510,  H*0.040],
+      ["coat_dark",  H*0.055, H*0.045, H*0.075, -H*0.070, H*0.498,  H*0.020],
+      ["coat_patch", H*0.060, H*0.050, H*0.080,  H*0.040, H*0.470, -H*0.025],
+      ["coat_dark",  H*0.065, H*0.048, H*0.085, -H*0.050, H*0.490, -H*0.040],
+      ["coat_patch", H*0.055, H*0.042, H*0.070,  H*0.080, H*0.480,  H*0.060],
+      ["coat_dark",  H*0.060, H*0.055, H*0.078, -H*0.075, H*0.505,  H*0.060],
+      ["coat_patch", H*0.052, H*0.040, H*0.068,  H*0.020, H*0.502, -H*0.065],
+      ["coat_dark",  H*0.058, H*0.046, H*0.080, -H*0.040, H*0.518,  H*0.015],
+      ["coat_patch", H*0.048, H*0.038, H*0.065,  H*0.065, H*0.455,  H*0.020],
+      ["coat_dark",  H*0.062, H*0.050, H*0.082, -H*0.065, H*0.462, -H*0.010],
+      ["coat_patch", H*0.055, H*0.044, H*0.072,  H*0.000, H*0.525,  H*0.070],
+      ["coat_dark",  H*0.050, H*0.040, H*0.068,  H*0.085, H*0.530, -H*0.030],
+    ];
+    for (let i = 0; i < bodyPatches.length; i++) {
+      const [mat, w, h, d, px, py, pz] = bodyPatches[i];
+      box(`body_patch_${i+1}`, mat, w, h, d, px, py, pz);
+    }
+
+    // ── SURFACE DETAILS ───────────────────────────────────────
+    const giraffeSurfaces = [
+      "head", "muzzle", "neck_upper", "neck_mid", "neck_lower",
+      "body_left", "body_right", "body_top", "belly",
+      "front_left_leg", "front_right_leg", "rear_left_leg", "rear_right_leg"
+    ];
+    const gDetails = ["coat_seam", "muscle_ridge", "skin_fold", "wrinkle", "fur_texture"];
+    let gsdi = 1;
+    for (const region of giraffeSurfaces) {
+      for (let i = 0; i < 8; i++) {
+        surf(`g_sd_${gsdi++}`, region, gDetails[i % gDetails.length],
+          0.12 + (i % 5) * 0.06,
+          [Math.sin(i * 1.1) * 0.018, Math.cos(i * 0.9) * 0.012, ((i % 3) - 1) * 0.010]);
+      }
+    }
+
+    spec.parts = parts;
+    spec.surfaceDetails = surfaceDetails;
+    spec.ornaments = [];
+    return spec;
+  }
+
+  // ── REAR FEET & LOWER LEGS ───────────────────────────────────
+  for (const [sx, lr] of [[-1, "l"], [1, "r"]]) {
+    // foot (flat, plantigrade)
+    box(`foot_${lr}`,   "skin_exposed", H*0.09, H*0.030, H*0.14,  sx*H*0.10, H*0.015, -H*0.17);
+    // big toe pad
+    box(`toe_big_${lr}`, "skin_exposed", H*0.040, H*0.022, H*0.040, sx*H*0.055, H*0.012, -H*0.10);
+    // toes (4 outer)
+    for (let t = 0; t < 4; t++) {
+      box(`toe_${lr}_${t+1}`, "skin_exposed", H*0.020, H*0.018, H*0.036,
+        sx*(H*0.075 + t*H*0.018), H*0.010, -H*0.115 + t*H*0.005);
+    }
+    // ankle
+    box(`ankle_${lr}`,  "fur_dark",     H*0.072, H*0.05,  H*0.080, sx*H*0.10, H*0.055, -H*0.15);
+    // shin (lower leg) - slightly angled
+    box(`shin_${lr}`,   "fur_dark",     H*0.080, H*0.16,  H*0.090, sx*H*0.10, H*0.165, -H*0.115, -12, 0, 0);
+    // knee bump
+    box(`knee_${lr}`,   "fur_black",    H*0.090, H*0.052, H*0.095, sx*H*0.10, H*0.28,  -H*0.055);
+    // thigh (upper leg)
+    box(`thigh_${lr}`,  "fur_dark",     H*0.11,  H*0.18,  H*0.10,  sx*H*0.10, H*0.385,  H*0.00, -8, 0, 0);
+  }
+
+  // ── PELVIS ────────────────────────────────────────────────────
+  box("pelvis",       "fur_dark",     H*0.30, H*0.10,  H*0.20,  0, H*0.455, -H*0.01);
+  box("hip_l",        "fur_dark",     H*0.08, H*0.09,  H*0.12, -H*0.155, H*0.445, -H*0.005);
+  box("hip_r",        "fur_dark",     H*0.08, H*0.09,  H*0.12,  H*0.155, H*0.445, -H*0.005);
+
+  // ── LOWER BACK / LUMBAR ───────────────────────────────────────
+  box("lumbar",       "fur_dark",     H*0.26, H*0.10,  H*0.18,  0, H*0.52,   H*0.01);
+
+  // ── TORSO (barrel chest shape - very wide and deep) ───────────
+  box("belly",        "fur_dark",     H*0.32, H*0.10,  H*0.24,  0, H*0.58,   H*0.04);
+  box("lower_chest",  "fur_dark",     H*0.38, H*0.10,  H*0.26,  0, H*0.635,  H*0.08);
+  box("mid_chest",    "fur_dark",     H*0.42, H*0.12,  H*0.26,  0, H*0.68,   H*0.10);
+  box("upper_chest",  "fur_dark",     H*0.40, H*0.10,  H*0.24,  0, H*0.725,  H*0.12);
+  // Chest pectoral masses
+  box("pec_l",        "fur_black",    H*0.14, H*0.09,  H*0.10, -H*0.12, H*0.695, H*0.145);
+  box("pec_r",        "fur_black",    H*0.14, H*0.09,  H*0.10,  H*0.12, H*0.695, H*0.145);
+
+  // ── UPPER BACK & SILVERBACK ───────────────────────────────────
+  box("upper_back",   "fur_dark",     H*0.30, H*0.14,  H*0.14,  0, H*0.675, -H*0.06);
+  // Silverback patch (adult male - light grey fur on upper back)
+  if (isSilverback) {
+    box("silverback_main",  "silverback", H*0.24, H*0.12, H*0.06,  0, H*0.70,  -H*0.095);
+    box("silverback_upper", "silverback", H*0.18, H*0.06, H*0.04,  0, H*0.745, -H*0.09);
+    box("silverback_lower", "silverback", H*0.20, H*0.06, H*0.05,  0, H*0.655, -H*0.09);
+  }
+
+  // ── SHOULDERS (very wide, powerful) ───────────────────────────
+  for (const [sx, lr] of [[-1, "l"], [1, "r"]]) {
+    box(`shoulder_${lr}`,      "fur_dark",  H*0.10, H*0.10, H*0.12,  sx*H*0.225, H*0.74, H*0.05);
+    box(`shoulder_cap_${lr}`,  "fur_black", H*0.08, H*0.06, H*0.10,  sx*H*0.255, H*0.75, H*0.04);
+  }
+
+  // ── UPPER ARMS (long, thick — gorilla arms much longer than legs) ─
+  for (const [sx, lr] of [[-1, "l"], [1, "r"]]) {
+    // Upper arm: from shoulder (Y≈0.74, Z≈0.05) angling forward-down to elbow (Y≈0.50, Z≈0.20)
+    box(`upper_arm_${lr}`,  "fur_dark",  H*0.095, H*0.26,  H*0.095, sx*H*0.245, H*0.625, H*0.125, 30, 0, 0);
+    box(`upper_arm_bulk_${lr}`, "fur_black", H*0.075, H*0.14, H*0.075, sx*H*0.245, H*0.57, H*0.175, 30, 0, 0);
+  }
+
+  // ── FOREARMS (reaching forward-down to knuckles) ─────────────
+  for (const [sx, lr] of [[-1, "l"], [1, "r"]]) {
+    // Elbow area (Y≈0.48, Z≈0.22)
+    box(`elbow_${lr}`,       "fur_dark",   H*0.090, H*0.055, H*0.090, sx*H*0.245, H*0.485, H*0.215);
+    // Forearm: from elbow angling down-forward to wrist (Y≈0.25, Z≈0.30)
+    box(`forearm_${lr}`,     "fur_dark",   H*0.080, H*0.25,  H*0.080, sx*H*0.240, H*0.365, H*0.255, 25, 0, 0);
+    box(`forearm_lower_${lr}`,"fur_black",  H*0.070, H*0.14,  H*0.068, sx*H*0.237, H*0.225, H*0.295, 20, 0, 0);
+  }
+
+  // ── HANDS / KNUCKLES (on ground) ─────────────────────────────
+  for (const [sx, lr] of [[-1, "l"], [1, "r"]]) {
+    box(`wrist_${lr}`,       "skin_exposed", H*0.085, H*0.045, H*0.070, sx*H*0.233, H*0.125, H*0.320);
+    box(`palm_${lr}`,        "skin_exposed", H*0.100, H*0.055, H*0.090, sx*H*0.230, H*0.065, H*0.330);
+    // Knuckles (4 fingers curled under, bearing weight)
+    for (let f = 0; f < 4; f++) {
+      const fz = H*0.330 + f*H*0.005;
+      const fy = H*0.033;
+      box(`knuckle_${lr}_${f+1}`, "skin_exposed", H*0.022, H*0.028, H*0.034,
+        sx*(H*0.195 + f*H*0.022), fy, fz);
+      box(`finger_${lr}_${f+1}`,  "skin_exposed", H*0.018, H*0.025, H*0.028,
+        sx*(H*0.195 + f*H*0.022), H*0.015, fz + H*0.028, 15, 0, 0);
+    }
+    // Thumb
+    box(`thumb_${lr}`, "skin_exposed", H*0.028, H*0.040, H*0.028, sx*H*0.168, H*0.075, H*0.300);
+    // Finger nails
+    for (let f = 0; f < 4; f++) {
+      box(`nail_${lr}_${f+1}`, "nail_dark", H*0.016, H*0.006, H*0.014,
+        sx*(H*0.195 + f*H*0.022), H*0.006, H*0.358 + f*H*0.003);
+    }
+  }
+
+  // ── NECK (short, very thick) ──────────────────────────────────
+  box("neck_lower", "fur_dark",   H*0.16, H*0.06, H*0.16,  0, H*0.775, H*0.12);
+  box("neck_upper", "fur_dark",   H*0.14, H*0.05, H*0.14,  0, H*0.820, H*0.145);
+
+  // ── HEAD ──────────────────────────────────────────────────────
+  // Cranium (large, rounded)
+  box("cranium",      "fur_dark",   H*0.210, H*0.155, H*0.185,  0, H*0.905, H*0.145);
+  // Sagittal crest (prominent ridge on top of adult male skull)
+  box("sagittal_crest_base",  "fur_dark",  H*0.065, H*0.09, H*0.12,  0, H*0.980, H*0.130, -10, 0, 0);
+  box("sagittal_crest_tip",   "fur_black", H*0.040, H*0.065, H*0.08, 0, H*1.020, H*0.118, -15, 0, 0);
+  // Occipital region (back of skull)
+  box("occiput",      "fur_dark",   H*0.160, H*0.095, H*0.080,  0, H*0.905, H*0.058);
+
+  // Supraorbital torus (prominent brow ridge — diagnostic of gorilla)
+  box("brow_ridge_l", "skin_exposed", H*0.090, H*0.038, H*0.050, -H*0.050, H*0.930, H*0.218);
+  box("brow_ridge_r", "skin_exposed", H*0.090, H*0.038, H*0.050,  H*0.050, H*0.930, H*0.218);
+  box("brow_ridge_c", "skin_exposed", H*0.040, H*0.030, H*0.040,  0,        H*0.928, H*0.222);
+
+  // Facial mask (broad flat face)
+  box("face_upper",   "skin_exposed", H*0.170, H*0.070, H*0.060,  0, H*0.908, H*0.224);
+  box("face_mid",     "skin_exposed", H*0.155, H*0.055, H*0.055,  0, H*0.878, H*0.226);
+  box("face_lower",   "skin_exposed", H*0.130, H*0.045, H*0.050,  0, H*0.852, H*0.220);
+
+  // Nose (wide, flat)
+  box("nose_bridge",  "skin_exposed", H*0.065, H*0.030, H*0.028,  0, H*0.905, H*0.240);
+  box("nose_tip",     "skin_exposed", H*0.090, H*0.022, H*0.025,  0, H*0.888, H*0.250);
+  box("nostril_l",    "skin_exposed", H*0.030, H*0.018, H*0.018, -H*0.028, H*0.884, H*0.254);
+  box("nostril_r",    "skin_exposed", H*0.030, H*0.018, H*0.018,  H*0.028, H*0.884, H*0.254);
+
+  // Eyes (deep-set under brow)
+  box("eye_l",        "eye_dark",    H*0.040, H*0.030, H*0.026, -H*0.050, H*0.918, H*0.218);
+  box("eye_r",        "eye_dark",    H*0.040, H*0.030, H*0.026,  H*0.050, H*0.918, H*0.218);
+  // Eye whites
+  box("sclera_l",     "skin_exposed", H*0.028, H*0.022, H*0.012, -H*0.050, H*0.919, H*0.228);
+  box("sclera_r",     "skin_exposed", H*0.028, H*0.022, H*0.012,  H*0.050, H*0.919, H*0.228);
+
+  // Cheeks (wide, fleshy)
+  box("cheek_l",      "skin_exposed", H*0.050, H*0.050, H*0.050, -H*0.088, H*0.876, H*0.216);
+  box("cheek_r",      "skin_exposed", H*0.050, H*0.050, H*0.050,  H*0.088, H*0.876, H*0.216);
+
+  // Mouth / lips (thick)
+  box("lip_upper",    "lip_dark",    H*0.095, H*0.025, H*0.030,  0, H*0.856, H*0.240);
+  box("lip_lower",    "lip_dark",    H*0.085, H*0.020, H*0.028,  0, H*0.840, H*0.238);
+
+  // Jaw (massive, prognathic)
+  box("jaw_upper",    "skin_exposed", H*0.130, H*0.030, H*0.060,  0, H*0.848, H*0.220);
+  box("jaw_lower",    "fur_dark",    H*0.125, H*0.045, H*0.055,  0, H*0.830, H*0.210);
+  box("chin",         "skin_exposed", H*0.080, H*0.028, H*0.035,  0, H*0.815, H*0.228);
+
+  // Ears (small, close to skull)
+  box("ear_l",        "skin_exposed", H*0.030, H*0.038, H*0.018, -H*0.104, H*0.916, H*0.116);
+  box("ear_r",        "skin_exposed", H*0.030, H*0.038, H*0.018,  H*0.104, H*0.916, H*0.116);
+
+  // Fur patches on crown sides
+  box("crown_fur_l",  "fur_dark",    H*0.060, H*0.055, H*0.070, -H*0.090, H*0.935, H*0.105);
+  box("crown_fur_r",  "fur_dark",    H*0.060, H*0.055, H*0.070,  H*0.090, H*0.935, H*0.105);
+
+  // ── FUR DETAIL PATCHES (body surface patches for visual richness) ──
+  // Shoulder fur tufts
+  for (const [sx, lr] of [[-1, "l"], [1, "r"]]) {
+    for (let i = 0; i < 5; i++) {
+      box(`shoulder_fur_${lr}_${i+1}`, i%2===0 ? "fur_dark" : "fur_black",
+        H*0.035, H*0.025, H*0.030,
+        sx*(H*0.220 + i*H*0.012), H*(0.72 + i*0.015), H*(0.02 + i*0.010));
+    }
+  }
+  // Chest fur rows (6 rows)
+  for (let row = 0; row < 6; row++) {
+    for (let col = 0; col < 5; col++) {
+      box(`chest_fur_${row+1}_${col+1}`, row%2===0 ? "fur_dark" : "fur_black",
+        H*0.042, H*0.030, H*0.018,
+        (-H*0.090 + col*H*0.045), H*(0.62 + row*0.020), H*0.145);
+    }
+  }
+  // Back fur rows (8 rows)
+  for (let row = 0; row < 8; row++) {
+    for (let col = 0; col < 5; col++) {
+      const mat = isSilverback && row < 4 ? "silverback" : (row%2===0 ? "fur_dark" : "fur_black");
+      box(`back_fur_${row+1}_${col+1}`, mat,
+        H*0.040, H*0.028, H*0.018,
+        (-H*0.080 + col*H*0.040), H*(0.63 + row*0.018), -H*0.072);
+    }
+  }
+  // Arm fur bands
+  for (const [sx, lr] of [[-1, "l"], [1, "r"]]) {
+    for (let i = 0; i < 8; i++) {
+      box(`arm_fur_${lr}_${i+1}`, i%2===0 ? "fur_dark" : "fur_black",
+        H*0.100, H*0.012, H*0.100,
+        sx*H*0.243, H*(0.56 - i*0.030), H*(0.12 + i*0.022));
+    }
+  }
+  // Thigh fur bands
+  for (const [sx, lr] of [[-1, "l"], [1, "r"]]) {
+    for (let i = 0; i < 6; i++) {
+      box(`thigh_fur_${lr}_${i+1}`, i%2===0 ? "fur_dark" : "fur_black",
+        H*0.115, H*0.012, H*0.105,
+        sx*H*0.100, H*(0.32 + i*0.018), H*(-0.005 + i*0.005));
+    }
+  }
+  // Shin fur bands
+  for (const [sx, lr] of [[-1, "l"], [1, "r"]]) {
+    for (let i = 0; i < 5; i++) {
+      box(`shin_fur_${lr}_${i+1}`, i%2===0 ? "fur_dark" : "fur_black",
+        H*0.085, H*0.010, H*0.095,
+        sx*H*0.100, H*(0.095 + i*0.022), H*(-0.115 + i*0.005));
+    }
+  }
+
+  // ── SURFACE DETAILS (metadata, not geometry) ──────────────────
+  const regions = ["head", "face", "neck", "chest", "belly", "back", "silverback",
+                   "left_shoulder", "right_shoulder", "left_upper_arm", "right_upper_arm",
+                   "left_forearm", "right_forearm", "left_hand", "right_hand",
+                   "left_thigh", "right_thigh", "left_shin", "right_shin",
+                   "left_foot", "right_foot"];
+  const detailTypes = ["fur_strand", "skin_fold", "wrinkle", "muscle_ridge", "scar"];
+  let sdIndex = 1;
+  for (const region of regions) {
+    const count = region === "face" || region === "head" ? 10 : 6;
+    for (let i = 0; i < count; i++) {
+      surf(`sd_${sdIndex++}`, region,
+        detailTypes[i % detailTypes.length],
+        0.15 + (i % 5) * 0.07,
+        [Math.sin(i * 0.9) * 0.020, Math.cos(i * 0.7) * 0.015, ((i % 4) - 1.5) * 0.010]);
+    }
+  }
+
+  spec.parts = parts;
+  spec.surfaceDetails = surfaceDetails;
+  spec.ornaments = [];
+  return spec;
+}
+
 // Builder dispatch map  - add new subject builders here alongside SUBJECT_REGISTRY.
 const SUBJECT_BUILDERS = {
   ferris_wheel: (...a) => buildFerrisWheelSpec(...a),
+  animal:  (...a) => buildAnimalSpec(...a),
+  dragon:  (...a) => buildDragonSpec(...a),
+  slime:   (...a) => buildSlimeSpec(...a),
+  ufo:     (...a) => buildUFOSpec(...a),
   kaiju:   (...a) => buildKaijuSpec(...a),
   tower:   (...a) => buildTowerSpec(...a),
   airship: (...a) => buildAirshipSpec(...a),
@@ -8398,19 +10005,47 @@ function createPreviewHtml(currentGlb, allGlbs) {
 async function loadTemplateSpec(templatePath, prompt) {
   const raw = await fs.readFile(templatePath, "utf-8");
   const spec = JSON.parse(raw);
-  // Update prompt-specific fields so meta reflects the current run
+
+  // ── Meta update ─────────────────────────────────────────────
   spec.meta.generatedFrom = prompt;
   spec.meta.createdAt = new Date().toISOString();
   spec.promptInterpretation.originalPrompt = prompt;
-  // Re-infer height from prompt so floor-count phrases (e.g. "3階建て") override template default
+
+  // ── Size override ────────────────────────────────────────────
+  // Re-infer height whenever the prompt explicitly specifies floors or meters.
+  // (Geometry rebuild for non-building subjects is handled in main().)
   const subject = spec.promptInterpretation?.normalizedSubject ?? "building";
-  const inferredH = inferHeightMeters(prompt, subject);
-  // Only override when the prompt explicitly specifies floors or meters
   const hasFloorSpec = /\d+\s*(?:floors?|stories?|fl(?:oor)?|[階建])/iu.test(prompt);
   const hasMeterSpec = /\d+\s*(?:m(?!\w)|meters?|メートル|米)/iu.test(prompt);
   if (hasFloorSpec || hasMeterSpec) {
-    spec.promptInterpretation.targetHeightMeters = inferredH;
+    spec.promptInterpretation.targetHeightMeters = inferHeightMeters(prompt, subject);
   }
+
+  // ── Color override ───────────────────────────────────────────
+  // Apply to ALL subject types via USER_COLOR_PRIMARY_KEYS.
+  const uc = parseUserColor(prompt);
+  if (uc && spec.materials) {
+    const keys = USER_COLOR_PRIMARY_KEYS[subject] ?? [];
+    for (const k of keys) {
+      if (spec.materials[k]) {
+        spec.materials[k] = { ...spec.materials[k], baseColor: uc.hex, roughness: uc.roughness, metalness: uc.metalness };
+      }
+    }
+  }
+
+  // ── Count override ───────────────────────────────────────────
+  // Detect counter-word patterns (頭/匹/台/機/棟/本/基/体/個/つ etc.).
+  // Stores the count in the spec for downstream consumers.
+  // Note: geometry generation of multiple instances is not yet supported;
+  // count > 1 is recorded as metadata only.
+  const countM =
+    prompt.match(/(\d+)\s*(?:頭|匹|羽|体|台|機|棟|本|基|個|つ|件|枚|隻|門|人|名)/u) ??
+    prompt.match(/(\d+)\s*(?:heads?|units?|instances?|copies|pieces?)/iu);
+  if (countM) {
+    const count = Math.max(1, Number(countM[1]));
+    if (count > 1) spec.promptInterpretation.count = count;
+  }
+
   return spec;
 }
 
@@ -8432,16 +10067,27 @@ async function main() {
       : path.resolve(PLUGIN_ROOT, templateArg);
     console.log(`Using template: ${templatePath}`);
     spec = await loadTemplateSpec(templatePath, prompt);
-    // When the prompt explicitly specifies floor count or height for a building,
-    // rebuild geometry from scratch so the new scale is reflected in the 3D parts.
+    // When the prompt explicitly specifies a scale (floor count or height),
+    // rebuild geometry from scratch for ALL subjects so parts reflect the new size.
     const hasFloorSpec = /\d+\s*(?:floors?|stories?|fl(?:oor)?|[階建])/iu.test(prompt);
     const hasMeterSpec = /\d+\s*(?:m(?!\w)|meters?|メートル|米)/iu.test(prompt);
-    const isBuilding   = spec.promptInterpretation?.normalizedSubject === "building";
-    if ((hasFloorSpec || hasMeterSpec) && isBuilding) {
+    if (hasFloorSpec || hasMeterSpec) {
       spec = buildSpec(prompt);
     }
   } else {
     spec = buildSpec(prompt);
+  }
+
+  // ── Count (non-template path) ────────────────────────────────
+  // Also record count in specs built from scratch.
+  if (!spec.promptInterpretation.count) {
+    const countM =
+      prompt.match(/(\d+)\s*(?:頭|匹|羽|体|台|機|棟|本|基|個|つ|件|枚|隻|門|人|名)/u) ??
+      prompt.match(/(\d+)\s*(?:heads?|units?|instances?|copies|pieces?)/iu);
+    if (countM) {
+      const count = Math.max(1, Number(countM[1]));
+      if (count > 1) spec.promptInterpretation.count = count;
+    }
   }
   const specPath = path.join(OUTPUT_DIR, "model_spec.json");
   await fs.writeFile(specPath, JSON.stringify(spec, null, 2), "utf-8");

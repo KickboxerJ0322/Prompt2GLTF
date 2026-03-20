@@ -59,8 +59,14 @@ Templates are stored in `plugins/prompt2gltf/templates/`. Each template is a ful
 | gas_station.json         | building        | ガソリンスタンド, 給油所, エネオス, 出光, コスモ石油               |
 | spherical_gas_holder.json | structure      | 球形ガスホルダー, ガスタンク, 球形タンク, 高圧ガスタンク, 都市ガス貯蔵施設 |
 | lighthouse.json           | structure      | 灯台, 海上灯台, 沿岸灯台, lighthouse                                       |
+| gorilla.json              | animal         | ゴリラ, 類人猿, 大型類人猿, 西ローランドゴリラ                             |
+| giraffe.json              | animal         | キリン, 麒麟, アミメキリン, マサイキリン                                   |
+| ufo.json                  | ufo            | UFO, ユーフォー, 空飛ぶ円盤, 未確認飛行物体, flying saucer                 |
+| slime.json                | slime          | スライム, ooze, blob, ゼリー状怪物, 粘液モンスター                         |
 
 If no template closely matches, omit `--template` (the generator builds from scratch).
+
+**Note:** dragon has no saved template yet — always omit `--template` for dragon.
 
 ## Workflow
 When invoked:
@@ -110,6 +116,12 @@ When invoked:
 - structure (tree / signal / bridge / infra)
 - structure / spherical_gas_holder (球形ガスホルダー・高圧ガスタンク)
 - structure / lighthouse (灯台・海上灯台)
+- ufo (空飛ぶ円盤・未確認飛行物体・flying saucer)
+- dragon (ドラゴン・竜・龍・ワイバーン) ※ スタイル: fire/ice/poison/dark/classic
+- slime (スライム・ooze・blob・ゼリー状怪物) ※ スタイル: green/red/blue/purple/yellow/black/giant
+- animal / gorilla (ゴリラ・類人猿)
+- animal / giraffe (キリン・麒麟)
+- animal / lion (ライオン・獅子)
 
 ## Prompt interpretation rules
 ### giant

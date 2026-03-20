@@ -1,0 +1,3255 @@
+{
+  "meta": {
+    "name": "animal_5.5m_キリン",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "prompt2gltf",
+    "generatedFrom": "キリン",
+    "createdAt": "2026-03-20T06:04:19.120Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "キリン",
+    "normalizedSubject": "animal",
+    "targetHeightMeters": 5.5,
+    "styleTags": [
+      "realistic_animal"
+    ],
+    "geometryDirective": "Use mixed primitives (box/cylinder/sphere/tri_prism); represent curved real-world forms with rounded geometry.",
+    "summary": "Generated from prompt as a animal with high-density procedural spec.",
+    "designIntent": {
+      "scaleImpression": "large",
+      "mood": "majestic",
+      "originalityPolicy": "generalized_original_design"
+    },
+    "animalType": "giraffe",
+    "subspecies": "reticulated_giraffe",
+    "ageClass": "adult_male_silverback",
+    "pose": "standing"
+  },
+  "globalScale": {
+    "height": 5.5,
+    "width": 1.21,
+    "depth": 2.2
+  },
+  "style": {
+    "silhouette": "long_necked_even_toed_ungulate",
+    "mood": "dominant_male",
+    "genre": "realistic_wildlife",
+    "detailDensity": "ultra_high",
+    "bodyLanguage": "standing_alert",
+    "shapeLanguage": [
+      "extremely_long_neck",
+      "long_legs",
+      "compact_body",
+      "ossicones",
+      "reticulated_coat_pattern",
+      "tufted_tail"
+    ]
+  },
+  "materials": {
+    "coat_cream": {
+      "baseColor": "#E8D8A8",
+      "roughness": 0.92,
+      "metalness": 0
+    },
+    "coat_patch": {
+      "baseColor": "#8B4A1A",
+      "roughness": 0.9,
+      "metalness": 0
+    },
+    "coat_dark": {
+      "baseColor": "#5C2E0A",
+      "roughness": 0.92,
+      "metalness": 0
+    },
+    "mane_dark": {
+      "baseColor": "#3A2010",
+      "roughness": 0.88,
+      "metalness": 0
+    },
+    "ossicone": {
+      "baseColor": "#6B4020",
+      "roughness": 0.82,
+      "metalness": 0
+    },
+    "ossicone_tip": {
+      "baseColor": "#1A1008",
+      "roughness": 0.8,
+      "metalness": 0
+    },
+    "hoof": {
+      "baseColor": "#1E1610",
+      "roughness": 0.72,
+      "metalness": 0.04
+    },
+    "eye_brown": {
+      "baseColor": "#3A2808",
+      "roughness": 0.42,
+      "metalness": 0
+    },
+    "skin_face": {
+      "baseColor": "#C8A870",
+      "roughness": 0.82,
+      "metalness": 0
+    },
+    "tongue": {
+      "baseColor": "#2A0A0A",
+      "roughness": 0.78,
+      "metalness": 0
+    }
+  },
+  "parts": [
+    {
+      "id": "hoof_f_l",
+      "kind": "box",
+      "material": "hoof",
+      "size": [
+        0.33,
+        0.165,
+        0.3025
+      ],
+      "position": [
+        -0.3575,
+        0.0825,
+        0.55
+      ]
+    },
+    {
+      "id": "fetlock_f_l",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.3025,
+        0.154,
+        0.275
+      ],
+      "position": [
+        -0.3575,
+        0.242,
+        0.55
+      ]
+    },
+    {
+      "id": "cannon_f_l",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.264,
+        0.7975,
+        0.242
+      ],
+      "position": [
+        -0.3575,
+        0.7975,
+        0.55
+      ]
+    },
+    {
+      "id": "knee_f_l",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.33,
+        0.209,
+        0.3025
+      ],
+      "position": [
+        -0.3575,
+        1.254,
+        0.55
+      ]
+    },
+    {
+      "id": "radius_f_l",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.3025,
+        0.715,
+        0.275
+      ],
+      "position": [
+        -0.3575,
+        1.7875,
+        0.55
+      ]
+    },
+    {
+      "id": "elbow_f_l",
+      "kind": "box",
+      "material": "coat_dark",
+      "size": [
+        0.33,
+        0.176,
+        0.319
+      ],
+      "position": [
+        -0.3575,
+        2.156,
+        0.5775
+      ]
+    },
+    {
+      "id": "humerus_f_l",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.3575,
+        0.5225,
+        0.33
+      ],
+      "position": [
+        -0.3575,
+        2.475,
+        0.495
+      ]
+    },
+    {
+      "id": "hoof_f_r",
+      "kind": "box",
+      "material": "hoof",
+      "size": [
+        0.33,
+        0.165,
+        0.3025
+      ],
+      "position": [
+        0.3575,
+        0.0825,
+        0.55
+      ]
+    },
+    {
+      "id": "fetlock_f_r",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.3025,
+        0.154,
+        0.275
+      ],
+      "position": [
+        0.3575,
+        0.242,
+        0.55
+      ]
+    },
+    {
+      "id": "cannon_f_r",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.264,
+        0.7975,
+        0.242
+      ],
+      "position": [
+        0.3575,
+        0.7975,
+        0.55
+      ]
+    },
+    {
+      "id": "knee_f_r",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.33,
+        0.209,
+        0.3025
+      ],
+      "position": [
+        0.3575,
+        1.254,
+        0.55
+      ]
+    },
+    {
+      "id": "radius_f_r",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.3025,
+        0.715,
+        0.275
+      ],
+      "position": [
+        0.3575,
+        1.7875,
+        0.55
+      ]
+    },
+    {
+      "id": "elbow_f_r",
+      "kind": "box",
+      "material": "coat_dark",
+      "size": [
+        0.33,
+        0.176,
+        0.319
+      ],
+      "position": [
+        0.3575,
+        2.156,
+        0.5775
+      ]
+    },
+    {
+      "id": "humerus_f_r",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.3575,
+        0.5225,
+        0.33
+      ],
+      "position": [
+        0.3575,
+        2.475,
+        0.495
+      ]
+    },
+    {
+      "id": "hoof_r_l",
+      "kind": "box",
+      "material": "hoof",
+      "size": [
+        0.33,
+        0.165,
+        0.3025
+      ],
+      "position": [
+        -0.33,
+        0.0825,
+        -0.77
+      ]
+    },
+    {
+      "id": "fetlock_r_l",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.3025,
+        0.154,
+        0.275
+      ],
+      "position": [
+        -0.33,
+        0.242,
+        -0.77
+      ]
+    },
+    {
+      "id": "cannon_r_l",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.264,
+        0.814,
+        0.242
+      ],
+      "position": [
+        -0.33,
+        0.814,
+        -0.77
+      ]
+    },
+    {
+      "id": "hock_r_l",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.3575,
+        0.22,
+        0.33
+      ],
+      "position": [
+        -0.33,
+        1.276,
+        -0.825
+      ]
+    },
+    {
+      "id": "tibia_r_l",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.319,
+        0.6875,
+        0.297
+      ],
+      "position": [
+        -0.33,
+        1.771,
+        -0.77
+      ]
+    },
+    {
+      "id": "stifle_r_l",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.3575,
+        0.1925,
+        0.341
+      ],
+      "position": [
+        -0.33,
+        2.156,
+        -0.726
+      ]
+    },
+    {
+      "id": "femur_r_l",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.374,
+        0.55,
+        0.341
+      ],
+      "position": [
+        -0.33,
+        2.475,
+        -0.6875
+      ]
+    },
+    {
+      "id": "hoof_r_r",
+      "kind": "box",
+      "material": "hoof",
+      "size": [
+        0.33,
+        0.165,
+        0.3025
+      ],
+      "position": [
+        0.33,
+        0.0825,
+        -0.77
+      ]
+    },
+    {
+      "id": "fetlock_r_r",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.3025,
+        0.154,
+        0.275
+      ],
+      "position": [
+        0.33,
+        0.242,
+        -0.77
+      ]
+    },
+    {
+      "id": "cannon_r_r",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.264,
+        0.814,
+        0.242
+      ],
+      "position": [
+        0.33,
+        0.814,
+        -0.77
+      ]
+    },
+    {
+      "id": "hock_r_r",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.3575,
+        0.22,
+        0.33
+      ],
+      "position": [
+        0.33,
+        1.276,
+        -0.825
+      ]
+    },
+    {
+      "id": "tibia_r_r",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.319,
+        0.6875,
+        0.297
+      ],
+      "position": [
+        0.33,
+        1.771,
+        -0.77
+      ]
+    },
+    {
+      "id": "stifle_r_r",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.3575,
+        0.1925,
+        0.341
+      ],
+      "position": [
+        0.33,
+        2.156,
+        -0.726
+      ]
+    },
+    {
+      "id": "femur_r_r",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.374,
+        0.55,
+        0.341
+      ],
+      "position": [
+        0.33,
+        2.475,
+        -0.6875
+      ]
+    },
+    {
+      "id": "pelvis",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.99,
+        0.5225,
+        0.44
+      ],
+      "position": [
+        0,
+        2.794,
+        -0.44
+      ]
+    },
+    {
+      "id": "croup",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.9075,
+        0.4125,
+        0.3575
+      ],
+      "position": [
+        0,
+        2.97,
+        -0.605
+      ]
+    },
+    {
+      "id": "hip_l",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.33,
+        0.4125,
+        0.33
+      ],
+      "position": [
+        -0.5225,
+        2.7775,
+        -0.33
+      ]
+    },
+    {
+      "id": "hip_r",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.33,
+        0.4125,
+        0.33
+      ],
+      "position": [
+        0.5225,
+        2.7775,
+        -0.33
+      ]
+    },
+    {
+      "id": "body_rear",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        1.0725,
+        0.55,
+        0.8525
+      ],
+      "position": [
+        0,
+        2.629,
+        -0.3025
+      ]
+    },
+    {
+      "id": "body_mid",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        1.1,
+        0.5775,
+        0.88
+      ],
+      "position": [
+        0,
+        2.739,
+        0
+      ]
+    },
+    {
+      "id": "body_fore",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        1.045,
+        0.5225,
+        0.825
+      ],
+      "position": [
+        0,
+        2.805,
+        0.3025
+      ]
+    },
+    {
+      "id": "belly",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.88,
+        0.3025,
+        1.43
+      ],
+      "position": [
+        0,
+        2.299,
+        -0.055
+      ]
+    },
+    {
+      "id": "rib_l",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.275,
+        0.44,
+        0.9075
+      ],
+      "position": [
+        -0.5775,
+        2.695,
+        0.055
+      ]
+    },
+    {
+      "id": "rib_r",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.275,
+        0.44,
+        0.9075
+      ],
+      "position": [
+        0.5775,
+        2.695,
+        0.055
+      ]
+    },
+    {
+      "id": "withers",
+      "kind": "box",
+      "material": "coat_dark",
+      "size": [
+        0.495,
+        0.33,
+        0.4125
+      ],
+      "position": [
+        0,
+        3.1075,
+        0.2475
+      ]
+    },
+    {
+      "id": "scapula_l",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.3575,
+        0.4125,
+        0.385
+      ],
+      "position": [
+        -0.5225,
+        2.97,
+        0.22
+      ]
+    },
+    {
+      "id": "scapula_r",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.3575,
+        0.4125,
+        0.385
+      ],
+      "position": [
+        0.5225,
+        2.97,
+        0.22
+      ]
+    },
+    {
+      "id": "neck_1",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.605,
+        0.209,
+        0.6325
+      ],
+      "position": [
+        0,
+        3.1625,
+        0.3025
+      ]
+    },
+    {
+      "id": "neck_2",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.5879,
+        0.209,
+        0.6142
+      ],
+      "position": [
+        0,
+        3.3397,
+        0.2903
+      ]
+    },
+    {
+      "id": "neck_3",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.5708,
+        0.209,
+        0.5958
+      ],
+      "position": [
+        0,
+        3.5169,
+        0.2781
+      ]
+    },
+    {
+      "id": "neck_4",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.5537,
+        0.209,
+        0.5775
+      ],
+      "position": [
+        0,
+        3.6942,
+        0.2658
+      ]
+    },
+    {
+      "id": "neck_5",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.5366,
+        0.209,
+        0.5592
+      ],
+      "position": [
+        0,
+        3.8714,
+        0.2536
+      ]
+    },
+    {
+      "id": "neck_6",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.5194,
+        0.209,
+        0.5408
+      ],
+      "position": [
+        0,
+        4.0486,
+        0.2414
+      ]
+    },
+    {
+      "id": "neck_7",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.5023,
+        0.209,
+        0.5225
+      ],
+      "position": [
+        0,
+        4.2258,
+        0.2292
+      ]
+    },
+    {
+      "id": "neck_8",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.4852,
+        0.209,
+        0.5042
+      ],
+      "position": [
+        0,
+        4.4031,
+        0.2169
+      ]
+    },
+    {
+      "id": "neck_9",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.4681,
+        0.209,
+        0.4858
+      ],
+      "position": [
+        0,
+        4.5803,
+        0.2047
+      ]
+    },
+    {
+      "id": "neck_10",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.451,
+        0.209,
+        0.4675
+      ],
+      "position": [
+        0,
+        4.7575,
+        0.1925
+      ]
+    },
+    {
+      "id": "mane_1",
+      "kind": "box",
+      "material": "mane_dark",
+      "size": [
+        0.099,
+        0.22,
+        0.055
+      ],
+      "position": [
+        0,
+        3.4265,
+        -0.044
+      ]
+    },
+    {
+      "id": "mane_2",
+      "kind": "box",
+      "material": "mane_dark",
+      "size": [
+        0.099,
+        0.22,
+        0.055
+      ],
+      "position": [
+        0,
+        3.5471,
+        -0.0546
+      ]
+    },
+    {
+      "id": "mane_3",
+      "kind": "box",
+      "material": "mane_dark",
+      "size": [
+        0.099,
+        0.22,
+        0.055
+      ],
+      "position": [
+        0,
+        3.6677,
+        -0.0652
+      ]
+    },
+    {
+      "id": "mane_4",
+      "kind": "box",
+      "material": "mane_dark",
+      "size": [
+        0.099,
+        0.22,
+        0.055
+      ],
+      "position": [
+        0,
+        3.7882,
+        -0.0757
+      ]
+    },
+    {
+      "id": "mane_5",
+      "kind": "box",
+      "material": "mane_dark",
+      "size": [
+        0.099,
+        0.22,
+        0.055
+      ],
+      "position": [
+        0,
+        3.9088,
+        -0.0863
+      ]
+    },
+    {
+      "id": "mane_6",
+      "kind": "box",
+      "material": "mane_dark",
+      "size": [
+        0.099,
+        0.22,
+        0.055
+      ],
+      "position": [
+        0,
+        4.0294,
+        -0.0969
+      ]
+    },
+    {
+      "id": "mane_7",
+      "kind": "box",
+      "material": "mane_dark",
+      "size": [
+        0.099,
+        0.22,
+        0.055
+      ],
+      "position": [
+        0,
+        4.15,
+        -0.1075
+      ]
+    },
+    {
+      "id": "mane_8",
+      "kind": "box",
+      "material": "mane_dark",
+      "size": [
+        0.099,
+        0.22,
+        0.055
+      ],
+      "position": [
+        0,
+        4.2705,
+        -0.118
+      ]
+    },
+    {
+      "id": "mane_9",
+      "kind": "box",
+      "material": "mane_dark",
+      "size": [
+        0.099,
+        0.22,
+        0.055
+      ],
+      "position": [
+        0,
+        4.3911,
+        -0.1286
+      ]
+    },
+    {
+      "id": "mane_10",
+      "kind": "box",
+      "material": "mane_dark",
+      "size": [
+        0.099,
+        0.22,
+        0.055
+      ],
+      "position": [
+        0,
+        4.5117,
+        -0.1392
+      ]
+    },
+    {
+      "id": "mane_11",
+      "kind": "box",
+      "material": "mane_dark",
+      "size": [
+        0.099,
+        0.22,
+        0.055
+      ],
+      "position": [
+        0,
+        4.6323,
+        -0.1498
+      ]
+    },
+    {
+      "id": "mane_12",
+      "kind": "box",
+      "material": "mane_dark",
+      "size": [
+        0.099,
+        0.22,
+        0.055
+      ],
+      "position": [
+        0,
+        4.7528,
+        -0.1603
+      ]
+    },
+    {
+      "id": "mane_13",
+      "kind": "box",
+      "material": "mane_dark",
+      "size": [
+        0.099,
+        0.22,
+        0.055
+      ],
+      "position": [
+        0,
+        4.8734,
+        -0.1709
+      ]
+    },
+    {
+      "id": "mane_14",
+      "kind": "box",
+      "material": "mane_dark",
+      "size": [
+        0.099,
+        0.22,
+        0.055
+      ],
+      "position": [
+        0,
+        4.994,
+        -0.1815
+      ]
+    },
+    {
+      "id": "neck_patch_l_1",
+      "kind": "box",
+      "material": "coat_dark",
+      "size": [
+        0.055,
+        0.165,
+        0.33
+      ],
+      "position": [
+        -0.275,
+        3.2175,
+        0.286
+      ]
+    },
+    {
+      "id": "neck_patch_r_1",
+      "kind": "box",
+      "material": "coat_dark",
+      "size": [
+        0.055,
+        0.165,
+        0.33
+      ],
+      "position": [
+        0.275,
+        3.2175,
+        0.286
+      ]
+    },
+    {
+      "id": "neck_patch_l_2",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.055,
+        0.165,
+        0.33
+      ],
+      "position": [
+        -0.275,
+        3.4336,
+        0.2719
+      ]
+    },
+    {
+      "id": "neck_patch_r_2",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.055,
+        0.165,
+        0.33
+      ],
+      "position": [
+        0.275,
+        3.4336,
+        0.2719
+      ]
+    },
+    {
+      "id": "neck_patch_l_3",
+      "kind": "box",
+      "material": "coat_dark",
+      "size": [
+        0.055,
+        0.165,
+        0.33
+      ],
+      "position": [
+        -0.275,
+        3.6496,
+        0.2577
+      ]
+    },
+    {
+      "id": "neck_patch_r_3",
+      "kind": "box",
+      "material": "coat_dark",
+      "size": [
+        0.055,
+        0.165,
+        0.33
+      ],
+      "position": [
+        0.275,
+        3.6496,
+        0.2577
+      ]
+    },
+    {
+      "id": "neck_patch_l_4",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.055,
+        0.165,
+        0.33
+      ],
+      "position": [
+        -0.275,
+        3.8657,
+        0.2436
+      ]
+    },
+    {
+      "id": "neck_patch_r_4",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.055,
+        0.165,
+        0.33
+      ],
+      "position": [
+        0.275,
+        3.8657,
+        0.2436
+      ]
+    },
+    {
+      "id": "neck_patch_l_5",
+      "kind": "box",
+      "material": "coat_dark",
+      "size": [
+        0.055,
+        0.165,
+        0.33
+      ],
+      "position": [
+        -0.275,
+        4.0818,
+        0.2294
+      ]
+    },
+    {
+      "id": "neck_patch_r_5",
+      "kind": "box",
+      "material": "coat_dark",
+      "size": [
+        0.055,
+        0.165,
+        0.33
+      ],
+      "position": [
+        0.275,
+        4.0818,
+        0.2294
+      ]
+    },
+    {
+      "id": "neck_patch_l_6",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.055,
+        0.165,
+        0.33
+      ],
+      "position": [
+        -0.275,
+        4.2979,
+        0.2153
+      ]
+    },
+    {
+      "id": "neck_patch_r_6",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.055,
+        0.165,
+        0.33
+      ],
+      "position": [
+        0.275,
+        4.2979,
+        0.2153
+      ]
+    },
+    {
+      "id": "neck_patch_l_7",
+      "kind": "box",
+      "material": "coat_dark",
+      "size": [
+        0.055,
+        0.165,
+        0.33
+      ],
+      "position": [
+        -0.275,
+        4.5139,
+        0.2011
+      ]
+    },
+    {
+      "id": "neck_patch_r_7",
+      "kind": "box",
+      "material": "coat_dark",
+      "size": [
+        0.055,
+        0.165,
+        0.33
+      ],
+      "position": [
+        0.275,
+        4.5139,
+        0.2011
+      ]
+    },
+    {
+      "id": "neck_patch_l_8",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.055,
+        0.165,
+        0.33
+      ],
+      "position": [
+        -0.275,
+        4.73,
+        0.187
+      ]
+    },
+    {
+      "id": "neck_patch_r_8",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.055,
+        0.165,
+        0.33
+      ],
+      "position": [
+        0.275,
+        4.73,
+        0.187
+      ]
+    },
+    {
+      "id": "cranium",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.5225,
+        0.33,
+        0.715
+      ],
+      "position": [
+        0,
+        4.9225,
+        0.165
+      ]
+    },
+    {
+      "id": "forehead",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.484,
+        0.231,
+        0.44
+      ],
+      "position": [
+        0,
+        4.8675,
+        0.5775
+      ]
+    },
+    {
+      "id": "face",
+      "kind": "box",
+      "material": "skin_face",
+      "size": [
+        0.4125,
+        0.2475,
+        0.5225
+      ],
+      "position": [
+        0,
+        4.73,
+        0.825
+      ]
+    },
+    {
+      "id": "muzzle",
+      "kind": "box",
+      "material": "skin_face",
+      "size": [
+        0.341,
+        0.209,
+        0.4125
+      ],
+      "position": [
+        0,
+        4.5925,
+        1.1275
+      ]
+    },
+    {
+      "id": "nostril_l",
+      "kind": "box",
+      "material": "coat_dark",
+      "size": [
+        0.11,
+        0.088,
+        0.132
+      ],
+      "position": [
+        -0.11,
+        4.565,
+        1.364
+      ]
+    },
+    {
+      "id": "nostril_r",
+      "kind": "box",
+      "material": "coat_dark",
+      "size": [
+        0.11,
+        0.088,
+        0.132
+      ],
+      "position": [
+        0.11,
+        4.565,
+        1.364
+      ]
+    },
+    {
+      "id": "lip_upper",
+      "kind": "box",
+      "material": "skin_face",
+      "size": [
+        0.3025,
+        0.099,
+        0.1375
+      ],
+      "position": [
+        0,
+        4.51,
+        1.375
+      ]
+    },
+    {
+      "id": "lip_lower",
+      "kind": "box",
+      "material": "skin_face",
+      "size": [
+        0.264,
+        0.077,
+        0.121
+      ],
+      "position": [
+        0,
+        4.4495,
+        1.364
+      ]
+    },
+    {
+      "id": "chin",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.2475,
+        0.11,
+        0.11
+      ],
+      "position": [
+        0,
+        4.3835,
+        1.331
+      ]
+    },
+    {
+      "id": "eye_l",
+      "kind": "box",
+      "material": "eye_brown",
+      "size": [
+        0.165,
+        0.154,
+        0.121
+      ],
+      "position": [
+        -0.253,
+        4.9885,
+        0.539
+      ]
+    },
+    {
+      "id": "eye_r",
+      "kind": "box",
+      "material": "eye_brown",
+      "size": [
+        0.165,
+        0.154,
+        0.121
+      ],
+      "position": [
+        0.253,
+        4.9885,
+        0.539
+      ]
+    },
+    {
+      "id": "lash_l",
+      "kind": "box",
+      "material": "mane_dark",
+      "size": [
+        0.154,
+        0.033,
+        0.055
+      ],
+      "position": [
+        -0.253,
+        5.06,
+        0.594
+      ]
+    },
+    {
+      "id": "lash_r",
+      "kind": "box",
+      "material": "mane_dark",
+      "size": [
+        0.154,
+        0.033,
+        0.055
+      ],
+      "position": [
+        0.253,
+        5.06,
+        0.594
+      ]
+    },
+    {
+      "id": "ear_l",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.165,
+        0.319,
+        0.099
+      ],
+      "position": [
+        -0.3025,
+        5.115,
+        0.11
+      ],
+      "rotation": [
+        0,
+        0,
+        -10
+      ]
+    },
+    {
+      "id": "ear_r",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.165,
+        0.319,
+        0.099
+      ],
+      "position": [
+        0.3025,
+        5.115,
+        0.11
+      ],
+      "rotation": [
+        0,
+        0,
+        10
+      ]
+    },
+    {
+      "id": "ear_inner_l",
+      "kind": "box",
+      "material": "skin_face",
+      "size": [
+        0.11,
+        0.231,
+        0.033
+      ],
+      "position": [
+        -0.3025,
+        5.0985,
+        0.121
+      ],
+      "rotation": [
+        0,
+        0,
+        -10
+      ]
+    },
+    {
+      "id": "ear_inner_r",
+      "kind": "box",
+      "material": "skin_face",
+      "size": [
+        0.11,
+        0.231,
+        0.033
+      ],
+      "position": [
+        0.3025,
+        5.0985,
+        0.121
+      ],
+      "rotation": [
+        0,
+        0,
+        10
+      ]
+    },
+    {
+      "id": "ossicone_c_base",
+      "kind": "box",
+      "material": "ossicone",
+      "size": [
+        0.121,
+        0.22,
+        0.121
+      ],
+      "position": [
+        0,
+        5.1535,
+        0.209
+      ]
+    },
+    {
+      "id": "ossicone_c_tip",
+      "kind": "box",
+      "material": "ossicone_tip",
+      "size": [
+        0.088,
+        0.11,
+        0.088
+      ],
+      "position": [
+        0,
+        5.3515,
+        0.198
+      ]
+    },
+    {
+      "id": "ossicone_l_base",
+      "kind": "box",
+      "material": "ossicone",
+      "size": [
+        0.154,
+        0.33,
+        0.154
+      ],
+      "position": [
+        -0.176,
+        5.1865,
+        0.1375
+      ],
+      "rotation": [
+        0,
+        0,
+        -5
+      ]
+    },
+    {
+      "id": "ossicone_l_shaft",
+      "kind": "box",
+      "material": "ossicone",
+      "size": [
+        0.121,
+        0.2475,
+        0.121
+      ],
+      "position": [
+        -0.187,
+        5.4175,
+        0.132
+      ],
+      "rotation": [
+        0,
+        0,
+        -5
+      ]
+    },
+    {
+      "id": "ossicone_l_tip",
+      "kind": "box",
+      "material": "ossicone_tip",
+      "size": [
+        0.088,
+        0.1375,
+        0.088
+      ],
+      "position": [
+        -0.198,
+        5.61,
+        0.1265
+      ],
+      "rotation": [
+        0,
+        0,
+        -5
+      ]
+    },
+    {
+      "id": "ossicone_tuft_l",
+      "kind": "box",
+      "material": "mane_dark",
+      "size": [
+        0.132,
+        0.099,
+        0.077
+      ],
+      "position": [
+        -0.198,
+        5.7255,
+        0.1265
+      ]
+    },
+    {
+      "id": "ossicone_r_base",
+      "kind": "box",
+      "material": "ossicone",
+      "size": [
+        0.154,
+        0.33,
+        0.154
+      ],
+      "position": [
+        0.176,
+        5.1865,
+        0.1375
+      ],
+      "rotation": [
+        0,
+        0,
+        5
+      ]
+    },
+    {
+      "id": "ossicone_r_shaft",
+      "kind": "box",
+      "material": "ossicone",
+      "size": [
+        0.121,
+        0.2475,
+        0.121
+      ],
+      "position": [
+        0.187,
+        5.4175,
+        0.132
+      ],
+      "rotation": [
+        0,
+        0,
+        5
+      ]
+    },
+    {
+      "id": "ossicone_r_tip",
+      "kind": "box",
+      "material": "ossicone_tip",
+      "size": [
+        0.088,
+        0.1375,
+        0.088
+      ],
+      "position": [
+        0.198,
+        5.61,
+        0.1265
+      ],
+      "rotation": [
+        0,
+        0,
+        5
+      ]
+    },
+    {
+      "id": "ossicone_tuft_r",
+      "kind": "box",
+      "material": "mane_dark",
+      "size": [
+        0.132,
+        0.099,
+        0.077
+      ],
+      "position": [
+        0.198,
+        5.7255,
+        0.1265
+      ]
+    },
+    {
+      "id": "tail_1",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.099,
+        0.165,
+        0.099
+      ],
+      "position": [
+        0,
+        2.86,
+        -0.825
+      ]
+    },
+    {
+      "id": "tail_2",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.099,
+        0.165,
+        0.099
+      ],
+      "position": [
+        0,
+        2.7893,
+        -0.8368
+      ]
+    },
+    {
+      "id": "tail_3",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.099,
+        0.165,
+        0.099
+      ],
+      "position": [
+        0,
+        2.7186,
+        -0.8486
+      ]
+    },
+    {
+      "id": "tail_4",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.099,
+        0.165,
+        0.099
+      ],
+      "position": [
+        0,
+        2.6479,
+        -0.8604
+      ]
+    },
+    {
+      "id": "tail_5",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.099,
+        0.165,
+        0.099
+      ],
+      "position": [
+        0,
+        2.5771,
+        -0.8721
+      ]
+    },
+    {
+      "id": "tail_6",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.099,
+        0.165,
+        0.099
+      ],
+      "position": [
+        0,
+        2.5064,
+        -0.8839
+      ]
+    },
+    {
+      "id": "tail_7",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.099,
+        0.165,
+        0.099
+      ],
+      "position": [
+        0,
+        2.4357,
+        -0.8957
+      ]
+    },
+    {
+      "id": "tail_8",
+      "kind": "box",
+      "material": "coat_cream",
+      "size": [
+        0.099,
+        0.165,
+        0.099
+      ],
+      "position": [
+        0,
+        2.365,
+        -0.9075
+      ]
+    },
+    {
+      "id": "tail_tuft",
+      "kind": "box",
+      "material": "mane_dark",
+      "size": [
+        0.1925,
+        0.3025,
+        0.121
+      ],
+      "position": [
+        0,
+        2.332,
+        -0.8965
+      ]
+    },
+    {
+      "id": "body_patch_1",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.385,
+        0.3025,
+        0.495
+      ],
+      "position": [
+        0.33,
+        2.805,
+        0.22
+      ]
+    },
+    {
+      "id": "body_patch_2",
+      "kind": "box",
+      "material": "coat_dark",
+      "size": [
+        0.3025,
+        0.2475,
+        0.4125
+      ],
+      "position": [
+        -0.385,
+        2.739,
+        0.11
+      ]
+    },
+    {
+      "id": "body_patch_3",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.33,
+        0.275,
+        0.44
+      ],
+      "position": [
+        0.22,
+        2.585,
+        -0.1375
+      ]
+    },
+    {
+      "id": "body_patch_4",
+      "kind": "box",
+      "material": "coat_dark",
+      "size": [
+        0.3575,
+        0.264,
+        0.4675
+      ],
+      "position": [
+        -0.275,
+        2.695,
+        -0.22
+      ]
+    },
+    {
+      "id": "body_patch_5",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.3025,
+        0.231,
+        0.385
+      ],
+      "position": [
+        0.44,
+        2.64,
+        0.33
+      ]
+    },
+    {
+      "id": "body_patch_6",
+      "kind": "box",
+      "material": "coat_dark",
+      "size": [
+        0.33,
+        0.3025,
+        0.429
+      ],
+      "position": [
+        -0.4125,
+        2.7775,
+        0.33
+      ]
+    },
+    {
+      "id": "body_patch_7",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.286,
+        0.22,
+        0.374
+      ],
+      "position": [
+        0.11,
+        2.761,
+        -0.3575
+      ]
+    },
+    {
+      "id": "body_patch_8",
+      "kind": "box",
+      "material": "coat_dark",
+      "size": [
+        0.319,
+        0.253,
+        0.44
+      ],
+      "position": [
+        -0.22,
+        2.849,
+        0.0825
+      ]
+    },
+    {
+      "id": "body_patch_9",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.264,
+        0.209,
+        0.3575
+      ],
+      "position": [
+        0.3575,
+        2.5025,
+        0.11
+      ]
+    },
+    {
+      "id": "body_patch_10",
+      "kind": "box",
+      "material": "coat_dark",
+      "size": [
+        0.341,
+        0.275,
+        0.451
+      ],
+      "position": [
+        -0.3575,
+        2.541,
+        -0.055
+      ]
+    },
+    {
+      "id": "body_patch_11",
+      "kind": "box",
+      "material": "coat_patch",
+      "size": [
+        0.3025,
+        0.242,
+        0.396
+      ],
+      "position": [
+        0,
+        2.8875,
+        0.385
+      ]
+    },
+    {
+      "id": "body_patch_12",
+      "kind": "box",
+      "material": "coat_dark",
+      "size": [
+        0.275,
+        0.22,
+        0.374
+      ],
+      "position": [
+        0.4675,
+        2.915,
+        -0.165
+      ]
+    }
+  ],
+  "surfaceDetails": [
+    {
+      "id": "g_sd_1",
+      "region": "head",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        0,
+        0.012,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_2",
+      "region": "head",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.016,
+        0.0075,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_3",
+      "region": "head",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0146,
+        -0.0027,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_4",
+      "region": "head",
+      "type": "wrinkle",
+      "strength": 0.3,
+      "offset": [
+        -0.0028,
+        -0.0108,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_5",
+      "region": "head",
+      "type": "fur_texture",
+      "strength": 0.36,
+      "offset": [
+        -0.0171,
+        -0.0108,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_6",
+      "region": "head",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        -0.0127,
+        -0.0025,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_7",
+      "region": "head",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.0056,
+        0.0076,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_8",
+      "region": "head",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0178,
+        0.012,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_9",
+      "region": "muzzle",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        0,
+        0.012,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_10",
+      "region": "muzzle",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.016,
+        0.0075,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_11",
+      "region": "muzzle",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0146,
+        -0.0027,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_12",
+      "region": "muzzle",
+      "type": "wrinkle",
+      "strength": 0.3,
+      "offset": [
+        -0.0028,
+        -0.0108,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_13",
+      "region": "muzzle",
+      "type": "fur_texture",
+      "strength": 0.36,
+      "offset": [
+        -0.0171,
+        -0.0108,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_14",
+      "region": "muzzle",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        -0.0127,
+        -0.0025,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_15",
+      "region": "muzzle",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.0056,
+        0.0076,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_16",
+      "region": "muzzle",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0178,
+        0.012,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_17",
+      "region": "neck_upper",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        0,
+        0.012,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_18",
+      "region": "neck_upper",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.016,
+        0.0075,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_19",
+      "region": "neck_upper",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0146,
+        -0.0027,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_20",
+      "region": "neck_upper",
+      "type": "wrinkle",
+      "strength": 0.3,
+      "offset": [
+        -0.0028,
+        -0.0108,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_21",
+      "region": "neck_upper",
+      "type": "fur_texture",
+      "strength": 0.36,
+      "offset": [
+        -0.0171,
+        -0.0108,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_22",
+      "region": "neck_upper",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        -0.0127,
+        -0.0025,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_23",
+      "region": "neck_upper",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.0056,
+        0.0076,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_24",
+      "region": "neck_upper",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0178,
+        0.012,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_25",
+      "region": "neck_mid",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        0,
+        0.012,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_26",
+      "region": "neck_mid",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.016,
+        0.0075,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_27",
+      "region": "neck_mid",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0146,
+        -0.0027,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_28",
+      "region": "neck_mid",
+      "type": "wrinkle",
+      "strength": 0.3,
+      "offset": [
+        -0.0028,
+        -0.0108,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_29",
+      "region": "neck_mid",
+      "type": "fur_texture",
+      "strength": 0.36,
+      "offset": [
+        -0.0171,
+        -0.0108,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_30",
+      "region": "neck_mid",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        -0.0127,
+        -0.0025,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_31",
+      "region": "neck_mid",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.0056,
+        0.0076,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_32",
+      "region": "neck_mid",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0178,
+        0.012,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_33",
+      "region": "neck_lower",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        0,
+        0.012,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_34",
+      "region": "neck_lower",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.016,
+        0.0075,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_35",
+      "region": "neck_lower",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0146,
+        -0.0027,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_36",
+      "region": "neck_lower",
+      "type": "wrinkle",
+      "strength": 0.3,
+      "offset": [
+        -0.0028,
+        -0.0108,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_37",
+      "region": "neck_lower",
+      "type": "fur_texture",
+      "strength": 0.36,
+      "offset": [
+        -0.0171,
+        -0.0108,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_38",
+      "region": "neck_lower",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        -0.0127,
+        -0.0025,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_39",
+      "region": "neck_lower",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.0056,
+        0.0076,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_40",
+      "region": "neck_lower",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0178,
+        0.012,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_41",
+      "region": "body_left",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        0,
+        0.012,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_42",
+      "region": "body_left",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.016,
+        0.0075,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_43",
+      "region": "body_left",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0146,
+        -0.0027,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_44",
+      "region": "body_left",
+      "type": "wrinkle",
+      "strength": 0.3,
+      "offset": [
+        -0.0028,
+        -0.0108,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_45",
+      "region": "body_left",
+      "type": "fur_texture",
+      "strength": 0.36,
+      "offset": [
+        -0.0171,
+        -0.0108,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_46",
+      "region": "body_left",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        -0.0127,
+        -0.0025,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_47",
+      "region": "body_left",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.0056,
+        0.0076,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_48",
+      "region": "body_left",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0178,
+        0.012,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_49",
+      "region": "body_right",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        0,
+        0.012,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_50",
+      "region": "body_right",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.016,
+        0.0075,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_51",
+      "region": "body_right",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0146,
+        -0.0027,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_52",
+      "region": "body_right",
+      "type": "wrinkle",
+      "strength": 0.3,
+      "offset": [
+        -0.0028,
+        -0.0108,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_53",
+      "region": "body_right",
+      "type": "fur_texture",
+      "strength": 0.36,
+      "offset": [
+        -0.0171,
+        -0.0108,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_54",
+      "region": "body_right",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        -0.0127,
+        -0.0025,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_55",
+      "region": "body_right",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.0056,
+        0.0076,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_56",
+      "region": "body_right",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0178,
+        0.012,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_57",
+      "region": "body_top",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        0,
+        0.012,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_58",
+      "region": "body_top",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.016,
+        0.0075,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_59",
+      "region": "body_top",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0146,
+        -0.0027,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_60",
+      "region": "body_top",
+      "type": "wrinkle",
+      "strength": 0.3,
+      "offset": [
+        -0.0028,
+        -0.0108,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_61",
+      "region": "body_top",
+      "type": "fur_texture",
+      "strength": 0.36,
+      "offset": [
+        -0.0171,
+        -0.0108,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_62",
+      "region": "body_top",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        -0.0127,
+        -0.0025,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_63",
+      "region": "body_top",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.0056,
+        0.0076,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_64",
+      "region": "body_top",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0178,
+        0.012,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_65",
+      "region": "belly",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        0,
+        0.012,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_66",
+      "region": "belly",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.016,
+        0.0075,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_67",
+      "region": "belly",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0146,
+        -0.0027,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_68",
+      "region": "belly",
+      "type": "wrinkle",
+      "strength": 0.3,
+      "offset": [
+        -0.0028,
+        -0.0108,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_69",
+      "region": "belly",
+      "type": "fur_texture",
+      "strength": 0.36,
+      "offset": [
+        -0.0171,
+        -0.0108,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_70",
+      "region": "belly",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        -0.0127,
+        -0.0025,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_71",
+      "region": "belly",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.0056,
+        0.0076,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_72",
+      "region": "belly",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0178,
+        0.012,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_73",
+      "region": "front_left_leg",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        0,
+        0.012,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_74",
+      "region": "front_left_leg",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.016,
+        0.0075,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_75",
+      "region": "front_left_leg",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0146,
+        -0.0027,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_76",
+      "region": "front_left_leg",
+      "type": "wrinkle",
+      "strength": 0.3,
+      "offset": [
+        -0.0028,
+        -0.0108,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_77",
+      "region": "front_left_leg",
+      "type": "fur_texture",
+      "strength": 0.36,
+      "offset": [
+        -0.0171,
+        -0.0108,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_78",
+      "region": "front_left_leg",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        -0.0127,
+        -0.0025,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_79",
+      "region": "front_left_leg",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.0056,
+        0.0076,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_80",
+      "region": "front_left_leg",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0178,
+        0.012,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_81",
+      "region": "front_right_leg",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        0,
+        0.012,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_82",
+      "region": "front_right_leg",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.016,
+        0.0075,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_83",
+      "region": "front_right_leg",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0146,
+        -0.0027,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_84",
+      "region": "front_right_leg",
+      "type": "wrinkle",
+      "strength": 0.3,
+      "offset": [
+        -0.0028,
+        -0.0108,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_85",
+      "region": "front_right_leg",
+      "type": "fur_texture",
+      "strength": 0.36,
+      "offset": [
+        -0.0171,
+        -0.0108,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_86",
+      "region": "front_right_leg",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        -0.0127,
+        -0.0025,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_87",
+      "region": "front_right_leg",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.0056,
+        0.0076,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_88",
+      "region": "front_right_leg",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0178,
+        0.012,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_89",
+      "region": "rear_left_leg",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        0,
+        0.012,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_90",
+      "region": "rear_left_leg",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.016,
+        0.0075,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_91",
+      "region": "rear_left_leg",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0146,
+        -0.0027,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_92",
+      "region": "rear_left_leg",
+      "type": "wrinkle",
+      "strength": 0.3,
+      "offset": [
+        -0.0028,
+        -0.0108,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_93",
+      "region": "rear_left_leg",
+      "type": "fur_texture",
+      "strength": 0.36,
+      "offset": [
+        -0.0171,
+        -0.0108,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_94",
+      "region": "rear_left_leg",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        -0.0127,
+        -0.0025,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_95",
+      "region": "rear_left_leg",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.0056,
+        0.0076,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_96",
+      "region": "rear_left_leg",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0178,
+        0.012,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_97",
+      "region": "rear_right_leg",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        0,
+        0.012,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_98",
+      "region": "rear_right_leg",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.016,
+        0.0075,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_99",
+      "region": "rear_right_leg",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0146,
+        -0.0027,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_100",
+      "region": "rear_right_leg",
+      "type": "wrinkle",
+      "strength": 0.3,
+      "offset": [
+        -0.0028,
+        -0.0108,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_101",
+      "region": "rear_right_leg",
+      "type": "fur_texture",
+      "strength": 0.36,
+      "offset": [
+        -0.0171,
+        -0.0108,
+        0
+      ]
+    },
+    {
+      "id": "g_sd_102",
+      "region": "rear_right_leg",
+      "type": "coat_seam",
+      "strength": 0.12,
+      "offset": [
+        -0.0127,
+        -0.0025,
+        0.01
+      ]
+    },
+    {
+      "id": "g_sd_103",
+      "region": "rear_right_leg",
+      "type": "muscle_ridge",
+      "strength": 0.18,
+      "offset": [
+        0.0056,
+        0.0076,
+        -0.01
+      ]
+    },
+    {
+      "id": "g_sd_104",
+      "region": "rear_right_leg",
+      "type": "skin_fold",
+      "strength": 0.24,
+      "offset": [
+        0.0178,
+        0.012,
+        0
+      ]
+    }
+  ],
+  "ornaments": [],
+  "pose": {
+    "preset": "standing_alert",
+    "neckElevationDeg": 75
+  },
+  "animationHints": {
+    "idleBreathScale": 0.005,
+    "neckSway": true,
+    "tailFlick": true
+  },
+  "lod": {
+    "high": "full",
+    "medium": "merge_fur_patches",
+    "low": "merge_limb_segments"
+  },
+  "exportOptions": {
+    "formats": [
+      "gltf",
+      "glb"
+    ]
+  }
+}
