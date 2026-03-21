@@ -267,11 +267,11 @@ plugins/prompt2cesiumjs/generated/
 
 ## 動画
 
--解説動画1(3:34)
-[![prompt2gltf 解説動画1](https://img.youtube.com/vi/Irw6JqgXudk/0.jpg)](https://www.youtube.com/watch?v=Irw6JqgXudk)
+- 解説動画1(3:34)
+- [![prompt2gltf 解説動画1](https://img.youtube.com/vi/Irw6JqgXudk/0.jpg)](https://www.youtube.com/watch?v=Irw6JqgXudk)
 
--解説動画2(2:53)
-[![prompt2gltf 解説動画2](https://img.youtube.com/vi/lnZhPEYG3ZI/0.jpg)](https://www.youtube.com/watch?v=lnZhPEYG3ZI)
+- 解説動画2(2:53)
+- [![prompt2gltf 解説動画2](https://img.youtube.com/vi/lnZhPEYG3ZI/0.jpg)](https://www.youtube.com/watch?v=lnZhPEYG3ZI)
 
 ---
 
