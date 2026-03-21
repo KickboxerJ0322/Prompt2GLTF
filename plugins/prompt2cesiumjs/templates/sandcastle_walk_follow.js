@@ -49,10 +49,10 @@ const PERSON = {
   glb: (() => {
     const modelUrl = "{{MODEL_URL}}".trim();
     return !modelUrl || modelUrl === "{{MODEL_URL}}"
-      ? "https://raw.githubusercontent.com/KickboxerJ0322/Prompt2GLTF/master/glb/car.glb"
+      ? "https://raw.githubusercontent.com/KickboxerJ0322/Prompt2GLTF/master/glb/robo.glb"
       : modelUrl;
   })(),
-  scale: 0.3, // 0.3程度
+  scale: 0.05, // robo用
   minimumPixelSize: 64,
   maximumScale: 20,
   heightMeters: 40, // 40程度
@@ -60,7 +60,7 @@ const PERSON = {
   pathWidth: 4, // 4程度
 
   // 真後ろ追尾カメラ
-  followOffset: new Cesium.Cartesian3(-540.0, -2.0, 300.0), //デフォルト(-540.0, -2.0, 300.0)
+  followOffset: new Cesium.Cartesian3(-3.0, -0.0, 3.0), //デフォルト(-3.0, -0.0, 3.0)
   lookOffset: new Cesium.Cartesian3({{LOOK_X}}, {{LOOK_Y}}, {{LOOK_Z}}), //デフォルト(0.0, 0.0, 2.2)
   cameraSmooth: {{CAMERA_SMOOTH}}, //デフォルト0.10
 };
@@ -121,6 +121,23 @@ position.setInterpolationOptions({
   interpolationDegree: 1,
   interpolationAlgorithm: Cesium.LinearApproximation,
 });
+
+// ------------------------------------
+// プレイヤー高さオフセット（Q/Eで上下）
+// ------------------------------------
+let playerHeightOffset = 0;
+const HEIGHT_STEP = 1.0; // 1mずつ
+
+const offsetPosition = new Cesium.CallbackProperty(function (time, result) {
+  const p = position.getValue(time);
+  if (!Cesium.defined(p)) return undefined;
+  const up = Cesium.Ellipsoid.WGS84.geodeticSurfaceNormal(p, new Cesium.Cartesian3());
+  return Cesium.Cartesian3.add(
+    p,
+    Cesium.Cartesian3.multiplyByScalar(up, playerHeightOffset, new Cesium.Cartesian3()),
+    result || new Cesium.Cartesian3()
+  );
+}, false);
 
 // ------------------------------------
 // 進行方向ベースの向き
@@ -279,7 +296,7 @@ for (const place of DEFAULT_PLACE_LABELS) {
 // ------------------------------------
 const player = viewer.entities.add({
   name: PERSON.name,
-  position: position,
+  position: offsetPosition,
   orientation: modelOrientation,
   availability: new Cesium.TimeIntervalCollection([
     new Cesium.TimeInterval({ start, stop }),
@@ -291,6 +308,17 @@ const player = viewer.entities.add({
     maximumScale: PERSON.maximumScale,
     runAnimations: true,
   },
+});
+
+// ------------------------------------
+// 軌跡（path）は SampledPositionProperty を使う別エンティティ
+// CallbackProperty は getValueInReferenceFrame 未実装のため path に使えない
+// ------------------------------------
+viewer.entities.add({
+  position: position,
+  availability: new Cesium.TimeIntervalCollection([
+    new Cesium.TimeInterval({ start, stop }),
+  ]),
   path: {
     width: PERSON.pathWidth,
     material: new Cesium.PolylineOutlineMaterialProperty({
@@ -326,12 +354,23 @@ await viewer.camera.flyTo({
 // カメラは baseOrientation を使う
 // ------------------------------------
 let smoothCamPos;
+let followCamera = true; // false = フリーカメラモード
 
-viewer.scene.preRender.addEventListener(function (scene, time) {
+viewer.scene.preRender.addEventListener(function (_scene, time) {
+  if (!followCamera) return;
+
   const p = position.getValue(time);
   const q = baseOrientation.getValue(time);
 
   if (!Cesium.defined(p) || !Cesium.defined(q)) return;
+
+  // 高さオフセットを適用したプレイヤー位置
+  const pUp = Cesium.Ellipsoid.WGS84.geodeticSurfaceNormal(p, new Cesium.Cartesian3());
+  const pOffset = Cesium.Cartesian3.add(
+    p,
+    Cesium.Cartesian3.multiplyByScalar(pUp, playerHeightOffset, new Cesium.Cartesian3()),
+    new Cesium.Cartesian3()
+  );
 
   const rot = Cesium.Matrix3.fromQuaternion(q);
 
@@ -342,7 +381,7 @@ viewer.scene.preRender.addEventListener(function (scene, time) {
   );
 
   const desiredCamPos = Cesium.Cartesian3.add(
-    p,
+    pOffset,
     worldFollowOffset,
     new Cesium.Cartesian3()
   );
@@ -354,7 +393,7 @@ viewer.scene.preRender.addEventListener(function (scene, time) {
   );
 
   const targetLookAt = Cesium.Cartesian3.add(
-    p,
+    pOffset,
     worldLookOffset,
     new Cesium.Cartesian3()
   );
@@ -410,4 +449,59 @@ viewer.scene.preRender.addEventListener(function (scene, time) {
   });
 });
 
+// ------------------------------------
+// キーボード操作
+// Q/E : プレイヤーを上下
+// F   : フォローカメラ ⇔ フリーカメラ 切り替え
+// ------------------------------------
+document.addEventListener("keydown", function (e) {
+  switch (e.key) {
+    case "q":
+    case "Q":
+      playerHeightOffset += HEIGHT_STEP;
+      break;
+    case "e":
+    case "E":
+      playerHeightOffset -= HEIGHT_STEP;
+      break;
+    case "f":
+    case "F":
+      followCamera = !followCamera;
+      if (followCamera) {
+        // フォローモードに戻ったらスムージングをリセット
+        smoothCamPos = undefined;
+      }
+      console.log("カメラモード:", followCamera ? "フォロー" : "フリー");
+      break;
+  }
+});
+
+// ------------------------------------
+// 操作ガイド HUD（左上）
+// ------------------------------------
+const hud = document.createElement("div");
+hud.style.cssText = `
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 13px;
+  line-height: 1.8;
+  padding: 10px 14px;
+  border-radius: 6px;
+  pointer-events: none;
+  z-index: 999;
+  white-space: nowrap;
+`;
+hud.innerHTML = `
+  <div style="font-size:15px; font-weight:bold; margin-bottom:6px;">🚶 Walk Follow Mode</div>
+  <div><kbd style="background:#444;padding:1px 6px;border-radius:3px;">Q</kbd> &nbsp;ロボを上昇</div>
+  <div><kbd style="background:#444;padding:1px 6px;border-radius:3px;">E</kbd> &nbsp;ロボを下降</div>
+  <div><kbd style="background:#444;padding:1px 6px;border-radius:3px;">F</kbd> &nbsp;フォロー ⇔ フリーカメラ</div>
+`;
+document.getElementById("cesiumContainer").appendChild(hud);
+
 console.log("読み込み完了: {{LOG_LABEL}}");
+console.log("操作: Q=上昇 / E=下降 / F=フォロー⇔フリーカメラ切り替え");

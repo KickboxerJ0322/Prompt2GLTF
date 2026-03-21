@@ -191,6 +191,12 @@ const SUBJECT_REGISTRY = [
     defaultStyle: "realistic_human",
   },
   {
+    id: "world_tree",
+    match: /世界樹|ユグドラシル|yggdrasil|yggdrasill|world.?tree|igdrasil|イグドラシル|イルミンスール|irminssul/iu,
+    defaultHeight: () => 80,
+    defaultStyle: "mythic_world_tree",
+  },
+  {
     id: "structure",
     match: /tree|traffic.?signal|signal|pedestrian.?bridge|footbridge|bridge|data.?center|theme.?park|power.?plant|rocket.?base|\u6728|\u6a39|\u4fe1\u53f7|\u6b69\u9053\u6a4b|\u6a4b|\u30c7\u30fc\u30bf\u30bb\u30f3\u30bf\u30fc|\u30c6\u30fc\u30de\u30d1\u30fc\u30af|\u767a\u96fb\u6240|\u30ed\u30b1\u30c3\u30c8\u57fa\u5730/iu,
     defaultHeight: () => 48,
@@ -749,9 +755,10 @@ const USER_COLOR_PRIMARY_KEYS = {
   kaiju:       ["hide_main"],
   robot:       ["body_primary"],
   castle:      ["stone_main"],
-  building:    ["facade_main"],
+  building:    ["facade_main", "wall_main", "wall_dark", "wall_wood", "roof_flat", "parapet"],
   vehicle:     ["body_main"],
   structure:   ["steel"],
+  world_tree:  ["foliage_main", "foliage_mid", "foliage_light", "foliage_glow"],
   human:       ["clothing_main", "uniform_main"],
   warrior:     ["plate_main"],
   giant:       ["body_main", "armor_main"],
@@ -6488,6 +6495,503 @@ function buildVehicleSpec(prompt, height, styles) {
   spec.surfaceDetails = surfaceDetails;
   return spec;
 }
+// -- WORLD TREE (YGGDRASIL) SPEC BUILDER --------------------------------------
+function buildWorldTreeSpec(prompt, height, styles) {
+  const H = height;
+  const base = buildHighDensityMeta(prompt, "world_tree", height, styles);
+
+  const spec = {
+    ...base,
+    promptInterpretation: {
+      ...base.promptInterpretation,
+      normalizedSubject: "world_tree",
+      treeArchetype: "yggdrasil",
+      mythicWells: ["urdarbrunnr", "hvergelmir", "mimisbrunnr"],
+      inhabitants: ["eagle_vedfolnir", "serpent_nidhoggr", "squirrel_ratatoskr"],
+    },
+    globalScale: { height: H, width: rounded(H * 1.6), depth: rounded(H * 1.6) },
+    style: {
+      silhouette: "world_tree_colossus",
+      mood: "mythic_divine",
+      genre: "norse_cosmic_tree",
+      detailDensity: "extreme",
+      bodyLanguage: "static_ancient_monumental",
+      shapeLanguage: [
+        "titanic_trunk", "deep_buttress_roots", "three_mythic_roots",
+        "three_sacred_wells", "multi_tier_branches", "vast_divine_canopy",
+        "luminous_rune_veins", "mythic_inhabitants",
+      ],
+    },
+    materials: {
+      bark_dark:      { baseColor: "#2E2010", roughness: 0.98, metalness: 0.01 },
+      bark:           { baseColor: "#4A3828", roughness: 0.96, metalness: 0.01 },
+      bark_mid:       { baseColor: "#5A4030", roughness: 0.94, metalness: 0.01 },
+      bark_light:     { baseColor: "#6E5040", roughness: 0.90, metalness: 0.01 },
+      bark_tip:       { baseColor: "#7E6050", roughness: 0.88, metalness: 0.01 },
+      root_deep:      { baseColor: "#281808", roughness: 0.99, metalness: 0.01 },
+      root:           { baseColor: "#3A2818", roughness: 0.98, metalness: 0.01 },
+      root_surface:   { baseColor: "#4E3820", roughness: 0.96, metalness: 0.01 },
+      moss:           { baseColor: "#3E5E2A", roughness: 0.98, metalness: 0.01 },
+      foliage_dark:   { baseColor: "#1A4018", roughness: 0.94, metalness: 0.01 },
+      foliage_main:   { baseColor: "#2A5A28", roughness: 0.92, metalness: 0.01 },
+      foliage_mid:    { baseColor: "#3A7030", roughness: 0.90, metalness: 0.01 },
+      foliage_light:  { baseColor: "#4A8840", roughness: 0.88, metalness: 0.01 },
+      foliage_glow:   { baseColor: "#60A850", roughness: 0.80, metalness: 0.05, emissive: "#204818" },
+      foliage_tip:    { baseColor: "#78C060", roughness: 0.78, metalness: 0.02, emissive: "#102808" },
+      luminous:       { baseColor: "#E8F8A0", roughness: 0.38, metalness: 0.10, emissive: "#709038" },
+      rune_glow:      { baseColor: "#C0E870", roughness: 0.30, metalness: 0.08, emissive: "#90C840" },
+      crystal_blue:   { baseColor: "#A0D8F8", roughness: 0.12, metalness: 0.20, emissive: "#2060A0" },
+      crystal_gold:   { baseColor: "#F8E890", roughness: 0.14, metalness: 0.30, emissive: "#C09820" },
+      water_divine:   { baseColor: "#60A8E0", roughness: 0.05, metalness: 0.80, emissive: "#103050" },
+      stone_well:     { baseColor: "#8A8478", roughness: 0.94, metalness: 0.03 },
+      eagle_gold:     { baseColor: "#C89030", roughness: 0.55, metalness: 0.30 },
+      eagle_white:    { baseColor: "#E8E4D8", roughness: 0.60, metalness: 0.10 },
+      serpent_dark:   { baseColor: "#183818", roughness: 0.90, metalness: 0.05 },
+      serpent_scale:  { baseColor: "#284828", roughness: 0.85, metalness: 0.08 },
+      squirrel_fur:   { baseColor: "#A04820", roughness: 0.88, metalness: 0.02 },
+      vine:           { baseColor: "#305020", roughness: 0.96, metalness: 0.01 },
+    },
+    parts: [],
+    surfaceDetails: [],
+    ornaments: [],
+    pose: { preset: "static" },
+    animationHints: { branches: "gentle_sway_wind", foliage: "rustling_leaves", vines: "slow_drift" },
+    lod: { high: "full", medium: "reduce_foliage_tertiary", low: "merge_canopy_and_vines" },
+    exportOptions: { formats: ["gltf", "glb"] },
+  };
+
+  const parts = [];
+  const surfaceDetails = [];
+  const box = (id, mat, sx, sy, sz, px, py, pz) => {
+    parts.push({ id, kind: "box", material: mat, size: [rounded(sx), rounded(sy), rounded(sz)], position: [rounded(px), rounded(py), rounded(pz)] });
+  };
+  const cyl = (id, mat, rx, ry, rz, px, py, pz) => {
+    parts.push({ id, kind: "cylinder", material: mat, size: [rounded(rx), rounded(ry), rounded(rz)], position: [rounded(px), rounded(py), rounded(pz)] });
+  };
+  const sph = (id, mat, rx, ry, rz, px, py, pz) => {
+    parts.push({ id, kind: "sphere", material: mat, size: [rounded(rx), rounded(ry), rounded(rz)], position: [rounded(px), rounded(py), rounded(pz)] });
+  };
+  const pushSurface = (id, region, type, strength, offset) => {
+    surfaceDetails.push({ id, region, type, strength: rounded(strength), offset: offset.map(rounded) });
+  };
+
+  // ── TRUNK (6 tapered sections + wide base flare) ───────────────────────────
+  // flare: extra-wide short disc at ground level
+  cyl("trunk_flare",  "bark_dark",  H * 0.115, H * 0.04, H * 0.115, 0, H * 0.02, 0);
+  const tSeg = [
+    { id: "trunk_s1", mat: "bark_dark",  r: H * 0.095, h: H * 0.17 },
+    { id: "trunk_s2", mat: "bark",       r: H * 0.078, h: H * 0.16 },
+    { id: "trunk_s3", mat: "bark",       r: H * 0.062, h: H * 0.16 },
+    { id: "trunk_s4", mat: "bark_mid",   r: H * 0.048, h: H * 0.14 },
+    { id: "trunk_s5", mat: "bark_mid",   r: H * 0.036, h: H * 0.12 },
+    { id: "trunk_s6", mat: "bark_light", r: H * 0.026, h: H * 0.10 },
+  ];
+  let trunkTopY = H * 0.04;
+  for (const s of tSeg) {
+    cyl(s.id, s.mat, s.r, s.h, s.r, 0, trunkTopY + s.h * 0.5, 0);
+    trunkTopY += s.h;
+  }
+  const tR_crown = H * 0.026; // radius at crown junction
+
+  // ── BUTTRESS ROOTS — PRIMARY (8 radiating, tapered) ──────────────────────
+  const allDirs8 = [
+    { id: "N",  dx:  0,     dz:  1     },
+    { id: "NE", dx:  0.707, dz:  0.707 },
+    { id: "E",  dx:  1,     dz:  0     },
+    { id: "SE", dx:  0.707, dz: -0.707 },
+    { id: "S",  dx:  0,     dz: -1     },
+    { id: "SW", dx: -0.707, dz: -0.707 },
+    { id: "W",  dx: -1,     dz:  0     },
+    { id: "NW", dx: -0.707, dz:  0.707 },
+  ];
+  const brP_len = H * 0.30, brP_w = H * 0.055, brP_h = H * 0.13;
+  for (const d of allDirs8) {
+    const cx = d.dx * (H * 0.07 + brP_len * 0.5);
+    const cz = d.dz * (H * 0.07 + brP_len * 0.5);
+    const sx = Math.abs(d.dx) > 0.5 ? brP_len : brP_w;
+    const sz = Math.abs(d.dz) > 0.5 ? brP_len : brP_w;
+    box(`rbp_${d.id}`, "root", sx, brP_h, sz, cx, brP_h * 0.5, cz);
+  }
+  // ── BUTTRESS ROOTS — SECONDARY (8 narrower, further out) ─────────────────
+  const brS_len = H * 0.22, brS_w = H * 0.032, brS_h = H * 0.07;
+  for (const d of allDirs8) {
+    const start = H * 0.07 + brP_len;
+    const cx = d.dx * (start + brS_len * 0.5);
+    const cz = d.dz * (start + brS_len * 0.5);
+    const sx = Math.abs(d.dx) > 0.5 ? brS_len : brS_w;
+    const sz = Math.abs(d.dz) > 0.5 ? brS_len : brS_w;
+    box(`rbs_${d.id}`, "root_surface", sx, brS_h, sz, cx, brS_h * 0.5, cz);
+  }
+  // ── GROUND MOSSY MOUNDS at root base (8 moss spheres) ────────────────────
+  for (let i = 0; i < allDirs8.length; i++) {
+    const d = allDirs8[i];
+    const dist = H * 0.14 + brP_len * 0.6;
+    sph(`moss_mound_${d.id}`, "moss", H * 0.04, H * 0.03, H * 0.04, d.dx * dist, H * 0.02, d.dz * dist);
+  }
+
+  // ── THREE MYTHIC TAP ROOTS (Urðr / Hvergelmir / Mímir) ────────────────────
+  // Each root: main stem + two arch-bridge sections + branch splits
+  const tapDefs = [
+    { id: "urd",   dx:  0.40, dz:  0.92, dist: H * 0.55 },
+    { id: "hvel",  dx: -0.87, dz: -0.49, dist: H * 0.52 },
+    { id: "mimir", dx:  0.20, dz: -0.98, dist: H * 0.60 },
+  ];
+  for (const t of tapDefs) {
+    const mag = Math.sqrt(t.dx * t.dx + t.dz * t.dz);
+    const ndx = t.dx / mag, ndz = t.dz / mag;
+    const rR = H * 0.042, rL = t.dist;
+    // Main root cylinder (partially above ground, partially below)
+    cyl(`root_tap_${t.id}`,      "root",         rR, rL, rR, ndx * rL * 0.45, rL * 0.08, ndz * rL * 0.45);
+    // Arch bridge A (near)
+    const archAW = Math.abs(ndx) > 0.5 ? H * 0.20 : H * 0.036;
+    const archAD = Math.abs(ndz) > 0.5 ? H * 0.20 : H * 0.036;
+    box(`root_arch_${t.id}_A`,   "root",         archAW, H * 0.09, archAD, ndx * rL * 0.20, H * 0.11, ndz * rL * 0.20);
+    // Arch bridge B (far)
+    const archBW = Math.abs(ndx) > 0.5 ? H * 0.16 : H * 0.030;
+    const archBD = Math.abs(ndz) > 0.5 ? H * 0.16 : H * 0.030;
+    box(`root_arch_${t.id}_B`,   "root_surface", archBW, H * 0.07, archBD, ndx * rL * 0.36, H * 0.09, ndz * rL * 0.36);
+    // Root branch split (fork)
+    const forkOff = H * 0.024;
+    cyl(`root_fork_${t.id}_A`,   "root_surface", rR * 0.65, rL * 0.30, rR * 0.65,
+      ndx * (rL * 0.58) + ndz * forkOff, rL * 0.04, ndz * (rL * 0.58) - ndx * forkOff);
+    cyl(`root_fork_${t.id}_B`,   "root_surface", rR * 0.55, rL * 0.26, rR * 0.55,
+      ndx * (rL * 0.60) - ndz * forkOff, rL * 0.03, ndz * (rL * 0.60) + ndx * forkOff);
+  }
+
+  // ── THREE SACRED WELLS (4 parts each: outer ring, inner ring, water, glow) ─
+  const wellDefs = [
+    { id: "urd",   label: "Urðarbrunnr", dx:  0.40, dz:  0.92, dist: H * 0.52 },
+    { id: "hvel",  label: "Hvergelmir",  dx: -0.87, dz: -0.49, dist: H * 0.50 },
+    { id: "mimir", label: "Mímisbrunnr", dx:  0.20, dz: -0.98, dist: H * 0.57 },
+  ];
+  const wellGlowMats = ["crystal_blue", "luminous", "crystal_gold"];
+  for (let wi = 0; wi < wellDefs.length; wi++) {
+    const w = wellDefs[wi];
+    const mag = Math.sqrt(w.dx * w.dx + w.dz * w.dz);
+    const ndx = w.dx / mag, ndz = w.dz / mag;
+    const wx = ndx * w.dist, wz = ndz * w.dist;
+    const wellR = H * 0.055, wellH = H * 0.06;
+    // Outer stone ring
+    cyl(`well_${w.id}_outer`,  "stone_well",   wellR,         wellH,        wellR,         wx, wellH * 0.5, wz);
+    cyl(`well_${w.id}_inner`,  "stone_well",   wellR * 0.72,  wellH * 0.85, wellR * 0.72,  wx, wellH * 0.5, wz);
+    // Divine water surface (flat sphere)
+    sph(`well_${w.id}_water`,  "water_divine", wellR * 0.60,  H * 0.01,     wellR * 0.60,  wx, wellH, wz);
+    // Glow orb above well
+    sph(`well_${w.id}_glow`,   wellGlowMats[wi], H * 0.035, H * 0.035, H * 0.035, wx, wellH + H * 0.06, wz);
+    // Crystal pillar beside well
+    cyl(`well_${w.id}_crystal`, wi === 0 ? "crystal_blue" : wi === 1 ? "rune_glow" : "crystal_gold",
+      H * 0.012, H * 0.10, H * 0.012, wx + H * 0.06, H * 0.05, wz + H * 0.04);
+  }
+
+  // ── PRIMARY BRANCHES — LEVEL 1 (at H*0.37-0.56) — 10 branches ──────────────
+  const primL1 = [
+    { id: "L1_N",   dx:  0,     dz:  1,     sY: 0.38, oL: 0.26, uL: 0.10, r: 0.022 },
+    { id: "L1_NNE", dx:  0.38,  dz:  0.92,  sY: 0.41, oL: 0.24, uL: 0.09, r: 0.020 },
+    { id: "L1_ENE", dx:  0.92,  dz:  0.38,  sY: 0.44, oL: 0.25, uL: 0.10, r: 0.021 },
+    { id: "L1_E",   dx:  1,     dz:  0,     sY: 0.48, oL: 0.27, uL: 0.11, r: 0.023 },
+    { id: "L1_ESE", dx:  0.92,  dz: -0.38,  sY: 0.45, oL: 0.23, uL: 0.09, r: 0.019 },
+    { id: "L1_SSE", dx:  0.38,  dz: -0.92,  sY: 0.42, oL: 0.24, uL: 0.09, r: 0.020 },
+    { id: "L1_S",   dx:  0,     dz: -1,     sY: 0.50, oL: 0.25, uL: 0.10, r: 0.021 },
+    { id: "L1_W",   dx: -1,     dz:  0,     sY: 0.46, oL: 0.24, uL: 0.09, r: 0.020 },
+    { id: "L1_NW",  dx: -0.707, dz:  0.707, sY: 0.40, oL: 0.22, uL: 0.09, r: 0.019 },
+    { id: "L1_SW",  dx: -0.707, dz: -0.707, sY: 0.43, oL: 0.21, uL: 0.08, r: 0.018 },
+  ];
+  for (const b of primL1) {
+    const bw = H * b.r * 2;
+    const oL = H * b.oL;
+    const mag = Math.sqrt(b.dx * b.dx + b.dz * b.dz);
+    const ndx = b.dx / mag, ndz = b.dz / mag;
+    const sx = Math.abs(ndx) > 0.5 ? oL : bw;
+    const sz = Math.abs(ndz) > 0.5 ? oL : bw;
+    const bx = ndx * (tR_crown + oL * 0.5), bz = ndz * (tR_crown + oL * 0.5);
+    const by = H * b.sY;
+    box(`${b.id}_h`, "bark_mid",   sx, bw, sz, bx, by, bz);
+    const tipX = ndx * (tR_crown + oL), tipZ = ndz * (tR_crown + oL), tipH = H * b.uL;
+    cyl(`${b.id}_r`, "bark_light", bw * 0.45, tipH, bw * 0.45, tipX, by + tipH * 0.55, tipZ);
+  }
+
+  // ── PRIMARY BRANCHES — LEVEL 2 (at H*0.60-0.76) — 8 branches ──────────────
+  const primL2 = [
+    { id: "L2_N",   dx:  0,     dz:  1,     sY: 0.62, oL: 0.18, uL: 0.10, r: 0.016 },
+    { id: "L2_NE",  dx:  0.707, dz:  0.707, sY: 0.64, oL: 0.17, uL: 0.09, r: 0.015 },
+    { id: "L2_E",   dx:  1,     dz:  0,     sY: 0.67, oL: 0.19, uL: 0.10, r: 0.016 },
+    { id: "L2_SE",  dx:  0.707, dz: -0.707, sY: 0.65, oL: 0.16, uL: 0.09, r: 0.014 },
+    { id: "L2_S",   dx:  0,     dz: -1,     sY: 0.68, oL: 0.18, uL: 0.10, r: 0.016 },
+    { id: "L2_SW",  dx: -0.707, dz: -0.707, sY: 0.63, oL: 0.16, uL: 0.08, r: 0.014 },
+    { id: "L2_W",   dx: -1,     dz:  0,     sY: 0.66, oL: 0.18, uL: 0.09, r: 0.015 },
+    { id: "L2_NW",  dx: -0.707, dz:  0.707, sY: 0.61, oL: 0.17, uL: 0.09, r: 0.015 },
+  ];
+  for (const b of primL2) {
+    const bw = H * b.r * 2;
+    const oL = H * b.oL;
+    const mag = Math.sqrt(b.dx * b.dx + b.dz * b.dz);
+    const ndx = b.dx / mag, ndz = b.dz / mag;
+    const sx = Math.abs(ndx) > 0.5 ? oL : bw;
+    const sz = Math.abs(ndz) > 0.5 ? oL : bw;
+    const bx = ndx * (tR_crown + oL * 0.5), bz = ndz * (tR_crown + oL * 0.5);
+    const by = H * b.sY;
+    box(`${b.id}_h`, "bark_light", sx, bw, sz, bx, by, bz);
+    const tipX = ndx * (tR_crown + oL), tipZ = ndz * (tR_crown + oL), tipH = H * b.uL;
+    cyl(`${b.id}_r`, "bark_tip",   bw * 0.40, tipH, bw * 0.40, tipX, by + tipH * 0.55, tipZ);
+  }
+
+  // ── SECONDARY BRANCHES (18, at H*0.55-0.74) ──────────────────────────────
+  const secBr = [
+    { id: "sb_NNW", dx: -0.38, dz:  0.92,  sY: 0.57, oL: 0.14, r: 0.011 },
+    { id: "sb_NEN", dx:  0.38, dz:  0.92,  sY: 0.59, oL: 0.14, r: 0.011 },
+    { id: "sb_ENE", dx:  0.92, dz:  0.38,  sY: 0.61, oL: 0.14, r: 0.012 },
+    { id: "sb_ESE", dx:  0.92, dz: -0.38,  sY: 0.63, oL: 0.13, r: 0.011 },
+    { id: "sb_SSE", dx:  0.38, dz: -0.92,  sY: 0.58, oL: 0.13, r: 0.010 },
+    { id: "sb_SSW", dx: -0.38, dz: -0.92,  sY: 0.56, oL: 0.13, r: 0.010 },
+    { id: "sb_WSW", dx: -0.92, dz: -0.38,  sY: 0.62, oL: 0.14, r: 0.011 },
+    { id: "sb_WNW", dx: -0.92, dz:  0.38,  sY: 0.60, oL: 0.13, r: 0.011 },
+    { id: "sb_N2",  dx:  0,    dz:  1,     sY: 0.70, oL: 0.12, r: 0.010 },
+    { id: "sb_E2",  dx:  1,    dz:  0,     sY: 0.72, oL: 0.12, r: 0.010 },
+    { id: "sb_S2",  dx:  0,    dz: -1,     sY: 0.71, oL: 0.12, r: 0.010 },
+    { id: "sb_W2",  dx: -1,    dz:  0,     sY: 0.69, oL: 0.12, r: 0.010 },
+    { id: "sb_NEu", dx:  0.707,dz:  0.707, sY: 0.74, oL: 0.11, r: 0.009 },
+    { id: "sb_SEu", dx:  0.707,dz: -0.707, sY: 0.73, oL: 0.11, r: 0.009 },
+    { id: "sb_SWu", dx: -0.707,dz: -0.707, sY: 0.72, oL: 0.11, r: 0.009 },
+    { id: "sb_NWu", dx: -0.707,dz:  0.707, sY: 0.71, oL: 0.11, r: 0.009 },
+    { id: "sb_NEh", dx:  0.5,  dz:  0.866, sY: 0.76, oL: 0.10, r: 0.008 },
+    { id: "sb_SWh", dx: -0.5,  dz: -0.866, sY: 0.75, oL: 0.10, r: 0.008 },
+  ];
+  for (const b of secBr) {
+    const mag = Math.sqrt(b.dx * b.dx + b.dz * b.dz);
+    const ndx = b.dx / mag, ndz = b.dz / mag;
+    const len = H * b.oL, bw = H * b.r * 2;
+    const sx = Math.abs(ndx) > 0.5 ? len : bw;
+    const sz = Math.abs(ndz) > 0.5 ? len : bw;
+    const px = ndx * (tR_crown + len * 0.5), pz = ndz * (tR_crown + len * 0.5);
+    box(b.id, "bark_tip", sx, bw, sz, px, H * b.sY, pz);
+  }
+
+  // ── TERTIARY BRANCHES (thin, near crown, 12) ──────────────────────────────
+  for (let i = 0; i < 12; i++) {
+    const ang = (i / 12) * Math.PI * 2;
+    const dx = Math.sin(ang), dz = Math.cos(ang);
+    const sY = 0.78 + (i % 3) * 0.025;
+    const oL = H * (0.08 + (i % 4) * 0.012);
+    const bw = H * 0.007;
+    const sx = Math.abs(dx) > 0.5 ? oL : bw;
+    const sz = Math.abs(dz) > 0.5 ? oL : bw;
+    box(`tbr_${i}`, "bark_tip", sx, bw, sz, dx * (tR_crown + oL * 0.5), H * sY, dz * (tR_crown + oL * 0.5));
+  }
+
+  // ── CANOPY — MAIN CROWN (8 layered spheres) ────────────────────────────────
+  sph("crown_A", "foliage_dark",  H * 0.34, H * 0.22, H * 0.34, 0, H * 0.78, 0);
+  sph("crown_B", "foliage_main",  H * 0.30, H * 0.20, H * 0.30, 0, H * 0.84, 0);
+  sph("crown_C", "foliage_mid",   H * 0.26, H * 0.18, H * 0.26, 0, H * 0.90, 0);
+  sph("crown_D", "foliage_light", H * 0.20, H * 0.14, H * 0.20, 0, H * 0.95, 0);
+  sph("crown_E", "foliage_tip",   H * 0.14, H * 0.10, H * 0.14, 0, H * 0.99, 0);
+  // Offset crown lobes
+  sph("crown_N",  "foliage_main",  H * 0.16, H * 0.13, H * 0.16,  H * 0.10, H * 0.88,  H * 0.16);
+  sph("crown_S",  "foliage_mid",   H * 0.16, H * 0.13, H * 0.16, -H * 0.09, H * 0.87, -H * 0.18);
+  sph("crown_EW", "foliage_light", H * 0.14, H * 0.11, H * 0.14,  H * 0.17, H * 0.86,  H * 0.04);
+
+  // ── CANOPY — MID-LEVEL (8 spheres surrounding the trunk at H*0.62-0.76) ───
+  for (let i = 0; i < 8; i++) {
+    const ang = (i / 8) * Math.PI * 2 + Math.PI / 8;
+    const dx = Math.sin(ang), dz = Math.cos(ang);
+    const dist = H * 0.20;
+    const sY = H * (0.65 + (i % 3) * 0.028);
+    const fr = H * (0.10 + (i % 4) * 0.012);
+    const mats = ["foliage_dark", "foliage_main", "foliage_mid", "foliage_light"];
+    sph(`canopy_mid_${i}`, mats[i % 4], fr, fr * 0.75, fr, dx * dist, sY, dz * dist);
+  }
+
+  // ── CANOPY — BRANCH TIP FOLIAGE (L1 x 10, L2 x 8) ────────────────────────
+  const fMats = ["foliage_dark", "foliage_main", "foliage_mid", "foliage_light", "foliage_glow", "foliage_tip"];
+  for (let i = 0; i < primL1.length; i++) {
+    const b = primL1[i];
+    const mag = Math.sqrt(b.dx * b.dx + b.dz * b.dz);
+    const ndx = b.dx / mag, ndz = b.dz / mag;
+    const oL = H * b.oL;
+    const tipX = ndx * (tR_crown + oL + H * 0.05);
+    const tipZ = ndz * (tR_crown + oL + H * 0.05);
+    const tipY = H * b.sY + H * b.uL + H * 0.05;
+    const fr = H * (0.085 + (i % 4) * 0.010);
+    sph(`fol_L1_${i}`, fMats[i % 6], fr, fr * 0.80, fr, tipX, tipY, tipZ);
+  }
+  for (let i = 0; i < primL2.length; i++) {
+    const b = primL2[i];
+    const mag = Math.sqrt(b.dx * b.dx + b.dz * b.dz);
+    const ndx = b.dx / mag, ndz = b.dz / mag;
+    const oL = H * b.oL;
+    const tipX = ndx * (tR_crown + oL + H * 0.04);
+    const tipZ = ndz * (tR_crown + oL + H * 0.04);
+    const tipY = H * b.sY + H * b.uL + H * 0.04;
+    const fr = H * (0.065 + (i % 4) * 0.008);
+    sph(`fol_L2_${i}`, fMats[(i + 2) % 6], fr, fr * 0.75, fr, tipX, tipY, tipZ);
+  }
+
+  // ── FLOATING LEAF CLUSTERS (6, drifting near crown) ───────────────────────
+  const floatPos = [
+    [H * 0.14, H * 1.01, H * 0.05], [-H * 0.16, H * 1.03,  H * 0.10],
+    [H * 0.08, H * 1.04, -H * 0.18], [-H * 0.10, H * 1.00,  H * 0.20],
+    [H * 0.22, H * 0.95,  H * 0.14], [-H * 0.05, H * 0.96, -H * 0.22],
+  ];
+  for (let i = 0; i < floatPos.length; i++) {
+    const [fx, fy, fz] = floatPos[i];
+    sph(`leaf_float_${i}`, "foliage_tip", H * 0.022, H * 0.016, H * 0.022, fx, fy, fz);
+  }
+
+  // ── DIVINE GLOW SPHERES (10, distributed vertically) ──────────────────────
+  const glowPts = [
+    [0, H * 1.01, 0, H * 0.090, H * 0.065, H * 0.090, "luminous"],
+    [0, H * 0.85, 0, H * 0.055, H * 0.040, H * 0.055, "rune_glow"],
+    [0, H * 0.70, 0, H * 0.040, H * 0.030, H * 0.040, "luminous"],
+    [0, H * 0.55, 0, H * 0.032, H * 0.024, H * 0.032, "rune_glow"],
+    [0, H * 0.38, 0, H * 0.028, H * 0.020, H * 0.028, "luminous"],
+    [0, H * 0.08, 0, H * 0.050, H * 0.036, H * 0.050, "rune_glow"],
+    [ H * 0.10, H * 0.62,  H * 0.10, H * 0.022, H * 0.016, H * 0.022, "luminous"],
+    [-H * 0.08, H * 0.68, -H * 0.12, H * 0.020, H * 0.014, H * 0.020, "rune_glow"],
+    [ H * 0.12, H * 0.75, -H * 0.08, H * 0.018, H * 0.013, H * 0.018, "luminous"],
+    [-H * 0.10, H * 0.42,  H * 0.14, H * 0.016, H * 0.012, H * 0.016, "rune_glow"],
+  ];
+  for (let i = 0; i < glowPts.length; i++) {
+    const [gx, gy, gz, grx, gry, grz, gmat] = glowPts[i];
+    sph(`glow_${i}`, gmat, grx, gry, grz, gx, gy, gz);
+  }
+
+  // ── DIVINE LIGHT PILLAR (2 thin cylinders along trunk axis) ──────────────
+  cyl("divine_pillar_lo", "luminous", H * 0.008, H * 0.45, H * 0.008, 0, H * 0.22, 0);
+  cyl("divine_pillar_hi", "rune_glow", H * 0.006, H * 0.40, H * 0.006, 0, H * 0.70, 0);
+
+  // ── EAGLE (Veðrfölnir) AT CROWN ─────────────────────────────────────────
+  const eagleY = H * 1.00;
+  sph("eagle_body", "eagle_white", H * 0.028, H * 0.022, H * 0.028, 0, eagleY, 0);
+  sph("eagle_head", "eagle_gold",  H * 0.016, H * 0.016, H * 0.016, 0, eagleY + H * 0.028, 0);
+  box("eagle_wing_L", "eagle_white", H * 0.080, H * 0.010, H * 0.020, -H * 0.055, eagleY + H * 0.005, 0);
+  box("eagle_wing_R", "eagle_white", H * 0.080, H * 0.010, H * 0.020,  H * 0.055, eagleY + H * 0.005, 0);
+
+  // ── NÍÐHÖGGR (Serpent) COILING THE BASE ──────────────────────────────────
+  // 5 arc coil segments around the lower trunk base
+  const coilY = H * 0.12;
+  const coilR_trunk = H * 0.105;
+  const coilW = H * 0.028, coilH = H * 0.035;
+  const serpCoilDirs = [
+    { dx:  1,     dz:  0    },
+    { dx:  0.707, dz:  0.707 },
+    { dx: -0.707, dz:  0.707 },
+    { dx: -1,     dz:  0    },
+    { dx:  0,     dz: -1    },
+  ];
+  for (let i = 0; i < serpCoilDirs.length; i++) {
+    const sd = serpCoilDirs[i];
+    cyl(`serpent_coil_${i}`, i % 2 === 0 ? "serpent_dark" : "serpent_scale",
+      coilW, coilH, coilW, sd.dx * coilR_trunk, coilY + (i % 2) * H * 0.02, sd.dz * coilR_trunk);
+  }
+  sph("serpent_head", "serpent_dark", H * 0.022, H * 0.018, H * 0.022, coilR_trunk, coilY + H * 0.03, H * 0.04);
+
+  // ── RATATOSKR (Squirrel) ON TRUNK ────────────────────────────────────────
+  const sqY = H * 0.35;
+  sph("squirrel_body", "squirrel_fur", H * 0.016, H * 0.020, H * 0.016, H * 0.070, sqY, H * 0.010);
+  sph("squirrel_head", "squirrel_fur", H * 0.010, H * 0.010, H * 0.010, H * 0.070, sqY + H * 0.022, H * 0.005);
+  box("squirrel_tail", "squirrel_fur", H * 0.008, H * 0.030, H * 0.008, H * 0.060, sqY + H * 0.016, -H * 0.020);
+
+  // ── HANGING VINES (6 curtains from branches) ────────────────────────────
+  const vineSrcs = [
+    [ H * 0.22, H * 0.53,  H * 0.04],
+    [-H * 0.20, H * 0.56, -H * 0.10],
+    [ H * 0.04, H * 0.50,  H * 0.24],
+    [-H * 0.15, H * 0.62,  H * 0.18],
+    [ H * 0.18, H * 0.65, -H * 0.16],
+    [-H * 0.06, H * 0.58, -H * 0.22],
+  ];
+  for (let i = 0; i < vineSrcs.length; i++) {
+    const [vx, vy, vz] = vineSrcs[i];
+    const vLen = H * (0.10 + (i % 3) * 0.04);
+    cyl(`vine_${i}`, "vine", H * 0.004, vLen, H * 0.004, vx, vy - vLen * 0.5, vz);
+  }
+
+  // ── CRYSTAL FORMATIONS at wells / root forks ─────────────────────────────
+  const crystalDefs = [
+    [ H * 0.20,  H * 0.10,  H * 0.48, "crystal_blue" ],
+    [-H * 0.44,  H * 0.10, -H * 0.24, "crystal_gold" ],
+    [ H * 0.09,  H * 0.10, -H * 0.54, "crystal_blue" ],
+    [ H * 0.14,  H * 0.14,  H * 0.28, "rune_glow"    ],
+    [-H * 0.26,  H * 0.14, -H * 0.14, "rune_glow"    ],
+    [ H * 0.06,  H * 0.14, -H * 0.32, "crystal_gold" ],
+  ];
+  for (let i = 0; i < crystalDefs.length; i++) {
+    const [cx2, cy2, cz2, cmat] = crystalDefs[i];
+    cyl(`crystal_${i}`, cmat, H * 0.010, H * 0.070, H * 0.010, cx2, cy2 + H * 0.035, cz2);
+  }
+
+  // ── SURFACE DETAILS (50+) ─────────────────────────────────────────────────
+  for (const [id, region, type, str, off] of [
+    // Trunk bark
+    ["bk_groove_s1_A",  "trunk_s1", "vertical_groove",  0.88, [0,    0,    0  ]],
+    ["bk_groove_s1_B",  "trunk_s1", "vertical_groove",  0.82, [0.3,  0,    0  ]],
+    ["bk_groove_s2",    "trunk_s2", "vertical_groove",  0.76, [0,    0,    0  ]],
+    ["bk_groove_s3",    "trunk_s3", "vertical_groove",  0.70, [0,    0,    0  ]],
+    ["bk_groove_s4",    "trunk_s4", "vertical_groove",  0.64, [0,    0,    0  ]],
+    ["bk_rough_s1",     "trunk_s1", "rough_bark",       0.94, [0,    0.2,  0  ]],
+    ["bk_rough_s2",     "trunk_s2", "rough_bark",       0.88, [0,    0.3,  0  ]],
+    ["bk_rough_s3",     "trunk_s3", "rough_bark",       0.82, [0,    0.5,  0  ]],
+    ["bk_moss_A",       "trunk_s1", "moss_patch",       0.56, [0.3,  0.1,  0  ]],
+    ["bk_moss_B",       "trunk_s2", "moss_patch",       0.48, [-0.2, 0.3,  0.1]],
+    ["bk_moss_C",       "trunk_s1", "moss_patch",       0.44, [-0.4, 0.05, 0  ]],
+    ["bk_knot_A",       "trunk_s2", "knot",             0.68, [0.2,  0.4,  0  ]],
+    ["bk_knot_B",       "trunk_s3", "knot",             0.62, [-0.3, 0.6,  0.1]],
+    ["bk_knot_C",       "trunk_s4", "knot",             0.55, [0.1,  0.7,  0  ]],
+    ["bk_scar_A",       "trunk_s2", "bark_scar",        0.60, [0.4,  0.25, 0  ]],
+    ["bk_scar_B",       "trunk_s3", "bark_scar",        0.52, [-0.1, 0.55, 0.1]],
+    // Rune carvings (ancient divine script)
+    ["rune_A",  "trunk_s2", "rune_carving", 0.56, [0,   0.30, 0.1]],
+    ["rune_B",  "trunk_s3", "rune_carving", 0.52, [0.2, 0.45, 0  ]],
+    ["rune_C",  "trunk_s3", "rune_carving", 0.48, [-0.3,0.60, 0  ]],
+    ["rune_D",  "trunk_s4", "rune_carving", 0.44, [0,   0.72, 0.1]],
+    ["rune_E",  "trunk_s5", "rune_carving", 0.40, [0.1, 0.80, 0  ]],
+    // Glowing veins (Yggdrasil's divine energy)
+    ["vein_lo", "trunk_s1", "glowing_vein", 0.65, [0,   0.10, 0  ]],
+    ["vein_A",  "trunk_s2", "glowing_vein", 0.70, [0,   0.30, 0  ]],
+    ["vein_B",  "trunk_s3", "glowing_vein", 0.68, [0,   0.50, 0  ]],
+    ["vein_C",  "trunk_s4", "glowing_vein", 0.62, [0,   0.68, 0  ]],
+    ["vein_D",  "trunk_s5", "glowing_vein", 0.55, [0,   0.82, 0  ]],
+    ["vein_hi", "trunk_s6", "glowing_vein", 0.48, [0,   0.92, 0  ]],
+    // Root textures
+    ["rt_tex_N",     "rbp_N", "rough_bark",  0.74, [0, 0, 0]],
+    ["rt_tex_S",     "rbp_S", "rough_bark",  0.74, [0, 0, 0]],
+    ["rt_tex_E",     "rbp_E", "rough_bark",  0.72, [0, 0, 0]],
+    ["rt_tex_W",     "rbp_W", "rough_bark",  0.72, [0, 0, 0]],
+    ["rt_moss_NE",   "rbp_NE","moss_patch",  0.46, [0, 0, 0]],
+    ["rt_moss_SW",   "rbp_SW","moss_patch",  0.46, [0, 0, 0]],
+    ["rt_urd",       "root_tap_urd",   "rough_bark",  0.84, [0, 0, 0]],
+    ["rt_hvel",      "root_tap_hvel",  "rough_bark",  0.84, [0, 0, 0]],
+    ["rt_mimir",     "root_tap_mimir", "rough_bark",  0.84, [0, 0, 0]],
+    // Branch textures
+    ["br_tex_L1_N",  "L1_N_h",  "rough_bark",  0.64, [0, 0, 0]],
+    ["br_tex_L1_E",  "L1_E_h",  "rough_bark",  0.62, [0, 0, 0]],
+    ["br_tex_L1_S",  "L1_S_h",  "rough_bark",  0.62, [0, 0, 0]],
+    ["br_tex_L1_W",  "L1_W_h",  "rough_bark",  0.60, [0, 0, 0]],
+    ["br_tex_L2_N",  "L2_N_h",  "rough_bark",  0.56, [0, 0, 0]],
+    ["br_tex_L2_E",  "L2_E_h",  "rough_bark",  0.54, [0, 0, 0]],
+    // Foliage / canopy
+    ["fol_det_crA",  "crown_A",    "leaf_cluster", 0.86, [0, 0.1, 0]],
+    ["fol_det_crB",  "crown_B",    "leaf_cluster", 0.80, [0, 0.1, 0]],
+    ["fol_det_crC",  "crown_C",    "leaf_cluster", 0.74, [0, 0.1, 0]],
+    ["fol_det_crD",  "crown_D",    "leaf_cluster", 0.68, [0, 0.1, 0]],
+    ["fol_det_mid0", "canopy_mid_0","leaf_cluster",0.70, [0, 0,   0]],
+    ["fol_det_mid4", "canopy_mid_4","leaf_cluster",0.68, [0, 0,   0]],
+    // Wells
+    ["well_glow_urd",   "well_urd_glow",   "emissive_aura", 0.70, [0, 0, 0]],
+    ["well_glow_hvel",  "well_hvel_glow",  "emissive_aura", 0.68, [0, 0, 0]],
+    ["well_glow_mimir", "well_mimir_glow", "emissive_aura", 0.72, [0, 0, 0]],
+    // Serpent / Eagle
+    ["serpent_scale_tex", "serpent_coil_0", "scale_pattern", 0.60, [0, 0, 0]],
+    ["eagle_feather_tex", "eagle_body",     "feather_detail", 0.60, [0, 0, 0]],
+    ["squirrel_fur_tex",  "squirrel_body",  "fur_detail",     0.55, [0, 0, 0]],
+  ]) {
+    pushSurface(id, region, type, str, off);
+  }
+
+  spec.parts = parts;
+  spec.surfaceDetails = surfaceDetails;
+  return spec;
+}
+
 function buildStructureSpec(prompt, height, styles) {
   const H = height;
   const structureType = classifyStructureType(prompt);
@@ -9501,6 +10005,7 @@ const SUBJECT_BUILDERS = {
   tower:   (...a) => buildTowerSpec(...a),
   airship: (...a) => buildAirshipSpec(...a),
   vehicle: (...a) => buildVehicleSpec(...a),
+  world_tree: (...a) => buildWorldTreeSpec(...a),
   structure: (...a) => buildStructureSpec(...a),
   robot:   (...a) => buildRobotSpec(...a),
   castle:  (...a) => buildCastleSpec(...a),

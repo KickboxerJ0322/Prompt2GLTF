@@ -63,6 +63,8 @@ Templates are stored in `plugins/prompt2gltf/templates/`. Each template is a ful
 | giraffe.json              | animal         | キリン, 麒麟, アミメキリン, マサイキリン                                   |
 | ufo.json                  | ufo            | UFO, ユーフォー, 空飛ぶ円盤, 未確認飛行物体, flying saucer                 |
 | slime.json                | slime          | スライム, ooze, blob, ゼリー状怪物, 粘液モンスター                         |
+| world_tree.json           | world_tree     | 世界樹, ユグドラシル, Yggdrasil, イグドラシル, 神話の大樹, 北欧神話の樹    |
+| luxury_cruise_ship.json   | vehicle/marine | 豪華客船, クルーズ船, 客船, 大型クルーズ, セレブリティ, エッジクラス, ocean liner, cruise ship |
 
 If no template closely matches, omit `--template` (the generator builds from scratch).
 

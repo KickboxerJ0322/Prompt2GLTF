@@ -1,0 +1,3880 @@
+{
+  "meta": {
+    "name": "world_tree_80m_世界樹ユグドラシル_北欧神話の巨大なトネリコの樹_世界の中心に聳え立ち_枝は天高く伸び_三本の根",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "prompt2gltf",
+    "generatedFrom": "世界樹ユグドラシル。北欧神話の巨大なトネリコの樹。世界の中心に聳え立ち、枝は天高く伸び、三本の根は地下深く伸びる。幹は極めて太く、神聖な古代の大樹。緑の葉が生い茂り、樹皮は深く刻まれた灰褐色。神話的・壮大なスケール。",
+    "createdAt": "2026-03-21T12:42:49.038Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "世界樹ユグドラシル。北欧神話の巨大なトネリコの樹。世界の中心に聳え立ち、枝は天高く伸び、三本の根は地下深く伸びる。幹は極めて太く、神聖な古代の大樹。緑の葉が生い茂り、樹皮は深く刻まれた灰褐色。神話的・壮大なスケール。",
+    "normalizedSubject": "world_tree",
+    "targetHeightMeters": 80,
+    "styleTags": [
+      "ancient"
+    ],
+    "geometryDirective": "Use mixed primitives (box/cylinder/sphere/tri_prism); represent curved real-world forms with rounded geometry.",
+    "summary": "Generated from prompt as a world_tree with high-density procedural spec.",
+    "designIntent": {
+      "scaleImpression": "extreme_colossal",
+      "mood": "majestic",
+      "originalityPolicy": "generalized_original_design"
+    },
+    "treeArchetype": "yggdrasil",
+    "mythicWells": [
+      "urdarbrunnr",
+      "hvergelmir",
+      "mimisbrunnr"
+    ],
+    "inhabitants": [
+      "eagle_vedfolnir",
+      "serpent_nidhoggr",
+      "squirrel_ratatoskr"
+    ]
+  },
+  "globalScale": {
+    "height": 80,
+    "width": 128,
+    "depth": 128
+  },
+  "style": {
+    "silhouette": "world_tree_colossus",
+    "mood": "mythic_divine",
+    "genre": "norse_cosmic_tree",
+    "detailDensity": "extreme",
+    "bodyLanguage": "static_ancient_monumental",
+    "shapeLanguage": [
+      "titanic_trunk",
+      "deep_buttress_roots",
+      "three_mythic_roots",
+      "three_sacred_wells",
+      "multi_tier_branches",
+      "vast_divine_canopy",
+      "luminous_rune_veins",
+      "mythic_inhabitants"
+    ]
+  },
+  "materials": {
+    "bark_dark": {
+      "baseColor": "#2E2010",
+      "roughness": 0.98,
+      "metalness": 0.01
+    },
+    "bark": {
+      "baseColor": "#4A3828",
+      "roughness": 0.96,
+      "metalness": 0.01
+    },
+    "bark_mid": {
+      "baseColor": "#5A4030",
+      "roughness": 0.94,
+      "metalness": 0.01
+    },
+    "bark_light": {
+      "baseColor": "#6E5040",
+      "roughness": 0.9,
+      "metalness": 0.01
+    },
+    "bark_tip": {
+      "baseColor": "#7E6050",
+      "roughness": 0.88,
+      "metalness": 0.01
+    },
+    "root_deep": {
+      "baseColor": "#281808",
+      "roughness": 0.99,
+      "metalness": 0.01
+    },
+    "root": {
+      "baseColor": "#3A2818",
+      "roughness": 0.98,
+      "metalness": 0.01
+    },
+    "root_surface": {
+      "baseColor": "#4E3820",
+      "roughness": 0.96,
+      "metalness": 0.01
+    },
+    "moss": {
+      "baseColor": "#3E5E2A",
+      "roughness": 0.98,
+      "metalness": 0.01
+    },
+    "foliage_dark": {
+      "baseColor": "#1A4018",
+      "roughness": 0.94,
+      "metalness": 0.01
+    },
+    "foliage_main": {
+      "baseColor": "#2A5A28",
+      "roughness": 0.92,
+      "metalness": 0.01
+    },
+    "foliage_mid": {
+      "baseColor": "#3A7030",
+      "roughness": 0.9,
+      "metalness": 0.01
+    },
+    "foliage_light": {
+      "baseColor": "#4A8840",
+      "roughness": 0.88,
+      "metalness": 0.01
+    },
+    "foliage_glow": {
+      "baseColor": "#60A850",
+      "roughness": 0.8,
+      "metalness": 0.05,
+      "emissive": "#204818"
+    },
+    "foliage_tip": {
+      "baseColor": "#78C060",
+      "roughness": 0.78,
+      "metalness": 0.02,
+      "emissive": "#102808"
+    },
+    "luminous": {
+      "baseColor": "#E8F8A0",
+      "roughness": 0.38,
+      "metalness": 0.1,
+      "emissive": "#709038"
+    },
+    "rune_glow": {
+      "baseColor": "#C0E870",
+      "roughness": 0.3,
+      "metalness": 0.08,
+      "emissive": "#90C840"
+    },
+    "crystal_blue": {
+      "baseColor": "#A0D8F8",
+      "roughness": 0.12,
+      "metalness": 0.2,
+      "emissive": "#2060A0"
+    },
+    "crystal_gold": {
+      "baseColor": "#F8E890",
+      "roughness": 0.14,
+      "metalness": 0.3,
+      "emissive": "#C09820"
+    },
+    "water_divine": {
+      "baseColor": "#60A8E0",
+      "roughness": 0.05,
+      "metalness": 0.8,
+      "emissive": "#103050"
+    },
+    "stone_well": {
+      "baseColor": "#8A8478",
+      "roughness": 0.94,
+      "metalness": 0.03
+    },
+    "eagle_gold": {
+      "baseColor": "#C89030",
+      "roughness": 0.55,
+      "metalness": 0.3
+    },
+    "eagle_white": {
+      "baseColor": "#E8E4D8",
+      "roughness": 0.6,
+      "metalness": 0.1
+    },
+    "serpent_dark": {
+      "baseColor": "#183818",
+      "roughness": 0.9,
+      "metalness": 0.05
+    },
+    "serpent_scale": {
+      "baseColor": "#284828",
+      "roughness": 0.85,
+      "metalness": 0.08
+    },
+    "squirrel_fur": {
+      "baseColor": "#A04820",
+      "roughness": 0.88,
+      "metalness": 0.02
+    },
+    "vine": {
+      "baseColor": "#305020",
+      "roughness": 0.96,
+      "metalness": 0.01
+    }
+  },
+  "parts": [
+    {
+      "id": "trunk_flare",
+      "kind": "cylinder",
+      "material": "bark_dark",
+      "size": [
+        9.2,
+        3.2,
+        9.2
+      ],
+      "position": [
+        0,
+        1.6,
+        0
+      ]
+    },
+    {
+      "id": "trunk_s1",
+      "kind": "cylinder",
+      "material": "bark_dark",
+      "size": [
+        7.6,
+        13.6,
+        7.6
+      ],
+      "position": [
+        0,
+        10,
+        0
+      ]
+    },
+    {
+      "id": "trunk_s2",
+      "kind": "cylinder",
+      "material": "bark",
+      "size": [
+        6.24,
+        12.8,
+        6.24
+      ],
+      "position": [
+        0,
+        23.2,
+        0
+      ]
+    },
+    {
+      "id": "trunk_s3",
+      "kind": "cylinder",
+      "material": "bark",
+      "size": [
+        4.96,
+        12.8,
+        4.96
+      ],
+      "position": [
+        0,
+        36,
+        0
+      ]
+    },
+    {
+      "id": "trunk_s4",
+      "kind": "cylinder",
+      "material": "bark_mid",
+      "size": [
+        3.84,
+        11.2,
+        3.84
+      ],
+      "position": [
+        0,
+        48,
+        0
+      ]
+    },
+    {
+      "id": "trunk_s5",
+      "kind": "cylinder",
+      "material": "bark_mid",
+      "size": [
+        2.88,
+        9.6,
+        2.88
+      ],
+      "position": [
+        0,
+        58.4,
+        0
+      ]
+    },
+    {
+      "id": "trunk_s6",
+      "kind": "cylinder",
+      "material": "bark_light",
+      "size": [
+        2.08,
+        8,
+        2.08
+      ],
+      "position": [
+        0,
+        67.2,
+        0
+      ]
+    },
+    {
+      "id": "rbp_N",
+      "kind": "box",
+      "material": "root",
+      "size": [
+        4.4,
+        10.4,
+        24
+      ],
+      "position": [
+        0,
+        5.2,
+        17.6
+      ]
+    },
+    {
+      "id": "rbp_NE",
+      "kind": "box",
+      "material": "root",
+      "size": [
+        24,
+        10.4,
+        24
+      ],
+      "position": [
+        12.4432,
+        5.2,
+        12.4432
+      ]
+    },
+    {
+      "id": "rbp_E",
+      "kind": "box",
+      "material": "root",
+      "size": [
+        24,
+        10.4,
+        4.4
+      ],
+      "position": [
+        17.6,
+        5.2,
+        0
+      ]
+    },
+    {
+      "id": "rbp_SE",
+      "kind": "box",
+      "material": "root",
+      "size": [
+        24,
+        10.4,
+        24
+      ],
+      "position": [
+        12.4432,
+        5.2,
+        -12.4432
+      ]
+    },
+    {
+      "id": "rbp_S",
+      "kind": "box",
+      "material": "root",
+      "size": [
+        4.4,
+        10.4,
+        24
+      ],
+      "position": [
+        0,
+        5.2,
+        -17.6
+      ]
+    },
+    {
+      "id": "rbp_SW",
+      "kind": "box",
+      "material": "root",
+      "size": [
+        24,
+        10.4,
+        24
+      ],
+      "position": [
+        -12.4432,
+        5.2,
+        -12.4432
+      ]
+    },
+    {
+      "id": "rbp_W",
+      "kind": "box",
+      "material": "root",
+      "size": [
+        24,
+        10.4,
+        4.4
+      ],
+      "position": [
+        -17.6,
+        5.2,
+        0
+      ]
+    },
+    {
+      "id": "rbp_NW",
+      "kind": "box",
+      "material": "root",
+      "size": [
+        24,
+        10.4,
+        24
+      ],
+      "position": [
+        -12.4432,
+        5.2,
+        12.4432
+      ]
+    },
+    {
+      "id": "rbs_N",
+      "kind": "box",
+      "material": "root_surface",
+      "size": [
+        2.56,
+        5.6,
+        17.6
+      ],
+      "position": [
+        0,
+        2.8,
+        38.4
+      ]
+    },
+    {
+      "id": "rbs_NE",
+      "kind": "box",
+      "material": "root_surface",
+      "size": [
+        17.6,
+        5.6,
+        17.6
+      ],
+      "position": [
+        27.1488,
+        2.8,
+        27.1488
+      ]
+    },
+    {
+      "id": "rbs_E",
+      "kind": "box",
+      "material": "root_surface",
+      "size": [
+        17.6,
+        5.6,
+        2.56
+      ],
+      "position": [
+        38.4,
+        2.8,
+        0
+      ]
+    },
+    {
+      "id": "rbs_SE",
+      "kind": "box",
+      "material": "root_surface",
+      "size": [
+        17.6,
+        5.6,
+        17.6
+      ],
+      "position": [
+        27.1488,
+        2.8,
+        -27.1488
+      ]
+    },
+    {
+      "id": "rbs_S",
+      "kind": "box",
+      "material": "root_surface",
+      "size": [
+        2.56,
+        5.6,
+        17.6
+      ],
+      "position": [
+        0,
+        2.8,
+        -38.4
+      ]
+    },
+    {
+      "id": "rbs_SW",
+      "kind": "box",
+      "material": "root_surface",
+      "size": [
+        17.6,
+        5.6,
+        17.6
+      ],
+      "position": [
+        -27.1488,
+        2.8,
+        -27.1488
+      ]
+    },
+    {
+      "id": "rbs_W",
+      "kind": "box",
+      "material": "root_surface",
+      "size": [
+        17.6,
+        5.6,
+        2.56
+      ],
+      "position": [
+        -38.4,
+        2.8,
+        0
+      ]
+    },
+    {
+      "id": "rbs_NW",
+      "kind": "box",
+      "material": "root_surface",
+      "size": [
+        17.6,
+        5.6,
+        17.6
+      ],
+      "position": [
+        -27.1488,
+        2.8,
+        27.1488
+      ]
+    },
+    {
+      "id": "moss_mound_N",
+      "kind": "sphere",
+      "material": "moss",
+      "size": [
+        3.2,
+        2.4,
+        3.2
+      ],
+      "position": [
+        0,
+        1.6,
+        25.6
+      ]
+    },
+    {
+      "id": "moss_mound_NE",
+      "kind": "sphere",
+      "material": "moss",
+      "size": [
+        3.2,
+        2.4,
+        3.2
+      ],
+      "position": [
+        18.0992,
+        1.6,
+        18.0992
+      ]
+    },
+    {
+      "id": "moss_mound_E",
+      "kind": "sphere",
+      "material": "moss",
+      "size": [
+        3.2,
+        2.4,
+        3.2
+      ],
+      "position": [
+        25.6,
+        1.6,
+        0
+      ]
+    },
+    {
+      "id": "moss_mound_SE",
+      "kind": "sphere",
+      "material": "moss",
+      "size": [
+        3.2,
+        2.4,
+        3.2
+      ],
+      "position": [
+        18.0992,
+        1.6,
+        -18.0992
+      ]
+    },
+    {
+      "id": "moss_mound_S",
+      "kind": "sphere",
+      "material": "moss",
+      "size": [
+        3.2,
+        2.4,
+        3.2
+      ],
+      "position": [
+        0,
+        1.6,
+        -25.6
+      ]
+    },
+    {
+      "id": "moss_mound_SW",
+      "kind": "sphere",
+      "material": "moss",
+      "size": [
+        3.2,
+        2.4,
+        3.2
+      ],
+      "position": [
+        -18.0992,
+        1.6,
+        -18.0992
+      ]
+    },
+    {
+      "id": "moss_mound_W",
+      "kind": "sphere",
+      "material": "moss",
+      "size": [
+        3.2,
+        2.4,
+        3.2
+      ],
+      "position": [
+        -25.6,
+        1.6,
+        0
+      ]
+    },
+    {
+      "id": "moss_mound_NW",
+      "kind": "sphere",
+      "material": "moss",
+      "size": [
+        3.2,
+        2.4,
+        3.2
+      ],
+      "position": [
+        -18.0992,
+        1.6,
+        18.0992
+      ]
+    },
+    {
+      "id": "root_tap_urd",
+      "kind": "cylinder",
+      "material": "root",
+      "size": [
+        3.36,
+        44,
+        3.36
+      ],
+      "position": [
+        7.8948,
+        3.52,
+        18.158
+      ]
+    },
+    {
+      "id": "root_arch_urd_A",
+      "kind": "box",
+      "material": "root",
+      "size": [
+        2.88,
+        7.2,
+        16
+      ],
+      "position": [
+        3.5088,
+        8.8,
+        8.0702
+      ]
+    },
+    {
+      "id": "root_arch_urd_B",
+      "kind": "box",
+      "material": "root_surface",
+      "size": [
+        2.4,
+        5.6,
+        12.8
+      ],
+      "position": [
+        6.3158,
+        7.2,
+        14.5264
+      ]
+    },
+    {
+      "id": "root_fork_urd_A",
+      "kind": "cylinder",
+      "material": "root_surface",
+      "size": [
+        2.184,
+        13.2,
+        2.184
+      ],
+      "position": [
+        11.9363,
+        1.76,
+        22.6381
+      ]
+    },
+    {
+      "id": "root_fork_urd_B",
+      "kind": "cylinder",
+      "material": "root_surface",
+      "size": [
+        1.848,
+        11.44,
+        1.848
+      ],
+      "position": [
+        8.7656,
+        1.32,
+        24.9762
+      ]
+    },
+    {
+      "id": "root_tap_hvel",
+      "kind": "cylinder",
+      "material": "root",
+      "size": [
+        3.36,
+        41.6,
+        3.36
+      ],
+      "position": [
+        -16.3109,
+        3.328,
+        -9.1866
+      ]
+    },
+    {
+      "id": "root_arch_hvel_A",
+      "kind": "box",
+      "material": "root",
+      "size": [
+        16,
+        7.2,
+        2.88
+      ],
+      "position": [
+        -7.2493,
+        8.8,
+        -4.0829
+      ]
+    },
+    {
+      "id": "root_arch_hvel_B",
+      "kind": "box",
+      "material": "root_surface",
+      "size": [
+        12.8,
+        5.6,
+        2.4
+      ],
+      "position": [
+        -13.0487,
+        7.2,
+        -7.3493
+      ]
+    },
+    {
+      "id": "root_fork_hvel_A",
+      "kind": "cylinder",
+      "material": "root_surface",
+      "size": [
+        2.184,
+        12.48,
+        2.184
+      ],
+      "position": [
+        -21.9651,
+        1.664,
+        -10.1676
+      ]
+    },
+    {
+      "id": "root_fork_hvel_B",
+      "kind": "cylinder",
+      "material": "root_surface",
+      "size": [
+        1.848,
+        10.816,
+        1.848
+      ],
+      "position": [
+        -20.8056,
+        1.248,
+        -13.9217
+      ]
+    },
+    {
+      "id": "root_tap_mimir",
+      "kind": "cylinder",
+      "material": "root",
+      "size": [
+        3.36,
+        48,
+        3.36
+      ],
+      "position": [
+        4.3191,
+        3.84,
+        -21.1638
+      ]
+    },
+    {
+      "id": "root_arch_mimir_A",
+      "kind": "box",
+      "material": "root",
+      "size": [
+        2.88,
+        7.2,
+        16
+      ],
+      "position": [
+        1.9196,
+        8.8,
+        -9.4061
+      ]
+    },
+    {
+      "id": "root_arch_mimir_B",
+      "kind": "box",
+      "material": "root_surface",
+      "size": [
+        2.4,
+        5.6,
+        12.8
+      ],
+      "position": [
+        3.4553,
+        7.2,
+        -16.931
+      ]
+    },
+    {
+      "id": "root_fork_mimir_A",
+      "kind": "cylinder",
+      "material": "root_surface",
+      "size": [
+        2.184,
+        14.4,
+        2.184
+      ],
+      "position": [
+        3.6857,
+        1.92,
+        -27.6617
+      ]
+    },
+    {
+      "id": "root_fork_mimir_B",
+      "kind": "cylinder",
+      "material": "root_surface",
+      "size": [
+        1.848,
+        12.48,
+        1.848
+      ],
+      "position": [
+        7.6401,
+        1.44,
+        -27.8344
+      ]
+    },
+    {
+      "id": "well_urd_outer",
+      "kind": "cylinder",
+      "material": "stone_well",
+      "size": [
+        4.4,
+        4.8,
+        4.4
+      ],
+      "position": [
+        16.587,
+        2.4,
+        38.1501
+      ]
+    },
+    {
+      "id": "well_urd_inner",
+      "kind": "cylinder",
+      "material": "stone_well",
+      "size": [
+        3.168,
+        4.08,
+        3.168
+      ],
+      "position": [
+        16.587,
+        2.4,
+        38.1501
+      ]
+    },
+    {
+      "id": "well_urd_water",
+      "kind": "sphere",
+      "material": "water_divine",
+      "size": [
+        2.64,
+        0.8,
+        2.64
+      ],
+      "position": [
+        16.587,
+        4.8,
+        38.1501
+      ]
+    },
+    {
+      "id": "well_urd_glow",
+      "kind": "sphere",
+      "material": "crystal_blue",
+      "size": [
+        2.8,
+        2.8,
+        2.8
+      ],
+      "position": [
+        16.587,
+        9.6,
+        38.1501
+      ]
+    },
+    {
+      "id": "well_urd_crystal",
+      "kind": "cylinder",
+      "material": "crystal_blue",
+      "size": [
+        0.96,
+        8,
+        0.96
+      ],
+      "position": [
+        21.387,
+        4,
+        41.3501
+      ]
+    },
+    {
+      "id": "well_hvel_outer",
+      "kind": "cylinder",
+      "material": "stone_well",
+      "size": [
+        4.4,
+        4.8,
+        4.4
+      ],
+      "position": [
+        -34.8523,
+        2.4,
+        -19.6295
+      ]
+    },
+    {
+      "id": "well_hvel_inner",
+      "kind": "cylinder",
+      "material": "stone_well",
+      "size": [
+        3.168,
+        4.08,
+        3.168
+      ],
+      "position": [
+        -34.8523,
+        2.4,
+        -19.6295
+      ]
+    },
+    {
+      "id": "well_hvel_water",
+      "kind": "sphere",
+      "material": "water_divine",
+      "size": [
+        2.64,
+        0.8,
+        2.64
+      ],
+      "position": [
+        -34.8523,
+        4.8,
+        -19.6295
+      ]
+    },
+    {
+      "id": "well_hvel_glow",
+      "kind": "sphere",
+      "material": "luminous",
+      "size": [
+        2.8,
+        2.8,
+        2.8
+      ],
+      "position": [
+        -34.8523,
+        9.6,
+        -19.6295
+      ]
+    },
+    {
+      "id": "well_hvel_crystal",
+      "kind": "cylinder",
+      "material": "rune_glow",
+      "size": [
+        0.96,
+        8,
+        0.96
+      ],
+      "position": [
+        -30.0523,
+        4,
+        -16.4295
+      ]
+    },
+    {
+      "id": "well_mimir_outer",
+      "kind": "cylinder",
+      "material": "stone_well",
+      "size": [
+        4.4,
+        4.8,
+        4.4
+      ],
+      "position": [
+        9.1182,
+        2.4,
+        -44.6791
+      ]
+    },
+    {
+      "id": "well_mimir_inner",
+      "kind": "cylinder",
+      "material": "stone_well",
+      "size": [
+        3.168,
+        4.08,
+        3.168
+      ],
+      "position": [
+        9.1182,
+        2.4,
+        -44.6791
+      ]
+    },
+    {
+      "id": "well_mimir_water",
+      "kind": "sphere",
+      "material": "water_divine",
+      "size": [
+        2.64,
+        0.8,
+        2.64
+      ],
+      "position": [
+        9.1182,
+        4.8,
+        -44.6791
+      ]
+    },
+    {
+      "id": "well_mimir_glow",
+      "kind": "sphere",
+      "material": "crystal_gold",
+      "size": [
+        2.8,
+        2.8,
+        2.8
+      ],
+      "position": [
+        9.1182,
+        9.6,
+        -44.6791
+      ]
+    },
+    {
+      "id": "well_mimir_crystal",
+      "kind": "cylinder",
+      "material": "crystal_gold",
+      "size": [
+        0.96,
+        8,
+        0.96
+      ],
+      "position": [
+        13.9182,
+        4,
+        -41.4791
+      ]
+    },
+    {
+      "id": "L1_N_h",
+      "kind": "box",
+      "material": "bark_mid",
+      "size": [
+        3.52,
+        3.52,
+        20.8
+      ],
+      "position": [
+        0,
+        30.4,
+        12.48
+      ]
+    },
+    {
+      "id": "L1_N_r",
+      "kind": "cylinder",
+      "material": "bark_light",
+      "size": [
+        1.584,
+        8,
+        1.584
+      ],
+      "position": [
+        0,
+        34.8,
+        22.88
+      ]
+    },
+    {
+      "id": "L1_NNE_h",
+      "kind": "box",
+      "material": "bark_mid",
+      "size": [
+        3.2,
+        3.2,
+        19.2
+      ],
+      "position": [
+        4.459,
+        32.8,
+        10.7954
+      ]
+    },
+    {
+      "id": "L1_NNE_r",
+      "kind": "cylinder",
+      "material": "bark_light",
+      "size": [
+        1.44,
+        7.2,
+        1.44
+      ],
+      "position": [
+        8.1239,
+        36.76,
+        19.6683
+      ]
+    },
+    {
+      "id": "L1_ENE_h",
+      "kind": "box",
+      "material": "bark_mid",
+      "size": [
+        20,
+        3.36,
+        3.36
+      ],
+      "position": [
+        11.1651,
+        35.2,
+        4.6117
+      ]
+    },
+    {
+      "id": "L1_ENE_r",
+      "kind": "cylinder",
+      "material": "bark_light",
+      "size": [
+        1.512,
+        8,
+        1.512
+      ],
+      "position": [
+        20.4077,
+        39.6,
+        8.4293
+      ]
+    },
+    {
+      "id": "L1_E_h",
+      "kind": "box",
+      "material": "bark_mid",
+      "size": [
+        21.6,
+        3.68,
+        3.68
+      ],
+      "position": [
+        12.88,
+        38.4,
+        0
+      ]
+    },
+    {
+      "id": "L1_E_r",
+      "kind": "cylinder",
+      "material": "bark_light",
+      "size": [
+        1.656,
+        8.8,
+        1.656
+      ],
+      "position": [
+        23.68,
+        43.24,
+        0
+      ]
+    },
+    {
+      "id": "L1_ESE_h",
+      "kind": "box",
+      "material": "bark_mid",
+      "size": [
+        18.4,
+        3.04,
+        3.04
+      ],
+      "position": [
+        10.4257,
+        36,
+        -4.3063
+      ]
+    },
+    {
+      "id": "L1_ESE_r",
+      "kind": "cylinder",
+      "material": "bark_light",
+      "size": [
+        1.368,
+        7.2,
+        1.368
+      ],
+      "position": [
+        18.9289,
+        39.96,
+        -7.8184
+      ]
+    },
+    {
+      "id": "L1_SSE_h",
+      "kind": "box",
+      "material": "bark_mid",
+      "size": [
+        3.2,
+        3.2,
+        19.2
+      ],
+      "position": [
+        4.459,
+        33.6,
+        -10.7954
+      ]
+    },
+    {
+      "id": "L1_SSE_r",
+      "kind": "cylinder",
+      "material": "bark_light",
+      "size": [
+        1.44,
+        7.2,
+        1.44
+      ],
+      "position": [
+        8.1239,
+        37.56,
+        -19.6683
+      ]
+    },
+    {
+      "id": "L1_S_h",
+      "kind": "box",
+      "material": "bark_mid",
+      "size": [
+        3.36,
+        3.36,
+        20
+      ],
+      "position": [
+        0,
+        40,
+        -12.08
+      ]
+    },
+    {
+      "id": "L1_S_r",
+      "kind": "cylinder",
+      "material": "bark_light",
+      "size": [
+        1.512,
+        8,
+        1.512
+      ],
+      "position": [
+        0,
+        44.4,
+        -22.08
+      ]
+    },
+    {
+      "id": "L1_W_h",
+      "kind": "box",
+      "material": "bark_mid",
+      "size": [
+        19.2,
+        3.2,
+        3.2
+      ],
+      "position": [
+        -11.68,
+        36.8,
+        0
+      ]
+    },
+    {
+      "id": "L1_W_r",
+      "kind": "cylinder",
+      "material": "bark_light",
+      "size": [
+        1.44,
+        7.2,
+        1.44
+      ],
+      "position": [
+        -21.28,
+        40.76,
+        0
+      ]
+    },
+    {
+      "id": "L1_NW_h",
+      "kind": "box",
+      "material": "bark_mid",
+      "size": [
+        17.6,
+        3.04,
+        17.6
+      ],
+      "position": [
+        -7.6933,
+        32,
+        7.6933
+      ]
+    },
+    {
+      "id": "L1_NW_r",
+      "kind": "cylinder",
+      "material": "bark_light",
+      "size": [
+        1.368,
+        7.2,
+        1.368
+      ],
+      "position": [
+        -13.9159,
+        35.96,
+        13.9159
+      ]
+    },
+    {
+      "id": "L1_SW_h",
+      "kind": "box",
+      "material": "bark_mid",
+      "size": [
+        16.8,
+        2.88,
+        16.8
+      ],
+      "position": [
+        -7.4105,
+        34.4,
+        -7.4105
+      ]
+    },
+    {
+      "id": "L1_SW_r",
+      "kind": "cylinder",
+      "material": "bark_light",
+      "size": [
+        1.296,
+        6.4,
+        1.296
+      ],
+      "position": [
+        -13.3502,
+        37.92,
+        -13.3502
+      ]
+    },
+    {
+      "id": "L2_N_h",
+      "kind": "box",
+      "material": "bark_light",
+      "size": [
+        2.56,
+        2.56,
+        14.4
+      ],
+      "position": [
+        0,
+        49.6,
+        9.28
+      ]
+    },
+    {
+      "id": "L2_N_r",
+      "kind": "cylinder",
+      "material": "bark_tip",
+      "size": [
+        1.024,
+        8,
+        1.024
+      ],
+      "position": [
+        0,
+        54,
+        16.48
+      ]
+    },
+    {
+      "id": "L2_NE_h",
+      "kind": "box",
+      "material": "bark_light",
+      "size": [
+        13.6,
+        2.4,
+        13.6
+      ],
+      "position": [
+        6.2791,
+        51.2,
+        6.2791
+      ]
+    },
+    {
+      "id": "L2_NE_r",
+      "kind": "cylinder",
+      "material": "bark_tip",
+      "size": [
+        0.96,
+        7.2,
+        0.96
+      ],
+      "position": [
+        11.0874,
+        55.16,
+        11.0874
+      ]
+    },
+    {
+      "id": "L2_E_h",
+      "kind": "box",
+      "material": "bark_light",
+      "size": [
+        15.2,
+        2.56,
+        2.56
+      ],
+      "position": [
+        9.68,
+        53.6,
+        0
+      ]
+    },
+    {
+      "id": "L2_E_r",
+      "kind": "cylinder",
+      "material": "bark_tip",
+      "size": [
+        1.024,
+        8,
+        1.024
+      ],
+      "position": [
+        17.28,
+        58,
+        0
+      ]
+    },
+    {
+      "id": "L2_SE_h",
+      "kind": "box",
+      "material": "bark_light",
+      "size": [
+        12.8,
+        2.24,
+        12.8
+      ],
+      "position": [
+        5.9963,
+        52,
+        -5.9963
+      ]
+    },
+    {
+      "id": "L2_SE_r",
+      "kind": "cylinder",
+      "material": "bark_tip",
+      "size": [
+        0.896,
+        7.2,
+        0.896
+      ],
+      "position": [
+        10.5217,
+        55.96,
+        -10.5217
+      ]
+    },
+    {
+      "id": "L2_S_h",
+      "kind": "box",
+      "material": "bark_light",
+      "size": [
+        2.56,
+        2.56,
+        14.4
+      ],
+      "position": [
+        0,
+        54.4,
+        -9.28
+      ]
+    },
+    {
+      "id": "L2_S_r",
+      "kind": "cylinder",
+      "material": "bark_tip",
+      "size": [
+        1.024,
+        8,
+        1.024
+      ],
+      "position": [
+        0,
+        58.8,
+        -16.48
+      ]
+    },
+    {
+      "id": "L2_SW_h",
+      "kind": "box",
+      "material": "bark_light",
+      "size": [
+        12.8,
+        2.24,
+        12.8
+      ],
+      "position": [
+        -5.9963,
+        50.4,
+        -5.9963
+      ]
+    },
+    {
+      "id": "L2_SW_r",
+      "kind": "cylinder",
+      "material": "bark_tip",
+      "size": [
+        0.896,
+        6.4,
+        0.896
+      ],
+      "position": [
+        -10.5217,
+        53.92,
+        -10.5217
+      ]
+    },
+    {
+      "id": "L2_W_h",
+      "kind": "box",
+      "material": "bark_light",
+      "size": [
+        14.4,
+        2.4,
+        2.4
+      ],
+      "position": [
+        -9.28,
+        52.8,
+        0
+      ]
+    },
+    {
+      "id": "L2_W_r",
+      "kind": "cylinder",
+      "material": "bark_tip",
+      "size": [
+        0.96,
+        7.2,
+        0.96
+      ],
+      "position": [
+        -16.48,
+        56.76,
+        0
+      ]
+    },
+    {
+      "id": "L2_NW_h",
+      "kind": "box",
+      "material": "bark_light",
+      "size": [
+        13.6,
+        2.4,
+        13.6
+      ],
+      "position": [
+        -6.2791,
+        48.8,
+        6.2791
+      ]
+    },
+    {
+      "id": "L2_NW_r",
+      "kind": "cylinder",
+      "material": "bark_tip",
+      "size": [
+        0.96,
+        7.2,
+        0.96
+      ],
+      "position": [
+        -11.0874,
+        52.76,
+        11.0874
+      ]
+    },
+    {
+      "id": "sb_NNW",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        1.76,
+        1.76,
+        11.2
+      ],
+      "position": [
+        -2.9319,
+        45.6,
+        7.0983
+      ]
+    },
+    {
+      "id": "sb_NEN",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        1.76,
+        1.76,
+        11.2
+      ],
+      "position": [
+        2.9319,
+        47.2,
+        7.0983
+      ]
+    },
+    {
+      "id": "sb_ENE",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        11.2,
+        1.92,
+        1.92
+      ],
+      "position": [
+        7.0983,
+        48.8,
+        2.9319
+      ]
+    },
+    {
+      "id": "sb_ESE",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        10.4,
+        1.76,
+        1.76
+      ],
+      "position": [
+        6.7286,
+        50.4,
+        -2.7792
+      ]
+    },
+    {
+      "id": "sb_SSE",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        1.6,
+        1.6,
+        10.4
+      ],
+      "position": [
+        2.7792,
+        46.4,
+        -6.7286
+      ]
+    },
+    {
+      "id": "sb_SSW",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        1.6,
+        1.6,
+        10.4
+      ],
+      "position": [
+        -2.7792,
+        44.8,
+        -6.7286
+      ]
+    },
+    {
+      "id": "sb_WSW",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        11.2,
+        1.76,
+        1.76
+      ],
+      "position": [
+        -7.0983,
+        49.6,
+        -2.9319
+      ]
+    },
+    {
+      "id": "sb_WNW",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        10.4,
+        1.76,
+        1.76
+      ],
+      "position": [
+        -6.7286,
+        48,
+        2.7792
+      ]
+    },
+    {
+      "id": "sb_N2",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        1.6,
+        1.6,
+        9.6
+      ],
+      "position": [
+        0,
+        56,
+        6.88
+      ]
+    },
+    {
+      "id": "sb_E2",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        9.6,
+        1.6,
+        1.6
+      ],
+      "position": [
+        6.88,
+        57.6,
+        0
+      ]
+    },
+    {
+      "id": "sb_S2",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        1.6,
+        1.6,
+        9.6
+      ],
+      "position": [
+        0,
+        56.8,
+        -6.88
+      ]
+    },
+    {
+      "id": "sb_W2",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        9.6,
+        1.6,
+        1.6
+      ],
+      "position": [
+        -6.88,
+        55.2,
+        0
+      ]
+    },
+    {
+      "id": "sb_NEu",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        8.8,
+        1.44,
+        8.8
+      ],
+      "position": [
+        4.5821,
+        59.2,
+        4.5821
+      ]
+    },
+    {
+      "id": "sb_SEu",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        8.8,
+        1.44,
+        8.8
+      ],
+      "position": [
+        4.5821,
+        58.4,
+        -4.5821
+      ]
+    },
+    {
+      "id": "sb_SWu",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        8.8,
+        1.44,
+        8.8
+      ],
+      "position": [
+        -4.5821,
+        57.6,
+        -4.5821
+      ]
+    },
+    {
+      "id": "sb_NWu",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        8.8,
+        1.44,
+        8.8
+      ],
+      "position": [
+        -4.5821,
+        56.8,
+        4.5821
+      ]
+    },
+    {
+      "id": "sb_NEh",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        8,
+        1.28,
+        8
+      ],
+      "position": [
+        3.0401,
+        60.8,
+        5.2654
+      ]
+    },
+    {
+      "id": "sb_SWh",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        8,
+        1.28,
+        8
+      ],
+      "position": [
+        -3.0401,
+        60,
+        -5.2654
+      ]
+    },
+    {
+      "id": "tbr_0",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        0.56,
+        0.56,
+        6.4
+      ],
+      "position": [
+        0,
+        62.4,
+        5.28
+      ]
+    },
+    {
+      "id": "tbr_1",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        0.56,
+        0.56,
+        7.36
+      ],
+      "position": [
+        2.88,
+        64.4,
+        4.9883
+      ]
+    },
+    {
+      "id": "tbr_2",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        8.32,
+        0.56,
+        8.32
+      ],
+      "position": [
+        5.404,
+        66.4,
+        3.12
+      ]
+    },
+    {
+      "id": "tbr_3",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        9.28,
+        0.56,
+        0.56
+      ],
+      "position": [
+        6.72,
+        62.4,
+        0
+      ]
+    },
+    {
+      "id": "tbr_4",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        6.4,
+        0.56,
+        0.56
+      ],
+      "position": [
+        4.5726,
+        64.4,
+        -2.64
+      ]
+    },
+    {
+      "id": "tbr_5",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        0.56,
+        0.56,
+        7.36
+      ],
+      "position": [
+        2.88,
+        66.4,
+        -4.9883
+      ]
+    },
+    {
+      "id": "tbr_6",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        0.56,
+        0.56,
+        8.32
+      ],
+      "position": [
+        0,
+        62.4,
+        -6.24
+      ]
+    },
+    {
+      "id": "tbr_7",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        9.28,
+        0.56,
+        9.28
+      ],
+      "position": [
+        -3.36,
+        64.4,
+        -5.8197
+      ]
+    },
+    {
+      "id": "tbr_8",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        6.4,
+        0.56,
+        6.4
+      ],
+      "position": [
+        -4.5726,
+        66.4,
+        -2.64
+      ]
+    },
+    {
+      "id": "tbr_9",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        7.36,
+        0.56,
+        0.56
+      ],
+      "position": [
+        -5.76,
+        62.4,
+        0
+      ]
+    },
+    {
+      "id": "tbr_10",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        8.32,
+        0.56,
+        8.32
+      ],
+      "position": [
+        -5.404,
+        64.4,
+        3.12
+      ]
+    },
+    {
+      "id": "tbr_11",
+      "kind": "box",
+      "material": "bark_tip",
+      "size": [
+        9.28,
+        0.56,
+        9.28
+      ],
+      "position": [
+        -3.36,
+        66.4,
+        5.8197
+      ]
+    },
+    {
+      "id": "crown_A",
+      "kind": "sphere",
+      "material": "foliage_dark",
+      "size": [
+        27.2,
+        17.6,
+        27.2
+      ],
+      "position": [
+        0,
+        62.4,
+        0
+      ]
+    },
+    {
+      "id": "crown_B",
+      "kind": "sphere",
+      "material": "foliage_main",
+      "size": [
+        24,
+        16,
+        24
+      ],
+      "position": [
+        0,
+        67.2,
+        0
+      ]
+    },
+    {
+      "id": "crown_C",
+      "kind": "sphere",
+      "material": "foliage_mid",
+      "size": [
+        20.8,
+        14.4,
+        20.8
+      ],
+      "position": [
+        0,
+        72,
+        0
+      ]
+    },
+    {
+      "id": "crown_D",
+      "kind": "sphere",
+      "material": "foliage_light",
+      "size": [
+        16,
+        11.2,
+        16
+      ],
+      "position": [
+        0,
+        76,
+        0
+      ]
+    },
+    {
+      "id": "crown_E",
+      "kind": "sphere",
+      "material": "foliage_tip",
+      "size": [
+        11.2,
+        8,
+        11.2
+      ],
+      "position": [
+        0,
+        79.2,
+        0
+      ]
+    },
+    {
+      "id": "crown_N",
+      "kind": "sphere",
+      "material": "foliage_main",
+      "size": [
+        12.8,
+        10.4,
+        12.8
+      ],
+      "position": [
+        8,
+        70.4,
+        12.8
+      ]
+    },
+    {
+      "id": "crown_S",
+      "kind": "sphere",
+      "material": "foliage_mid",
+      "size": [
+        12.8,
+        10.4,
+        12.8
+      ],
+      "position": [
+        -7.2,
+        69.6,
+        -14.4
+      ]
+    },
+    {
+      "id": "crown_EW",
+      "kind": "sphere",
+      "material": "foliage_light",
+      "size": [
+        11.2,
+        8.8,
+        11.2
+      ],
+      "position": [
+        13.6,
+        68.8,
+        3.2
+      ]
+    },
+    {
+      "id": "canopy_mid_0",
+      "kind": "sphere",
+      "material": "foliage_dark",
+      "size": [
+        8,
+        6,
+        8
+      ],
+      "position": [
+        6.1229,
+        52,
+        14.7821
+      ]
+    },
+    {
+      "id": "canopy_mid_1",
+      "kind": "sphere",
+      "material": "foliage_main",
+      "size": [
+        8.96,
+        6.72,
+        8.96
+      ],
+      "position": [
+        14.7821,
+        54.24,
+        6.1229
+      ]
+    },
+    {
+      "id": "canopy_mid_2",
+      "kind": "sphere",
+      "material": "foliage_mid",
+      "size": [
+        9.92,
+        7.44,
+        9.92
+      ],
+      "position": [
+        14.7821,
+        56.48,
+        -6.1229
+      ]
+    },
+    {
+      "id": "canopy_mid_3",
+      "kind": "sphere",
+      "material": "foliage_light",
+      "size": [
+        10.88,
+        8.16,
+        10.88
+      ],
+      "position": [
+        6.1229,
+        52,
+        -14.7821
+      ]
+    },
+    {
+      "id": "canopy_mid_4",
+      "kind": "sphere",
+      "material": "foliage_dark",
+      "size": [
+        8,
+        6,
+        8
+      ],
+      "position": [
+        -6.1229,
+        54.24,
+        -14.7821
+      ]
+    },
+    {
+      "id": "canopy_mid_5",
+      "kind": "sphere",
+      "material": "foliage_main",
+      "size": [
+        8.96,
+        6.72,
+        8.96
+      ],
+      "position": [
+        -14.7821,
+        56.48,
+        -6.1229
+      ]
+    },
+    {
+      "id": "canopy_mid_6",
+      "kind": "sphere",
+      "material": "foliage_mid",
+      "size": [
+        9.92,
+        7.44,
+        9.92
+      ],
+      "position": [
+        -14.7821,
+        52,
+        6.1229
+      ]
+    },
+    {
+      "id": "canopy_mid_7",
+      "kind": "sphere",
+      "material": "foliage_light",
+      "size": [
+        10.88,
+        8.16,
+        10.88
+      ],
+      "position": [
+        -6.1229,
+        54.24,
+        14.7821
+      ]
+    },
+    {
+      "id": "fol_L1_0",
+      "kind": "sphere",
+      "material": "foliage_dark",
+      "size": [
+        6.8,
+        5.44,
+        6.8
+      ],
+      "position": [
+        0,
+        42.4,
+        26.88
+      ]
+    },
+    {
+      "id": "fol_L1_1",
+      "kind": "sphere",
+      "material": "foliage_main",
+      "size": [
+        7.6,
+        6.08,
+        7.6
+      ],
+      "position": [
+        9.6509,
+        44,
+        23.3653
+      ]
+    },
+    {
+      "id": "fol_L1_2",
+      "kind": "sphere",
+      "material": "foliage_mid",
+      "size": [
+        8.4,
+        6.72,
+        8.4
+      ],
+      "position": [
+        24.1047,
+        47.2,
+        9.9563
+      ]
+    },
+    {
+      "id": "fol_L1_3",
+      "kind": "sphere",
+      "material": "foliage_light",
+      "size": [
+        9.2,
+        7.36,
+        9.2
+      ],
+      "position": [
+        27.68,
+        51.2,
+        0
+      ]
+    },
+    {
+      "id": "fol_L1_4",
+      "kind": "sphere",
+      "material": "foliage_glow",
+      "size": [
+        6.8,
+        5.44,
+        6.8
+      ],
+      "position": [
+        22.6259,
+        47.2,
+        -9.3455
+      ]
+    },
+    {
+      "id": "fol_L1_5",
+      "kind": "sphere",
+      "material": "foliage_tip",
+      "size": [
+        7.6,
+        6.08,
+        7.6
+      ],
+      "position": [
+        9.6509,
+        44.8,
+        -23.3653
+      ]
+    },
+    {
+      "id": "fol_L1_6",
+      "kind": "sphere",
+      "material": "foliage_dark",
+      "size": [
+        8.4,
+        6.72,
+        8.4
+      ],
+      "position": [
+        0,
+        52,
+        -26.08
+      ]
+    },
+    {
+      "id": "fol_L1_7",
+      "kind": "sphere",
+      "material": "foliage_main",
+      "size": [
+        9.2,
+        7.36,
+        9.2
+      ],
+      "position": [
+        -25.28,
+        48,
+        0
+      ]
+    },
+    {
+      "id": "fol_L1_8",
+      "kind": "sphere",
+      "material": "foliage_mid",
+      "size": [
+        6.8,
+        5.44,
+        6.8
+      ],
+      "position": [
+        -16.7443,
+        43.2,
+        16.7443
+      ]
+    },
+    {
+      "id": "fol_L1_9",
+      "kind": "sphere",
+      "material": "foliage_light",
+      "size": [
+        7.6,
+        6.08,
+        7.6
+      ],
+      "position": [
+        -16.1786,
+        44.8,
+        -16.1786
+      ]
+    },
+    {
+      "id": "fol_L2_0",
+      "kind": "sphere",
+      "material": "foliage_mid",
+      "size": [
+        5.2,
+        3.9,
+        5.2
+      ],
+      "position": [
+        0,
+        60.8,
+        19.68
+      ]
+    },
+    {
+      "id": "fol_L2_1",
+      "kind": "sphere",
+      "material": "foliage_light",
+      "size": [
+        5.84,
+        4.38,
+        5.84
+      ],
+      "position": [
+        13.3502,
+        61.6,
+        13.3502
+      ]
+    },
+    {
+      "id": "fol_L2_2",
+      "kind": "sphere",
+      "material": "foliage_glow",
+      "size": [
+        6.48,
+        4.86,
+        6.48
+      ],
+      "position": [
+        20.48,
+        64.8,
+        0
+      ]
+    },
+    {
+      "id": "fol_L2_3",
+      "kind": "sphere",
+      "material": "foliage_tip",
+      "size": [
+        7.12,
+        5.34,
+        7.12
+      ],
+      "position": [
+        12.7845,
+        62.4,
+        -12.7845
+      ]
+    },
+    {
+      "id": "fol_L2_4",
+      "kind": "sphere",
+      "material": "foliage_dark",
+      "size": [
+        5.2,
+        3.9,
+        5.2
+      ],
+      "position": [
+        0,
+        65.6,
+        -19.68
+      ]
+    },
+    {
+      "id": "fol_L2_5",
+      "kind": "sphere",
+      "material": "foliage_main",
+      "size": [
+        5.84,
+        4.38,
+        5.84
+      ],
+      "position": [
+        -12.7845,
+        60,
+        -12.7845
+      ]
+    },
+    {
+      "id": "fol_L2_6",
+      "kind": "sphere",
+      "material": "foliage_mid",
+      "size": [
+        6.48,
+        4.86,
+        6.48
+      ],
+      "position": [
+        -19.68,
+        63.2,
+        0
+      ]
+    },
+    {
+      "id": "fol_L2_7",
+      "kind": "sphere",
+      "material": "foliage_light",
+      "size": [
+        7.12,
+        5.34,
+        7.12
+      ],
+      "position": [
+        -13.3502,
+        59.2,
+        13.3502
+      ]
+    },
+    {
+      "id": "leaf_float_0",
+      "kind": "sphere",
+      "material": "foliage_tip",
+      "size": [
+        1.76,
+        1.28,
+        1.76
+      ],
+      "position": [
+        11.2,
+        80.8,
+        4
+      ]
+    },
+    {
+      "id": "leaf_float_1",
+      "kind": "sphere",
+      "material": "foliage_tip",
+      "size": [
+        1.76,
+        1.28,
+        1.76
+      ],
+      "position": [
+        -12.8,
+        82.4,
+        8
+      ]
+    },
+    {
+      "id": "leaf_float_2",
+      "kind": "sphere",
+      "material": "foliage_tip",
+      "size": [
+        1.76,
+        1.28,
+        1.76
+      ],
+      "position": [
+        6.4,
+        83.2,
+        -14.4
+      ]
+    },
+    {
+      "id": "leaf_float_3",
+      "kind": "sphere",
+      "material": "foliage_tip",
+      "size": [
+        1.76,
+        1.28,
+        1.76
+      ],
+      "position": [
+        -8,
+        80,
+        16
+      ]
+    },
+    {
+      "id": "leaf_float_4",
+      "kind": "sphere",
+      "material": "foliage_tip",
+      "size": [
+        1.76,
+        1.28,
+        1.76
+      ],
+      "position": [
+        17.6,
+        76,
+        11.2
+      ]
+    },
+    {
+      "id": "leaf_float_5",
+      "kind": "sphere",
+      "material": "foliage_tip",
+      "size": [
+        1.76,
+        1.28,
+        1.76
+      ],
+      "position": [
+        -4,
+        76.8,
+        -17.6
+      ]
+    },
+    {
+      "id": "glow_0",
+      "kind": "sphere",
+      "material": "luminous",
+      "size": [
+        7.2,
+        5.2,
+        7.2
+      ],
+      "position": [
+        0,
+        80.8,
+        0
+      ]
+    },
+    {
+      "id": "glow_1",
+      "kind": "sphere",
+      "material": "rune_glow",
+      "size": [
+        4.4,
+        3.2,
+        4.4
+      ],
+      "position": [
+        0,
+        68,
+        0
+      ]
+    },
+    {
+      "id": "glow_2",
+      "kind": "sphere",
+      "material": "luminous",
+      "size": [
+        3.2,
+        2.4,
+        3.2
+      ],
+      "position": [
+        0,
+        56,
+        0
+      ]
+    },
+    {
+      "id": "glow_3",
+      "kind": "sphere",
+      "material": "rune_glow",
+      "size": [
+        2.56,
+        1.92,
+        2.56
+      ],
+      "position": [
+        0,
+        44,
+        0
+      ]
+    },
+    {
+      "id": "glow_4",
+      "kind": "sphere",
+      "material": "luminous",
+      "size": [
+        2.24,
+        1.6,
+        2.24
+      ],
+      "position": [
+        0,
+        30.4,
+        0
+      ]
+    },
+    {
+      "id": "glow_5",
+      "kind": "sphere",
+      "material": "rune_glow",
+      "size": [
+        4,
+        2.88,
+        4
+      ],
+      "position": [
+        0,
+        6.4,
+        0
+      ]
+    },
+    {
+      "id": "glow_6",
+      "kind": "sphere",
+      "material": "luminous",
+      "size": [
+        1.76,
+        1.28,
+        1.76
+      ],
+      "position": [
+        8,
+        49.6,
+        8
+      ]
+    },
+    {
+      "id": "glow_7",
+      "kind": "sphere",
+      "material": "rune_glow",
+      "size": [
+        1.6,
+        1.12,
+        1.6
+      ],
+      "position": [
+        -6.4,
+        54.4,
+        -9.6
+      ]
+    },
+    {
+      "id": "glow_8",
+      "kind": "sphere",
+      "material": "luminous",
+      "size": [
+        1.44,
+        1.04,
+        1.44
+      ],
+      "position": [
+        9.6,
+        60,
+        -6.4
+      ]
+    },
+    {
+      "id": "glow_9",
+      "kind": "sphere",
+      "material": "rune_glow",
+      "size": [
+        1.28,
+        0.96,
+        1.28
+      ],
+      "position": [
+        -8,
+        33.6,
+        11.2
+      ]
+    },
+    {
+      "id": "divine_pillar_lo",
+      "kind": "cylinder",
+      "material": "luminous",
+      "size": [
+        0.64,
+        36,
+        0.64
+      ],
+      "position": [
+        0,
+        17.6,
+        0
+      ]
+    },
+    {
+      "id": "divine_pillar_hi",
+      "kind": "cylinder",
+      "material": "rune_glow",
+      "size": [
+        0.48,
+        32,
+        0.48
+      ],
+      "position": [
+        0,
+        56,
+        0
+      ]
+    },
+    {
+      "id": "eagle_body",
+      "kind": "sphere",
+      "material": "eagle_white",
+      "size": [
+        2.24,
+        1.76,
+        2.24
+      ],
+      "position": [
+        0,
+        80,
+        0
+      ]
+    },
+    {
+      "id": "eagle_head",
+      "kind": "sphere",
+      "material": "eagle_gold",
+      "size": [
+        1.28,
+        1.28,
+        1.28
+      ],
+      "position": [
+        0,
+        82.24,
+        0
+      ]
+    },
+    {
+      "id": "eagle_wing_L",
+      "kind": "box",
+      "material": "eagle_white",
+      "size": [
+        6.4,
+        0.8,
+        1.6
+      ],
+      "position": [
+        -4.4,
+        80.4,
+        0
+      ]
+    },
+    {
+      "id": "eagle_wing_R",
+      "kind": "box",
+      "material": "eagle_white",
+      "size": [
+        6.4,
+        0.8,
+        1.6
+      ],
+      "position": [
+        4.4,
+        80.4,
+        0
+      ]
+    },
+    {
+      "id": "serpent_coil_0",
+      "kind": "cylinder",
+      "material": "serpent_dark",
+      "size": [
+        2.24,
+        2.8,
+        2.24
+      ],
+      "position": [
+        8.4,
+        9.6,
+        0
+      ]
+    },
+    {
+      "id": "serpent_coil_1",
+      "kind": "cylinder",
+      "material": "serpent_scale",
+      "size": [
+        2.24,
+        2.8,
+        2.24
+      ],
+      "position": [
+        5.9388,
+        11.2,
+        5.9388
+      ]
+    },
+    {
+      "id": "serpent_coil_2",
+      "kind": "cylinder",
+      "material": "serpent_dark",
+      "size": [
+        2.24,
+        2.8,
+        2.24
+      ],
+      "position": [
+        -5.9388,
+        9.6,
+        5.9388
+      ]
+    },
+    {
+      "id": "serpent_coil_3",
+      "kind": "cylinder",
+      "material": "serpent_scale",
+      "size": [
+        2.24,
+        2.8,
+        2.24
+      ],
+      "position": [
+        -8.4,
+        11.2,
+        0
+      ]
+    },
+    {
+      "id": "serpent_coil_4",
+      "kind": "cylinder",
+      "material": "serpent_dark",
+      "size": [
+        2.24,
+        2.8,
+        2.24
+      ],
+      "position": [
+        0,
+        9.6,
+        -8.4
+      ]
+    },
+    {
+      "id": "serpent_head",
+      "kind": "sphere",
+      "material": "serpent_dark",
+      "size": [
+        1.76,
+        1.44,
+        1.76
+      ],
+      "position": [
+        8.4,
+        12,
+        3.2
+      ]
+    },
+    {
+      "id": "squirrel_body",
+      "kind": "sphere",
+      "material": "squirrel_fur",
+      "size": [
+        1.28,
+        1.6,
+        1.28
+      ],
+      "position": [
+        5.6,
+        28,
+        0.8
+      ]
+    },
+    {
+      "id": "squirrel_head",
+      "kind": "sphere",
+      "material": "squirrel_fur",
+      "size": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "position": [
+        5.6,
+        29.76,
+        0.4
+      ]
+    },
+    {
+      "id": "squirrel_tail",
+      "kind": "box",
+      "material": "squirrel_fur",
+      "size": [
+        0.64,
+        2.4,
+        0.64
+      ],
+      "position": [
+        4.8,
+        29.28,
+        -1.6
+      ]
+    },
+    {
+      "id": "vine_0",
+      "kind": "cylinder",
+      "material": "vine",
+      "size": [
+        0.32,
+        8,
+        0.32
+      ],
+      "position": [
+        17.6,
+        38.4,
+        3.2
+      ]
+    },
+    {
+      "id": "vine_1",
+      "kind": "cylinder",
+      "material": "vine",
+      "size": [
+        0.32,
+        11.2,
+        0.32
+      ],
+      "position": [
+        -16,
+        39.2,
+        -8
+      ]
+    },
+    {
+      "id": "vine_2",
+      "kind": "cylinder",
+      "material": "vine",
+      "size": [
+        0.32,
+        14.4,
+        0.32
+      ],
+      "position": [
+        3.2,
+        32.8,
+        19.2
+      ]
+    },
+    {
+      "id": "vine_3",
+      "kind": "cylinder",
+      "material": "vine",
+      "size": [
+        0.32,
+        8,
+        0.32
+      ],
+      "position": [
+        -12,
+        45.6,
+        14.4
+      ]
+    },
+    {
+      "id": "vine_4",
+      "kind": "cylinder",
+      "material": "vine",
+      "size": [
+        0.32,
+        11.2,
+        0.32
+      ],
+      "position": [
+        14.4,
+        46.4,
+        -12.8
+      ]
+    },
+    {
+      "id": "vine_5",
+      "kind": "cylinder",
+      "material": "vine",
+      "size": [
+        0.32,
+        14.4,
+        0.32
+      ],
+      "position": [
+        -4.8,
+        39.2,
+        -17.6
+      ]
+    },
+    {
+      "id": "crystal_0",
+      "kind": "cylinder",
+      "material": "crystal_blue",
+      "size": [
+        0.8,
+        5.6,
+        0.8
+      ],
+      "position": [
+        16,
+        10.8,
+        38.4
+      ]
+    },
+    {
+      "id": "crystal_1",
+      "kind": "cylinder",
+      "material": "crystal_gold",
+      "size": [
+        0.8,
+        5.6,
+        0.8
+      ],
+      "position": [
+        -35.2,
+        10.8,
+        -19.2
+      ]
+    },
+    {
+      "id": "crystal_2",
+      "kind": "cylinder",
+      "material": "crystal_blue",
+      "size": [
+        0.8,
+        5.6,
+        0.8
+      ],
+      "position": [
+        7.2,
+        10.8,
+        -43.2
+      ]
+    },
+    {
+      "id": "crystal_3",
+      "kind": "cylinder",
+      "material": "rune_glow",
+      "size": [
+        0.8,
+        5.6,
+        0.8
+      ],
+      "position": [
+        11.2,
+        14,
+        22.4
+      ]
+    },
+    {
+      "id": "crystal_4",
+      "kind": "cylinder",
+      "material": "rune_glow",
+      "size": [
+        0.8,
+        5.6,
+        0.8
+      ],
+      "position": [
+        -20.8,
+        14,
+        -11.2
+      ]
+    },
+    {
+      "id": "crystal_5",
+      "kind": "cylinder",
+      "material": "crystal_gold",
+      "size": [
+        0.8,
+        5.6,
+        0.8
+      ],
+      "position": [
+        4.8,
+        14,
+        -25.6
+      ]
+    }
+  ],
+  "surfaceDetails": [
+    {
+      "id": "bk_groove_s1_A",
+      "region": "trunk_s1",
+      "type": "vertical_groove",
+      "strength": 0.88,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "bk_groove_s1_B",
+      "region": "trunk_s1",
+      "type": "vertical_groove",
+      "strength": 0.82,
+      "offset": [
+        0.3,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "bk_groove_s2",
+      "region": "trunk_s2",
+      "type": "vertical_groove",
+      "strength": 0.76,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "bk_groove_s3",
+      "region": "trunk_s3",
+      "type": "vertical_groove",
+      "strength": 0.7,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "bk_groove_s4",
+      "region": "trunk_s4",
+      "type": "vertical_groove",
+      "strength": 0.64,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "bk_rough_s1",
+      "region": "trunk_s1",
+      "type": "rough_bark",
+      "strength": 0.94,
+      "offset": [
+        0,
+        0.2,
+        0
+      ]
+    },
+    {
+      "id": "bk_rough_s2",
+      "region": "trunk_s2",
+      "type": "rough_bark",
+      "strength": 0.88,
+      "offset": [
+        0,
+        0.3,
+        0
+      ]
+    },
+    {
+      "id": "bk_rough_s3",
+      "region": "trunk_s3",
+      "type": "rough_bark",
+      "strength": 0.82,
+      "offset": [
+        0,
+        0.5,
+        0
+      ]
+    },
+    {
+      "id": "bk_moss_A",
+      "region": "trunk_s1",
+      "type": "moss_patch",
+      "strength": 0.56,
+      "offset": [
+        0.3,
+        0.1,
+        0
+      ]
+    },
+    {
+      "id": "bk_moss_B",
+      "region": "trunk_s2",
+      "type": "moss_patch",
+      "strength": 0.48,
+      "offset": [
+        -0.2,
+        0.3,
+        0.1
+      ]
+    },
+    {
+      "id": "bk_moss_C",
+      "region": "trunk_s1",
+      "type": "moss_patch",
+      "strength": 0.44,
+      "offset": [
+        -0.4,
+        0.05,
+        0
+      ]
+    },
+    {
+      "id": "bk_knot_A",
+      "region": "trunk_s2",
+      "type": "knot",
+      "strength": 0.68,
+      "offset": [
+        0.2,
+        0.4,
+        0
+      ]
+    },
+    {
+      "id": "bk_knot_B",
+      "region": "trunk_s3",
+      "type": "knot",
+      "strength": 0.62,
+      "offset": [
+        -0.3,
+        0.6,
+        0.1
+      ]
+    },
+    {
+      "id": "bk_knot_C",
+      "region": "trunk_s4",
+      "type": "knot",
+      "strength": 0.55,
+      "offset": [
+        0.1,
+        0.7,
+        0
+      ]
+    },
+    {
+      "id": "bk_scar_A",
+      "region": "trunk_s2",
+      "type": "bark_scar",
+      "strength": 0.6,
+      "offset": [
+        0.4,
+        0.25,
+        0
+      ]
+    },
+    {
+      "id": "bk_scar_B",
+      "region": "trunk_s3",
+      "type": "bark_scar",
+      "strength": 0.52,
+      "offset": [
+        -0.1,
+        0.55,
+        0.1
+      ]
+    },
+    {
+      "id": "rune_A",
+      "region": "trunk_s2",
+      "type": "rune_carving",
+      "strength": 0.56,
+      "offset": [
+        0,
+        0.3,
+        0.1
+      ]
+    },
+    {
+      "id": "rune_B",
+      "region": "trunk_s3",
+      "type": "rune_carving",
+      "strength": 0.52,
+      "offset": [
+        0.2,
+        0.45,
+        0
+      ]
+    },
+    {
+      "id": "rune_C",
+      "region": "trunk_s3",
+      "type": "rune_carving",
+      "strength": 0.48,
+      "offset": [
+        -0.3,
+        0.6,
+        0
+      ]
+    },
+    {
+      "id": "rune_D",
+      "region": "trunk_s4",
+      "type": "rune_carving",
+      "strength": 0.44,
+      "offset": [
+        0,
+        0.72,
+        0.1
+      ]
+    },
+    {
+      "id": "rune_E",
+      "region": "trunk_s5",
+      "type": "rune_carving",
+      "strength": 0.4,
+      "offset": [
+        0.1,
+        0.8,
+        0
+      ]
+    },
+    {
+      "id": "vein_lo",
+      "region": "trunk_s1",
+      "type": "glowing_vein",
+      "strength": 0.65,
+      "offset": [
+        0,
+        0.1,
+        0
+      ]
+    },
+    {
+      "id": "vein_A",
+      "region": "trunk_s2",
+      "type": "glowing_vein",
+      "strength": 0.7,
+      "offset": [
+        0,
+        0.3,
+        0
+      ]
+    },
+    {
+      "id": "vein_B",
+      "region": "trunk_s3",
+      "type": "glowing_vein",
+      "strength": 0.68,
+      "offset": [
+        0,
+        0.5,
+        0
+      ]
+    },
+    {
+      "id": "vein_C",
+      "region": "trunk_s4",
+      "type": "glowing_vein",
+      "strength": 0.62,
+      "offset": [
+        0,
+        0.68,
+        0
+      ]
+    },
+    {
+      "id": "vein_D",
+      "region": "trunk_s5",
+      "type": "glowing_vein",
+      "strength": 0.55,
+      "offset": [
+        0,
+        0.82,
+        0
+      ]
+    },
+    {
+      "id": "vein_hi",
+      "region": "trunk_s6",
+      "type": "glowing_vein",
+      "strength": 0.48,
+      "offset": [
+        0,
+        0.92,
+        0
+      ]
+    },
+    {
+      "id": "rt_tex_N",
+      "region": "rbp_N",
+      "type": "rough_bark",
+      "strength": 0.74,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "rt_tex_S",
+      "region": "rbp_S",
+      "type": "rough_bark",
+      "strength": 0.74,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "rt_tex_E",
+      "region": "rbp_E",
+      "type": "rough_bark",
+      "strength": 0.72,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "rt_tex_W",
+      "region": "rbp_W",
+      "type": "rough_bark",
+      "strength": 0.72,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "rt_moss_NE",
+      "region": "rbp_NE",
+      "type": "moss_patch",
+      "strength": 0.46,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "rt_moss_SW",
+      "region": "rbp_SW",
+      "type": "moss_patch",
+      "strength": 0.46,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "rt_urd",
+      "region": "root_tap_urd",
+      "type": "rough_bark",
+      "strength": 0.84,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "rt_hvel",
+      "region": "root_tap_hvel",
+      "type": "rough_bark",
+      "strength": 0.84,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "rt_mimir",
+      "region": "root_tap_mimir",
+      "type": "rough_bark",
+      "strength": 0.84,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "br_tex_L1_N",
+      "region": "L1_N_h",
+      "type": "rough_bark",
+      "strength": 0.64,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "br_tex_L1_E",
+      "region": "L1_E_h",
+      "type": "rough_bark",
+      "strength": 0.62,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "br_tex_L1_S",
+      "region": "L1_S_h",
+      "type": "rough_bark",
+      "strength": 0.62,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "br_tex_L1_W",
+      "region": "L1_W_h",
+      "type": "rough_bark",
+      "strength": 0.6,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "br_tex_L2_N",
+      "region": "L2_N_h",
+      "type": "rough_bark",
+      "strength": 0.56,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "br_tex_L2_E",
+      "region": "L2_E_h",
+      "type": "rough_bark",
+      "strength": 0.54,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "fol_det_crA",
+      "region": "crown_A",
+      "type": "leaf_cluster",
+      "strength": 0.86,
+      "offset": [
+        0,
+        0.1,
+        0
+      ]
+    },
+    {
+      "id": "fol_det_crB",
+      "region": "crown_B",
+      "type": "leaf_cluster",
+      "strength": 0.8,
+      "offset": [
+        0,
+        0.1,
+        0
+      ]
+    },
+    {
+      "id": "fol_det_crC",
+      "region": "crown_C",
+      "type": "leaf_cluster",
+      "strength": 0.74,
+      "offset": [
+        0,
+        0.1,
+        0
+      ]
+    },
+    {
+      "id": "fol_det_crD",
+      "region": "crown_D",
+      "type": "leaf_cluster",
+      "strength": 0.68,
+      "offset": [
+        0,
+        0.1,
+        0
+      ]
+    },
+    {
+      "id": "fol_det_mid0",
+      "region": "canopy_mid_0",
+      "type": "leaf_cluster",
+      "strength": 0.7,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "fol_det_mid4",
+      "region": "canopy_mid_4",
+      "type": "leaf_cluster",
+      "strength": 0.68,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "well_glow_urd",
+      "region": "well_urd_glow",
+      "type": "emissive_aura",
+      "strength": 0.7,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "well_glow_hvel",
+      "region": "well_hvel_glow",
+      "type": "emissive_aura",
+      "strength": 0.68,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "well_glow_mimir",
+      "region": "well_mimir_glow",
+      "type": "emissive_aura",
+      "strength": 0.72,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "serpent_scale_tex",
+      "region": "serpent_coil_0",
+      "type": "scale_pattern",
+      "strength": 0.6,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "eagle_feather_tex",
+      "region": "eagle_body",
+      "type": "feather_detail",
+      "strength": 0.6,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "squirrel_fur_tex",
+      "region": "squirrel_body",
+      "type": "fur_detail",
+      "strength": 0.55,
+      "offset": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "ornaments": [],
+  "pose": {
+    "preset": "static"
+  },
+  "animationHints": {
+    "branches": "gentle_sway_wind",
+    "foliage": "rustling_leaves",
+    "vines": "slow_drift"
+  },
+  "lod": {
+    "high": "full",
+    "medium": "reduce_foliage_tertiary",
+    "low": "merge_canopy_and_vines"
+  },
+  "exportOptions": {
+    "formats": [
+      "gltf",
+      "glb"
+    ]
+  }
+}

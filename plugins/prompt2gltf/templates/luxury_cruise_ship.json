@@ -1,0 +1,229 @@
+{
+  "meta": {
+    "name": "luxury_cruise_ship_327m_豪華客船_celebrity_beyond_style",
+    "version": "0.2.0",
+    "units": "meters",
+    "generator": "prompt2gltf",
+    "generatedFrom": "豪華客船をつくって。セレブリティ・ビヨンド風 エッジクラス 327m 39m 17デッキ 141420GT",
+    "createdAt": "2026-03-21T00:00:00.000Z"
+  },
+  "promptInterpretation": {
+    "originalPrompt": "豪華客船をつくって。セレブリティ・ビヨンド風 エッジクラス 327m 39m 17デッキ 141420GT",
+    "normalizedSubject": "vehicle",
+    "vehicleClass": "marine",
+    "targetHeightMeters": 327,
+    "styleTags": ["luxury", "ocean_liner", "modern_cruise", "premium", "celebrity_beyond"],
+    "geometryDirective": "Use mixed primitives (box/cylinder/sphere); tiered superstructure narrowing bow-to-stern, glass facades, celebrity X funnel, magic carpet cantilevered platform, bulbous bow, stepped stern terraces.",
+    "summary": "Luxury cruise ship inspired by Celebrity Beyond (Edge class). 327m LOA, 39m beam, 17 decks, 141,420 GT.",
+    "shipSpecs": {
+      "lengthOverall": 327,
+      "beam": 39,
+      "decks": 17,
+      "grossTonnage": 141420,
+      "passengerCapacity": 3248,
+      "crewCount": 1400,
+      "shipClass": "Edge",
+      "operator": "Celebrity Cruises",
+      "flagState": "Bahamas",
+      "debutYear": 2022
+    },
+    "designIntent": {
+      "scaleImpression": "grand_majestic",
+      "mood": "luxurious_modern_ocean_liner",
+      "originalityPolicy": "generalized_original_design",
+      "keyFeatures": [
+        "tiered_superstructure",
+        "magic_carpet_starboard_platform",
+        "eden_glass_atrium_aft",
+        "celebrity_X_funnel",
+        "bulbous_bow",
+        "stepped_stern_terraces",
+        "panoramic_window_ribbons",
+        "teak_promenade_deck",
+        "lifeboat_stations",
+        "stabilizer_fins"
+      ]
+    }
+  },
+  "globalScale": {
+    "length": 327,
+    "beam": 39,
+    "height": 65,
+    "draft": 8.5,
+    "deckCount": 17,
+    "deckHeight": 3.3,
+    "referenceLength": 327,
+    "orientation": "Z_axis_bow_positive"
+  },
+  "style": {
+    "silhouette": "modern_luxury_cruise_ship_tiered",
+    "mood": "grand_majestic_ocean_liner",
+    "genre": "premium_cruise_vessel",
+    "detailDensity": "ultra_high",
+    "orientation": "Z_axis_fore_to_aft",
+    "shapeLanguage": [
+      "tiered_superstructure",
+      "panoramic_window_ribbons",
+      "teak_promenade_deck",
+      "magic_carpet_cantilevered",
+      "eden_glass_atrium",
+      "celebrity_funnel_elliptical",
+      "bulbous_bow",
+      "stepped_stern_terraces",
+      "lifeboat_davits",
+      "stabilizer_fins"
+    ]
+  },
+  "materials": {
+    "hull_dark":        { "baseColor": "#0A1A30", "roughness": 0.70, "metalness": 0.38 },
+    "hull_white":       { "baseColor": "#F4F4F2", "roughness": 0.42, "metalness": 0.10 },
+    "hull_stripe":      { "baseColor": "#12287A", "roughness": 0.58, "metalness": 0.18 },
+    "deck_teak":        { "baseColor": "#8B5E38", "roughness": 0.82, "metalness": 0.02 },
+    "glass_large":      { "baseColor": "#5A90B0", "roughness": 0.08, "metalness": 0.92 },
+    "glass_tinted":     { "baseColor": "#2A4860", "roughness": 0.14, "metalness": 0.88 },
+    "balcony_glass":    { "baseColor": "#7AB8D0", "roughness": 0.10, "metalness": 0.88 },
+    "funnel_dark":      { "baseColor": "#1A1A1A", "roughness": 0.62, "metalness": 0.32 },
+    "funnel_white":     { "baseColor": "#FFFFFF",  "roughness": 0.38, "metalness": 0.05 },
+    "funnel_silver":    { "baseColor": "#B8BEC4", "roughness": 0.28, "metalness": 0.88 },
+    "magic_carpet":     { "baseColor": "#7A3818", "roughness": 0.52, "metalness": 0.22 },
+    "lifeboat_orange":  { "baseColor": "#E05808", "roughness": 0.68, "metalness": 0.04 },
+    "pool_water":       { "baseColor": "#1880C0", "roughness": 0.06, "metalness": 0.72 },
+    "steel_chrome":     { "baseColor": "#C8D0D8", "roughness": 0.20, "metalness": 0.96 },
+    "equipment_gray":   { "baseColor": "#686868", "roughness": 0.55, "metalness": 0.40 },
+    "rail_white":       { "baseColor": "#EEEEEE", "roughness": 0.32, "metalness": 0.20 },
+    "accent_blue":      { "baseColor": "#0A3888", "roughness": 0.48, "metalness": 0.22 }
+  },
+  "parts": [
+    { "id": "comment_hull", "kind": "box", "material": "hull_dark", "size": [0.01, 0.01, 0.01], "position": [0, 0, 0] },
+
+    { "id": "hull_underwater_main",    "kind": "box",    "material": "hull_dark",  "size": [39,   8.5, 295], "position": [0,    4.25, -8] },
+    { "id": "hull_underwater_bow_mid", "kind": "box",    "material": "hull_dark",  "size": [34,   8.5,  18], "position": [0,    4.25, 141.5] },
+    { "id": "hull_underwater_bow_tip", "kind": "box",    "material": "hull_dark",  "size": [22,   8.5,  10], "position": [0,    4.25, 155.5] },
+    { "id": "bulbous_bow",             "kind": "sphere", "material": "hull_dark",  "size": [11,  10.0,  11], "position": [0,    4.0,  162.5] },
+    { "id": "hull_underwater_stern",   "kind": "box",    "material": "hull_dark",  "size": [36,   6.5,  12], "position": [0,    3.25,-154.0] },
+
+    { "id": "hull_freeboard_main",     "kind": "box",    "material": "hull_white", "size": [39,   9.9, 295], "position": [0,   13.45,  -8.0] },
+    { "id": "hull_freeboard_bow_mid",  "kind": "box",    "material": "hull_white", "size": [34,   9.9,  18], "position": [0,   13.45, 141.5] },
+    { "id": "hull_freeboard_bow_tip",  "kind": "box",    "material": "hull_white", "size": [22,   9.9,  10], "position": [0,   13.45, 155.5] },
+    { "id": "hull_freeboard_stern",    "kind": "box",    "material": "hull_white", "size": [36,   8.0,  12], "position": [0,   12.50,-154.0] },
+
+    { "id": "waterline_stripe_L", "kind": "box", "material": "hull_stripe", "size": [0.4,  1.0, 295], "position": [-19.7,  8.5, -8.0] },
+    { "id": "waterline_stripe_R", "kind": "box", "material": "hull_stripe", "size": [0.4,  1.0, 295], "position": [ 19.7,  8.5, -8.0] },
+
+    { "id": "promenade_deck",   "kind": "box", "material": "deck_teak",  "size": [39,   0.3, 310], "position": [0,    18.35,  0.0] },
+    { "id": "promenade_rail_L", "kind": "box", "material": "rail_white", "size": [0.15, 1.2, 305], "position": [-19.65, 19.05, 0.0] },
+    { "id": "promenade_rail_R", "kind": "box", "material": "rail_white", "size": [0.15, 1.2, 305], "position": [ 19.65, 19.05, 0.0] },
+
+    { "id": "super_A",          "kind": "box", "material": "hull_white",   "size": [38,   13.2, 270], "position": [0,    25.0, -10.0] },
+    { "id": "super_A_glass_L",  "kind": "box", "material": "glass_large",  "size": [0.5,  11.5, 250], "position": [-19.05, 25.0, -10.0] },
+    { "id": "super_A_glass_R",  "kind": "box", "material": "glass_large",  "size": [0.5,  11.5, 250], "position": [ 19.05, 25.0, -10.0] },
+    { "id": "balcony_band_A_L", "kind": "box", "material": "balcony_glass","size": [1.8,  12.0, 250], "position": [-20.4,  25.0, -10.0] },
+    { "id": "balcony_band_A_R", "kind": "box", "material": "balcony_glass","size": [1.8,  12.0, 250], "position": [ 20.4,  25.0, -10.0] },
+
+    { "id": "super_B",          "kind": "box", "material": "hull_white",   "size": [37,   16.5, 248], "position": [0,    39.85, -18.0] },
+    { "id": "super_B_glass_L",  "kind": "box", "material": "glass_large",  "size": [0.5,  15.0, 228], "position": [-18.55, 39.85, -18.0] },
+    { "id": "super_B_glass_R",  "kind": "box", "material": "glass_large",  "size": [0.5,  15.0, 228], "position": [ 18.55, 39.85, -18.0] },
+    { "id": "balcony_band_B_L", "kind": "box", "material": "balcony_glass","size": [1.8,  16.0, 228], "position": [-19.9,  39.85, -18.0] },
+    { "id": "balcony_band_B_R", "kind": "box", "material": "balcony_glass","size": [1.8,  16.0, 228], "position": [ 19.9,  39.85, -18.0] },
+
+    { "id": "super_C",          "kind": "box", "material": "hull_white",   "size": [35,    9.9, 205], "position": [0,    53.05, -28.0] },
+    { "id": "super_C_glass_L",  "kind": "box", "material": "glass_large",  "size": [0.5,   8.5, 185], "position": [-17.55, 53.05, -28.0] },
+    { "id": "super_C_glass_R",  "kind": "box", "material": "glass_large",  "size": [0.5,   8.5, 185], "position": [ 17.55, 53.05, -28.0] },
+
+    { "id": "super_D",          "kind": "box", "material": "hull_white",   "size": [32,    6.6, 160], "position": [0,    61.3, -44.0] },
+    { "id": "super_D_glass_L",  "kind": "box", "material": "glass_large",  "size": [0.5,   5.5, 140], "position": [-16.05, 61.3, -44.0] },
+    { "id": "super_D_glass_R",  "kind": "box", "material": "glass_large",  "size": [0.5,   5.5, 140], "position": [ 16.05, 61.3, -44.0] },
+
+    { "id": "bow_super_block",      "kind": "box", "material": "hull_white",   "size": [35,  29.7,  28], "position": [0,   33.25, 138.0] },
+    { "id": "bow_super_glass_fwd",  "kind": "box", "material": "glass_tinted", "size": [35,  26.0,   0.6], "position": [0,   31.6,  152.2] },
+
+    { "id": "bridge_main",      "kind": "box", "material": "hull_white",   "size": [36,   5.5,  22], "position": [0,   67.1,  70.0] },
+    { "id": "bridge_glass_fwd", "kind": "box", "material": "glass_tinted", "size": [36,   4.5,   0.6], "position": [0,   67.1,  81.2] },
+    { "id": "bridge_wing_L",    "kind": "box", "material": "hull_white",   "size": [6.0,  4.5,  14], "position": [-22.0, 67.1,  70.0] },
+    { "id": "bridge_wing_R",    "kind": "box", "material": "hull_white",   "size": [6.0,  4.5,  14], "position": [ 22.0, 67.1,  70.0] },
+
+    { "id": "eden_atrium", "kind": "box", "material": "glass_large", "size": [26, 13.2, 22], "position": [0, 48.5, -151.0] },
+
+    { "id": "funnel_plinth",      "kind": "box",      "material": "funnel_dark",   "size": [18,    5.0,  22], "position": [0,   50.5,  14.0] },
+    { "id": "funnel_body",        "kind": "cylinder", "material": "funnel_dark",   "size": [12,   15.0,  14], "position": [0,   62.0,  14.0] },
+    { "id": "funnel_cap",         "kind": "cylinder", "material": "equipment_gray","size": [13,    2.0,  15], "position": [0,   70.5,  14.0] },
+    { "id": "funnel_smoke_vent",  "kind": "cylinder", "material": "funnel_silver", "size": [5,     3.0,   5], "position": [0,   73.0,  14.0] },
+    { "id": "funnel_X_logo",      "kind": "box",      "material": "funnel_white",  "size": [8,     8.0,   0.5], "position": [0,   63.0,   7.2] },
+
+    { "id": "magic_carpet_platform",  "kind": "box", "material": "magic_carpet",   "size": [14,  3.5,  26], "position": [26.0, 38.2,  48.0] },
+    { "id": "magic_carpet_glass_fwd", "kind": "box", "material": "balcony_glass",  "size": [14,  3.5,   0.5], "position": [26.0, 38.2,  61.2] },
+    { "id": "magic_carpet_rail",      "kind": "box", "material": "steel_chrome",   "size": [14,  0.5,  26], "position": [26.0, 40.2,  48.0] },
+
+    { "id": "pool_lido_main",    "kind": "box", "material": "pool_water",  "size": [18,  1.8,  24], "position": [0,   64.7, -20.0] },
+    { "id": "pool_forward",      "kind": "box", "material": "pool_water",  "size": [14,  1.8,  16], "position": [0,   64.7,  40.0] },
+    { "id": "lido_deck_surface", "kind": "box", "material": "deck_teak",   "size": [30,  0.3, 152], "position": [0,   64.55,-44.0] },
+
+    { "id": "lifeboat_L_fwd", "kind": "box", "material": "lifeboat_orange", "size": [4.0, 3.5, 36], "position": [-21.5, 23.0,  52.0] },
+    { "id": "lifeboat_L_aft", "kind": "box", "material": "lifeboat_orange", "size": [4.0, 3.5, 28], "position": [-21.5, 23.0, -18.0] },
+    { "id": "lifeboat_R_fwd", "kind": "box", "material": "lifeboat_orange", "size": [4.0, 3.5, 36], "position": [ 21.5, 23.0,  52.0] },
+    { "id": "lifeboat_R_aft", "kind": "box", "material": "lifeboat_orange", "size": [4.0, 3.5, 28], "position": [ 21.5, 23.0, -18.0] },
+
+    { "id": "mast_main",        "kind": "cylinder", "material": "steel_chrome",   "size": [1.6,  18.0,  1.6], "position": [0,   79.3,  72.0] },
+    { "id": "radar_dome_main",  "kind": "sphere",   "material": "equipment_gray", "size": [5.0,   5.0,  5.0], "position": [0,   88.5,  72.0] },
+    { "id": "radar_arm",        "kind": "box",      "material": "steel_chrome",   "size": [10,    0.5,   0.5], "position": [0,   88.0,  72.0] },
+    { "id": "mast_secondary",   "kind": "cylinder", "material": "steel_chrome",   "size": [1.0,  10.0,  1.0], "position": [0,   75.5,  14.0] },
+    { "id": "exhaust_stack_L",  "kind": "cylinder", "material": "equipment_gray", "size": [2.4,   6.0,  2.4], "position": [-6,  71.0,  20.0] },
+    { "id": "exhaust_stack_R",  "kind": "cylinder", "material": "equipment_gray", "size": [2.4,   6.0,  2.4], "position": [ 6,  71.0,  20.0] },
+
+    { "id": "stern_terrace_1", "kind": "box", "material": "deck_teak", "size": [30, 0.4,  20], "position": [0, 31.6, -148.0] },
+    { "id": "stern_terrace_2", "kind": "box", "material": "deck_teak", "size": [26, 0.4,  18], "position": [0, 34.9, -146.0] },
+    { "id": "stern_terrace_3", "kind": "box", "material": "deck_teak", "size": [22, 0.4,  16], "position": [0, 38.2, -144.0] },
+    { "id": "stern_terrace_4", "kind": "box", "material": "deck_teak", "size": [18, 0.4,  14], "position": [0, 41.5, -142.0] },
+    { "id": "stern_terrace_5", "kind": "box", "material": "deck_teak", "size": [14, 0.4,  12], "position": [0, 44.8, -140.0] },
+
+    { "id": "anchor_hawse_L", "kind": "box", "material": "equipment_gray", "size": [1.5, 1.5,  8], "position": [-5.5, 14.5, 155.0] },
+    { "id": "anchor_hawse_R", "kind": "box", "material": "equipment_gray", "size": [1.5, 1.5,  8], "position": [ 5.5, 14.5, 155.0] },
+
+    { "id": "bow_thruster_fwd", "kind": "cylinder", "material": "steel_chrome",  "size": [3.0, 2.5, 6.0], "position": [0, 8.5, 159.0] },
+
+    { "id": "stabilizer_fin_L", "kind": "box", "material": "hull_dark", "size": [8.0, 0.8, 3.0], "position": [-23.5, 4.5,  0.0] },
+    { "id": "stabilizer_fin_R", "kind": "box", "material": "hull_dark", "size": [8.0, 0.8, 3.0], "position": [ 23.5, 4.5,  0.0] }
+  ],
+  "surfaceDetails": [
+    { "id": "sd_hull_weld_seam",     "region": "hull_side",       "type": "weld_seam",    "strength": 0.08, "offset": [0, 0, 0] },
+    { "id": "sd_hull_plate_lines",   "region": "hull_plate",      "type": "panel_line",   "strength": 0.10, "offset": [0, 0.02, 0] },
+    { "id": "sd_antifouling",        "region": "hull_underwater", "type": "paint_wear",   "strength": 0.15, "offset": [0, -0.01, 0] },
+    { "id": "sd_freeboard_rivets",   "region": "freeboard",       "type": "rivet_line",   "strength": 0.06, "offset": [0, 0, 0.01] },
+    { "id": "sd_teak_wood_grain",    "region": "promenade_deck",  "type": "stripe_edge",  "strength": 0.12, "offset": [0.01, 0, 0] },
+    { "id": "sd_teak_caulking",      "region": "teak_deck",       "type": "panel_line",   "strength": 0.08, "offset": [0, 0.005, 0] },
+    { "id": "sd_window_frame_A",     "region": "super_A_windows", "type": "edge_bead",    "strength": 0.10, "offset": [0.005, 0, 0] },
+    { "id": "sd_window_frame_B",     "region": "super_B_windows", "type": "edge_bead",    "strength": 0.10, "offset": [0.005, 0, 0] },
+    { "id": "sd_window_frame_C",     "region": "super_C_windows", "type": "edge_bead",    "strength": 0.10, "offset": [0.005, 0, 0] },
+    { "id": "sd_glass_panel_grid",   "region": "glass_facade",    "type": "panel_line",   "strength": 0.12, "offset": [0, 0, 0.005] },
+    { "id": "sd_funnel_texture",     "region": "funnel_surface",  "type": "weld_seam",    "strength": 0.06, "offset": [0.01, 0, 0] },
+    { "id": "sd_lifeboat_mounts",    "region": "lifeboat_station","type": "service_hatch", "strength": 0.14, "offset": [0, 0.01, 0] },
+    { "id": "sd_stern_terrace_wood", "region": "stern_terraces",  "type": "stripe_edge",  "strength": 0.10, "offset": [0.01, 0, 0] },
+    { "id": "sd_bow_draft_marks",    "region": "hull_bow_stem",   "type": "edge_bead",    "strength": 0.09, "offset": [0, 0.02, 0.01] },
+    { "id": "sd_deck_equipment",     "region": "lido_deck",       "type": "vent_slot",    "strength": 0.11, "offset": [0, 0.008, 0] },
+    { "id": "sd_balcony_slab_edge",  "region": "balcony_slabs",   "type": "edge_trim",    "strength": 0.08, "offset": [0, 0.01, 0.02] },
+    { "id": "sd_stabilizer_edge",    "region": "stabilizer_fins", "type": "edge_bead",    "strength": 0.07, "offset": [0, 0, 0.01] },
+    { "id": "sd_promenade_rail",     "region": "deck_rail",       "type": "rivet_line",   "strength": 0.06, "offset": [0.005, 0, 0] }
+  ],
+  "ornaments": [
+    { "id": "orn_ship_name_bow_L",   "type": "lettering",       "text": "CELEBRITY BEYOND",  "region": "hull_bow_port",     "scale": 2.5, "material": "hull_dark" },
+    { "id": "orn_ship_name_bow_R",   "type": "lettering",       "text": "CELEBRITY BEYOND",  "region": "hull_bow_stbd",     "scale": 2.5, "material": "hull_dark" },
+    { "id": "orn_funnel_logo",       "type": "logo",            "text": "X",                 "region": "funnel_face_fwd",   "scale": 5.0, "material": "funnel_white" },
+    { "id": "orn_company_flag",      "type": "flag",            "text": "Celebrity X",       "region": "mast_top",          "scale": 3.0 },
+    { "id": "orn_portholes_hull",    "type": "circle_pattern",  "region": "hull_freeboard",  "count": 60, "diameter": 0.4,  "material": "glass_tinted" },
+    { "id": "orn_deck_chairs_lido",  "type": "furniture_scatter","region": "lido_deck",      "density": "high",             "material": "deck_teak" },
+    { "id": "orn_awning_pool",       "type": "canopy",          "region": "pool_area",       "scale": 1.0,                  "material": "hull_white" },
+    { "id": "orn_davit_L_fwd",       "type": "bracket",         "region": "lifeboat_L_fwd",  "scale": 1.0,                  "material": "steel_chrome" },
+    { "id": "orn_davit_R_fwd",       "type": "bracket",         "region": "lifeboat_R_fwd",  "scale": 1.0,                  "material": "steel_chrome" }
+  ],
+  "pose": { "preset": "static" },
+  "animationHints": {
+    "hull": "gentle_wave_bob",
+    "wake": "bow_wave_foam"
+  },
+  "lod": {
+    "high": "full",
+    "medium": "reduce_window_ribbons_and_ornaments",
+    "low": "merge_superstructure_tiers"
+  },
+  "exportOptions": { "formats": ["gltf", "glb"] }
+}

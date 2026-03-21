@@ -31,7 +31,11 @@
       "Bash(node -e \"const s=require\\(''c:/Users/shouy/Desktop/潤平勉強/prompt2gltf/plugins/prompt2gltf/generated/model_spec.json''\\); console.log\\(''animalType:'', s.promptInterpretation.animalType\\); console.log\\(''sex:'', s.promptInterpretation.sex\\); console.log\\(''fur_main:'', s.materials.fur_main.baseColor\\); console.log\\(''mane_outer:'', s.materials.mane_outer.baseColor\\)\")",
       "Bash(node scripts/index.mjs --prompt \"UFO\")",
       "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"ドラゴンを作って\")",
-      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"スライムを作って。スライムは粘液状あるいはゼリー状の体を持った架空の怪物。\")"
+      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"スライムを作って。スライムは粘液状あるいはゼリー状の体を持った架空の怪物。\")",
+      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"戸建て住宅。外壁と屋根はオレンジ色\" --template templates/house.json)",
+      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"戸建て住宅。外壁と屋根は緑色\" --template templates/house.json)",
+      "Bash(node plugins/prompt2gltf/scripts/index.mjs --prompt \"世界樹ユグドラシル。北欧神話の巨大なトネリコの樹。世界の中心に聳え立ち、枝は天高く伸び、三本の根は地下深く伸びる。幹は極めて太く、神聖な古代の大樹。緑の葉が生い茂り、樹皮は深く刻まれた灰褐色。神話的・壮大なスケール。\")",
+      "Bash(node scripts/index.mjs --prompt \"豪華客船をつくって。セレブリティ・ビヨンド風。エッジクラスの大型クルーズ船。17デッキ、141420トン。豪華で雄大な外洋客船。\" --template templates/luxury_cruise_ship.json)"
     ]
   }
 }

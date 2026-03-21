@@ -256,19 +256,19 @@ description: 自然文から Cesium Sandcastle 用 JavaScript を生成する。
 
     const PERSON = {
       name: "...",
-      glb: "https://raw.githubusercontent.com/KickboxerJ0322/Prompt2GLTF/master/glb/car.glb",
-      scale: 2,
+      glb: "https://raw.githubusercontent.com/KickboxerJ0322/Prompt2GLTF/master/glb/robo.glb",
+      scale: 0.05,
       minimumPixelSize: 64,
       maximumScale: 20,
       heightMeters: 40,
       speedMultiplier: 2,
       pathWidth: 4,
-      followOffset: new Cesium.Cartesian3(-540.0, -2.0, 300.0),
+      followOffset: new Cesium.Cartesian3(-3.0, -0.0, 3.0),
       lookOffset: new Cesium.Cartesian3(0.0, 0.0, 2.2),
       cameraSmooth: 0.10
     };
 
-`MODEL_URL` が未指定のときは `https://raw.githubusercontent.com/KickboxerJ0322/Prompt2GLTF/master/glb/car.glb` を使う。
+`MODEL_URL` が未指定のときは `https://raw.githubusercontent.com/KickboxerJ0322/Prompt2GLTF/master/glb/robo.glb` を使う。
 
 ### drone_follow のデフォルト値
 
@@ -292,7 +292,7 @@ description: 自然文から Cesium Sandcastle 用 JavaScript を生成する。
 
 ユーザー指定が無い場合は次を基準にする。
 
-- 人型: scale 0.3〜2.2
+- 人型: scale 0.05〜2.2（robo.glb は 0.05）
 - 動物: scale 0.3〜3.0
 - 車: scale 1.0〜2.5
 - 巨大モデル: scale 3.0 以上
